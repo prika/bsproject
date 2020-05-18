@@ -2,7 +2,7 @@
 //
 // Settings for the `<body>` element.
 
-$body-bg:                   $white !default;
+$body-bg:                   red !default;
 $body-color:                $gray-900 !default;
 
 
@@ -33,7 +33,8 @@ $grid-breakpoints: (
   sm: 576px,
   md: 768px,
   lg: 992px,
-  xl: 1200px
+  xl: 1500px
+  //xl: 1200px
 ) !default;
 
 @include _assert-ascending($grid-breakpoints, "$grid-breakpoints");
@@ -47,7 +48,8 @@ $container-max-widths: (
   sm: 540px,
   md: 720px,
   lg: 960px,
-  xl: 1140px
+  //xl: 1140px
+  xl: 1630px
 ) !default;
 
 @include _assert-ascending($container-max-widths, "$container-max-widths");
@@ -65,15 +67,31 @@ $grid-gutter-width:           30px !default;
 //
 // Font, line-height, and color for body text, headings, and more.
 
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+@font-face {
+  font-family: 'Noe Display';
+  src: url('assets/fonts/NoeDisplay-Black.eot');
+  src: url('assets/fonts/NoeDisplay-Black.woff2') format('woff2'),
+  url('assets/fonts/NoeDisplay-Black.woff') format('woff'),
+  /* url('assets/fonts/NoeDisplay-Black.eot?#iefix') format('embedded-opentype'), */
+      url('assets/fonts/NoeDisplay-Black.ttf') format('truetype'),
+      url('assets/fonts/NoeDisplay-Black.svg#NoeDisplay-Black') format('svg');
+  font-weight: 900;
+  font-style: normal;
+}
+
 // stylelint-disable value-keyword-case
-$font-family-sans-serif:      -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
-$font-family-monospace:       SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
+$font-family-sans-serif1:     'Noe Display', serif;
+$font-family-sans-serif2:      'Oswald', sans-serif;
+$font-family-sans-serif3:     'Ubuntu', sans-serif;
+
 $font-family-base:            $font-family-sans-serif !default;
 // stylelint-enable value-keyword-case
 
 $font-size-base:              1rem !default; // Assumes the browser default, typically `16px`
-$font-size-lg:                ($font-size-base * 1.25) !default;
-$font-size-sm:                ($font-size-base * .875) !default;
+// $font-size-lg:                ($font-size-base * 1.25) !default;
+// $font-size-sm:                ($font-size-base * .875) !default;
 
 $font-weight-light:           300 !default;
 $font-weight-normal:          400 !default;
@@ -131,6 +149,115 @@ $list-inline-padding:         .5rem !default;
 $mark-bg:                     #fcf8e3 !default;
 
 $hr-margin-y:                 $spacer !default;
+
+
+
+html {
+  font-size: $font-size-base;
+}
+
+@include media-breakpoint-up(sm) {
+html {
+    font-size: .8rem;
+}
+}
+
+@include media-breakpoint-up(md) {
+html {
+    font-size: 1rem;
+}
+}
+
+@include media-breakpoint-up(lg) {
+html {
+    font-size: 1.1rem;
+}
+}
+
+
+h1 {
+  font-family: $font-family-sans-serif1;
+  font-size: 80px;
+  font-size: 50px;
+	// line-height: 32px;
+  // color: #B7B7B7;
+  
+    &.pageTitle {
+      font-size: 11.25rem; //180px
+      color: #fff;
+      line-height: 9rem;
+
+      & > span {
+        //margin-left: 30px;
+        // float: left;
+        // clear: right;
+        // width: 20px;
+        // height: 3px;
+        padding-left: 215px;
+        display: block;
+        position: relative;
+
+        &::before{
+          content: "";
+          width: 180px;
+          height: 4px;
+          display: block;
+          background: #FFF;
+          position: absolute;
+          left: 0;
+          top: 50%;
+        }
+      }
+
+    }
+}
+
+
+h2{
+	font-family: $font-family-sans-serif2;
+	font-weight: normal;
+	// font-size: 20px;
+	// line-height: 32px;
+	//color: #B7B7B7;
+}
+
+h3{
+	font-family: $font-family-sans-serif3;
+	font-weight: normal;
+	// font-size: 20px;
+	// line-height: 32px;
+	//color: #B7B7B7;
+}
+
+
+p {
+	font-family: $font-family-sans-serif3;
+	font-weight: normal;
+	//font-size: 1.125rem;
+	// line-height: 30px;
+	//color: #333;
+	
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  text-decoration: none;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+
+  font-family: $font-family-sans-serif2;
+  font-weight: 300;
+  // font-size: 20px;
+  //letter-spacing: 2px;
+  color: #333;
+}
+
+
+
 
 
 

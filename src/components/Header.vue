@@ -1,56 +1,151 @@
 <template>
-  <div class="">
-    <h1>{{ msg }}</h1>
-    <p>
-      For a guide and recipes on how to configure / customize this project,<br>
-      check out the
-      <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
-    </p>
-    <h3>Installed CLI Plugins</h3>
-    <ul>
-    </ul>
-    <h3>Essential Links</h3>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank" rel="noopener">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank" rel="noopener">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank" rel="noopener">Twitter</a></li>
-      <li><a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a></li>
-    </ul>
-    <h3>Ecosystem</h3>
-    <ul>
-      <li><a href="https://router.vuejs.org" target="_blank" rel="noopener">vue-router</a></li>
-      <li><a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a></li>
-      <li><a href="https://github.com/vuejs/vue-devtools#vue-devtools" target="_blank" rel="noopener">vue-devtools</a></li>
-      <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
-    </ul>
-  </div>
+    <header>
+      <div class="containerHeader d-flex">
+          <div class="logo col-lg-2 col-md-1">
+              <a rel="nofollow" href="/"><img src="../assets/images/logo.svg" itemprop="logo" alt="B Stone" /></a>
+          </div>
+
+          <nav class="menu d-flex">
+              <ul class="list-unstyled" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+                <li itemprop="name">
+                    <a href="/" itemprop="url">Institucional</a>
+                </li>
+                <li itemprop="name">
+                    <a href="/" itemprop="url">Bloco B</a>
+                </li>
+                <li itemprop="name">
+                    <a href="/" itemprop="url">B Explore</a>
+                </li>
+                <li itemprop="name">
+                    <a href="/" itemprop="url">B Project</a>
+                </li>
+                <li itemprop="name">
+                    <a href="/" itemprop="url">B Innovation</a>
+                </li>
+              </ul>
+          </nav>
+
+          <div class="controls ml-auto d-flex">
+              <div class="languageLinks"> 
+                <a href="#" class="active">Portugal</a> / <a href="#">English</a>
+              </div>
+              <a class="buttons searchLink" href="#"></a>
+              <a class="buttons accountLink" href="#"></a>
+              <a class="buttons cartLink" href="#"></a>
+          </div> 
+      </div>
+       
+    </header>
 </template>
 
 <script>
 export default {
-  name: 'HelloWorld',
-  props: {
-    msg: String
-  }
+  //name: 'Header',
+  // props: {
+  //   msg: String
+  // }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="scss">
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
+<style lang="scss">
+  header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  width: 100%;
+  height: 124px;
+  background: #fff;
+
+  .containerHeader {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .logo{
+    padding: 22px 0;
+    text-align: center;
+  }
+
+  nav.menu ul {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    
+
+      & li {
+
+        margin-right: 18px;
+        position: relative;
+
+        &:not(:last-child):after {
+          display: block;
+          content: "";
+          background-color: #A7A7A7;
+          width: 18px;
+          height: 1px;
+          position: absolute;
+          top: 50%;
+          right: -18px;
+        }
+
+        a {
+          font-size: 20px;
+          font-size: 1rem;
+          padding: 10px 22px;
+          font-weight: 300;
+
+          &:hover, &.active {
+            color: #A7A7A7;
+            text-decoration: none;
+          }
+        }
+
+      }
+  }
+
+  .controls {
+      font-size: 13px;
+      display: block;
+
+      & .languageLinks{
+        
+        border-left: 1px solid #E8E8E8;
+        white-space: nowrap;
+        padding: 52px 22px;
+        
+
+        & a{
+            font-family: "Oswald", sans-serif;
+            font-weight: normal;
+            color: #333;
+            text-decoration: none;
+            text-transform: uppercase;
+
+            &:hover, &.active {
+                color: #B7B7B7;
+            }
+        }
+        
+      }
+
+      & .buttons{
+        border-left: 1px solid #E8E8E8;
+        width: 124px;
+        background: center center no-repeat url(../assets/icons/search.svg);
+
+        &.accountLink{
+            background-image: url(../assets/icons/user.svg);
+        }
+
+        &.cartLink{
+            background-image: url(../assets/icons/cart.svg);
+        }
+      }
+  }
 }
 </style>
