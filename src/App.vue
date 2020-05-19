@@ -9,6 +9,7 @@
         <h2>Welcome to Your Vue.js App</h2>
         <h3>Welcome to Your Vue.js App</h3>
 
+        <p>Testing <a href="/">Links</a></p>
         <p>Welcome to Your Vue.js App</p>
 
         <p class="h1">Welcome to Your Vue.js App</p>
@@ -39,11 +40,10 @@ export default {
 </script>
 
 <style lang="scss">
-@import './assets/styles/_custom';
-@import './assets/styles/_variables';
+ 
+  @import './assets/styles/_bootstrap';
+  //@import './assets/styles/_variables';
+  @import './assets/styles/_custom';
+  @import './assets/styles/_styles';
 
-body{
-  background-color: #F0F0F0;
-  margin-top: 180px;
-}
 </style>

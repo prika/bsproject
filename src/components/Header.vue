@@ -27,24 +27,34 @@
 
           <div class="controls ml-auto d-flex">
               <div class="languageLinks"> 
-                <a href="#" class="active">Portugal</a> / <a href="#">English</a>
+                <a href="#" class="active">Portugal</a>  
+                <a href="#">English</a>
               </div>
               <a class="buttons searchLink" href="#"></a>
               <a class="buttons accountLink" href="#"></a>
               <a class="buttons cartLink" href="#"></a>
+
           </div> 
+
+          <Icon />
       </div>
-       
     </header>
 </template>
 
 <script>
+import Icon from '../assets/images/icons/search.svg';
+
 export default {
-  //name: 'Header',
+  name: 'Header',
   // props: {
   //   msg: String
-  // }
+  // },
+  components: {
+    Icon
+  }
 }
+
+
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -98,11 +108,6 @@ export default {
           font-size: 1rem;
           padding: 10px 22px;
           font-weight: 300;
-
-          &:hover, &.active {
-            color: #A7A7A7;
-            text-decoration: none;
-          }
         }
 
       }
@@ -119,15 +124,15 @@ export default {
         padding: 52px 22px;
         
 
-        & a{
-            font-family: "Oswald", sans-serif;
-            font-weight: normal;
-            color: #333;
-            text-decoration: none;
+        & a {
+            //font-family: $font-family-sans-serif;
+            // font-weight: normal;
+            //color: $secondary-menu-link-color;
+            //text-decoration: $secondary-menu-link-decoration;
             text-transform: uppercase;
 
             &:hover, &.active {
-                color: #B7B7B7;
+                //color: #B7B7B7;
             }
         }
         
@@ -136,14 +141,14 @@ export default {
       & .buttons{
         border-left: 1px solid #E8E8E8;
         width: 124px;
-        background: center center no-repeat url(../assets/icons/search.svg);
+        background: center center no-repeat url(../assets/images/icons/search.svg);
 
         &.accountLink{
-            background-image: url(../assets/icons/user.svg);
+            background-image: url(../assets/images/icons/user.svg);
         }
 
         &.cartLink{
-            background-image: url(../assets/icons/cart.svg);
+            background-image: url(../assets/images/icons/cart.svg);
         }
       }
   }

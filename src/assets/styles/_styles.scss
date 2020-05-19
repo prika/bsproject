@@ -1,0 +1,212 @@
+
+
+
+body {
+  background-color: $body-bg;
+  margin-top: 180px;
+  font-family: $font-family-sans-serif2;
+}
+
+
+
+
+
+// // Paragraphs
+// //
+
+h1 {
+  font-family: $font-family-serif;
+  font-size: 80px;
+  font-size: 50px;
+	// line-height: 32px;
+  // color: #B7B7B7;
+  
+    &.pageTitle {
+      font-size: 11.25rem; //180px
+      color: #fff;
+      line-height: 9rem;
+
+      & > span {
+        //margin-left: 30px;
+        // float: left;
+        // clear: right;
+        // width: 20px;
+        // height: 3px;
+        padding-left: 215px;
+        display: block;
+        position: relative;
+
+        &::before{
+          content: "";
+          width: 180px;
+          height: 4px;
+          display: block;
+          background: #FFF;
+          position: absolute;
+          left: 0;
+          top: 50%;
+        }
+      }
+
+    }
+}
+
+
+h2{
+	font-family: $font-family-sans-serif;
+	font-weight: normal;
+	// font-size: 20px;
+	// line-height: 32px;
+	//color: #B7B7B7;
+}
+
+h3{
+	font-family: $font-family-sans-serif2;
+	font-weight: normal;
+	// font-size: 20px;
+	// line-height: 32px;
+	//color: #B7B7B7;
+}
+
+
+p {
+	font-family: $font-family-sans-serif2;
+	font-weight: normal;
+	//font-size: 1.125rem;
+	// line-height: 30px;
+	//color: #333;
+	
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+
+// Links
+
+a {
+  text-decoration:  $link-decoration;
+  font-family:      $font-family-sans-serif2;
+  font-weight:      300;
+  color:            $link-color;
+  // -webkit-transition: all 0.2s ease;
+  // -moz-transition: all 0.2s ease;
+  // -o-transition: all 0.2s ease;
+  // transition: all 0.2s ease;
+
+  // font-size: 20px;
+  //letter-spacing: 2px;
+
+  &:hover,
+  &:active{
+      text-decoration:  $link-hover-decoration;
+      color:            $link-hover-color;
+  }
+}
+
+// Menus
+
+nav a,
+footer a{
+  text-decoration:  $menu-link-decoration;
+  font-family:      $font-family-sans-serif;
+  color:            $menu-link-color;
+  font-weight:      300;
+}
+
+header  {
+
+    nav a {
+        &:hover{
+          color:     $menu-link-hover-color;
+        }
+        &.active{
+          color:     $menu-link-active-color;
+        }
+    }
+
+    .controls {
+      
+
+      & .languageLinks{
+        
+        border-left: 1px solid $gray-300;
+        white-space: nowrap;
+        padding: 52px 22px;
+        
+        & a {
+            font-family: $font-family-sans-serif;
+            color: $secondary-menu-link-color;
+            text-decoration: $secondary-menu-link-decoration;
+            font-size: 13px;
+
+            &.active {
+                color: $secondary-menu-link-active-color;
+                //text-decoration: $secondary-menu-link-hover-decoration
+                font-size: 13px;
+            }
+
+            &:not(.active){
+              font-size: 10px;
+            }
+
+            &:not(.active):hover{
+              font-size: 13px;
+            }
+
+            &:not(.active):hover + a.active {
+              color: red;
+              font-size: 10px;
+              position: relative;
+
+              &::after{
+                position: absolute;
+                top: 50%;
+                left: 0;
+                content: '';
+                display:block;
+                width: 100%;
+                height: 1px;
+                background-color: red;
+              }
+            }
+
+        }
+      }
+    }
+}
+
+
+
+
+
+
+
+@include media-breakpoint-up(sm) {
+html {
+    font-size: .5rem;
+}
+}
+
+@include media-breakpoint-up(md) {
+html {
+    font-size: .7rem;
+}
+}
+
+@include media-breakpoint-up(lg) {
+html {
+    font-size: .9rem;
+}
+
+}
+
+@include media-breakpoint-up(xl) {
+html {
+    font-size: 1rem;
+}
+.container{ 
+  // @include _assert-ascending($container-max-widths, "$container-max-widths");
+  max-width: 1500px;
+}
+}
