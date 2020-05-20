@@ -8,9 +8,6 @@ body {
 }
 
 
-
-
-
 // // Paragraphs
 // //
 
@@ -98,7 +95,7 @@ a {
   //letter-spacing: 2px;
 
   &:hover,
-  &:active{
+  &:active {
       text-decoration:  $link-hover-decoration;
       color:            $link-hover-color;
   }
@@ -120,7 +117,7 @@ header  {
         &:hover{
           color:     $menu-link-hover-color;
         }
-        &.active{
+        &.router-link-exact-active{
           color:     $menu-link-active-color;
         }
     }

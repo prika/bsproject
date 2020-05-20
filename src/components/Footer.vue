@@ -3,18 +3,9 @@
     <div class="container">
 
         <div class="row">
-            <div class="col-8 d-flex justify-content-between align-items-center">
-                <nav class="col-7 d-flex justify-content-between ">
-                    <a href="">Blocos</a>
-                    <a href="">Chapas</a>
-                    <a href="">Ladrilhos</a>
-                    <a href="">Simulador</a>
-                </nav>
-                <div class="col-4 secondaryLinks d-flex justify-content-between align-itemns-end">
-                    <a href="" class="faqs small">Faqs</a>
-                    <a href="" class="privacy small">Política de Privacidade</a>
-                </div>
-            </div>
+            
+            <FooterMenu />
+            
             <div class="col-4">
                 <div class="newsletterForm">
                     <h2>Newsletter</h2>
@@ -62,7 +53,12 @@
 </template>
 
 <script>
+import FooterMenu from './subcomponents/Footer_menu.vue'
+
 export default {
+  components: {
+        FooterMenu
+  }
   //name: 'Header',
   // props: {
   //   msg: String

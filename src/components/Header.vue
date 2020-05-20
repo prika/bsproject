@@ -5,61 +5,43 @@
               <a rel="nofollow" href="/"><img src="../assets/images/logo.svg" itemprop="logo" alt="B Stone" /></a>
           </div>
 
-          <nav class="menu d-flex">
-              <ul class="list-unstyled" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
-                <li itemprop="name">
-                    <a href="/" itemprop="url">Institucional</a>
-                </li>
-                <li itemprop="name">
-                    <a href="/" itemprop="url">Bloco B</a>
-                </li>
-                <li itemprop="name">
-                    <a href="/" itemprop="url">B Explore</a>
-                </li>
-                <li itemprop="name">
-                    <a href="/" itemprop="url">B Project</a>
-                </li>
-                <li itemprop="name">
-                    <a href="/" itemprop="url">B Innovation</a>
-                </li>
-              </ul>
-          </nav>
+          <Menu />
 
           <div class="controls ml-auto d-flex">
-              <div class="languageLinks"> 
-                <a href="#" class="active">Portugal</a>  
-                <a href="#">English</a>
-              </div>
+
+              <Language />
+
               <a class="buttons searchLink" href="#"></a>
-              <a class="buttons accountLink" href="#"></a>
+              <a class="buttons accountLink" href="#"> {{user}} </a>
               <a class="buttons cartLink" href="#"></a>
-
+              
           </div> 
-
-          <Icon />
       </div>
     </header>
 </template>
 
 <script>
-import Icon from '../assets/images/icons/search.svg';
+import Menu from './subcomponents/Header_menu.vue'
+import Language from './subcomponents/Header_language.vue'
 
 export default {
-  name: 'Header',
-  // props: {
-  //   msg: String
-  // },
-  components: {
-    Icon
-  }
+    name: 'Header',
+    components: {
+        Menu,
+        Language
+    },
+    data() {
+        return {
+            user: uv.user.name
+        }
+    },
 }
-
-
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
+
 <style lang="scss">
-  header{
+
+header{
   position: fixed;
   top: 0;
   left: 0;
@@ -68,6 +50,7 @@ export default {
   width: 100%;
   height: 124px;
   background: #fff;
+  white-space: nowrap;
 
   .containerHeader {
     display: flex;
@@ -85,6 +68,7 @@ export default {
     align-items: center;
     justify-content: center;
     margin: 0;
+    list-style: none;
     
 
       & li {
@@ -116,27 +100,6 @@ export default {
   .controls {
       font-size: 13px;
       display: block;
-
-      & .languageLinks{
-        
-        border-left: 1px solid #E8E8E8;
-        white-space: nowrap;
-        padding: 52px 22px;
-        
-
-        & a {
-            //font-family: $font-family-sans-serif;
-            // font-weight: normal;
-            //color: $secondary-menu-link-color;
-            //text-decoration: $secondary-menu-link-decoration;
-            text-transform: uppercase;
-
-            &:hover, &.active {
-                //color: #B7B7B7;
-            }
-        }
-        
-      }
 
       & .buttons{
         border-left: 1px solid #E8E8E8;
