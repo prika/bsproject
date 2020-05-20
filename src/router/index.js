@@ -4,6 +4,9 @@ import Home from '../views/Home.vue'
 
 Vue.use(VueRouter)
 
+//added to global Vue use
+global.Vue = Vue
+
   const routes = [
   {
     path: '/',
@@ -41,6 +44,14 @@ Vue.use(VueRouter)
     // this generates a separate chunk (BInnovation.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "BInnovation" */ '../views/BInnovation.vue')
+  },
+  {
+    path: '/listpage/blocos',
+    name: 'Blocos',
+    // route level code-splitting
+    // this generates a separate chunk (BInnovation.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "BInnovation" */ '../views/ListPage.vue')
   }
 
 ]

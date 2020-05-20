@@ -25,7 +25,7 @@
         data() {
             return {
                 itensMenu: [
-                    {name: 'Blocos', link: '/'},
+                    {name: 'Blocos', link: '/listpage'},
                     {name: 'Chapas', link: '/bloco-b'},
                     {name: 'Ladrilhos', link: '/b-explore'},
                     {name: 'Simulador', link: '/b-project'}

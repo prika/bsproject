@@ -6,16 +6,8 @@
             
             <FooterMenu />
             
-            <div class="col-4">
-                <div class="newsletterForm">
-                    <h2>Newsletter</h2>
-                    <h1>Receba as últimas notícias</h1>
-                    <form action="">
-                        <input type="email" name="" id="">
-                        <input type="button" value="">
-                    </form>
-                </div>
-            </div>
+            <NewsletterForm />
+            
         </div>
 
         <div class="row">
@@ -45,7 +37,7 @@
             </div>
         </div>
       
-        <a href="javascript:void(0)" class="scrollButton" aria-label="Click here to scroll top"></a>
+        <!--a href="javascript:void(0)" class="scrollButton" aria-label="Click here to scroll top"></a-->
 
     </div>
 </footer>
@@ -54,15 +46,14 @@
 
 <script>
 import FooterMenu from './subcomponents/Footer_menu.vue'
+import NewsletterForm from './subcomponents/NewsletterForm.vue'
+
 
 export default {
   components: {
-        FooterMenu
+        FooterMenu,
+        NewsletterForm
   }
-  //name: 'Header',
-  // props: {
-  //   msg: String
-  // }
 }
 </script>
 
@@ -209,8 +200,6 @@ footer{
     }
 }
 }
-
-
 
 
 @media (max-width: 767px) { 
