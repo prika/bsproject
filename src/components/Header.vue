@@ -1,37 +1,48 @@
 <template>
     <header>
       <div class="containerHeader d-flex">
-          <div class="logo col-lg-2 col-md-1">
-              <a rel="nofollow" href="/"><img src="../assets/images/logo.svg" itemprop="logo" alt="B Stone" /></a>
+          <div class="logo d-flex col-lg-2 col-md-1" itemscope itemtype="http://schema.org/Organization">
+              <a href="https://www.bstone.pt" itemprop="url">
+                <img class="d-none d-md-block" src="../assets/images/logo/logo.svg" itemprop="logo" alt="B Stone" title="Homepage B Stone" aria-label="Homepage B Stone" />
+                <img class="d-block d-md-none" src="../assets/images/logo/logo_mobile.svg" itemprop="logo" alt="B Stone" title="Homepage B Stone" aria-label="Homepage B Stone" />
+              </a>
           </div>
+        
+         <Menu />
 
-          <Menu />
+          <transition name="slide">
+            <MenuMobile v-bind:class="{ active: show }" v-if="show" />
+          </transition>
 
-          <div class="controls ml-auto d-flex">
+          <Language />
 
-              <Language />
-
+          <div class="controls d-flex">
               <a class="buttons searchLink" href="#"></a>
               <a class="buttons accountLink" href="#"> {{user}} </a>
               <a class="buttons cartLink" href="#"></a>
-              
           </div> 
       </div>
+
+        <button class="closeMenuButton" v-if="show" key="on" @click="show = false"></button>
+        <button class="openMenuButton"  v-else key="off" @click="show = true"></button>
     </header>
 </template>
 
 <script>
 import Menu from './subcomponents/Header_menu.vue'
+import MenuMobile from './subcomponents/Header_menu_mobile.vue'
 import Language from './subcomponents/Header_language.vue'
 
 export default {
     name: 'Header',
     components: {
         Menu,
-        Language
+        Language,
+        MenuMobile
     },
     data() {
         return {
+            show: false,
             user: uv.user.name
         }
     },
@@ -39,81 +50,37 @@ export default {
 </script>
 
 
-<style lang="scss">
+<style>
 
-header{
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 2;
-  width: 100%;
-  height: 124px;
-  background: #fff;
-  white-space: nowrap;
+ /* .slide-enter-active {
+ -moz-transition-duration: 0.3s;
+   -webkit-transition-duration: 0.3s;
+   -o-transition-duration: 0.3s;
+   transition-duration: 5s;
+   -moz-transition-timing-function: ease-in;
+   -webkit-transition-timing-function: ease-in;
+   -o-transition-timing-function: ease-in;
+   transition-timing-function: ease-in;
+}
 
-  .containerHeader {
-    display: flex;
-    flex-direction: row;
-  }
+.slide-leave-active {
+  -moz-transition-duration: 0.3s;
+   -webkit-transition-duration: 0.3s;
+   -o-transition-duration: 0.3s;
+   transition-duration: 5s;
+   -moz-transition-timing-function: ease-in;
+   -webkit-transition-timing-function: ease-in;
+   -o-transition-timing-function: ease-in;
+   transition-timing-function: ease-in;
+}*/
+.slide-enter-to, .slide-leave {
+   max-height: 100%;
+   overflow: hidden;
+}
 
-  .logo{
-    padding: 22px 0;
-    text-align: center;
-  }
-
-  nav.menu ul {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    margin: 0;
-    list-style: none;
-    
-
-      & li {
-
-        margin-right: 18px;
-        position: relative;
-
-        &:not(:last-child):after {
-          display: block;
-          content: "";
-          background-color: #A7A7A7;
-          width: 18px;
-          height: 1px;
-          position: absolute;
-          top: 50%;
-          right: -18px;
-        }
-
-        a {
-          font-size: 20px;
-          font-size: 1rem;
-          padding: 10px 22px;
-          font-weight: 300;
-        }
-
-      }
-  }
-
-  .controls {
-      font-size: 13px;
-      display: block;
-
-      & .buttons{
-        border-left: 1px solid #E8E8E8;
-        width: 124px;
-        background: center center no-repeat url(../assets/images/icons/search.svg);
-
-        &.accountLink{
-            background-image: url(../assets/images/icons/user.svg);
-        }
-
-        &.cartLink{
-            background-image: url(../assets/images/icons/cart.svg);
-        }
-      }
-  }
+.slide-enter, .slide-leave-to {
+   overflow: hidden;
+   max-height: 0;
 }
 </style>
+

@@ -1,5 +1,5 @@
 <template>
-    <div class="languageLinks"> 
+    <div class="languageLinks d-flex ml-auto"> 
         <a href="#" class="active">Portugal</a>
         <a href="#">English</a>
     </div>
@@ -15,7 +15,12 @@
 <style lang="scss">
 .languageLinks{
     border-left: 1px solid #E8E8E8;
-    padding: 52px 22px;
+    padding: 0 22px;
+    font-size: 13px;
+    //display: block;
+    max-width: 170px;
+    align-items: center;
+    justify-content: center;
 
     & a {
         //font-family: $font-family-sans-serif;
