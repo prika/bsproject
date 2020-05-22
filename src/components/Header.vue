@@ -10,11 +10,13 @@
         
          <Menu />
 
-          <transition name="slide">
-            <MenuMobile v-bind:class="{ active: show }" v-if="show" />
-          </transition>
+          <keep-alive>
+            <MenuMobile :class="{ active: show }" v-if="show" />
+          </keep-alive>
 
           <Language />
+
+
 
           <div class="controls d-flex">
               <a class="buttons searchLink" href="#"></a>
