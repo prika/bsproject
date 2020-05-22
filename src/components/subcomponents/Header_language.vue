@@ -1,30 +1,19 @@
 <template>
     <div class="languageLinks d-none d-md-flex ml-auto"> 
 
-        <label v-for="locale in locales">
-            <input type="radio" v-model="currentLocale" :value="locale.id">
-            <p>{{locale.name}}</p>
-        </label>
+        <label v-for="(lang, i) in langs">
+            <input type="radio" v-model="$i18n.locale" :key="`Lang${i}`" :value="lang">
+            <p> {{ $tc('language', (lang, i) ) }}</p>
 
-        
-        <!-- {{ message[currentLocale] }} -->
+        </label>
     </div>
 </template>
 
 <script>
     export default {
+        name: 'languageLinks',
         data(){
-            return{
-                currentLocale: uv.page.locale,
-                locales: [ 
-                    {id: 'en', name: 'English'}, 
-                    {id: 'pt', name: 'Português'}
-                ],
-                message: {
-                    en: 'Hello you, Vue.js!',
-                    pt: "Olá, Vuejs"
-                }
-            }
+            return { langs: ['en', 'pt'] }
         }
     }
 </script>

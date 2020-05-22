@@ -10,16 +10,17 @@
 
 
 <script>
+import i18n from '@/i18n';
 
 export default {
     data() {
         return {
             itensMenu: [
-                {name: 'Institucional', link: '/'},
-                {name: 'Bloco B', link: '/bloco-b'},
-                {name: 'B Explore', link: '/b-explore'},
-                {name: 'B Project', link: '/b-project'},
-                {name: 'B Innovation', link: '/b-innovation'}
+                {name: i18n.t('menu-home'), link: '/'},
+                {name: i18n.t('menu-blocob'), link: '/bloco-b'},
+                {name: i18n.t('menu-bexplore'), link: '/b-explore'},
+                {name: i18n.t('menu-bproject'), link: '/b-project'},
+                {name: i18n.t('menu-binnovation'), link: '/b-innovation'}
             ]
         }
     }

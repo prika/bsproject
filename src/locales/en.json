@@ -1,0 +1,41 @@
+{
+  "logo-aria-label": "Homepage B Stone",
+  "menu-home": "Institutional",
+  "menu-blocob": "B Bloc",
+  "menu-bexplore": "B Explore",
+  "menu-bproject": "B Project",
+  "menu-binnovation": "B Innovation",
+  "language": "Portuguese | English",
+
+  "button-arialabel-open-search": "Search Here",
+  "button-arialabel-open-login": "Open Login Form",
+  "button-arialabel-open-cart": "See shopping cart",
+  "button-arialabel-open-menu": "Open Menu",
+  "button-arialabel-close-menu": "Close Menu",
+
+  "product-type-blocos": "Blocos",
+  "product-type-chapas": "Chapas",
+  "product-type-ladrilhos": "Ladrilhos",
+
+  "secundary-menu-faqs": "Faqs",
+  "secundary-menu-ppolicy": "Privacy Policy",
+  "social-arialabel-facebook": "Link to Facebook",
+  "social-arialabel-instagram": "Link to Instagram",
+  "social-arialabel-pinterest": "Link to Pinterest",
+  "social-arialabel-linkedin": "Link to Linkedin",
+
+  "footer-text-newsletter": "Newsletter",
+  "footer-sub-text-newsletter": "Get the latest news",
+  "footer-input-email": "Enter your email",
+  "footer-submit-email": "Submit your email",
+  "footer-newsletter-error": "Please correct the following error(s):",
+
+  "footer-text-copyright": "Copyright 2020 Bloco B",
+  "footer-text-madeby": "Website by",
+  "simulator": "Simulator",
+
+  "home-title-page": "News",
+  "home-title-page-split1": "Ne",
+  "home-title-page-split2": "ws"
+}
+

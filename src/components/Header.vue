@@ -3,8 +3,16 @@
       <div class="containerHeader d-flex">
           <div class="logo d-flex col-lg-2 col-md-1" itemscope itemtype="http://schema.org/Organization">
               <a href="https://www.bstone.pt" itemprop="url">
-                <img class="d-none d-md-block" src="../assets/images/logo/logo.svg" itemprop="logo" alt="B Stone" title="Homepage B Stone" aria-label="Homepage B Stone" />
-                <img class="d-block d-md-none" src="../assets/images/logo/logo_mobile.svg" itemprop="logo" alt="B Stone" title="Homepage B Stone" aria-label="Homepage B Stone" />
+                <img class="d-none d-md-block" itemprop="logo" 
+                    src="../assets/images/logo/logo.svg" 
+                    v-bind:alt="$t('logo-aria-label')"
+                    v-bind:title="$t('logo-aria-label')"
+                    v-bind:aria-label="$t('logo-aria-label')" />
+                <img class="d-block d-md-none" itemprop="logo" 
+                    src="../assets/images/logo/logo_mobile.svg" 
+                    v-bind:alt="$t('logo-aria-label')"
+                    v-bind:title="$t('logo-aria-label')"
+                    v-bind:aria-label="$t('logo-aria-label')" />
               </a>
           </div>
         
@@ -16,17 +24,23 @@
 
           <Language />
 
-
-
           <div class="controls d-flex">
-              <a class="buttons searchLink" href="#"></a>
-              <a class="buttons accountLink" href="#"> {{user}} </a>
-              <a class="buttons cartLink" href="#"></a>
+              <a class="buttons searchLink" 
+                v-bind:aria-label="$t('button-arialabel-open-search')" 
+                href="#"></a>
+
+              <a class="buttons accountLink" 
+                v-bind:aria-label="$t('button-arialabel-open-login')" 
+                href="#"> {{user}} </a>
+
+              <a class="buttons cartLink"
+                 v-bind:aria-label="$t('button-arialabel-open-cart')" 
+                 href="#"></a>
           </div> 
       </div>
 
-        <button class="closeMenuButton" v-if="show" key="on" @click="show = false"></button>
-        <button class="openMenuButton"  v-else key="off" @click="show = true"></button>
+        <button class="closeMenuButton" v-bind:aria-label="$t('button-arialabel-close-menu')" v-if="show" key="on" @click="show = false"></button>
+        <button class="openMenuButton"  v-bind:aria-label="$t('button-arialabel-open-menu')" v-else key="off" @click="show = true"></button>
     </header>
 </template>
 

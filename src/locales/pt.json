@@ -1,0 +1,40 @@
+{
+  "logo-aria-label": "Homepage B Stone",
+  "menu-home": "Institucional",
+  "menu-blocob": "Bloco B",
+  "menu-bexplore": "B Explorar",
+  "menu-bproject": "B Projecto",
+  "menu-binnovation": "B Inovação",
+  "language": "Português | Inglês",
+
+  "button-arialabel-open-search": "Search Here",
+  "button-arialabel-open-login": "Open Login Form",
+  "button-arialabel-open-cart": "See shopping cart",
+  "button-arialabel-open-menu": "Open Menu",
+  "button-arialabel-close-menu": "Close Menu",
+
+  "product-type-blocos": "Blocos",
+  "product-type-chapas": "Chapas",
+  "product-type-ladrilhos": "Ladrilhos",
+
+  "secundary-menu-faqs": "Faqs",
+  "secundary-menu-ppolicy": "Politica de Privacidade",
+  "social-arialabel-facebook": "Link to Facebook",
+  "social-arialabel-instagram": "Link to Instagram",
+  "social-arialabel-pinterest": "Link to Pinterest",
+  "social-arialabel-linkedin": "Link to Linkedin",
+
+  "footer-text-newsletter": "Newsletter",
+  "footer-sub-text-newsletter": "Receba as últimas notícias",
+  "footer-input-email": "Introduza o seu email",
+  "footer-submit-email": "Envie a sua subscrição de newsletter",
+  "footer-newsletter-error": "Por favor, corrija o(s) seguinte(s) erros:",
+
+  "footer-text-copyright": "Todos os direitos reservados 2020 Bloco B",
+  "footer-text-madeby": "Website desenvolvido por",
+  "simulator": "Simulador",
+
+  "home-title-page": "Noticias",
+  "home-title-page-split1": "Noti",
+  "home-title-page-split2": "cias"
+}

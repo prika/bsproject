@@ -22,16 +22,6 @@ export default {
   },
   data(){
     return {
-        message:{
-          pt: 'Olá',
-          en: 'Hello'
-        },
-        locales:[
-          {id: 'pt', name: 'Português'},
-          {id: 'en', name: 'English'}
-        ]
-
-        
     }
   }
 }
