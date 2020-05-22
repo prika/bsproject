@@ -6,24 +6,24 @@
           {{ $t('home-title-page-split1') }}<span>{{ $t('home-title-page-split2') }}</span>
         </h1>
         
+
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit phasellus mattis metus urna, sed auctor venenatis amet. Curabitur at tortor eu eros interdum tempus at ac eros consectetur adipiscing elit phasellus mattis metus urna, sed auctor purus venenatis sit.</p>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit phasellus mattis metus urna, sed auctor venenatis amet. Curabitur at tortor eu eros interdum tempus at ac eros consectetur adipiscing elit phasellus mattis metus urna, sed auctor purus venenatis sit amit dolores.</p>
         
-        {{ jsonData }}
         
     </div>
+
   </div>
 </template>
 
 <script>
-import jsonData from "../assets/mocks/about-page-mock.json"
-
 export default {
   name: 'homepage',
-  data(){
-        return {
-           jsonData
-        }
-    }
+  components: {
+      // Header,
+      // Footer
+  }
 }
+
+
 </script>
