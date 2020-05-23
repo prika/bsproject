@@ -2,6 +2,10 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'   //  route links
 import i18n from './i18n'       //  translations
+// import axios from 'axios'
+// import VueAxios from 'vue-axios'
+ 
+// Vue.use(VueAxios, axios)
 
 Vue.config.productionTip = false
 

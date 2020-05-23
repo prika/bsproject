@@ -1,7 +1,13 @@
 [
     { 
         "id": "news1",
-        "title": "B group comprehends 4 diferent, yet complimentary companies and activities"
-        
+        "title": "B group comprehends 4 diferent, yet complimentary companies and activities",
+        "publication-data": ""
+    },
+    { 
+        "id": "news2",
+        "title": "yet complimentary companies and activities",
+        "publication-data": ""
     }
+    
 ]
