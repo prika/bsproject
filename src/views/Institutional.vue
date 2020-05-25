@@ -28,35 +28,14 @@
 
 export default {
   name: 'institutionalpage',
-  // props: {
-  //   isLoading: Boolean
-  // },
-  // data(){
-  //   return {
-  //       //isLoading
-  //   }
-  // },
-  //beforeMount() {
-    //changeLoadingState()
-    //console.log( "beforeMount:" + this.isLoading)
-    
-    //isLoading = true
-    
-    //return{ isLoading }
-    
-    //console.log( loaded );
- // },
-  // methods: {
-      // changeLoadingState(){
-      //     this.isLoading = false
-      //     console.log( "changeLoadingState child:" + this.isLoading)
-      // }
-  // }
-  // ,
-  // beforeRouteEnter (to, from, next) {
-  //   console.log( "beforeMount:" + this.isLoading)
-  //   next()
-  // }
+  data(){
+    return {
+        //isLoading
+    }
+  },
+  mounted() {
+      this.$eventBus.$emit('componentFinishLoad', null);
+  }
 }
 </script>
 

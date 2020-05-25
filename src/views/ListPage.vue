@@ -19,6 +19,9 @@ export default {
   components: {
       Simulate
       // Footer
+  },
+  mounted() {
+      this.$eventBus.$emit('componentFinishLoad', true);
   }
 }
 </script>

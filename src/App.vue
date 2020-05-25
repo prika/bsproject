@@ -1,15 +1,13 @@
 <template>
   <div id="bstoneproject">
     
-      <Preloader :class="{ isLoading }"></Preloader>
-    
+      <Preloader :class="{isLoaded}"></Preloader>
+      
       <Header />
 
-      <transition 
-        enter-active-class="animated rubberBand"
-        leave-active-class="animated rollOut">
-      <router-view/>
-      </transition>
+    
+      <router-view />
+     
 
       <Footer />
       
@@ -30,27 +28,14 @@ export default {
   },
   data() {
       return {
-          isLoading: Boolean
+          isLoaded: false
       }
   },
-  created () {
-    // fetch the data when the view is created and the data is
-    // already being observed
-    // console.log( "created:" + this.isLoading)
-    // this.isLoading = false
-    this.changeLoadingState()
-  },
-  watch: {
-    // call again the method if the route changes
-    //'$route': 'changeLoadingState'
-  },
-  methods: {
-      changeLoadingState(){
-          this.isLoading = true
-          console.log( "changeLoadingState:" + this.isLoading)
-      }
+  created() {
+    this.$eventBus.$on('componentFinishLoad', (data) => {
+      this.isLoaded = true;
+    });
   }
-
 }
 </script>
 

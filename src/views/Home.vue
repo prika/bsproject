@@ -144,7 +144,10 @@
 
 <script>
 export default {
-  name: 'homepage'
+  name: 'homepage',
+  mounted() {
+      this.$eventBus.$emit('componentFinishLoad', true);
+  }
 }
 </script>
 

@@ -13,9 +13,8 @@
 
 export default {
   name: 'bprojectpage',
-  // components: {
-  //     Header,
-  //     Footer
-  // }
+  mounted() {
+      this.$eventBus.$emit('componentFinishLoad', true);
+  }
 }
 </script>

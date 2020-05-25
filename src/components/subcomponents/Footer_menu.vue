@@ -25,10 +25,10 @@ export default {
     data() {
         return {
             itensMenu: [
-                {name: i18n.t('product-type-blocos'), link: '/'},
-                {name: i18n.t('product-type-ladrilhos'), link: '/'},
-                {name: i18n.t('product-type-chapas'), link: '/'},
-                {name: i18n.t('simulator'), link: '/'}
+                {name: i18n.t('product-type-blocos'), link: '/bloco-b'},
+                {name: i18n.t('product-type-ladrilhos'), link: '/bloco-b'},
+                {name: i18n.t('product-type-chapas'), link: '/bloco-b'},
+                {name: i18n.t('simulator'), link: '/simulator'}
             ],
             secundaryMenu: [
                 {name: i18n.t('secundary-menu-faqs'), link: '/'},

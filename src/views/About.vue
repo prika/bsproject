@@ -22,6 +22,9 @@ export default {
   components: {
       // Header,
       // Footer
+  },
+  mounted() {
+      this.$eventBus.$emit('componentFinishLoad', true);
   }
 }
 
