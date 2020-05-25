@@ -18,7 +18,41 @@ export default {
   components: {
       Scroll
       // Footer
-  }
+  },
+  data(){
+    return {
+        // post: null,
+        // error: null
+    }
+  },
+  // created() {
+  // console.log(this.$el);
+  // },
+  // mounted() {
+  //   console.log(this.$el);
+  // },
+  // beforeRouteEnter (to, from, next) {
+    
+  //   console.log("beforeRouteEnter");
+  //   next()
+  //   // getPost(to.params.id, (err, post) => {
+  //   //    next(vm => vm.setData(err, post))
+  //   // })
+  // },
+  // when route changes and this component is already rendered,
+  // the logic will be slightly different.
+  // beforeRouteUpdate (to, from, next) {
+  //   console.log("beforeRouteUpdate");
+  //   next()
+  //   // this.post = null
+  //   // getPost(to.params.id, (err, post) => {
+  //   //   this.setData(err, post)
+  //   //   next()
+  //   // })
+  // },
+  // destroyed() {
+  //   console.log('Component has been destroyed!');
+  // }
 }
 </script>
 

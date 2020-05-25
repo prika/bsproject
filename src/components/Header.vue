@@ -2,7 +2,7 @@
     <header>
       <div class="containerHeader d-flex">
           <div class="logo d-flex col-lg-2 col-md-1" itemscope itemtype="http://schema.org/Organization">
-              <a href="/" itemprop="url">
+              <router-link to="/" itemprop="url">
                 <img class="d-none d-md-block" itemprop="logo" 
                     src="../assets/images/logo/logo.svg" 
                     v-bind:alt="$t('logo-aria-label')"
@@ -13,7 +13,7 @@
                     v-bind:alt="$t('logo-aria-label')"
                     v-bind:title="$t('logo-aria-label')"
                     v-bind:aria-label="$t('logo-aria-label')" />
-              </a>
+              </router-link>
           </div>
         
          <Menu />
