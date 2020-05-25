@@ -45,8 +45,13 @@
     //display: none;
 
     opacity: 0;
+  
+    transition: opacity 1s ease-in .3s;
     z-index: -3;
-    transition: opacity 1s ease-in;
+    
+    h1{
+       transition: opacity 1s ease-in .3s;
+    }
 }
 
 

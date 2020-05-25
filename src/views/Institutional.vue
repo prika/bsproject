@@ -59,4 +59,5 @@ export default {
   .pageContentText p{padding-top: 30px;}
   .pageContentText .quote {padding-left: 5%; font-style: italic;}
 
+
 </style>
