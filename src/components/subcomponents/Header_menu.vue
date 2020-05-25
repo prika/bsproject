@@ -16,7 +16,7 @@ export default {
     data() {
         return {
             itensMenu: [
-                {name: i18n.t('menu-home'), link: '/'},
+                {name: i18n.t('menu-institutional'), link: '/institutional'},
                 {name: i18n.t('menu-blocob'), link: '/bloco-b'},
                 {name: i18n.t('menu-bexplore'), link: '/b-explore'},
                 {name: i18n.t('menu-bproject'), link: '/b-project'},

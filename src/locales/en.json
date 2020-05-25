@@ -1,6 +1,7 @@
 {
   "logo-aria-label": "Homepage B Stone",
-  "menu-home": "Institutional",
+  "menu-home": "Home",
+  "menu-institutional": "Institutional",
   "menu-blocob": "B Bloc",
   "menu-bexplore": "B Explore",
   "menu-bproject": "B Project",

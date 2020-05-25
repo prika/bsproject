@@ -10,8 +10,16 @@ global.Vue = Vue
   const routes = [
   {
     path: '/',
-    name: 'Institucional',
+    name: 'Home',
     component: Home
+  },
+  {
+    path: '/institutional',
+    name: 'Institutional',
+    // route level code-splitting
+    // this generates a separate chunk (BlocoB.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "BlocoB" */ '../views/Institutional.vue')
   },
   {
     path: '/bloco-b',

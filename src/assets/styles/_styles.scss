@@ -688,3 +688,170 @@ footer{
     max-width: 1500px;
   }
 }
+
+
+
+
+
+
+
+
+#adressSection,
+#contactsSection{
+	background-color: #FFF;
+	background-image: url(assets/images/B_Simbolo_estatico_Contactos.svg);
+	background-repeat: no-repeat;
+    background-attachment: fixed;
+	background-position: 220px 130%;
+	
+	-webkit-background-size: 450px;
+	-moz-background-size: 450px;
+	-o-background-size: 450px;
+	background-size: 450px;
+
+	padding: 220px 0;
+	position: relative;
+}
+
+	#adressSection .adressContainer h2{
+		height: 70px;
+	}
+
+	#adressSection .seeOnMap{
+		margin-top: 70px;
+		display: table;
+		text-align: left;
+	}
+
+		#adressSection .seeOnMap span{
+			display: table-cell;
+			vertical-align: middle;
+			/* max-width: 110px; */
+			/* padding-top: 0;
+			margin-top: 0; */
+			width: 97px;
+			line-height: 15px;
+		}
+
+		/* #adressSection .seeOnMap .icon{
+			overflow: hidden;
+		} */
+		#adressSection .seeOnMap .icon svg{
+			width: 250px; 
+			height: 35px;
+			/* background: url(assets/Seta_on.svg) no-repeat; */
+		}
+
+
+		.svgpath{
+			fill: none;
+			stroke:#333;
+			stroke-width:2;
+			
+			-webkit-transition: all 0.2s cubic-bezier(0, .5, 0, 1);
+			-moz-transition: all 0.2s cubic-bezier(0, .5, 0, 1);
+			-o-transition: all 0.2s cubic-bezier(0, .5, 0, 1);
+			transition: all 0.2s cubic-bezier(0, .5, 0, 1);
+		}
+
+		.arrow {opacity: 0;}
+
+		/* #adressSection .seeOnMap:hover .svgpath{
+			stroke: #c47c5a;
+		} */
+
+		#adressSection .seeOnMap .svgpath.pathInitial{
+			stroke-dasharray: 200;
+		}
+
+		#adressSection .seeOnMap:hover .svgpath.pathInitial{
+			animation: dash 0.2s ease forwards;
+		}
+
+		#adressSection .seeOnMap:hover .svgpath.arrow{
+			opacity: 1;
+			animation: dash 0.2s ease forwards;
+		}
+
+		@keyframes dash {
+			0% {
+				stroke-dasharray: 200;
+			}
+			100%{
+				stroke-dasharray: 240;
+			}
+		  }
+		
+
+
+#contactsSection{
+	border-top: 1px solid #DDD;
+	padding: 145px 0;
+}
+
+	#contactsSection .row{
+		margin-bottom: 10px;
+	}
+
+	#contactsSection p,
+	#contactsSection a{
+		display: inline-block;
+		padding-right: 45px;
+		
+	}
+
+	#contactsSection p{margin-left: -65px;}
+
+
+/* Vertical Line */
+	#adressSection::before,
+	#adressSection::after,
+	#contactsSection::before,
+	#contactsSection::after{
+		content: '';
+		position: absolute;
+			top: 0;
+			bottom: 0;
+		width: 1px;
+		height: 100%;
+		background-color: #DDD;
+	}
+
+	#adressSection::before,
+	#contactsSection::before{ left: 21%; }
+
+
+@media (max-width: 768px) { 
+	
+	#adressSection{ padding: 70px 10px;}
+
+		#adressSection .seeOnMap{color: #c47c5a; margin-bottom: 70px;}
+		#adressSection .seeOnMap .icon svg {
+			width: 160px;
+			height: 51px;
+		}
+		#adressSection .seeOnMap .svgpath.pathInitial{stroke-dasharray: 240;}
+		#adressSection .seeOnMap .svgpath.arrow{opacity: 1;}
+
+		#adressSection .adressContainer h2 {height: 55px;}
+
+	#contactsSection{ padding: 70px 10px 140px;}
+
+	#contactsSection p{text-align: left;}
+
+}
+
+@media (max-width: 991px){
+
+		#adressSection::before,
+		#adressSection::after,
+		#contactsSection::before,
+		#contactsSection::after {
+			display: none;
+		}
+}
+
+
+@media only screen and (device-width: 768px) {
+    #adressSection address{font-size: 32px;}
+}

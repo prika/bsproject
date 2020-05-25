@@ -1,6 +1,7 @@
 {
   "logo-aria-label": "Homepage B Stone",
-  "menu-home": "Institucional",
+  "menu-home": "Home",
+  "menu-institutional": "Institucional",
   "menu-blocob": "Bloco B",
   "menu-bexplore": "B Explorar",
   "menu-bproject": "B Projecto",
@@ -29,6 +30,9 @@
   "footer-input-email": "Introduza o seu email",
   "footer-submit-email": "Envie a sua subscrição de newsletter",
   "footer-newsletter-error": "Por favor, corrija o(s) seguinte(s) erros:",
+
+  "footer-cofinanced": "Co-financed by: Alentejo 2020",
+  "footer-cofinanced2": "Co-financed by: Compete 2020",
 
   "footer-text-copyright": "Todos os direitos reservados 2020 Bloco B",
   "footer-text-madeby": "Website desenvolvido por",
