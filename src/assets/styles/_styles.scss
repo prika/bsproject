@@ -1,4 +1,6 @@
 
+@import "./assets/styles/_animations";
+
 body {
   background-color: $body-bg;
   margin-top: 180px;
@@ -223,21 +225,14 @@ header  {
 // ===================================================================== //
 // PRELOADER
 
-@import './assets/styles/_mixins';
-@import './assets/styles/_animations';
-@import './assets/styles/_bstone_animations';
-
 .loader{
   background: #DEDEDE;
   position: fixed;
   z-index: 4;
   top: 0; bottom: 0; left: 0; right: 0;
-
   display: flex;
   align-items: center;
   justify-content: center;
-  opacity: 1;
-
 
   h1{
     color: #FFF;
@@ -245,40 +240,19 @@ header  {
   }
 
   &.isLoaded { 
-    //opacity: 1;
-    //transition: opacity 1s ease-in .3s;
-   // @include animation( 0, 0.5s, fade-out-display-none );
-   // display: none;
+      -webkit-animation: fade-out-display-none .6s cubic-bezier(0, .5, 0, 1) .5s forwards;
+      -moz-animation: fade-out-display-none .6s cubic-bezier(0, .5, 0, 1) .5s forwards;
+      -o-animation: fade-out-display-none .6s cubic-bezier(0, .5, 0, 1) .5s forwards;
+      animation: fade-out-display-none .6s cubic-bezier(0, .5, 0, 1) .5s forwards;
 
-    animation: fadeOut;
-    animation-duration: 2s; 
-    
-    & h1{
-      transition: opacity 1s ease-in .3s;
-    }
+      & h1{
+        -webkit-animation: fade-out-display-none .5s cubic-bezier(0, .5, 0, 1) .3s forwards;
+        -moz-animation: fade-out-display-none .5s cubic-bezier(0, .5, 0, 1) .3s forwards;
+        -o-animation: fade-out-display-none .5s cubic-bezier(0, .5, 0, 1) .3s forwards;
+        animation: fade-out-display-none .5s cubic-bezier(0, .5, 0, 1) .3s forwards;
+      }
   }
 }
-
-
-
-
-@include keyframe(fade-out-display-none) {
-  0% {
-    opacity: 1;
-  }
-
-  50% {
-    opacity: .4;
-  }
-
-  99% {
-    opacity: 0;
-  }
-  100% {
-    display: none;
-  }
-}
-
 
 
 // ===================================================================== //
@@ -844,7 +818,7 @@ footer{
 			100%{
 				stroke-dasharray: 240;
 			}
-		  }
+		}
 		
 
 
