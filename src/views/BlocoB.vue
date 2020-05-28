@@ -7,8 +7,8 @@
     <div class="container">
         <h1 class="pageTitleh2 h2">produtos em<span>destaque</span></h1>
         
-        <ProductsList />
-        
+        <!--ProductsList /-->
+
     </div>
   </div>
 </template>
@@ -17,6 +17,7 @@
 import Scroll from '../components/subcomponents/scroll.vue'
 import BannerFullsize from '../components/BannerFullsize.vue'
 import ProductsList from '../components/ProductsList.vue'
+ import axios from 'axios'
 
 export default {
   name: 'blocobpage',
@@ -27,10 +28,15 @@ export default {
   },
   data(){
     return {
+        products: [],
+        info: null
     }
   },
   mounted() {
       this.$eventBus.$emit('componentFinishLoad', true);
+  
+      axios.get('https://api.coindesk.com/v1/bpi/currentprice.json')
+      .then(response => (this.info = response))
   }
 }
 </script>
