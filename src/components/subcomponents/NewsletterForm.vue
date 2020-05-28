@@ -10,15 +10,19 @@
             method="post"
             novalidate="true">
 
-            <input id="email"
-                v-model="email"
-                type="email"
-                name="email"
-                :aria-label="$t('footer-input-email')">
+            <div class="input_group col-8">  
+                <input id="email"
+                        v-model="email"
+                        type="email"
+                        name="email"
+                        :aria-label="$t('footer-input-email')">
+                <label for="form1">Email</label>
+                <span class="bar"></span>
+            </div>
+
+            <input class="button col-1" type="submit" :aria-label="$t('footer-submit-email')">
             
-            <input class="button" type="submit" :aria-label="$t('footer-submit-email')">
-            
-            <p style="height: 30px; color: red">
+            <p style="margin-top: 30px;height: 30px; color: red">
                 <span v-if="errors.length">{{ $t('footer-newsletter-error') }}</span>
                 <ul v-if="errors.length">
                     <li v-for="error in errors">{{ error }}</li>

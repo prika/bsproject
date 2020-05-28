@@ -2,11 +2,10 @@
   <div id="bexplorepage">
     
     <div class="container">
-       
-        <h1 class="h2">Port<br/>folio</h1>
+        <h1 class="pageTitleh2 h2">Port<span>folio</span></h1>
 
         <div class="wrapper">
-          <div class="masonry masonry--v">
+          <div class="masonry masonry--v effect">
             <figure class="masonry-brick masonry-brick--v">
                 <img src="../assets/images/explore/explore_1.jpg" class="masonry-img" alt="Masonry Brick #5">
             </figure>
@@ -20,18 +19,16 @@
                 <img src="../assets/images/explore/explore_4.jpg" class="masonry-img" alt="Masonry Brick #4">
             </figure>
 
-
             <figure class="masonry-brick masonry-brick--v">
 
                 <!-- file option -->
-                <vue-plyr>
-                  <video poster="../assets/images/explore/explore_5.jpg" src="../assets/media/video_exemplo.mp4">
+                <vue-plyr ref="player1">
+                  <video poster="../assets/images/explore/explore_5.jpg" src="../assets/media/video_exemplo.mp4" aria-label="Video ....">
                     <source src="../assets/media/video_exemplo.mp4" type="video/mp4" size="720">
                     <source src="../assets/media/video_exemplo.mp4" type="video/mp4" size="1080">
                     <track kind="captions" label="English" srclang="en" src="captions-en.vtt" default>
                   </video>
                 </vue-plyr>
-
 
                 <!-- youtube option with progressive enhancement-->
                 <!-- 
@@ -75,40 +72,70 @@
             </figure>
             
           </div>
+
+          <button class="seeMoreButton">Ver mais</button>
         </div>
 
     </div>
 
+    <Address />
+    <Contacts />
+
   </div>
 </template>
 
-
 <script>
-
-
-
+import Address from '@/components/Address'
+import Contacts from '@/components/Contacts'
 
 export default {
   name: 'bexplorepage',
-  // components: {
-  // }
+  components: {
+      Address,
+      Contacts  
+  },
+  // computed: {
+  //   player () {
+  //     //return this.$refs.player1.player;
+  //     //document.getElementsByClassName("plyr__poster").style.filter = "grayscale(100%)";
+  //   }
+  // },
   mounted() {
-    
+    //console.log( document.getElementsByClassName("plyr__poster") );
+    //console.log(this.player)
     this.$eventBus.$emit('componentFinishLoad', true);
   }
+
 }
-
-
-
 </script>
 
 <style lang="scss">
-  h1{
-    text-align: center;
+
+body{margin-top: 260px;}
+// #bexplorepage{text-align: center; }
+
+.wrapper { 
+  margin: 0 auto 110px; max-width: 1080px;
+  text-align: center;
+
+  .seeMoreButton{
+      background: url(../assets/images/icons/ver_mais_1.svg) no-repeat top center;
+      width: 100px;
+      height: 100px;
+      padding-top: 50px;
+      margin: 120px auto 100px;
+      border: 0;
+      -webkit-transition:   all 0.3s cubic-bezier(0, .5, 0, 1);
+      -moz-transition:      all 0.3s cubic-bezier(0, .5, 0, 1);
+      -o-transition:        all 0.3s cubic-bezier(0, .5, 0, 1);
+      transition:           all 0.3s cubic-bezier(0, .5, 0, 1);
+      
+      &:hover{
+        background: url(../assets/images/icons/ver_mais_2.svg) no-repeat top center;
+        width: 100px;
+        height: 100px;
+      }
   }
-.wrapper {
-  margin: 2em auto;
-  max-width: 1080px;
 }
 
 img {
@@ -121,18 +148,31 @@ img {
   max-height: 1000px;
 }
 
-.masonry--h {
-  flex-flow: row wrap;
-}
+// .masonry .effect{
+//   perspective: 1300px;
+
+//   figure{
+//       transform-style: preserve-3d;
+
+//       &.animate{
+//           transform: translateZ(400px) translateY(300px) rotateX(-90deg);
+// 	        animation: fallPerspective .8s ease-in-out forwards;
+//       }
+//   }
+
+// }
+
+// @keyframes fallPerspective {
+// 	100% { transform: translateZ(0px) translateY(0px) rotateX(0deg); opacity: 1; }
+// }
 
 .masonry--v {
   flex-flow: column wrap;
   max-height: 1080px;
 }
 
-.masonry--h,
 .masonry--v {
-  margin-left: -8px; /* Adjustment for the gutter */
+  margin-left: -8px;
   /*counter-reset: brick;*/
 }
 
@@ -141,47 +181,14 @@ img {
   margin: 0 0 8px 8px;  /* Some Gutter */
   color: white;
   position: relative;
+  -webkit-transition:     all .3s cubic-bezier(.4,1.03,.83,.56);
+  -moz-transition:        all .3s cubic-bezier(.4,1.03,.83,.56);
+  -o-transition:          all .3s cubic-bezier(.4,1.03,.83,.56);
+  transition:             all .3s cubic-bezier(.4,1.03,.83,.56);
 }
 
-/*.masonry-brick:after {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  z-index: 5000;
-  transform: translate(-50%, -50%);
-  counter-increment: brick;
-  content: counter(brick);
-  transition: font-size .25s, opacity .25s ease-in-out;
-  font-weight: 700;
-  opacity: .5;
-  font-size: 1.25em;
-}
-
-.masonry-brick:hover:after {
-  font-size: 2.25em;
-  opacity: 1;
-}
-
-.masonry-brick--h {
-  flex: auto;
-  height: 250px;
-  min-width: 150px;
-}*/
 
 @media only screen and (min-width: 1024px) {
-  /* Horizontal masonry bricks on desktop-sized screen 
-  .masonry-brick--h:nth-child(4n+1) {
-    width: 250px;
-  }
-  .masonry-brick--h:nth-child(4n+2) {
-    width: 325px;
-  }
-  .masonry-brick--h:nth-child(4n+3) {
-    width: 180px;
-  }
-  .masonry-brick--h:nth-child(4n+4) {
-    width: 380px;
-  }*/
 
   /* Adjusting vertical masonry height on desktop-sized screen */
   .masonry--v {
@@ -195,19 +202,6 @@ img {
 }
 
 @media only screen and (max-width: 1023px) and (min-width: 768px) {
-  /* Horizontal masonry bricks on tabled-sized screen 
-  .masonry-brick--h:nth-child(4n+1) {
-    width: 200px;
-  }
-  .masonry-brick--h:nth-child(4n+2) {
-    width: 250px;
-  }
-  .masonry-brick--h:nth-child(4n+3) {
-    width: 120px;
-  }
-  .masonry-brick--h:nth-child(4n+4) {
-    width: 280px;
-  }*/
 
   /* Adjusting vertical masonry height on tablet-sized screen */
   .masonry--v {
@@ -220,25 +214,27 @@ img {
   }
 }
 
+// .masonry-video .plyr--stopped.plyr__poster-enabled .plyr__poster{}
+
 .masonry-img,
-.masonry-video,
-.masonry-video .plyr--stopped.plyr__poster-enabled .plyr__poster{
+.masonry-video{
   object-fit: cover;
   width: 100%;
   height: 100%;
   cursor: pointer;
-  -webkit-filter: grayscale(1)!important;
-  //filter: url(../files/filters.svg#grayscale); /* Firefox 3.5+ */
-  filter: grayscale(100%)!important;
-  -webkit-transition: all 0.2s cubic-bezier(0, .5, 0, 1);
-	-moz-transition: all 0.2s cubic-bezier(0, .5, 0, 1);
-	-o-transition: all 0.2s cubic-bezier(0, .5, 0, 1);
-	transition: all 0.2s cubic-bezier(0, .5, 0, 1);
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  filter: grayscale(100%);
+
+  -webkit-transition:     filter .3s cubic-bezier(.4,1.03,.83,.56);
+  -moz-transition:        filter .3s cubic-bezier(.4,1.03,.83,.56);
+  -o-transition:          filter .3s cubic-bezier(.4,1.03,.83,.56);
+  transition:             filter .3s cubic-bezier(.4,1.03,.83,.56);
 
   &:hover{
-      -webkit-filter: grayscale(0);
-      //filter: url(../files/filters.svg#grayscale); /* Firefox 3.5+ */
-      filter: grayscale(0);
+      -webkit-filter: grayscale(0%);
+      -moz-filter: grayscale(0%);
+      filter: grayscale(0%);
   }
 }
 
@@ -276,7 +272,6 @@ img {
       opacity: 0;
     }
 
-
     &:hover{
         background: transparent!important;
 
@@ -287,14 +282,11 @@ img {
 
 .plyr--video:hover {
   
-  cursor: pointer!important;
+    cursor: pointer!important;
 
-  .plyr__control--overlaid.plyr__control{
-        &::before{opacity: 0;}
-        &::after{opacity: 1;}
-  }
+    .plyr__control--overlaid.plyr__control{
+          &::before{opacity: 0;}
+          &::after{opacity: 1;}
+    }
 }
-
-
-
 </style>

@@ -10,13 +10,13 @@ global.Vue = Vue
   const routes = [
   {
     path: '/',
-    name: 'Home',
+    name: 'bloco_',
     component: () => import(/* webpackChunkName: "Home" */ '../views/Home.vue')
    //component: Home
   },
   {
     path: '/institutional',
-    name: 'Institutional',
+    name: 'stone inst',
     // route level code-splitting
     // this generates a separate chunk (BlocoB.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
@@ -24,7 +24,7 @@ global.Vue = Vue
   },
   {
     path: '/bloco-b',
-    name: 'Bloco B',
+    name: 'bloco',
     // route level code-splitting
     // this generates a separate chunk (BlocoB.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
@@ -32,7 +32,7 @@ global.Vue = Vue
   },
   {
     path: '/b-explore',
-    name: 'B Explore',
+    name: 'explore',
     // route level code-splitting
     // this generates a separate chunk (BExplore.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
@@ -40,7 +40,7 @@ global.Vue = Vue
   },
   {
     path: '/b-project',
-    name: 'B Project',
+    name: 'project',
     // route level code-splitting
     // this generates a separate chunk (BProject.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
@@ -48,7 +48,7 @@ global.Vue = Vue
   },
   {
     path: '/b-innovation',
-    name: 'B Innovation',
+    name: 'innovation',
     // route level code-splitting
     // this generates a separate chunk (BInnovation.[hash].js) for this route
     // which is lazy-loaded when the route is visited.

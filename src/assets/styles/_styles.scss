@@ -3,7 +3,7 @@
 
 body {
   background-color: $body-bg;
-  margin-top: 180px;
+  margin-top: 90px;
   font-family: $font-family-sans-serif2;
 }
 
@@ -16,7 +16,7 @@ h1, .h1 {
   font-size: 80px;
   font-size: 50px;
 	// line-height: 32px;
-  // color: #B7B7B7;
+  color: $gray-1000;
   
     &.pageTitle {
       font-size: 11.25rem; //180px
@@ -26,11 +26,6 @@ h1, .h1 {
       position: absolute;
 
       & > span {
-        //margin-left: 30px;
-        // float: left;
-        // clear: right;
-        // width: 20px;
-        // height: 3px;
         padding-left: 215px;
         display: block;
         position: relative;
@@ -46,18 +41,40 @@ h1, .h1 {
           top: 50%;
         }
       }
-
     }
 }
 
 
 h2, .h2{
-	font-family: $font-family-sans-serif;
-  font-weight: normal;
-  font-size: 2.5rem;
-	// font-size: 20px;
-	// line-height: 32px;
-	//color: #B7B7B7;
+    font-family: $font-family-sans-serif;
+    font-weight: normal;
+    font-size: 2.5rem;
+    // font-size: 20px;
+    // line-height: 32px;
+    color: $gray-1000;
+
+    &.pageTitleh2 {
+      text-align: center;
+      margin: 75px auto 130px;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+
+      & > span {
+        position: relative;
+
+        &::before{
+          content: "";
+          width: 40px;
+          height: 4px;
+          margin-right: 5px;
+          display: inline-flex;
+          background: $gray-1000;
+          vertical-align: middle;
+        }
+      }
+    }
 }
 
 h3, .h3{
@@ -96,12 +113,24 @@ a {
 
   // font-size: 20px;
   //letter-spacing: 2px;
+  outline: none;
 
   &:hover,
-  &:active {
+  &:active,
+  &:focus {
       text-decoration:  $link-hover-decoration;
       color:            $link-hover-color;
+      outline: none;
   }
+}
+
+button{
+  font-family:      $font-family-sans-serif;
+  font-weight:      200;
+  text-transform:   uppercase;
+  outline:          none!important;
+  letter-spacing:   2px;
+  font-size:        1.1rem;
 }
 
 // Menus
@@ -234,6 +263,10 @@ header  {
   display: flex;
   align-items: center;
   justify-content: center;
+  -webkit-transition:   all 0.3s cubic-bezier(0, .5, 0, 1);
+  -moz-transition:      all 0.3s cubic-bezier(0, .5, 0, 1);
+  -o-transition:        all 0.3s cubic-bezier(0, .5, 0, 1);
+  transition:           all 0.3s cubic-bezier(0, .5, 0, 1);
 
   h1{
     color: #FFF;
@@ -265,7 +298,7 @@ header{
   top: 0;
   left: 0;
   right: 0;
-  z-index: 2;
+  z-index: 3;
   width: 100%;
   background: $white;
   white-space: nowrap;
@@ -309,7 +342,7 @@ header{
               &:not(:last-child):after {
                 display: none;
                 content: "";
-                background-color: #A7A7A7;
+                background-color: $gray-600; //a7a7a7
                 width: 18px;
                 height: 1px;
                 position: absolute;
@@ -516,7 +549,7 @@ nav.menuMobile{
 footer{
   background: #2A2A2A;
   position: relative;
-  color: #FFF;
+  color: $white;
   z-index:2;
 
       & .row{
@@ -525,6 +558,10 @@ footer{
 
       .col-8 {
           border-right: 1px solid #363636
+      }
+
+      h1, h2{
+        color: $white;
       }
 
       .newsletterForm {
@@ -536,14 +573,14 @@ footer{
       }
 
       a {
-        color: #FFF!important;
+        color: $white;
         letter-spacing: 1px;
         font-weight: 200!important;
 
         &.small{
           text-transform: uppercase;
           font-size: 14px;
-          color: #A7A7A7
+          color: $gray-600; //a7a7a7
         }
 
         &:hover{
@@ -601,7 +638,7 @@ footer{
           font-size: 15px;
           font-weight: 300;
           text-transform: 1px;
-          color: #A7A7A7;
+          color: $gray-600; //a7a7a7
           padding: 7% 0;
           margin: 0;
         }
@@ -729,168 +766,128 @@ footer{
 }
 
 
+// Address and Contacts
+@import "./assets/styles/_partials/_Address";
 
 
 
+.input_group {
+    position: relative;
+    margin: 0 0 30px 0;
+    border-bottom: 1px solid #333;
+    float: left;
+    width: 100%;
 
 
+    input[type=text],
+    input[type=email], 
+    input[type=password],
+    input[type=tel], 
+    input[type=search],
+    input[type=file],
+    textarea {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        border-radius: 0;
+        border: none;
+        background: none;
+        display: block;
+        padding: 10px 0;
+        width: 100%;
+        font-size: 1em;
+        
+        &:focus { outline: none; }
+    }
 
-#adressSection,
-#contactsSection{
-	background-color: #FFF;
-	background-image: url(assets/images/B_Simbolo_estatico_Contactos.svg);
-	background-repeat: no-repeat;
-    background-attachment: fixed;
-	background-position: 220px 130%;
-	
-	-webkit-background-size: 450px;
-	-moz-background-size: 450px;
-	-o-background-size: 450px;
-	background-size: 450px;
+    label{
+      position: absolute;
+      pointer-events: none;
+      left: 0;
+      top: 10px;
+      -moz-transition: all 0.3s ease 0.1s;
+      -o-transition: all 0.3s ease 0.1s;
+      -webkit-transition: all 0.3s ease 0.1s;
+      transition: all 0.3s ease 0.1s;
+    }
 
-	padding: 220px 0;
-	position: relative;
-}
+    .bar {
+        position: relative;
+        display: block;
+        width: 100%;
 
-	#adressSection .adressContainer h2{
-		height: 70px;
-	}
+        &:before, 
+        &:after{
+          content: '';
+          height: 2px;
+          width: 0;
+          bottom: 0;
+          position: absolute;
+          background: #333;
 
-	#adressSection .seeOnMap{
-		margin-top: 70px;
-		display: table;
-		text-align: left;
-	}
+          -moz-transition: all 0.3s ease;
+          -o-transition: all 0.3s ease;
+          -webkit-transition: all 0.3s ease;
+          transition: all 0.3s ease;
+        }
+    
+        &:before{
+          left: 50%;
+        }
+        &:after{
+          right: 50%;
+        }
+    }
 
-		#adressSection .seeOnMap span{
-			display: table-cell;
-			vertical-align: middle;
-			/* max-width: 110px; */
-			/* padding-top: 0;
-			margin-top: 0; */
-			width: 97px;
-			line-height: 15px;
-		}
-
-		/* #adressSection .seeOnMap .icon{
-			overflow: hidden;
-		} */
-		#adressSection .seeOnMap .icon svg{
-			width: 250px; 
-			height: 35px;
-			/* background: url(assets/Seta_on.svg) no-repeat; */
-		}
-
-
-		.svgpath{
-			fill: none;
-			stroke:#333;
-			stroke-width:2;
-			
-			-webkit-transition: all 0.2s cubic-bezier(0, .5, 0, 1);
-			-moz-transition: all 0.2s cubic-bezier(0, .5, 0, 1);
-			-o-transition: all 0.2s cubic-bezier(0, .5, 0, 1);
-			transition: all 0.2s cubic-bezier(0, .5, 0, 1);
-		}
-
-		.arrow {opacity: 0;}
-
-		/* #adressSection .seeOnMap:hover .svgpath{
-			stroke: #c47c5a;
-		} */
-
-		#adressSection .seeOnMap .svgpath.pathInitial{
-			stroke-dasharray: 200;
-		}
-
-		#adressSection .seeOnMap:hover .svgpath.pathInitial{
-			animation: dash 0.2s ease forwards;
-		}
-
-		#adressSection .seeOnMap:hover .svgpath.arrow{
-			opacity: 1;
-			animation: dash 0.2s ease forwards;
-		}
-
-		@keyframes dash {
-			0% {
-				stroke-dasharray: 200;
-			}
-			100%{
-				stroke-dasharray: 240;
-			}
-		}
-		
-
-
-#contactsSection{
-	border-top: 1px solid #DDD;
-	padding: 145px 0;
-}
-
-	#contactsSection .row{
-		margin-bottom: 10px;
-	}
-
-	#contactsSection p,
-	#contactsSection a{
-		display: inline-block;
-		padding-right: 45px;
-		
-	}
-
-	#contactsSection p{margin-left: -65px;}
-
-
-/* Vertical Line */
-	#adressSection::before,
-	#adressSection::after,
-	#contactsSection::before,
-	#contactsSection::after{
-		content: '';
-		position: absolute;
-			top: 0;
-			bottom: 0;
-		width: 1px;
-		height: 100%;
-		background-color: #DDD;
-	}
-
-	#adressSection::before,
-	#contactsSection::before{ left: 21%; }
-
-
-@media (max-width: 768px) { 
-	
-	#adressSection{ padding: 70px 10px;}
-
-		#adressSection .seeOnMap{color: #c47c5a; margin-bottom: 70px;}
-		#adressSection .seeOnMap .icon svg {
-			width: 160px;
-			height: 51px;
-		}
-		#adressSection .seeOnMap .svgpath.pathInitial{stroke-dasharray: 240;}
-		#adressSection .seeOnMap .svgpath.arrow{opacity: 1;}
-
-		#adressSection .adressContainer h2 {height: 55px;}
-
-	#contactsSection{ padding: 70px 10px 140px;}
-
-	#contactsSection p{text-align: left;}
+    // textarea.edited ~ label, 
+    // input[type=text].edited ~ label,
+    // input[type=email].edited ~ label, 
+    // input[type=password].edited ~ label, 
+    // input[type=tel].edited ~ label, 
+    // input[type=search].edited ~ label, 
+    // input[type=file].edited ~ label, 
+    // textarea.valid ~ label, 
+    // input[type=text].valid ~ label, 
+    // input[type=email].valid ~ label, 
+    // input[type=password].valid ~ label, 
+    // input[type=tel].valid ~ label,  
+    // input[type=search].valid ~ label, 
+    // input[type=file].valid ~ label, 
+    textarea:focus ~ label, 
+    input[type=text]:focus ~ label, 
+    input[type=email]:focus ~ label,  
+    input[type=password]:focus ~ label, 
+    input[type=tel]:focus ~ label, 
+    input[type=search]:focus ~ label, 
+    input[type=file]:focus ~ label{
+        top: -14px;
+        font-size: 13px;
+        font-weight: 800;
+    }
+   
 
 }
 
-@media (max-width: 991px){
-
-		#adressSection::before,
-		#adressSection::after,
-		#contactsSection::before,
-		#contactsSection::after {
-			display: none;
-		}
-}
 
 
-@media only screen and (device-width: 768px) {
-    #adressSection address{font-size: 32px;}
+
+
+
+
+// .group .chosen-container-active ~ label ~ .bar:before, 
+// .groupSelect .chosen-container-active ~ label ~ .bar:before, 
+// .group .chosen-container-active ~ label ~ .bar:after, 
+// .groupSelect .chosen-container-active ~ label ~ .bar:after
+
+.input_group {
+
+  input:focus,
+  textarea:focus{
+    
+    ~ .bar:before,
+    ~ .bar:after{
+      background: #fff;
+      width: 50%;
+    }
+
+  }
 }

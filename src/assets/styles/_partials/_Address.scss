@@ -1,0 +1,181 @@
+// ADDRESS SECTION
+#addressSection,
+#contactsSection{
+    background-color: #FFF;
+    background-image: url(assets/images/B_Simbolo_estatico_Contactos.svg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: 220px 130%;
+    
+    -webkit-background-size:  450px;
+    -moz-background-size:     450px;
+    -o-background-size:       450px;
+    background-size:          450px;
+
+    padding: 180px 0;
+    position: relative;
+  
+    & .contactForm h1,
+    & .addressContainer h1{
+      height: 41px;
+      font-size: 22px;
+      font-weight: 300;
+      color: $gray-600; //a7a7a7
+    }
+
+    & .contactForm p.h1,
+    & .addressContainer span{
+      font-family:  $font-family-serif;
+      font-size:    2.4rem; //38px
+    }
+
+  
+    & .seeOnMap{
+      margin-top:   70px;
+      display:      block;
+      float:        right;
+      width:        380px;
+      position:     relative;
+      
+      & .text{
+        float:left;
+        text-transform:   uppercase;
+        font-family:      $font-family-sans-serif;
+        font-size:        22px;
+        font-weight:      300;
+        color:            $gray-900;
+        line-height:      15px;
+        margin-right:     20px;
+        -webkit-transition:   color 0.2s cubic-bezier(0, .5, 0, 1);
+        -moz-transition:      color 0.2s cubic-bezier(0, .5, 0, 1);
+        -o-transition:        color 0.2s cubic-bezier(0, .5, 0, 1);
+        transition:           color 0.2s cubic-bezier(0, .5, 0, 1);
+      }
+      
+      & .arrow{
+        float:left;
+        width: 230px;
+
+        &::before {
+          content: '';
+          display:block;
+          background-color: $gray-900;
+          margin: 5px auto;
+          width: 170px;
+          height: 2px;
+          -webkit-transition:   all 0.2s cubic-bezier(0, .5, 0, 1);
+          -moz-transition:      all 0.2s cubic-bezier(0, .5, 0, 1);
+          -o-transition:        all 0.2s cubic-bezier(0, .5, 0, 1);
+          transition:           all 0.2s cubic-bezier(0, .5, 0, 1);
+        }
+      }
+
+      & .icon{
+        position: absolute;
+        top: -7px;
+        right: 15px;
+
+        & .svgpath{
+          -webkit-transition: .1s opacity 0.1s cubic-bezier(0, .5, 0, 1);
+          -moz-transition: .1s opacity 0.1s cubic-bezier(0, .5, 0, 1);
+          -o-transition: .1s opacity 0.1s cubic-bezier(0, .5, 0, 1);
+          transition: .1s opacity 0.1s cubic-bezier(0, .5, 0, 1);
+          opacity: 0;
+        }
+      } 
+      
+      &:hover {
+        .text{
+          color: #c47c5a;
+        }
+       
+
+        .arrow::before{
+            width: 230px;
+            background-color: #c47c5a;
+        }
+        .svgpath{
+          opacity: 1;
+        }
+      }
+    }
+
+      // /* Vertical Line */
+	&::before,
+	&::after{
+		content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 1px;
+        height: 100%;
+        background-color: $gray-300;
+	}
+
+	&::before{ left: 21%; }
+}
+  
+
+
+.contactsContainer{
+  padding: 30px 0;
+  
+  p, a {
+    font-family:      $font-family-sans-serif;
+    font-size:        1.4rem; //22px
+    font-weight:      300;
+    //color: $gray-600; //a7a7a7
+    text-decoration:  none;
+  }
+
+  p{ font-size: 1.25rem;}
+
+
+}
+
+
+#contactsSection{
+    border-top: 1px solid $gray-300;
+
+    .contactForm{
+        form {
+            margin: 70px 0; 
+        }
+    }
+}
+
+
+
+
+  
+// @media (max-width: 768px) { 
+	
+// 	#adressSection{ padding: 70px 10px;}
+
+// 		#adressSection .seeOnMap{color: #c47c5a; margin-bottom: 70px;}
+// 		#adressSection .seeOnMap .icon svg {
+// 			width: 160px;
+// 			height: 51px;
+// 		}
+// 		#adressSection .seeOnMap .svgpath.pathInitial{stroke-dasharray: 240;}
+// 		#adressSection .seeOnMap .svgpath.arrow{opacity: 1;}
+
+// 		#adressSection .adressContainer h2 {height: 55px;}
+
+// 	#contactsSection{ padding: 70px 10px 140px;}
+// 	#contactsSection p{text-align: left;}
+
+// }
+
+// @media (max-width: 991px){
+// 		#adressSection::before,
+// 		#adressSection::after,
+// 		#contactsSection::before,
+// 		#contactsSection::after {
+// 			display: none;
+// 		}
+// }
+
+// @media only screen and (device-width: 768px) {
+//     #adressSection address{font-size: 32px;}
+// }

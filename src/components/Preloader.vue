@@ -5,7 +5,7 @@
 </template>
 
 <script>
-   export default {
+export default {
   name: 'prealoader',
   data() {
       return {
@@ -15,9 +15,10 @@
   watch: {
     // call again the method if the route changes
       $route (to, from){
-        this.name = to.name
-        //console.log(to)
-    }
+        //setTimeout(function(){
+           this.name = to.name 
+        //}, 2000);
+      }
   }
 }
 </script>
