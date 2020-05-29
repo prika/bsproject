@@ -11,17 +11,16 @@ import VueAxios from 'vue-axios'
 
 Vue.config.productionTip = false
 
-//Vue.use(VueAxios, axios)
 Vue.use(router, axios, VueAxios)
 
 Vue.prototype.$eventBus = new Vue()
 
-// Vue.use(VuePlyr, {
-//   plyr: {
-//     fullscreen: { enabled: true }
-//   },
-//   emit: ['ended']
-// })
+Vue.use(VuePlyr, {
+  plyr: {
+    fullscreen: { enabled: true }
+  },
+  emit: ['ended']
+})
 
 new Vue({
   router,
