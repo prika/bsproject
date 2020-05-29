@@ -1,14 +1,12 @@
 <template>
   <div id="bstoneproject">
-    
+  
       <Preloader :class="{isLoaded}"></Preloader>
       
       <Header />
 
-    
       <router-view />
      
-
       <Footer />
       
   </div>

@@ -41,7 +41,7 @@ Vue.directive('scroll', {
     position: fixed;
     bottom: 45vh;
     right: 5%;
-    z-index: 0;
+    z-index: 1;
     transform-origin: center;
 }
 

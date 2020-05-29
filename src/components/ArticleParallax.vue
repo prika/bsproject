@@ -1,6 +1,10 @@
 <template>
-     <section>
+     <section class="parallaxContainer">
         <div class="container">
+            <h1 class="pageTitle" :aria-label="$t('home-title-page')" > 
+                {{ $t('home-title-page-split1') }}<span>{{ $t('home-title-page-split2') }}</span>
+            </h1>
+
           <div class="row">
             <div class="col-6 parallaxGroup1">
                 <img src="../assets/images/shared/institucional_2.jpg" class="imageParallax1 col-7 img-fluid rellax" data-rellax-speed="-7" alt="">
@@ -41,14 +45,14 @@
                 center: true
             });
             // Destroy and create again parallax with previous settings
-            rellax.refresh();
+            //rellax.refresh();
         }
     }
 </script>
 
 <style lang="scss">
 
-.pageContainer {
+.parallaxContainer {
     background: url(../assets/images/B_Simbolo_estatico_Corpo.svg) no-repeat 65% 150px fixed;
 
     -webkit-background-size:  300px;
@@ -58,7 +62,7 @@
 
     /* filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='assets/B_Simbolo_estatico_Corpo.svg', sizingMethod='scale');
     -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='assets/B_Simbolo_estatico_Corpo.svg', sizingMethod='scale')"; */
-
+    z-index: 3;
     padding-top: 100px;
     margin-bottom: 130px;
 
@@ -69,84 +73,83 @@
         width: 100%;
         height: 200px;
     }
-}
 
+    .parallaxGroup1{
 
-.parallaxGroup1{
-  .imageParallax1{
-      float: right;
-      z-index: 2;
-      padding-right: 70px;
-  }
-}
-
-.parallaxGroup2{
-  overflow: hidden;
-  position: relative;
-  margin-top: 400px;
-  background: #F0F0F0;
-  height: 2900px;
-
-
-  & img{
-      position: absolute;
-  }
-
-  & .imageParallax3{
-      top: 400px;
-      right: 20%;
-      z-index: 0;
-  }
-
-  & .imageParallax4{
-      top: 790px;
-      left: 10%;
-      z-index: 1;
-  }
-
-  & .imageParallax5{
-      top: 980px; 
-      right: 0;
-      z-index: 1;
-  }
-
-  & .imageParallax6{
-      top: 1600px; 
-      left: 10%;
-      z-index: 0;
-  }
-
-  & .imageParallax7{
-      top: 2230px; 
-      left: 0;
-      z-index: 1;
-  }
-}
-
-
-.pageContentText { 
-  z-index: 2;
-  padding-top: 110px; 
-  background: #F0F0F0;
-
-    & h1{
-        font-size: 40px;
-        position: relative;
-
-        &:after{
-            content: '';
-            position: absolute;
-            top: 30px;
-            left: -200px;
-            background: #C47C5A;
-            width: 140px;
-            height: 2px;
+        .imageParallax1{
+            float: right;
+            z-index: 1;
+            padding-right: 70px;
         }
 
+        .imageParallax2{
+            z-index: 0;
+        }
     }
 
-    p{padding-top: 30px;}
-    .quote {padding-left: 5%; font-style: italic;}
+    .parallaxGroup2{
+        overflow: hidden;
+        position: relative;
+        margin-top: 400px;
+        background: #F0F0F0;
+        height: 2900px;
+
+        & img{ position: absolute; }
+
+        & .imageParallax3{
+            top: 400px;
+            right: 20%;
+            z-index: 0;
+        }
+
+        & .imageParallax4{
+            top: 790px;
+            left: 10%;
+            z-index: 1;
+        }
+
+        & .imageParallax5{
+            top: 980px; 
+            right: 0;
+            z-index: 1;
+        }
+
+        & .imageParallax6{
+            top: 1600px; 
+            left: 10%;
+            z-index: 0;
+        }
+
+        & .imageParallax7{
+            top: 2230px; 
+            left: 0;
+            z-index: 1;
+        }
+    }
+
+    .pageContentText { 
+        z-index: 2;
+        padding-top: 110px; 
+        background: #F0F0F0;
+
+        & h1 {
+            font-size: 40px;
+            position: relative;
+
+            &:after{
+                content: '';
+                position: absolute;
+                top: 30px;
+                left: -200px;
+                background: #C47C5A;
+                width: 140px;
+                height: 2px;
+            }
+        }
+
+        p{padding-top: 30px;}
+        .quote {padding-left: 5%; font-style: italic;}
+    }
 }
 
 </style>

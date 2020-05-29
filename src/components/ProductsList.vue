@@ -34,8 +34,6 @@
       </section>
 </template>
 
-
-<script async src="https://cdnjs.cloudflare.com/ajax/libs/rellax/1.0.0/rellax.min.js"></script>
 <script> 
 
 

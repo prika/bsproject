@@ -66,7 +66,7 @@ export default {
 </script>
 
 
-<style>
+<style lang="scss">
 
  /* .slide-enter-active {
  -moz-transition-duration: 0.3s;

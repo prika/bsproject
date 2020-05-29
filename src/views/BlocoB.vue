@@ -2,6 +2,7 @@
   <div id="blocobpage" class="pageContainer">
 
     <BannerFullsize />
+
     <Scroll />
 
     <div class="container">
@@ -14,10 +15,10 @@
 </template>
 
 <script>
-import Scroll from '../components/subcomponents/scroll.vue'
-import BannerFullsize from '../components/BannerFullsize.vue'
-import ProductsList from '../components/ProductsList.vue'
- import axios from 'axios'
+import Scroll from '../components/subcomponents/scroll'
+import BannerFullsize from '../components/BannerFullsize'
+import ProductsList from '../components/ProductsList'
+import axios from 'axios'
 
 export default {
   name: 'blocobpage',
@@ -41,7 +42,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 .pageContainer{
   height: 3000px;
 }
