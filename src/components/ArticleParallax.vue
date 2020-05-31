@@ -63,7 +63,7 @@
     /* filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='assets/B_Simbolo_estatico_Corpo.svg', sizingMethod='scale');
     -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='assets/B_Simbolo_estatico_Corpo.svg', sizingMethod='scale')"; */
     z-index: 3;
-    padding-top: 100px;
+    //padding-top: 100px;
     margin-bottom: 130px;
 
     &::before {

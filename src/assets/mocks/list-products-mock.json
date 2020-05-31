@@ -1,18 +1,18 @@
 [
     {
         
-    "id": "Prod1",
-    "name": "Atlantic White",
-    "category": "Chapas",
-    "collection": "Lusitania",
-    "imgURL": "./assets/images/product/atlantic_white.jpg",
-    "firstName": "Atlantic",
-    "secondName": "White",
-    "color": [
-        "white",
-        "grey",
-        "black"
-    ]
+        "id": "Prod1",
+        "name": "Atlantic White",
+        "category": "Chapas",
+        "collection": "Lusitania",
+        "imgURL": "../assets/images/product/atlantic_white.jpg",
+        "firstName": "Atlantic",
+        "secondName": "White",
+        "color": [
+            "white",
+            "grey",
+            "black"
+        ]
     },
     {
         

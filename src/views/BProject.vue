@@ -1,11 +1,12 @@
 <template>
   <div id="bprojectpage">
-    
-      <div class="container">
-          <h1>B Project</h1>
-      </div>
-
-      <ArticleParallaxSmall />
+  
+      <ArticleParallaxSmall>
+          <div class="pageContentText col-5">
+                <h1>B project</h1>
+                <p>B project consegue garantir todo o processo do mármore, desde o primeiro corte até sua casa. <br> Formada pela natureza, que lhe oferece tons e características únicas, o mármore é a escolha preferida na Arquitetura e Decoração.</p>
+            </div>
+      </ArticleParallaxSmall>
 
       <CollectionsSmall />
 

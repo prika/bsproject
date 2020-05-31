@@ -7,25 +7,12 @@
 
           <div class="row">
             <div class="col-6 parallaxGroup1">
-                <img src="../assets/images/shared/institucional_2.jpg" class="imageParallax1 col-7 img-fluid rellax" data-rellax-speed="-7" alt="">
-                <img src="../assets/images/shared/institucional_1.jpg" class="imageParallax2 col-7 img-fluid rellax" data-rellax-speed="3" alt="">
+                <img src="../assets/images/shared/institucional_2.jpg" class="imageParallax1 col-7 img-fluid rellax" data-rellax-speed="-2" alt="">
+                <img src="../assets/images/shared/institucional_1.jpg" class="imageParallax2 col-7 img-fluid rellax" data-rellax-speed="4" alt="">
             </div>
 
-            <div class="pageContentText col-5">
-                <!-- insert server side -->
-                <h1>B group comprehends 4 diferent, yet complimentary companies and activities</h1>
-                <p>With all of this growth and evolution, we share with you an all inclusive brand that represents the quality, the advanced processing systems, the creativity the design and all the hard work all of us puts into every single square meter of marble that leaves our factory.</p>
-                <a>Ler mais >>> </a>
-
-
-                <h1>B innovation</h1>
-                <p>A versatilidade, robustez e magnificência fazem do mármore o material mais desejado para vários ambientes, do mais clássico ao vanguardista. B innovation promete criar a solução ideal para si, à sua medida.</p>
-
-                <h1>B project</h1>
-                <p>B project consegue garantir todo o processo do mármore, desde o primeiro corte até sua casa. <br> Formada pela natureza, que lhe oferece tons e características únicas, o mármore é a escolha preferida na Arquitetura e Decoração.</p>
-
-                <!-- insert server side -->
-            </div>
+            <slot></slot>
+          
           </div>
         </div>
 
@@ -66,7 +53,7 @@
     /* filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='assets/B_Simbolo_estatico_Corpo.svg', sizingMethod='scale');
     -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='assets/B_Simbolo_estatico_Corpo.svg', sizingMethod='scale')"; */
 
-    padding-top: 100px;
+    //padding-top: 100px;
     margin-bottom: 130px;
 
     &::before {

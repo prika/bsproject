@@ -3,7 +3,8 @@
 
 body {
   background-color: $body-bg;
-  margin-top: 90px;
+  margin-top: 124px;
+  //margin-top: 90px;
   font-family: $font-family-sans-serif2;
 }
 
@@ -428,8 +429,10 @@ nav.menuMobile{
   .controls {
       
       & .buttons{
+        border: none;
         border-left: 1px solid #E8E8E8;
         width: 90px; 
+        outline: none!important;
         
         background: center center no-repeat url(assets/images/icons/search.svg);
 
@@ -584,8 +587,8 @@ footer{
         }
 
         &:hover{
-        text-decoration: none;
-        color: #FFF;
+        text-decoration:  none;
+        color:            $link-hover-color;
         }
       }
 
@@ -645,8 +648,9 @@ footer{
 
         a{
           text-align: right;
+
           &:hover{
-              color: #fff;
+              color:  $link-hover-color;
           }
         }
     }
@@ -733,9 +737,6 @@ footer{
 
 
 
-
-
-
 // @include media-breakpoint-up(sm) {
 //   html {
 //       font-size: .7rem;
@@ -768,8 +769,6 @@ footer{
 
 // Address and Contacts
 @import "./assets/styles/_partials/_Address";
-
-
 
 .input_group {
     position: relative;
@@ -838,20 +837,7 @@ footer{
         }
     }
 
-    // textarea.edited ~ label, 
-    // input[type=text].edited ~ label,
-    // input[type=email].edited ~ label, 
-    // input[type=password].edited ~ label, 
-    // input[type=tel].edited ~ label, 
-    // input[type=search].edited ~ label, 
-    // input[type=file].edited ~ label, 
-    // textarea.valid ~ label, 
-    // input[type=text].valid ~ label, 
-    // input[type=email].valid ~ label, 
-    // input[type=password].valid ~ label, 
-    // input[type=tel].valid ~ label,  
-    // input[type=search].valid ~ label, 
-    // input[type=file].valid ~ label, 
+    //textarea.edited ~ label, 
     textarea:focus ~ label, 
     input[type=text]:focus ~ label, 
     input[type=email]:focus ~ label,  
@@ -863,20 +849,7 @@ footer{
         font-size: 13px;
         font-weight: 800;
     }
-   
-
 }
-
-
-
-
-
-
-
-// .group .chosen-container-active ~ label ~ .bar:before, 
-// .groupSelect .chosen-container-active ~ label ~ .bar:before, 
-// .group .chosen-container-active ~ label ~ .bar:after, 
-// .groupSelect .chosen-container-active ~ label ~ .bar:after
 
 .input_group {
 
@@ -890,4 +863,26 @@ footer{
     }
 
   }
+}
+
+// input file
+input[type=file]{
+    outline: none!important;
+    font-size: 0!important;
+    width: 43px;
+    height: 43px;
+    
+    &::-webkit-file-upload-button {
+      visibility: hidden;
+    }
+    &::before {
+      content: '';
+      display: inline-block;
+      background: url(assets/images/icons/input-file.svg) center center no-repeat;
+      width: 43px;
+      height: 43px;
+      outline: none;
+      -webkit-user-select: none;
+      cursor: pointer;
+    }
 }

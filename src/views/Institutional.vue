@@ -3,7 +3,13 @@
       
       <BannerFullsize />
 
-      <ArticleParallax />
+       <ArticleParallaxSmall>
+          <div class="pageContentText col-5">
+                <h1>B group comprehends 4 diferent, yet complimentary companies and activities</h1>
+                <p>With all of this growth and evolution, we share with you an all inclusive brand that represents the quality, the advanced processing systems, the creativity the design and all the hard work all of us puts into every single square meter of marble that leaves our factory.</p>
+                <a>Ler mais >>> </a>
+            </div>
+      </ArticleParallaxSmall>
 
       <Scroll />
 
@@ -18,7 +24,7 @@
 
 <script>
 import BannerFullsize from '@/components/BannerFullsize'
-import ArticleParallax from '@/components/ArticleParallax'
+import ArticleParallaxSmall from '@/components/ArticleParallaxSmall'
 import Scroll from '../components/subcomponents/scroll'
 import NewsSlider from '@/components/NewsSlider'
 import Address from '@/components/Address'
@@ -28,7 +34,7 @@ export default {
   name: 'institutionalpage',
   components: {
       BannerFullsize,
-      ArticleParallax,
+      ArticleParallaxSmall,
       Scroll,
       NewsSlider,
       Address,

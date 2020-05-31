@@ -85,8 +85,6 @@
 
 <style lang="scss">
 
-body{margin-top: 260px;}
-// #bexplorepage{text-align: center; }
 
 .wrapper { 
   margin: 0 auto 110px; max-width: 1080px;
