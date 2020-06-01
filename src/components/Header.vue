@@ -41,7 +41,10 @@
            
       </div>
 
+
+      <transition enter-active-class="animated slideInDown faster" leave-active-class="animated slideOutUp faster">
         <ModalSearch v-if="showModal" @close="showModal = false" />
+      </transition>
 
         <button class="closeMenuButton" v-bind:aria-label="$t('button-arialabel-close-menu')" v-if="show" key="on" @click="show = false"></button>
         <button class="openMenuButton"  v-bind:aria-label="$t('button-arialabel-open-menu')" v-else key="off" @click="show = true"></button>
