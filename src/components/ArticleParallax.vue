@@ -41,9 +41,9 @@
     export default {
         mounted() {
             // Start Rellax
-            var rellax = new Rellax('.rellax', {
-                center: true
-            });
+            // var rellax = new Rellax('.rellax', {
+            //     center: true
+            // });
             // Destroy and create again parallax with previous settings
             //rellax.refresh();
         }

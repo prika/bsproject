@@ -24,7 +24,6 @@
                   <video poster="../assets/images/explore/explore_5.jpg" src="../assets/media/video_exemplo.mp4" aria-label="Video ....">
                     <source src="../assets/media/video_exemplo.mp4" type="video/mp4" size="720">
                     <source src="../assets/media/video_exemplo.mp4" type="video/mp4" size="1080">
-                    <track kind="captions" label="English" srclang="en" src="captions-en.vtt" default>
                   </video>
                 </vue-plyr>
 

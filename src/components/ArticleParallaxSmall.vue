@@ -29,6 +29,7 @@
 
 <script>
     export default {
+        
         mounted() {
             // Start Rellax
             var rellax = new Rellax('.rellax', {
@@ -37,6 +38,13 @@
             // Destroy and create again parallax with previous settings
             //rellax.refresh();
         }
+        //,
+        // watch: {
+        //     $route(to , from){
+        //         rellax.refresh();
+        //         console.log("refresh")
+        //     }
+        // }
     }
 </script>
 

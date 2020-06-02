@@ -15,44 +15,43 @@
 
         <transition enter-active-class="animated fadeInUpBig faster" leave-active-class="animated fadeOutDownBig faster">
         <div class="resultsList" v-if="hasSearchText" v-bind:class="{hasSearchText}">
+            
+            <!-- RESULTADOS -->
             <div class="container col-12">
                 <p class="numberResults">Produtos <span></span>03</p>
                 <ul>
-                        <router-link to="/" tag="li">
-                              <div class="img">
-                                <img width="190px" height="190px" src="@/assets/images/product/black_magic.jpg" alt="" title=""/>
-                              </div>
-                              
-                              <div class="text">
-                                  <h2>Blocos <mark>Black magic</mark></h2>
-                                  <p>33,556 m3 <span class="stock">em stock</span></p>
-                              </div>
-                        </router-link>
+                  <router-link to="/" tag="li">
+                        <div class="img">
+                          <img width="190px" height="190px" src="@/assets/images/product/black_magic.jpg" alt="" title=""/>
+                        </div>
+                        
+                        <div class="text">
+                            <h2>Blocos <mark>Black magic</mark></h2>
+                            <p>33,556 m3 <span class="stock">em stock</span></p>
+                        </div>
+                  </router-link>
 
-                   
-                    <router-link to="/" tag="li">
-                          <div class="img">
-                            <img width="190px" height="190px" src="@/assets/images/product/black_magic.jpg" alt="" title=""/>
-                          </div>
-                          
-                          <div class="text">
-                              <h2>Blocos <mark>Black magic</mark></h2>
-                              <p>33,556 m3 <span class="stock">em stock</span></p>
-                          </div>
-                    </router-link>
+                  <router-link to="/" tag="li">
+                        <div class="img">
+                          <img width="190px" height="190px" src="@/assets/images/product/black_magic.jpg" alt="" title=""/>
+                        </div>
+                        
+                        <div class="text">
+                            <h2>Blocos <mark>Black magic</mark></h2>
+                            <p>33,556 m3 <span class="stock">em stock</span></p>
+                        </div>
+                  </router-link>
                     
-
-                      <router-link to="/" tag="li">
-                          <div class="img">
-                            <img width="190px" height="190px" src="@/assets/images/product/black_magic.jpg" alt="" title=""/>
-                          </div>
-                          
-                          <div class="text">
-                              <h2>Blocos <mark>Black magic</mark></h2>
-                              <p>33,556 m3 <span class="stock">em stock</span></p>
-                          </div>
-                    </router-link>
-                
+                    <router-link to="/" tag="li">
+                        <div class="img">
+                          <img width="190px" height="190px" src="@/assets/images/product/black_magic.jpg" alt="" title=""/>
+                        </div>
+                        
+                        <div class="text">
+                            <h2>Blocos <mark>Black magic</mark></h2>
+                            <p>33,556 m3 <span class="stock">em stock</span></p>
+                        </div>
+                  </router-link>
                 </ul>
 
 
@@ -81,8 +80,16 @@
                 </ul>
 
             </div>
+            <!-- FIM RESULTADOS -->
+
+            <!-- SEM RESULTADOS -->
+            <div class="container col-12">
+              <p class="text-center" style="font-size: 25px">nenhum resultado encontrado</p>
+            </div>
+            <!-- FIM SEM RESULTADOS -->
+
         </div>
-          </transition>
+      </transition>
     </div>
 </template>
 
