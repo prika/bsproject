@@ -1,9 +1,9 @@
 
 @import "./assets/styles/_animations";
+@import "./assets/styles/_partials/_Banner.scss";
 
 body {
   background-color: $body-bg;
-  margin-top: 124px;
   //margin-top: 90px;
   font-family: $font-family-sans-serif2;
 }
@@ -482,6 +482,7 @@ nav.menuMobile{
 // }
 
 @include media-breakpoint-up(md) {
+  body{ margin-top: 90px;}
   
   header {
     .containerHeader {
@@ -524,6 +525,7 @@ nav.menuMobile{
 
 
 @include media-breakpoint-up(lg) {
+
   header nav.menu ul li a{
     font-size: 1.2rem!important;
     padding: 10px 10px;
@@ -535,6 +537,8 @@ nav.menuMobile{
 }
 
 @include media-breakpoint-up(xl) {
+    body{ margin-top: 124px;}
+
     header .controls .buttons{
       width: 124px;
     }
@@ -682,7 +686,6 @@ footer{
 
 
 // SHARED 
-
 
 // Social Icons: Header (component Header_menu.vue) and Footer.vue
 .social-icons{

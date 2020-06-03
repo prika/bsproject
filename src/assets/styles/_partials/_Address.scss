@@ -31,37 +31,84 @@
 
   
     & .seeOnMap{
-      margin-top:   70px;
+        margin-top:   70px;
+        width:        380px;
+        margin-right:     20px;
+
+
+        & .arrow{
+          float:left;
+          width: 230px;
+
+          &::before {
+            margin: 4px auto;
+            width: 170px;
+          }
+        }
+
+        & .icon{
+          right: 45px;
+        }
+
+        &:hover .arrow::before{
+          width: 210px;
+        }
+    }
+
+    & .submitForm{
+        background: none;
+        border: none;
+        outline: none;
+
+        & .arrow{
+          float:left;
+          
+          &::before {
+            width: 0;
+            margin-top: 6px;
+          }
+        }
+
+        & .icon{
+          right: 3px;
+        }
+
+        &:hover .arrow::before{
+          width: 30px;
+        }
+    }
+
+    & .seeOnMap,
+    & .submitForm{
       display:      block;
       float:        right;
-      width:        380px;
       position:     relative;
       
       & .text{
-        float:left;
+        float: left;
         text-transform:   uppercase;
+        text-decoration:  none;
         font-family:      $font-family-sans-serif;
         font-size:        22px;
         font-weight:      300;
         color:            $gray-900;
         line-height:      15px;
-        margin-right:     20px;
-        -webkit-transition:   color 0.2s cubic-bezier(0, .5, 0, 1);
-        -moz-transition:      color 0.2s cubic-bezier(0, .5, 0, 1);
-        -o-transition:        color 0.2s cubic-bezier(0, .5, 0, 1);
-        transition:           color 0.2s cubic-bezier(0, .5, 0, 1);
+        -webkit-transition:   all 0.2s cubic-bezier(0, .5, 0, 1);
+        -moz-transition:      all 0.2s cubic-bezier(0, .5, 0, 1);
+        -o-transition:        all 0.2s cubic-bezier(0, .5, 0, 1);
+        transition:           all 0.2s cubic-bezier(0, .5, 0, 1);
       }
       
       & .arrow{
         float:left;
-        width: 230px;
+        // width: 230px;
 
         &::before {
           content: '';
           display:block;
           background-color: $gray-900;
-          margin: 5px auto;
-          width: 170px;
+          // margin: 5px auto;
+          // width: 170px;
           height: 2px;
           -webkit-transition:   all 0.2s cubic-bezier(0, .5, 0, 1);
           -moz-transition:      all 0.2s cubic-bezier(0, .5, 0, 1);
@@ -72,8 +119,7 @@
 
       & .icon{
         position: absolute;
-        top: -7px;
-        right: 15px;
+        top: -8px;
 
         & .svgpath{
           -webkit-transition: .1s opacity 0.1s cubic-bezier(0, .5, 0, 1);
@@ -89,9 +135,8 @@
           color: #c47c5a;
         }
        
-
         .arrow::before{
-            width: 230px;
+            //width: 230px;
             background-color: #c47c5a;
         }
         .svgpath{
@@ -100,7 +145,7 @@
       }
     }
 
-      // /* Vertical Line */
+    // /* Vertical Line */
 	&::before,
 	&::after{
 		content: '';
@@ -133,7 +178,6 @@
 
 }
 
-
 #contactsSection{
     border-top: 1px solid $gray-300;
 
@@ -146,8 +190,51 @@
 
 
 
+@include media-breakpoint-down(sm) {
+    #addressSection,
+    #contactsSection {
+      padding: 80px 0;
+    }
 
-  
+    #addressSection{
+
+      .addressContainer address {
+        
+        max-width: 70%;
+
+        span{
+          font-size: 1.8rem;
+          max-width: 80%;
+        }
+      }
+
+      & .seeOnMap {
+          margin-top: 20px;
+          float: none;
+          
+          .text{
+            color: #c47c5a; 
+            margin-bottom: 70px;
+            margin-top: 0;
+          }
+
+          .arrow::before{
+            width: 210px;
+            background-color: $gray-900;
+          }
+          .icon .svgpath{
+            opacity: 1;
+            
+
+            & path{
+              stroke: $gray-900;
+            }
+          }
+      }
+    }
+}
+
+
 // @media (max-width: 768px) { 
 	
 // 	#adressSection{ padding: 70px 10px;}

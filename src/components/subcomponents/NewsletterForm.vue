@@ -11,7 +11,7 @@
             novalidate="true">
 
             <div class="input_group col-8">  
-                <input id="email"
+                <input id="emailnewsletter"
                         v-model="email"
                         type="email"
                         name="email"

@@ -2,7 +2,7 @@
     <section id="contactsSection" itemscope itemtype="http://schema.org/Organization">
        
        <div class="container">
-       <div class="col-6 offset-md-2">
+       <div class="col-sm-12 col-md-8 col-lg-6 offset-md-2">
             <div class="contactForm">
                 <h1 class="h2">Fale conosco</h1>
                 <p class="h1">  Dê-nos uma <br> palavrinha </p>
@@ -13,7 +13,7 @@
                     novalidate="true">
 
                     <div class="row">
-                        <div class="col-6">
+                        <div class="col-xs-12 col-sm-6">
                         <div class="input_group">
                             <input type="text" id="name">
                             <label for="form1">Nome</label>
@@ -21,7 +21,7 @@
                         </div>
                         </div>
 
-                        <div class="col-6">
+                        <div class="col-xs-12 col-sm-6">
                         <div class="input_group">
                             <input type="text" id="surname">
                             <label for="form1">Sobrenome</label>
@@ -31,7 +31,7 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-6">
+                        <div class="col-xs-12 col-sm-6">
                         <div class="input_group">
                             <input type="email" id="email">
                             <label for="form1">Email</label>
@@ -51,27 +51,35 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-6">
+                        <div class="col-xs-12 col-sm-6">
                             <input type="file">
                         </div>
 
-                         <div class="col-6">
-                            <input class="button" type="submit" :aria-label="$t('footer-submit-email')">
+                         <div class="col-xs-12 col-sm-6">
+                            <button class="button submitForm" :aria-label="$t('')">
+                                <span class="text">Enviar</span>
+                                <span class="arrow"></span>
+                                <span class="icon">
+                                    <svg class="svgpath" xmlns="http://www.w3.org/2000/svg" width="8.821" height="14.813" viewBox="0 0 8.821 14.813">
+                                        <path d="M230.221,220.144l-6.7-6.7,6.7-6.7" transform="translate(230.928 220.851) rotate(180)" fill="none" stroke="#c47c5a" stroke-miterlimit="10" stroke-width="2"/>
+                                    </svg>
+                                </span>
+                            </button>
                         </div>
+
+                       
+                            
+                      
                     </div>
 
                  
-                   
-           
                     
-                    
-                    
-                    <p style="height: 30px; color: red">
+                    <!--p style="height: 30px; color: red">
                         <span v-if="errors.length">{{ $t('footer-newsletter-error') }}</span>
                         <ul v-if="errors.length">
                             <li v-for="error in errors">{{ error }}</li>
                         </ul>
-                    </p>
+                    </p-->
                 </form>
             </div>
         </div>

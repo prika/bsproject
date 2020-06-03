@@ -2,7 +2,19 @@
      <section id="addressSection" itemscope itemtype="http://schema.org/Organization">
         <div class="container">
             <div class="row">
-                <div class="col-7">
+             
+              
+
+                <div class="addressContainer col-md-5 order-md-2 col-xs-12">
+                    <h1 class="h2">Nosso endereço</h1>
+                    <address>
+                        <span itemprop="streetAddress">Estrada Nacional n.º 4, km 152</span><br>
+                        <span itemprop="addressLocality">Sítio Courela dos Aléns</span><br>
+                        <span itemprop="postalCode">7100-011</span><br>
+                    </address>
+                </div>
+
+                <div class="col-md-7 col-md-pull-5 order-md-1 col-xs-12">
                     <!-- col-md-offset-3 col-md-3 col-sm-offset-1 col-sm-3 col-xs-offset-0 col-xs-12-->
                     <a class="seeOnMap" href="https://goo.gl/maps/KYpeemR9z2YcZENQA" target="_blank" rel="noreferrer">
                         <span class="text">Veja no mapa</span>
@@ -14,15 +26,9 @@
                         </span>
                     </a>
                 </div>
-                <!-- addressContainer col-md-4 col-sm-4 col-xs-12-->
-                <div class="addressContainer col-5">
-                    <h1 class="h2">Nosso endereço</h1>
-                    <address>
-                        <span itemprop="streetAddress">Estrada Nacional n.º 4, km 152</span><br>
-                        <span itemprop="addressLocality">Sítio Courela dos Aléns</span><br>
-                        <span itemprop="postalCode">7100-011</span><br>
-                    </address>
-
+               
+ 
+                <div class="addressContainer offset-md-7 col-xs-12 col-md-5 order-3">
                     <div class="contactsContainer"> 
                         <a itemprop="email" href="mailto:info@bstone.pt" aria-label="Email us">e. info@bstone.pt</a><br>
                         <a id="telephone" itemprop="telephone" href="tel:(+351)964956929" aria-label="Call us">t.  (+351) 964 956 929</a>

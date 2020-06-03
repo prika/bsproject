@@ -31,7 +31,7 @@
 
               <a class="buttons accountLink" 
                 v-bind:aria-label="$t('button-arialabel-open-login')" 
-                href="#"> {{user}} </a>
+                href="#"> </a>
 
               <a class="buttons cartLink"
                  v-bind:aria-label="$t('button-arialabel-open-cart')" 
@@ -69,7 +69,7 @@ export default {
     data() {
         return {
             show: false,
-            user: uv.user.name,
+            //user: uv.user.name,
             showModal: false
         }
     },

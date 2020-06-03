@@ -37,28 +37,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.compat.css" rel="stylesheet" type="text/css">
     
-
-    <script>
-      window.universal_variable = {
-          user: {
-              name: "Variavel Global no index",
-              user_id: "8492834083",
-		          email: "user@example.com",
-              language: "en-gb",
-              isLogged: false
-          },
-          page:{
-              breadcrumb: (4) ["", "", "", ""],
-              cookieDomainName: "",
-              currencyCode: "EUR",
-              locale: "en",
-              pageId: "product"
-          }
-      }
-
-      var uv = window.universal_variable;
-
-  </script>
   </head>
   <body>
     <noscript>
@@ -67,10 +45,11 @@
 
     <script async src="https://cdnjs.cloudflare.com/ajax/libs/rellax/1.0.0/rellax.min.js"></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vuex@3.4.0/dist/vuex.js" crossorigin="anonymous"></script>
+
    
     <div id="app"></div>
-    <!-- built files will be auto injected -->
-    
-    
+
   </body>
 </html>
