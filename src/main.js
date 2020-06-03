@@ -3,7 +3,7 @@ import App from './App.vue'
 import router from './router'   //  route links
 import i18n from './i18n'       //  translations
 import VuePlyr from 'vue-plyr'  //  vue player videos
-import store from './store/store'
+//import store from './store/store'
 import Vuex from 'vuex'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
@@ -24,7 +24,7 @@ Vue.use(VuePlyr, {
 
 new Vue({
   router,
-  store,
+  //store,
   i18n,
   axios,
   VueAxios,
