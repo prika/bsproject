@@ -32,28 +32,31 @@
                 v-bind:aria-label="$t('button-arialabel-open-cart')">
                 <CartButton>99</CartButton>
               </button>
-              
-          </div> 
-           
+          </div>
       </div>
 
+      <transition enter-active-class="animated slideInDown faster" leave-active-class="animated slideOutUp faster">
+            <ModalCartResume v-if="showCart" @close="showCart = false"></ModalCartResume>
+      </transition>
 
       <transition enter-active-class="animated slideInDown faster" leave-active-class="animated slideOutUp faster">
-          <ModalSearch v-if="showModal" @close="showModal = false" />
+            <ModalSearch v-if="showModal" @close="showModal = false"></ModalSearch>
       </transition>
 
         <button class="closeMenuButton" v-bind:aria-label="$t('button-arialabel-close-menu')" v-if="show" key="on" @click="show = false"></button>
         <button class="openMenuButton"  v-bind:aria-label="$t('button-arialabel-open-menu')" v-else key="off" @click="show = true"></button>
-    </header>
+  </header>
     
 </template>
 
 <script>
 import Menu from './subcomponents/Header_menu.vue'
 import MenuMobile from './subcomponents/Header_menu_mobile.vue'
-import Language from './subcomponents/Header_language.vue'
-import ModalSearch from './subcomponents/ModalSearch.vue'
 
+import ModalSearch from './subcomponents/ModalSearch.vue'
+import ModalCartResume from './subcomponents/ModalCartResume.vue'
+
+import Language from './subcomponents/Header_language.vue'
 import SearchButton from './ui/searchButton.vue'
 import CartButton from './ui/cartButton.vue'
 
@@ -64,6 +67,7 @@ export default {
         Language,
         MenuMobile,
         ModalSearch,
+        ModalCartResume,
         SearchButton,
         CartButton
     },
@@ -71,7 +75,8 @@ export default {
         return {
             show: false,
             //user: uv.user.name,
-            showModal: false
+            showModal: false,
+            showCart: false
         }
     },
 }
