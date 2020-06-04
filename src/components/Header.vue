@@ -16,25 +16,27 @@
           <Language />
 
           <div class="controls d-flex">
-              <button class="buttons searchLink" 
+              <button class="buttons searchButton" 
                 @click="showModal = true"
-                v-bind:aria-label="$t('button-arialabel-open-search')" ></button>
+                v-bind:aria-label="$t('button-arialabel-open-search')">
+                <SearchButton></SearchButton>
+              </button>
 
               <a class="buttons accountLink" 
                 v-bind:aria-label="$t('button-arialabel-open-login')" 
-                href="#"> </a>
+                href="#">
+              </a>
 
               <a class="buttons cartLink"
                  v-bind:aria-label="$t('button-arialabel-open-cart')" 
                  href="#"></a>
           </div> 
-
            
       </div>
 
 
       <transition enter-active-class="animated slideInDown faster" leave-active-class="animated slideOutUp faster">
-        <ModalSearch v-if="showModal" @close="showModal = false" />
+          <ModalSearch v-if="showModal" @close="showModal = false" />
       </transition>
 
         <button class="closeMenuButton" v-bind:aria-label="$t('button-arialabel-close-menu')" v-if="show" key="on" @click="show = false"></button>
@@ -49,13 +51,16 @@ import MenuMobile from './subcomponents/Header_menu_mobile.vue'
 import Language from './subcomponents/Header_language.vue'
 import ModalSearch from './subcomponents/ModalSearch.vue'
 
+import SearchButton from './ui/searchButton.vue'
+
 export default {
     name: 'Header',
     components: {
         Menu,
         Language,
         MenuMobile,
-        ModalSearch
+        ModalSearch,
+        SearchButton
     },
     data() {
         return {

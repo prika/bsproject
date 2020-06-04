@@ -433,15 +433,13 @@ nav.menuMobile{
         border-left: 1px solid #E8E8E8;
         width: 90px; 
         outline: none!important;
-        
-        background: center center no-repeat url(assets/images/icons/search.svg);
 
         &.accountLink{
-            background-image: url(assets/images/icons/user.svg);
+            background: center center no-repeat url(assets/images/icons/user.svg);
         }
 
         &.cartLink{
-            background-image: url(assets/images/icons/cart.svg);
+            background:center center no-repeat  url(assets/images/icons/cart.svg);
         }
       }
   }
