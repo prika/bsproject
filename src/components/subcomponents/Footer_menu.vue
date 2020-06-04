@@ -1,5 +1,5 @@
 <template>
-<div class="col-8 d-flex justify-content-between align-items-center">
+<div class="col-12 col-lg-8 order-2 order-lg-1 d-flex justify-content-between align-items-center">
    <nav class="col-7 d-flex justify-content-between">
         <router-link    v-for="item in itensMenu" 
                         :to="item.link" 
@@ -14,7 +14,6 @@
                         itemprop="url"
                         class="small">{{secitem.name}}</router-link>
     </div>
-
 </div>
 </template>
 

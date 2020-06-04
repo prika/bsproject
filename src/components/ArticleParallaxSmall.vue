@@ -6,13 +6,14 @@
             </h1-->
 
           <div class="row">
-            <div class="col-6 parallaxGroup1">
-                <img src="../assets/images/shared/institucional_2.jpg" class="imageParallax1 col-7 img-fluid rellax" data-rellax-speed="-2" alt="">
-                <img src="../assets/images/shared/institucional_1.jpg" class="imageParallax2 col-7 img-fluid rellax" data-rellax-speed="4" alt="">
-            </div>
 
             <slot></slot>
-          
+
+            <div class="col-xs-12 col-md-6 parallaxGroup1 order-md-1">
+                <img src="../assets/images/shared/institucional_2.jpg" class="imageParallax1 col-9 col-sm-7 img-fluid rellax" data-rellax-speed="-2" alt="">
+                <img src="../assets/images/shared/institucional_1.jpg" class="imageParallax2 col-9 col-sm-7 img-fluid rellax" data-rellax-speed="4" alt="">
+            </div>
+
           </div>
         </div>
 

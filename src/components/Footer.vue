@@ -4,18 +4,17 @@
 
         <div class="row">
             
-            <FooterMenu />
-            
             <NewsletterForm />
-            
+            <FooterMenu />
+
         </div>
 
         <div class="row">
-            <div class="col-8 cofinancedby">
-                <div class="col-md-6 centered-sm centered-xs">
+            <div class="col-12 col-md-8 cofinancedby">
+                <div class="col-12 col-md-6 centered-sm centered-xs">
                     <a href="assets/Alentejo2020x.pdf" class="cofinance1" target="_blank" rel="noreferrer" :aria-label="$t('footer-cofinanced')"></a>
                 </div>
-                <div class="col-md-6 centered-sm centered-xs">
+                <div class="col-12 col-md-6 centered-sm centered-xs">
                     <a href="assets/Compete2020x.pdf" class="cofinance2" target="_blank" rel="noreferrer" :aria-label="$t('footer-cofinanced2')"></a>
                 </div>
             </div> 

@@ -1,5 +1,5 @@
 <template>
-<div class="col-4">
+<div class="col-12 col-lg-4 order-1 order-lg-2">
     <div class="newsletterForm">
         <h2>  {{ $t('footer-text-newsletter') }} </h2>
         <h1>  {{ $t('footer-sub-text-newsletter') }} </h1>

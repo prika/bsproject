@@ -66,14 +66,9 @@
                                 </span>
                             </button>
                         </div>
-
-                       
-                            
-                      
                     </div>
 
-                 
-                    
+
                     <!--p style="height: 30px; color: red">
                         <span v-if="errors.length">{{ $t('footer-newsletter-error') }}</span>
                         <ul v-if="errors.length">
