@@ -27,9 +27,12 @@
                 href="#">
               </a>
 
-              <a class="buttons cartLink"
-                 v-bind:aria-label="$t('button-arialabel-open-cart')" 
-                 href="#"></a>
+              <button class="buttons cartButton" 
+                @click="showCart = true"
+                v-bind:aria-label="$t('button-arialabel-open-cart')">
+                <CartButton>99</CartButton>
+              </button>
+              
           </div> 
            
       </div>
@@ -52,6 +55,7 @@ import Language from './subcomponents/Header_language.vue'
 import ModalSearch from './subcomponents/ModalSearch.vue'
 
 import SearchButton from './ui/searchButton.vue'
+import CartButton from './ui/cartButton.vue'
 
 export default {
     name: 'Header',
@@ -60,7 +64,8 @@ export default {
         Language,
         MenuMobile,
         ModalSearch,
-        SearchButton
+        SearchButton,
+        CartButton
     },
     data() {
         return {
