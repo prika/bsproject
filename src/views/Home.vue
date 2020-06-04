@@ -3,15 +3,15 @@
 
       <Header>
            <img class="d-none d-md-block" itemprop="logo" 
-                    src="../assets/images/logo/logo.svg" 
-                    v-bind:alt="$t('logo-aria-label')"
-                    v-bind:title="$t('logo-aria-label')"
-                    v-bind:aria-label="$t('logo-aria-label')" />
-                <img class="d-block d-md-none" itemprop="logo" 
-                    src="../assets/images/logo/logo_mobile.svg" 
-                    v-bind:alt="$t('logo-aria-label')"
-                    v-bind:title="$t('logo-aria-label')"
-                    v-bind:aria-label="$t('logo-aria-label')" />
+                src="../assets/images/logo/logo_home.svg" 
+                v-bind:alt="$t('logo-aria-label')"
+                v-bind:title="$t('logo-aria-label')"
+                v-bind:aria-label="$t('logo-aria-label')" />
+            <img class="d-block d-md-none" itemprop="logo" 
+                src="../assets/images/logo/logo_home_mobile.svg" 
+                v-bind:alt="$t('logo-aria-label')"
+                v-bind:title="$t('logo-aria-label')"
+                v-bind:aria-label="$t('logo-aria-label')" />
       </Header>
     
       <ArticleParallax />
