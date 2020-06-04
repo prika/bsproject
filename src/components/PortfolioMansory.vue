@@ -70,9 +70,8 @@
             
           </div>
 
-          <button class="seeMoreButton"><seeMoreButton></seeMoreButton>Ver mais</button>
+            <seeMoreButton>Ver mais</seeMoreButton>
         </div>
-
     </div>
 </template>
 
