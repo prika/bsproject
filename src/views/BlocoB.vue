@@ -15,6 +15,7 @@
 </template>
 
 <script>
+import Header from '@/components/Header.vue'
 import Scroll from '../components/subcomponents/scroll'
 import BannerFullsize from '../components/BannerFullsize'
 import ProductsList from '../components/ProductsList'
@@ -23,6 +24,7 @@ import axios from 'axios'
 export default {
   name: 'blocobpage',
   components: {
+      Header,
       BannerFullsize,
       Scroll,
       ProductsList

@@ -11,6 +11,7 @@
 </template>
 
 <script>
+import Header from '@/components/Header.vue'
 import PortfolioMansory from '@/components/PortfolioMansory'
 import Address from '@/components/Address'
 import Contacts from '@/components/Contacts'
@@ -18,6 +19,7 @@ import Contacts from '@/components/Contacts'
 export default {
   name: 'bexplorepage',
   components: {
+      Header,
       PortfolioMansory,
       Address,
       Contacts  

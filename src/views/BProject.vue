@@ -20,6 +20,7 @@
 </template>
 
 <script>
+import Header from '@/components/Header.vue'
 import ArticleParallaxSmall from '@/components/ArticleParallaxSmall'
 import PortfolioMansory from '@/components/PortfolioMansory'
 import CollectionsSmall from '@/components/CollectionsSmall'
@@ -29,6 +30,7 @@ import Contacts from '@/components/Contacts'
 export default {
   name: 'bprojectpage',
   components: {
+      Header,
       ArticleParallaxSmall,
       PortfolioMansory,
       CollectionsSmall,
