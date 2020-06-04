@@ -1,6 +1,18 @@
 <template>
   <div id="bprojectpage">
-  
+       <Header>
+           <img class="d-none d-md-block" itemprop="logo" 
+                    src="../assets/images/logo/logo_project.svg" 
+                    v-bind:alt="$t('logo-aria-label')"
+                    v-bind:title="$t('logo-aria-label')"
+                    v-bind:aria-label="$t('logo-aria-label')" />
+                <img class="d-block d-md-none" itemprop="logo" 
+                    src="../assets/images/logo/logo_home_mobile.svg" 
+                    v-bind:alt="$t('logo-aria-label')"
+                    v-bind:title="$t('logo-aria-label')"
+                    v-bind:aria-label="$t('logo-aria-label')" />
+      </Header>
+
       <ArticleParallaxSmall>
           <div class="pageContentText col-5">
                 <h1>B project</h1>
@@ -20,6 +32,7 @@
 </template>
 
 <script>
+import Header from '@/components/Header.vue'
 import ArticleParallaxSmall from '@/components/ArticleParallaxSmall'
 import PortfolioMansory from '@/components/PortfolioMansory'
 import CollectionsSmall from '@/components/CollectionsSmall'
@@ -29,6 +42,7 @@ import Contacts from '@/components/Contacts'
 export default {
   name: 'bprojectpage',
   components: {
+      Header,
       ArticleParallaxSmall,
       PortfolioMansory,
       CollectionsSmall,

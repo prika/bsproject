@@ -1,5 +1,17 @@
 <template>
   <div id="blocobpage" class="pageContainer">
+     <Header>
+           <img class="d-none d-md-block" itemprop="logo" 
+                src="../assets/images/logo/logo_bloco.svg" 
+                v-bind:alt="$t('logo-aria-label')"
+                v-bind:title="$t('logo-aria-label')"
+                v-bind:aria-label="$t('logo-aria-label')" />
+            <img class="d-block d-md-none" itemprop="logo" 
+                src="../assets/images/logo/logo_home_mobile.svg" 
+                v-bind:alt="$t('logo-aria-label')"
+                v-bind:title="$t('logo-aria-label')"
+                v-bind:aria-label="$t('logo-aria-label')" />
+      </Header>
 
     <BannerFullsize />
 
@@ -15,6 +27,7 @@
 </template>
 
 <script>
+import Header from '@/components/Header.vue'
 import Scroll from '../components/subcomponents/scroll'
 import BannerFullsize from '../components/BannerFullsize'
 import ProductsList from '../components/ProductsList'
@@ -23,6 +36,7 @@ import axios from 'axios'
 export default {
   name: 'blocobpage',
   components: {
+      Header,
       BannerFullsize,
       Scroll,
       ProductsList

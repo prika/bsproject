@@ -3,7 +3,6 @@
   
       <Preloader :class="{isLoaded}"></Preloader>
       
-      <Header />
 
       <router-view />
      

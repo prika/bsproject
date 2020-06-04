@@ -25,12 +25,6 @@
 }
 
 
-
-
-
-
-
-
     // #bannerAnimation {
     //     width: 100vw;
     //     height: 100vh;/* Fallback para não-suporte a Custom Properties */
@@ -163,8 +157,7 @@
         
                     opacity: 0;
                     
-                    /* background-image: url(assets/intro_logo.png); */
-                    background-image: url(./assets/images/logo/intro_logo.svg);
+                    background-image: url(./assets/images/logo/intro_home.svg);
                     background-repeat: no-repeat; 
                     background-position: center center;
                     background-attachment: fixed; 
