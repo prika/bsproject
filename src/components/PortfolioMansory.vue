@@ -70,43 +70,27 @@
             
           </div>
 
-          <button class="seeMoreButton">Ver mais</button>
+          <button class="seeMoreButton"><seeMoreButton></seeMoreButton>Ver mais</button>
         </div>
 
     </div>
 </template>
 
 <script>
+    import seeMoreButton from '@/components/ui/seeMoreButton'
+
     export default {
-        
+        components: {
+           seeMoreButton
+        }
     }
 </script>
 
 <style lang="scss">
 
-
 .wrapper { 
   margin: 0 auto 110px; max-width: 1080px;
   text-align: center;
-
-  .seeMoreButton{
-      background: url(../assets/images/icons/ver_mais_1.svg) no-repeat top center;
-      width: 100px;
-      height: 100px;
-      padding-top: 50px;
-      margin: 120px auto 100px;
-      border: 0;
-      -webkit-transition:   all 0.3s cubic-bezier(0, .5, 0, 1);
-      -moz-transition:      all 0.3s cubic-bezier(0, .5, 0, 1);
-      -o-transition:        all 0.3s cubic-bezier(0, .5, 0, 1);
-      transition:           all 0.3s cubic-bezier(0, .5, 0, 1);
-      
-      &:hover{
-        background: url(../assets/images/icons/ver_mais_2.svg) no-repeat top center;
-        width: 100px;
-        height: 100px;
-      }
-  }
 }
 
 img {
