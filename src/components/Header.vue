@@ -22,10 +22,10 @@
                 <SearchButton></SearchButton>
               </button>
 
-              <a class="buttons accountLink" 
-                v-bind:aria-label="$t('button-arialabel-open-login')" 
-                href="#">
-              </a>
+              <button class="buttons userButton" 
+                v-bind:aria-label="$t('button-arialabel-open-login')">
+                <UserButton></UserButton>
+              </button>
 
               <button class="buttons cartButton" 
                 @click="showCart = true"
@@ -53,12 +53,15 @@
 import Menu from './subcomponents/Header_menu.vue'
 import MenuMobile from './subcomponents/Header_menu_mobile.vue'
 
+import Language from './subcomponents/Header_language.vue'
+import SearchButton from './ui/searchButton'
+import CartButton from './ui/cartButton'
+import UserButton from './ui/userButton'
+
 import ModalSearch from './subcomponents/ModalSearch.vue'
 import ModalCartResume from './subcomponents/ModalCartResume.vue'
 
-import Language from './subcomponents/Header_language.vue'
-import SearchButton from './ui/searchButton.vue'
-import CartButton from './ui/cartButton.vue'
+
 
 export default {
     name: 'Header',
@@ -69,6 +72,7 @@ export default {
         ModalSearch,
         ModalCartResume,
         SearchButton,
+        UserButton,
         CartButton
     },
     data() {
