@@ -10,12 +10,12 @@ global.Vue = Vue
   const routes = [
   {
     path: '/',
-    name: 'bloco_',
+    name: 'stone',
     component: Home
   },
   {
     path: '/institutional',
-    name: 'stone inst',
+    name: 'inst',
     // route level code-splitting
     // this generates a separate chunk (BlocoB.[hash].js) for this route
     // which is lazy-loaded when the route is visited. /* webpackChunkName: "BlocoB" */ 
@@ -55,7 +55,7 @@ global.Vue = Vue
   },
   {
     path: '/listpage/blocos',
-    name: 'Blocos',
+    name: 'blocos',
     // route level code-splitting
     // this generates a separate chunk (BInnovation.[hash].js) for this route
     // which is lazy-loaded when the route is visited. /* webpackChunkName: "BInnovation" */ 

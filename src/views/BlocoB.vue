@@ -50,8 +50,8 @@ export default {
   mounted() {
       this.$eventBus.$emit('componentFinishLoad', true);
   
-      axios.get('https://api.coindesk.com/v1/bpi/currentprice.json')
-      .then(response => (this.info = response))
+      // axios.get('https://api.coindesk.com/v1/bpi/currentprice.json')
+      // .then(response => (this.info = response))
   }
 }
 </script>

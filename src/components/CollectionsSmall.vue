@@ -1,12 +1,12 @@
 <template>
-    <div class="container">
+    <div class="container" :style="collectionVariables">
         <div class="row">
             <a class="collection collection1 col-6">
                 <h1 class="pageTitle" :aria-label="$t('home-title-page')"> 
                     Lusi<span>tania</span>
                 </h1>
             </a>
-            <a class="collection collection2 col-6">
+            <a class="collection collection2 col-6">              
                  <h1 class="pageTitle" :aria-label="$t('home-title-page')" > 
                     Sahu<span>ra</span>
                 </h1>
@@ -17,15 +17,56 @@
 
 <script>
     export default {
-        
+        data() {
+            return {
+                collections: {
+                    collection1: {
+                        url: '../assets/images/shared/collection1.jpg',
+                        count: 10
+                    },
+                    collection2: {
+                        url: '../assets/images/shared/collection2.jpg',
+                        count: 9
+                    }
+                }
+            }
+        },
+        computed: {
+            collectionVariables(){
+                return {
+                    '--collection1-count': this.collections.collection1.count,
+                    '--collection2-count': this.collections.collection2.count
+                }
+            }
+        },
     }
 </script>
 
 <style lang="scss">
 
-@keyframes play {
-   100% { background-position: 0 -1172px; }
+// Variables needed
+// 1. Image to Background
+// 2. Number of stones to Count
+
+
+// Calc: Number of Stones x Height of Stone Image:293px
+$calcCollection1: calc(-293px * var(--collection1-count));
+$calcCollection2: calc(-293px * var(--collection2-count));
+
+
+@keyframes play1 {
+   100% { 
+       background-position: 0 $calcCollection1;
+    }
 }
+
+@keyframes play2 {
+   100% { 
+       background-position: 0 $calcCollection2; 
+    }
+}
+
+
 
     .collection{
         cursor: pointer;
@@ -69,15 +110,21 @@
             }
         }
 
-        &.collection1{ background: url(../assets/images/shared/collection1.jpg) 0 0; }
-        &.collection2{ background: url(../assets/images/shared/collection.jpg) 0 0; }
+        &.collection1{ background: url('../assets/images/shared/collection1.jpg') 0 0; }
+        &.collection2{ background: url('../assets/images/shared/collection2.jpg') 0 0; }
+
+
 
         &:hover{
-            animation: play 0.5s steps(4) infinite;
+
+            &.collection1{ animation: play1 2s steps(var(--collection1-count)) infinite;}
+            &.collection2{ animation: play2 1s steps(var(--collection2-count)) infinite;}
+            
 
             & span::after{
                 left: -20px;
             }
         }
     }
+
 </style>

@@ -1,6 +1,7 @@
 <template>
     <div class="loader">
-        <h1> {{name}} </h1>
+        
+        {{name}}
     </div>
 </template>
 
@@ -15,9 +16,10 @@ export default {
   watch: {
     // call again the method if the route changes
       $route (to, from){
-        //setTimeout(function(){
+        setTimeout(function(){
            this.name = to.name 
-        //}, 2000);
+           console.log(this.name)
+        }, 5000);
       }
   }
 }
