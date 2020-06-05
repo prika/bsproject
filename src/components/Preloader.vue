@@ -19,7 +19,7 @@ export default {
         setTimeout(function(){
            this.name = to.name 
            console.log(this.name)
-        }, 5000);
+        }, 2000);
       }
   }
 }

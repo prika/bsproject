@@ -23,20 +23,20 @@
               </button>
 
               <button class="buttons userButton" 
+                @click="showLoginForm = true"
                 v-bind:aria-label="$t('button-arialabel-open-login')">
                 <UserButton></UserButton>
               </button>
 
-              <button class="buttons cartButton" 
-                @click="showCart = true"
+              <button class="buttons cartButton"
                 v-bind:aria-label="$t('button-arialabel-open-cart')">
                 <CartButton>99</CartButton>
               </button>
           </div>
       </div>
 
-      <transition enter-active-class="animated slideInDown faster" leave-active-class="animated slideOutUp faster">
-            <ModalCartResume v-if="showCart" @close="showCart = false"></ModalCartResume>
+      <transition enter-active-class="animated slideInRight faster" leave-active-class="animated slideOutRight faster">
+            <ModalLogin v-if="showLoginForm" @close="showLoginForm = false"></ModalLogin>
       </transition>
 
       <transition enter-active-class="animated slideInDown faster" leave-active-class="animated slideOutUp faster">
@@ -59,7 +59,7 @@ import CartButton from './ui/cartButton'
 import UserButton from './ui/userButton'
 
 import ModalSearch from './subcomponents/ModalSearch.vue'
-import ModalCartResume from './subcomponents/ModalCartResume.vue'
+import ModalLogin from './subcomponents/ModalLogin'
 
 
 
@@ -70,7 +70,7 @@ export default {
         Language,
         MenuMobile,
         ModalSearch,
-        ModalCartResume,
+        ModalLogin,
         SearchButton,
         UserButton,
         CartButton
@@ -80,7 +80,7 @@ export default {
             show: false,
             //user: uv.user.name,
             showModal: false,
-            showCart: false
+            showLoginForm: false
         }
     },
 }
@@ -89,35 +89,5 @@ export default {
 
 <style lang="scss">
 
- /* .slide-enter-active {
- -moz-transition-duration: 0.3s;
-   -webkit-transition-duration: 0.3s;
-   -o-transition-duration: 0.3s;
-   transition-duration: 5s;
-   -moz-transition-timing-function: ease-in;
-   -webkit-transition-timing-function: ease-in;
-   -o-transition-timing-function: ease-in;
-   transition-timing-function: ease-in;
-}
-
-.slide-leave-active {
-  -moz-transition-duration: 0.3s;
-   -webkit-transition-duration: 0.3s;
-   -o-transition-duration: 0.3s;
-   transition-duration: 5s;
-   -moz-transition-timing-function: ease-in;
-   -webkit-transition-timing-function: ease-in;
-   -o-transition-timing-function: ease-in;
-   transition-timing-function: ease-in;
-}*/
-.slide-enter-to, .slide-leave {
-   max-height: 100%;
-   overflow: hidden;
-}
-
-.slide-enter, .slide-leave-to {
-   overflow: hidden;
-   max-height: 0;
-}
 </style>
 

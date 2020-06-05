@@ -3,7 +3,6 @@
   
       <Preloader :class="{isLoaded}"></Preloader>
       
-
       <router-view />
      
       <Footer />
