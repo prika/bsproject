@@ -91,92 +91,90 @@
 
 
     
-            #bannerImage{
-                -webkit-animation:          changeLogos2 2s cubic-bezier(0, .5, 0, 1) forwards;
-                -moz-animation:             changeLogos2 2s cubic-bezier(0, .5, 0, 1) forwards;
-                -o-animation:               changeLogos2 2s cubic-bezier(0, .5, 0, 1) forwards;
-                animation:                  changeLogos2 2s cubic-bezier(0, .5, 0, 1) forwards;
+            // #bannerImage{
+            //     -webkit-animation:          changeLogos2 2s cubic-bezier(0, .5, 0, 1) forwards;
+            //     -moz-animation:             changeLogos2 2s cubic-bezier(0, .5, 0, 1) forwards;
+            //     -o-animation:               changeLogos2 2s cubic-bezier(0, .5, 0, 1) forwards;
+            //     animation:                  changeLogos2 2s cubic-bezier(0, .5, 0, 1) forwards;
                 
-                width: 100vw;
-                height: 100vh; /* Fallback para não-suporte a Custom Properties */
-                height: calc(var(--vh, 1vh) * 100);
+            //     width: 100vw;
+            //     height: 100vh; 
+            //     height: calc(var(--vh, 1vh) * 100);
         
-                /* min-height: 100vh;
-                min-height: -webkit-fill-available; */
-                position: relative;
-                z-index: 2;
+            //     position: relative;
+            //     z-index: 2;
         
                 
-                background: url(./assets/images/banners/BlocoB-7234_Banner.jpg) no-repeat; 
+            //     background: url(./assets/images/banners/BlocoB-7234_Banner.jpg) no-repeat; 
         
-                -webkit-background-size: cover;
-                -moz-background-size: cover;
-                -o-background-size: cover;
-                background-size: cover;
+            //     -webkit-background-size: cover;
+            //     -moz-background-size: cover;
+            //     -o-background-size: cover;
+            //     background-size: cover;
         
-                background-position: center center;
+            //     background-position: center center;
         
-                opacity: 0;
-            }
+            //     opacity: 0;
+            // }
         
         
-                #bannerImage::before{
-                    -webkit-animation:  changeLogos2 .3s cubic-bezier(0, .5, 0, 1) forwards;
-                    -moz-animation:     changeLogos2 .3s cubic-bezier(0, .5, 0, 1) forwards;
-                    -o-animation:       changeLogos2 .3s cubic-bezier(0, .5, 0, 1) forwards;
-                    animation:          changeLogos2 .3s cubic-bezier(0, .5, 0, 1) forwards;
+            //     #bannerImage::before{
+            //         -webkit-animation:  changeLogos2 .3s cubic-bezier(0, .5, 0, 1) forwards;
+            //         -moz-animation:     changeLogos2 .3s cubic-bezier(0, .5, 0, 1) forwards;
+            //         -o-animation:       changeLogos2 .3s cubic-bezier(0, .5, 0, 1) forwards;
+            //         animation:          changeLogos2 .3s cubic-bezier(0, .5, 0, 1) forwards;
                     
-                    display: block;
-                    content: '';
-                    position: absolute;
-                        top: 0;
-                        bottom: 0;
-                        left: 0;
-                        right: 0;
-                    z-index: 3;
+            //         display: block;
+            //         content: '';
+            //         position: absolute;
+            //             top: 0;
+            //             bottom: 0;
+            //             left: 0;
+            //             right: 0;
+            //         z-index: 3;
                     
-                    width: 100%;
-                    height: 100%;
+            //         width: 100%;
+            //         height: 100%;
         
-                    background: rgba(0, 0, 0, 0.15);
-                    opacity: 0;
-                }
+            //         background: rgba(0, 0, 0, 0.15);
+            //         opacity: 0;
+            //     }
                 
-                #bannerImage::after{
+            //     #bannerImage::after{
                     
-                    content: '';
-                    position: absolute;
-                        top: 0;
-                        bottom: 0;
-                        left: 0;
-                        right: 0;
-                    z-index: 3;
+            //         content: '';
+            //         position: absolute;
+            //             top: 0;
+            //             bottom: 0;
+            //             left: 0;
+            //             right: 0;
+            //         z-index: 3;
         
-                    width: 100%;
-                    height: 100%;
+            //         width: 100%;
+            //         height: 100%;
         
-                    opacity: 0;
+            //         opacity: 0;
                     
-                    background-image: url(./assets/images/logo/intro_home.svg);
-                    background-repeat: no-repeat; 
-                    background-position: center center;
-                    background-attachment: fixed; 
+            //         background-image: url(./assets/images/logo/intro_home.svg);
+            //         background-repeat: no-repeat; 
+            //         background-position: center center;
+            //         background-attachment: fixed; 
         
-                    -webkit-background-size:    510px;
-                    -moz-background-size:       510px;
-                    -o-background-size:         510px;
-                    background-size:            510px;
+            //         -webkit-background-size:    510px;
+            //         -moz-background-size:       510px;
+            //         -o-background-size:         510px;
+            //         background-size:            510px;
         
-                    -webkit-clip-path:  polygon(0px 0px, 100% 0px, 100% 55.61%, 65.58% 55.93%, 34.29% 99.70%, 0px 100%);
-                    -o-clip-path:       polygon(0px 0px, 100% 0px, 100% 55.61%, 65.58% 55.93%, 34.29% 99.70%, 0px 100%);
-                    -ms-clip-path:      polygon(0px 0px, 100% 0px, 100% 55.61%, 65.58% 55.93%, 34.29% 99.70%, 0px 100%);
-                    clip-path:          polygon(0px 0px, 100% 0px, 100% 55.61%, 65.58% 55.93%, 34.29% 99.70%, 0px 100%);
+            //         -webkit-clip-path:  polygon(0px 0px, 100% 0px, 100% 55.61%, 65.58% 55.93%, 34.29% 99.70%, 0px 100%);
+            //         -o-clip-path:       polygon(0px 0px, 100% 0px, 100% 55.61%, 65.58% 55.93%, 34.29% 99.70%, 0px 100%);
+            //         -ms-clip-path:      polygon(0px 0px, 100% 0px, 100% 55.61%, 65.58% 55.93%, 34.29% 99.70%, 0px 100%);
+            //         clip-path:          polygon(0px 0px, 100% 0px, 100% 55.61%, 65.58% 55.93%, 34.29% 99.70%, 0px 100%);
         
-                    -webkit-animation:  changeLogos2 .3s cubic-bezier(0, .5, 0, 1)  forwards;
-                    -moz-animation:     changeLogos2 .3s cubic-bezier(0, .5, 0, 1)  forwards;
-                    -o-animation:       changeLogos2 .3s cubic-bezier(0, .5, 0, 1)  forwards;
-                    animation:          changeLogos2 .3s cubic-bezier(0, .5, 0, 1)  forwards;
-                }
+            //         -webkit-animation:  changeLogos2 .3s cubic-bezier(0, .5, 0, 1)  forwards;
+            //         -moz-animation:     changeLogos2 .3s cubic-bezier(0, .5, 0, 1)  forwards;
+            //         -o-animation:       changeLogos2 .3s cubic-bezier(0, .5, 0, 1)  forwards;
+            //         animation:          changeLogos2 .3s cubic-bezier(0, .5, 0, 1)  forwards;
+            //     }
         
             
             .line{

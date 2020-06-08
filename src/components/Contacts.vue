@@ -15,7 +15,7 @@
                     <div class="row">
                         <div class="col-xs-12 col-sm-6">
                         <div class="input_group">
-                            <input type="text" id="name">
+                            <input type="text" id="name" placeholder=" ">
                             <label for="form1">Nome</label>
                             <span class="bar"></span>
                         </div>
@@ -23,7 +23,7 @@
 
                         <div class="col-xs-12 col-sm-6">
                         <div class="input_group">
-                            <input type="text" id="surname">
+                            <input type="text" id="surname" placeholder=" ">
                             <label for="form1">Sobrenome</label>
                             <span class="bar"></span>
                         </div>
@@ -33,7 +33,7 @@
                     <div class="row">
                         <div class="col-xs-12 col-sm-6">
                         <div class="input_group">
-                            <input type="email" id="email">
+                            <input type="email" id="email" placeholder=" ">
                             <label for="form1">Email</label>
                             <span class="bar"></span>
                         </div>
@@ -43,14 +43,14 @@
                     <div class="row">
                         <div class="col-12">
                         <div class="input_group">
-                            <textarea  id="" rows="1"></textarea>
+                            <textarea  id="" rows="1" placeholder=" "></textarea>
                             <label for="form1">Mensagem</label>
                             <span class="bar"></span>
                         </div>
                         </div>
                     </div>
 
-                    <div class="row">
+                    <div class="row d-flex align-items-center">
                         <div class="col-xs-12 col-sm-6">
                             <input type="file">
                         </div>
@@ -69,12 +69,12 @@
                     </div>
 
 
-                    <!--p style="height: 30px; color: red">
+                    <p style="color: red; margin-top: 36px;">
                         <span v-if="errors.length">{{ $t('footer-newsletter-error') }}</span>
                         <ul v-if="errors.length">
                             <li v-for="error in errors">{{ error }}</li>
                         </ul>
-                    </p-->
+                    </p>
                 </form>
             </div>
         </div>

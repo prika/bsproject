@@ -3,11 +3,30 @@
         <transition mode="out-in" appear enter-active-class="animated slideInRight" leave-active-class="animated slideOutRight">
             <button class="closeLoginButton" v-bind:aria-label="$t('button-arialabel-close-menu')" @click="$emit('close')"><closeIcon></closeIcon></button>
         </transition>
-        <div class="formLogin">
+        <div class="formLogin revertColor">
             <p class="h1">Entrar <br>na minha <br>conta</p>
-            <form>
-                <!--input type="text" name="username" v-model="input.username" placeholder="Username" /><br-->
-                <!--input type="password" name="password" v-model="input.password" placeholder="Password" /><br-->
+             <form id="login" @submit="checkForm"
+                action="https://vuejs.org/"
+                method="post" novalidate="true">
+
+                <div class="input_group col-9">  
+                    <input id="UserLogin"
+                            type="text"
+                            name="username"
+                            placeholder=" ">
+                    <label for="form1">Username</label>
+                    <span class="bar"></span>
+                </div>
+
+                <div class="input_group col-9">  
+                    <input id="PasswordLogin"
+                            type="password"
+                            name="password"
+                            placeholder=" ">
+                    <label for="form1">Password</label>
+                    <span class="bar"></span>
+                </div>
+
                 <button type="button" v-on:click="login()">Login</button>
             </form>
         </div>
