@@ -4,19 +4,19 @@
           <div class="logo d-flex col-lg-2 col-md-1" itemscope itemtype="http://schema.org/Organization">
               <router-link to="/" itemprop="url">
                 <img class="d-none d-md-block" itemprop="logo" 
-                    src="../assets/images/logo/logo.svg" 
+                    src="../assets/images/logo/logo_home.svg" 
                     v-bind:alt="$t('logo-aria-label')"
                     v-bind:title="$t('logo-aria-label')"
                     v-bind:aria-label="$t('logo-aria-label')" />
                 <img class="d-block d-md-none" itemprop="logo" 
-                    src="../assets/images/logo/logo_mobile.svg" 
+                    src="../assets/images/logo/logo_home_mobile.svg" 
                     v-bind:alt="$t('logo-aria-label')"
                     v-bind:title="$t('logo-aria-label')"
                     v-bind:aria-label="$t('logo-aria-label')" />
               </router-link>
           </div>
         
-         <Menu />
+          <Menu />
 
           <keep-alive>
             <MenuMobile :class="{ active: show }" v-if="show" />
@@ -45,15 +45,15 @@
       </div>
 
       <transition enter-active-class="animated slideInRight faster" leave-active-class="animated slideOutRight faster">
-            <ModalLogin v-if="showLoginForm" @close="showLoginForm = false"></ModalLogin>
+          <ModalLogin v-if="showLoginForm" @close="showLoginForm = false"></ModalLogin>
       </transition>
 
       <transition enter-active-class="animated slideInDown faster" leave-active-class="animated slideOutUp faster">
-            <ModalSearch v-if="showModal" @close="showModal = false"></ModalSearch>
+          <ModalSearch v-if="showModal" @close="showModal = false"></ModalSearch>
       </transition>
 
-        <button class="closeMenuButton" v-bind:aria-label="$t('button-arialabel-close-menu')" v-if="show" key="on" @click="show = false"></button>
-        <button class="openMenuButton"  v-bind:aria-label="$t('button-arialabel-open-menu')" v-else key="off" @click="show = true"></button>
+      <button class="closeMenuButton" v-bind:aria-label="$t('button-arialabel-close-menu')" v-if="show" key="on" @click="show = false"></button>
+      <button class="openMenuButton"  v-bind:aria-label="$t('button-arialabel-open-menu')" v-else key="off" @click="show = true"></button>
   </header>
     
 </template>
