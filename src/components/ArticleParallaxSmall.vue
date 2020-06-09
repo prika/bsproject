@@ -17,29 +17,25 @@
           </div>
         </div>
 
-        <!--div class="col-12 parallaxGroup2">
+        <div class="col-12 parallaxGroup2">
             <img src="../assets/images/shared/exemplo_1.jpg" class="imageParallax3 col-5 img-fluid rellax" data-rellax-speed="0" alt="">
             <img src="../assets/images/shared/exemplo_2.jpg" class="imageParallax4 col-4 img-fluid rellax" data-rellax-speed="2" alt="">
             <img src="../assets/images/shared/exemplo_3.jpg" class="imageParallax5 col-4 img-fluid rellax" data-rellax-speed="-1"  alt="">
             <img src="../assets/images/shared/exemplo_4.jpg" class="imageParallax6 col-4 img-fluid rellax" data-rellax-speed="-2"  alt="">
             <img src="../assets/images/shared/exemplo_5.jpg" class="imageParallax7 col-4 img-fluid rellax" data-rellax-speed="4"  alt="">
-        </div-->
+        </div>
     </section>
 </template>
 
 
 <script>
     export default {
-        beforeMount() {
-            // Start Rellax
-            var rellax = new Rellax('.rellax', {
-                center: true
-            });
-            // Destroy and create again parallax with previous settings
-            rellax.refresh();
+        mounted() {
+            const rellax = new Rellax('.rellax');
         },
         watch: {
             $route(to , from){
+                // Destroy and create again parallax with previous settings
                 rellax.refresh();
             }
         }

@@ -1,15 +1,13 @@
-import Vue from 'vue'
 import App from './App.vue'
-import router from './router'   //  route links
-import i18n from './i18n'       //  translations
-import VuePlyr from 'vue-plyr'  //  vue player videos
+import router from './router'
+import i18n from './i18n'
+import VuePlyr from 'vue-plyr'
 //import store from './store/store'
 import Vuex from 'vuex'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
  
 Vue.config.productionTip = false
-
 
 Vue.use(router, axios, VueAxios, Vuex)
 

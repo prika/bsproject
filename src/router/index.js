@@ -1,17 +1,15 @@
-import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
 
-Vue.use(VueRouter)
+//Vue.use(VueRouter)
 
 //added to global Vue use
-global.Vue = Vue
+//global.Vue = Vue
 
 const routes = [
   {
     path: '/',
     name: 'stone',
-    component: Home
+    component: () => import('../views/Home.vue')
   },
   // {
   //   path: '/institutional',

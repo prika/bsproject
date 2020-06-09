@@ -6,8 +6,50 @@
     z-index: 2;
     overflow: hidden;
 
-    height: calc(100vh - 124px);
-    height: calc(var(--vh, 1vh) * 100 - 124px);
+    img, video{
+        width: auto;
+        max-height: calc(100vh - 124px);
+        max-height: calc(var(--vh, 1vh) * 100 - 124px);
+    }
+   
+
+
+    &::after{
+                    
+        content: '';
+        position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        z-index: 3;
+
+        width: 100%;
+        height: 100%;
+
+        opacity: 0;
+        
+        background-image: url(./assets/images/logo/intro_home.svg);
+        background-repeat: no-repeat; 
+        background-position: center center;
+        background-attachment: fixed; 
+
+        -webkit-background-size:    510px;
+        -moz-background-size:       510px;
+        -o-background-size:         510px;
+        background-size:            510px;
+
+        -webkit-clip-path:  polygon(0px 0px, 100% 0px, 100% 55.61%, 65.58% 55.93%, 34.29% 99.70%, 0px 100%);
+        -o-clip-path:       polygon(0px 0px, 100% 0px, 100% 55.61%, 65.58% 55.93%, 34.29% 99.70%, 0px 100%);
+        -ms-clip-path:      polygon(0px 0px, 100% 0px, 100% 55.61%, 65.58% 55.93%, 34.29% 99.70%, 0px 100%);
+        clip-path:          polygon(0px 0px, 100% 0px, 100% 55.61%, 65.58% 55.93%, 34.29% 99.70%, 0px 100%);
+
+        -webkit-animation:  changeLogos2 .3s cubic-bezier(0, .5, 0, 1)  forwards;
+        -moz-animation:     changeLogos2 .3s cubic-bezier(0, .5, 0, 1)  forwards;
+        -o-animation:       changeLogos2 .3s cubic-bezier(0, .5, 0, 1)  forwards;
+        animation:          changeLogos2 .3s cubic-bezier(0, .5, 0, 1)  forwards;
+    }
+
 }
 
 @include media-breakpoint-up(md) {
@@ -25,205 +67,109 @@
 }
 
 
-    // #bannerAnimation {
-    //     width: 100vw;
-    //     height: 100vh;/* Fallback para não-suporte a Custom Properties */
-    //     height: calc(var(--vh, 1vh) * 100);
+    
+#bannerImage{
+    // -webkit-animation:          changeLogos2 2s cubic-bezier(0, .5, 0, 1) forwards;
+    // -moz-animation:             changeLogos2 2s cubic-bezier(0, .5, 0, 1) forwards;
+    // -o-animation:               changeLogos2 2s cubic-bezier(0, .5, 0, 1) forwards;
+    // animation:                  changeLogos2 2s cubic-bezier(0, .5, 0, 1) forwards;
+    
+    // width: 100vw;
+    // height: 100vh; 
+    // height: calc(var(--vh, 1vh) * 100);
 
+    // position: absolute;
+    // z-index: 2;
+    // background: none;
+
+    
+    // background: url(./assets/images/banners/BlocoB-7234_Banner.jpg) no-repeat; 
+
+    // -webkit-background-size: cover;
+    // -moz-background-size: cover;
+    // -o-background-size: cover;
+    // background-size: cover;
+
+    // background-position: center center;
+
+    //opacity: 0;
+
+
+    // &::before{
+    //     -webkit-animation:  changeLogos2 .3s cubic-bezier(0, .5, 0, 1) forwards;
+    //     -moz-animation:     changeLogos2 .3s cubic-bezier(0, .5, 0, 1) forwards;
+    //     -o-animation:       changeLogos2 .3s cubic-bezier(0, .5, 0, 1) forwards;
+    //     animation:          changeLogos2 .3s cubic-bezier(0, .5, 0, 1) forwards;
+        
+    //     display: block;
+    //     content: '';
     //     position: absolute;
     //         top: 0;
     //         bottom: 0;
     //         left: 0;
     //         right: 0;
-    //     z-index:0;
+    //     z-index: 3;
         
-    //     display: block;
-    //     background-color: #D8D8D8;
+    //     width: 100%;
+    //     height: 100%;
+
+    //     background: rgba(0, 0, 0, 0.15);
+    //     opacity: 0;
     // }
 
-            // #animatedlogo{
-            //     position: fixed;
-            //     top: calc(50% - 50px);
-            //     left: 50%;
-
-            //     /* top: 374px; */
-            //     /* margin-top: -100px;*/
-            //     margin-left: -255px; 
-
-            //     z-index: 2;
-            //     fill: #ffffff;
-
-            //     overflow: visible;
-            //     width: 510px;
-
-            //     -webkit-animation: changeLogos 1s ease-in-out 3s forwards;
-            //     -moz-animation: changeLogos 1s ease-in-out 3s forwards;
-            //     -o-animation: changeLogos 1s ease-in-out 3s forwards;
-            //     animation: changeLogos 1s ease-in-out 3s forwards;
-            // }
-
-            //     #animatedlogo #B{
-            //         transform: translateX(18%);
-            //         opacity: 1;
-            //         -webkit-animation: myanimation1 2s 1s ease-in-out forwards;
-            //         -moz-animation: myanimation1 2s 1s ease-in-out forwards;
-            //         -o-animation: myanimation1 2s 1s ease-in-out forwards;
-            //         animation: myanimation1 2s 1s ease-in-out forwards;
-            //     }
-
-            //     #animatedlogo #Stone{
-            //         transform: translateX(50%);
-            //         opacity: 0;
-            //         -webkit-animation: myanimation2 2s 1s ease-in-out forwards;
-            //         -moz-animation: myanimation2 2s 1s ease-in-out forwards;
-            //         -o-animation: myanimation2 2s 1s ease-in-out forwards;
-            //         animation: myanimation2 2s 1s ease-in-out forwards;
-            //     }
-
-            //     #animatedlogo #Rreferencias{
-            //         transform: translateX(-50%);
-            //         opacity: 0;
-            //         -webkit-animation: myanimation3 2s 1s ease-in-out forwards;
-            //         -moz-animation: myanimation3 2s 1s ease-in-out forwards;
-            //         -o-animation: myanimation3 2s 1s ease-in-out forwards;
-            //         animation: myanimation3 2s 1s ease-in-out forwards;
-            //     }
-
-
     
-            // #bannerImage{
-            //     -webkit-animation:          changeLogos2 2s cubic-bezier(0, .5, 0, 1) forwards;
-            //     -moz-animation:             changeLogos2 2s cubic-bezier(0, .5, 0, 1) forwards;
-            //     -o-animation:               changeLogos2 2s cubic-bezier(0, .5, 0, 1) forwards;
-            //     animation:                  changeLogos2 2s cubic-bezier(0, .5, 0, 1) forwards;
-                
-            //     width: 100vw;
-            //     height: 100vh; 
-            //     height: calc(var(--vh, 1vh) * 100);
+
+}
         
-            //     position: relative;
-            //     z-index: 2;
-        
-                
-            //     background: url(./assets/images/banners/BlocoB-7234_Banner.jpg) no-repeat; 
-        
-            //     -webkit-background-size: cover;
-            //     -moz-background-size: cover;
-            //     -o-background-size: cover;
-            //     background-size: cover;
-        
-            //     background-position: center center;
-        
-            //     opacity: 0;
-            // }
-        
-        
-            //     #bannerImage::before{
-            //         -webkit-animation:  changeLogos2 .3s cubic-bezier(0, .5, 0, 1) forwards;
-            //         -moz-animation:     changeLogos2 .3s cubic-bezier(0, .5, 0, 1) forwards;
-            //         -o-animation:       changeLogos2 .3s cubic-bezier(0, .5, 0, 1) forwards;
-            //         animation:          changeLogos2 .3s cubic-bezier(0, .5, 0, 1) forwards;
-                    
-            //         display: block;
-            //         content: '';
-            //         position: absolute;
-            //             top: 0;
-            //             bottom: 0;
-            //             left: 0;
-            //             right: 0;
-            //         z-index: 3;
-                    
-            //         width: 100%;
-            //         height: 100%;
-        
-            //         background: rgba(0, 0, 0, 0.15);
-            //         opacity: 0;
-            //     }
-                
-            //     #bannerImage::after{
-                    
-            //         content: '';
-            //         position: absolute;
-            //             top: 0;
-            //             bottom: 0;
-            //             left: 0;
-            //             right: 0;
-            //         z-index: 3;
-        
-            //         width: 100%;
-            //         height: 100%;
-        
-            //         opacity: 0;
-                    
-            //         background-image: url(./assets/images/logo/intro_home.svg);
-            //         background-repeat: no-repeat; 
-            //         background-position: center center;
-            //         background-attachment: fixed; 
-        
-            //         -webkit-background-size:    510px;
-            //         -moz-background-size:       510px;
-            //         -o-background-size:         510px;
-            //         background-size:            510px;
-        
-            //         -webkit-clip-path:  polygon(0px 0px, 100% 0px, 100% 55.61%, 65.58% 55.93%, 34.29% 99.70%, 0px 100%);
-            //         -o-clip-path:       polygon(0px 0px, 100% 0px, 100% 55.61%, 65.58% 55.93%, 34.29% 99.70%, 0px 100%);
-            //         -ms-clip-path:      polygon(0px 0px, 100% 0px, 100% 55.61%, 65.58% 55.93%, 34.29% 99.70%, 0px 100%);
-            //         clip-path:          polygon(0px 0px, 100% 0px, 100% 55.61%, 65.58% 55.93%, 34.29% 99.70%, 0px 100%);
-        
-            //         -webkit-animation:  changeLogos2 .3s cubic-bezier(0, .5, 0, 1)  forwards;
-            //         -moz-animation:     changeLogos2 .3s cubic-bezier(0, .5, 0, 1)  forwards;
-            //         -o-animation:       changeLogos2 .3s cubic-bezier(0, .5, 0, 1)  forwards;
-            //         animation:          changeLogos2 .3s cubic-bezier(0, .5, 0, 1)  forwards;
-            //     }
-        
+    
             
-            .line{
-                position: absolute;
-                background: rgba(240, 240, 240, 0.3);
-                z-index: 4;
-                display: block;
-                opacity: 0;
-            }
+.line{
+    position: absolute;
+    background: rgba(240, 240, 240, 0.3);
+    z-index: 4;
+    display: block;
+    opacity: 0;
+}
+
+    .horizontalLine{
+        top: 0;
+        left:0;
+        right: 0;
+
+        width: 100%;
+        height: 1px;
         
-                .horizontalLine{
-                    top: 0;
-                    left:0;
-                    right: 0;
+        -webkit-animation: horizontalLineAnim 2s ease-in-out 7s forwards;
+        -moz-animation: horizontalLineAnim 2s ease-in-out 7s forwards;
+        -o-animation: horizontalLineAnim 2s ease-in-out 7s forwards;
+        animation: horizontalLineAnim 2s ease-in-out 7s forwards;
+    }
+    .verticalLeftLine{
+        top:0;
+        bottom: 0;
+        left: 0;
         
-                    width: 100%;
-                    height: 1px;
-                    
-                    -webkit-animation: horizontalLineAnim 2s ease-in-out 7s forwards;
-                    -moz-animation: horizontalLineAnim 2s ease-in-out 7s forwards;
-                    -o-animation: horizontalLineAnim 2s ease-in-out 7s forwards;
-                    animation: horizontalLineAnim 2s ease-in-out 7s forwards;
-                }
-                .verticalLeftLine{
-                    top:0;
-                    bottom: 0;
-                    left: 0;
-                    
-                    width: 1px;
-                    height: 100vh;
+        width: 1px;
+        height: 100vh;
+
+        -webkit-animation: verticalLineAnim 2s ease-in-out 7s forwards;
+        -moz-animation: verticalLineAnim 2s ease-in-out 7s forwards;
+        -o-animation: verticalLineAnim 2s ease-in-out 7s forwards;
+        animation: verticalLineAnim 2s ease-in-out 7s forwards;
+    }
+    .verticalRightLine{
+        top:0;
+        bottom: 0;
+        right: 0;
         
-                    -webkit-animation: verticalLineAnim 2s ease-in-out 7s forwards;
-                    -moz-animation: verticalLineAnim 2s ease-in-out 7s forwards;
-                    -o-animation: verticalLineAnim 2s ease-in-out 7s forwards;
-                    animation: verticalLineAnim 2s ease-in-out 7s forwards;
-                }
-                .verticalRightLine{
-                    top:0;
-                    bottom: 0;
-                    right: 0;
-                    
-                    width: 1px;
-                    height: 100vh;
-        
-                    -webkit-animation: verticalLineAnim2 2s ease-in-out 6s forwards;
-                    -moz-animation: verticalLineAnim2 2s ease-in-out 6s forwards;
-                    -o-animation: verticalLineAnim2 2s ease-in-out 6s forwards;
-                    animation: verticalLineAnim2 2s ease-in-out 6s forwards;
-                }
+        width: 1px;
+        height: 100vh;
+
+        -webkit-animation: verticalLineAnim2 2s ease-in-out 6s forwards;
+        -moz-animation: verticalLineAnim2 2s ease-in-out 6s forwards;
+        -o-animation: verticalLineAnim2 2s ease-in-out 6s forwards;
+        animation: verticalLineAnim2 2s ease-in-out 6s forwards;
+    }
                 
         
         @media (max-width: 767px){
@@ -256,38 +202,38 @@
         }
         
         
-        /* ----------- iPhone 5, 5S, 5C and 5SE ----------- */
-        /* Portrait and Landscape */
-        // @media only screen 
-        // and (min-device-width: 320px) 
-        // and (max-device-width: 568px)
-        // and (-webkit-min-device-pixel-ratio: 2) {
-        //     #bannerImage::after{background-attachment: initial;}
-        // }
-        
-        /* ----------- iPhone 6, 6S, 7 and 8 ----------- */
-        /* Portrait and Landscape */
-        // @media only screen 
-        //   and (min-device-width: 375px) 
-        //   and (max-device-width: 667px) 
-        //   and (-webkit-min-device-pixel-ratio: 2) { 
-        //     #bannerImage::after{background-attachment: initial;}
-        // }
-        
-        /* ----------- iPhone 6+, 7+ and 8+ ----------- */
-        /* Portrait and Landscape */
-        // @media only screen 
-        //   and (min-device-width: 414px) 
-        //   and (max-device-width: 736px) 
-        //   and (-webkit-min-device-pixel-ratio: 3) { 
-        //     #bannerImage::after{background-attachment: initial;}
-        // }
-        
-        /* ----------- iPhone X ----------- */
-        /* Portrait and Landscape */
-        // @media only screen 
-        //   and (min-device-width: 375px) 
-        //   and (max-device-width: 812px) 
-        //   and (-webkit-min-device-pixel-ratio: 3) { 
-        //     #bannerImage::after{background-attachment: initial;}
-        // }
+    /* ----------- iPhone 5, 5S, 5C and 5SE ----------- */
+    /* Portrait and Landscape */
+    // @media only screen 
+    // and (min-device-width: 320px) 
+    // and (max-device-width: 568px)
+    // and (-webkit-min-device-pixel-ratio: 2) {
+    //     #bannerImage::after{background-attachment: initial;}
+    // }
+    
+    /* ----------- iPhone 6, 6S, 7 and 8 ----------- */
+    /* Portrait and Landscape */
+    // @media only screen 
+    //   and (min-device-width: 375px) 
+    //   and (max-device-width: 667px) 
+    //   and (-webkit-min-device-pixel-ratio: 2) { 
+    //     #bannerImage::after{background-attachment: initial;}
+    // }
+    
+    /* ----------- iPhone 6+, 7+ and 8+ ----------- */
+    /* Portrait and Landscape */
+    // @media only screen 
+    //   and (min-device-width: 414px) 
+    //   and (max-device-width: 736px) 
+    //   and (-webkit-min-device-pixel-ratio: 3) { 
+    //     #bannerImage::after{background-attachment: initial;}
+    // }
+    
+    /* ----------- iPhone X ----------- */
+    /* Portrait and Landscape */
+    // @media only screen 
+    //   and (min-device-width: 375px) 
+    //   and (max-device-width: 812px) 
+    //   and (-webkit-min-device-pixel-ratio: 3) { 
+    //     #bannerImage::after{background-attachment: initial;}
+    // }

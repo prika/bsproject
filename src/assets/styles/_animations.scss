@@ -7,15 +7,13 @@
   }
 
   50% {
-    opacity: .4;
+    opacity: .7;
   }
   100% {
     opacity: 0;
     visibility: hidden;
   }
 }
-
-
 
 
 /* Animation 1 */
@@ -264,57 +262,6 @@
 
 /* Animation Logos */
 
-// @-webkit-keyframes changeLogos {
-//   0% { 
-//       opacity: 1;
-//       transform: none;
-//   }
-//   100% { 
-//       opacity: 0; 
-//       transform: translateY(2rem);
-//       display: none;
-      
-//   }
-// }
-
-// @-moz-keyframes changeLogos {
-//   0% { 
-//       opacity: 1;
-//       transform: none;
-//   }
-//   100% { 
-//       opacity: 0; 
-//       transform: translateY(2rem);
-//       display: none;
-      
-//   }
-// }
-
-// @-ms-keyframes changeLogos {
-//   0% { 
-//       opacity: 1;
-//       transform: none;
-//   }
-//   100% { 
-//       opacity: 0; 
-//       transform: translateY(2rem);
-//       display: none;
-      
-//   }
-// }
-
-@keyframes changeLogos {
-  0% { 
-      opacity: 1;
-      transform: none;
-  }
-  100% { 
-      opacity: 0; 
-      transform: translateY(2rem);
-      display: none;
-      
-  }
-}
 
 /* --- */
 

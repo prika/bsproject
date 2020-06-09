@@ -2,7 +2,7 @@
     <header>
       <div class="containerHeader d-flex">
           <div class="logo d-flex col-lg-2 col-md-1" itemscope itemtype="http://schema.org/Organization">
-              <router-link to="/" itemprop="url">
+              <a href="/" itemprop="url">
                 <img class="d-none d-md-block" itemprop="logo" 
                     src="../assets/images/logo/logo_home.svg" 
                     v-bind:alt="$t('logo-aria-label')"
@@ -13,14 +13,12 @@
                     v-bind:alt="$t('logo-aria-label')"
                     v-bind:title="$t('logo-aria-label')"
                     v-bind:aria-label="$t('logo-aria-label')" />
-              </router-link>
+              </a>
           </div>
         
           <Menu />
-
-          <keep-alive>
-            <MenuMobile :class="{ active: show }" v-if="show" />
-          </keep-alive>
+          <!--MenuMobile :class="{ active: show }" v-if="show" /-->
+        
 
           <Language />
 
@@ -72,8 +70,6 @@ import UserButton from './ui/userButton'
 import ModalSearch from './subcomponents/ModalSearch.vue'
 import ModalLogin from './subcomponents/ModalLogin'
 
-
-
 export default {
     name: 'Header',
     components: {
@@ -96,9 +92,3 @@ export default {
     },
 }
 </script>
-
-
-<style lang="scss">
-
-</style>
-

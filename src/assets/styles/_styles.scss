@@ -420,19 +420,61 @@ input[type=file]{
 .loader{
   background: #DEDEDE;
   position: fixed;
-  z-index: 4;
+  z-index: 99999;
   top: 0; bottom: 0; left: 0; right: 0;
   display: flex;
   align-items: center;
   justify-content: center;
+
   -webkit-transition:   all 0.3s cubic-bezier(0, .5, 0, 1);
   -moz-transition:      all 0.3s cubic-bezier(0, .5, 0, 1);
   -o-transition:        all 0.3s cubic-bezier(0, .5, 0, 1);
   transition:           all 0.3s cubic-bezier(0, .5, 0, 1);
 
-  h1{
-    color: #FFF;
-    font-size: 218px;
+
+  #animatedlogo{
+    position: fixed;
+    top: calc(50% - 50px);
+    left: 50%;
+    margin-left: -255px; 
+  
+    z-index: 2;
+    fill: #ffffff;
+  
+    overflow: visible;
+    width: 510px;
+  
+    -webkit-animation: changeLogos 1s ease-in-out 3s forwards;
+    -moz-animation: changeLogos 1s ease-in-out 3s forwards;
+    -o-animation: changeLogos 1s ease-in-out 3s forwards ;
+    animation: changeLogos 1s ease-in-out 3s forwards;
+
+    & #B{
+        transform: translateX(18%);
+        opacity: 1;
+        -webkit-animation: myanimation1 2s 1s ease-in-out forwards;
+        -moz-animation: myanimation1 2s 1s ease-in-out forwards;
+        -o-animation: myanimation1 2s 1s ease-in-out forwards;
+        animation: myanimation1 2s 1s ease-in-out forwards;
+    }
+
+    & #Stone{
+        transform: translateX(50%);
+        opacity: 0;
+        -webkit-animation: myanimation2 2s 1s ease-in-out forwards;
+        -moz-animation: myanimation2 2s 1s ease-in-out forwards;
+        -o-animation: myanimation2 2s 1s ease-in-out forwards;
+        animation: myanimation2 2s 1s ease-in-out forwards;
+    }
+
+    & #Rreferencias{
+        transform: translateX(-50%);
+        opacity: 0;
+        -webkit-animation: myanimation3 2s 1s ease-in-out forwards;
+        -moz-animation: myanimation3 2s 1s ease-in-out forwards;
+        -o-animation: myanimation3 2s 1s ease-in-out forwards;
+        animation: myanimation3 2s 1s ease-in-out forwards;
+    }
   }
 
   &.isLoaded { 
@@ -449,7 +491,6 @@ input[type=file]{
       }
   }
 }
-
 
 // ===================================================================== //
 // ===================================================================== //
@@ -619,15 +660,15 @@ nav.menuMobile{
     background: center center no-repeat url(assets/images/icons/close.svg);
   }
   .openMenuButton{
-    display: block;
-    position: fixed;
-    width: 50px;
-    height: 50px;
-    top: 20%;
-    right: 40px;
-    border: 0;
-    background-size: 30px;
-    background: center center no-repeat url(assets/images/icons/menu.svg);
+    display:    block;
+    position:   fixed;
+    width:      90px;
+    height:     90px;
+    top:        20%;
+    right:      40px;
+    border:     0;
+    background-size:  30px;
+    background:       center center no-repeat url(assets/images/icons/menu.svg);
   }
 }
 
