@@ -3,6 +3,11 @@
   
       <Preloader :class="{isLoaded}"></Preloader>
       
+<<<<<<< HEAD
+=======
+      <Header />
+
+>>>>>>> parent of 2aeadf0... Logo changes
       <router-view />
      
       <Footer />
