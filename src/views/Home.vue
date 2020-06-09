@@ -1,7 +1,12 @@
 <template>
   <div id="homepage" class="pageContainer">
     
-      <ArticleParallaxSmall />
+       <ArticleParallaxSmall>
+          <div class="pageContentText col-5 order-md-2">
+              <h1>Home</h1>
+              <p>A versatilidade, robustez e magnificência fazem do mármore o material mais desejado para vários ambientes, do mais clássico ao vanguardista. B innovation promete criar a solução ideal para si, à sua medida.</p>
+          </div>
+      </ArticleParallaxSmall>
 
       <NewsSlider />
 

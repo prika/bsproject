@@ -71,7 +71,7 @@
 .parallaxGroup1{
   .imageParallax1{
       float: right;
-      z-index: 2;
+      z-index: 1;
       padding-right: 70px;
   }
 }
@@ -79,7 +79,7 @@
 .parallaxGroup2{
   overflow: hidden;
   position: relative;
-  margin-top: 400px;
+  //margin-top: 400px;
   background: #F0F0F0;
   height: 2900px;
 
