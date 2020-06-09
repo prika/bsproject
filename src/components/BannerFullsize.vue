@@ -7,6 +7,13 @@
         <div class="line verticalRightLine"></div>
 
         <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleFade" data-slide-to="0" class="active">01</li>
+                <li data-target="#carouselExampleFade" data-slide-to="1">02</li>
+                <li data-target="#carouselExampleFade" data-slide-to="2">03</li>
+                <li data-target="#carouselExampleFade" data-slide-to="3">04</li>
+            </ol>
+
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <img class="d-block w-100" src="../assets/images/banners/BlocoB-7234_Banner.jpg" alt="First slide">
@@ -26,28 +33,64 @@
                         </video>
                     </vue-plyr>
                 </div>
-
-                
             </div>
-
-            <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
         </div>
 
     </section>
 </template>
 
 <script>
-
 export default {
     beforeCreate() {
         jQuery('carousel').carousel();
     }
 }
 </script>
+
+
+<style lang="scss">
+.carousel-item {
+    transition: opacity 1s ease;
+}
+.carousel-indicators {
+    align-items: baseline;
+
+  li {
+    flex: 0 1 auto;
+    width: 100px;
+    height: 40px;
+    text-indent: 0;
+    justify-items: center;
+    color: #FFF;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 38px;
+    text-align: center;
+    cursor: pointer;
+    background: none;
+    transition: opacity 1s ease;
+    position: relative;
+    opacity: 1;
+
+    &:before{
+        content: '';
+        position: absolute;
+        background: #FFF;
+        height: 2px;
+        width: 45px;
+        bottom: 20px;
+        left: -24px;
+    }
+    
+    &:first-child:before{
+        display:none;
+    }
+  }
+
+  .active {
+    line-height: 28px;
+    font-size: 28px;
+  }
+}
+</style>
