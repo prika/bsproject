@@ -8,7 +8,6 @@
                     </li>
                 </ul>
             
-         
                 <div class="mobileAdd">
                     <a href="/simulador">{{$t('simulator')}}</a>
                     <div class="social-icons d-flex align-items-center">
@@ -35,7 +34,7 @@ export default {
     data() {
         return {
              itensMenu: [
-                {name: i18n.t('menu-institutional'), link: '/institutional'},
+                //{name: i18n.t('menu-institutional'), link: '/institutional'},
                 {name: i18n.t('menu-blocob'), link: '/bloco-b'},
                 {name: i18n.t('menu-bexplore'), link: '/b-explore'},
                 {name: i18n.t('menu-bproject'), link: '/b-project'},

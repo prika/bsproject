@@ -25,11 +25,13 @@
           <Language />
 
           <div class="controls d-flex">
-              <button class="buttons searchButton" 
-                @click="showModal = true"
-                v-bind:aria-label="$t('button-arialabel-open-search')">
-                <SearchButton></SearchButton>
-              </button>
+                <!--router-link to="/search" itemprop="url" class="buttons searchButton" -->
+                    <button itemprop="url" class="buttons searchButton" 
+                        @click="showModal = true"
+                        v-bind:aria-label="$t('button-arialabel-open-search')">
+                        <SearchButton></SearchButton>
+                    </button>
+               <!--/router-link-->
 
               <button class="buttons userButton" 
                 @click="showLoginForm = true"

@@ -30,22 +30,19 @@
 
 <script>
     export default {
-        
-        mounted() {
+        beforeMount() {
             // Start Rellax
             var rellax = new Rellax('.rellax', {
                 center: true
             });
             // Destroy and create again parallax with previous settings
-            //rellax.refresh();
+            rellax.refresh();
+        },
+        watch: {
+            $route(to , from){
+                rellax.refresh();
+            }
         }
-        //,
-        // watch: {
-        //     $route(to , from){
-        //         rellax.refresh();
-        //         console.log("refresh")
-        //     }
-        // }
     }
 </script>
 

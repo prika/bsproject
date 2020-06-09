@@ -1,7 +1,7 @@
 <template>
   <div id="homepage" class="pageContainer">
     
-      <ArticleParallax />
+      <ArticleParallaxSmall />
 
       <NewsSlider />
 
@@ -14,7 +14,7 @@
 
 
 <script>
-import ArticleParallax from '@/components/ArticleParallax'
+import ArticleParallaxSmall from '@/components/ArticleParallaxSmall'
 import NewsSlider from '@/components/NewsSlider'
 import Address from '@/components/Address'
 import Contacts from '@/components/Contacts'
@@ -22,7 +22,7 @@ import Contacts from '@/components/Contacts'
 export default {
   name: 'homepage',
   components: {
-      ArticleParallax,
+      ArticleParallaxSmall,
       NewsSlider,
       Address,
       Contacts 

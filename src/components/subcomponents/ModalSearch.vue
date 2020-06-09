@@ -1,6 +1,9 @@
 <template>
-    <div class="modalSearch" >
-        <button class="closeMenuButton" v-bind:aria-label="$t('button-arialabel-close-menu')" @click="$emit('close')"></button>
+    <div class="modalSearch">  <!-- <PORTAL to="search" -->
+        <button class="closeMenuButton" 
+              v-bind:aria-label="$t('button-arialabel-close-menu')"
+              @click="$emit('close')"></button>
+             <!-- @click="$router.go(-1)"" -->
 
         <div class="row" v-bind:class="{hasSearchText}">
           <div class="col-6 clearfix">  
@@ -107,7 +110,7 @@
 
            this.hasSearchText = this.searchText != "" && this.searchText.length > 0
 
-          
+           //q = this.$route.query.q
            // Search things axios....
         }
       }

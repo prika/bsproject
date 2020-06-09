@@ -17,6 +17,17 @@
                 <div class="carousel-item">
                     <img class="d-block w-100" src="../assets/images/banners/banner_stone_foto_2.jpg" alt="Third slide">
                 </div>
+
+                <div class="carousel-item">
+                     <vue-plyr ref="player1">
+                        <video poster="../assets/images/explore/explore_5.jpg" src="../assets/media/video_exemplo.mp4" aria-label="Video ....">
+                            <source src="../assets/media/video_exemplo.mp4" type="video/mp4" size="720">
+                            <source src="../assets/media/video_exemplo.mp4" type="video/mp4" size="1080">
+                        </video>
+                    </vue-plyr>
+                </div>
+
+                
             </div>
 
             <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
@@ -36,7 +47,7 @@
 
 export default {
     beforeCreate() {
-        document.getElementsByClassName('carousel').carousel();
+        jQuery('carousel').carousel();
     }
 }
 </script>
