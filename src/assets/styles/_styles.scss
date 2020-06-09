@@ -870,6 +870,7 @@ footer{
 
         &.cofinance2{
            background: url(assets/images/footer/cofinanced2.svg) no-repeat center 0;
+           background-size: contain;
         }
 
         &:hover{
@@ -901,12 +902,19 @@ footer{
     }
 }
 
+@include media-breakpoint-down(md) {
+    .cofinancedby{
+      a {
+        width: 295px;
+        margin: 0 auto;
+      }
+  }
+}
+
+
 
 @include media-breakpoint-up(md) {
-  .cofinancedby{
-      a {
-        width: 355px;}
-  }
+
 
   footer{
     padding-top: 40px;

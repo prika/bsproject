@@ -1,13 +1,13 @@
 <template>
 <div class="col-12 col-lg-8 order-2 order-lg-1 d-flex justify-content-between align-items-center">
-   <nav class="col-7 d-flex justify-content-between">
+    <nav class="col-6 d-flex justify-content-between">
         <router-link    v-for="item in itensMenu" 
                         :to="item.link" 
                         :key="item.name" 
                         itemprop="url">{{item.name}}</router-link>
     </nav>
 
-    <div class="col-4 secondaryLinks d-flex justify-content-between align-itemns-end">
+    <div class="col-3 secondaryLinks d-flex justify-content-between align-itemns-end" style="padding-right: 70px;">
         <router-link    v-for="secitem in secundaryMenu" 
                         :to="secitem.link" 
                         :key="secitem.name" 
@@ -24,9 +24,11 @@ export default {
     data() {
         return {
             itensMenu: [
-                {name: i18n.t('product-type-blocos'), link: '/listagem'},
-                {name: i18n.t('product-type-ladrilhos'), link: '/listagem'},
-                {name: i18n.t('product-type-chapas'), link: '/listagem'},
+                // {name: i18n.t('product-type-blocos'), link: '/listagem'},
+                // {name: i18n.t('product-type-ladrilhos'), link: '/listagem'},
+                // {name: i18n.t('product-type-chapas'), link: '/listagem'},
+                {name: 'Collections', link: '/news'},
+                {name: 'News', link: '/news'},
                 {name: i18n.t('simulator'), link: '/simulator'}
             ],
             secundaryMenu: [
