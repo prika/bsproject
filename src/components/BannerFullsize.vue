@@ -49,9 +49,15 @@ export default {
 
 
 <style lang="scss">
+
 .carousel-item {
-    transition: opacity 1s ease;
+    display: block!important;
+    -webkit-transition:     opacity .8s cubic-bezier(0, .5, 0, 1);
+    -moz-transition:        opacity .8s cubic-bezier(0, .5, 0, 1);
+    -o-transition:          opacity .8s cubic-bezier(0, .5, 0, 1);
+    transition:             opacity .8s cubic-bezier(0, .5, 0, 1);
 }
+
 .carousel-indicators {
     align-items: baseline;
 
@@ -69,7 +75,10 @@ export default {
     text-align: center;
     cursor: pointer;
     background: none;
-    transition: opacity 1s ease;
+    -webkit-transition:     opacity 2s cubic-bezier(0, .5, 0, 1);
+    -moz-transition:        opacity 2s cubic-bezier(0, .5, 0, 1);
+    -o-transition:          opacity 2s cubic-bezier(0, .5, 0, 1);
+    transition:             opacity 2s cubic-bezier(0, .5, 0, 1);
     position: relative;
     opacity: 1;
 
