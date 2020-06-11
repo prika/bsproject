@@ -20,8 +20,8 @@
         <div class="col-12 parallaxGroup2">
             <img src="../assets/images/shared/exemplo_1.jpg" class="imageParallax3 col-5 img-fluid rellax" data-rellax-speed="0" alt="">
             <img src="../assets/images/shared/exemplo_2.jpg" class="imageParallax4 col-4 img-fluid rellax" data-rellax-speed="2" alt="">
-            <img src="../assets/images/shared/exemplo_3.jpg" class="imageParallax5 col-4 img-fluid rellax" data-rellax-speed="-1"  alt="">
-            <img src="../assets/images/shared/exemplo_4.jpg" class="imageParallax6 col-4 img-fluid rellax" data-rellax-speed="-2"  alt="">
+            <img src="../assets/images/shared/exemplo_3.jpg" class="imageParallax5 col-4 img-fluid rellax" data-rellax-speed="-1" alt="">
+            <img src="../assets/images/shared/exemplo_4.jpg" class="imageParallax6 col-4 img-fluid rellax" data-rellax-speed="-2" alt="">
             <img src="../assets/images/shared/exemplo_5.jpg" class="imageParallax7 col-4 img-fluid rellax" data-rellax-speed="4"  alt="">
         </div>
     </section>
@@ -54,17 +54,11 @@
 
     /* filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='assets/B_Simbolo_estatico_Corpo.svg', sizingMethod='scale');
     -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='assets/B_Simbolo_estatico_Corpo.svg', sizingMethod='scale')"; */
+    position: relative;
+    z-index: 0;
 
     //padding-top: 100px;
     margin-bottom: 130px;
-
-    &::before {
-        content: "";
-        display: block;
-        background: linear-gradient(to bottom, rgba(240, 240, 240, 0), #F0F0F0);
-        width: 100%;
-        height: 200px;
-    }
 }
 
 
@@ -79,8 +73,6 @@
 .parallaxGroup2{
   overflow: hidden;
   position: relative;
-  //margin-top: 400px;
-  background: #F0F0F0;
   height: 2900px;
 
 
@@ -122,8 +114,10 @@
 
 .pageContentText { 
   z-index: 2;
+  margin-top: 110px; 
   padding-top: 110px; 
-  background: #F0F0F0;
+  background: rgb(240,240,240);
+  background: linear-gradient(180deg, rgba(240,240,240,0) 0%, rgba(240,240,240,1) 10%, rgba(240,240,240,1) 90%, rgba(240,240,240,0) 100%);
 
     & h1{
         font-size: 40px;

@@ -1,6 +1,8 @@
 <template>
   <div id="homepage" class="pageContainer">
     
+      <Scroll />
+
       <BannerFullsize />
 
        <ArticleParallaxSmall>
@@ -21,6 +23,7 @@
 
 
 <script>
+import Scroll from '../components/subcomponents/scroll'
 import BannerFullsize from '../components/BannerFullsize'
 import ArticleParallaxSmall from '@/components/ArticleParallaxSmall'
 import NewsSlider from '@/components/NewsSlider'
@@ -30,6 +33,7 @@ import Contacts from '@/components/Contacts'
 export default {
   name: 'homepage',
   components: {
+      Scroll,
       BannerFullsize,
       ArticleParallaxSmall,
       NewsSlider,
