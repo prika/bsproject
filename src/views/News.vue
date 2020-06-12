@@ -15,13 +15,9 @@
 import NewsSlider from '@/components/NewsSlider'
 
 export default {
-  name: 'homepage',
+  name: 'newspage',
   components: {
-      NewsSlider
-  },
-  mounted() {
-      // Preloader
-      this.$eventBus.$emit('componentFinishLoad', true);
+     NewsSlider
   }
 }
 </script>

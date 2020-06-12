@@ -4,99 +4,16 @@
         <slot></slot>
 
         <div class="row">
-            <a class="col-4 newsBlock">
-                 <div class="newsContentIimage"><img src="../assets/images/shared/exemplo_3.jpg" class="img-fluid" alt=""></div>
+            <a class="col-4 newsBlock" v-for="singleNews in news">
+                 <div class="newsContentIimage"><img :src="singleNews.gallery[0].src" class="img-fluid" alt=""></div>
                  
-                 <div class="newsContentText col-7">
+                 <div class="newsContentText col-7" >
                     <div class="text">
-                        <p>O Grupo J .Silva investe na Bloco B transformando a empresa numa das mais modernas no sector dos Mármores!</p>
-                        <p class="newsDate">23   —   novembro  —   2018</p>
+                        <p>{{singleNews.content}}</p>
+                        <p class="newsDate">{{singleNews.publication_data}}</p>
                     </div>
                  </div>
             </a>
-            <a class="col-4 newsBlock">
-                <div class="newsContentIimage"><img src="../assets/images/shared/exemplo_3.jpg" class="img-fluid" alt=""></div>
-                 
-                 <div class="newsContentText col-7">
-                    <div class="text">
-                        <p>O Grupo J .Silva investe na Bloco B transformando a empresa numa das mais modernas no sector dos Mármores!</p>
-                        <p class="newsDate">23   —   novembro  —   2018</p>
-                    </div>
-                 </div>
-            </a>
-            <a class="col-4 newsBlock">
-                <div class="newsContentIimage"><img src="../assets/images/shared/exemplo_3.jpg" class="img-fluid" alt=""></div>
-                 
-                 <div class="newsContentText col-7">
-                    <div class="text">
-                        <p>O Grupo J .Silva investe na Bloco B transformando a empresa numa das mais modernas no sector dos Mármores!</p>
-                        <p class="newsDate">23   —   novembro  —   2018</p>
-                    </div>
-                 </div>
-            </a>
-
-             <a class="col-4 newsBlock">
-                 <div class="newsContentIimage"><img src="../assets/images/shared/exemplo_3.jpg" class="img-fluid" alt=""></div>
-                 
-                 <div class="newsContentText col-7">
-                    <div class="text">
-                        <p>O Grupo J .Silva investe na Bloco B transformando a empresa numa das mais modernas no sector dos Mármores!</p>
-                        <p class="newsDate">23   —   novembro  —   2018</p>
-                    </div>
-                 </div>
-            </a>
-            <a class="col-4 newsBlock">
-                <div class="newsContentIimage"><img src="../assets/images/shared/exemplo_3.jpg" class="img-fluid" alt=""></div>
-                 
-                 <div class="newsContentText col-7">
-                    <div class="text">
-                        <p>O Grupo J .Silva investe na Bloco B transformando a empresa numa das mais modernas no sector dos Mármores!</p>
-                        <p class="newsDate">23   —   novembro  —   2018</p>
-                    </div>
-                 </div>
-            </a>
-            <a class="col-4 newsBlock">
-                <div class="newsContentIimage"><img src="../assets/images/shared/exemplo_3.jpg" class="img-fluid" alt=""></div>
-                 
-                 <div class="newsContentText col-7">
-                    <div class="text">
-                        <p>O Grupo J .Silva investe na Bloco B transformando a empresa numa das mais modernas no sector dos Mármores!</p>
-                        <p class="newsDate">23   —   novembro  —   2018</p>
-                    </div>
-                 </div>
-            </a>
-
-             <a class="col-4 newsBlock">
-                 <div class="newsContentIimage"><img src="../assets/images/shared/exemplo_3.jpg" class="img-fluid" alt=""></div>
-                 
-                 <div class="newsContentText col-7">
-                    <div class="text">
-                        <p>O Grupo J .Silva investe na Bloco B transformando a empresa numa das mais modernas no sector dos Mármores!</p>
-                        <p class="newsDate">23   —   novembro  —   2018</p>
-                    </div>
-                 </div>
-            </a>
-            <a class="col-4 newsBlock">
-                <div class="newsContentIimage"><img src="../assets/images/shared/exemplo_3.jpg" class="img-fluid" alt=""></div>
-                 
-                 <div class="newsContentText col-7">
-                    <div class="text">
-                        <p>O Grupo J .Silva investe na Bloco B transformando a empresa numa das mais modernas no sector dos Mármores!</p>
-                        <p class="newsDate">23   —   novembro  —   2018</p>
-                    </div>
-                 </div>
-            </a>
-            <a class="col-4 newsBlock">
-                <div class="newsContentIimage"><img src="../assets/images/shared/exemplo_3.jpg" class="img-fluid" alt=""></div>
-                 
-                 <div class="newsContentText col-7">
-                    <div class="text">
-                        <p>O Grupo J .Silva investe na Bloco B transformando a empresa numa das mais modernas no sector dos Mármores!</p>
-                        <p class="newsDate">23   —   novembro  —   2018</p>
-                    </div>
-                 </div>
-            </a>
-
            
         </div>
 
@@ -111,8 +28,26 @@
     export default {
         components: {
            seeMoreButton
+        },
+        data() {
+            return {
+                news:[]
+            }      
+        },
+        mounted() {
+            // Preloader
+            this.$eventBus.$emit('componentFinishLoad', true);
+        },
+        created(){
+            this.$http.get('list-news-mock.json').then(response => {
+                this.news = response.data;
+                console.log(response.data)
+            })
         }
-    }
+
+
+}
+  
 </script>
 
 <style lang="scss">

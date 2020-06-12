@@ -1,0 +1,22 @@
+[
+    { 
+        "id": "news1",
+        "title": "B group comprehends 4 diferent, yet complimentary companies and activities",
+        "content": "Quarrying with Bexplore; Transformation and distribution with BlocoB, Cut to size projects with Bproject and 3D special projects with Binnovationitecture and Decoration It’s versatility, robustness and magnificence make of it the most wanted material for various environments, from classical to avant ga",
+        "publication_data": "20/06/1980",
+        "gallery": [
+            {"src": "@/assets/images/facebook_592x292.jpg", "alt": "Image Test"},
+            {"src": "@/assets/images/facebook_592x292.jpg", "alt": "Image Test"}
+        ]
+    },
+    { 
+        "id": "news2",
+        "title": "yet complimentary companies and activities",
+        "content": "Quarrying with Bexplore; Transformation and distribution with BlocoB, Cut to size projects with Bproject and 3D special projects with Binnovationitecture and Decoration It’s versatility, robustness and magnificence make of it the most wanted material for various environments, from classical to avant ga",
+        "publication_data": "20/06/1980",
+        "gallery": [
+            {"src": "@/assets/images/facebook_592x292.jpg", "alt": "Image Test"}
+        ]
+    }
+    
+]
