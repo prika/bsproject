@@ -98,10 +98,10 @@
                 height: 380px;
                 padding: 60px 55px;
                 background: #FFF;
-                -webkit-clip-path:  polygon(156.430px 0px, 0px 0px, 0px 379.014px, 260.676px 379.014px, 260.676px 61.515px);
-                -o-clip-path:       polygon(156.430px 0px, 0px 0px, 0px 379.014px, 260.676px 379.014px, 260.676px 61.515px);
-                -ms-clip-path:      polygon(156.430px 0px, 0px 0px, 0px 379.014px, 260.676px 379.014px, 260.676px 61.515px);
-                clip-path:          polygon(156.430px 0px, 0px 0px, 0px 379.014px, 260.676px 379.014px, 260.676px 61.515px); 
+                -webkit-clip-path:  polygon(156px 0, 0 0, 0 379px, 260px 379px, 260px 61px);
+                -o-clip-path:       polygon(156px 0, 0 0, 0 379px, 260px 379px, 260px 61px);
+                -ms-clip-path:      polygon(156px 0, 0 0, 0 379px, 260px 379px, 260px 61px);
+                clip-path:          polygon(156px 0, 0 0, 0 379px, 260px 379px, 260px 61px);
 
                 p{
                     font-size: 18px;
@@ -150,10 +150,10 @@
             }
 
             .newsContentText::after {
-                -webkit-clip-path:  polygon(95.324px 8.821px, 17.800px 6.235px, 102.010px 58.286px);
-                -o-clip-path:       polygon(95.324px 8.821px, 17.800px 6.235px, 102.010px 58.286px);
-                -ms-clip-path:      polygon(95.324px 8.821px, 17.800px 6.235px, 102.010px 58.286px);
-                clip-path:          polygon(95.324px 8.821px, 17.800px 6.235px, 102.010px 58.286px);
+                -webkit-clip-path:  polygon(95px 8px, 17px 6px, 102px 58px);
+                -o-clip-path:       polygon(95px 8px, 17px 6px, 102px 58px);
+                -ms-clip-path:      polygon(95px 8px, 17px 6px, 102px 58px);
+                clip-path:          polygon(95px 8px, 17px 6px, 102px 58px);
             }
         }
 
