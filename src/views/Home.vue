@@ -12,7 +12,9 @@
           </div>
       </ArticleParallaxSmall>
 
-      <NewsSlider />
+      <NewsSlider>
+        <h1 class="pageTitleh2 h2">notícias</h1>
+      </NewsSlider>
 
       <Address />
 

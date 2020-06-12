@@ -44,7 +44,12 @@ const routes = [
     // this generates a separate chunk (BInnovation.[hash].js) for this route
     // which is lazy-loaded when the route is visited. /* webpackChunkName: "BInnovation" */ 
     component: () => import('../views/ListPage.vue')
-  }
+  },
+  {
+    path: '/news',
+    name: 'news',
+    component: () => import('../views/News.vue')
+  },
 
 ]
 

@@ -1,10 +1,10 @@
 <template>
    <section class="newsContainer container">
 
-        <h1 class="pageTitleh2 h2">notícias</h1>
+        <slot></slot>
 
         <div class="row">
-            <a class="col-3 newsBlock">
+            <a class="col-4 newsBlock">
                  <div class="newsContentIimage"><img src="../assets/images/shared/exemplo_3.jpg" class="img-fluid" alt=""></div>
                  
                  <div class="newsContentText col-7">
@@ -14,7 +14,7 @@
                     </div>
                  </div>
             </a>
-            <a class="col-3 newsBlock">
+            <a class="col-4 newsBlock">
                 <div class="newsContentIimage"><img src="../assets/images/shared/exemplo_3.jpg" class="img-fluid" alt=""></div>
                  
                  <div class="newsContentText col-7">
@@ -24,7 +24,7 @@
                     </div>
                  </div>
             </a>
-            <a class="col-3 newsBlock">
+            <a class="col-4 newsBlock">
                 <div class="newsContentIimage"><img src="../assets/images/shared/exemplo_3.jpg" class="img-fluid" alt=""></div>
                  
                  <div class="newsContentText col-7">
@@ -34,9 +34,73 @@
                     </div>
                  </div>
             </a>
+
+             <a class="col-4 newsBlock">
+                 <div class="newsContentIimage"><img src="../assets/images/shared/exemplo_3.jpg" class="img-fluid" alt=""></div>
+                 
+                 <div class="newsContentText col-7">
+                    <div class="text">
+                        <p>O Grupo J .Silva investe na Bloco B transformando a empresa numa das mais modernas no sector dos Mármores!</p>
+                        <p class="newsDate">23   —   novembro  —   2018</p>
+                    </div>
+                 </div>
+            </a>
+            <a class="col-4 newsBlock">
+                <div class="newsContentIimage"><img src="../assets/images/shared/exemplo_3.jpg" class="img-fluid" alt=""></div>
+                 
+                 <div class="newsContentText col-7">
+                    <div class="text">
+                        <p>O Grupo J .Silva investe na Bloco B transformando a empresa numa das mais modernas no sector dos Mármores!</p>
+                        <p class="newsDate">23   —   novembro  —   2018</p>
+                    </div>
+                 </div>
+            </a>
+            <a class="col-4 newsBlock">
+                <div class="newsContentIimage"><img src="../assets/images/shared/exemplo_3.jpg" class="img-fluid" alt=""></div>
+                 
+                 <div class="newsContentText col-7">
+                    <div class="text">
+                        <p>O Grupo J .Silva investe na Bloco B transformando a empresa numa das mais modernas no sector dos Mármores!</p>
+                        <p class="newsDate">23   —   novembro  —   2018</p>
+                    </div>
+                 </div>
+            </a>
+
+             <a class="col-4 newsBlock">
+                 <div class="newsContentIimage"><img src="../assets/images/shared/exemplo_3.jpg" class="img-fluid" alt=""></div>
+                 
+                 <div class="newsContentText col-7">
+                    <div class="text">
+                        <p>O Grupo J .Silva investe na Bloco B transformando a empresa numa das mais modernas no sector dos Mármores!</p>
+                        <p class="newsDate">23   —   novembro  —   2018</p>
+                    </div>
+                 </div>
+            </a>
+            <a class="col-4 newsBlock">
+                <div class="newsContentIimage"><img src="../assets/images/shared/exemplo_3.jpg" class="img-fluid" alt=""></div>
+                 
+                 <div class="newsContentText col-7">
+                    <div class="text">
+                        <p>O Grupo J .Silva investe na Bloco B transformando a empresa numa das mais modernas no sector dos Mármores!</p>
+                        <p class="newsDate">23   —   novembro  —   2018</p>
+                    </div>
+                 </div>
+            </a>
+            <a class="col-4 newsBlock">
+                <div class="newsContentIimage"><img src="../assets/images/shared/exemplo_3.jpg" class="img-fluid" alt=""></div>
+                 
+                 <div class="newsContentText col-7">
+                    <div class="text">
+                        <p>O Grupo J .Silva investe na Bloco B transformando a empresa numa das mais modernas no sector dos Mármores!</p>
+                        <p class="newsDate">23   —   novembro  —   2018</p>
+                    </div>
+                 </div>
+            </a>
+
+           
         </div>
 
-        <a href="/noticias" style="display: block; text-align: center; margin: 100px 0;"><seeMoreButton>Ver mais</seeMoreButton></a>
+        <a href="/news" style="display: block; text-align: center; margin: 100px 0;"><seeMoreButton>Ver mais</seeMoreButton></a>
     </section>
 </template>
 
@@ -65,6 +129,8 @@
     .newsBlock{
         position: relative;
         height: 520px;
+        padding: 0 5%;
+        margin-bottom: 8%;
 
         & .newsContentIimage{
             position: absolute;
