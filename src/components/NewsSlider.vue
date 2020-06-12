@@ -5,11 +5,13 @@
 
         <div class="row">
             <a class="col-4 newsBlock" v-for="singleNews in news">
-                 <div class="newsContentIimage"><img :src="singleNews.gallery[0].src" class="img-fluid" alt=""></div>
+                 <div class="newsContentIimage">
+                    <img :src="getImgUrl(singleNews.gallery[0].src)" class="img-fluid" :alt="singleNews.gallery[0].alt">
+                </div>
                  
                  <div class="newsContentText col-7" >
                     <div class="text">
-                        <p>{{singleNews.content}}</p>
+                        <p>{{singleNews.title}}</p>
                         <p class="newsDate">{{singleNews.publication_data}}</p>
                     </div>
                  </div>
@@ -38,10 +40,15 @@
             // Preloader
             this.$eventBus.$emit('componentFinishLoad', true);
         },
+        methods:
+        {
+            getImgUrl: function (src) {
+                return require('@/assets/images/news/'+src)
+            }
+        },
         created(){
             this.$http.get('list-news-mock.json').then(response => {
                 this.news = response.data;
-                console.log(response.data)
             })
         }
 
