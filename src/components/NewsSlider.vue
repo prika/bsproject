@@ -5,12 +5,14 @@
 
         <div class="row">
             <a class="col-4 newsBlock" v-for="singleNews in news">
-                 <div class="newsContentIimage"><img :src="singleNews.gallery[0].src" class="img-fluid" alt=""></div>
+                 <div class="newsContentIimage">
+                    <img :src="require(`@/assets/${singleNews.gallery[0].src}`)" class="img-fluid" :alt="singleNews.title">
+                </div>
                  
                  <div class="newsContentText col-7" >
                     <div class="text">
-                        <p>{{singleNews.content}}</p>
-                        <p class="newsDate">{{singleNews.publication_data}}</p>
+                        <p> {{singleNews.title}} </p>
+                        <p class="newsDate"> {{singleNews.publication_data}} </p>
                     </div>
                  </div>
             </a>
@@ -23,35 +25,30 @@
 
         
 <script>
-    import seeMoreButton from '@/components/ui/seeMoreButton'
+import seeMoreButton from '@/components/ui/seeMoreButton'
 
-    export default {
-        components: {
-           seeMoreButton
-        },
-        data() {
-            return {
-                news:[]
-            }      
-        },
-        mounted() {
-            // Preloader
-            this.$eventBus.$emit('componentFinishLoad', true);
-        },
-        created(){
-            this.$http.get('list-news-mock.json').then(response => {
-                this.news = response.data;
-                console.log(response.data)
-            })
-        }
-
-
+export default {
+    components: {
+        seeMoreButton
+    },
+    data() {
+        return {
+            news:[]
+        }      
+    },
+    mounted() {
+        // Preloader
+        this.$eventBus.$emit('componentFinishLoad', true);
+    },
+    created(){
+        this.$http.get('list-news-mock.json').then(response => {
+            this.news = response.data;
+        })
+    }
 }
-  
 </script>
 
 <style lang="scss">
-
 .newsContainer {
     z-index: 0;
     padding: 0 50px;
