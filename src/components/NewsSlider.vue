@@ -156,6 +156,21 @@
                 clip-path:          polygon(95.324px 8.821px, 17.800px 6.235px, 102.010px 58.286px);
             }
         }
+
+        &:nth-child(2):hover .newsContentText:nth-child(2)::after{
+            -webkit-clip-path:  polygon(105px 0, 0 0, 90px 50px);
+            -o-clip-path:       polygon(105px 0, 0 0, 90px 50px);
+            -ms-clip-path:      polygon(105px 0, 0 0, 90px 50px);
+            clip-path:          polygon(105px 0, 0 0, 90px 50px);
+        }
+
+        &:nth-child(3):hover .newsContentText:nth-child(2)::after{
+            -webkit-clip-path:  polygon(110px 2px, 25px 10px, 95px 55px);
+            -o-clip-path:       polygon(110px 2px, 25px 10px, 95px 55px);
+            -ms-clip-path:      polygon(110px 2px, 25px 10px, 95px 55px);
+            clip-path:          polygon(110px 2px, 25px 10px, 95px 55px);
+        }
+
     }
 }
 }
