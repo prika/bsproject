@@ -86,9 +86,13 @@
 </script>
 
 <style lang="scss">
+#bexplorepage{
+padding-top: 110px;
+}
 
 .wrapper { 
-  margin: 0 auto 110px; max-width: 1080px;
+  margin: 0 auto 110px; 
+  max-width: 1080px;
   text-align: center;
 }
 

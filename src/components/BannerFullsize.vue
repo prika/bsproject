@@ -41,7 +41,7 @@
 
 <script>
 export default {
-    beforeCreate() {
+    mounted() {
         jQuery('carousel').carousel();
     }
 }

@@ -1,18 +1,29 @@
+import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import i18n from './i18n'
 import VuePlyr from 'vue-plyr'
 //import store from './store/store'
 import Vuex from 'vuex'
-//import axios from 'axios'
-//import VueAxios from 'vue-axios'
+import axios from 'axios'
+import VueAxios from 'vue-axios'
 
 import "./plugins/axios"
  
-Vue.config.productionTip = false
+//Vue.config.productionTip = false
 
-Vue.use(router,  Vuex)
-//axios, VueAxios,
+Vue.directive('scroll', {     
+  inserted: function (el, binding) {
+      let f = function (evt) {
+          if (binding.value(evt, el)) {
+              window.removeEventListener('scroll', f)
+          }
+      }
+      window.addEventListener('scroll', f)
+  }
+})
+
+Vue.use(router, axios, VueAxios,Vuex)
 
 Vue.prototype.$eventBus = new Vue()
 
@@ -27,8 +38,8 @@ new Vue({
   router,
   //store,
   i18n,
-  //axios,
-  //VueAxios,
+  axios,
+  VueAxios,
   Vuex,
   render: function (h) { return h(App) }
 }).$mount('#app')
