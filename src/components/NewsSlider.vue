@@ -4,7 +4,7 @@
         <slot></slot>
 
         <div class="row">
-            <a class="col-4 newsBlock" v-for="singleNews in news">
+            <router-link :to="'/news/:'+singleNews.id" class="col-4 newsBlock animated zoomIn" v-for="singleNews in news">
                  <div class="newsContentIimage">
                     <img :src="getImgUrl(singleNews.gallery[0].src)" class="img-fluid" :alt="singleNews.gallery[0].alt">
                 </div>
@@ -15,46 +15,64 @@
                         <p class="newsDate">{{singleNews.publication_data}}</p>
                     </div>
                  </div>
-            </a>
-           
+            </router-link>
         </div>
+        
+        <a @click="loadMoreClick" v-if="hasPaging"
+            style="display: block; text-align: center; margin: 100px 0;">
+            <seeMoreButton>Ver mais load more</seeMoreButton>
+        </a>
 
-        <a href="/news" style="display: block; text-align: center; margin: 100px 0;"><seeMoreButton>Ver mais</seeMoreButton></a>
+        <router-link to="/news" v-if="!hasPaging"
+            style="display: block; text-align: center; margin: 100px 0;">
+            <seeMoreButton>Ver mais link</seeMoreButton>
+        </router-link>
     </section>
 </template>
 
-        
+
 <script>
-    import seeMoreButton from '@/components/ui/seeMoreButton'
+import seeMoreButton from '@/components/ui/seeMoreButton'
 
-    export default {
-        components: {
-           seeMoreButton
+export default {
+    components: {
+        seeMoreButton
+    },
+    data() {
+        return {
+            news:[],
+            fullNews:[],
+            currentPage:1,
+            itemsPerPage: 0,
+            language: "en",
+            hasPaging: true
+        }      
+    },
+    mounted() {
+        // Preloader
+        this.$eventBus.$emit('componentFinishLoad', true);
+        this.itemsPerPage = this.$parent.newsAmount
+        this.hasPaging = this.$parent.hasPaging
+    },
+    methods:
+    {
+        getImgUrl: function (src) {
+            return require('@/assets/images/news/'+src)
         },
-        data() {
-            return {
-                news:[]
-            }      
-        },
-        mounted() {
-            // Preloader
-            this.$eventBus.$emit('componentFinishLoad', true);
-        },
-        methods:
+        loadMoreClick()
         {
-            getImgUrl: function (src) {
-                return require('@/assets/images/news/'+src)
-            }
-        },
-        created(){
-            this.$http.get('list-news-mock.json').then(response => {
-                this.news = response.data;
-            })
+            let slice = this.fullNews.slice(this.currentPage*this.itemsPerPage, (this.currentPage + 1) * this.itemsPerPage)
+            this.news = this.news.concat(slice)
+            this.currentPage++
         }
-
-
+    },
+    created(){
+        this.$http.get('list-news-mock.json').then(response => {
+            this.fullNews = response.data
+            this.news = this.fullNews.slice(0, this.itemsPerPage)
+        })
+    }
 }
-  
 </script>
 
 <style lang="scss">
@@ -73,6 +91,7 @@
         height: 520px;
         padding: 0 5%;
         margin-bottom: 8%;
+        
 
         & .newsContentIimage{
             position: absolute;
@@ -182,5 +201,4 @@
     }
 }
 }
-
 </style>

@@ -25,7 +25,6 @@ Vue.directive('scroll', {
 
 Vue.use(router, axios, VueAxios,Vuex)
 
-Vue.prototype.$eventBus = new Vue()
 
 Vue.use(VuePlyr, {
   plyr: {
@@ -34,7 +33,7 @@ Vue.use(VuePlyr, {
   emit: ['ended']
 })
 
-new Vue({
+const vue = new Vue({
   router,
   //store,
   i18n,
@@ -42,5 +41,8 @@ new Vue({
   VueAxios,
   Vuex,
   render: function (h) { return h(App) }
-}).$mount('#app')
+})
+
+Vue.prototype.$eventBus = vue;
+vue.$mount('#app')
 

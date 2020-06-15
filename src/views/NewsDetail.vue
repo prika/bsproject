@@ -1,9 +1,10 @@
 <template>
   <div id="newspage" class="pageContainer">
-       
+      
+
       <NewsSlider>
          <h1 class="pageTitle" :aria-label="$t('home-title-page')" > 
-            {{ $t('home-title-page-split1') }}<span>{{ $t('home-title-page-split2') }}</span>
+            Detalhe {{ $t('home-title-page-split1') }}<span>{{ $t('home-title-page-split2') }}</span>
          </h1>
       </NewsSlider>
 
@@ -21,8 +22,8 @@ export default {
    },
    data() {
     return {
-      newsAmount: 3,
-      hasPaging: true
+      newsAmount: 1,
+      hasPaging: false
     }
   }
 }

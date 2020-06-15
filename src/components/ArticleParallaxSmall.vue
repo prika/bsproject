@@ -57,8 +57,12 @@
     position: relative;
     z-index: 0;
 
-    //padding-top: 100px;
-    margin-bottom: 130px;
+    &:after{
+        content: '';
+        display: block;
+        background: linear-gradient(rgba(240, 240, 240, 0) 0%, #f0f0f0 100%);
+        height: 130px;
+    }
 }
 
 

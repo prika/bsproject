@@ -42,6 +42,12 @@ export default {
       Address,
       Contacts 
   },
+  data() {
+    return {
+      newsAmount: 3,
+      hasPaging: false
+    }
+  },
   mounted() {
       // Preloader
       this.$eventBus.$emit('componentFinishLoad', true);
