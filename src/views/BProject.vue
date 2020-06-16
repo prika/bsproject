@@ -10,7 +10,9 @@
 
       <CollectionsSmall />
 
-      <PortfolioMansory />
+      <PortfolioMansory>
+          <h1 class="pageTitleh2 h2">{{bproject.title1}}<span>{{bproject.title2}}</span></h1>
+      </PortfolioMansory>
 
       <Address />
 
@@ -39,13 +41,14 @@ export default {
     return {
          bproject: '',
          gallery1: [],
-         gallery2: []
+         gallery2: [],
+         mansory: []
     }
   },
   methods:
     {
         getImgUrl: function (src) {
-            return require( '@/assets/images/news/'+src )
+            return require( '@/assets/images/'+src )
         },
         parseObject: function(source, destination)
         {
@@ -61,7 +64,8 @@ export default {
          this.$http.get('../mocks/b-project-mock.json').then(response => {
             this.bproject = response.data
             this.parseObject(response.data.gallery1, this.gallery1)            
-            this.parseObject(response.data.gallery2, this.gallery2)            
+            this.parseObject(response.data.gallery2, this.gallery2) 
+            this.parseObject( response.data.mansory, this.mansory )           
          })
     },
     mounted() {

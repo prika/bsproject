@@ -7,13 +7,9 @@
 
       <ArticleParallaxSmall>
           <div class="pageContentText col-5 order-md-2">
-              <h1>{{homepage.title}}</h1>
-              <p>{{homepage.content}}</p>
+              <h1>{{home.title}}</h1>
+              <p>{{home.content}}</p>
           </div>
-
-           <h1 class="pageTitle" :aria-label="$t('home-title-page')" > 
-                {{ $t('home-title-page-split1') }}<span>{{ $t('home-title-page-split2') }}</span>
-           </h1>
       </ArticleParallaxSmall>
 
       <NewsSlider>
@@ -51,15 +47,16 @@ export default {
       newsAmount: 3,
       hasPaging: false,
       hasLink: true,
-      homepage: '',
+      home: '',
       gallery1: [],
-      gallery2: []
+      gallery2: [],
+      slidergallery: []
     }
   },
   methods:
     {
         getImgUrl: function (src) {
-            return require( '@/assets/images/news/'+src )
+            return require( '@/assets/images/'+src )
         },
         parseObject: function(source, destination)
         {
@@ -73,9 +70,11 @@ export default {
     },
     created(){
          this.$http.get('../mocks/homepage-mock.json').then(response => {
-            this.homepage = response.data
-            this.parseObject(response.data.gallery1, this.gallery1)            
-            this.parseObject(response.data.gallery2, this.gallery2)            
+            this.home = response.data
+            this.parseObject(response.data.gallery1, this.gallery1)
+            this.parseObject(response.data.gallery2, this.gallery2)
+
+            this.parseObject(response.data.slidergallery, this.slidergallery)            
          })
     },
     mounted() {

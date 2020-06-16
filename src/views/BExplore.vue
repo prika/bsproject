@@ -1,7 +1,9 @@
 <template>
   <div id="bexplorepage">
 
-      <PortfolioMansory />
+      <PortfolioMansory>
+          <h1 class="pageTitleh2 h2">{{bexplore.title1}}<span>{{bexplore.title2}}</span></h1>
+      </PortfolioMansory>
 
       <Address />
 
@@ -22,6 +24,33 @@ export default {
       Address,
       Contacts  
   },
+  data() {
+    return {
+      bexplore: '',
+      mansory: []
+    }
+  },
+  methods:
+    {
+        getImgUrl: function (src) {
+            return require('@/assets/images/'+src)
+        },
+        parseObject: function(source, destination)
+        {
+            for ( var i = 0 ; i < source.length; i++ ) {
+               let obj = source[i]
+               let fullPath = this.getImgUrl(obj.src)
+               obj.src = fullPath
+               destination.push(obj)
+            }
+        }        
+    },
+    created(){
+         this.$http.get('../mocks/b-explore-mock.json').then(response => {
+            this.bexplore = response.data
+            this.parseObject( response.data.mansory, this.mansory )          
+         })
+    },
   // computed: {
   //   player () {
   //     //return this.$refs.player1.player;

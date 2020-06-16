@@ -1,0 +1,17 @@
+{ 
+    "id": "bexplore",
+    "title1": "Port",
+    "title2": "folio",
+    "content": "A versatilidade, robustez e magnificência fazem do mármore o material mais desejado para vários ambientes, do mais clássico ao vanguardista. B innovation promete criar a solução ideal para si, à sua medida.",
+    "mansory": [
+        {"src": "explore/explore_1.jpg", "alt": "Image Test"},
+        {"src": "explore/explore_2.jpg", "alt": "Image Test"},
+        {"src": "explore/explore_3.jpg", "alt": "Image Test"},
+        {"src": "explore/explore_4.jpg", "alt": "Image Test"},
+        {"src": "explore/explore_5.jpg", "alt": "Image Test"},
+        {"src": "explore/explore_6.jpg", "alt": "Image Test"},
+        {"src": "explore/explore_7.jpg", "alt": "Image Test"},
+        {"src": "explore/explore_8.jpg", "alt": "Image Test"},
+        {"src": "explore/explore_9.jpg", "alt": "Image Test"}
+    ]
+}

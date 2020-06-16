@@ -1,25 +1,17 @@
 <template>
     <div class="container">
-        <h1 class="pageTitleh2 h2">Port<span>folio</span></h1>
+        
+        <slot></slot>
 
         <div class="wrapper">
-          <div class="masonry masonry--v effect">
-            <figure class="masonry-brick masonry-brick--v">
-                <img src="../assets/images/explore/explore_1.jpg" class="masonry-img" alt="Masonry Brick #5">
-            </figure>
-            <figure class="masonry-brick masonry-brick--v">
-                <img src="../assets/images/explore/explore_2.jpg" class="masonry-img" alt="Masonry Brick #2">
-            </figure>
-            <figure class="masonry-brick masonry-brick--v"> 
-                <img src="../assets/images/explore/explore_3.jpg" class="masonry-img" alt="Masonry Brick #2">
-            </figure>
-           <figure class="masonry-brick masonry-brick--v">
-                <img src="../assets/images/explore/explore_4.jpg" class="masonry-img" alt="Masonry Brick #4">
-            </figure>
+            <div class="masonry masonry--v effect">
 
-            <figure class="masonry-brick masonry-brick--v">
+              <figure class="masonry-brick masonry-brick--v" v-for="image in imageGroupMansory">
+                  <img  :src="image.src" 
+                        :alt="image.alt" class="masonry-img">
+              </figure>
 
-                <!-- file option -->
+              <!--  
                 <vue-plyr ref="player1">
                   <video poster="../assets/images/explore/explore_5.jpg" src="../assets/media/video_exemplo.mp4" aria-label="Video ....">
                     <source src="../assets/media/video_exemplo.mp4" type="video/mp4" size="720">
@@ -27,8 +19,6 @@
                   </video>
                 </vue-plyr>
 
-                <!-- youtube option with progressive enhancement-->
-                <!-- 
                 <vue-plyr>
                   <div class="plyr__video-embed">
                     <iframe 
@@ -38,11 +28,7 @@
                     </iframe>
                   </div>
                 </vue-plyr>
-                 -->
-
-
-                <!-- vimeo iframe with progressive enhancement -->
-                <!-- 
+                 
                 <vue-plyr>
                     <div class="plyr__video-embed">
                       <iframe
@@ -52,23 +38,8 @@
                     </div>
                 </vue-plyr>
                 -->
-                
-            </figure>
             
-            <figure class="masonry-brick masonry-brick--v">
-                <img src="../assets/images/explore/explore_6.jpg" class="masonry-img" alt="Masonry Brick #3">
-            </figure>
-            <figure class="masonry-brick masonry-brick--v">
-                <img src="../assets/images/explore/explore_7.jpg" class="masonry-img" alt="Masonry Brick #3">
-            </figure>
-             <figure class="masonry-brick masonry-brick--v">
-                <img src="../assets/images/explore/explore_8.jpg" class="masonry-img" alt="Masonry Brick #3">
-            </figure>
-             <figure class="masonry-brick masonry-brick--v">
-                <img src="../assets/images/explore/explore_9.jpg" class="masonry-img" alt="Masonry Brick #3">
-            </figure>
-            
-          </div>
+            </div>
 
             <seeMoreButton>Ver mais</seeMoreButton>
         </div>
@@ -81,6 +52,14 @@
     export default {
         components: {
            seeMoreButton
+        },
+        data() {
+            return {
+                imageGroupMansory:[]
+            }
+        },
+        beforeMount() {
+            this.imageGroupMansory = this.$parent.mansory
         }
     }
 </script>

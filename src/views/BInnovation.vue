@@ -8,7 +8,9 @@
           </div>
       </ArticleParallaxSmall>
 
-      <PortfolioMansory />
+      <PortfolioMansory>
+          <h1 class="pageTitleh2 h2">{{binnovation.title1}}<span>{{binnovation.title2}}</span></h1>
+      </PortfolioMansory>
 
       <Address />
 
@@ -36,13 +38,15 @@ export default {
     return {
          binnovation: '',
          gallery1: [],
-         gallery2: []
+         gallery2: [],
+         mansory: []
     }
   },
   methods:
     {
-        getImgUrl: function (src) {
-            return require( '@/assets/images/news/'+src )
+        getImgUrl: function (src) 
+        {
+            return require("@/assets/images/"+src)
         },
         parseObject: function(source, destination)
         {
@@ -52,14 +56,17 @@ export default {
                obj.src = fullPath
                destination.push(obj)
             }
-        }        
+        },
     },
     created(){
          this.$http.get('../mocks/b-innovation-mock.json').then(response => {
             this.binnovation = response.data
+            
             this.parseObject(response.data.gallery1, this.gallery1)            
-            this.parseObject(response.data.gallery2, this.gallery2)            
+            this.parseObject(response.data.gallery2, this.gallery2)
+            this.parseObject(response.data.mansory, this.mansory)
          })
+
     },
     mounted() {
         this.$eventBus.$emit('componentFinishLoad', true);

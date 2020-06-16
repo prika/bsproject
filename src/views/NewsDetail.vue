@@ -34,7 +34,7 @@ export default {
   methods:
     {
         getImgUrl: function (src) {
-            return require( '@/assets/images/news/'+src )
+            return require( '@/assets/images/'+src )
         },
         parseObject: function(source, destination)
         {

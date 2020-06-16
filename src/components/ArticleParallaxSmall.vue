@@ -54,11 +54,13 @@ export default {
         }
     },
     beforeMount() {
+        
         this.imageGroup1 = this.$parent.gallery1
         this.imageGroup2 = this.$parent.gallery2
+        var rellax = new Rellax('.rellax');
     },
     mounted() {
-        var rellax = new Rellax('.rellax');
+        rellax.refresh();
     },
     watch: {
         $route(to , from){

@@ -4,8 +4,8 @@
         "title": "O Grupo J .Silva investe na Bloco B transformando a empresa numa das mais modernas no sector dos Mármores!",
         "pubdata": "23   —   novembro  —   2018",
         "gallery": [
-            {"src": "exemplo_noticia_a.jpg", "alt": "Image Test"},
-            {"src": "exemplo_noticia_b.jpg", "alt": "Image Test"}
+            {"src": "news/exemplo_noticia_a.jpg", "alt": "Image Test"},
+            {"src": "news/exemplo_noticia_b.jpg", "alt": "Image Test"}
         ]
     },
     { 
@@ -13,7 +13,7 @@
         "title": "Terceira geração no Caminho da internacionalização",
         "pubdata": "23   —   novembro  —   2018",
         "gallery": [
-            {"src": "exemplo_noticia_c.jpg", "alt": "Image Test"}
+            {"src": "news/exemplo_noticia_c.jpg", "alt": "Image Test"}
         ]
     },
     { 
@@ -21,7 +21,7 @@
         "title": "A B stone na Marmomacc 2018",
         "pubdata": "23   —   novembro  —   2018",
         "gallery": [
-            {"src": "exemplo_noticia_d.jpg", "alt": "Image Test"}
+            {"src": "news/exemplo_noticia_d.jpg", "alt": "Image Test"}
         ]
     },
     { 
@@ -29,7 +29,7 @@
         "title": "yet complimentary companies and activities",
         "pubdata": "23   —   novembro  —   2018",
         "gallery": [
-            {"src": "exemplo_noticia_e.jpg", "alt": "Image Test"}
+            {"src": "news/exemplo_noticia_e.jpg", "alt": "Image Test"}
         ]
     },
     { 
@@ -37,8 +37,8 @@
         "title": "B group comprehends 4 diferent, yet complimentary companies and activities",
         "pubdata": "23   —   novembro  —   2018",
         "gallery": [
-            {"src": "exemplo_noticia_a.jpg", "alt": "Image Test"},
-            {"src": "exemplo_noticia_b.jpg", "alt": "Image Test"}
+            {"src": "news/exemplo_noticia_a.jpg", "alt": "Image Test"},
+            {"src": "news/exemplo_noticia_b.jpg", "alt": "Image Test"}
         ]
     },
     { 
@@ -46,7 +46,7 @@
         "title": "yet complimentary companies and activities",
         "pubdata": "23   —   novembro  —   2018",
         "gallery": [
-            {"src": "exemplo_noticia_c.jpg", "alt": "Image Test"}
+            {"src": "news/exemplo_noticia_c.jpg", "alt": "Image Test"}
         ]
     },
     { 
@@ -54,7 +54,7 @@
         "title": "yet complimentary companies and activities",
         "pubdata": "23   —   novembro  —   2018",
         "gallery": [
-            {"src": "exemplo_noticia_d.jpg", "alt": "Image Test"}
+            {"src": "news/exemplo_noticia_d.jpg", "alt": "Image Test"}
         ]
     },
     { 
@@ -62,7 +62,7 @@
         "title": "yet complimentary companies and activities",
         "publication_data": "23   —   novembro  —   2018",
         "gallery": [
-            {"src": "exemplo_noticia_e.jpg", "alt": "Image Test"}
+            {"src": "news/exemplo_noticia_e.jpg", "alt": "Image Test"}
         ]
     },
     { 
@@ -70,8 +70,8 @@
         "title": "B group comprehends 4 diferent, yet complimentary companies and activities",
         "pubdata": "23   —   novembro  —   2018",
         "gallery": [
-            {"src": "exemplo_noticia_a.jpg", "alt": "Image Test"},
-            {"src": "exemplo_noticia_b.jpg", "alt": "Image Test"}
+            {"src": "news/exemplo_noticia_a.jpg", "alt": "Image Test"},
+            {"src": "news/exemplo_noticia_b.jpg", "alt": "Image Test"}
         ]
     },
     { 
@@ -79,7 +79,7 @@
         "title": "yet complimentary companies and activities",
         "pubdata": "20/06/1980",
         "gallery": [
-            {"src": "exemplo_noticia_c.jpg", "alt": "Image Test"}
+            {"src": "news/exemplo_noticia_c.jpg", "alt": "Image Test"}
         ]
     },
     { 
@@ -87,7 +87,7 @@
         "title": "yet complimentary companies and activities",
         "pubdata": "23   —   novembro  —   2018",
         "gallery": [
-            {"src": "exemplo_noticia_d.jpg", "alt": "Image Test"}
+            {"src": "news/exemplo_noticia_d.jpg", "alt": "Image Test"}
         ]
     },
     { 
@@ -95,7 +95,7 @@
         "title": "yet complimentary companies and activities",
         "pubdata": "23   —   novembro  —   2018",
         "gallery": [
-            {"src": "exemplo_noticia_e.jpg", "alt": "Image Test"}
+            {"src": "news/exemplo_noticia_e.jpg", "alt": "Image Test"}
         ]
     }
 ]

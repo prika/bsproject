@@ -2,15 +2,27 @@
     "id": "homepage",
     "title": "Home",
     "content": "A versatilidade, robustez e magnificência fazem do mármore o material mais desejado para vários ambientes, do mais clássico ao vanguardista. B innovation promete criar a solução ideal para si, à sua medida.",
+    "slidergallery": [
+        {"type": "img", "src": "banners/BlocoB-7234_Banner.jpg", "alt": "Image Test"},
+        {"type": "img", "src": "banners/banner_stone_foto_1.jpg", "alt": "Image Test"},
+        {"type": "img", "src": "banners/banner_stone_foto_2.jpg", "alt": "Image Test"},
+        {"type": "video", "src": "banners/banner_stone_foto_2.jpg", "srcvideo": "media/video_exemplo.mp4", "alt": "Image Test"},
+        {"type": "img", "src": "banners/BlocoB-7234_Banner.jpg", "alt": "Image Test"},
+        {"type": "img", "src": "banners/banner_stone_foto_1.jpg", "alt": "Image Test"},
+        {"type": "img", "src": "banners/banner_stone_foto_2.jpg", "alt": "Image Test"},
+        {"type": "video", "src": "banners/banner_stone_foto_2.jpg", "srcvideo": "media/video_exemplo.mp4", "alt": "Image Test"},
+        {"type": "img", "src": "banners/BlocoB-7234_Banner.jpg", "alt": "Image Test"},
+        {"type": "img", "src": "banners/banner_stone_foto_1.jpg", "alt": "Image Test"}
+    ],
     "gallery1": [
-        {"src": "exemplo_noticia_a.jpg", "alt": "Image Test"},
-        {"src": "exemplo_noticia_b.jpg", "alt": "Image Test"}
+        {"src": "news/exemplo_noticia_a.jpg", "alt": "Image Test"},
+        {"src": "news/exemplo_noticia_b.jpg", "alt": "Image Test"}
     ],
     "gallery2": [
-        {"src": "exemplo_noticia_c.jpg", "alt": "Image Test"},
-        {"src": "exemplo_noticia_d.jpg", "alt": "Image Test"},
-        {"src": "exemplo_noticia_a.jpg", "alt": "Image Test"},
-        {"src": "exemplo_noticia_b.jpg", "alt": "Image Test"},
-        {"src": "exemplo_noticia_a.jpg", "alt": "Image Test"}
+        {"src": "news/exemplo_noticia_c.jpg", "alt": "Image Test"},
+        {"src": "news/exemplo_noticia_d.jpg", "alt": "Image Test"},
+        {"src": "news/exemplo_noticia_a.jpg", "alt": "Image Test"},
+        {"src": "news/exemplo_noticia_b.jpg", "alt": "Image Test"},
+        {"src": "news/exemplo_noticia_a.jpg", "alt": "Image Test"}
     ]
 }

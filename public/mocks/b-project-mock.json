@@ -3,14 +3,27 @@
     "title": "B project",
     "content": "B project consegue garantir todo o processo do mármore, desde o primeiro corte até sua casa. <br> Formada pela natureza, que lhe oferece tons e características únicas, o mármore é a escolha preferida na Arquitetura e Decoração.",
     "gallery1": [
-        {"src": "exemplo_noticia_a.jpg", "alt": "Image Test"},
-        {"src": "exemplo_noticia_b.jpg", "alt": "Image Test"}
+        {"src": "news/exemplo_noticia_a.jpg", "alt": "Image Test"},
+        {"src": "news/exemplo_noticia_b.jpg", "alt": "Image Test"}
     ],
     "gallery2": [
-        {"src": "exemplo_noticia_c.jpg", "alt": "Image Test"},
-        {"src": "exemplo_noticia_d.jpg", "alt": "Image Test"},
-        {"src": "exemplo_noticia_a.jpg", "alt": "Image Test"},
-        {"src": "exemplo_noticia_b.jpg", "alt": "Image Test"},
-        {"src": "exemplo_noticia_a.jpg", "alt": "Image Test"}
+        {"src": "news/exemplo_noticia_c.jpg", "alt": "Image Test"},
+        {"src": "news/exemplo_noticia_d.jpg", "alt": "Image Test"},
+        {"src": "news/exemplo_noticia_a.jpg", "alt": "Image Test"},
+        {"src": "news/exemplo_noticia_b.jpg", "alt": "Image Test"},
+        {"src": "news/exemplo_noticia_a.jpg", "alt": "Image Test"}
+    ],
+    "title1": "Port",
+    "title2": "folio",
+    "mansory": [
+        {"src": "explore/explore_1.jpg", "alt": "Image Test"},
+        {"src": "explore/explore_2.jpg", "alt": "Image Test"},
+        {"src": "explore/explore_3.jpg", "alt": "Image Test"},
+        {"src": "explore/explore_4.jpg", "alt": "Image Test"},
+        {"src": "explore/explore_5.jpg", "alt": "Image Test"},
+        {"src": "explore/explore_6.jpg", "alt": "Image Test"},
+        {"src": "explore/explore_7.jpg", "alt": "Image Test"},
+        {"src": "explore/explore_8.jpg", "alt": "Image Test"},
+        {"src": "explore/explore_9.jpg", "alt": "Image Test"}
     ]
 }

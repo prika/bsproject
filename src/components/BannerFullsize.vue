@@ -8,21 +8,19 @@
 
         <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
             <ol class="carousel-indicators">
-                <li data-target="#carouselExampleFade" data-slide-to="0" class="active">01</li>
-                <li data-target="#carouselExampleFade" data-slide-to="1">02</li>
-                <li data-target="#carouselExampleFade" data-slide-to="2">03</li>
-                <li data-target="#carouselExampleFade" data-slide-to="3">04</li>
+                <li     v-for="(image, index) in imageGroupSliderGallery"  
+                        :class="(index === 0 ? 'active': '')" 
+                        data-target="#carouselExampleFade" 
+                        data-slide-to="0">
+                        <span v-if="index < 9">0</span>{{index+1}}
+                </li>
             </ol>
 
             <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img class="d-block w-100" src="../assets/images/banners/BlocoB-7234_Banner.jpg" alt="First slide">
-                </div>
-                <div class="carousel-item">
-                    <img class="d-block w-100" src="../assets/images/banners/banner_stone_foto_1.jpg" alt="Second slide">
-                </div>
-                <div class="carousel-item">
-                    <img class="d-block w-100" src="../assets/images/banners/banner_stone_foto_2.jpg" alt="Third slide">
+
+                <div v-for="(image, index) in imageGroupSliderGallery"  :class="['carousel-item', (index === 0 ? 'active': '')]">
+                     <img :src="image.src" 
+                        :alt="image.alt" class="d-block w-100">
                 </div>
 
                 <div class="carousel-item">
@@ -41,8 +39,16 @@
 
 <script>
 export default {
+    data() {
+        return {
+            imageGroupSliderGallery:[]
+        }
+    },
+    beforeMount() {
+        this.imageGroupSliderGallery = this.$parent.slidergallery
+    },
     mounted() {
-        jQuery('carousel').carousel();
+        //jQuery('carousel').carousel()
     }
 }
 </script>
