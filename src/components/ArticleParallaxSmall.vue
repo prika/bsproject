@@ -1,45 +1,72 @@
 <template>
      <section class="parallaxContainer">
         <div class="container">
-            <!--h1 class="pageTitle" :aria-label="$t('home-title-page')" > 
-                {{ $t('home-title-page-split1') }}<span>{{ $t('home-title-page-split2') }}</span>
-            </h1-->
-
+          
           <div class="row">
 
             <slot></slot>
 
             <div class="col-xs-12 col-md-6 parallaxGroup1 order-md-1">
-                <img src="../assets/images/shared/institucional_2.jpg" class="imageParallax1 col-9 col-sm-7 img-fluid rellax" data-rellax-speed="-2" alt="">
-                <img src="../assets/images/shared/institucional_1.jpg" class="imageParallax2 col-9 col-sm-7 img-fluid rellax" data-rellax-speed="4" alt="">
+                <img    :src="imageGroup1[0].src" 
+                        :alt="imageGroup1[0].alt" 
+                        data-rellax-speed="-2"
+                        class="imageParallax1 col-9 col-sm-7 img-fluid rellax" >
+                <img    :src="imageGroup1[1].src" 
+                        :alt="imageGroup1[1].alt"
+                        data-rellax-speed="4"
+                        class="imageParallax2 col-9 col-sm-7 img-fluid rellax">
             </div>
 
           </div>
         </div>
 
         <div class="col-12 parallaxGroup2">
-            <img src="../assets/images/shared/exemplo_1.jpg" class="imageParallax3 col-5 img-fluid rellax" data-rellax-speed="0" alt="">
-            <img src="../assets/images/shared/exemplo_2.jpg" class="imageParallax4 col-4 img-fluid rellax" data-rellax-speed="2" alt="">
-            <img src="../assets/images/shared/exemplo_3.jpg" class="imageParallax5 col-4 img-fluid rellax" data-rellax-speed="-1" alt="">
-            <img src="../assets/images/shared/exemplo_4.jpg" class="imageParallax6 col-4 img-fluid rellax" data-rellax-speed="-2" alt="">
-            <img src="../assets/images/shared/exemplo_5.jpg" class="imageParallax7 col-4 img-fluid rellax" data-rellax-speed="4"  alt="">
+            <img    :src="imageGroup2[0].src" 
+                    :alt="imageGroup2[0].alt"  
+                    data-rellax-speed="0"
+                    class="imageParallax3 col-5 img-fluid rellax">
+            <img    :src="imageGroup2[1].src" 
+                    :alt="imageGroup2[1].alt" 
+                    data-rellax-speed="2"
+                    class="imageParallax4 col-4 img-fluid rellax">
+            <img    :src="imageGroup2[2].src" 
+                    :alt="imageGroup2[2].alt" 
+                    data-rellax-speed="-1"
+                    class="imageParallax5 col-4 img-fluid rellax" >
+            <img    :src="imageGroup2[3].src" 
+                    :alt="imageGroup2[3].alt" 
+                    data-rellax-speed="-2"
+                    class="imageParallax6 col-4 img-fluid rellax" >
+            <img    :src="imageGroup2[4].src" 
+                    :alt="imageGroup2[4].alt" 
+                    data-rellax-speed="4" 
+                    class="imageParallax7 col-4 img-fluid rellax" >
         </div>
     </section>
 </template>
 
-
 <script>
-    export default {
-        mounted() {
-            const rellax = new Rellax('.rellax');
-        },
-        watch: {
-            $route(to , from){
-                // Destroy and create again parallax with previous settings
-                rellax.refresh();
-            }
+export default {
+    data() {
+        return {
+            imageGroup1:[],
+            imageGroup2:[]
+        }
+    },
+    beforeMount() {
+        this.imageGroup1 = this.$parent.gallery1
+        this.imageGroup2 = this.$parent.gallery2
+    },
+    mounted() {
+        var rellax = new Rellax('.rellax');
+    },
+    watch: {
+        $route(to , from){
+            // Destroy and create again parallax with previous settings
+            rellax.refresh();
         }
     }
+}
 </script>
 
 <style lang="scss">
@@ -136,7 +163,6 @@
             width: 140px;
             height: 2px;
         }
-
     }
 
     p{padding-top: 30px;}

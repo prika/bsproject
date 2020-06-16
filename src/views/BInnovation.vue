@@ -1,10 +1,10 @@
 <template>
   <div id="binnovationpage">
 
-       <ArticleParallaxSmall>
+      <ArticleParallaxSmall>
           <div class="pageContentText col-5 order-md-2">
-              <h1>B innovation</h1>
-              <p>A versatilidade, robustez e magnificência fazem do mármore o material mais desejado para vários ambientes, do mais clássico ao vanguardista. B innovation promete criar a solução ideal para si, à sua medida.</p>
+              <h1>{{binnovation.title}}</h1>
+              <p>{{binnovation.content}}</p>
           </div>
       </ArticleParallaxSmall>
 
@@ -32,8 +32,37 @@ export default {
       Address,
       Contacts  
   },
-  mounted() {
-      this.$eventBus.$emit('componentFinishLoad', true);
-  }
+  data() {
+    return {
+         binnovation: '',
+         gallery1: [],
+         gallery2: []
+    }
+  },
+  methods:
+    {
+        getImgUrl: function (src) {
+            return require( '@/assets/images/news/'+src )
+        },
+        parseObject: function(source, destination)
+        {
+            for ( var i = 0 ; i < source.length; i++ ) {
+               let obj = source[i]
+               let fullPath = this.getImgUrl(obj.src)
+               obj.src = fullPath
+               destination.push(obj)
+            }
+        }        
+    },
+    created(){
+         this.$http.get('../mocks/b-innovation-mock.json').then(response => {
+            this.binnovation = response.data
+            this.parseObject(response.data.gallery1, this.gallery1)            
+            this.parseObject(response.data.gallery2, this.gallery2)            
+         })
+    },
+    mounted() {
+        this.$eventBus.$emit('componentFinishLoad', true);
+    }
 }
 </script>

@@ -3,8 +3,8 @@
 
         <slot></slot>
 
-        <div class="row">
-            <router-link :to="'/news/:'+singleNews.id" class="col-4 newsBlock animated zoomIn" v-for="singleNews in news">
+        <div class="row">        
+            <router-link :to="'/news/:'+singleNews.id" class="col-4 newsBlock animated zoomIn" v-for="singleNews in news" :key="singleNews.id">
                  <div class="newsContentIimage">
                     <img :src="getImgUrl(singleNews.gallery[0].src)" class="img-fluid" :alt="singleNews.gallery[0].alt">
                 </div>
@@ -12,20 +12,20 @@
                  <div class="newsContentText col-7" >
                     <div class="text">
                         <p>{{singleNews.title}}</p>
-                        <p class="newsDate">{{singleNews.publication_data}}</p>
+                        <p class="newsDate">{{singleNews.pubdata}}</p>
                     </div>
                  </div>
             </router-link>
         </div>
         
-        <a @click="loadMoreClick" v-if="hasPaging"
+        <a @click="loadMoreClick" v-if="hasPaging && hasLink"
             style="display: block; text-align: center; margin: 100px 0;">
-            <seeMoreButton>Ver mais load more</seeMoreButton>
+            <seeMoreButton>Ver mais</seeMoreButton>
         </a>
 
-        <router-link to="/news" v-if="!hasPaging"
+        <router-link to="/news" v-if="( !hasPaging ) && hasLink"
             style="display: block; text-align: center; margin: 100px 0;">
-            <seeMoreButton>Ver mais link</seeMoreButton>
+            <seeMoreButton>Carregar mais</seeMoreButton>
         </router-link>
     </section>
 </template>
@@ -45,7 +45,8 @@ export default {
             currentPage:1,
             itemsPerPage: 0,
             language: "en",
-            hasPaging: true
+            hasPaging: true,
+            hasLink: true
         }      
     },
     mounted() {
@@ -67,7 +68,7 @@ export default {
         }
     },
     created(){
-        this.$http.get('list-news-mock.json').then(response => {
+        this.$http.get('../mocks/news-list-mock.json').then(response => {
             this.fullNews = response.data
             this.news = this.fullNews.slice(0, this.itemsPerPage)
         })
