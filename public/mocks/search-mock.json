@@ -1,0 +1,40 @@
+{   
+    "products": 
+    [
+        {        
+            "id": "prod1",
+            "name": "Blocos <mark>Black Magic</mark>",
+            "src": "product/black_magic.jpg",
+            "stock": "33,556 m3"
+        },{        
+            "id": "prod2",
+            "name": "Black <mark>Magic</mark>",
+            "src": "product/black_magic.jpg",
+            "stock": "33,556 m3"
+        },{        
+            "id": "prod2",
+            "name": "<mark>Black</mark> Magic",
+            "src": "product/black_magic.jpg",
+            "stock": "33,556 m3"
+        }
+    ],
+    "news": [
+        {        
+            "id": "news2",
+            "src": "shared/square.jpg",
+            "name": "Novo stand na feira de <mark>Black </mark>",
+            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit and <mark>Black Magic</mark>."
+        },{        
+            "id": "news2",
+            "src": "shared/square.jpg",
+            "name": "Novo stand na <mark>Verona</mark>",
+            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit and."
+        },{        
+            "id": "news2",
+            "src": "shared/square.jpg",
+            "name": "Novo stand na <mark>Black Magic</mark> de verona",
+            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit and."
+        }
+        
+    ]
+}

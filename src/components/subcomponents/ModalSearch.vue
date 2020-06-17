@@ -21,63 +21,37 @@
             
             <!-- RESULTADOS -->
             <div class="container col-12">
-                <p class="numberResults">Produtos <span></span>03</p>
-                <ul>
-                  <router-link to="/" tag="li">
-                        <div class="img">
-                          <img width="190px" height="190px" src="@/assets/images/product/black_magic.jpg" alt="" title=""/>
-                        </div>
-                        
-                        <div class="text">
-                            <h2>Blocos <mark>Black magic</mark></h2>
-                            <p>33,556 m3 <span class="stock">em stock</span></p>
-                        </div>
-                  </router-link>
-
-                  <router-link to="/" tag="li">
-                        <div class="img">
-                          <img width="190px" height="190px" src="@/assets/images/product/black_magic.jpg" alt="" title=""/>
-                        </div>
-                        
-                        <div class="text">
-                            <h2>Blocos <mark>Black magic</mark></h2>
-                            <p>33,556 m3 <span class="stock">em stock</span></p>
-                        </div>
-                  </router-link>
-                    
-                    <router-link to="/" tag="li">
-                        <div class="img">
-                          <img width="190px" height="190px" src="@/assets/images/product/black_magic.jpg" alt="" title=""/>
-                        </div>
-                        
-                        <div class="text">
-                            <h2>Blocos <mark>Black magic</mark></h2>
-                            <p>33,556 m3 <span class="stock">em stock</span></p>
-                        </div>
-                  </router-link>
+                
+                <p  class="numberResults"
+                    v-if="searchedProducts.length > 0">
+                  [Produtos] <span></span>{{searchedProducts.length}}</p>
+                <ul v-if="searchedProducts.length > 0">
+                    <li href="/" v-for="item in searchedProducts">
+                          <div class="img">
+                            <img width="190px" height="190px" 
+                                :src="item.src" :alt="item.name"/>
+                          </div>
+                          
+                          <div class="text">
+                              <h2 v-html="item.name">{{item.name}}</h2>
+                              <p> {{item.stock}} <span class="stock">em stock</span></p>
+                          </div>
+                    </li>
                 </ul>
 
 
-                <p class="numberResults">Notícias <span></span>02</p>
-                <ul>
-                    <li>
+                <p class="numberResults" v-if="searchedNews.length > 0">
+                  [Notícias] <span></span>{{searchedNews.length}}</p>
+                <ul v-if="searchedNews.length > 0">
+                    <li v-for="item in searchedNews">
                       <div class="img">
-                        <img width="190px" height="190px" src="@/assets/images/shared/square.jpg" alt="" title=""/>
+                            <img width="190px" height="190px" 
+                                :src="item.src" :alt="item.name"/>
                       </div>
                       
                       <div class="text">
-                          <h2>Novo stand na feira de verona</h2>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit and <mark>Black Magic</mark>. </p>
-                      </div>
-                    </li>
-
-                      <li>
-                      <div class="img">
-                        <img width="190px" height="190px" src="@/assets/images/shared/square.jpg" alt="" title=""/>
-                      </div>
-                      <div class="text">
-                          <h2>Novo stand na feira com <mark>Black magic</mark></h2>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit and <mark>Black Magic</mark>.</p>
+                          <h2 v-html="item.name">{{item.name}}</h2>
+                          <p v-html="item.content">{{item.content}}</p>
                       </div>
                     </li>
                 </ul>
@@ -86,8 +60,8 @@
             <!-- FIM RESULTADOS -->
 
             <!-- SEM RESULTADOS -->
-            <div class="container col-12">
-              <p class="text-center" style="font-size: 25px">nenhum resultado encontrado</p>
+            <div class="container col-12" v-if="searchedProducts.length == 0 && searchedNews.length == 0">
+              <p class="text-center" style="font-size: 25px">[nenhum resultado encontrado]</p>
             </div>
             <!-- FIM SEM RESULTADOS -->
 
@@ -101,24 +75,49 @@
       data(){
         return {
           searchText: "",
-          hasSearchText: false
+          hasSearchText: false,
+          searchedProducts: [],
+          searchedNews: []
         }
       },
       methods: {
-        
+
+          getImgUrl: function (src) {
+              return require( '@/assets/images/'+src )
+          },
+
+          parseObject: function(source, destination)
+          {
+              destination = []
+
+              for ( var i = 0 ; i < source.length; i++ ) {
+                let obj = source[i]
+                let fullPath = this.getImgUrl(obj.src)
+                obj.src = fullPath
+                destination.push(obj)
+              }
+          },  
          onTextInputChanged (e) {
 
            this.hasSearchText = this.searchText != "" && this.searchText.length > 0
 
            //q = this.$route.query.q
-           // Search things axios....
+
+           this.$http.get('./mocks/search-mock.json').then(response => {
+              
+              this.searchedProducts = response.data.products
+              this.parseObject(response.data.products, this.searchedProducts)
+
+              this.searchedNews = response.data.news
+              this.parseObject(response.data.news, this.searchedNews)
+                        
+          })
         }
       }
     }
 </script>
 
 <style lang="scss">
-
 .modalSearch{
     width: 100%;
     position: fixed;
@@ -183,6 +182,7 @@
     position: relative;
     padding: 0;
     padding-top: 65px;
+    padding-bottom: 200px;
     margin: 0;
     background-attachment: scroll;
     background: #FFF url(../../assets/images/shared/bg_search.svg) no-repeat -200px top;
@@ -190,9 +190,9 @@
 
     .container{
       display: block;
-      min-height: 2000px;
-      overflow: scroll;
+      //overflow: scroll;
       position: relative;
+      padding-bottom: 200px;
     }
 
     .numberResults{

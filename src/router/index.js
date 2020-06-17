@@ -54,8 +54,8 @@ const routes = [
   },
   {
     path: '/news/:id',
-    name: 'news detail',
-    props: (route) => ({ query: route.query.q }),
+    name: 'newsdetail',
+    //props: (route) => ({ query: route.query.q }),
     component: () => import('../views/NewsDetail.vue')
   },
 
