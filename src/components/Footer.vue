@@ -12,10 +12,10 @@
         <div class="row">
             <div class="col-12 col-md-8 cofinancedby">
                 <div class="col-12 col-md-6 centered-sm centered-xs">
-                    <a href="assets/Alentejo2020x.pdf" class="cofinance1" target="_blank" rel="noreferrer" :aria-label="$t('footer-cofinanced')"></a>
+                    <a href="./assets/footer/Alentejo2020x.jpg" class="cofinance1" target="_blank" rel="noreferrer" :aria-label="$t('footer-cofinanced')"></a>
                 </div>
                 <div class="col-12 col-md-6 centered-sm centered-xs">
-                    <a href="assets/Compete2020x.pdf" class="cofinance2" target="_blank" rel="noreferrer" :aria-label="$t('footer-cofinanced2')"></a>
+                    <a href="./assets/footer/Compete2020x.jpg" class="cofinance2" target="_blank" rel="noreferrer" :aria-label="$t('footer-cofinanced2')"></a>
                 </div>
             </div> 
            
@@ -49,9 +49,15 @@ import NewsletterForm from './subcomponents/NewsletterForm.vue'
 
 
 export default {
-  components: {
+    components: {
         FooterMenu,
         NewsletterForm
-  }
+    },
+    methods:
+    {
+        getImgUrl: function (src) {
+            return require('@/assets/images/footer'+src)
+        }
+    }
 }
 </script>

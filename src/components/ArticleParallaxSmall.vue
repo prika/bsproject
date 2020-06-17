@@ -7,45 +7,29 @@
             <slot></slot>
 
             <div class="col-xs-12 col-md-6 parallaxGroup1 order-md-1">
-                <img    :src="imageGroup1[0].src" 
-                        :alt="imageGroup1[0].alt" 
-                        data-rellax-speed="-2"
-                        class="imageParallax1 col-9 col-sm-7 img-fluid rellax" >
-                <img    :src="imageGroup1[1].src" 
-                        :alt="imageGroup1[1].alt"
-                        data-rellax-speed="4"
-                        class="imageParallax2 col-9 col-sm-7 img-fluid rellax">
+                <img    v-for="(image, index) in imageGroup1"
+                        :src="image.src" 
+                        :alt="image.alt" 
+                        :data-rellax-speed="image.speed"
+                        :class="['rellax',(image.addclass),('imageParallax'+(index+1))]">
             </div>
 
           </div>
         </div>
 
         <div class="col-12 parallaxGroup2">
-            <img    :src="imageGroup2[0].src" 
-                    :alt="imageGroup2[0].alt"  
-                    data-rellax-speed="0"
-                    class="imageParallax3 col-5 img-fluid rellax">
-            <img    :src="imageGroup2[1].src" 
-                    :alt="imageGroup2[1].alt" 
-                    data-rellax-speed="2"
-                    class="imageParallax4 col-4 img-fluid rellax">
-            <img    :src="imageGroup2[2].src" 
-                    :alt="imageGroup2[2].alt" 
-                    data-rellax-speed="-1"
-                    class="imageParallax5 col-4 img-fluid rellax" >
-            <img    :src="imageGroup2[3].src" 
-                    :alt="imageGroup2[3].alt" 
-                    data-rellax-speed="-2"
-                    class="imageParallax6 col-4 img-fluid rellax" >
-            <img    :src="imageGroup2[4].src" 
-                    :alt="imageGroup2[4].alt" 
-                    data-rellax-speed="4" 
-                    class="imageParallax7 col-4 img-fluid rellax" >
+            <img    v-for="(image, index) in imageGroup2"
+                        :src="image.src" 
+                        :alt="image.alt" 
+                        :data-rellax-speed="image.speed"
+                        :class="['rellax',(image.addclass),('imageParallax'+(index+3))]">
         </div>
     </section>
 </template>
 
 <script>
+
+
 export default {
     data() {
         return {
@@ -58,6 +42,7 @@ export default {
         this.imageGroup1 = this.$parent.gallery1
         this.imageGroup2 = this.$parent.gallery2
         var rellax = new Rellax('.rellax');
+        
     },
     mounted() {
         rellax.refresh();
