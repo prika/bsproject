@@ -134,6 +134,7 @@ export default {
                 p{
                     font-size: 18px;
                     font-style: italic;
+                    color: #575757;
                 }
 
                 .newsDate{
