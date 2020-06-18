@@ -8,7 +8,9 @@
 
               <figure class="masonry-brick masonry-brick--v" v-for="image in imageGroupMansory">
                   <img  :src="image.src" 
-                        :alt="image.alt" class="masonry-img">
+                        :alt="image.alt" 
+                        :width="image.width"  :height="image.height"
+                        class="masonry-img">
               </figure>
 
               <!--  

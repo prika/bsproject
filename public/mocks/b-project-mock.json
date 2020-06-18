@@ -51,14 +51,14 @@
     "title1": "Port",
     "title2": "folio",
     "mansory": [
-        {"src": "explore/explore_1.jpg", "alt": "Image Test"},
-        {"src": "explore/explore_2.jpg", "alt": "Image Test"},
-        {"src": "explore/explore_3.jpg", "alt": "Image Test"},
-        {"src": "explore/explore_4.jpg", "alt": "Image Test"},
-        {"src": "explore/explore_5.jpg", "alt": "Image Test"},
-        {"src": "explore/explore_6.jpg", "alt": "Image Test"},
-        {"src": "explore/explore_7.jpg", "alt": "Image Test"},
-        {"src": "explore/explore_8.jpg", "alt": "Image Test"},
-        {"src": "explore/explore_9.jpg", "alt": "Image Test"}
+        {"src": "explore/explore_1.jpg", "width": "1600px", "height": "1082px", "alt": "Image Test", "type": "img", "srcfullscreen": "explore/explore_1.jpg"},
+        {"src": "explore/explore_2.jpg", "width": "1067px", "height": "1600px", "alt": "Image Test", "type": "img", "srcfullscreen": "explore/explore_1.jpg"},
+        {"src": "explore/explore_3.jpg", "width": "348px", "height": "232px", "alt": "Image Test", "type": "img", "srcfullscreen": "explore/explore_1.jpg"},
+        {"src": "explore/explore_4.jpg", "width": "871px", "height": "1270px", "alt": "Image Test", "type": "img", "srcfullscreen": "explore/explore_1.jpg"},
+        {"src": "explore/explore_5.jpg", "width": "348px", "height": "232px", "alt": "Image Test", "type": "video", "srcfullscreen": "explore/explore_1.jpg"},
+        {"src": "explore/explore_6.jpg", "width": "348px", "height": "521px", "alt": "Image Test", "type": "img", "srcfullscreen": "explore/explore_1.jpg"},
+        {"src": "explore/explore_7.jpg", "width": "1600px", "height": "1089px", "alt": "Image Test", "type": "img", "srcfullscreen": "explore/explore_1.jpg"},
+        {"src": "explore/explore_8.jpg", "width": "348px", "height": "232px", "alt": "Image Test", "type": "img", "srcfullscreen": "explore/explore_1.jpg"},
+        {"src": "explore/explore_9.jpg", "width": "348px", "height": "521px", "alt": "Image Test", "type": "img", "srcfullscreen": "explore/explore_1.jpg"}
     ]
 }
