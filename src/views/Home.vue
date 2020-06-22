@@ -12,6 +12,11 @@
           </div>
       </ArticleParallaxSmall>
 
+      <ProductsList>
+          <h1 class="pageTitleh2 h2">{{home.featured_text1}}<span>{{home.featured_text2}}</span></h1>
+      </ProductsList>
+
+
       <NewsSlider>
         <h1 class="pageTitleh2 h2">notícias</h1>
       </NewsSlider>
@@ -28,6 +33,7 @@
 import Scroll from '../components/subcomponents/scroll'
 import BannerFullsize from '../components/BannerFullsize'
 import ArticleParallaxSmall from '@/components/ArticleParallaxSmall'
+import ProductsList from '@/components/ProductsList'
 import NewsSlider from '@/components/NewsSlider'
 import Address from '@/components/Address'
 import Contacts from '@/components/Contacts'
@@ -38,6 +44,7 @@ export default {
       Scroll,
       BannerFullsize,
       ArticleParallaxSmall,
+      ProductsList,
       NewsSlider,
       Address,
       Contacts 
@@ -50,7 +57,9 @@ export default {
       home: '',
       gallery1: [],
       gallery2: [],
-      slidergallery: []
+      slidergallery: [],
+      hasFeaturedProducts: true,
+      productsPerPage: 6
     }
   },
   methods:

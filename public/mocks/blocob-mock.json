@@ -1,0 +1,18 @@
+{ 
+    "id": "blocobpage",
+    "product_type1": 
+    {
+        "split1": "Blo",
+        "split2": "cos"
+    },
+    "product_type2": 
+    {
+        "split1": "Cha",
+        "split2": "pas"
+    },
+    "product_type3": 
+    {
+        "split1": "Ladri",
+        "split2": "lhos"
+    }
+}
