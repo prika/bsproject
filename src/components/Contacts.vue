@@ -5,7 +5,7 @@
        <div class="col-sm-12 col-md-8 col-lg-6 offset-md-2">
             <div class="contactForm">
                 <h1 class="h2">Fale conosco</h1>
-                <p class="h1">  Dê-nos uma <br> palavrinha </p>
+                <p class="h1">  Fale <br> conosco </p>
                 <form id="contact"
                     @submit="checkForm"
                     action="https://vuejs.org/"
