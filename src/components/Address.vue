@@ -30,15 +30,15 @@
  
                 <div class="addressContainer offset-md-7 col-xs-12 col-md-5 order-3">
                     <div class="contactsContainer"> 
-                        <a itemprop="email" href="mailto:info@bstone.pt" aria-label="Email us">e. info@bstone.pt</a><br>
-                        <a id="telephone" itemprop="telephone" href="tel:(+351)964956929" aria-label="Call us">t.  (+351) 964 956 929</a>
+                        <a itemprop="email" href="mailto:info@bstone.pt" aria-label="Email us">e.<span style="margin-left: 40px"></span>info@bstone.pt</a><br>
+                        <a id="telephone" itemprop="telephone" href="tel:(+351)964956929" aria-label="Call us">t.<span style="margin-left: 40px"></span>(+351) 268 848 030</a>
                         <br><br><br>
                         <p>Sales Department<br>
-                        (+351)  964  956  929</p>
+                        <a href="tel:(+351)964956929">(+351)  964  956  929</a></p>
                         <p>Logistics<br>
-                        (+351)  914  490  070</p>
+                        <a href="tel:(+351)914490070">(+351)  914  490  070</a></p>
                         <p>Branding & Communication<br>
-                        (+351)  925  278  115</p>
+                        <a href="tel:(+351)925278115">(+351)  925  278  115</a></p>
                     </div>
                     
                 </div>

@@ -165,6 +165,10 @@
 
 .contactsContainer{
   padding: 30px 0;
+
+  & > a {
+    line-height: 2.5rem;
+  }
   
   p, a {
     font-family:      $font-family-sans-serif;
@@ -174,7 +178,7 @@
     text-decoration:  none;
   }
 
-  p{ font-size: 1.25rem;}
+  p, p a{ font-size: 1.25rem;}
 
 
 }
