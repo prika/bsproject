@@ -75,6 +75,7 @@ padding-top: 110px;
   margin: 0 auto 110px; 
   max-width: 1080px;
   text-align: center;
+  overflow: hidden;
 }
 
 img {
@@ -84,7 +85,7 @@ img {
 
 .masonry {
   display: flex;
-  max-height: 1000px;
+  max-height: 1500px;
 }
 
 // .masonry .effect{
@@ -108,9 +109,7 @@ img {
 .masonry--v {
   flex-flow: column wrap;
   max-height: 1080px;
-}
 
-.masonry--v {
   margin-left: -8px;
   /*counter-reset: brick;*/
 }
