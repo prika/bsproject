@@ -1,8 +1,6 @@
 <template>
   <div id="blocobpage" class="pageContainer">
 
-    <BannerFullsize />
-
     <Scroll />
 
     <div class="container">
@@ -16,14 +14,12 @@
 
 <script>
 import Scroll from '../components/subcomponents/scroll'
-import BannerFullsize from '../components/BannerFullsize'
 import ProductsList from '../components/ProductsList'
 import axios from 'axios'
 
 export default {
   name: 'blocobpage',
   components: {
-      BannerFullsize,
       Scroll,
       ProductsList
   },
@@ -36,8 +32,6 @@ export default {
   mounted() {
       this.$eventBus.$emit('componentFinishLoad', true);
   
-      // axios.get('https://api.coindesk.com/v1/bpi/currentprice.json')
-      // .then(response => (this.info = response))
   }
 }
 </script>
