@@ -1,7 +1,5 @@
 { 
     "id": "homepage",
-    "title": "Home",
-    "content": "A versatilidade, robustez e magnificência fazem do mármore o material mais desejado para vários ambientes, do mais clássico ao vanguardista. B innovation promete criar a solução ideal para si, à sua medida.",
     "slidergallery": [
         {"type": "img", "src": "banners/BlocoB-7234_Banner.jpg", "alt": "Image Test"},
         {"type": "img", "src": "banners/banner_stone_foto_1.jpg", "alt": "Image Test"},
@@ -14,6 +12,8 @@
         {"type": "img", "src": "banners/BlocoB-7234_Banner.jpg", "alt": "Image Test"},
         {"type": "img", "src": "banners/banner_stone_foto_1.jpg", "alt": "Image Test"}
     ],
+    "title": "Home",
+    "content": "A versatilidade, robustez e magnificência fazem do mármore o material mais desejado para vários ambientes, do mais clássico ao vanguardista. B innovation promete criar a solução ideal para si, à sua medida.",
     "gallery1": [
         {   
             "src": "news/exemplo_noticia_a.jpg", 
@@ -59,5 +59,7 @@
             "speed": "4",
             "addclass": "col-4 img-fluid"
         }
-    ]
+    ],
+    "featured_text1": "productos em",
+    "featured_text2": "destaque"
 }
