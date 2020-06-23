@@ -46,7 +46,6 @@
                                             class="productImage"
                                             width="300" height="300" 
                                             :alt="product.name" itemprop="image">
-
                                         </div>
                                         <p class="productName" itemprop="name">
                                             <mark>
@@ -187,6 +186,7 @@ export default {
 </script>
 <style lang="scss">
 	.productsList{
+        min-height: 100vh;
 		padding-top: 50px;
 		margin-bottom: 130px;
 
@@ -254,7 +254,6 @@ export default {
                         position: relative;
                         font-family: 'Oswald', sans-serif;
                         font-size: 1rem;
-                        //letter-spacing: 1px;
                         font-weight: 200;
                         color: #333;
                         line-height: 1.5rem;
