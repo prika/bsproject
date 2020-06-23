@@ -202,15 +202,15 @@
     { "id":2, "name":"Sahura Collection"}
 ],
 "categories": [
-    {"id":1, "name":"Blocos"},
-    {"id":2, "name":"Chapas"},
-    {"id":3, "name":"Ladrilhos"}
+    {"id":1, "name":"Blocos",       "splitName1": "Blo",    "splitName2": "cos"},
+    {"id":2, "name":"Chapas",       "splitName1": "Cha",    "splitName2": "pas"},
+    {"id":3, "name":"Ladrilhos",    "splitName1": "Ladri",  "splitName2": "lhos"}
 ],
 "colors":[
-    {"id":0, "name":"white"}, 
-    {"id":1, "name":"grey"},
-    {"id":2, "name":"creme"}, 
-    {"id":3, "name":"black"}, 
-    {"id":4, "name":"pink"}
+    {"id":0, "name":"Branco",    "hexa": "#FFFFFF"},
+    {"id":1, "name":"Cinza",     "hexa": "#A7A7A7"},
+    {"id":2, "name":"Creme",    "hexa": "#D8BBAD"},
+    {"id":3, "name":"Preto",    "hexa": "#000000"},
+    {"id":4, "name":"Rosa",     "hexa": "#DDBFD0"}
 ]
 }

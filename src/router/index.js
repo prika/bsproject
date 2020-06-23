@@ -24,6 +24,14 @@ const routes = [
     component: () => import('../views/BlocoB.vue')
   },
   {
+    path: '/bloco-b/:name',
+    name: 'Product',
+    // route level code-splitting
+    // this generates a separate chunk (BInnovation.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import('../views/DetailPage.vue')
+  },
+  {
     path: '/b-explore',
     name: 'explore',
     component: () => import('../views/BExplore.vue')
@@ -39,14 +47,6 @@ const routes = [
     component: () => import('../views/BInnovation.vue')
   },
   //{ path: '/search', component: () => import('../components/subcomponents/ModalSearch.vue'), props: (route) => ({ query: route.query.q }) },
-  {
-    path: '/listpage/blocos',
-    name: 'blocos',
-    // route level code-splitting
-    // this generates a separate chunk (BInnovation.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import('../views/ListPage.vue')
-  },
   {
     path: '/news',
     name: 'news',

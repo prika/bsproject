@@ -26,7 +26,9 @@
         height: 40px;
         z-index: 0;
         background: #333;
-        transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg); 
+        transform: rotate(45deg); 
         -webkit-transition:   all 0.3s cubic-bezier(0, .5, 0, 1);
         -moz-transition:      all 0.3s cubic-bezier(0, .5, 0, 1);
         -o-transition:        all 0.3s cubic-bezier(0, .5, 0, 1);
@@ -51,7 +53,9 @@
     &:hover{
         
         &:before{
-            transform: rotate(135deg);
+            -webkit-transform: rotate(135deg);
+            -ms-transform: rotate(135deg);
+            transform: rotate(135deg); 
             background: #C47C5A;
         }
         
@@ -62,12 +66,16 @@
             }
 
             & svg #linha_x5F_esquerda_1_ {
-                transform: rotate(45deg) translate(3px, 7px);
+                -webkit-transform:  rotate(45deg) translate(3px, 7px);
+                -ms-transform:  rotate(45deg) translate(3px, 7px);
+                transform:  rotate(45deg) translate(3px, 7px);
                 transform-origin: 50% 50%;
             }
 
             & svg #linha_x5F_direita {
-                transform: rotate(-45deg) translate(-3px, 7px);
+                -webkit-transform:  rotate(-45deg) translate(-3px, 7px);
+                -ms-transform:  rotate(-45deg) translate(-3px, 7px);
+                transform:  rotate(-45deg) translate(-3px, 7px);
                 transform-origin: 50% 50%;
             }
         } 
