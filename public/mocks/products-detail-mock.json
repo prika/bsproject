@@ -1,0 +1,19 @@
+{ "product" :
+    {
+        "id": "Prod1",
+        "name": "Atlantic White",
+        "category": 2,
+        "categoryName": "Chapas",
+        "categoryNameSplit1": "Cha",
+        "categoryNameSplit2": "pas",
+        "imgURL": "product/atlantic_white.jpg",
+        "firstName": "Atlantic",
+        "secondName": "White",
+        "size": [
+            {"width": "295"},
+            {"height": "110"},
+            {"width": "60"}
+        ],
+        "weight" : "2653"
+    }
+}
