@@ -9,11 +9,127 @@
         "imgURL": "product/black_magic.jpg",
         "firstName": "Black",
         "secondName": "Magic",
-        "size": [
-            {"width": "295"},
-            {"height": "110"},
-            {"width": "60"}
-        ],
-        "weight" : "2653"
+        "variants": [
+            {   
+                "ref": "BE12661",
+                "img": "product/black_magic.jpg",
+                "size": {
+                    "width": "29",
+                    "height": "110",
+                    "depth": "60"
+                },
+                "weight" : "2653"
+            },
+            {   
+                "ref": "BE12702",
+                "img": "product/black_magic.jpg",
+                "size": {
+                    "width": "295",
+                    "height": "11",
+                    "depth": "60"
+                },
+                "weight" : "2653"
+            },
+            {   
+                "ref": "BE12803",
+                "img": "product/black_magic.jpg",
+                "size": {
+                    "width": "295",
+                    "height": "10",
+                    "depth": "60"
+                },
+                "weight" : "2653"
+            },
+            {   
+                "ref": "BE12904",
+                "img": "product/black_magic.jpg",
+                "size": {
+                    "width": "295",
+                    "height": "110",
+                    "depth": "60"
+                },
+                "weight" : "2653"
+            },
+            {   
+                "ref": "BE13005",
+                "img": "product/black_magic.jpg",
+                "size": {
+                    "width": "295",
+                    "height": "110",
+                    "depth": "60"
+                },
+                "weight" : "2653"
+            },
+            {   
+                "ref": "BE13106",
+                "img": "product/black_magic.jpg",
+                "size": {
+                    "width": "295",
+                    "height": "110",
+                    "depth": "60"
+                },
+                "weight" : "2653"
+            },
+            {   
+                "ref": "BE12667",
+                "img": "product/black_magic.jpg",
+                "size": {
+                    "width": "295",
+                    "height": "110",
+                    "depth": "60"
+                },
+                "weight" : "2653"
+            },
+            {   
+                "ref": "BE12708",
+                "img": "product/black_magic.jpg",
+                "size": {
+                    "width": "295",
+                    "height": "110",
+                    "depth": "60"
+                },
+                "weight" : "2653"
+            },
+            {   
+                "ref": "BE12709",
+                "img": "product/black_magic.jpg",
+                "size": {
+                    "width": "295",
+                    "height": "110",
+                    "depth": "60"
+                },
+                "weight" : "2653"
+            },
+            {   
+                "ref": "BE1-27011",
+                "img": "product/black_magic.jpg",
+                "size": {
+                    "width": "295",
+                    "height": "110",
+                    "depth": "60"
+                },
+                "weight" : "2653"
+            },
+            {   
+                "ref": "BE127012",
+                "img": "product/black_magic.jpg",
+                "size": {
+                    "width": "2",
+                    "height": "10",
+                    "depth": "60"
+                },
+                "weight" : "2653"
+            },
+            {   
+                "ref": "BE127013",
+                "img": "product/black_magic.jpg",
+                "size": {
+                    "width": "295",
+                    "height": "110",
+                    "depth": "6"
+                },
+                "weight" : "2653"
+            }
+        ]
     }
 }

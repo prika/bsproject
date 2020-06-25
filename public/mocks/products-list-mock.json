@@ -14,20 +14,20 @@
                 3
             ]
         },
-    {
-        
-        "id": "Prod2",
-        "name": "Bambu Pink",
-        "category": 2,
-        "collection": 1,
-        "imgURL": "product/bambu_pink.jpg",
-        "firstName": "Bambu",
-        "secondName": "Pink",
-        "colors": [
-            0,
-            4
-        ]
-    },
+        {
+            
+            "id": "Prod2",
+            "name": "Bambu Pink",
+            "category": 2,
+            "collection": 1,
+            "imgURL": "product/bambu_pink.jpg",
+            "firstName": "Bambu",
+            "secondName": "Pink",
+            "colors": [
+                0,
+                4
+            ]
+        },
     {
         
         "id": "Prod3",
@@ -40,12 +40,77 @@
         "colors": [
             3
         ]
+    },{
+        
+        "id": "Prod33",
+        "name": "Butak Onyx",
+        "category": 1,
+        "collection": 1,
+        "imgURL": "product/butak_onyx.jpg",
+        "firstName": "Butak",
+        "secondName": "Onyx",
+        "colors": [
+            4,
+            1
+        ]
+    },{
+        
+        "id": "Prod34",
+        "name": "Butak Onyx",
+        "category": 1,
+        "collection": 1,
+        "imgURL": "product/butak_onyx.jpg",
+        "firstName": "Butak",
+        "secondName": "Onyx",
+        "colors": [
+            4,
+            1
+        ]
     },
     {
         
         "id": "Prod4",
         "name": "Butak Onyx",
-        "category": 2,
+        "category": 1,
+        "collection": 2,
+        "imgURL": "product/butak_onyx.jpg",
+        "firstName": "Butak",
+        "secondName": "Onyx",
+        "colors": [
+            4,
+            1
+        ]
+    },{
+        
+        "id": "Prod45",
+        "name": "Butak Onyx",
+        "category": 1,
+        "collection": 2,
+        "imgURL": "product/butak_onyx.jpg",
+        "firstName": "Butak",
+        "secondName": "Onyx",
+        "colors": [
+            4,
+            1
+        ]
+    },{
+        
+        "id": "Prod46",
+        "name": "Butak Onyx",
+        "category": 1,
+        "collection": 2,
+        "imgURL": "product/butak_onyx.jpg",
+        "firstName": "Butak",
+        "secondName": "Onyx",
+        "colors": [
+            4,
+            1
+        ]
+    },{
+        
+        "id": "Prod47",
+        "name": "Butak Onyx",
+        "category": 1,
         "collection": 2,
         "imgURL": "product/butak_onyx.jpg",
         "firstName": "Butak",

@@ -24,7 +24,7 @@ const routes = [
     component: () => import('../views/BlocoB.vue')
   },
   {
-    path: '/bloco-b/:name',
+    path: '/bloco-b/:id-:name',
     name: 'Product',
     // route level code-splitting
     // this generates a separate chunk (BInnovation.[hash].js) for this route
@@ -46,7 +46,11 @@ const routes = [
     name: 'innovation',
     component: () => import('../views/BInnovation.vue')
   },
-  //{ path: '/search', component: () => import('../components/subcomponents/ModalSearch.vue'), props: (route) => ({ query: route.query.q }) },
+  //{ 
+  //path: '/search', 
+  //name: 'search',
+  //component: () => import('../components/subcomponents/ModalSearch.vue'), 
+  //props: (route) => ({ query: route.query.q }) },
   {
     path: '/news',
     name: 'news',
@@ -57,8 +61,7 @@ const routes = [
     name: 'newsdetail',
     //props: (route) => ({ query: route.query.q }),
     component: () => import('../views/NewsDetail.vue')
-  },
-
+  }
 ]
 
 const router = new VueRouter({

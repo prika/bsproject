@@ -1,57 +1,79 @@
 <template>
   <div id="detailPage">
-      <div class="detailPageGeneral">
-          <transition appear enter-active-class="animated slideInLeft" leave-active-class="animated slideOutLeft">
-            <div :class="(showDetail === true ? 'productDetailLeft col-2 showDetail': 'productDetailLeft col-5')">
-                <p class="productName" itemprop="name">
-                    <mark>
-                        <span></span>
-                        {{ product.firstName }} </br> {{ product.secondName }}
-                    </mark>
-                </p>
-                <h1 class="pageTitle" v-show="!showDetail">{{product.categoryNameSplit1}}<span>{{product.categoryNameSplit2}}</span></h1>
-                
-                <a class="backLink" href="javascript:void(0)" @click="showDetail = !showDetail" v-show="showDetail">Voltar</a>
-                
-                <div class="containerImage">
-                    <img :src="getImgUrl(product.imgURL)"
-                    class="productImage"
-                    :alt="product.name" itemprop="image">
-                </div>
+      
+      <transition appear enter-active-class="animated slideInLeft" leave-active-class="animated slideOutLeft">
+        
+        <div :class="(showDetail === true ? 'productDetailLeft col-2 showDetail': 'productDetailLeft col-5')">
+            <p class="productName" itemprop="name">
+                <mark>
+                    <span></span>
+                    {{ product.firstName }} </br> {{ product.secondName }}
+                </mark>
+            </p>
+            <h1 class="pageTitle" v-show="!showDetail">{{product.categoryNameSplit1}}<span>{{product.categoryNameSplit2}}</span></h1>
+            
+            <a class="backLink" href="javascript:void(0)" @click="showDetail = !showDetail" v-show="showDetail">Voltar</a>
+            
+            <div class="containerImage">
+                <img :src="getImgUrl(product.imgURL)"
+                class="productImage"
+                :alt="product.name" itemprop="image">
             </div>
-          </transition>
+        </div>
 
-          <transition-group enter-active-class="animated slideInRight faster" leave-active-class="animated slideOutRight faster">
-              <div class="productDetailLinks col-8" key="1" v-if="!showDetail">
-                  <a href="javascript:void(0)" @click="showDetail = !showDetail">{{product.categoryName}}</a>
-                  <router-link to="/simulator">Simulador</router-link>
-              </div>
-          
-              <div class="productDetailLinks col-9" key="2" v-else>
-                  <table>
-                    <tr>
-                        <td>image</td>
-                        <td>BE1-266</td>
-                        <td>Medidas</td>
-                        <td>Peso</td>
-                    </tr>
-                     <tr>
-                        <td>image</td>
-                        <td>BE1-266</td>
-                        <td>Medidas</td>
-                        <td>Peso</td>
-                    </tr>
-                     <tr>
-                        <td>image</td>
-                        <td>BE1-266</td>
-                        <td>Medidas</td>
-                        <td>Peso</td>
-                    </tr>
-                  </table>
-              </div>
-          </transition-group>
-      </div>
+      </transition>
 
+      <transition enter-active-class="animated slideInRight faster" leave-active-class="animated slideOutRight faster">
+          <div class="productDetailLinks col-8" key="1" v-if="!showDetail">
+              <a href="javascript:void(0)" @click="showDetail = !showDetail">{{product.categoryName}}</a>
+              <router-link to="/simulator">Simulador</router-link>
+          </div>
+
+      </transition>
+      
+      <transition tag="div" enter-active-class="animated slideInUp" leave-active-class="animated slideOutDown">
+          <div class="productVariationList col-12 col-md-10 col-lg-9" key="2" v-if="showDetail">
+
+              <div class="col-12 col-sm-10 col-md-8">
+                <div class="filters col-9">
+                    <div class="order">
+                        <a href="/">Nome</a>
+                        <a href="/">Comprimento</a>
+                        <a href="/">Altura</a>
+                        <a href="/">Espessura</a></a>
+                    </div>
+                    <div class="pagination">
+                        <p>01 / 01</p>
+                        <a href="/">>></a>
+                    </div>
+                </div>
+
+                <div class="tableScroll">
+                  <ul class="variantTable">
+                        <li class="variantItem" v-for="(variant, index) in product.variants" :key="index">
+                              <div class="img">
+                                <img :src="variant.img" :alt="variant.alt" />
+                              </div>
+                              <div class="info row">
+                                  
+                                    <h2 class="col-4">{{variant.ref}}</h2>
+                                    
+                                    <div class="col-4">
+                                      <p><span>[medida exterior]</span><br>{{variant.size.width}}x{{variant.size.height}}x{{variant.size.depth}} cm</p>
+                                    </div>
+
+                                    <div class="col-4">
+                                        <p><span>[Peso]</span><br>{{variant.weight}} t.</p>
+                                    </div>
+                              </div>
+                            
+                        </li>
+                  </ul>
+                </div>
+                
+              </div>
+          </div>
+        </transition>
   </div>
 </template>
 
@@ -67,12 +89,23 @@ export default {
   data() {
     return {
         product: '',
+        variants: [],
         showDetail: false  
     }
   },
   methods:{
       getImgUrl: function (src) {
           return require('@/assets/images/'+src)
+      },
+      parseObject: function(source, destination)
+      {
+          for ( var i = 0 ; i < source.length; i++ ) {
+              let obj = source[i]
+              let fullPath = this.getImgUrl(obj.img)
+              obj.img = fullPath
+              destination.push(obj)
+              this.variants.push(obj)
+          }
       }
   },
   mounted() {
@@ -82,150 +115,241 @@ export default {
         this.$http.get('../mocks/products-detail-mock.json').then(response => {
             
             this.product = response.data.product
-            //this.parseObject(response.data.products, this.products)
+            this.parseObject(response.data.product.variants, this.product.variants)
+
         })
     }
 }
 </script>
 
 <style lang="scss">
-
 body{margin: 0}
-footer{display:none}
+footer{display: none;}
 
 #bstoneproject{ height: 100vh; }
 
-  #detailPage{
+#detailPage {
+
+    .productDetailLeft{
+      width: 100%;
       height: 100%;
+      position: fixed;
+      z-index: 2;
+      padding: 0;
+      -webkit-transition:   all 0.5s ease .2s;
+      -moz-transition:      all 0.5s ease .2s;
+      -o-transition:        all 0.5s ease .2s;
+      transition:           all 0.5s ease .2s;
 
-      .detailPageGeneral{
-          height: 100%;
-          position: relative;
+        .productName{
+            width: 270px;
+            position: absolute;
+            top: 200px; right: -20%;
+            z-index: 2;
+                  
+            font-family: 'Noe Display', serif;
+            font-weight: normal;
+            font-size: 60px;
+            line-height: 70px;
+            color: #333;
+            text-align: left;
+            text-indent: 25px;
 
-          .productDetailLeft{
-             width: 100%;
-             height: 100%;
-             position: relative;
-             padding: 0;
-             -webkit-transition:  all 0.5s ease .2s;
-            -moz-transition:      all 0.5s ease .2s;
-            -o-transition:        all 0.5s ease .2s;
-            transition:           all 0.5s ease .2s;
+            -webkit-transition: all 0.5s ease;
+            -moz-transition: all 0.5s ease;
+            -o-transition: all 0.5s ease;
+            transition: all 0.5s ease;
 
-              .productName{
-                  width: 270px;
-                  position: absolute;
-                  top: 200px; right: -20%;
-                  z-index: 2;
-                        
-                  font-family: 'Noe Display', serif;
-                  font-weight: normal;
-                  font-size: 60px;
-                  line-height: 70px;
-                  color: #333;
-                  text-align: left;
-                  text-indent: 25px;
-
-                  -webkit-transition: all 0.5s ease;
-                  -moz-transition: all 0.5s ease;
-                  -o-transition: all 0.5s ease;
-                  transition: all 0.5s ease;
-
-                  span{
-                    border: 3px solid #333;
-                    width: 32px;
-                    display: block;
-                    content: '';
-                    position: absolute;
-                    top: 29px;
-                    left: -10px;
-                  }
-
-                  mark {
-                    background-color: white;
-                    padding: 2px 5px;
-                  }
-              }
-
-
-              .containerImage{
-                height: 100%;
-                overflow: hidden;
-                z-index: 0;
-
-                img {
-                  min-width: 100%;
-                  min-height: 100%;
-                  -webkit-transition: all 0.2s ease;
-                  -moz-transition: all 0.2s ease;
-                  -o-transition: all 0.2s ease;
-                  transition: all 0.2s ease;
-                }
-              }
-
-              &:hover .containerImage img,
-              & .productName:hover > .containerImage img,
-              & .pageTitle:hover > .containerImage img{ 
-                cursor: pointer;
-                transform: scale(1.2); 
-              }
-
-              .pageTitle{ 
-                z-index: 2; margin: 0 auto; left: 10%; bottom: 40px;
-              }
-
-              .backLink { 
-                position: absolute;
-                bottom: 10%;
-                left: 10%;
-                z-index: 2;
-              }
-          }
-
-          .productDetailLinks{
-              height: 100%;
-              padding: 35% 0 0;
-              z-index: 2;
-              position: absolute;
+            span{
+              border: 3px solid #333;
+              width: 32px;
               display: block;
-              top: 0;
-              bottom: 0;
-              right: 0;
+              content: '';
+              position: absolute;
+              top: 29px;
+              left: -10px;
+            }
 
-              a {
-                  display: block;
-                  float: left;
-                  clear: left;
-                  padding-bottom: 20px;
+            mark {
+              background-color: white;
+              padding: 2px 5px;
+            }
+        }
 
-                  font-family: 'Oswald', sans-serif;
-                  font-size: 25px;
-                  font-weight: 500;
-                  color: #333;
-                  text-decoration: none;
-                  text-transform: uppercase;
-                  letter-spacing: 4px;
-                  padding-left: 220px;
-                  position: relative;
-                  -webkit-transition:     all 0.2s ease;
-                  -moz-transition:        all 0.2s ease;
-                  -o-transition:          all 0.2s ease;
-                  transition:             all 0.2s ease;
+        .containerImage{
+          height: 100%;
+          overflow: hidden;
+          z-index: 0;
 
-                  &:before{
-                      position: absolute;
-                      top: 20px;
-                      left: 10px;
-                      content: '';
-                      width: 190px;
-                      height: 1px;
-                      background: #6A6A6A;
+          img {
+            min-width: 100%;
+            min-height: 100%;
+            -webkit-transition: all 0.2s ease;
+            -moz-transition: all 0.2s ease;
+            -o-transition: all 0.2s ease;
+            transition: all 0.2s ease;
+          }
+        }
+
+        &:hover .containerImage img,
+        & .productName:hover > .containerImage img,
+        & .pageTitle:hover > .containerImage img{ 
+          cursor: pointer;
+          transform: scale(1.2); 
+        }
+
+        .pageTitle{ 
+          z-index: 2; margin: 0 auto; left: 10%; bottom: 40px;
+        }
+
+        .backLink { 
+          position: absolute;
+          bottom: 10%;
+          left: 10%;
+          z-index: 2;
+        }
+    }
+
+    .productDetailLinks{
+        height: 100%;
+        padding: 35% 0 0;
+        z-index: 2;
+        position: absolute;
+        display: block;
+        top: 0;
+        bottom: 0;
+        right: 0;
+
+        a {
+            display: block;
+            float: left;
+            clear: left;
+            padding-bottom: 20px;
+
+            font-family: 'Oswald', sans-serif;
+            font-size: 25px;
+            font-weight: 500;
+            color: #333;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            padding-left: 220px;
+            position: relative;
+            -webkit-transition:     all 0.2s ease;
+            -moz-transition:        all 0.2s ease;
+            -o-transition:          all 0.2s ease;
+            transition:             all 0.2s ease;
+
+            &:before{
+                position: absolute;
+                top: 20px;
+                left: 10px;
+                content: '';
+                width: 190px;
+                height: 1px;
+                background: #6A6A6A;
+            }
+
+            &:hover{ color: #C47C5A }
+        }
+    }
+
+    .productVariationList {
+        position: absolute;
+        top: 230px;
+        right: 0;
+
+
+        .filters{
+            background: #F0F0F0;
+            height: 230px;
+            position: fixed;
+            padding: 100px 40px;
+            top: 124px;
+            right: 0;
+            z-index: 1;
+        }
+        
+
+        ul.variantTable {
+            padding: 0;
+            list-style: none;
+            margin: 150px 0;
+
+            li{
+                width: 100%;
+                height: 190px;
+                margin-bottom: 1px;
+                background: #FFF;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+
+                .img{
+                  width: 190px;
+                  height: 160px;
+                  margin-left: 10px;
+                  overflow: hidden;
+                  
+                
+                  img{
+                    min-height: 100%;
+                    width: 100%;
+                    -webkit-transition: all 0.2s ease;
+                    -moz-transition: all 0.2s ease;
+                    -o-transition: all 0.2s ease;
+                    transition: all 0.2s ease;
+                  }
+                }
+
+                &:hover{
+                    overflow: none;
+
+                    h2{ color: #C47C5A}
+
+                    img{
+                        transform: scale(1.1);
+                    }
+                }
+
+                .info {
+                  height: 70px;
+                  width: 100%;
+                  display: flex;
+                  //justify-content: stretch;
+                  align-items: center;
+                  text-align: center;
+
+
+                  h2{
+                    font-family: 'Oswald', sans-serif;
+                    font-weight: 400;
+                    font-size: 28px;
+                    text-transform: uppercase;
                   }
 
-                  &:hover{ color: #C47C5A }
-              }
-          }
-      }
-  }
-  
+                  div {
+                    height: 70px;
+                    border-left: 1px solid #B7B7B7;
+                    //display: flex;
+
+                    p {
+                      font-family: 'Oswald', sans-serif;
+                      font-weight: 300;
+                      font-size: 21px;
+                      letter-spacing: 1px;
+                      color: #575757;
+
+                      span {
+                        text-transform: uppercase;
+                        font-size: 15px;
+                      }
+                    }
+                  }
+                }
+            }
+        }
+    }
+}
 </style>
