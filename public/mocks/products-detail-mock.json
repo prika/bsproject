@@ -130,6 +130,15 @@
                 },
                 "weight" : "2653"
             }
-        ]
+        ],
+        "filters" : [
+            { "id": "order1", "name": "Nome", "order": 1},
+            { "id": "order2", "name": "Comprimento", "order": 2},
+            { "id": "order3", "name": "Altura", "order": 3},
+            { "id": "order4", "name": "Espessura", "order": 4}
+        ],
+        "itemsPerPage": 6,
+        "titleSize": "Medida Exterior",
+        "titleWeight": "Peso" 
     }
 }

@@ -12,7 +12,7 @@
             </p>
             <h1 class="pageTitle" v-show="!showDetail">{{product.categoryNameSplit1}}<span>{{product.categoryNameSplit2}}</span></h1>
             
-            <a class="backLink" href="javascript:void(0)" @click="showDetail = !showDetail" v-show="showDetail">Voltar</a>
+            <a class="backLink" href="javascript:void(0)" @click="showDetail = !showDetail" v-show="showDetail"><arrowLeftIcon /> voltar</a>
             
             <div class="containerImage">
                 <img :src="getImgUrl(product.imgURL)"
@@ -25,32 +25,39 @@
 
       <transition enter-active-class="animated slideInRight faster" leave-active-class="animated slideOutRight faster">
           <div class="productDetailLinks col-8" key="1" v-if="!showDetail">
-              <a href="javascript:void(0)" @click="showDetail = !showDetail">{{product.categoryName}}</a>
+              <a href="javascript:void(0)" @click="showDetail = !showDetail">{{product.categoryName}} <span>({{product.variants.length}})</span></a>
               <router-link to="/simulator">Simulador</router-link>
           </div>
-
       </transition>
       
-      <transition tag="div" enter-active-class="animated slideInUp" leave-active-class="animated slideOutDown">
+      <transition tag="div" enter-active-class="animated fade" leave-active-class="animated fade">
           <div class="productVariationList col-12 col-md-10 col-lg-9" key="2" v-if="showDetail">
-
-              <div class="col-12 col-sm-10 col-md-8">
-                <div class="filters col-9">
+             
+                <div class="filters col-6">
                     <div class="order">
-                        <a href="/">Nome</a>
-                        <a href="/">Comprimento</a>
-                        <a href="/">Altura</a>
-                        <a href="/">Espessura</a></a>
+
+                        <a href="javascript:void(0)" class="_active"
+                           v-for="(filter, index) in product.filters" :key="filter.id">
+                           {{filter.name}}</a>
+
                     </div>
                     <div class="pagination">
-                        <p>01 / 01</p>
-                        <a href="/">>></a>
+                        <p><span class="active">01</span>/02</p>
+                        <a href="/" class="arrowRight"> <arrowRightIcon /></a>
                     </div>
                 </div>
+              
+            </div>
+        </transition>
+        
+        <transition tag="div" enter-active-class="animated slideInUp" leave-active-class="animated slideOutDown">
+          <div class="productVariationList col-12 col-md-10 col-lg-9" key="3" v-if="showDetail">
+              <div class="col-12 col-sm-10 col-md-8">
 
                 <div class="tableScroll">
                   <ul class="variantTable">
-                        <li class="variantItem" v-for="(variant, index) in product.variants" :key="index">
+                        <router-link to="/productpage/:id" tag="li"  class="variantItem" v-for="(variant, index) in product.variants" :key="index">
+                     
                               <div class="img">
                                 <img :src="variant.img" :alt="variant.alt" />
                               </div>
@@ -59,15 +66,15 @@
                                     <h2 class="col-4">{{variant.ref}}</h2>
                                     
                                     <div class="col-4">
-                                      <p><span>[medida exterior]</span><br>{{variant.size.width}}x{{variant.size.height}}x{{variant.size.depth}} cm</p>
+                                      <p><span>{{product.titleSize}}</span><br>{{variant.size.width}}x{{variant.size.height}}x{{variant.size.depth}}cm</p>
                                     </div>
 
                                     <div class="col-4">
-                                        <p><span>[Peso]</span><br>{{variant.weight}} t.</p>
+                                        <p><span>{{product.titleWeight}}</span><br>{{variant.weight}} t.</p>
                                     </div>
                               </div>
-                            
-                        </li>
+                      
+                        </router-link>
                   </ul>
                 </div>
                 
@@ -79,18 +86,21 @@
 
 <script>
 import Simulate from '@/components/subcomponents/scroll.vue'
+import arrowLeftIcon from '@/components/ui/arrow-bold-left.vue'
+import arrowRightIcon from '@/components/ui/arrow-slim-right.vue'
 
 export default {
   name: 'detailPage',
   components: {
-      Simulate
-      // Footer
+      Simulate,
+      arrowRightIcon,
+      arrowLeftIcon
   }, 
   data() {
     return {
         product: '',
         variants: [],
-        showDetail: false  
+        showDetail: false
     }
   },
   methods:{
@@ -203,11 +213,51 @@ footer{display: none;}
         }
 
         .backLink { 
-          position: absolute;
-          bottom: 10%;
-          left: 10%;
+          position: fixed;
+          bottom: 70px;
+          right: 90%;
+          width: 105px;
           z-index: 2;
+          display: block;
+          text-align: right;
+          font-family: 'Oswald', sans-serif;
+          font-size: 18px;
+          font-weight: 200;
+          color: #FFF;
+          text-decoration: none;
+          letter-spacing: 2px;
+
+          &:before{
+                position: absolute;
+                top: 13px;
+                right: 54px;
+                content: '';
+                width: 30px;
+                height: 2px;
+                background: #FFF;
+                -webkit-transition:     all 0.2s ease;
+                -moz-transition:        all 0.2s ease;
+                -o-transition:          all 0.2s ease;
+                transition:             all 0.2s ease;
+          }
+
+          .arrowBoldIcon{
+              transform: rotate(180deg);
+              position: absolute;
+              top: 3px;
+              left: 20px;
+              -webkit-transition:     all 0.2s ease;
+              -moz-transition:        all 0.2s ease;
+              -o-transition:          all 0.2s ease;
+              transition:             all 0.2s ease;
+          }
+
+          &:hover{
+            &:before{width: 50px;}
+            .arrowBoldIcon{left: 0px;}
+          }
         }
+        
     }
 
     .productDetailLinks{
@@ -259,26 +309,129 @@ footer{display: none;}
         top: 230px;
         right: 0;
 
-
         .filters{
             background: #F0F0F0;
-            height: 230px;
+            height: 150px;
             position: fixed;
-            padding: 100px 40px;
+            padding: 90px 20px;
             top: 124px;
-            right: 0;
+            left: 25%;
             z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            text-align: center;
+            transition: all 0.1s ease;
+
+            .order a,
+            .pagination p {
+                font-family: "Oswald", sans-serif;
+                color: #333;
+                text-decoration: none;
+                text-transform: uppercase;
+                letter-spacing: 1.5px;
+                font-size: 15px;
+                font-weight: 400;
+                white-space: nowrap;
+                margin: 0;
+                position: relative;
+            }
+
+            .order a {
+              padding: 0 20px;
+
+              &::before{
+                content: '';
+                position: absolute;
+                display: block;
+                left: 20%;
+                top: 11px;
+                height: 1px;
+                width: 0;
+                background: #b7b7b7;
+                -webkit-transition:     all 0.2s ease;
+                -moz-transition:        all 0.2s ease;
+                -o-transition:          all 0.2s ease;
+                transition:             all 0.2s ease;
+              }
+
+              &::after { 
+                content: '';
+                position: absolute;
+                display: block;
+                left: 0;
+                top: 5px;
+                height: 12px;
+                width: 1px;
+                background: #333;
+              }
+
+              &:first-child::after { display: none; }
+            
+              &:hover,
+              &.active {
+                 color: #b7b7b7;
+                 &::before{width: 65%;}
+              }
+            }
+
+            .pagination p {
+              font-size: 20px;
+              font-weight: 300;
+              cursor: pointer;
+              
+                span.active{
+                  font-size: 24px;
+                  font-weight: 500;
+                }
+            }
+
+            .pagination {
+                .arrowRight {
+                    width: 70px;
+                    height: 15px;
+                    display: block;
+                    position: relative;
+                    margin-top: 6px;
+
+                    .arrowSlimIcon{
+                      float: right;
+                    }
+
+                    &::before{
+                        position: absolute;
+                        top: 13px;
+                        right: 0;
+                        content: '';
+                        width: 40px;
+                        height: 1px;
+                        background: #333;
+                        -webkit-transition:     all 0.2s ease;
+                        -moz-transition:        all 0.2s ease;
+                        -o-transition:          all 0.2s ease;
+                        transition:             all 0.2s ease;
+                    }
+                }
+
+                &:hover {
+                  span.active {color: #C47C5A;}
+
+                  .arrowRight::before{
+                      width: 60px;
+                  }
+                }
+            }
         }
         
 
         ul.variantTable {
             padding: 0;
             list-style: none;
-            margin: 150px 0;
+            margin: 85px 0;
 
             li{
                 width: 100%;
-                height: 190px;
+                height: 180px;
                 margin-bottom: 1px;
                 background: #FFF;
                 display: flex;
