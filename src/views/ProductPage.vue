@@ -3,7 +3,7 @@
       
       <div class="productDetailInfo">
           <transition appear enter-active-class="animated slideInLeft" leave-active-class="animated slideOutLeft">
-              <p class="productName" itemprop="name">
+              <p class="productName" itemprop="name" :aria-label="variant.firstName+' '+variant.secondName">
                   <mark>
                       <span></span>
                       {{variant.firstName}}</br>{{variant.secondName}} 
@@ -25,8 +25,8 @@
          <div class="galleryScrollSlider">
               <a @click="showGalleryFunction(index)" href="javascript:void(0)" class="containerImage" v-for="(thumb, index) in thumbs" :key="index">
                    <img :src="thumb.url"
-                    class="productImage"
-                    :alt="thumb.alt" :width="thumb.width" :height="thumb.height" itemprop="image">
+                    class="productImage" itemprop="image"
+                    :alt="thumb.alt" :width="thumb.width" :height="thumb.height">
               </a>
          </div>
       </transition>
@@ -34,7 +34,7 @@
       <transition appear enter-active-class="animated slideInUp" leave-active-class="animated slideOutUp">
          <div class="row pagecontrols">
               <a @click="$router.go(-1)" href="javascript:void(0)" class="backlink col-3"><arrowRightIcon />voltar</a>
-              <a @click="showShareModal = true" class="shareLink col-3"><arrowRightIcon />partilhar<shareIcon/></a>
+              <a @click="showShareModal = true" class="shareLink col-3" href="javascript:void(0)"><arrowRightIcon />partilhar<shareIcon/></a>
               <router-link to="/bloco-b" class="cartLink col-6"><arrowRightIcon />encomendar <cartIcon/></router-link>
          </div>
       </transition>
@@ -67,7 +67,8 @@ export default {
         thumbs: [],
         largeImages:[],
         showShareModal: false,
-        showGallery: false
+        showGallery: false,
+        selectedIndex: 0
     }
   },
   methods:{
@@ -89,7 +90,8 @@ export default {
       },
       showGalleryFunction(index){
           this.showGallery = true
-          alert( index );
+          this.selectedIndex = index
+          console.log("selected:"+this.selectedIndex)
       }
   },
   mounted() {
@@ -154,7 +156,7 @@ footer{display: none;}
 
     .productDetailInfo{
         position: fixed;
-        top: 250px;
+        top: 20%;
         left: 0;
         right: 0;
         z-index: 2;
@@ -201,6 +203,7 @@ footer{display: none;}
         overflow-y: hidden;
         white-space: nowrap;
         -webkit-overflow-scrolling: touch;
+        z-index: 2;
 
         &::-webkit-scrollbar {
           display: none;
@@ -239,6 +242,7 @@ footer{display: none;}
         bottom: 0;
         padding: 0;
         margin: 0;
+        z-index: 3;
         
         a {
           display: inline-grid;
