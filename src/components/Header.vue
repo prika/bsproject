@@ -37,10 +37,10 @@
                 <UserButton></UserButton>
               </button>
 
-              <button class="buttons cartButton"
+              <router-link to="/shoppingcart" tag="button" class="buttons cartButton"
                 v-bind:aria-label="$t('button-arialabel-open-cart')">
                 <CartButton>99</CartButton>
-              </button>
+              </router-link>
           </div>
       </div>
 

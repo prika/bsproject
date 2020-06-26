@@ -69,6 +69,11 @@ const routes = [
     name: 'newsdetail',
     //props: (route) => ({ query: route.query.q }),
     component: () => import('../views/NewsDetail.vue')
+  },
+  {
+    path: '/shoppingcart',
+    name: 'Shopping Cart',
+    component: () => import('../views/ShoppingCart.vue')
   }
 ]
 
