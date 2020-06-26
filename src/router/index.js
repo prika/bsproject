@@ -32,6 +32,14 @@ const routes = [
     component: () => import('../views/DetailPage.vue')
   },
   {
+    path: '/productpage/:id',
+    name: 'Product detail',
+    // route level code-splitting
+    // this generates a separate chunk (BInnovation.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import('../views/ProductPage.vue')
+  },
+  {
     path: '/b-explore',
     name: 'explore',
     component: () => import('../views/BExplore.vue')

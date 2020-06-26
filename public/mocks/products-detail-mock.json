@@ -12,7 +12,7 @@
         "variants": [
             {   
                 "ref": "BE12661",
-                "img": "product/black_magic.jpg",
+                "img": "product/variant/variant1-1.jpg",
                 "size": {
                     "width": "29",
                     "height": "110",
@@ -22,7 +22,7 @@
             },
             {   
                 "ref": "BE12702",
-                "img": "product/black_magic.jpg",
+                "img": "product/variant/variant1-2.jpg",
                 "size": {
                     "width": "295",
                     "height": "11",
@@ -32,7 +32,7 @@
             },
             {   
                 "ref": "BE12803",
-                "img": "product/black_magic.jpg",
+                "img": "product/variant/variant1-3.jpg",
                 "size": {
                     "width": "295",
                     "height": "10",
@@ -42,7 +42,7 @@
             },
             {   
                 "ref": "BE12904",
-                "img": "product/black_magic.jpg",
+                "img": "product/variant/variant1-4.jpg",
                 "size": {
                     "width": "295",
                     "height": "110",
@@ -52,7 +52,7 @@
             },
             {   
                 "ref": "BE13005",
-                "img": "product/black_magic.jpg",
+                "img": "product/variant/variant1-5.jpg",
                 "size": {
                     "width": "295",
                     "height": "110",
@@ -62,7 +62,7 @@
             },
             {   
                 "ref": "BE13106",
-                "img": "product/black_magic.jpg",
+                "img": "product/variant/variant1-6.jpg",
                 "size": {
                     "width": "295",
                     "height": "110",
@@ -72,7 +72,7 @@
             },
             {   
                 "ref": "BE12667",
-                "img": "product/black_magic.jpg",
+                "img": "product/variant/variant1-1.jpg",
                 "size": {
                     "width": "295",
                     "height": "110",
@@ -82,7 +82,7 @@
             },
             {   
                 "ref": "BE12708",
-                "img": "product/black_magic.jpg",
+                "img": "product/variant/variant1-2.jpg",
                 "size": {
                     "width": "295",
                     "height": "110",
@@ -92,7 +92,7 @@
             },
             {   
                 "ref": "BE12709",
-                "img": "product/black_magic.jpg",
+                "img": "product/variant/variant1-3.jpg",
                 "size": {
                     "width": "295",
                     "height": "110",
@@ -102,7 +102,7 @@
             },
             {   
                 "ref": "BE1-27011",
-                "img": "product/black_magic.jpg",
+                "img": "product/variant/variant1-4.jpg",
                 "size": {
                     "width": "295",
                     "height": "110",
@@ -112,7 +112,7 @@
             },
             {   
                 "ref": "BE127012",
-                "img": "product/black_magic.jpg",
+                "img": "product/variant/variant1-5.jpg",
                 "size": {
                     "width": "2",
                     "height": "10",
@@ -122,7 +122,7 @@
             },
             {   
                 "ref": "BE127013",
-                "img": "product/black_magic.jpg",
+                "img": "product/variant/variant1-6.jpg",
                 "size": {
                     "width": "295",
                     "height": "110",

@@ -1,212 +1,307 @@
 { "variant" :
     {
+        "id ": "Prod1",
         "ref": "BE1-266",
         "name": "Atlantic White",
         "firstName": "Atlantic",
         "secondName": "White",
-        "size": [
-            {"width": "295"},
-            {"height": "110"},
-            {"width": "60"}
-        ],
+        "size": {
+            "width": "295",
+            "height": "110",
+            "depth": "60",
+            "total": "6,278"
+        },
         "weight" : "2653",
         "images": [
             {   
-                "thumb" : [{
-                    "url": "product/black_magic.jpg",
+                "thumb" : {
+                    "url": "product/variant/variant1-1.jpg",
                     "alt": "BE1-266 - Bla bla bla",
                     "width": "300px",
                     "height": "300px"
-                }],
-                "big" : [{
-                    "url": "product/black_magic.jpg",
+                },
+                "large" : {
+                    "url": "product/variant/variant1-1.jpg",
                     "alt": "BE1-266 - Bla bla bla",
                     "width": "800px",
                     "height": "800px"
-                }]
+                }
             },
             {   
-                "thumb" : [{
-                    "url": "product/black_magic.jpg",
+                "thumb" : {
+                    "url": "product/variant/variant1-2.jpg",
                     "alt": "BE1-266 - Bla bla bla",
                     "width": "300px",
                     "height": "300px"
-                }],
-                "big" : [{
-                    "url": "product/black_magic.jpg",
+                },
+                "large" : {
+                    "url": "product/variant/variant1-2.jpg",
                     "alt": "BE1-266 - Bla bla bla",
                     "width": "800px",
                     "height": "800px"
-                }]
+                }
             },
             {   
-                "thumb" : [{
-                    "url": "product/black_magic.jpg",
+                "thumb" : {
+                    "url": "product/variant/variant1-3.jpg",
                     "alt": "BE1-266 - Bla bla bla",
                     "width": "300px",
                     "height": "300px"
-                }],
-                "big" : [{
-                    "url": "product/black_magic.jpg",
+                },
+                "large" : {
+                    "url": "product/variant/variant1-3.jpg",
                     "alt": "BE1-266 - Bla bla bla",
                     "width": "800px",
                     "height": "800px"
-                }]
-            },
-            {   
-                "thumb" : [{
-                    "url": "product/black_magic.jpg",
+                }
+            },{   
+                "thumb" : {
+                    "url": "product/variant/variant1-4.jpg",
                     "alt": "BE1-266 - Bla bla bla",
                     "width": "300px",
                     "height": "300px"
-                }],
-                "big" : [{
-                    "url": "product/black_magic.jpg",
+                },
+                "large" : {
+                    "url": "product/variant/variant1-4.jpg",
                     "alt": "BE1-266 - Bla bla bla",
                     "width": "800px",
                     "height": "800px"
-                }]
-            },
-            {   
-                "thumb" : [{
-                    "url": "product/black_magic.jpg",
+                }
+            },{   
+                "thumb" : {
+                    "url": "product/variant/variant1-5.jpg",
                     "alt": "BE1-266 - Bla bla bla",
                     "width": "300px",
                     "height": "300px"
-                }],
-                "big" : [{
-                    "url": "product/black_magic.jpg",
+                },
+                "large" : {
+                    "url": "product/variant/variant1-5.jpg",
                     "alt": "BE1-266 - Bla bla bla",
                     "width": "800px",
                     "height": "800px"
-                }]
-            },
-            {   
-                "thumb" : [{
-                    "url": "product/black_magic.jpg",
+                }
+            },{   
+                "thumb" : {
+                    "url": "product/variant/variant1-6.jpg",
                     "alt": "BE1-266 - Bla bla bla",
                     "width": "300px",
                     "height": "300px"
-                }],
-                "big" : [{
-                    "url": "product/black_magic.jpg",
+                },
+                "large" : {
+                    "url": "product/variant/variant1-6.jpg",
                     "alt": "BE1-266 - Bla bla bla",
                     "width": "800px",
                     "height": "800px"
-                }]
-            },
-            {   
-                "thumb" : [{
-                    "url": "product/black_magic.jpg",
+                }
+            },{   
+                "thumb" : {
+                    "url": "product/variant/variant1-7.jpg",
                     "alt": "BE1-266 - Bla bla bla",
                     "width": "300px",
                     "height": "300px"
-                }],
-                "big" : [{
-                    "url": "product/black_magic.jpg",
+                },
+                "large" : {
+                    "url": "product/variant/variant1-7.jpg",
                     "alt": "BE1-266 - Bla bla bla",
                     "width": "800px",
                     "height": "800px"
-                }]
-            },
-            {   
-                "thumb" : [{
-                    "url": "product/black_magic.jpg",
+                }
+            },{   
+                "thumb" : {
+                    "url": "product/variant/variant1-8.jpg",
                     "alt": "BE1-266 - Bla bla bla",
                     "width": "300px",
                     "height": "300px"
-                }],
-                "big" : [{
-                    "url": "product/black_magic.jpg",
+                },
+                "large" : {
+                    "url": "product/variant/variant1-8.jpg",
                     "alt": "BE1-266 - Bla bla bla",
                     "width": "800px",
                     "height": "800px"
-                }]
-            },
-            {   
-                "thumb" : [{
-                    "url": "product/black_magic.jpg",
+                }
+            },{   
+                "thumb" : {
+                    "url": "product/variant/variant1-1.jpg",
                     "alt": "BE1-266 - Bla bla bla",
                     "width": "300px",
                     "height": "300px"
-                }],
-                "big" : [{
-                    "url": "product/black_magic.jpg",
+                },
+                "large" : {
+                    "url": "product/variant/variant1-1.jpg",
+                    "alt": "BE1-266 - Bla bla bla",
+                    "width": "800px",
+                    "height": "800px"
+                }
+            },{   
+                "thumb" : {
+                    "url": "product/variant/variant1-2.jpg",
                     "alt": "BE1-266 - Bla bla bla",
                     "width": "300px",
                     "height": "300px"
-                }]
-            },
-            {   
-                "thumb" : [{
-                    "url": "product/black_magic.jpg",
+                },
+                "large" : {
+                    "url": "product/variant/variant1-2.jpg",
+                    "alt": "BE1-266 - Bla bla bla",
+                    "width": "800px",
+                    "height": "800px"
+                }
+            },{   
+                "thumb" : {
+                    "url": "product/variant/variant1-3.jpg",
                     "alt": "BE1-266 - Bla bla bla",
                     "width": "300px",
                     "height": "300px"
-                }],
-                "big" : [{
-                    "url": "product/black_magic.jpg",
+                },
+                "large" : {
+                    "url": "product/variant/variant1-3.jpg",
+                    "alt": "BE1-266 - Bla bla bla",
+                    "width": "800px",
+                    "height": "800px"
+                }
+            },{   
+                "thumb" : {
+                    "url": "product/variant/variant1-4.jpg",
                     "alt": "BE1-266 - Bla bla bla",
                     "width": "300px",
                     "height": "300px"
-                }]
-            },
-            {   
-                "thumb" : [{
-                    "url": "product/black_magic.jpg",
+                },
+                "large" : {
+                    "url": "product/variant/variant1-4.jpg",
+                    "alt": "BE1-266 - Bla bla bla",
+                    "width": "800px",
+                    "height": "800px"
+                }
+            },{   
+                "thumb" : {
+                    "url": "product/variant/variant1-5.jpg",
                     "alt": "BE1-266 - Bla bla bla",
                     "width": "300px",
                     "height": "300px"
-                }],
-                "big" : [{
-                    "url": "product/black_magic.jpg",
+                },
+                "large" : {
+                    "url": "product/variant/variant1-5.jpg",
+                    "alt": "BE1-266 - Bla bla bla",
+                    "width": "800px",
+                    "height": "800px"
+                }
+            },{   
+                "thumb" : {
+                    "url": "product/variant/variant1-6.jpg",
                     "alt": "BE1-266 - Bla bla bla",
                     "width": "300px",
                     "height": "300px"
-                }]
-            },
-            {   
-                "thumb" : [{
-                    "url": "product/black_magic.jpg",
+                },
+                "large" : {
+                    "url": "product/variant/variant1-6.jpg",
+                    "alt": "BE1-266 - Bla bla bla",
+                    "width": "800px",
+                    "height": "800px"
+                }
+            },{   
+                "thumb" : {
+                    "url": "product/variant/variant1-7.jpg",
                     "alt": "BE1-266 - Bla bla bla",
                     "width": "300px",
                     "height": "300px"
-                }],
-                "big" : [{
-                    "url": "product/black_magic.jpg",
+                },
+                "large" : {
+                    "url": "product/variant/variant1-7.jpg",
+                    "alt": "BE1-266 - Bla bla bla",
+                    "width": "800px",
+                    "height": "800px"
+                }
+            },{   
+                "thumb" : {
+                    "url": "product/variant/variant1-8.jpg",
                     "alt": "BE1-266 - Bla bla bla",
                     "width": "300px",
                     "height": "300px"
-                }]
-            },
-            {   
-                "thumb" : [{
-                    "url": "product/black_magic.jpg",
+                },
+                "large" : {
+                    "url": "product/variant/variant1-8.jpg",
+                    "alt": "BE1-266 - Bla bla bla",
+                    "width": "800px",
+                    "height": "800px"
+                }
+            },{   
+                "thumb" : {
+                    "url": "product/variant/variant1-1.jpg",
                     "alt": "BE1-266 - Bla bla bla",
                     "width": "300px",
                     "height": "300px"
-                }],
-                "big" : [{
-                    "url": "product/black_magic.jpg",
+                },
+                "large" : {
+                    "url": "product/variant/variant1-1.jpg",
+                    "alt": "BE1-266 - Bla bla bla",
+                    "width": "800px",
+                    "height": "800px"
+                }
+            },{   
+                "thumb" : {
+                    "url": "product/variant/variant1-2.jpg",
                     "alt": "BE1-266 - Bla bla bla",
                     "width": "300px",
                     "height": "300px"
-                }]
-            },
-            {   
-                "thumb" : [{
-                    "url": "product/black_magic.jpg",
+                },
+                "large" : {
+                    "url": "product/variant/variant1-2.jpg",
+                    "alt": "BE1-266 - Bla bla bla",
+                    "width": "800px",
+                    "height": "800px"
+                }
+            },{   
+                "thumb" : {
+                    "url": "product/variant/variant1-3.jpg",
                     "alt": "BE1-266 - Bla bla bla",
                     "width": "300px",
                     "height": "300px"
-                }],
-                "big" : [{
-                    "url": "product/black_magic.jpg",
+                },
+                "large" : {
+                    "url": "product/variant/variant1-3.jpg",
+                    "alt": "BE1-266 - Bla bla bla",
+                    "width": "800px",
+                    "height": "800px"
+                }
+            },{   
+                "thumb" : {
+                    "url": "product/variant/variant1-4.jpg",
                     "alt": "BE1-266 - Bla bla bla",
                     "width": "300px",
                     "height": "300px"
-                }]
-            }
+                },
+                "large" : {
+                    "url": "product/variant/variant1-4.jpg",
+                    "alt": "BE1-266 - Bla bla bla",
+                    "width": "800px",
+                    "height": "800px"
+                }
+            },{   
+                "thumb" : {
+                    "url": "product/variant/variant1-5.jpg",
+                    "alt": "BE1-266 - Bla bla bla",
+                    "width": "300px",
+                    "height": "300px"
+                },
+                "large" : {
+                    "url": "product/variant/variant1-5.jpg",
+                    "alt": "BE1-266 - Bla bla bla",
+                    "width": "800px",
+                    "height": "800px"
+                }
+            },{   
+                "thumb" : {
+                    "url": "product/variant/variant1-6.jpg",
+                    "alt": "BE1-266 - Bla bla bla",
+                    "width": "300px",
+                    "height": "300px"
+                },
+                "large" : {
+                    "url": "product/variant/variant1-6.jpg",
+                    "alt": "BE1-266 - Bla bla bla",
+                    "width": "800px",
+                    "height": "800px"
+                }
+            }   
         ]
     }
 }
