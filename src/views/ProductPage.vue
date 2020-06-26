@@ -23,7 +23,7 @@
 
       <transition appear enter-active-class="animated fadeInUp delay-1s" leave-active-class="animated fadeOutDown">
          <div class="galleryScrollSlider">
-              <a href="javascript:void(0)" class="containerImage" v-for="(thumb, index) in thumbs" :key="index">
+              <a @click="showGalleryFunction(index)" href="javascript:void(0)" class="containerImage" v-for="(thumb, index) in thumbs" :key="index">
                    <img :src="thumb.url"
                     class="productImage"
                     :alt="thumb.alt" :width="thumb.width" :height="thumb.height" itemprop="image">
@@ -34,10 +34,13 @@
       <transition appear enter-active-class="animated slideInUp" leave-active-class="animated slideOutUp">
          <div class="row pagecontrols">
               <a @click="$router.go(-1)" href="javascript:void(0)" class="backlink col-3"><arrowRightIcon />voltar</a>
-              <router-link to="/bloco-b" class="shareLink col-3"><arrowRightIcon />partilhar<shareIcon/></router-link>
+              <a @click="showShareModal = true" class="shareLink col-3"><arrowRightIcon />partilhar<shareIcon/></a>
               <router-link to="/bloco-b" class="cartLink col-6"><arrowRightIcon />encomendar <cartIcon/></router-link>
          </div>
       </transition>
+
+      <modalShare v-if="showShareModal" @close="showShareModal = false" />
+      <modalGallery v-if="showGallery" @close="showGallery = false" />
 
   </div>
 </template>
@@ -46,19 +49,25 @@
 import arrowRightIcon from '@/components/ui/arrow-slim-right.vue'
 import cartIcon from '@/components/ui/cartButton.vue'
 import shareIcon from '@/components/ui/shareButton.vue'
+import modalShare from '@/components/subcomponents/ShareThisModal.vue'
+import modalGallery from '@/components/subcomponents/ModalGallery.vue'
 
 export default {
   name: 'detailPage',
   components: {
       arrowRightIcon,
       cartIcon,
-      shareIcon
+      shareIcon,
+      modalShare,
+      modalGallery
   }, 
   data() {
     return {
         variant: '',
         thumbs: [],
-        largeImages:[]
+        largeImages:[],
+        showShareModal: false,
+        showGallery: false
     }
   },
   methods:{
@@ -70,10 +79,17 @@ export default {
           for ( var i = 0 ; i < source.length; i++) {
               let thumb = source[i].thumb
               let largeImage = source[i].large
+
               thumb.url = this.getImgUrl(thumb.url) 
+              largeImage.url = this.getImgUrl(largeImage.url) 
+              
               this.thumbs.push(thumb)
               this.largeImages.push(largeImage)
           }
+      },
+      showGalleryFunction(index){
+          this.showGallery = true
+          alert( index );
       }
   },
   mounted() {
