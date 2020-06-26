@@ -198,7 +198,7 @@ footer{display: none;}
 
     .galleryScrollSlider{
         position: absolute;
-        bottom: 118px;
+        bottom: 12vh;
         overflow-x: scroll;
         overflow-y: hidden;
         white-space: nowrap;
@@ -210,8 +210,8 @@ footer{display: none;}
         }
 
         .containerImage{
-            height: 170px;
-            width: 170px;
+            height: 20vh;
+            width: 20vh;
             overflow: hidden;
             z-index: 0;
             display: inline-block;
@@ -234,7 +234,7 @@ footer{display: none;}
     }
 
     .pagecontrols{
-        height: 124px;
+        height: 13vh;
         width: 100%;
         position: fixed;
         left: 0;
