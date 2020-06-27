@@ -35,13 +35,14 @@
          <div class="row pagecontrols">
               <a @click="$router.go(-1)" href="javascript:void(0)" class="backlink col-3"><arrowRightIcon />voltar</a>
               <a @click="showShareModal = true" class="shareLink col-3" href="javascript:void(0)"><arrowRightIcon />partilhar<shareIcon/></a>
-              <router-link to="/bloco-b" class="cartLink col-6"><arrowRightIcon />encomendar <cartIcon/></router-link>
+
+              <a @click="addToCart" v-if="!productAdded" href="javascript:void(0)" class="cartLink col-6"><arrowRightIcon />encomendar <cartIcon/></a>
+              <a @click="goToCart" v-else href="javascript:void(0)" class="cartLink removeProduct col-6"><arrowRightIcon />remover produto <cartIcon/></a>
          </div>
       </transition>
 
       <modalShare v-if="showShareModal" @close="showShareModal = false" />
       <modalGallery v-if="showGallery" @close="showGallery = false" />
-
   </div>
 </template>
 
@@ -68,7 +69,8 @@ export default {
         largeImages:[],
         showShareModal: false,
         showGallery: false,
-        selectedIndex: 0
+        selectedIndex: 0,
+        productAdded: false
     }
   },
   methods:{
@@ -92,6 +94,10 @@ export default {
           this.showGallery = true
           this.selectedIndex = index
           console.log("selected:"+this.selectedIndex)
+      },
+      addToCart(){
+          this.productAdded = true
+          addProductToCart( this.variant.ref )
       }
   },
   mounted() {
@@ -264,7 +270,7 @@ footer{display: none;}
 
             &:before{
                 position: absolute;
-                top: 62px;
+                top: 50%;
                 right: 120px;
                 content: '';
                 width: 50px;
@@ -279,7 +285,7 @@ footer{display: none;}
             .arrowSlimIcon{
                 transform: rotate(180deg);
                 position: absolute;
-                top: 51px;
+                top: 40%;
                 right: 162px;
                 -webkit-transition:     all 0.2s ease;
                 -moz-transition:        all 0.2s ease;
@@ -302,7 +308,7 @@ footer{display: none;}
 
             &:before{
                 position: absolute;
-                top: 62px;
+                top: 50%;
                 left: 100px;
                 content: '';
                 width: 70px;
@@ -317,7 +323,7 @@ footer{display: none;}
 
             .arrowSlimIcon{
                 position: absolute;
-                top: 47px;
+                top: 36%;
                 left: 162px;
                 -webkit-transition:     all 0.2s ease;
                 -moz-transition:        all 0.2s ease;
@@ -352,8 +358,8 @@ footer{display: none;}
 
             &:before{
                 position: absolute;
-                top: 62px;
-                left: 150px;
+                top: 50%;
+                left: 170px;
                 content: '';
                 width: 70px;
                 height: 1px;
@@ -367,8 +373,8 @@ footer{display: none;}
 
             .arrowSlimIcon{
                 position: absolute;
-                top: 47px;
-                left: 212px;
+                top: 36%;
+                left: 232px;
                 -webkit-transition:     all 0.2s ease;
                 -moz-transition:        all 0.2s ease;
                 -o-transition:          all 0.2s ease;
@@ -381,8 +387,19 @@ footer{display: none;}
             &:hover{
               background: #C47C5A;
 
-              &:before{opacity:1; left: 170px;}
-              .arrowSlimIcon{ opacity:1; left: 232px; }
+              &:before{opacity:1; left: 190px;}
+              .arrowSlimIcon{ opacity:1; left: 252px; }
+            }
+
+
+            &.removeProduct {
+               background: #000;
+               color: #FA0B4C;
+
+               &:hover {
+                  background: #FA0B4C;
+                  color: #FFF;
+               }
             }
         }
     }
