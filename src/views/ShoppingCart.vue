@@ -1,36 +1,117 @@
 <template>
   <div id="shoppingCartPage" class="container">
       
-      <div class="cartTitle" style="margin-top: 200px;">
-          <!--transition appear enter-active-class="animated slideInLeft" leave-active-class="animated slideOutLeft"></!--transition-->
+      <div class="row">  <!-- justify-content-center-->
+      <div class="cartTitle col-12 col-md-8">
+          <transition appear enter-active-class="animated slideInRight" leave-active-class="animated slideInRight">
               <h1>Lista da Encomenda</h1>
+          </transition>
       </div>
 
-      <div class="cartTable">
-          <div class="col-12">
-              
-              <div class="categoryGroup"> <!-- este elemento é relativo e tem a dimensão total da tabela de categoria para centrar o contentor-->
-                  <div>
-                      <p>Blocos - 4 produtos</p>
-                      <p>Contentores - 2 - 12m<sup>2</sup></p>
-                  </div>
+      <div class="cartTable col-12 col-md-8">
+           
+       <!-- Repeater containers -->
+        <div class="categoryGroup">
+            <div class="row">
+                <p class="col-8"><span class="uppercase">Blocos</span> - <span>4 produtos</span></p>
+                <p class="col-4 text-center"><span class="uppercase">Contentores</span> - 2 - 12m<sup>2</sup></p>
+            </div>
 
-                  <div class="product">
-                      <img src="" />
-                      <div class="productInfo">
-                          <p>Stormy Grey</p>
-                          <p>BE1 - 266</p>
-                          <p>255x43x53 cm</p>
-                      </div>
-                      <div>RemoveButton X</div>
-                  </div>
+            <div class="row categoryRow">
 
-                  <div class="categoryContainer"> <!-- elemento position absolute para centrar verticalmente -->
-                    Contentor A
-                    87%
+              <!-- repeat -->
+              <div class="productCart col-8 d-flex align-items-center">
+                  <img src="/img/variant1-4.5af13b48.jpg" 
+                        class="col-4"
+                        width="150" height="150"/>
+                  <div class="productInfo col-7">
+                      <h2>Stormy Grey</h2>
+                      <h3>BE1 - 266</h3>
+                      <p>255x43x53 cm</p>
                   </div>
+                  <div class="col-1">X</div>
               </div>
-          </div>
+              <!-- repeat -->
+
+               <!-- repeat -->
+              <div class="productCart col-8 d-flex align-items-center">
+                  <img src="/img/variant1-4.5af13b48.jpg" 
+                        class="col-4"
+                        width="150" height="150"/>
+                  <div class="productInfo col-7">
+                      <h2>Stormy Grey</h2>
+                      <h3>BE1 - 266</h3>
+                      <p>255x43x53 cm</p>
+                  </div>
+                  <div class="col-1">X</div>
+              </div>
+              <!-- repeat -->
+
+               <!-- repeat -->
+              <div class="productCart col-8 d-flex align-items-center">
+                  <img src="/img/variant1-4.5af13b48.jpg" 
+                        class="col-4"
+                        width="150" height="150"/>
+                  <div class="productInfo col-7">
+                      <h2>Stormy Grey</h2>
+                      <h3>BE1 - 266</h3>
+                      <p>255x43x53 cm</p>
+                  </div>
+                  <div class="col-1">X</div>
+              </div>
+              <!-- repeat -->
+
+              <div class="categoryContainer col-4 text-center">
+                    <p class="uppercase">Contentor - A</p>
+                    <figure class="chart" data-percent="50">
+                        <svg width="89.926" height="89.923" viewBox="0 0 89.926 89.923">
+                            <text id="text" transform="translate(47 50.793)" fill="#333" font-size="15" font-family="Oswald-Medium, Oswald" font-weight="500" letter-spacing="0.03em"><tspan x="-11.401" y="0">25</tspan><tspan y="0" font-size="8.75" baseline-shift="4.999500156940817">%</tspan></text>
+                            <path d="M-19498.4,3474.4l35.063,35.062-35.062,35.062-35.062-35.062Z" transform="translate(19543.959 -3463.896)" fill="none" stroke="#FFF" stroke-width="14"/>
+                            <path class="containerFull" d="M-19498.4,3474.4l35.063,35.062-35.062,35.062-35.062-35.062Z" transform="translate(19543.959 -3463.896)" fill="none" stroke-width="14" stroke-dasharray="50, 283"/>
+                        </svg>
+                    </figure>
+              </div>
+            </div>
+        </div>
+
+        <!-- Repeater containers -->
+
+         <div class="categoryGroup">
+            <div class="row">
+                <p class="col-8"><span class="uppercase">Blocos</span> - <span>4 produtos</span></p>
+                <p class="col-4 text-center"><span class="uppercase">Contentores</span> - 2 - 12m<sup>2</sup></p>
+            </div>
+
+            <div class="row categoryRow">
+
+              <!-- repeat -->
+              <div class="productCart col-8 d-flex align-items-center">
+                  <img src="/img/variant1-4.5af13b48.jpg" 
+                        class="col-4"
+                        width="150" height="150"/>
+                  <div class="productInfo col-7">
+                      <h2>Stormy Grey</h2>
+                      <h3>BE1 - 266</h3>
+                      <p>255x43x53 cm</p>
+                  </div>
+                  <div class="col-1">X</div>
+              </div>
+              <!-- repeat -->
+
+              <div class="categoryContainer col-4 text-center">
+                    <p class="uppercase">Contentor - A</p>
+                    <figure class="chart" data-percent="50">
+                        <svg width="89.926" height="89.923" viewBox="0 0 89.926 89.923">
+                            <text id="text" transform="translate(47 50.793)" fill="#333" font-size="15" font-family="Oswald-Medium, Oswald" font-weight="500" letter-spacing="0.03em"><tspan x="-11.401" y="0">50</tspan><tspan y="0" font-size="8.75" baseline-shift="4.999500156940817">%</tspan></text>
+                            <path d="M-19498.4,3474.4l35.063,35.062-35.062,35.062-35.062-35.062Z" transform="translate(19543.959 -3463.896)" fill="none" stroke="#FFF" stroke-width="14"/>
+                            <path class="containerFull" d="M-19498.4,3474.4l35.063,35.062-35.062,35.062-35.062-35.062Z" transform="translate(19543.959 -3463.896)" fill="none" stroke-width="14" stroke-dasharray="100, 283"/> <!-- stroke-dasharray o primeiro valor é o dobro da percentagem   -->
+                        </svg>
+                    </figure>
+              </div>
+            </div>
+        </div>
+     
+
       </div>
      
          <!--div class="galleryScrollSlider">
@@ -41,6 +122,8 @@
               </a>
          </div-->
     
+      </div>
+
 
       <transition appear enter-active-class="animated slideInUp" leave-active-class="animated slideOutUp">
          <div class="row pagecontrols">
@@ -99,8 +182,122 @@ export default {
 <style lang="scss">
 body{margin: 0}
 footer{display: none;}
+#shoppingCartPage{ margin-bottom: 200px; }
 
-#bstoneproject{ height: 100vh; }
+
+h1, h2, h3, p {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 400;
+}
+
+h2{
+  text-transform: uppercase;
+  font-size: 28px;
+}
+
+h3{
+  text-transform: uppercase;
+  font-size: 22px;
+  font-weight: 300;
+}
+
+p{
+  font-size: 18px;
+  font-weight: 300;
+}
+.uppercase{text-transform: uppercase;font-weight: 400;}
+
+
+
+
+.cartTable{
+    margin-top: 400px;
+    background: #F0F0F0;
+
+    .categoryGroup{
+      width: 100%;
+
+      .categoryRow{
+        position: relative;
+
+        .categoryContainer{
+            position: absolute;
+            top: calc( 50% - 70px );
+            right: 0;
+        }
+      }
+
+      .productCart{
+        padding: 0;
+        height: 190px;
+        border-top: 1px solid #909090;
+
+        .productInfo{
+          height: 150px;
+
+          h2{ margin-bottom: 32px;}
+          h3{ margin-bottom: 30px;}
+        }
+
+        //&:first-child{border-top:0;}
+      }
+    }
+}
+
+
+.containerFull {
+  fill: none;   
+  stroke: #333;
+  stroke-width: 14;
+  stroke-linecap: square;
+  animation: progress .5s ease-out forwards;
+}
+
+@keyframes progress {
+  0% {
+    stroke-dasharray: 0 283;
+  }
+}
+
+
+
+
+.cartTitle {
+    position: fixed;
+    margin-top: 200px;
+    margin-bottom: 150px;
+    //margin-left: 30px;
+
+    h1{
+      font-size: 22px;
+      position: relative;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+     
+
+      &:before{
+        content: '';
+        display: block;
+        position: absolute;
+        top: 13px;
+        left: 230px;
+        background: #B7B7B7;
+        width: 50%;
+        height: 1px;
+      }
+
+      &:after{
+        content: '';
+        display: block;
+        position: fixed;
+        top: 213px;
+        right: 0;
+        background: #B7B7B7;
+        width: 50vw;
+        height: 1px;
+      }
+    }
+}
 
 #shoppingCartPage {
     width: 100%;
