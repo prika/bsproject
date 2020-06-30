@@ -13,7 +13,7 @@
       </ArticleParallaxSmall>
 
       <ProductsList>
-          <h1 class="pageTitleh2 h2">{{home.featured_text1}}<span>{{home.featured_text2}}</span></h1>
+          {{home.featured_text1}}<span>{{home.featured_text2}}</span>
       </ProductsList>
 
 

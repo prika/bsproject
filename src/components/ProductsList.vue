@@ -6,6 +6,7 @@
 
                     <transition enter-active-class="animated slideInDown">
                         <h1 class="pageTitle" v-if="!hasFeaturedProducts">{{categories[selectedCategory-1].splitName1}}<span>{{categories[selectedCategory-1].splitName2}}</span></h1>
+                        <h1 class="pageTitleh2 h2" v-else><slot></slot></h1>
                     </transition>
                     
                    
@@ -32,30 +33,28 @@
                     </nav>
 
                     <div class="col-12 col-lg-9 productsContainer" :class="(hasFeaturedProducts === true ? 'featuredCenter': '')" itemscope itemtype="http://schema.org/ItemList">
-                        <div class="row">
-                            <transition appear enter-active-class="animated slideInUp delay">
-                                <router-link :to="{path: '/bloco-b/'+product.id+'-'+product.name }" 
-                                        itemprop="itemListElement" itemscope itemtype="http://schema.org/Product"
-                                        class="product col-12 col-lg-4 rellax" 
-                                        v-for="(product, index) in products" 
-                                        :key="product.id"
-                                        :data-rellax-speed="( ( index * 3 ) ? '-2' : '2' )">
+                        <transition-group appear enter-active-class="animated slideInUp delay" tag="div" class="row">
+                            <router-link :to="{path: '/bloco-b/'+product.id+'-'+product.name }" 
+                                    itemprop="itemListElement" itemscope itemtype="http://schema.org/Product"
+                                    class="product col-12 col-lg-4 rellax" 
+                                    v-for="(product, index) in products" 
+                                    :key="product.id"
+                                    :data-rellax-speed="( ( index * 3 ) ? '-2' : '2' )">
 
-                                        <div class="containerImage">
-                                            <img :src="product.imgURL" 
-                                            class="productImage"
-                                            width="300" height="300" 
-                                            :alt="product.name" itemprop="image">
-                                        </div>
-                                        <p class="productName" itemprop="name">
-                                            <mark>
-                                                <span></span>
-                                                {{ product.firstName }} </br> {{ product.secondName }}
-                                            </mark>
-                                        </p>
-                                </router-link>
-                            </transition>
-                        </div>
+                                    <div class="containerImage">
+                                        <img :src="product.imgURL" 
+                                        class="productImage"
+                                        width="300" height="300" 
+                                        :alt="product.name" itemprop="image">
+                                    </div>
+                                    <p class="productName" itemprop="name">
+                                        <mark>
+                                            <span></span>
+                                            {{ product.firstName }} </br> {{ product.secondName }}
+                                        </mark>
+                                    </p>
+                            </router-link>
+                        </transition-group>
                     </div> 
           
             </div>           

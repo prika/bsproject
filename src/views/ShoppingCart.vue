@@ -118,15 +118,15 @@
 
 
 
-      <transition appear enter-active-class="animated slideInRight" leave-active-class="animated slideOutLeft">
+      <transition enter-class="animated slideInRight" leave-active-class="animated slideOutLeft">
         <div class="row justify-content-center" v-if="checkoutStep == 2" >
             
             <div class="cartTitle2 col-12 col-md-8">
                 <h1>Condições de Entrega</h1>
             </div>
 
+            <transition appear enter-active-class="animated slideInRight" leave-active-class="animated slideOutLeft">
             <div class="shippingOptions col-12 col-md-8">
-
               <label class="radioButtonStyle">
                 <input type="radio" id="" value="EXW (Ex Works)" v-model="selectedOs" checked="checked"> 
                 <div class="radioButton"></div>EXW (Ex Works)
@@ -142,6 +142,7 @@
                 <div class="radioButton"></div>C&F (Cost and Freigh)
               </label>
             </div>
+            </transition>
 
             <div class="notes col-12 col-md-8">
               <h3>Notas</h3>
