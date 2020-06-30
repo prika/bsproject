@@ -1,143 +1,179 @@
 <template>
   <div id="shoppingCartPage" class="container">
       
-      <div class="row">  <!-- justify-content-center-->
-      <div class="cartTitle col-12 col-md-8">
-          <transition appear enter-active-class="animated slideInRight" leave-active-class="animated slideInRight">
+
+      <transition appear enter-active-class="animated slideInLeft" leave-active-class="animated slideOutLeft">
+      <div class="row justify-content-center" v-if="checkoutStep == 1">
+          
+          <div class="cartTitle col-12 col-md-8">
               <h1>Lista da Encomenda</h1>
-          </transition>
-      </div>
+          </div>
 
-      <div class="cartTable col-12 col-md-8">
-           
-       <!-- Repeater containers -->
-        <div class="categoryGroup">
-            <div class="row">
-                <p class="col-8"><span class="uppercase">Blocos</span> - <span>4 produtos</span></p>
-                <p class="col-4 text-center"><span class="uppercase">Contentores</span> - 2 - 12m<sup>2</sup></p>
-            </div>
-
-            <div class="row categoryRow">
-
-              <!-- repeat -->
-              <div class="productCart col-8 d-flex align-items-center">
-                  <img src="/img/variant1-4.5af13b48.jpg" 
-                        class="col-4"
-                        width="150" height="150"/>
-                  <div class="productInfo col-7">
-                      <h2>Stormy Grey</h2>
-                      <h3>BE1 - 266</h3>
-                      <p>255x43x53 cm</p>
-                  </div>
-                  <div class="col-1">X</div>
-              </div>
-              <!-- repeat -->
-
-               <!-- repeat -->
-              <div class="productCart col-8 d-flex align-items-center">
-                  <img src="/img/variant1-4.5af13b48.jpg" 
-                        class="col-4"
-                        width="150" height="150"/>
-                  <div class="productInfo col-7">
-                      <h2>Stormy Grey</h2>
-                      <h3>BE1 - 266</h3>
-                      <p>255x43x53 cm</p>
-                  </div>
-                  <div class="col-1">X</div>
-              </div>
-              <!-- repeat -->
-
-               <!-- repeat -->
-              <div class="productCart col-8 d-flex align-items-center">
-                  <img src="/img/variant1-4.5af13b48.jpg" 
-                        class="col-4"
-                        width="150" height="150"/>
-                  <div class="productInfo col-7">
-                      <h2>Stormy Grey</h2>
-                      <h3>BE1 - 266</h3>
-                      <p>255x43x53 cm</p>
-                  </div>
-                  <div class="col-1">X</div>
-              </div>
-              <!-- repeat -->
-
-              <div class="categoryContainer col-4 text-center">
-                    <p class="uppercase">Contentor - A</p>
-                    <figure class="chart" data-percent="50">
-                        <svg width="89.926" height="89.923" viewBox="0 0 89.926 89.923">
-                            <text id="text" transform="translate(47 50.793)" fill="#333" font-size="15" font-family="Oswald-Medium, Oswald" font-weight="500" letter-spacing="0.03em"><tspan x="-11.401" y="0">25</tspan><tspan y="0" font-size="8.75" baseline-shift="4.999500156940817">%</tspan></text>
-                            <path d="M-19498.4,3474.4l35.063,35.062-35.062,35.062-35.062-35.062Z" transform="translate(19543.959 -3463.896)" fill="none" stroke="#FFF" stroke-width="14"/>
-                            <path class="containerFull" d="M-19498.4,3474.4l35.063,35.062-35.062,35.062-35.062-35.062Z" transform="translate(19543.959 -3463.896)" fill="none" stroke-width="14" stroke-dasharray="50, 283"/>
-                        </svg>
-                    </figure>
-              </div>
-            </div>
-        </div>
-
-        <!-- Repeater containers -->
-
-         <div class="categoryGroup">
-            <div class="row">
-                <p class="col-8"><span class="uppercase">Blocos</span> - <span>4 produtos</span></p>
-                <p class="col-4 text-center"><span class="uppercase">Contentores</span> - 2 - 12m<sup>2</sup></p>
-            </div>
-
-            <div class="row categoryRow">
-
-              <!-- repeat -->
-              <div class="productCart col-8 d-flex align-items-center">
-                  <img src="/img/variant1-4.5af13b48.jpg" 
-                        class="col-4"
-                        width="150" height="150"/>
-                  <div class="productInfo col-7">
-                      <h2>Stormy Grey</h2>
-                      <h3>BE1 - 266</h3>
-                      <p>255x43x53 cm</p>
-                  </div>
-                  <div class="col-1">X</div>
-              </div>
-              <!-- repeat -->
-
-              <div class="categoryContainer col-4 text-center">
-                    <p class="uppercase">Contentor - A</p>
-                    <figure class="chart" data-percent="50">
-                        <svg width="89.926" height="89.923" viewBox="0 0 89.926 89.923">
-                            <text id="text" transform="translate(47 50.793)" fill="#333" font-size="15" font-family="Oswald-Medium, Oswald" font-weight="500" letter-spacing="0.03em"><tspan x="-11.401" y="0">50</tspan><tspan y="0" font-size="8.75" baseline-shift="4.999500156940817">%</tspan></text>
-                            <path d="M-19498.4,3474.4l35.063,35.062-35.062,35.062-35.062-35.062Z" transform="translate(19543.959 -3463.896)" fill="none" stroke="#FFF" stroke-width="14"/>
-                            <path class="containerFull" d="M-19498.4,3474.4l35.063,35.062-35.062,35.062-35.062-35.062Z" transform="translate(19543.959 -3463.896)" fill="none" stroke-width="14" stroke-dasharray="100, 283"/> <!-- stroke-dasharray o primeiro valor é o dobro da percentagem   -->
-                        </svg>
-                    </figure>
-              </div>
-            </div>
-        </div>
-     
-
-      </div>
-     
-         <!--div class="galleryScrollSlider">
-              <a @click="showGalleryFunction(index)" href="javascript:void(0)" class="containerImage" v-for="(thumb, index) in thumbs" :key="index">
-                   <img :src="thumb.url"
-                    class="productImage" itemprop="image"
-                    :alt="thumb.alt" :width="thumb.width" :height="thumb.height">
-              </a>
-         </div-->
-    
-      </div>
-
-
-      <transition appear enter-active-class="animated slideInUp" leave-active-class="animated slideOutUp">
-         <div class="row pagecontrols">
-              <div class="info col-9">
-                <p><span class="textUppercase"><b>Total </b><span class="textColor">5 Produtos: </span></span>  4 Produtos (blocos) 10m<sup>3</sup> - 1 produto (chapas) 145 m<sup>2</sup></p>
+          <div class="cartTable col-12 col-md-8">
               
-              </div>
-              <router-link to="/bloco-b" class="cartLink col-3"><arrowRightIcon />continuar</router-link>
-         </div>
+          <!-- Repeater containers -->
+            <div class="categoryGroup">
+                <div class="row">
+                    <p class="col-8"><span class="uppercase">Blocos</span> - <span>4 produtos</span></p>
+                    <p class="col-4 text-center"><span class="uppercase">Contentores</span> - 2 - 12m<sup>2</sup></p>
+                </div>
+
+                <div class="row categoryRow">
+
+                  <!-- repeat -->
+                  <div class="productCart col-8 d-flex align-items-center">
+                      <img src="/img/variant1-4.5af13b48.jpg" 
+                            class="col-4"
+                            width="150" height="150"/>
+                      <div class="productInfo col-7">
+                          <h2>Stormy Grey</h2>
+                          <h3>BE1 - 266</h3>
+                          <p>255x43x53 cm</p>
+                      </div>
+                      <div class="col-1">X</div>
+                  </div>
+                  <!-- repeat -->
+
+                  <!-- repeat -->
+                  <div class="productCart col-8 d-flex align-items-center">
+                      <img src="/img/variant1-4.5af13b48.jpg" 
+                            class="col-4"
+                            width="150" height="150"/>
+                      <div class="productInfo col-7">
+                          <h2>Stormy Grey</h2>
+                          <h3>BE1 - 266</h3>
+                          <p>255x43x53 cm</p>
+                      </div>
+                      <div class="col-1">X</div>
+                  </div>
+                  <!-- repeat -->
+
+                  <!-- repeat -->
+                  <div class="productCart col-8 d-flex align-items-center">
+                      <img src="/img/variant1-4.5af13b48.jpg" 
+                            class="col-4"
+                            width="150" height="150"/>
+                      <div class="productInfo col-7">
+                          <h2>Stormy Grey</h2>
+                          <h3>BE1 - 266</h3>
+                          <p>255x43x53 cm</p>
+                      </div>
+                      <div class="col-1">X</div>
+                  </div>
+                  <!-- repeat -->
+
+                  <div class="categoryContainer col-4 text-center">
+                        <p class="uppercase">Contentor - A</p>
+                        <figure class="chart" data-percent="50">
+                            <svg width="89.926" height="89.923" viewBox="0 0 89.926 89.923">
+                                <text id="text" transform="translate(47 50.793)" fill="#333" font-size="15" font-family="Oswald-Medium, Oswald" font-weight="500" letter-spacing="0.03em"><tspan x="-11.401" y="0">25</tspan><tspan y="0" font-size="8.75" baseline-shift="4.999500156940817">%</tspan></text>
+                                <path d="M-19498.4,3474.4l35.063,35.062-35.062,35.062-35.062-35.062Z" transform="translate(19543.959 -3463.896)" fill="none" stroke="#FFF" stroke-width="14"/>
+                                <path class="containerFull" d="M-19498.4,3474.4l35.063,35.062-35.062,35.062-35.062-35.062Z" transform="translate(19543.959 -3463.896)" fill="none" stroke-width="14" stroke-dasharray="50, 283"/>
+                            </svg>
+                        </figure>
+                  </div>
+                </div>
+            </div>
+
+            <!-- Repeater containers -->
+
+            <div class="categoryGroup">
+                <div class="row">
+                    <p class="col-8"><span class="uppercase">Blocos</span> - <span>4 produtos</span></p>
+                    <p class="col-4 text-center"><span class="uppercase">Contentores</span> - 2 - 12m<sup>2</sup></p>
+                </div>
+
+                <div class="row categoryRow">
+
+                  <!-- repeat -->
+                  <div class="productCart col-8 d-flex align-items-center">
+                      <img src="/img/variant1-4.5af13b48.jpg" 
+                            class="col-4"
+                            width="150" height="150"/>
+                      <div class="productInfo col-7">
+                          <h2>Stormy Grey</h2>
+                          <h3>BE1 - 266</h3>
+                          <p>255x43x53 cm</p>
+                      </div>
+                      <div class="col-1">X</div>
+                  </div>
+                  <!-- repeat -->
+
+                  <div class="categoryContainer col-4 text-center">
+                        <p class="uppercase">Contentor - A</p>
+                        <figure class="chart" data-percent="50">
+                            <svg width="89.926" height="89.923" viewBox="0 0 89.926 89.923">
+                                <text id="text" transform="translate(47 50.793)" fill="#333" font-size="15" font-family="Oswald-Medium, Oswald" font-weight="500" letter-spacing="0.03em"><tspan x="-11.401" y="0">50</tspan><tspan y="0" font-size="8.75" baseline-shift="4.999500156940817">%</tspan></text>
+                                <path d="M-19498.4,3474.4l35.063,35.062-35.062,35.062-35.062-35.062Z" transform="translate(19543.959 -3463.896)" fill="none" stroke="#FFF" stroke-width="14"/>
+                                <path class="containerFull" d="M-19498.4,3474.4l35.063,35.062-35.062,35.062-35.062-35.062Z" transform="translate(19543.959 -3463.896)" fill="none" stroke-width="14" stroke-dasharray="100, 283"/> <!-- stroke-dasharray o primeiro valor é o dobro da percentagem   -->
+                            </svg>
+                        </figure>
+                  </div>
+                </div>
+            </div>
+        </div>
+      </div>
       </transition>
 
-      <modalShare v-if="showShareModal" @close="showShareModal = false" />
-      <modalGallery v-if="showGallery" @close="showGallery = false" />
 
+
+
+      <transition appear enter-active-class="animated slideInRight" leave-active-class="animated slideOutLeft">
+        <div class="row justify-content-center" v-if="checkoutStep == 2" >
+            
+            <div class="cartTitle2 col-12 col-md-8">
+                <h1>Condições de Entrega</h1>
+            </div>
+
+            <div class="shippingOptions col-12 col-md-8">
+
+              <label class="radioButtonStyle">
+                <input type="radio" id="" value="EXW (Ex Works)" v-model="selectedOs" checked="checked"> 
+                <div class="radioButton"></div>EXW (Ex Works)
+              </label>
+
+               <label class="radioButtonStyle">
+                <input type="radio" id="" value="FOB (Free on Board)" v-model="selectedOs" :checked="checked"> 
+                <div class="radioButton"></div>FOB (Free on Board)
+              </label>
+
+               <label class="radioButtonStyle">
+                <input type="radio" id="" value="C&F (Cost and Freigh)" v-model="selectedOs" :checked="checked"> 
+                <div class="radioButton"></div>C&F (Cost and Freigh)
+              </label>
+            </div>
+
+            <div class="notes col-12 col-md-8">
+              <h3>Notas</h3>
+              <div class="input_group col-md-9">  
+                  <input id=""
+                          type="text"
+                          name="notes" placeholder=" ">
+                  <label>deixe uma nota na sua encomenda</label>
+                  <span class="bar"></span>
+              </div>
+
+            </div>
+
+        </div>
+      </transition>
+
+
+
+
+
+      <transition appear enter-active-class="animated slideInUp delay-1s">
+          <div class="row pagecontrols">
+              <a v-if="checkoutStep == 2" @click="checkoutStep = 1" href="javascript:void(0)" class="backlink col-2"><arrowRightIcon />voltar</a>
+              <div class="info" :class="(checkoutStep === 1 ? 'col-9': 'col-6')">
+                <p><span class="textUppercase"><b>Total </b><span class="textColor">5 Produtos: </span></span>  4 Produtos (blocos) 10m<sup>3</sup> - 1 produto (chapas) 145 m<sup>2</sup></p>
+              </div>
+
+              <a @click="checkoutStep = 2" href="javascript:void(0)" 
+                :class="(checkoutStep === 1 ? 'cartLink col-3': 'cartLink col-4')"><arrowRightIcon />continuar</a>
+            
+          </div>
+      </transition>
   </div>
 </template>
 
@@ -159,12 +195,7 @@ export default {
   }, 
   data() {
     return {
-        variant: '',
-        thumbs: [],
-        largeImages:[],
-        showShareModal: false,
-        showGallery: false,
-        selectedIndex: 0
+        checkoutStep: 1
     }
   },
   mounted() {
@@ -207,11 +238,138 @@ p{
 }
 .uppercase{text-transform: uppercase;font-weight: 400;}
 
+.radioButtonStyle{
+   display: table;
+   position: relative;
+   cursor: pointer;
+   margin-bottom: 15px;
+   padding-left: 40px;
+    -webkit-transition:     padding 0.5s ease;
+    -moz-transition:        padding 0.5s ease;
+    -o-transition:          padding 0.5s ease;
+    transition:             padding 0.5s ease;
+
+   &:before {
+      position: absolute;
+      display:block;
+      left: 40px;
+      top: 11px;
+      content:'';
+      height: 1px;
+      width: 0;
+      background: #333;
+      -webkit-transition:     width 0.5s ease;
+      -moz-transition:        width 0.5s ease;
+      -o-transition:          width 0.5s ease;
+      transition:             width 0.5s ease;
+   }
+
+   input{
+     position: absolute;
+      opacity: 0;
+      cursor: pointer;
+      height: 0;
+      width: 0;
+   }
+
+   .radioButton {
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: #B7B7B7;
+      width:  22px;
+      height: 22px;
+      display: inline-flex;
+      transform-origin: 50% 50%;
+      -webkit-transition:     all 0.4s ease;
+      -moz-transition:        all 0.4s ease;
+      -o-transition:          all 0.4s ease;
+      transition:             all 0.4s ease;
+   }
+
+   &:hover,
+   input:checked {
+      padding-left: 60px;
+
+      &:before{
+        width: 12px;
+      }
+
+      .radioButton,
+      & + .radioButton {
+        background-color: #C47C5A;
+        -webkit-transform: rotate(225deg);
+        -ms-transform: rotate(225deg); 
+        transform: rotate(225deg); 
+      }
+   }
+}
+
+
+
+.containerFull {
+  fill: none;   
+  stroke: #333;
+  stroke-width: 14;
+  stroke-linecap: square;
+  animation: progress .5s ease-out forwards;
+}
+
+@keyframes progress {
+  0% {
+    stroke-dasharray: 0 283;
+  }
+}
+
+
+
+
+.cartTitle,
+.cartTitle2 {
+
+  h1{
+      font-size: 22px;
+      position: relative;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding-bottom: 100px;
+
+      &:before{
+        content: '';
+        display: block;
+        position: absolute;
+        top: 13px;
+        left: 230px;
+        background: #B7B7B7;
+        width: 50%;
+        height: 1px;
+      }
+  }
+}
+
+.cartTitle h1 {
+    &:after{
+      content: '';
+      display: block;
+      position: absolute;
+      top: 13px;
+      right: -30vw;
+      background: #B7B7B7;
+      width: 50vw;
+      height: 1px;
+    } 
+}
+
+.cartTitle2 h1:before{
+    left: -30vw;
+    width: 28vw;
+}
+
+
 
 
 
 .cartTable{
-    margin-top: 400px;
     background: #F0F0F0;
 
     .categoryGroup{
@@ -219,6 +377,8 @@ p{
 
       .categoryRow{
         position: relative;
+        border-bottom: 1px solid #909090;
+        margin-bottom: 100px;
 
         .categoryContainer{
             position: absolute;
@@ -239,62 +399,7 @@ p{
           h3{ margin-bottom: 30px;}
         }
 
-        //&:first-child{border-top:0;}
-      }
-    }
-}
-
-
-.containerFull {
-  fill: none;   
-  stroke: #333;
-  stroke-width: 14;
-  stroke-linecap: square;
-  animation: progress .5s ease-out forwards;
-}
-
-@keyframes progress {
-  0% {
-    stroke-dasharray: 0 283;
-  }
-}
-
-
-
-
-.cartTitle {
-    position: fixed;
-    margin-top: 200px;
-    margin-bottom: 150px;
-    //margin-left: 30px;
-
-    h1{
-      font-size: 22px;
-      position: relative;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-     
-
-      &:before{
-        content: '';
-        display: block;
-        position: absolute;
-        top: 13px;
-        left: 230px;
-        background: #B7B7B7;
-        width: 50%;
-        height: 1px;
-      }
-
-      &:after{
-        content: '';
-        display: block;
-        position: fixed;
-        top: 213px;
-        right: 0;
-        background: #B7B7B7;
-        width: 50vw;
-        height: 1px;
+        &:first-child{border-top:0;}
       }
     }
 }
@@ -302,6 +407,7 @@ p{
 #shoppingCartPage {
     width: 100%;
     height: 100%;
+    padding-top: 200px;
 
     .pagecontrols{
         height: 13vh;
@@ -324,6 +430,10 @@ p{
           text-decoration: none;
           letter-spacing: 1px;
           padding: 0 50px;
+          -webkit-transition:     all 0.2s ease;
+          -moz-transition:        all 0.2s ease;
+          -o-transition:          all 0.2s ease;
+          transition:             all 0.2s ease;
         }
         
         .info{
@@ -394,6 +504,49 @@ p{
               .arrowSlimIcon{ opacity:1; left: 182px; }
           }
         }
+
+        .backlink{
+            background: #FFF;
+            color: #333;
+            position: relative;
+            text-align: right;
+
+            &:before{
+                position: absolute;
+                top: 50%;
+                right: 120px;
+                content: '';
+                width: 50px;
+                height: 1px;
+                background: #333;
+                -webkit-transition:     all 0.2s ease;
+                -moz-transition:        all 0.2s ease;
+                -o-transition:          all 0.2s ease;
+                transition:             all 0.2s ease;
+            }
+
+            .arrowSlimIcon{
+                transform: rotate(180deg);
+                position: absolute;
+                top: 44%;
+                right: 112px;
+                -webkit-transition:     all 0.2s ease;
+                -moz-transition:        all 0.2s ease;
+                -o-transition:          all 0.2s ease;
+                transition:             all 0.2s ease;
+            }
+
+            &:hover{
+              &:before{width: 70px;}
+              .arrowSlimIcon{ right: 132px; }
+            }
+        }
     }
+}
+
+.notes{
+  margin: 100px 0 200px;
+
+  .input_group{ margin-top: 30px;}
 }
 </style>
