@@ -69,25 +69,25 @@
 <style lang="scss">
 #bexplorepage{
 padding-top: 110px;
-}
 
-.wrapper { 
-  margin: 0 auto 110px; 
-  max-width: 1080px;
-  text-align: center;
-  overflow: hidden;
-}
 
-img {
-  vertical-align: middle;
-  max-width: 100%;
-}
+    .wrapper { 
+      margin: 0 auto 110px; 
+      max-width: 1080px;
+      text-align: center;
+      overflow: hidden;
+    }
 
-.masonry {
-  display: flex;
-  max-height: 1500px;
-}
+    img {
+      vertical-align: middle;
+      max-width: 100%;
+    }
 
+    .masonry {
+      display: flex;
+      max-height: 1500px;
+    }
+}
 // .masonry .effect{
 //   perspective: 1300px;
 
@@ -176,10 +176,10 @@ img {
   }
 }
 
-.plyr__poster{
-  background-size: cover!important;
-}
 
+
+
+.plyr__poster{ background-size: cover!important; }
 .plyr__controls,
 .plyr__control--overlaid svg{display: none!important;}
 
