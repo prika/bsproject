@@ -59,8 +59,9 @@ export default {
         return {
             social: [],
             cofinance: [],
-            menuFooter: [],
-            secMenuFooter: []
+            menuFooter1: [],
+            menuFooter2: [],
+            menuFooter3: []
         }
     },
     methods:
@@ -81,10 +82,12 @@ export default {
     created(){
         this.$http.get('../mocks/global-mock.json').then(response => {
             this.social = response.data.footer.social
-            this.menuFooter = response.data.footer.menuFooter
-            this.secMenuFooter = response.data.footer.secMenuFooter
 
-            this.parseObject(response.data.footer.cofinance, this.cofinance)  
+            this.menuFooter1 = response.data.menu
+            this.menuFooter2 = response.data.footer.menuFooter
+            this.menuFooter3 = response.data.footer.menuFooter2
+
+            this.parseObject(response.data.footer.cofinance, this.cofinance)
             
             //console.log(this.menuFooter)           
         })

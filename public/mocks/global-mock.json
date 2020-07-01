@@ -53,7 +53,7 @@
                 "link": "/"
             }
         ],
-        "secMenuFooter": [
+        "menuFooter2": [
             { 
                 "id": 1,
                 "name": "News",
