@@ -53,6 +53,7 @@
                                             {{ product.firstName }} </br> {{ product.secondName }}
                                         </mark>
                                     </p>
+                                    <p class="categoryName" v-if="hasFeaturedProducts">{{categories[selectedCategory-1].name}}</p>
                             </router-link>
                         </transition-group>
                     </div> 
@@ -359,6 +360,7 @@ export default {
 
 	.product{
 		position: relative;
+        text-decoration: none;
 		transform: translateZ(.25px);
 
         .containerImage{
@@ -431,5 +433,16 @@ export default {
 
 	.product:hover .productImage{ transform: scale(1.1); }
 	.product:hover .productName{top: 170px;}
-	    
+
+
+
+    .categoryName{
+        font-family: "Oswald", sans-serif;
+        font-size: 15px;
+        color: #333;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        text-align: center;
+        margin: 5px;
+    }    
 </style>
