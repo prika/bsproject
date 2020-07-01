@@ -136,16 +136,6 @@ export default {
                     font-style: italic;
                     color: #575757;
                 }
-
-                .newsDate{
-                    position: absolute;
-                    bottom: 30px;
-                    font-family: 'Oswald', sans-serif;
-                    font-size: 14px;
-                    font-weight: 400;
-                    font-style: normal;
-                    color: #575757;
-                }
             }
 
             &::after{
@@ -202,5 +192,15 @@ export default {
 
     }
 }
+}
+
+.newsDate{
+    position: absolute;
+    bottom: 30px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    font-style: normal;
+    color: #575757;
 }
 </style>
