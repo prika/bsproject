@@ -69,7 +69,7 @@ footer{
       }
 
       .footerMenu {
-        padding: 4% 0;
+        padding: 4%;
 
         a { 
           color: #FFF;
