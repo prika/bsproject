@@ -1,18 +1,17 @@
 {
   "logo-aria-label": "Homepage B Stone",
   "menu-home": "Home",
-  "menu-institutional": "Institucional",
   "menu-blocob": "Bloco B",
   "menu-bexplore": "B Explorar",
   "menu-bproject": "B Projecto",
   "menu-binnovation": "B Inovação",
   "language": "Português | Inglês",
 
-  "button-arialabel-open-search": "Search Here",
+  "button-arialabel-open-search": "Procure Aqui",
   "button-arialabel-open-login": "Open Login Form",
   "button-arialabel-open-cart": "See shopping cart",
-  "button-arialabel-open-menu": "Open Menu",
-  "button-arialabel-close-menu": "Close Menu",
+  "button-arialabel-open-menu": "Abrir Menu",
+  "button-arialabel-close-menu": "Fechar Menu",
 
   "product-type-blocos": "Blocos",
   "product-type-chapas": "Chapas",
@@ -20,10 +19,8 @@
 
   "secundary-menu-faqs": "Faqs",
   "secundary-menu-ppolicy": "Politica de Privacidade",
-  "social-arialabel-facebook": "Link to Facebook",
-  "social-arialabel-instagram": "Link to Instagram",
-  "social-arialabel-pinterest": "Link to Pinterest",
-  "social-arialabel-linkedin": "Link to Linkedin",
+
+  "social-arialabel": "Ligação a",
 
   "footer-text-newsletter": "Newsletter",
   "footer-sub-text-newsletter": "Receba as últimas notícias",
@@ -31,12 +28,14 @@
   "footer-submit-email": "Envie a sua subscrição de newsletter",
   "footer-newsletter-error": "Por favor, corrija o(s) seguinte(s) erros:",
 
-  "footer-cofinanced": "Co-financed by: Alentejo 2020",
-  "footer-cofinanced2": "Co-financed by: Compete 2020",
+  "footer-cofinanced": "Co-financed by:",
 
-  "footer-text-copyright": "Todos os direitos reservados 2020 Bloco B",
-  "footer-text-madeby": "Website desenvolvido por",
+  "footer-text-copyright": "Direitos reservados 2020 Bloco B",
+  "footer-text-madeby": "Desenvolvido por",
+  "footer-text-company-link": "https://www.incentea.com/",
+  "footer-text-company": "inCentea MI",
   "simulator": "Simulador",
+  "footer-scroll-top": "Clique aqui para subir na página",
 
   "home-title-page": "Noticias",
   "home-title-page-split1": "Noti",

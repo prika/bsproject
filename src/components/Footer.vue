@@ -8,35 +8,39 @@
         </div>
 
         <div class="row">
-            <div class="col-12 col-md-8 cofinancedby">
-                <div class="col-12 col-md-6">
-                    <a href="./assets/footer/Alentejo2020x.jpg" class="cofinance1" target="_blank" rel="noreferrer" :aria-label="$t('footer-cofinanced')"></a>
-                </div>
-                <div class="col-12 col-md-6">
-                    <a href="./assets/footer/Compete2020x.jpg" class="cofinance2" target="_blank" rel="noreferrer" :aria-label="$t('footer-cofinanced2')"></a>
-                </div>
+            <div class="col-12 col-md-8 cofinancedby d-block d-md-flex">
+                <a  v-for="item in cofinance" 
+                    :key="item.id"
+                    :href="item.file"
+                    :aria-label="$t('footer-cofinanced')+' '+item.name"
+                    :alt="$t('footer-cofinanced')+' '+item.name"
+                    :style="{ backgroundImage: 'url(\'' + item.img + '\')' }"
+                    target="_blank" class="col-12 col-md-6"
+                    rel="noopener noreferrer nofollow">
+                </a>
             </div> 
            
-            <div class="col-12 col-sm-4 social-icons d-flex align-items-center">
-                <a href="https://www.facebook.com/bstone.marble/" class="fb" target="_blank" rel="noreferrer" :aria-label="$t('social-arialabel-facebook')"></a>
-                <a href="https://www.instagram.com/bstone.marble/" class="in" target="_blank" rel="noreferrer" :aria-label="$t('social-arialabel-instagram')"></a>
-                <a href="https://www.pinterest.pt/bstone_marble/" class="pi" target="_blank" rel="noreferrer" :aria-label="$t('social-arialabel-pinterest')"></a>     
-                <a href="https://www.linkedin.com/company/bloco-b/" class="lk" target="_blank" rel="noreferrer" :aria-label="$t('social-arialabel-linkedin')"></a>
+            <div class="col-12 col-md-4 social-icons d-flex align-items-center">
+                <a v-for="item in social" 
+                   :href="item.link" 
+                   :key="item.id"
+                   :class="item.code+' order-'+item.order"
+                   :aria-label="$t('social-arialabel')+item.name"
+                   :alt="$t('social-arialabel')+item.name"
+                   target="_blank" rel="noopener noreferrer nofollow"></a>
             </div>
         </div>
 
-
         <div class="row">
-            <div class="logoFooter col-12 col-sm-6"></div>
+            <div class="logoFooter col-12 col-md-6"></div>
 
-            <div class="col-12 col-sm-6 copyrights d-flex align-items-center justify-content-end">
+            <div class="col-12 col-md-6 copyrights d-flex align-items-center justify-content-end">
                 <div class="copy"><p>{{$t('footer-text-copyright')}}</p></div>
-                <div class="websiteBy"><p>{{$t('footer-text-madeby')}}</p> <a href="https://www.incentea.com/">inCentea MI</a></div>
+                <div class="websiteBy"><p>{{$t('footer-text-madeby')}}</p> <a :href="$t('footer-text-company-link')" rel="noreferrer">{{$t('footer-text-company')}}</a></div>
             </div>
         </div>
       
-        <a href="javascript:void(0)" class="scrollButton" aria-label="Click here to scroll top"></a>
-
+        <a href="javascript:void(0)" class="scrollButton" :aria-label="$t('footer-scroll-top')"></a>
     </div>
 </footer>
 </template>
@@ -50,6 +54,40 @@ export default {
     components: {
         FooterMenu,
         NewsletterForm
+    },
+    data() {
+        return {
+            social: [],
+            cofinance: [],
+            menuFooter: [],
+            secMenuFooter: []
+        }
+    },
+    methods:
+    {
+        getImgUrl: function (src) {
+            return require( '@/assets/images/'+src )
+        },
+        parseObject: function(source, destination)
+        {
+            for ( var i = 0 ; i < source.length; i++ ) {
+               let obj = source[i]
+               obj.img = this.getImgUrl(obj.img)
+               obj.file = this.getImgUrl(obj.file)
+               destination.push(obj)
+            }
+        }        
+    },
+    created(){
+        this.$http.get('../mocks/global-mock.json').then(response => {
+            this.social = response.data.footer.social
+            this.menuFooter = response.data.footer.menuFooter
+            this.secMenuFooter = response.data.footer.secMenuFooter
+
+            this.parseObject(response.data.footer.cofinance, this.cofinance)  
+            
+            //console.log(this.menuFooter)           
+        })
     }
 }
 </script>
@@ -180,9 +218,9 @@ footer{
 
       .logoFooter{
         display: block;
-        margin: 2% 0;
+        margin: 3% 0 5%;
         height: 50px;
-        background: url(../assets/images/logo/logo_footer.svg) no-repeat 20px;
+        background: url(../assets/images/logo/logo_footer.svg) no-repeat 15%;
       }
 
     .social-icons{
@@ -193,32 +231,18 @@ footer{
         }
     }
 
-    .cofinancedby{
-    padding: 18px 0;
-
-      div {
-        float: left;
-        padding: 2% 0;
-      }
-
-      a {
-        height: 65px;
-        display: block;
+    .cofinancedby a {
+        height: 60px;
+        margin: 5% 0;
         text-decoration: none;
-        background: url(../assets/images/footer/cofinanced1.svg) no-repeat center 0;
+        background-repeat: no-repeat;
+        background-position: center 0;
         background-size: contain;
-        
         opacity: .7;
-
-        &.cofinance2{
-           background: url(../assets/images/footer/cofinanced2.svg) no-repeat center 0;
-           background-size: contain;
-        }
 
         &:hover{
             opacity: 1;
         }
-      }
     }
 
     .copyrights {
@@ -258,7 +282,9 @@ footer{
         width: 40px;
         height: 40px;
         background: #000;
-        transform: rotate(45deg);
+        -webkit-transform:  rotate(45deg);
+        -ms-transform:      rotate(45deg);
+        transform:          rotate(45deg); 
   }
 
   footer{
@@ -282,12 +308,13 @@ footer{
     
     .cofinancedby a {
         width: 295px;
-        margin: 0 auto;
+        margin: 5% auto;
     }
 
     .social-icons{
       padding: 40px 0;
       border-top: 1px solid #363636;
+      border-left: 0;
       justify-content: center;
 
       a{

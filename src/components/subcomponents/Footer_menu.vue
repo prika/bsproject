@@ -24,29 +24,21 @@
 </template>
 
 <script>
-import i18n from '@/i18n'
+//import i18n from '@/i18n'
 
 export default {
     data() {
         return {
-            itensMenu1: [
-                {name: 'Bloco B', link: '/bloco-b'},
-                {name: 'B Explore', link: '/b-explore'},
-                {name: 'B Project', link: '/b-project'},
-                {name: 'B Innovation', link: '/b-innovation'}
-            ],
-            itensMenu2: [
-                {name: i18n.t('simulator'), link: '/simulator'},
-                {name: i18n.t('product-type-blocos'), link: '/listagem'},
-                {name: i18n.t('product-type-ladrilhos'), link: '/listagem'},
-                {name: i18n.t('product-type-chapas'), link: '/listagem'}
-            ],
-            itensMenu3: [
-                {name: 'News', link: '/news'},
-                {name: i18n.t('secundary-menu-faqs'), link: '/'},
-                {name: i18n.t('secundary-menu-ppolicy'), link: '/'}
-            ]
+            itensMenu1: [],
+            itensMenu2: [],
+            itensMenu3: []
         }
+    },
+    beforeMount() {
+        this.itensMenu1 = this.$parent.menuFooter
+        // this.itensMenu2 = this.$parent.menuFooter
+        // this.itensMenu3 = this.$parent.secMenuFooter
+    
     }
 }
 </script>

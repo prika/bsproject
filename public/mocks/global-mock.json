@@ -1,0 +1,108 @@
+{ 
+    "menu":[
+        { 
+            "id": 1,
+            "name": "Bloco B",
+            "link": "/bloco-b",
+            "preloader": "preloader/b-innovation.svg"
+        },
+        { 
+            "id": 2,
+            "name": "B Explore",
+            "link": "/b-explore",
+            "preloader": "preloader/b-innovation.svg"
+        },
+        { 
+            "id": 3,
+            "name": "B Project",
+            "link": "/b-project",
+            "preloader": "preloader/b-innovation.svg"
+        },
+        { 
+            "id": 4,
+            "name": "B Innovation",
+            "link": "/b-innovation",
+            "preloader": "preloader/b-innovation.svg"
+        }
+    ],
+    "header":{
+        "identity": { "name": "BStone", "logo": ""},
+        "menuOrder": [1,2,3,4]
+    },
+    "footer": {
+        "menuOrder": [2,3,4,1],
+        "menuFooter": [
+            { 
+                "id": 2,
+                "name": "Simulator",
+                "link": "/simulator"
+            },
+            { 
+                "id": 1,
+                "name": "Blocos",
+                "link": "/"
+            },
+            { 
+                "id": 3,
+                "name": "Chapas",
+                "link": "/"
+            },
+            { 
+                "id": 4,
+                "name": "Ladrilhos",
+                "link": "/"
+            }
+        ],
+        "secMenuFooter": [
+            { 
+                "id": 1,
+                "name": "News",
+                "link": "/news"
+            },
+            { 
+                "id": 2,
+                "name": "Faqs",
+                "link": "/faqs"
+            },
+            { 
+                "id": 3,
+                "name": "Privacy Policy",
+                "link": "/privacy-policy"
+            }
+        ],
+        "social": [
+            {   
+                "id": 1,
+                "order": 2,
+                "name": "Facebook",
+                "code": "fb",
+                "link": "https://www.facebook.com/bstone.marble/"
+            },
+            {   
+                "id": 2,
+                "order": 3,
+                "name": "Instagram",
+                "code": "in",
+                "link": "https://www.instagram.com/bstone.marble/"
+            },
+            {   
+                "id": 3,
+                "order": 1,
+                "name": "Pinterest",
+                "code": "pi",
+                "link": "https://www.pinterest.pt/bstone_marble/"
+            },
+            {   
+                "id": 4,
+                "order": 4,
+                "name": "Linkedin",
+                "code": "lk",
+                "link": "https://www.linkedin.com/company/bloco-b/"
+            }
+        ],
+        "cofinance": [
+            {"id": 1, "name": "Alentejo2020", "img": "footer/cofinanced1.svg", "file": "footer/Alentejo2020x.jpg"},
+            {"id": 2, "name": "Compete2020", "img": "footer/cofinanced2.svg", "file": "footer/Compete2020x.jpg"}
+        ]
+    }
+}

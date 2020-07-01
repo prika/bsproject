@@ -1,7 +1,6 @@
 {
   "logo-aria-label": "Homepage B Stone",
   "menu-home": "Home",
-  "menu-institutional": "Institutional",
   "menu-blocob": "Bloco B",
   "menu-bexplore": "B Explore",
   "menu-bproject": "B Project",
@@ -20,10 +19,8 @@
 
   "secundary-menu-faqs": "Faqs",
   "secundary-menu-ppolicy": "Privacy Policy",
-  "social-arialabel-facebook": "Link to Facebook",
-  "social-arialabel-instagram": "Link to Instagram",
-  "social-arialabel-pinterest": "Link to Pinterest",
-  "social-arialabel-linkedin": "Link to Linkedin",
+
+  "social-arialabel": "Link to",
 
   "footer-text-newsletter": "Newsletter",
   "footer-sub-text-newsletter": "Get the latest news",
@@ -31,12 +28,14 @@
   "footer-submit-email": "Submit your email",
   "footer-newsletter-error": "Please correct the following error(s):",
 
-  "footer-cofinanced": "Co-financed by: Alentejo 2020",
-  "footer-cofinanced2": "Co-financed by: Compete 2020",
+  "footer-cofinanced": "Co-financed by:",
 
   "footer-text-copyright": "Copyright 2020 Bloco B",
   "footer-text-madeby": "Website by",
+  "footer-text-company-link": "https://www.incentea.com/",
+  "footer-text-company": "inCentea MI",
   "simulator": "Simulator",
+  "footer-scroll-top": "Click here to scroll top",
 
   "home-title-page": "News",
   "home-title-page-split1": "Ne",
