@@ -11,7 +11,7 @@
                 <div class="mobileAdd">
                     <a href="/simulador">{{$t('simulator')}}</a>
                     <div class="social-icons d-flex align-items-center">
-                        <a href="https://www.facebook.com/bstone.marble/" class="fb" target="_blank" rel="noreferrer" 
+                        <a href="https://www.facebook.com/bstone.marble/" class="fb" target="_blank" rel="noopener noreferrer nofollow" 
                             :aria-label="$t('social-arialabel-facebook')"></a>
                         <a href="https://www.instagram.com/bstone.marble/" class="in" target="_blank" rel="noreferrer" 
                             :aria-label="$t('social-arialabel-instagram')"></a>

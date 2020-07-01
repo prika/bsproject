@@ -16,7 +16,7 @@
 
                 <div class="col-md-7 col-md-pull-5 order-md-1 col-xs-12">
                     <!-- col-md-offset-3 col-md-3 col-sm-offset-1 col-sm-3 col-xs-offset-0 col-xs-12-->
-                    <a class="seeOnMap" href="https://goo.gl/maps/KYpeemR9z2YcZENQA" target="_blank" rel="noreferrer">
+                    <a class="seeOnMap" href="https://goo.gl/maps/KYpeemR9z2YcZENQA" target="_blank" rel="noopener noreferrer nofollow">
                         <span class="text">Veja no mapa</span>
                         <span class="arrow"></span>
                         <span class="icon">
