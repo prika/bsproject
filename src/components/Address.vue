@@ -3,20 +3,17 @@
         <div class="container">
             <div class="row">
              
-              
-
                 <div class="addressContainer col-md-5 order-md-2 col-xs-12">
-                    <h1 class="h2">Nosso endereço</h1>
+                    <h1 class="h2">{{address.title}}</h1>
                     <address>
-                        <span itemprop="streetAddress">Estrada Nacional n.º 4, km 152</span><br>
-                        <span itemprop="addressLocality">Sítio Courela dos Aléns</span><br>
-                        <span itemprop="postalCode">7100-011</span><br>
+                        <span itemprop="streetAddress">{{address.street}}</span><br>
+                        <span itemprop="addressLocality">{{address.location}}s</span><br>
+                        <span itemprop="postalCode">{{address.postcode}}</span><br>
                     </address>
                 </div>
 
                 <div class="col-md-7 col-md-pull-5 order-md-1 col-xs-12">
-                    <!-- col-md-offset-3 col-md-3 col-sm-offset-1 col-sm-3 col-xs-offset-0 col-xs-12-->
-                    <a class="seeOnMap" href="https://goo.gl/maps/KYpeemR9z2YcZENQA" target="_blank" rel="noopener noreferrer nofollow">
+                    <a class="seeOnMap" :href="address.map" target="_blank" rel="noopener noreferrer nofollow">
                         <span class="text">Veja no mapa</span>
                         <span class="arrow"></span>
                         <span class="icon">
@@ -27,25 +24,45 @@
                     </a>
                 </div>
                
- 
                 <div class="addressContainer offset-md-7 col-xs-12 col-md-5 order-3">
                     <div class="contactsContainer"> 
-                        <a itemprop="email" href="mailto:info@bstone.pt" aria-label="Email us">e.<span style="margin-left: 40px"></span>info@bstone.pt</a><br>
-                        <a id="telephone" itemprop="telephone" href="tel:(+351)964956929" aria-label="Call us">t.<span style="margin-left: 40px"></span>(+351) 268 848 030</a>
+                        <a itemprop="email"
+                            :href="'mailto:'+contacts.email"
+                            aria-label="Email us">e.<span style="margin-left: 40px"></span>{{contacts.email}}</a><br>
+                        <a id="telephone" itemprop="telephone" 
+                            :href="'tel:'+contacts.phone" 
+                            aria-label="Call us">t.<span style="margin-left: 40px"></span>{{contacts.phone}}</a>
                         <br><br><br>
-                        <p>Sales Department<br>
-                        <a href="tel:(+351)964956929">(+351)  964  956  929</a></p>
-                        <p>Logistics<br>
-                        <a href="tel:(+351)914490070">(+351)  914  490  070</a></p>
-                        <p>Branding & Communication<br>
-                        <a href="tel:(+351)925278115">(+351)  925  278  115</a></p>
+
+                        <div v-for="item in departments">
+                            <p>{{item.name}}<br>
+                            <a :href="'tel:'+item.phone">{{item.phone}}</a></p>
+                        </div>
                     </div>
-                    
                 </div>
             </div>
         </div>
     </section>
 </template>
+
+<script>
+export default {
+    data() {
+        return {
+            address: "",
+            contacts: "",
+            departments: []
+        }
+    },
+    created() {
+      this.$eventBus.$on('jsonGlobalLoaded', (response) => {
+          this.address = response.data.address
+          this.contacts = response.data.contacts
+          this.departments = response.data.contacts.departments
+      });
+    }
+}
+</script>
 
 <style lang="scss">
 #addressSection,

@@ -25,6 +25,11 @@ export default {
           isLoaded: false
       }
   },
+  beforeMount(){
+      this.$http.get('../mocks/global-mock.json').then(response => {
+          this.$eventBus.$emit('jsonGlobalLoaded', response);
+      })
+  },
   created() {
     this.$eventBus.$on('componentFinishLoad', (data) => {
       this.isLoaded = true;

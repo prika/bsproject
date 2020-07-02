@@ -20,15 +20,8 @@
                 </a>
             </div> 
            
-            <div class="col-12 col-md-4 social-icons d-flex align-items-center">
-                <a v-for="item in social" 
-                   :href="item.link" 
-                   :key="item.id"
-                   :class="item.code+' order-'+item.order"
-                   :aria-label="$t('social-arialabel')+item.name"
-                   :alt="$t('social-arialabel')+item.name"
-                   target="_blank" rel="noopener noreferrer nofollow"></a>
-            </div>
+           <SocialButtons />
+            
         </div>
 
         <div class="row">
@@ -48,16 +41,17 @@
 <script>
 import FooterMenu from './subcomponents/Footer_menu.vue'
 import NewsletterForm from './subcomponents/NewsletterForm.vue'
+import SocialButtons from './ui/socialButtons.vue'
 
 
 export default {
     components: {
         FooterMenu,
-        NewsletterForm
+        NewsletterForm,
+        SocialButtons
     },
     data() {
         return {
-            social: [],
             cofinance: []
         }
     },
@@ -74,14 +68,12 @@ export default {
                obj.file = this.getImgUrl(obj.file)
                destination.push(obj)
             }
-        }        
+        }
     },
-    beforeMount(){
-        this.$http.get('../mocks/global-mock.json').then(response => {
-            this.social = response.data.footer.social
-            this.parseObject(response.data.footer.cofinance, this.cofinance)
-            this.$eventBus.$emit('jsonFooterLoaded', response);
-        })
+   created() {
+      this.$eventBus.$on('jsonGlobalLoaded', (response) => {
+          this.parseObject(response.data.footer.cofinance, this.cofinance)
+      });
     }
 }
 </script>

@@ -8,21 +8,17 @@
     </nav>
 </template>
 
-
 <script>
-import i18n from '@/i18n';
-
 export default {
     data() {
         return {
-            itensMenu: [
-                //{name: i18n.t('menu-institutional'), link: '/institutional'},
-                {name: i18n.t('menu-blocob'), link: '/bloco-b'},
-                {name: i18n.t('menu-bexplore'), link: '/b-explore'},
-                {name: i18n.t('menu-bproject'), link: '/b-project'},
-                {name: i18n.t('menu-binnovation'), link: '/b-innovation'}
-            ]
+            itensMenu: []
         }
+    },
+    created() {
+      this.$eventBus.$on('jsonGlobalLoaded', (response) => {
+          this.itensMenu = response.data.menu
+      });
     }
 }
 </script>

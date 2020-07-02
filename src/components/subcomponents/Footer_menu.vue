@@ -35,13 +35,12 @@ export default {
         }
     },
    created() {
-    this.$eventBus.$on('jsonFooterLoaded', (response) => {
+    this.$eventBus.$on('jsonGlobalLoaded', (response) => {
         this.itemsMenu1 = response.data.menu
         this.itemsMenu2 = response.data.footer.menuFooter
         this.itemsMenu3 = response.data.footer.menuFooter2
     });    
   }
-    
 }
 </script>
 
