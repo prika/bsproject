@@ -291,7 +291,6 @@ export default {
                 a {
                     height: 40px;
                     display: flex;
-                    justify-content: end;
                     align-items: center;
 
                     span.name {

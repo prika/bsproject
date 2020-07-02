@@ -73,7 +73,7 @@
         "social": [
             {   
                 "id": 1,
-                "order": 2,
+                "order": 1,
                 "name": "Facebook",
                 "code": "fb",
                 "link": "https://www.facebook.com/bstone.marble/"
@@ -87,7 +87,7 @@
             },
             {   
                 "id": 3,
-                "order": 1,
+                "order": 2,
                 "name": "Pinterest",
                 "code": "pi",
                 "link": "https://www.pinterest.pt/bstone_marble/"

@@ -4,7 +4,7 @@
 
         <div class="row">
             <NewsletterForm />
-            <FooterMenu />
+            <FooterMenu/>
         </div>
 
         <div class="row">
@@ -58,10 +58,7 @@ export default {
     data() {
         return {
             social: [],
-            cofinance: [],
-            menuFooter1: [],
-            menuFooter2: [],
-            menuFooter3: []
+            cofinance: []
         }
     },
     methods:
@@ -79,17 +76,11 @@ export default {
             }
         }        
     },
-    created(){
+    beforeMount(){
         this.$http.get('../mocks/global-mock.json').then(response => {
             this.social = response.data.footer.social
-
-            this.menuFooter1 = response.data.menu
-            this.menuFooter2 = response.data.footer.menuFooter
-            this.menuFooter3 = response.data.footer.menuFooter2
-
             this.parseObject(response.data.footer.cofinance, this.cofinance)
-            
-            //console.log(this.menuFooter)           
+            this.$eventBus.$emit('jsonFooterLoaded', response);
         })
     }
 }
