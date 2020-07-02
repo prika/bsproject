@@ -1,7 +1,6 @@
 <template>
   <div id="shoppingCartPage" class="container">
       
-
       <transition appear enter-active-class="animated slideInLeft" leave-active-class="animated slideOutLeft">
       <div class="row justify-content-center" v-if="checkoutStep == 1">
           
@@ -213,7 +212,6 @@ export default {
 
 <style lang="scss">
 body{margin: 0}
-footer{display: none;}
 #shoppingCartPage{ margin-bottom: 200px; }
 
 

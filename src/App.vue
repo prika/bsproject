@@ -7,21 +7,17 @@
 
       <router-view />
      
-      <Footer />
-      
   </div>
 </template>
 
 <script>
 import Preloader from './components/Preloader.vue'
 import Header from './components/Header.vue'
-import Footer from './components/Footer.vue'
 
 export default {
   name: 'bstoneproject',
   components: {
       Header,
-      Footer,
       Preloader
   },
   data() {

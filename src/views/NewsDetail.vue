@@ -12,18 +12,21 @@
               <p class="newsDate">{{news.pubdata}}</p>
           </div>
       </ArticleParallaxSmall>
-             
+
+    <Footer />  
   </div>
 </template>
 
 
 <script>
 import ArticleParallaxSmall from '@/components/ArticleParallaxSmall'
+import Footer from '@/components/Footer.vue'
 
 export default {
    name: 'newsdetailpage',
    components: {
-      ArticleParallaxSmall
+      ArticleParallaxSmall,
+      Footer
    },
    data() {
     return {

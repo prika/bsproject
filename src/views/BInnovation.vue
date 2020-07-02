@@ -16,6 +16,8 @@
 
       <Contacts />
 
+      <Footer />
+
   </div>
 </template>
 
@@ -25,6 +27,7 @@ import ArticleParallaxSmall from '@/components/ArticleParallaxSmall'
 import PortfolioMansory from '@/components/PortfolioMansory'
 import Address from '@/components/Address'
 import Contacts from '@/components/Contacts'
+import Footer from '@/components/Footer.vue'
 
 export default {
   name: 'binnovationpage',
@@ -32,7 +35,8 @@ export default {
       ArticleParallaxSmall,
       PortfolioMansory,
       Address,
-      Contacts  
+      Contacts,
+      Footer
   },
   data() {
     return {

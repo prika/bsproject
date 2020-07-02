@@ -18,6 +18,8 @@
 
       <Contacts />
 
+      <Footer />
+
   </div>
 </template>
 
@@ -27,6 +29,7 @@ import PortfolioMansory from '@/components/PortfolioMansory'
 import CollectionsSmall from '@/components/CollectionsSmall'
 import Address from '@/components/Address'
 import Contacts from '@/components/Contacts'
+import Footer from '@/components/Footer.vue'
 
 export default {
   name: 'bprojectpage',
@@ -35,7 +38,8 @@ export default {
       PortfolioMansory,
       CollectionsSmall,
       Address,
-      Contacts  
+      Contacts,
+      Footer 
   },
   data() {
     return {

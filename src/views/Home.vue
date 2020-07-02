@@ -25,6 +25,8 @@
 
       <Contacts />
 
+      <Footer />
+
   </div>
 </template>
 
@@ -37,6 +39,7 @@ import ProductsList from '@/components/ProductsList'
 import NewsSlider from '@/components/NewsSlider'
 import Address from '@/components/Address'
 import Contacts from '@/components/Contacts'
+import Footer from '@/components/Footer.vue'
 
 export default {
   name: 'homepage',
@@ -47,7 +50,8 @@ export default {
       ProductsList,
       NewsSlider,
       Address,
-      Contacts 
+      Contacts,
+      Footer
   },
   data() {
     return {

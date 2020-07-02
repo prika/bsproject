@@ -81,6 +81,8 @@
               </div>
           </div>
         </transition>
+
+        <Footer />
   </div>
 </template>
 
@@ -88,13 +90,15 @@
 import Simulate from '@/components/subcomponents/scroll.vue'
 import arrowLeftIcon from '@/components/ui/arrow-bold-left.vue'
 import arrowRightIcon from '@/components/ui/arrow-slim-right.vue'
+import Footer from '@/components/Footer.vue'
 
 export default {
   name: 'detailPage',
   components: {
       Simulate,
       arrowRightIcon,
-      arrowLeftIcon
+      arrowLeftIcon,
+      Footer
   }, 
   data() {
     return {
@@ -134,8 +138,6 @@ export default {
 
 <style lang="scss">
 body{margin: 0}
-footer{display: none;}
-
 #bstoneproject{ height: 100vh; }
 
 #detailPage {

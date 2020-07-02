@@ -9,6 +9,8 @@
 
       <Contacts />
 
+      <Footer />
+
   </div>
 </template>
 
@@ -16,13 +18,15 @@
 import PortfolioMansory from '@/components/PortfolioMansory'
 import Address from '@/components/Address'
 import Contacts from '@/components/Contacts'
+import Footer from '@/components/Footer.vue'
 
 export default {
   name: 'bexplorepage',
   components: {
       PortfolioMansory,
       Address,
-      Contacts  
+      Contacts,
+      Footer
   },
   data() {
     return {

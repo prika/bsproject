@@ -9,6 +9,8 @@
 
       <Contacts />
 
+      <Footer />
+
   </div>
 </template>
 
@@ -18,6 +20,7 @@ import ProductsList from '@/components/ProductsList'
 import Address from '@/components/Address'
 import Contacts from '@/components/Contacts'
 import axios from 'axios'
+import Footer from '@/components/Footer.vue'
 
 export default {
   name: 'blocobpage',
@@ -25,7 +28,8 @@ export default {
       Scroll,
       ProductsList,
       Address,
-      Contacts  
+      Contacts,
+      Footer 
   },
   data(){
     return {

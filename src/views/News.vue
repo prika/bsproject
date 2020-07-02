@@ -7,17 +7,20 @@
          </h1>
       </NewsSlider>
 
+      <Footer />
   </div>
 </template>
 
 
 <script>
 import NewsSlider from '@/components/NewsSlider'
+import Footer from '@/components/Footer.vue'
 
 export default {
    name: 'newspage',
    components: {
-      NewsSlider
+      NewsSlider,
+      Footer
    },
    data() {
     return {
