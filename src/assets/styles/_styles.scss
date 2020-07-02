@@ -1,6 +1,5 @@
 
 @import "./assets/styles/_animations";
-@import "./assets/styles/_partials/_Banner.scss";
 
 body {
   background-color: $body-bg;
@@ -870,7 +869,3 @@ nav.menuMobile{
     max-width: 1500px;
   }
 }
-
-
-// Address and Contacts
-@import "./assets/styles/_partials/_Address";
