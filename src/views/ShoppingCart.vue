@@ -1,5 +1,5 @@
 <template>
-  <div id="shoppingCartPage" class="container">
+  <div id="shoppingCartPage">
       
       <transition appear enter-active-class="animated slideInLeft" leave-active-class="animated slideOutLeft">
       <div class="row justify-content-center" v-if="checkoutStep == 1">
@@ -185,7 +185,7 @@ import modalShare from '@/components/subcomponents/ShareThisModal.vue'
 import modalGallery from '@/components/subcomponents/ModalGallery.vue'
 
 export default {
-  name: 'detailPage',
+  name: 'shoppingCartPage',
   components: {
       arrowRightIcon,
       cartIcon,
@@ -212,134 +212,119 @@ export default {
 
 <style lang="scss">
 body{margin: 0}
-#shoppingCartPage{ margin-bottom: 200px; }
 
-
-h1, h2, h3, p {
-  font-family: 'Oswald', sans-serif;
-  font-weight: 400;
-}
-
-h2{
-  text-transform: uppercase;
-  font-size: 28px;
-}
-
-h3{
-  text-transform: uppercase;
-  font-size: 22px;
-  font-weight: 300;
-}
-
-p{
-  font-size: 18px;
-  font-weight: 300;
-}
-.uppercase{text-transform: uppercase;font-weight: 400;}
-
-
-
-.containerFull {
-  fill: none;   
-  stroke: #333;
-  stroke-width: 14;
-  stroke-linecap: square;
-  animation: progress .5s ease-out forwards;
-}
-
-@keyframes progress {
-  0% {
-    stroke-dasharray: 0 283;
-  }
-}
-
-
-
-
-.cartTitle,
-.cartTitle2 {
-
-  h1{
-      font-size: 22px;
-      position: relative;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      padding-bottom: 100px;
-
-      &:before{
-        content: '';
-        display: block;
-        position: absolute;
-        top: 13px;
-        left: 230px;
-        background: #B7B7B7;
-        width: 50%;
-        height: 1px;
-      }
-  }
-}
-
-.cartTitle h1 {
-    &:after{
-      content: '';
-      display: block;
-      position: absolute;
-      top: 13px;
-      right: -30vw;
-      background: #B7B7B7;
-      width: 50vw;
-      height: 1px;
-    } 
-}
-
-.cartTitle2 h1:before{
-    left: -30vw;
-    width: 28vw;
-}
-
-
-
-
-
-.cartTable{
-    background: #F0F0F0;
-
-    .categoryGroup{
-      width: 100%;
-
-      .categoryRow{
-        position: relative;
-        border-bottom: 1px solid #909090;
-        margin-bottom: 100px;
-
-        .categoryContainer{
-            position: absolute;
-            top: calc( 50% - 70px );
-            right: 0;
-        }
-      }
-
-      .productCart{
-        padding: 0;
-        height: 190px;
-        border-top: 1px solid #909090;
-
-        .productInfo{
-          height: 150px;
-
-          h2{ margin-bottom: 32px;}
-          h3{ margin-bottom: 30px;}
-        }
-
-        &:first-child{border-top:0;}
-      }
-    }
-}
-
-#shoppingCartPage {
+#shoppingCartPage{
     width: 100%;
     height: 100%;
+    overflow: hidden;
     padding-top: 200px;
+    margin-bottom: 200px;
+
+    h1, h2, h3, p {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 400;
+    }
+
+    h2{
+      text-transform: uppercase;
+      font-size: 28px;
+    }
+
+    h3{
+      text-transform: uppercase;
+      font-size: 22px;
+      font-weight: 300;
+    }
+
+    p{
+      font-size: 18px;
+      font-weight: 300;
+    }
+    .uppercase{text-transform: uppercase;font-weight: 400;}
+
+    .containerFull {
+      fill: none;   
+      stroke: #333;
+      stroke-width: 14;
+      stroke-linecap: square;
+      animation: progress .5s ease-out forwards;
+    }
+
+
+    .cartTitle h1,
+    .cartTitle2 h1{
+        font-size: 22px;
+        position: relative;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        padding-bottom: 100px;
+
+        &:before{
+          content: '';
+          display: block;
+          position: absolute;
+          top: 13px;
+          left: 230px;
+          background: #B7B7B7;
+          width: 50%;
+          height: 1px;
+        }
+    }
+
+    .cartTitle h1 {
+        &:after{
+          content: '';
+          display: block;
+          position: absolute;
+          top: 13px;
+          right: -30vw;
+          background: #B7B7B7;
+          width: 50vw;
+          height: 1px;
+        } 
+    }
+
+    .cartTitle2 h1:before{
+        left: -30vw;
+        width: 28vw;
+    }
+
+
+
+    .cartTable{
+        background: #F0F0F0;
+
+        .categoryGroup{
+          width: 100%;
+
+          .categoryRow{
+            position: relative;
+            border-bottom: 1px solid #909090;
+            margin-bottom: 100px;
+
+            .categoryContainer{
+                position: absolute;
+                top: calc( 50% - 70px );
+                right: 0;
+            }
+          }
+
+          .productCart{
+            padding: 0;
+            height: 190px;
+            border-top: 1px solid #909090;
+
+            .productInfo{
+              height: 150px;
+
+              h2{ margin-bottom: 32px;}
+              h3{ margin-bottom: 30px;}
+            }
+
+            &:first-child{border-top:0;}
+          }
+        }
+    }
 
     .pagecontrols{
         height: 13vh;
@@ -372,8 +357,6 @@ p{
             background: #1F1F1F;
             color: #FFF;
             white-space: nowrap;
-            //position: relative;
-            //text-align: right;
             
             span{
                 font-family: 'Oswald', sans-serif;
@@ -474,11 +457,38 @@ p{
             }
         }
     }
+
+    .notes{
+      margin: 100px 0 200px;
+
+      .input_group{ margin-top: 30px;}
+    }
 }
 
-.notes{
-  margin: 100px 0 200px;
 
-  .input_group{ margin-top: 30px;}
+
+@-webkit-keyframes progress {
+  0% {
+    stroke-dasharray: 0 283;
+  }
 }
+
+@-moz-keyframes progress {
+  0% {
+    stroke-dasharray: 0 283;
+  }
+}
+
+@-ms-keyframes progress {
+  0% {
+    stroke-dasharray: 0 283;
+  }
+}
+
+@keyframes progress {
+  0% {
+    stroke-dasharray: 0 283;
+  }
+}
+
 </style>

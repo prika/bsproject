@@ -108,13 +108,10 @@ a {
   font-family:      $font-family-sans-serif2;
   font-weight:      300;
   color:            $link-color;
-  // -webkit-transition: all 0.2s ease;
-  // -moz-transition: all 0.2s ease;
-  // -o-transition: all 0.2s ease;
-  // transition: all 0.2s ease;
-
-  // font-size: 20px;
-  //letter-spacing: 2px;
+  -webkit-transition:     color 0.2s ease;
+  -moz-transition:        color 0.2s ease;
+  -o-transition:          color 0.2s ease;
+  transition:             color 0.2s ease;
   outline: none;
 
   &:hover,
@@ -134,7 +131,6 @@ button{
   letter-spacing:   2px;
   font-size:        1.1rem;
 }
-
 
 
 .radioButtonStyle{
@@ -183,10 +179,10 @@ button{
       height: 22px;
       display: inline-flex;
       transform-origin: 50% 50%;
-      -webkit-transition:     all 0.4s ease;
-      -moz-transition:        all 0.4s ease;
-      -o-transition:          all 0.4s ease;
-      transition:             all 0.4s ease;
+      -webkit-transition:     background-color 0.4s ease, transform 0.4s ease;
+      -moz-transition:        background-color 0.4s ease, transform 0.4s ease;
+      -o-transition:          background-color 0.4s ease, transform 0.4s ease;
+      transition:             background-color 0.4s ease, transform 0.4s ease;
    }
 
    &:hover,
@@ -200,9 +196,9 @@ button{
       .radioButton,
       & + .radioButton {
         background-color: #C47C5A;
-        -webkit-transform: rotate(225deg);
-        -ms-transform: rotate(225deg); 
-        transform: rotate(225deg); 
+        -webkit-transform:  rotate(225deg);
+        -ms-transform:      rotate(225deg); 
+        transform:          rotate(225deg); 
       }
    }
 }
@@ -258,7 +254,6 @@ header  {
                   white-space: nowrap;
                   margin: 0;
                   position:relative;
-                  //min-width: 85px;
                   height: 100%;
                   padding: 0 5px;
                   display:flex;
@@ -320,9 +315,7 @@ header  {
             left: -100%;
           }
       }
-    }
-
-    
+    }    
 }
 
 
@@ -365,10 +358,12 @@ header  {
     pointer-events: none;
     left: 0;
     top: 10px;
-    -moz-transition:    all 0.3s ease 0.1s;
-    -o-transition:      all 0.3s ease 0.1s;
-    -webkit-transition: all 0.3s ease 0.1s;
-    transition:         all 0.3s ease 0.1s;
+
+    -moz-transition:    top 0.3s ease 0.1s, font-size 0.3s ease 0.05s, font-weight 0.3s ease;
+    -o-transition:      top 0.3s ease 0.1s, font-size 0.3s ease 0.05s, font-weight 0.3s ease;
+    -webkit-transition: top 0.3s ease 0.1s, font-size 0.3s ease 0.05s, font-weight 0.3s ease;
+    transition:         top 0.3s ease 0.1s, font-size 0.3s ease 0.05s, font-weight 0.3s ease;
+
   }
 
   .bar {
@@ -379,16 +374,16 @@ header  {
       &:before, 
       &:after{
         content: '';
-        height: 2px;
+        height: 1px;
         width: 0;
         bottom: 0;
         position: absolute;
         background: #333;
 
-        -moz-transition:    all 0.3s ease;
-        -o-transition:      all 0.3s ease;
-        -webkit-transition: all 0.3s ease;
-        transition:         all 0.3s ease;
+        -moz-transition:    left 0.3s ease, right 0.3s ease;
+        -o-transition:      left 0.3s ease, right 0.3s ease;
+        -webkit-transition: left 0.3s ease, right 0.3s ease;
+        transition:         left 0.3s ease, right 0.3s ease;
       }
   
       &:before{
@@ -446,10 +441,10 @@ input[type=file]{
     
     transform-origin: 50% 50%;
     
-    -webkit-transition:   all 0.3s cubic-bezier(0, .5, 0, 1);
-    -moz-transition:      all 0.3s cubic-bezier(0, .5, 0, 1);
-    -o-transition:        all 0.3s cubic-bezier(0, .5, 0, 1);
-    transition:           all 0.3s cubic-bezier(0, .5, 0, 1);
+    -webkit-transition:   transform 0.3s cubic-bezier(0, .5, 0, 1), background-color 0.3s cubic-bezier(0, .5, 0, 1);
+    -moz-transition:      transform 0.3s cubic-bezier(0, .5, 0, 1), background-color 0.3s cubic-bezier(0, .5, 0, 1);
+    -o-transition:        transform 0.3s cubic-bezier(0, .5, 0, 1), background-color 0.3s cubic-bezier(0, .5, 0, 1);
+    transition:           transform 0.3s cubic-bezier(0, .5, 0, 1), background-color 0.3s cubic-bezier(0, .5, 0, 1);
   }
 
   &::after {
@@ -469,7 +464,7 @@ input[type=file]{
     -webkit-transform:  rotate(230deg);
     -ms-transform:      rotate(230deg);
     transform:          rotate(230deg); 
-    background: #C47C5A;
+    background-color: #C47C5A;
   }
 }
 
@@ -490,13 +485,6 @@ input[type=file]{
 
 
 
-
-
-
-
-
-
-// ===================================================================== //
 // ===================================================================== //
 // PRELOADER
 
@@ -586,7 +574,7 @@ header{
   right: 0;
   z-index: 3;
   width: 100%;
-  background: $white;
+  background: #FFF;
   white-space: nowrap;
 
   .containerHeader {
@@ -628,7 +616,7 @@ header{
               &:not(:last-child):after {
                 display: none;
                 content: "";
-                background-color: $gray-600; //a7a7a7
+                background-color: #a7a7a7;
                 width: 18px;
                 height: 1px;
                 position: absolute;
@@ -646,7 +634,7 @@ header{
 }
 
 nav.menuMobile{
-  background-color: $white;
+  background-color: #FFF;
   position: fixed;
   z-index: 2;
 
@@ -678,35 +666,14 @@ nav.menuMobile{
       }
     }
 
-    .slide-enter-to, .slide-leave  {
-        max-height: 100%;
-        overflow: hidden;
-
-        
-    }
-    
-    .slide-enter, .slide-leave-to{
-        overflow: hidden;
-        max-height: 0;
-    }
-
-    .fade-enter-active, .fade-leave-active {
-      transition: opacity .5s;
-    }
-    .fade-enter, .fade-leave-to {
-      opacity: 0;
-    }
-
     &.active{
       top: 0;
 
       & .mobileAdd{ 
         bottom: 0!important;
       }
-
     }
 }
-
 
 
   .controls .buttons{

@@ -81,8 +81,6 @@
               </div>
           </div>
         </transition>
-
-        <Footer />
   </div>
 </template>
 
@@ -90,15 +88,13 @@
 import Simulate from '@/components/subcomponents/scroll.vue'
 import arrowLeftIcon from '@/components/ui/arrow-bold-left.vue'
 import arrowRightIcon from '@/components/ui/arrow-slim-right.vue'
-import Footer from '@/components/Footer.vue'
 
 export default {
   name: 'detailPage',
   components: {
       Simulate,
       arrowRightIcon,
-      arrowLeftIcon,
-      Footer
+      arrowLeftIcon
   }, 
   data() {
     return {
@@ -138,9 +134,10 @@ export default {
 
 <style lang="scss">
 body{margin: 0}
-#bstoneproject{ height: 100vh; }
 
 #detailPage {
+
+    height: 100vh;
 
     .productDetailLeft{
       width: 100%;
@@ -287,10 +284,10 @@ body{margin: 0}
             letter-spacing: 4px;
             padding-left: 220px;
             position: relative;
-            -webkit-transition:     all 0.2s ease;
-            -moz-transition:        all 0.2s ease;
-            -o-transition:          all 0.2s ease;
-            transition:             all 0.2s ease;
+            -webkit-transition:     color 0.2s ease;
+            -moz-transition:        color 0.2s ease;
+            -o-transition:          color 0.2s ease;
+            transition:             color 0.2s ease;
 
             &:before{
                 position: absolute;
@@ -351,10 +348,10 @@ body{margin: 0}
                 height: 1px;
                 width: 0;
                 background: #b7b7b7;
-                -webkit-transition:     all 0.2s ease;
-                -moz-transition:        all 0.2s ease;
-                -o-transition:          all 0.2s ease;
-                transition:             all 0.2s ease;
+                -webkit-transition:     width 0.2s ease;
+                -moz-transition:        width 0.2s ease;
+                -o-transition:          width 0.2s ease;
+                transition:             width 0.2s ease;
               }
 
               &::after { 

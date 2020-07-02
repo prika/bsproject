@@ -125,7 +125,7 @@ export default {
 
 <style lang="scss">
 body{margin: 0}
-#bstoneproject{ height: 100vh; }
+//#bstoneproject{ height: 100vh; }
 
 #productPage {
     width: 100%;
