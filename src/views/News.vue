@@ -7,20 +7,17 @@
          </h1>
       </NewsSlider>
 
-      <Footer />
   </div>
 </template>
 
 
 <script>
 import NewsSlider from '@/components/NewsSlider'
-import Footer from '@/components/Footer.vue'
 
 export default {
    name: 'newspage',
    components: {
-      NewsSlider,
-      Footer
+      NewsSlider
    },
    data() {
     return {
@@ -33,8 +30,8 @@ export default {
 </script>
 
 <style lang="scss">
-    #newspage .newsContainer {
-         padding-top: 100px;
-         .row{padding: 300px 0 0;}
-    }
+#newspage .newsContainer {
+   padding-top: 100px;
+   .row{padding: 300px 0 0;}
+}
 </style>

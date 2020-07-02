@@ -136,8 +136,9 @@ export default {
 body{margin: 0}
 
 #detailPage {
-
     height: 100vh;
+    
+    
 
     .productDetailLeft{
       width: 100%;

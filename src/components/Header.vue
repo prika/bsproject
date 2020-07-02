@@ -17,7 +17,7 @@
           </div>
         
           <Menu />
-          <!--MenuMobile :class="{ active: show }" v-if="show" /-->
+          <MenuMobile v-if="showMobileMenu == true" @close="showMobileMenu = false" />
         
 
           <Language />
@@ -52,8 +52,11 @@
           <ModalSearch v-if="showModal" @close="showModal = false"></ModalSearch>
       </transition>
 
-      <button class="closeMenuButton" v-bind:aria-label="$t('button-arialabel-close-menu')" v-if="show" key="on" @click="show = false"></button>
-      <button class="openMenuButton"  v-bind:aria-label="$t('button-arialabel-open-menu')" v-else key="off" @click="show = true"></button>
+      
+      <button class="openMenuButton"  
+        v-bind:aria-label="$t('button-arialabel-open-menu')"  
+        @click="showMobileMenu = true"></button>
+
   </header>
     
 </template>
@@ -84,11 +87,11 @@ export default {
     },
     data() {
         return {
-            show: false,
+            showMobileMenu: false,
             //user: uv.user.name,
             showModal: false,
             showLoginForm: false
         }
-    },
+    }
 }
 </script>

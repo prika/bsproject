@@ -25,7 +25,7 @@ const routes = [
   },
   {
     path: '/bloco-b/:id-:name',
-    name: 'Product',
+    name: 'product',
     // route level code-splitting
     // this generates a separate chunk (BInnovation.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
@@ -33,7 +33,7 @@ const routes = [
   },
   {
     path: '/productpage/:id',
-    name: 'Product detail',
+    name: 'productdetail',
     // route level code-splitting
     // this generates a separate chunk (BInnovation.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
@@ -72,7 +72,7 @@ const routes = [
   },
   {
     path: '/shoppingcart',
-    name: 'Shopping Cart',
+    name: 'shoppingcart',
     component: () => import('../views/ShoppingCart.vue')
   }
 ]

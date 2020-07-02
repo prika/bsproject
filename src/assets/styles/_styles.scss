@@ -636,16 +636,14 @@ nav.menuMobile{
   background-color: #FFF;
   position: fixed;
   z-index: 2;
-
-  top: -100vh;
-  height: 100vh;
+  top: 0;
   left: 0; right: 0;
+  bottom: 0;
+  display: block;
+  height: 100vh;
+  width: 100vw;
   overflow: hidden;
 
-  transition-duration: 5s;
-  transition-timing-function: ease-in;
-
- 
     & .mobileAdd{
       background-color: $gray-900;
       height: 240px;
@@ -656,9 +654,6 @@ nav.menuMobile{
       bottom: -240px;
       left: 0; right: 0;
       overflow: hidden;
-
-      transition-duration: 5s;
-      transition-timing-function: ease-in;
     
       .social-icons{
         justify-content: center;

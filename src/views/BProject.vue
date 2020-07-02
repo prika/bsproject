@@ -14,12 +14,6 @@
           <h1 class="pageTitleh2 h2">{{bproject.title1}}<span>{{bproject.title2}}</span></h1>
       </PortfolioMansory>
 
-      <Address />
-
-      <Contacts />
-
-      <Footer />
-
   </div>
 </template>
 
@@ -27,19 +21,13 @@
 import ArticleParallaxSmall from '@/components/ArticleParallaxSmall'
 import PortfolioMansory from '@/components/PortfolioMansory'
 import CollectionsSmall from '@/components/CollectionsSmall'
-import Address from '@/components/Address'
-import Contacts from '@/components/Contacts'
-import Footer from '@/components/Footer.vue'
 
 export default {
   name: 'bprojectpage',
   components: {
       ArticleParallaxSmall,
       PortfolioMansory,
-      CollectionsSmall,
-      Address,
-      Contacts,
-      Footer 
+      CollectionsSmall
   },
   data() {
     return {

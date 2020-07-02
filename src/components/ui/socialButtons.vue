@@ -17,14 +17,10 @@ export default {
             social: []
         }
     },
-   created() {
+    created() {
       this.$eventBus.$on('jsonGlobalLoaded', (response) => {
           this.social = response.data.footer.social
       });
     }
 }
 </script>
-
-<style lang="scss">
- 
-</style>

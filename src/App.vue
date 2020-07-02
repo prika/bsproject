@@ -1,24 +1,35 @@
 <template>
-  <div id="bstoneproject">
+  <div id="bstoneproject" :class="$route.name">
   
       <Preloader :class="{isLoaded}"></Preloader>
       
       <Header />
 
       <router-view />
-     
+
+      <Address v-show="!(['news', 'newsdetail', 'productdetail', 'shoppingcart'].indexOf($route.name) > -1)" />
+
+      <Contacts v-show="!(['news', 'newsdetail', 'productdetail', 'shoppingcart'].indexOf($route.name) > -1)" />
+
+      <Footer v-show="!(['product', 'productdetail', 'shoppingcart'].indexOf($route.name) > -1)" />
   </div>
 </template>
 
 <script>
 import Preloader from './components/Preloader.vue'
 import Header from './components/Header.vue'
+import Address from '@/components/Address'
+import Contacts from '@/components/Contacts'
+import Footer from '@/components/Footer.vue'
 
 export default {
   name: 'bstoneproject',
   components: {
       Header,
-      Preloader
+      Preloader,
+      Address,
+      Contacts,
+      Footer
   },
   data() {
       return {

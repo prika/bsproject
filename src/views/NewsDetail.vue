@@ -13,20 +13,17 @@
           </div>
       </ArticleParallaxSmall>
 
-    <Footer />  
   </div>
 </template>
 
 
 <script>
 import ArticleParallaxSmall from '@/components/ArticleParallaxSmall'
-import Footer from '@/components/Footer.vue'
 
 export default {
    name: 'newsdetailpage',
    components: {
-      ArticleParallaxSmall,
-      Footer
+      ArticleParallaxSmall
    },
    data() {
     return {
@@ -62,8 +59,8 @@ export default {
 </script>
 
 <style lang="scss">
-    #newsdetailpage .newsContainer {
-         padding-top: 100px;
-         .row{padding: 300px 0 0;}
-    }
+#newsdetailpage .newsContainer {
+        padding-top: 100px;
+        .row{padding: 300px 0 0;}
+}
 </style>

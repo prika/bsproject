@@ -20,13 +20,6 @@
       <NewsSlider>
         <h1 class="pageTitleh2 h2">notícias</h1>
       </NewsSlider>
-
-      <Address />
-
-      <Contacts />
-
-      <Footer />
-
   </div>
 </template>
 
@@ -37,9 +30,6 @@ import BannerFullsize from '../components/BannerFullsize'
 import ArticleParallaxSmall from '@/components/ArticleParallaxSmall'
 import ProductsList from '@/components/ProductsList'
 import NewsSlider from '@/components/NewsSlider'
-import Address from '@/components/Address'
-import Contacts from '@/components/Contacts'
-import Footer from '@/components/Footer.vue'
 
 export default {
   name: 'homepage',
@@ -48,10 +38,7 @@ export default {
       BannerFullsize,
       ArticleParallaxSmall,
       ProductsList,
-      NewsSlider,
-      Address,
-      Contacts,
-      Footer
+      NewsSlider
   },
   data() {
     return {
