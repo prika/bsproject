@@ -104,5 +104,31 @@
             {"id": 1, "name": "Alentejo2020", "img": "footer/cofinanced1.svg", "file": "footer/Alentejo2020x.jpg"},
             {"id": 2, "name": "Compete2020", "img": "footer/cofinanced2.svg", "file": "footer/Compete2020x.jpg"}
         ]
+    },
+    "address": { 
+        
+        "title": "Nosso endereço", 
+        "street": "Estrada Nacional n.º 4, km 152", 
+        "location": "Sítio Courela dos Aléns", 
+        "postcode": "7100-011",
+        "map": "https://goo.gl/maps/KYpeemR9z2YcZENQA"
+    },
+    "contacts": {
+        "email": "info@bstone.pt",
+        "phone": "(+351) 268 848 030",
+        "departments":[
+            {
+                "name": "Sales Department",
+                "phone": "(+351)  964  956  929"
+            },
+            {
+                "name": "Logistics",
+                "phone": "(+351)  914  490  070"
+            },
+            {
+                "name": "Branding & Communication",
+                "phone": "(+351)  925  278  115"
+            }
+        ]
     }
 }
