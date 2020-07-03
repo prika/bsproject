@@ -100,26 +100,41 @@ export default {
           addProductToCart( this.variant.ref )
       }
   },
-  mounted() {
-      this.$eventBus.$emit('componentFinishLoad', true);
-  },
-  created(){
-        this.$http.get('../mocks/products-variant-detail-mock.json').then(response => {
-          this.variant = response.data.variant
-          this.parseObject(response.data.variant.images)
-        })
+  beforeCreate() {
+      alert("deu")
 
-        $('html').mousewheel(function(e, delta) {
+      let themejs = document.createElement("script")
+      themejs.setAttribute("src", "https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js")
+      document.head.appendChild(themejs)
+      
+      
+      this.$http.get('../mocks/products-variant-detail-mock.json').then(response => {
+        this.variant = response.data.variant
+        this.parseObject(response.data.variant.images)
+        
+        alert("mouse")
+        $('html, body').mousewheel(function(e, delta) {
             this.scrollLeft -= (delta);
             e.preventDefault();
         });
+      })
+
+      
   },
-  destroyed() {
-        $('html').mousewheel(function(e, delta) {
-          this.scrollLeft == (delta);
-          ///e.preventDefault();
+  created(){
+      $('html, body').mousewheel(function(e, delta) {
+            this.scrollLeft -= (delta);
+            e.preventDefault();
         });
+      this.$eventBus.$emit('componentFinishLoad', true);
   }
+  // ,
+  // destroyed() {
+  //     $('html').mousewheel(function(e, delta) {
+  //       this.scrollLeft == (delta);
+  //       //e.preventDefault();
+  //     });
+  // }
 }
 </script>
 
