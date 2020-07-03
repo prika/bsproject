@@ -5,7 +5,7 @@
                  <div class="row">
 
                     <transition appear enter-active-class="animated slideInDown" leave-active-class="animated slideOutDown">
-                        <h1 class="pageTitle" v-if="!hasFeaturedProducts">{{categories[selectedCategory-1].splitName1}}<span>{{categories[selectedCategory-1].splitName2}}</span></h1>
+                        <h1 class="pageTitle" v-if="!hasFeaturedProducts">{{categories[selectedCategory].splitName1}}<span>{{categories[selectedCategory].splitName2}}</span></h1>
                         <h1 class="pageTitleh2 h2" v-else><slot></slot></h1>
                     </transition>
                     
@@ -25,10 +25,11 @@
                         </ul>
 
                         <ul class="colorFilters">
-                            <li v-for="color in availableColors">
-                                <a href="javascript:void(0);" @click="filterByColor(color.id)" :class="(color.id === selectedColors ? 'active': '')">
+                            <li v-for="color in availableColors" :key="color.id">
+                                <a href="javascript:void(0);" @click="filterByColor(color.id)" :class="getColorStatus(color.id)">
                                     <span class="color" :style="'background-color:'+color.hexa"></span>
-                                    <span class="name">{{color.name}}</span></a>
+                                    <span class="name">{{color.name}}</span>
+                                </a>
                             </li>
                         </ul>
                     </nav>
@@ -36,12 +37,12 @@
 
                     <div class="col-12 col-lg-9 productsContainer" :class="(hasFeaturedProducts === true ? 'featuredCenter': '')" itemscope itemtype="http://schema.org/ItemList">
                         <transition-group appear enter-active-class="animated slideInUp delay" tag="div" class="row">
-                            <router-link    v-for="(product, index) in products"  
-                                            :to="{path: '/bloco-b/'+product.id+'-'+product.name }" 
+                            <a    v-for="(product, index) in products"  
+                                            :href="{path: '/bloco-b/'+product.id+'-'+product.name }" 
                                             itemprop="itemListElement" itemscope itemtype="http://schema.org/Product"
-                                            class="product col-12 col-lg-4 rellax"
-                                            :key="index">
-                                            <!-- :data-rellax-speed=" product[index * 3 + 1] ? '0' : '2')" -->
+                                            class="product col-12 col-lg-4 rellaxProduct"
+                                            :key="index"
+                                            :data-rellax-speed="getDataSpeed(index)">
 
                                     <div class="containerImage">
                                         <img :src="product.imgURL" 
@@ -55,8 +56,8 @@
                                             {{ product.firstName }} </br> {{ product.secondName }}
                                         </mark>
                                     </p>
-                                    <p class="categoryName" v-if="hasFeaturedProducts">{{categories[selectedCategory-1].name}}</p>
-                            </router-link>
+                                    <p class="categoryName" v-if="hasFeaturedProducts">{{getCategory(product).name}}</p>
+                            </a>
                         </transition-group>
                     </div> 
           
@@ -86,35 +87,49 @@ export default {
         }
     },
     beforeCreate() {
-        // let rellaxjs = document.createElement("script")
-        // rellaxjs.setAttribute("src", "https://cdnjs.cloudflare.com/ajax/libs/rellax/1.0.0/rellax.min.js")
-        // document.head.appendChild(rellaxjs)
+        let rellaxjs = document.createElement("script")
+        rellaxjs.setAttribute("src", "https://cdnjs.cloudflare.com/ajax/libs/rellax/1.0.0/rellax.min.js")
+        document.head.appendChild(rellaxjs)
     
-        console.log("To apply Rellax I need to set -2 value in elements ( index * 3 + 1 ) ")
-        //var rellax = new Rellax('.rellax');
+        let rellaxProduct = new Rellax('.rellaxProduct');
 
     },
     mounted() {
         // Preloader
-        this.$eventBus.$emit('componentFinishLoad', true);
+        
         this.productsPerPage = this.$parent.productsPerPage
         this.hasFeaturedProducts = this.$parent.hasFeaturedProducts
+        
+        rellaxProduct.refresh();
 
-        //rellax.refresh();
+        this.$eventBus.$emit('componentFinishLoad', true);
     },
     methods:
     {
         getImgUrl: function (src) {
             return require( '@/assets/images/'+src )
         },
-        parseObject: function(source, destination)
+        getCategory(product)
+        {
+            return this.categories.filter(item => item.id == product.category)[0]
+        },
+        getDataSpeed(index)
+        {
+            return index%3 == 1 ? 2 : -2;
+        },
+        getColorStatus(id)
+        {
+            return this.selectedColors.filter(item => item == id).length > 0 ? "active" : "inactive"
+        },
+        parseObject: function(source, destination, featuredOnly)
         {
             for ( var i = 0 ; i < source.length; i++ ) {
-               let obj = source[i]
-               let fullPath = this.getImgUrl(obj.imgURL)
-               obj.imgURL = fullPath
-               destination.push(obj)
-               this.rawProducts.push(obj)
+                let obj = source[i]
+                let fullPath = this.getImgUrl(obj.imgURL)
+                obj.imgURL = fullPath
+                if (featuredOnly && !obj.featured) continue
+                destination.push(obj)
+                this.rawProducts.push(obj)
             }
         },      
         filterByCategory(id)
@@ -123,12 +138,14 @@ export default {
             this.selectedCollection = this.collections[0].id // selects the first collection by default
             this.selectedColors = []
             this.applyFilter()
+            
         },     
         filterByCollection(id)
         {
             this.selectedCollection = id
             this.selectedColors = []
             this.applyFilter()
+            
         },
         filterByColor(id) {
 
@@ -141,7 +158,13 @@ export default {
                 this.selectedColors.push(id)
             }
 
+            console.log(  )
+
             this.applyFilter()
+
+            
+            //:class="( color.id === selectedColors ? 'active': '')"
+            
         },
         applyFilter()
         {
@@ -175,18 +198,28 @@ export default {
 
                 this.availableColors = this.rawColors.filter(color => filteredColors.indexOf(color.id) > - 1)
             }
+
+            this.rellaxProduct.refresh();
         }
     },
-    created(){
+    created() {
+
         this.$http.get('../mocks/products-list-mock.json').then(response => {
+            
             this.collections = response.data.collections
             this.categories = response.data.categories
-            this.rawColors = response.data.colors
-            console.log(this.rawColors)
+            this.rawColors = response.data.colors            
+      
+            if (this.hasFeaturedProducts) 
+            {
+                this.parseObject(response.data.products, this.products, this.hasFeaturedProducts)   
+                return
+            }
             
             this.selectedCategory = this.categories[0].id
-            this.selectedCollection = this.collections[0].id
-            this.parseObject(response.data.products, this.products)
+            this.selectedCollection = this.collections[0].id    
+            this.parseObject(response.data.products, this.products, this.hasFeaturedProducts)
+            this.applyFilter()
         })
     }
 }
@@ -195,7 +228,7 @@ export default {
 .productsList{
     min-height: 100vh;
     padding-top: 50px;
-    margin-bottom: 130px;
+    margin-bottom: 430px;
 
     &.notFeaturedProducts {
         .productsContainer {margin-top: 300px;}
@@ -233,10 +266,14 @@ export default {
                     line-height: 2rem;
                     text-transform: uppercase;
                     margin: 10px 0;
-                    -webkit-transition:     all 0.5s ease;
-                    -moz-transition:        all 0.5s ease;
-                    -o-transition:          all 0.5s ease;
-                    transition:             all 0.5s ease;
+                    -webkit-transition:     color 0.5s ease, margin 0.5s ease;
+                    -moz-transition:        color 0.5s ease, margin 0.5s ease;
+                    -o-transition:          color 0.5s ease, margin 0.5s ease;
+                    transition:             color 0.5s ease, margin 0.5s ease;
+                }
+
+                &:hover{
+                    a{ color: #B7B7B7;}
                 }
 
                 &.active{
@@ -251,9 +288,9 @@ export default {
             -o-transition:          top 0.5s ease;
             transition:             top 0.5s ease;
 
-            &.cat-1{top: 450px;}
-            &.cat-2{top: 490px;}
-            &.cat-3{top: 530px;}
+            &.cat-0{top: 450px;}
+            &.cat-1{top: 490px;}
+            &.cat-2{top: 530px;}
 
             li {
                 a{
@@ -275,7 +312,11 @@ export default {
                         content: '';
                         width: 30px;
                         height: 1px;
-                        background: #333;
+                        background-color: #333;
+                        -webkit-transition:     width 0.5s ease, background-color 0.3s ease;
+                        -moz-transition:        width 0.5s ease, background-color 0.3s ease;
+                        -o-transition:          width 0.5s ease, background-color 0.3s ease;
+                        transition:             width 0.5s ease, background-color 0.3s ease;
                     }
                 }
 
@@ -285,7 +326,7 @@ export default {
                     color: #C47C5A;
 
                     &:before{
-                        background: #C47C5A;
+                        background-color: #C47C5A;
                         width: 43px;
                     }
                 }
@@ -307,10 +348,10 @@ export default {
                     color: #6A6A6A;
                     padding-left: 15px;
                     position: relative;
-                    -webkit-transition:     all 0.5s ease;
-                    -moz-transition:        all 0.5s ease;
-                    -o-transition:          all 0.5s ease;
-                    transition:             all 0.5s ease;
+                    -webkit-transition:     color 0.3s ease, padding 0.5s ease;
+                    -moz-transition:        color 0.3s ease, padding 0.5s ease;
+                    -o-transition:          color 0.3s ease, padding 0.5s ease;
+                    transition:             color 0.3s ease, padding 0.5s ease;
 
                     &:before{
                         position: absolute;
@@ -319,11 +360,11 @@ export default {
                         content: '';
                         width: 0;
                         height: 1px;
-                        background: #6A6A6A;
-                        -webkit-transition:     all 0.5s ease;
-                        -moz-transition:        all 0.5s ease;
-                        -o-transition:          all 0.5s ease;
-                        transition:             all 0.5s ease;
+                        background-color: #6A6A6A;
+                        -webkit-transition:     width 0.5s ease, background-color 0.3s ease;
+                        -moz-transition:        width 0.5s ease, background-color 0.3s ease;
+                        -o-transition:          width 0.5s ease, background-color 0.3s ease;
+                        transition:             width 0.5s ease, background-color 0.3s ease;
                     }
                 }
 
@@ -335,10 +376,10 @@ export default {
                     -ms-transform: rotate(45deg); 
                     transform: rotate(45deg); 
                     transform-origin: 50% 50%;
-                    -webkit-transition:     all 0.5s ease;
-                    -moz-transition:        all 0.5s ease;
-                    -o-transition:          all 0.5s ease;
-                    transition:             all 0.5s ease;
+                    -webkit-transition:     transform 0.5s ease, background-color 0.3s ease;
+                    -moz-transition:        transform 0.5s ease, background-color 0.3s ease;
+                    -o-transition:          transform 0.5s ease, background-color 0.3s ease;
+                    transition:             transform 0.5s ease, background-color 0.3s ease;
                 }
 
                 &:hover,
@@ -348,15 +389,15 @@ export default {
                         padding-left: 30px;
 
                         &:before{
-                            background: #333;
+                            background-color: #333;
                             width: 15px;
                         }
                     }
 
                     span.color{
-                        -webkit-transform: rotate(225deg);
-                        -ms-transform: rotate(225deg); 
-                        transform: rotate(225deg); 
+                        -webkit-transform:  rotate(225deg);
+                        -ms-transform:      rotate(225deg); 
+                        transform:          rotate(225deg); 
                     }    
                 }
             }
@@ -364,10 +405,12 @@ export default {
     }
 }
 
-.product{
+.product {
     position: relative;
     text-decoration: none;
-    transform: translateZ(.25px);
+    -webkit-transform:  translateZ(.25px);
+    -ms-transform:      translateZ(.25px);
+    transform:          translateZ(.25px);
 
     .containerImage{
         width: 260px;
@@ -375,24 +418,23 @@ export default {
         margin: 0 auto;
         overflow: hidden;
     }
-}
 
-    .product .productImage{
+    .productImage{
         width: 260px;
         height: 373px;
         overflow: hidden;
 
-        -webkit-transition: all 0.5s ease;
-        -moz-transition: all 0.5s ease;
-        -o-transition: all 0.5s ease;
-        transition: all 0.5s ease;
+        -webkit-transition: transform 0.5s ease;
+        -moz-transition:    transform 0.5s ease;
+        -o-transition:      transform 0.5s ease;
+        transition:         transform 0.5s ease;
 
         img {
             width: 100%;
         }
     }
 
-    .product .productName{
+    .productName{
         width: 140px;
         position: absolute;
         right: -20px;
@@ -407,13 +449,12 @@ export default {
         text-align: left;
         text-indent: 25px;
 
-        -webkit-transition: all 0.5s ease;
-        -moz-transition: all 0.5s ease;
-        -o-transition: all 0.5s ease;
-        transition: all 0.5s ease;
-    }
+        -webkit-transition: top 0.5s ease;
+        -moz-transition:    top 0.5s ease;
+        -o-transition:      top 0.5s ease;
+        transition:         top 0.5s ease;
 
-        .product .productName span{
+        span{
             border: 3px solid #333;
             width: 32px;
             display: block;
@@ -423,30 +464,39 @@ export default {
             left: -10px;
         }
 
-        .product .productName mark {
+        mark {
             background-color: white;
             padding: 2px 5px;
         }
-
-    .product:nth-of-type(3n+2){
-        margin-top: 130px;
-        transform: translateZ(.7px) scale(1);
     }
 
-    .product:nth-of-type(3n+2) .productName{
+    .categoryName{
+        font-family: "Oswald", sans-serif;
+        font-size: 15px;
+        color: #333;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        text-align: center;
+        margin: 5px;
+    } 
+
+    &:nth-of-type(3n+2){
+        margin-top: 130px;
+        -webkit-transform:  translateZ(.7px) scale(1);
+        -ms-transform:      translateZ(.7px) scale(1);
+        transform:          translateZ(.7px) scale(1);
+    }
+
+    &:nth-of-type(3n+2) .productName{
         top: 52px;
     }
 
-.product:hover .productImage{ transform: scale(1.1); }
-.product:hover .productName{top: 170px;}
+    &:hover .productImage{ 
+        -webkit-transform:  scale(1.1);
+        -ms-transform:      scale(1.1);
+        transform:          scale(1.1);
+    }
+    &:hover .productName{top: 170px;}
+}
 
-.categoryName{
-    font-family: "Oswald", sans-serif;
-    font-size: 15px;
-    color: #333;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    text-align: center;
-    margin: 5px;
-}    
 </style>

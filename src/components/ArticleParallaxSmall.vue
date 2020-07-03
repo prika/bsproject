@@ -38,7 +38,7 @@ export default {
             imageGroup2:[]
         }
     },
-    beforeMount() {
+    created() {
         let rellaxjs = document.createElement("script")
         rellaxjs.setAttribute("src", "https://cdnjs.cloudflare.com/ajax/libs/rellax/1.0.0/rellax.min.js")
         document.head.appendChild(rellaxjs)
@@ -49,12 +49,12 @@ export default {
         let rellax = new Rellax('.rellax');
     },
     mounted() {
-        rellax.refresh();
+        this.rellax.refresh();
     },
     watch: {
         $route(to , from){
             // Destroy and create again parallax with previous settings
-            rellax.refresh();
+            this.rellax.refresh();
         }
     }
 }

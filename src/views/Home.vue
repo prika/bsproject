@@ -68,7 +68,8 @@ export default {
             }
         }        
     },
-    created(){
+    beforeCreate() {
+      
          this.$http.get('../mocks/homepage-mock.json').then(response => {
             this.home = response.data
             this.parseObject(response.data.gallery1, this.gallery1)

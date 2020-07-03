@@ -3,11 +3,12 @@
         {
             "id": "Prod1",
             "name": "Atlantic White",
-            "category": 2,
+            "category": 1,
             "collection": 1,
             "imgURL": "product/atlantic_white.jpg",
             "firstName": "Atlantic",
             "secondName": "White",
+            "featured": false,
             "colors": [
                 0,
                 1,
@@ -18,11 +19,12 @@
             
             "id": "Prod2",
             "name": "Bambu Pink",
-            "category": 2,
+            "category": 1,
             "collection": 1,
             "imgURL": "product/bambu_pink.jpg",
             "firstName": "Bambu",
             "secondName": "Pink",
+            "featured": true,
             "colors": [
                 0,
                 4
@@ -32,11 +34,12 @@
         
         "id": "Prod3",
         "name": "Black Magic",
-        "category": 1,
+        "category": 0,
         "collection": 1,
         "imgURL": "product/black_magic.jpg",
         "firstName": "Black",
         "secondName": "Magic",
+        "featured": false,
         "colors": [
             3
         ]
@@ -44,11 +47,12 @@
         
         "id": "Prod33",
         "name": "Butak Onyx",
-        "category": 1,
+        "category": 0,
         "collection": 1,
         "imgURL": "product/butak_onyx.jpg",
         "firstName": "Butak",
         "secondName": "Onyx",
+        "featured": true,
         "colors": [
             4,
             1
@@ -57,11 +61,12 @@
         
         "id": "Prod34",
         "name": "Butak Onyx",
-        "category": 1,
+        "category": 0,
         "collection": 1,
         "imgURL": "product/butak_onyx.jpg",
         "firstName": "Butak",
         "secondName": "Onyx",
+        "featured": false,
         "colors": [
             4,
             1
@@ -71,11 +76,12 @@
         
         "id": "Prod4",
         "name": "Butak Onyx",
-        "category": 1,
+        "category": 0,
         "collection": 2,
         "imgURL": "product/butak_onyx.jpg",
         "firstName": "Butak",
         "secondName": "Onyx",
+        "featured": true,
         "colors": [
             4,
             1
@@ -84,11 +90,12 @@
         
         "id": "Prod45",
         "name": "Butak Onyx",
-        "category": 1,
+        "category": 0,
         "collection": 2,
         "imgURL": "product/butak_onyx.jpg",
         "firstName": "Butak",
         "secondName": "Onyx",
+        "featured": true,
         "colors": [
             4,
             1
@@ -97,11 +104,12 @@
         
         "id": "Prod46",
         "name": "Butak Onyx",
-        "category": 1,
+        "category": 0,
         "collection": 2,
         "imgURL": "product/butak_onyx.jpg",
         "firstName": "Butak",
         "secondName": "Onyx",
+        "featured": false,
         "colors": [
             4,
             1
@@ -110,11 +118,12 @@
         
         "id": "Prod47",
         "name": "Butak Onyx",
-        "category": 1,
+        "category": 0,
         "collection": 2,
         "imgURL": "product/butak_onyx.jpg",
         "firstName": "Butak",
         "secondName": "Onyx",
+        "featured": false,
         "colors": [
             4,
             1
@@ -124,11 +133,12 @@
         
         "id": "Prod5",
         "name": "Calacatta Stone",
-        "category": 3,
+        "category": 2,
         "collection": 1,
         "imgURL": "product/calacatta_bstone.jpg",
         "firstName": "Calacatta",
         "secondName": "Stone",
+        "featured": false,
         "colors": [
             0,
             3,
@@ -139,11 +149,12 @@
         
         "id": "Prod6",
         "name": "Atlantic White",
-        "category": 2,
+        "category": 1,
         "collection": 1,
         "imgURL": "product/atlantic_white.jpg",
         "firstName": "Atlantic",
         "secondName": "White",
+        "featured": true,
         "colors": [
             0,
             1,
@@ -154,11 +165,12 @@
         
         "id": "Prod7",
         "name": "Bambu Pink",
-        "category": 3,
+        "category": 2,
         "collection": 2,
         "imgURL": "product/bambu_pink.jpg",
         "firstName": "Bambu",
         "secondName": "Pink",
+        "featured": true,
         "colors": [
             4,
             1
@@ -168,11 +180,12 @@
         
         "id": "Prod8",
         "name": "Black Magic",
-        "category": 1,
+        "category": 0,
         "collection": 1,
         "imgURL": "product/black_magic.jpg",
         "firstName": "Black",
         "secondName": "Magic 2",
+        "featured": false,
         "colors": [
             3
         ]
@@ -181,11 +194,12 @@
         
         "id": "Prod9",
         "name": "Butak Onyx",
-        "category": 2,
+        "category": 1,
         "collection": 2,
         "imgURL": "product/butak_onyx.jpg",
         "firstName": "Butak",
         "secondName": "Onyx",
+        "featured": false,
         "colors": [
             4,
             1
@@ -195,11 +209,12 @@
         
         "id": "Prod10",
         "name": "Calacatta Stone",
-        "category": 3,
+        "category": 2,
         "collection": 2,
         "imgURL": "product/calacatta_bstone.jpg",
         "firstName": "Calacatta",
         "secondName": "Stone",
+        "featured": false,
         "colors": [
             3,
             2
@@ -209,11 +224,12 @@
         
         "id": "Prod11",
         "name": "Butak Onyx",
-        "category": 2,
+        "category": 1,
         "collection": 2,
         "imgURL": "product/butak_onyx.jpg",
         "firstName": "Butak",
         "secondName": "Onyx",
+        "featured": true,
         "colors": [
             4,
             1
@@ -223,11 +239,12 @@
         
         "id": "Prod12",
         "name": "Calacatta Stone",
-        "category": 3,
+        "category": 2,
         "collection": 2,
         "imgURL": "product/calacatta_bstone.jpg",
         "firstName": "Calacatta",
         "secondName": "Stone",
+        "featured": false,
         "colors": [
             3,
             2
@@ -237,11 +254,12 @@
         
         "id": "Prod13",
         "name": "Butak Onyx",
-        "category": 2,
+        "category": 1,
         "collection": 2,
         "imgURL": "product/butak_onyx.jpg",
         "firstName": "Butak",
         "secondName": "Onyx",
+        "featured": false,
         "colors": [
             4,
             1
@@ -251,11 +269,12 @@
         
         "id": "Prod14",
         "name": "Calacatta Stone",
-        "category": 3,
+        "category": 2,
         "collection": 2,
         "imgURL": "product/calacatta_bstone.jpg",
         "firstName": "Calacatta",
         "secondName": "Stone",
+        "featured": false,
         "colors": [
             3,
             2
@@ -267,9 +286,9 @@
     { "id":2, "name":"Sahura Collection"}
 ],
 "categories": [
-    {"id":1, "name":"Blocos",       "splitName1": "Blo",    "splitName2": "cos"},
-    {"id":2, "name":"Chapas",       "splitName1": "Cha",    "splitName2": "pas"},
-    {"id":3, "name":"Ladrilhos",    "splitName1": "Ladri",  "splitName2": "lhos"}
+    {"id":0, "name":"Blocos",       "splitName1": "Blo",    "splitName2": "cos"},
+    {"id":1, "name":"Chapas",       "splitName1": "Cha",    "splitName2": "pas"},
+    {"id":2, "name":"Ladrilhos",    "splitName1": "Ladri",  "splitName2": "lhos"}
 ],
 "colors":[
     {"id":0, "name":"Branco",    "hexa": "#FFFFFF"},

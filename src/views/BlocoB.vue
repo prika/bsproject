@@ -21,8 +21,7 @@ export default {
   },
   data(){
     return {
-        hasFeaturedProducts: false,
-        productsPerPage: 12
+        hasFeaturedProducts: false
     }
   },
   mounted() {
