@@ -1,5 +1,5 @@
 <template>
-  <div id="bstoneproject" :class="$route.name">
+  <div id="bstoneproject"> <!--:class="$route.name"-->
   
       <Preloader :class="{isLoaded}"></Preloader>
       
@@ -7,9 +7,9 @@
 
       <router-view />
 
-      <Address v-show="!(['news', 'newsdetail', 'productdetail', 'shoppingcart'].indexOf($route.name) > -1)" />
+      <Address v-show="!(['news', 'newsdetail', 'product', 'productdetail', 'shoppingcart'].indexOf($route.name) > -1)" />
 
-      <Contacts v-show="!(['news', 'newsdetail', 'productdetail', 'shoppingcart'].indexOf($route.name) > -1)" />
+      <Contacts v-show="!(['news', 'newsdetail', 'product', 'productdetail', 'shoppingcart'].indexOf($route.name) > -1)" />
 
       <Footer v-show="!(['product', 'productdetail', 'shoppingcart'].indexOf($route.name) > -1)" />
   </div>
