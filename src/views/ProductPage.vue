@@ -101,7 +101,7 @@ export default {
       }
   },
   beforeCreate() {
-      alert("deu")
+      console.log("productpage - entra no mousewheel")
 
       let themejs = document.createElement("script")
       themejs.setAttribute("src", "https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js")
@@ -112,7 +112,7 @@ export default {
         this.variant = response.data.variant
         this.parseObject(response.data.variant.images)
         
-        alert("mouse")
+        console.log("productpage - terminou parse de imagens")
         $('html, body').mousewheel(function(e, delta) {
             this.scrollLeft -= (delta);
             e.preventDefault();

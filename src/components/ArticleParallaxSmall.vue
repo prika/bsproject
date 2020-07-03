@@ -8,6 +8,7 @@
 
             <div class="col-xs-12 col-md-6 parallaxGroup1 order-md-1">
                 <img    v-for="(image, index) in imageGroup1"
+                        :key="index"
                         :src="image.src" 
                         :alt="image.alt" 
                         :data-rellax-speed="image.speed"
@@ -19,16 +20,16 @@
 
         <div class="col-12 parallaxGroup2">
             <img    v-for="(image, index) in imageGroup2"
-                        :src="image.src" 
-                        :alt="image.alt" 
-                        :data-rellax-speed="image.speed"
-                        :class="['rellax',(image.addclass),('imageParallax'+(index+3))]">
+                    :key="index"
+                    :src="image.src" 
+                    :alt="image.alt" 
+                    :data-rellax-speed="image.speed"
+                    :class="['rellax',(image.addclass),('imageParallax'+(index+3))]">
         </div>
     </section>
 </template>
 
 <script>
-
 
 export default {
     data() {
@@ -38,11 +39,14 @@ export default {
         }
     },
     beforeMount() {
-        
+        let rellaxjs = document.createElement("script")
+        rellaxjs.setAttribute("src", "https://cdnjs.cloudflare.com/ajax/libs/rellax/1.0.0/rellax.min.js")
+        document.head.appendChild(rellaxjs)
+
         this.imageGroup1 = this.$parent.gallery1
         this.imageGroup2 = this.$parent.gallery2
-        var rellax = new Rellax('.rellax');
-        
+
+        let rellax = new Rellax('.rellax');
     },
     mounted() {
         rellax.refresh();
