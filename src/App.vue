@@ -3,15 +3,16 @@
   
       <Preloader :class="{isLoaded}"></Preloader>
       
-      <Header />
+      <Header v-show="!(['faqs', 'privacy-policy'].indexOf($route.name) > -1)" />
 
       <router-view />
 
-      <Address v-show="!(['news', 'newsdetail', 'product', 'productdetail', 'shoppingcart'].indexOf($route.name) > -1)" />
+      <Address v-show="!(['faqs', 'privacy-policy', 'news', 'newsdetail', 'product', 'productdetail', 'shoppingcart'].indexOf($route.name) > -1)" />
 
-      <Contacts v-show="!(['news', 'newsdetail', 'product', 'productdetail', 'shoppingcart'].indexOf($route.name) > -1)" />
+      <Contacts v-show="!(['faqs', 'privacy-policy','news', 'newsdetail', 'product', 'productdetail', 'shoppingcart'].indexOf($route.name) > -1)" />
 
-      <Footer v-show="!(['product', 'productdetail', 'shoppingcart'].indexOf($route.name) > -1)" />
+      <Footer v-show="!(['faqs', 'privacy-policy','product', 'productdetail', 'shoppingcart'].indexOf($route.name) > -1)" />
+
   </div>
 </template>
 

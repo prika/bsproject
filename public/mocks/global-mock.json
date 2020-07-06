@@ -130,5 +130,31 @@
                 "phone": "(+351)  925  278  115"
             }
         ]
+    },
+    "faqs": {
+       "title": "Perguntas frequentes",
+       "questions": [
+          {"question": "Quais são as formas de pagamento?", "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut leo hendrerit, semper purus non, pellentesque mauris."},
+          {"question": "É POSSÍVEL PARCELAR O PAGAMENTO?", "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut leo hendrerit, semper purus non, pellentesque mauris."},
+          {"question": "quais são as formas de pagamento?", "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut leo hendrerit, semper purus non, pellentesque mauris."},
+          {"question": "Quais são as formas de pagamento?", "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut leo hendrerit, semper purus non, pellentesque mauris."},
+          {"question": "Quais são as formas de pagamento?", "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut leo hendrerit, semper purus non, pellentesque mauris."},
+          {"question": "É POSSÍVEL PARCELAR O PAGAMENTO?", "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut leo hendrerit, semper purus non, pellentesque mauris."},
+          {"question": "quais são as formas de pagamento?", "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut leo hendrerit, semper purus non, pellentesque mauris."},
+          {"question": "Quais são as formas de pagamento?", "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut leo hendrerit, semper purus non, pellentesque mauris."}
+       ]
+    },
+    "privacypolicy": {
+      "title": "Política de Privacidade",
+      "questions": [
+        {"question": "Quais são as formas de pagamento?", "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut leo hendrerit, semper purus non, pellentesque mauris."},
+        {"question": "É POSSÍVEL PARCELAR O PAGAMENTO?", "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut leo hendrerit, semper purus non, pellentesque mauris."},
+        {"question": "quais são as formas de pagamento?", "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut leo hendrerit, semper purus non, pellentesque mauris."},
+        {"question": "Quais são as formas de pagamento?", "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut leo hendrerit, semper purus non, pellentesque mauris."},
+        {"question": "Quais são as formas de pagamento?", "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut leo hendrerit, semper purus non, pellentesque mauris."},
+        {"question": "É POSSÍVEL PARCELAR O PAGAMENTO?", "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut leo hendrerit, semper purus non, pellentesque mauris."},
+        {"question": "quais são as formas de pagamento?", "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut leo hendrerit, semper purus non, pellentesque mauris."},
+        {"question": "Quais são as formas de pagamento?", "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut leo hendrerit, semper purus non, pellentesque mauris."}
+     ]
     }
 }

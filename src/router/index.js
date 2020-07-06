@@ -13,11 +13,6 @@ const routes = [
     name: 'Home',
     component: Home
   },
-  // {
-  //   path: '/institutional',
-  //   name: 'inst',
-  //   component: () => import('../views/Institutional.vue')
-  // },
   {
     path: '/bloco-b',
     name: 'bloco',
@@ -26,9 +21,6 @@ const routes = [
   {
     path: '/bloco-b/:id-:name',
     name: 'product',
-    // route level code-splitting
-    // this generates a separate chunk (BInnovation.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
     component: () => import('../views/DetailPage.vue')
   },
   {
@@ -69,6 +61,16 @@ const routes = [
     name: 'newsdetail',
     //props: (route) => ({ query: route.query.q }),
     component: () => import('../views/NewsDetail.vue')
+  },
+  {
+    path: '/faqs',
+    name: 'faqs',
+    component: () => import('../views/Faqs.vue')
+  },
+  {
+    path: '/privacy-policy',
+    name: 'privacy-policy',
+    component: () => import('../views/PrivacyPolicy.vue')
   },
   {
     path: '/shoppingcart',
