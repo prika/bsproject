@@ -37,8 +37,8 @@
 
                     <div class="col-12 col-lg-9 productsContainer" :class="(hasFeaturedProducts === true ? 'featuredCenter': '')" itemscope itemtype="http://schema.org/ItemList">
                         <transition-group appear enter-active-class="animated slideInUp delay" tag="div" class="row">
-                            <a    v-for="(product, index) in products"  
-                                            :href="{path: '/bloco-b/'+product.id+'-'+product.name }" 
+                            <router-link    v-for="(product, index) in products"  
+                                            :to="{path: '/bloco-b/'+product.id+'-'+product.firstName+'-'+product.secondName }" 
                                             itemprop="itemListElement" itemscope itemtype="http://schema.org/Product"
                                             class="product col-12 col-lg-4 rellaxProduct"
                                             :key="index"
@@ -57,7 +57,7 @@
                                         </mark>
                                     </p>
                                     <p class="categoryName" v-if="hasFeaturedProducts">{{getCategory(product).name}}</p>
-                            </a>
+                            </router-link>
                         </transition-group>
                     </div> 
           
@@ -95,8 +95,6 @@ export default {
 
     },
     mounted() {
-        // Preloader
-        
         this.productsPerPage = this.$parent.productsPerPage
         this.hasFeaturedProducts = this.$parent.hasFeaturedProducts
         
@@ -151,20 +149,13 @@ export default {
 
             const index = this.selectedColors.indexOf(id)
 
-            // filter already applied, should removed it
             if (index > -1) { 
                 this.selectedColors = this.selectedColors.filter(item => item !== id)
             } else {
                 this.selectedColors.push(id)
             }
 
-            console.log(  )
-
             this.applyFilter()
-
-            
-            //:class="( color.id === selectedColors ? 'active': '')"
-            
         },
         applyFilter()
         {
