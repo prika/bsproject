@@ -2,42 +2,44 @@
   <div id="detailPage">
       
       <transition appear enter-active-class="animated slideInLeft" leave-active-class="animated slideOutLeft">
-        
-        <div :class="(showDetail === true ? 'productDetailLeft col-2 showDetail': 'productDetailLeft col-5')">
-            <p class="productName" itemprop="name">
-                <mark>
-                    <span></span>
-                    {{ product.firstName }} </br> {{ product.secondName }}
-                </mark>
-            </p>
-            <h1 class="pageTitle" v-show="!showDetail">{{product.categoryNameSplit1}}<span>{{product.categoryNameSplit2}}</span></h1>
-            
-            <a class="backLink" href="javascript:void(0)" @click="showDetail = !showDetail" v-show="showDetail"><arrowLeftIcon /> voltar</a>
-            
-            <div class="containerImage">
-                <img :src="getImgUrl(product.imgURL)"
-                class="productImage"
-                :alt="product.name" itemprop="image">
-            </div>
-        </div>
-
+          <div :class="(showDetail === true ? 'productDetailLeft col-2 showDetail': 'productDetailLeft col-5')">
+              <p class="productName" itemprop="name">
+                  <mark>
+                      <span></span>
+                      {{ product.firstName }} </br> {{ product.secondName }}
+                  </mark>
+              </p>
+              <h1 class="pageTitle" v-show="!showDetail">{{product.categoryNameSplit1}}<span>{{product.categoryNameSplit2}}</span></h1>
+              
+              <a  class="backLink" href="javascript:void(0)" 
+                  @click="showDetail = !showDetail" 
+                  v-if="simulator == true"
+                  v-show="showDetail" ><arrowLeftIcon /> {{$t('backlink')}}</a>
+              
+              <div class="containerImage">
+                  <img :src="getImgUrl(product.imgURL)"
+                  class="productImage"
+                  :alt="product.name" itemprop="image">
+              </div>
+          </div>
       </transition>
 
       <transition enter-active-class="animated slideInRight faster" leave-active-class="animated slideOutRight faster">
           <div class="productDetailLinks col-8" key="1" v-if="!showDetail">
-              <a href="javascript:void(0)" @click="showDetail = !showDetail">{{product.categoryName}} <span>({{product.variants.length}})</span></a>
-              <router-link to="/simulator">Simulador</router-link>
+              <a href="javascript:void(0)" @click="showDetail = !showDetail">{{product.categoryName}} <sup class="variantsquantity">({{product.variants.length}})</sup></a>
+              <router-link to="/simulator">{{$t('simulator')}}</router-link>
           </div>
       </transition>
       
       <transition tag="div" enter-active-class="animated fade" leave-active-class="animated fade">
           <div class="productVariationList col-12 col-md-10 col-lg-9" key="2" v-if="showDetail">
-             
                 <div class="filters col-6">
                     <div class="order">
 
-                        <a href="javascript:void(0)" class="_active"
-                           v-for="(filter, index) in product.filters" :key="filter.id">
+                        <a @click="customFilter( filter.id, 'asc')"
+                          href="javascript:void(0)"
+                           v-for="filter in product.filters" 
+                           :key="filter.id">
                            {{filter.name}}</a>
 
                     </div>
@@ -46,32 +48,31 @@
                         <a href="/" class="arrowRight"> <arrowRightIcon /></a>
                     </div>
                 </div>
-              
             </div>
-        </transition>
+      </transition>
         
-        <transition tag="div" enter-active-class="animated slideInUp" leave-active-class="animated slideOutDown">
+      <transition tag="div" enter-active-class="animated slideInUp" leave-active-class="animated slideOutDown">
           <div class="productVariationList col-12 col-md-10 col-lg-9" key="3" v-if="showDetail">
               <div class="col-12 col-sm-10 col-md-8">
 
                 <div class="tableScroll">
                   <ul class="variantTable">
-                        <router-link to="/productpage/:id" tag="li"  class="variantItem" v-for="(variant, index) in product.variants" :key="index">
+                        <router-link to="/productpage/:id" tag="li"  class="variantItem" 
+                                  v-for="variant in orderedVariants" :key="variant.name">
                      
                               <div class="img">
                                 <img :src="variant.img" :alt="variant.alt" />
                               </div>
                               <div class="info row">
+                                  <h2 class="col-4">{{variant.ref}}</h2>
                                   
-                                    <h2 class="col-4">{{variant.ref}}</h2>
-                                    
-                                    <div class="col-4">
-                                      <p><span>{{product.titleSize}}</span><br>{{variant.size.width}}x{{variant.size.height}}x{{variant.size.depth}}cm</p>
-                                    </div>
+                                  <div class="col-4">
+                                    <p><span>{{product.titleSize}}</span><br>{{variant.size.width}}x{{variant.size.height}}x{{variant.size.depth}}cm</p>
+                                  </div>
 
-                                    <div class="col-4">
-                                        <p><span>{{product.titleWeight}}</span><br>{{variant.weight}} t.</p>
-                                    </div>
+                                  <div class="col-4">
+                                      <p><span>{{product.titleWeight}}</span><br>{{variant.weight}} t.</p>
+                                  </div>
                               </div>
                       
                         </router-link>
@@ -80,7 +81,7 @@
                 
               </div>
           </div>
-        </transition>
+      </transition>
   </div>
 </template>
 
@@ -100,7 +101,13 @@ export default {
     return {
         product: '',
         variants: [],
-        showDetail: false
+        showDetail:'',
+        simulator:''    
+      }
+  },
+  computed: {
+    orderedVariants: function () {
+      //return _.orderBy( this.product.variants, 'ref', this.sortDirection)
     }
   },
   methods:{
@@ -116,6 +123,23 @@ export default {
               destination.push(obj)
               this.variants.push(obj)
           }
+      },
+      customFilter( sortProperty , sortDirection){
+
+        console.log( sortProperty , sortDirection )
+
+        // function orderedVariants () {
+        //   return _.orderBy( this.product.variants, this.sortProperty, this.sortDirection)
+        // }
+
+        // ev.preventDefault()
+        
+        // if (this.sortDirection == 'asc' && this.sortProperty == property ) {
+        //     this.sortDirection = 'desc'
+        // } else {
+        //     this.sortDirection = 'asc'
+        // }
+        // this.sortProperty = property
       }
   },
   mounted() {
@@ -125,6 +149,10 @@ export default {
         this.$http.get('../mocks/products-detail-mock.json').then(response => {
             
             this.product = response.data.product
+            this.simulator = response.data.product.simulator
+            
+            if( this.simulator == false) { this.showDetail = true }
+
             this.parseObject(response.data.product.variants, this.product.variants)
 
         })
@@ -138,8 +166,6 @@ body{margin: 0}
 #detailPage {
     height: 100vh;
     
-    
-
     .productDetailLeft{
       width: 100%;
       height: 100%;
@@ -165,10 +191,10 @@ body{margin: 0}
             text-align: left;
             text-indent: 25px;
 
-            -webkit-transition: all 0.5s ease;
-            -moz-transition: all 0.5s ease;
-            -o-transition: all 0.5s ease;
-            transition: all 0.5s ease;
+            -webkit-transition:   all 0.5s ease;
+            -moz-transition:      all 0.5s ease;
+            -o-transition:        all 0.5s ease;
+            transition:           all 0.5s ease;
 
             span{
               border: 3px solid #333;
@@ -194,10 +220,10 @@ body{margin: 0}
           img {
             min-width: 100%;
             min-height: 100%;
-            -webkit-transition: all 0.2s ease;
-            -moz-transition: all 0.2s ease;
-            -o-transition: all 0.2s ease;
-            transition: all 0.2s ease;
+            -webkit-transition:   all 0.2s ease;
+            -moz-transition:      all 0.2s ease;
+            -o-transition:        all 0.2s ease;
+            transition:           all 0.2s ease;
           }
         }
 
@@ -205,7 +231,7 @@ body{margin: 0}
         & .productName:hover > .containerImage img,
         & .pageTitle:hover > .containerImage img{ 
           cursor: pointer;
-          transform: scale(1.2); 
+          transform: scale(1.2);
         }
 
         .pageTitle{ 
@@ -235,10 +261,10 @@ body{margin: 0}
                 width: 30px;
                 height: 2px;
                 background: #FFF;
-                -webkit-transition:     all 0.2s ease;
-                -moz-transition:        all 0.2s ease;
-                -o-transition:          all 0.2s ease;
-                transition:             all 0.2s ease;
+                -webkit-transition:     width 0.2s ease;
+                -moz-transition:        width 0.2s ease;
+                -o-transition:          width 0.2s ease;
+                transition:             width 0.2s ease;
           }
 
           .arrowBoldIcon{
@@ -246,10 +272,10 @@ body{margin: 0}
               position: absolute;
               top: 3px;
               left: 20px;
-              -webkit-transition:     all 0.2s ease;
-              -moz-transition:        all 0.2s ease;
-              -o-transition:          all 0.2s ease;
-              transition:             all 0.2s ease;
+              -webkit-transition:     left 0.2s ease;
+              -moz-transition:        left 0.2s ease;
+              -o-transition:          left 0.2s ease;
+              transition:             left 0.2s ease;
           }
 
           &:hover{
@@ -302,6 +328,13 @@ body{margin: 0}
 
             &:hover{ color: #C47C5A }
         }
+    }
+
+    .variantsquantity{
+      font-weight: 300;
+      font-size: 15px;
+      letter-spacing: 1px;
+      color: #575757;
     }
 
     .productVariationList {
@@ -371,6 +404,7 @@ body{margin: 0}
               &:hover,
               &.active {
                  color: #b7b7b7;
+
                  &::before{width: 65%;}
               }
             }
@@ -406,10 +440,10 @@ body{margin: 0}
                         width: 40px;
                         height: 1px;
                         background: #333;
-                        -webkit-transition:     all 0.2s ease;
-                        -moz-transition:        all 0.2s ease;
-                        -o-transition:          all 0.2s ease;
-                        transition:             all 0.2s ease;
+                        -webkit-transition:     width 0.2s ease;
+                        -moz-transition:        width 0.2s ease;
+                        -o-transition:          width 0.2s ease;
+                        transition:             width 0.2s ease;
                     }
                 }
 
@@ -423,7 +457,6 @@ body{margin: 0}
             }
         }
         
-
         ul.variantTable {
             padding: 0;
             list-style: none;
@@ -449,10 +482,10 @@ body{margin: 0}
                   img{
                     min-height: 100%;
                     width: 100%;
-                    -webkit-transition: all 0.2s ease;
-                    -moz-transition: all 0.2s ease;
-                    -o-transition: all 0.2s ease;
-                    transition: all 0.2s ease;
+                    -webkit-transition:   transform 0.2s ease;
+                    -moz-transition:      transform 0.2s ease;
+                    -o-transition:        transform 0.2s ease;
+                    transition:           transform 0.2s ease;
                   }
                 }
 

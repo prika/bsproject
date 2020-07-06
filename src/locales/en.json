@@ -39,6 +39,11 @@
 
   "home-title-page": "News",
   "home-title-page-split1": "Ne",
-  "home-title-page-split2": "ws"
+  "home-title-page-split2": "ws",
+
+  "backlink": "back",
+
+  "units_cm": "cm",
+  "units_ton": "toneladas"
 }
 

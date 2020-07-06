@@ -39,5 +39,10 @@
 
   "home-title-page": "Noticias",
   "home-title-page-split1": "Noti",
-  "home-title-page-split2": "cias"
+  "home-title-page-split2": "cias",
+
+  "backlink": "voltar",
+
+  "units_cm": "cm",
+  "units_ton": "toneladas"
 }
