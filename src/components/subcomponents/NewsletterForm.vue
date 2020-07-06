@@ -53,7 +53,6 @@ export default {
             e.preventDefault()
             if(!this.validEmail()) return
             
-            console.log(this.email)
             const data = { email: this.email}
             var self = this;
 

@@ -7,8 +7,7 @@
                 <h1 class="h2">Fale conosco</h1>
                 <p class="h1">  Fale <br> conosco </p>
                 <form id="contact"
-                    @submit="checkForm"
-                    action="https://vuejs.org/"
+                    @submit.prevent="checkContactsForm"
                     method="post"
                     novalidate="true">
 
@@ -91,25 +90,42 @@ export default {
         }
     },
     methods: {
-        checkForm: function (e) {
-            this.errors = [];
+        checkContactsForm: function (e) {
+            
+            e.preventDefault()
+            if(!this.validEmail()) return
+            
+            const data = { email: this.email}
+            var self = this;
 
-            if (!this.email) {
-                this.errors.push('[[Email required.]]');
-            } else if (!this.validEmail(this.email)) {
-                this.errors.push('[[Valid email required.]]');
-            }
+            this.$http.post('https://bafdc7b9-222e-4e30-a8ec-f760c186fb05.mock.pstmn.io/subscribe', data).then(response => {
+                this.success = true
+                
+                setTimeout(function(){
+                    self.success = false
+                }, 2500)
 
-            if (!this.errors.length) {
-                return true;
-            }
-
-            e.preventDefault();
+            }).catch((e) => {
+                this.errors.push(e.message)
+            })
         },
-        validEmail: function (email) {
-            var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-            return re.test(email);
-        }
+         validEmail: function () {
+            
+            if (!this.email) // No email 
+            {
+                this.errors.push('[[Email required.]]');
+                return false
+            } 
+            
+            const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+            if (re.test(email))
+            {
+                this.errors.push('[[Valid email required.]]');
+                return false
+            }
+            return true
+         }
     }
 }
 
