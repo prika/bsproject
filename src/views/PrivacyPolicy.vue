@@ -54,10 +54,11 @@ export default {
     background-size: 350px;
 
     .containerReduced{
-        width: 560px;
+        max-width: 560px;
         height: 100vh;
         margin: 0 auto;
         position: relative;
+        padding: 0 25px;
     }
 
     .closeMenuButton{
@@ -72,10 +73,12 @@ export default {
 
     .questionsContainer{
         position: absolute;
-        top: 250px;
+        top: 290px;
+        left: 0;
         width: 100%;
-        height: calc( 100vh - 250px );
+        height: calc( 100vh - 290px );
         overflow-y: scroll;
+        padding: 0 25px;
 
         .questionContainer{
             border-bottom: 1px solid #CFCFCF;
