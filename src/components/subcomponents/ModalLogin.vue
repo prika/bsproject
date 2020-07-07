@@ -4,30 +4,36 @@
             <button class="closeLoginButton" v-bind:aria-label="$t('button-arialabel-close-menu')" @click="$emit('close')"><closeIcon></closeIcon></button>
         </transition>
         <div class="formLogin revertColor">
-            <p class="h1">Entrar <br>na minha <br>conta</p>
-             <form id="login" @submit="checkForm"
-                action="https://vuejs.org/"
-                method="post" novalidate="true">
+            <p class="h1 col-12">[[Entrar <br>na minha <br>conta]]</p>
 
-                <div class="input_group col-9">  
+            <form   id="login" 
+                    @submit.prevent="checkLoginForm"
+                    method="post" novalidate="true" class="col-12">
+
+                <div class="input_group col-12">  
                     <input id="UserLogin"
                             type="text"
                             name="username"
                             placeholder=" ">
-                    <label for="form1">Username</label>
+                    <label for="UserLogin">[[Username]]</label>
                     <span class="bar"></span>
                 </div>
 
-                <div class="input_group col-9">  
+                <div class="input_group col-12">  
                     <input id="PasswordLogin"
                             type="password"
                             name="password"
                             placeholder=" ">
-                    <label for="form1">Password</label>
+                    <label for="PasswordLogin">[[Password]]</label>
                     <span class="bar"></span>
                 </div>
 
-                <button type="button" v-on:click="login()">Login</button>
+                
+                <a class="passwordRecoveryLink col-12" href="javacript:void(0)" >[[Esqueceu-se da palavra-chave?]]</a>
+
+                <a class="accountRegisterLink col-12" href="javacript:void(0)" >[[criar conta]]</a>
+
+                <button class="loginLink" type="button" v-on:click="login()">[[Login]]</button>
             </form>
         </div>
     </div>
@@ -43,13 +49,16 @@ export default {
     //name: 'Login',
     data() {
         return {
-            input: {
+            inputs: {
                 username: "",
                 password: ""
             }
         }
     },
     methods: {
+        checkLoginForm(){
+
+        },
         login() {
             if(this.input.username != "" && this.input.password != "") {
                 if(this.input.username == this.$parent.mockAccount.username && this.input.password == this.$parent.mockAccount.password) {
@@ -85,17 +94,51 @@ export default {
 
     .formLogin{
         position: fixed;
+        top: 124px;
         right: 0;
         background: black;
         height: 500px;
-        width: 450px;
+        width: 430px;
         background: #2A2A2A;
-        padding: 75px;
+        padding: 60px;
 
+        form#login{
+            display: block;
+            height: 100%;
+        }
         p.h1 {
+            width: 100%;
             color: #FFF;
             font-size: 36px;
             white-space: normal;
+        }
+
+        a.passwordRecoveryLink,
+        a.accountRegisterLink{ 
+            float: left; 
+            display: block;
+            padding: 0;
+            color: #FFF;
+        }
+
+        a.accountRegisterLink{ margin-top: 70px}
+
+        .loginLink{
+            background-color: #000;
+            color: #FFF;
+            font-size: 20px;
+            padding: 25px 60px;
+            outline: none;
+            border: none;
+            position: fixed;
+            top: 580px;
+            right: 0;
+            -webkit-transition:     background-color 0.4s cubic-bezier(0, 0.5, 0, 1);
+            -moz-transition:        background-color 0.4s cubic-bezier(0, 0.5, 0, 1);
+            -o-transition:          background-color 0.4s cubic-bezier(0, 0.5, 0, 1);
+            transition:             background-color 0.4s cubic-bezier(0, 0.5, 0, 1);
+
+            &:hover{ background-color: #C47C5A; }
         }
         
     }
