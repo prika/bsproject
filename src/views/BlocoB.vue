@@ -11,7 +11,7 @@
 <script>
 import Scroll from '../components/subcomponents/scroll'
 import ProductsList from '@/components/ProductsList'
-import axios from 'axios'
+//import axios from 'axios'
 
 export default {
   name: 'blocobpage',
