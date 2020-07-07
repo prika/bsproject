@@ -17,7 +17,7 @@
                             <input type="text" 
                                     v-model="cont_name"
                                     id="cont_name" placeholder=" ">
-                            <label for="form1">Nome</label>
+                            <label for="cont_name">Nome</label>
                             <span class="bar"></span>
                         </div>
                         </div>
@@ -27,7 +27,7 @@
                             <input type="text" 
                                     v-model="cont_surname"
                                     id="cont_surname" placeholder=" ">
-                            <label for="form1">Sobrenome</label>
+                            <label for="cont_surname">Sobrenome</label>
                             <span class="bar"></span>
                         </div>
                         </div>
@@ -39,7 +39,7 @@
                             <input  type="email" 
                                     v-model="cont_email"
                                     id="cont_email" placeholder=" ">
-                            <label for="form1">Email</label>
+                            <label for="cont_email">Email</label>
                             <span class="bar"></span>
                         </div>
                         </div>
@@ -50,7 +50,7 @@
                         <div class="input_group">
                             <textarea v-model="cont_message"
                                         id="cont_message" rows="1" placeholder=" "></textarea>
-                            <label for="form1">Mensagem</label>
+                            <label for="cont_message">Mensagem</label>
                             <span class="bar"></span>
                         </div>
                         </div>
@@ -58,7 +58,8 @@
 
                     <div class="row d-flex align-items-center">
                         <div class="col-xs-12 col-sm-6">
-                            <input type="file">
+                            <input id="cont_file" type="file">
+                            <label for="cont_file" aria-label="File"></label>
                         </div>
 
                          <div class="col-xs-12 col-sm-6">

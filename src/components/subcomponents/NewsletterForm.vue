@@ -15,7 +15,7 @@
                         type="email"
                         name="email"
                         :aria-label="$t('footer-input-email')" placeholder=" ">
-                <label for="form1">{{ $t('footer-input-email') }}</label>
+                <label for="emailnewsletter">{{ $t('footer-input-email') }}</label>
                 <span class="bar"></span>
             </div>
 
