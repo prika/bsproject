@@ -14,7 +14,9 @@
                     <div class="row">
                         <div class="col-xs-12 col-sm-6">
                         <div class="input_group">
-                            <input type="text" id="name" placeholder=" ">
+                            <input type="text" 
+                                    v-model="cont_name"
+                                    id="cont_name" placeholder=" ">
                             <label for="form1">Nome</label>
                             <span class="bar"></span>
                         </div>
@@ -22,7 +24,9 @@
 
                         <div class="col-xs-12 col-sm-6">
                         <div class="input_group">
-                            <input type="text" id="surname" placeholder=" ">
+                            <input type="text" 
+                                    v-model="cont_surname"
+                                    id="cont_surname" placeholder=" ">
                             <label for="form1">Sobrenome</label>
                             <span class="bar"></span>
                         </div>
@@ -32,7 +36,9 @@
                     <div class="row">
                         <div class="col-xs-12 col-sm-6">
                         <div class="input_group">
-                            <input type="email" id="email" placeholder=" ">
+                            <input  type="email" 
+                                    v-model="cont_email"
+                                    id="cont_email" placeholder=" ">
                             <label for="form1">Email</label>
                             <span class="bar"></span>
                         </div>
@@ -42,7 +48,8 @@
                     <div class="row">
                         <div class="col-12">
                         <div class="input_group">
-                            <textarea  id="" rows="1" placeholder=" "></textarea>
+                            <textarea v-model="cont_message"
+                                        id="cont_message" rows="1" placeholder=" "></textarea>
                             <label for="form1">Mensagem</label>
                             <span class="bar"></span>
                         </div>
@@ -86,7 +93,10 @@ export default {
     data() {
         return {
             errors: [],
-            email: null
+            cont_name: '',
+            cont_surname: '',
+            cont_email: '',
+            cont_message: ''
         }
     },
     methods: {
@@ -95,8 +105,17 @@ export default {
             e.preventDefault()
             if(!this.validEmail()) return
             
-            const data = { email: this.email}
+            const data = { 
+                cont_name: this.cont_name,
+                cont_surname: this.cont_surname,
+                cont_email: this.cont_email,
+                cont_message: this.cont_message
+            }
+            
+            console.log( "data: "+data )
             var self = this;
+
+            console.log( "self: "+self )
 
             this.$http.post('https://bafdc7b9-222e-4e30-a8ec-f760c186fb05.mock.pstmn.io/subscribe', data).then(response => {
                 this.success = true
@@ -111,7 +130,7 @@ export default {
         },
          validEmail: function () {
             
-            if (!this.email) // No email 
+            if (!this.cont_email) // No email 
             {
                 this.errors.push('[[Email required.]]');
                 return false
@@ -119,7 +138,7 @@ export default {
             
             const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-            if (re.test(email))
+            if (re.test(cont_email))
             {
                 this.errors.push('[[Valid email required.]]');
                 return false
