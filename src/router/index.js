@@ -16,12 +16,12 @@ const routes = [
   {
     path: '/bloco-b',
     name: 'bloco',
-    component: () => import('../views/BlocoB.vue')
+    component: () => import( /* webpackChunkName: "product-group" */ '../views/BlocoB.vue')
   },
   {
     path: '/bloco-b/:id-:name',
     name: 'product',
-    component: () => import('../views/DetailPage.vue')
+    component: () => import( /* webpackChunkName: "product-group" */ '../views/DetailPage.vue')
   },
   {
     path: '/productpage/:id',
@@ -29,7 +29,7 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (BInnovation.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import('../views/ProductPage.vue')
+    component: () => import( /* webpackChunkName: "product-group" */ '../views/ProductPage.vue')
   },
   {
     path: '/b-explore',
@@ -54,28 +54,28 @@ const routes = [
   {
     path: '/news',
     name: 'news',
-    component: () => import('../views/News.vue')
+    component: () => import( /* webpackChunkName: "news-group" */ '../views/News.vue')
   },
   {
     path: '/news/:id',
     name: 'newsdetail',
     //props: (route) => ({ query: route.query.q }),
-    component: () => import('../views/NewsDetail.vue')
+    component: () => import(  /* webpackChunkName: "news-group" */ '../views/NewsDetail.vue')
   },
   {
     path: '/faqs',
     name: 'faqs',
-    component: () => import('../views/Faqs.vue')
+    component: () => import(  /* webpackChunkName: "institutional-group" */ '../views/Faqs.vue')
   },
   {
     path: '/privacy-policy',
     name: 'privacy-policy',
-    component: () => import('../views/PrivacyPolicy.vue')
+    component: () => import( /* webpackChunkName: "institutional-group" */ '../views/PrivacyPolicy.vue')
   },
   {
     path: '/shoppingcart',
     name: 'shoppingcart',
-    component: () => import('../views/ShoppingCart.vue')
+    component: () => import( /* webpackChunkName: "shooping-group" */ '../views/ShoppingCart.vue')
   }
 ]
 
