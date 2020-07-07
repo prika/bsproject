@@ -27,6 +27,8 @@
   "footer-input-email": "Introduza o seu email",
   "footer-submit-email": "Envie a sua subscrição de newsletter",
   "footer-newsletter-error": "Por favor, corrija o(s) seguinte(s) erros:",
+  "footer-newsletter-error-emailrequired": "Campo de Email de preenchimento obrigatório.",
+  "footer-newsletter-error-emailinvalid": "O email inserido não é válido",
   "footer-newsletter-success": "O seu endereço de email foi adicionado com sucesso à nossa newsletter.",
 
   "footer-cofinanced": "Co-financed by:",

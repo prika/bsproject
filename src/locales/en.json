@@ -27,6 +27,8 @@
   "footer-input-email": "Enter your email",
   "footer-submit-email": "Submit your email",
   "footer-newsletter-error": "Please correct the following error(s):",
+  "footer-newsletter-error-emailrequired": "Email required.",
+  "footer-newsletter-error-emailinvalid": "Valid email required.:",
   "footer-newsletter-success": "Your email was added successfully to our newsletter group.",
 
   "footer-cofinanced": "Co-financed by:",
