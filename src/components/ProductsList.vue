@@ -5,8 +5,8 @@
                  <div class="row">
 
                     <transition appear enter-active-class="animated slideInDown" leave-active-class="animated slideOutDown">
-                        <h1 class="pageTitle" v-if="!hasFeaturedProducts">{{categories[selectedCategory].splitName1}}<span>{{categories[selectedCategory].splitName2}}</span></h1>
-                        <h1 class="pageTitleh2 h2" v-else><slot></slot></h1>
+                        <h1 class="pageTitleh2 h2" v-if="hasFeaturedProducts"><slot></slot></h1>
+                        <h1 class="pageTitle" v-else>{{categories[selectedCategory].splitName1}}<span>{{categories[selectedCategory].splitName2}}</span></h1>
                     </transition>
                     
                    
@@ -35,13 +35,12 @@
                     </nav>
                      </transition>
 
-                    <div class="col-12 col-lg-9 productsContainer" :class="(hasFeaturedProducts === true ? 'featuredCenter': '')" itemscope itemtype="http://schema.org/ItemList">
+                    <div class="col-12 col-lg-11 productsContainer" :class="(hasFeaturedProducts === true ? 'featuredCenter': '')" itemscope itemtype="http://schema.org/ItemList">
                         <transition-group appear enter-active-class="animated slideInUp delay" tag="div" class="row">
-                            <router-link    v-for="(product, index) in products"  
+                            <router-link    class="rellaxProduct product col-12 col-lg-6 col-xl-4" itemprop="itemListElement" itemscope itemtype="http://schema.org/Product"
+                                            v-for="(product, index) in products"  
                                             :to="{path: '/bloco-b/'+product.id+'-'+product.firstName+'-'+product.secondName }" 
-                                            itemprop="itemListElement" itemscope itemtype="http://schema.org/Product"
-                                            class="product col-12 col-lg-4 rellaxProduct"
-                                            :key="index"
+                                            :key="product+index"
                                             :data-rellax-speed="getDataSpeed(index)">
 
                                     <div class="containerImage">
@@ -90,15 +89,37 @@ export default {
         let rellaxjs = document.createElement("script")
         rellaxjs.setAttribute("src", "https://cdnjs.cloudflare.com/ajax/libs/rellax/1.0.0/rellax.min.js")
         document.head.appendChild(rellaxjs)
-    
-        let rellaxProduct = new Rellax('.rellaxProduct');
-
+        console.log('Before Create - rellaxjs');
+    },
+    created() {
+        console.log('Created');
+        this.$http.get('../mocks/products-list-mock.json').then(response => {
+            
+            this.collections = response.data.collections
+            this.categories = response.data.categories
+            this.rawColors = response.data.colors            
+      
+            if (this.hasFeaturedProducts) 
+            {
+                this.parseObject(response.data.products, this.products, this.hasFeaturedProducts)   
+                return
+            }
+            
+            this.selectedCategory = this.categories[0].id
+            this.selectedCollection = this.collections[0].id    
+            this.parseObject(response.data.products, this.products, this.hasFeaturedProducts)
+            
+            this.applyFilter()
+        })
+    },
+    beforeMount() {
+        console.log('Before Mount');
     },
     mounted() {
+        console.log('Mounted');
+
         this.productsPerPage = this.$parent.productsPerPage
         this.hasFeaturedProducts = this.$parent.hasFeaturedProducts
-        
-        rellaxProduct.refresh();
 
         this.$eventBus.$emit('componentFinishLoad', true);
     },
@@ -190,28 +211,9 @@ export default {
                 this.availableColors = this.rawColors.filter(color => filteredColors.indexOf(color.id) > - 1)
             }
 
-            this.rellaxProduct.refresh();
+            console.log('Methods - rellax');
+            let rellaxProduct = new Rellax('.rellaxProduct');
         }
-    },
-    created() {
-
-        this.$http.get('../mocks/products-list-mock.json').then(response => {
-            
-            this.collections = response.data.collections
-            this.categories = response.data.categories
-            this.rawColors = response.data.colors            
-      
-            if (this.hasFeaturedProducts) 
-            {
-                this.parseObject(response.data.products, this.products, this.hasFeaturedProducts)   
-                return
-            }
-            
-            this.selectedCategory = this.categories[0].id
-            this.selectedCollection = this.collections[0].id    
-            this.parseObject(response.data.products, this.products, this.hasFeaturedProducts)
-            this.applyFilter()
-        })
     }
 }
 </script>
@@ -222,7 +224,10 @@ export default {
     margin-bottom: 430px;
 
     &.notFeaturedProducts {
-        .productsContainer {margin-top: 300px;}
+        .productsContainer {
+            margin-top: 300px;
+            padding-left: 25%;
+        }
 
         h1.pageTitle{
             position: fixed;
@@ -231,10 +236,15 @@ export default {
         }
     }
 
-    .productsContainer.featuredCenter{ margin: 0 auto; }
+    .productsContainer.featuredCenter{ 
+        margin: 0 auto;
+        max-width: 1100px;   
+    }
 
     .filters {
-
+        position: relative;
+        z-index: 3;
+        
         .categoryMenu,
         .collectionMenu,
         .colorFilters{
@@ -472,10 +482,10 @@ export default {
     } 
 
     &:nth-of-type(3n+2){
-        margin-top: 130px;
-        -webkit-transform:  translateZ(.7px) scale(1);
-        -ms-transform:      translateZ(.7px) scale(1);
-        transform:          translateZ(.7px) scale(1);
+        //margin-top: 130px;
+        // -webkit-transform:  translateZ(.7px) scale(1);
+        // -ms-transform:      translateZ(.7px) scale(1);
+        // transform:          translateZ(.7px) scale(1);
     }
 
     &:nth-of-type(3n+2) .productName{
@@ -488,6 +498,46 @@ export default {
         transform:          scale(1.1);
     }
     &:hover .productName{top: 170px;}
+}
+
+@media (max-width: 768px) {
+    
+    .product {
+            transform: none!important;
+
+    //     .containerImage{
+    //         width: 100%;
+    //         height: 100%;
+    //         padding: 0 20%;
+
+    //         .productImage{
+    //             width: 100%;
+    //             height: 100%;
+    //         }
+    //     }
+    }
+}
+
+@media (max-width: 1400px) {
+
+    .product {
+        margin-bottom: 130px;
+
+        .productName{
+            right: calc( 50% - 70px );
+            top: -30px!important;
+            text-indent: 0;
+            text-align: center;
+
+            span{display: none;}
+        }
+    }
+    
+    .productsList { margin-bottom: 0; }
+}
+
+@media (min-width: 1400px) {
+    .product:nth-of-type(3n+2) {margin-top: 130px;}
 }
 
 </style>
