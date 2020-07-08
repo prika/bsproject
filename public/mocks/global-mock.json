@@ -106,7 +106,6 @@
         ]
     },
     "address": { 
-        
         "title": "Nosso endereço", 
         "street": "Estrada Nacional n.º 4, km 152", 
         "location": "Sítio Courela dos Aléns", 
@@ -130,6 +129,16 @@
                 "phone": "(+351)  925  278  115"
             }
         ]
+    },
+    "formContact": {
+        "title": "Fale conosco",
+        "subtitle": "Fale <br> conosco",
+        "inputname": "Nome",
+        "inputsurname": "Sobrenome",
+        "inputemail": "Email",
+        "inputmessage": "Mensagem",
+        "inputfile": "Ficheiro",
+        "submit": "Enviar"
     },
     "faqs": {
        "title": "Perguntas frequentes",

@@ -4,8 +4,8 @@
        <div class="container">
        <div class="col-sm-12 col-md-8 col-lg-6 offset-md-2">
             <div class="contactForm">
-                <h1 class="h2">Fale conosco</h1>
-                <p class="h1">  Fale <br> conosco </p>
+                <h1 class="h2" v-html="formContact.title">{{formContact.title}}</h1>
+                <p class="h1" v-html="formContact.subtitle">{{formContact.subtitle}}</p>
                 <form id="contact"
                     @submit.prevent="checkContactsForm"
                     method="post"
@@ -17,7 +17,7 @@
                             <input type="text" 
                                     v-model="cont_name"
                                     id="cont_name" placeholder=" ">
-                            <label for="cont_name">Nome</label>
+                            <label for="cont_name">{{formContact.inputname}}</label>
                             <span class="bar"></span>
                         </div>
                         </div>
@@ -27,7 +27,7 @@
                             <input type="text" 
                                     v-model="cont_surname"
                                     id="cont_surname" placeholder=" ">
-                            <label for="cont_surname">Sobrenome</label>
+                            <label for="cont_surname">{{formContact.inputsurname}}</label>
                             <span class="bar"></span>
                         </div>
                         </div>
@@ -39,7 +39,7 @@
                             <input  type="email" 
                                     v-model="cont_email"
                                     id="cont_email" placeholder=" ">
-                            <label for="cont_email">Email</label>
+                            <label for="cont_email">{{formContact.inputemail}}</label>
                             <span class="bar"></span>
                         </div>
                         </div>
@@ -50,7 +50,7 @@
                         <div class="input_group">
                             <textarea v-model="cont_message"
                                         id="cont_message" rows="1" placeholder=" "></textarea>
-                            <label for="cont_message">Mensagem</label>
+                            <label for="cont_message">{{formContact.inputmessage}}</label>
                             <span class="bar"></span>
                         </div>
                         </div>
@@ -59,22 +59,21 @@
                     <div class="row d-flex align-items-center">
                         <div class="col-xs-12 col-sm-6">
                             <input id="cont_file" type="file">
-                            <label for="cont_file" aria-label="File"></label>
+                            <label for="cont_file" :aria-label="formContact.inputfile"></label>
                         </div>
 
                          <div class="col-xs-12 col-sm-6">
-                            <button class="button submitForm" :aria-label="$t('')">
-                                <span class="text">Enviar</span>
+                            <button class="button submitForm" :aria-label="formContact.submit">
+                                <span class="text">{{formContact.submit}}</span>
                                 <span class="arrow"></span>
                                 <span class="icon">
-                                    <svg class="svgpath" xmlns="http://www.w3.org/2000/svg" width="8.821" height="14.813" viewBox="0 0 8.821 14.813">
+                                    <svg class="svgpath" :alt="formContact.inputfile" xmlns="http://www.w3.org/2000/svg" width="8.821" height="14.813" viewBox="0 0 8.821 14.813">
                                         <path d="M230.221,220.144l-6.7-6.7,6.7-6.7" transform="translate(230.928 220.851) rotate(180)" fill="none" stroke="#c47c5a" stroke-miterlimit="10" stroke-width="2"/>
                                     </svg>
                                 </span>
                             </button>
                         </div>
                     </div>
-
 
                     <p style="color: red; margin-top: 36px;">
                         <span v-if="errors.length">{{ $t('footer-newsletter-error') }}</span>
@@ -93,12 +92,18 @@
 export default {
     data() {
         return {
+            formContact: '',
             errors: [],
             cont_name: '',
             cont_surname: '',
             cont_email: '',
             cont_message: ''
         }
+    },
+    created() {
+      this.$eventBus.$on('jsonGlobalLoaded', (response) => {
+          this.formContact = response.data.formContact
+      });
     },
     methods: {
         checkContactsForm: function (e) {
