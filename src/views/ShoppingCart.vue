@@ -5,7 +5,7 @@
       <div class="row justify-content-center" v-if="checkoutStep == 1">
           
           <div class="cartTitle col-12 col-md-8">
-              <h1>Lista da Encomenda</h1>
+              <h1 class="text-center text-md-left">[[Lista da Encomenda]]</h1>
           </div>
 
           <div class="cartTable col-12 col-md-8">
@@ -13,14 +13,15 @@
           <!-- Repeater containers -->
             <div class="categoryGroup">
                 <div class="row">
-                    <p class="col-8"><span class="uppercase">Blocos</span> - <span>4 produtos</span></p>
-                    <p class="col-4 text-center"><span class="uppercase">Contentores</span> - 2 - 12m<sup>2</sup></p>
+                    <p class="col-12 col-md-8 text-center text-md-left"><span class="uppercase">Blocos</span> - <span>4 produtos</span></p>
+                    <p class="col-12 col-md-4 text-center"><span class="uppercase">Contentores</span> - 2 - 12m<sup>2</sup></p>
+                    <p class="col-12 text-center d-md-none">[[Contentor - A 75%]]</p>
                 </div>
 
                 <div class="row categoryRow">
 
                   <!-- repeat -->
-                  <div class="productCart col-8 d-flex align-items-center">
+                  <div class="productCart col-12 col-md-8  d-flex align-items-center">
                       <img src="/img/variant1-4.5af13b48.jpg" 
                             class="col-4"
                             width="150" height="150"/>
@@ -34,7 +35,7 @@
                   <!-- repeat -->
 
                   <!-- repeat -->
-                  <div class="productCart col-8 d-flex align-items-center">
+                  <div class="productCart col-12 col-md-8  d-flex align-items-center">
                       <img src="/img/variant1-4.5af13b48.jpg" 
                             class="col-4"
                             width="150" height="150"/>
@@ -48,7 +49,7 @@
                   <!-- repeat -->
 
                   <!-- repeat -->
-                  <div class="productCart col-8 d-flex align-items-center">
+                  <div class="productCart col-12 col-md-8  d-flex align-items-center">
                       <img src="/img/variant1-4.5af13b48.jpg" 
                             class="col-4"
                             width="150" height="150"/>
@@ -61,8 +62,8 @@
                   </div>
                   <!-- repeat -->
 
-                  <div class="categoryContainer col-4 text-center">
-                        <p class="uppercase">Contentor - A</p>
+                  <div class="categoryContainer col-4 text-center d-none d-md-block">
+                        <p class="uppercase">[[Contentor - A]]</p>
                         <figure class="chart" data-percent="50">
                             <svg width="89.926" height="89.923" viewBox="0 0 89.926 89.923">
                                 <text id="text" transform="translate(47 50.793)" fill="#333" font-size="15" font-family="Oswald-Medium, Oswald" font-weight="500" letter-spacing="0.03em"><tspan x="-11.401" y="0">25</tspan><tspan y="0" font-size="8.75" baseline-shift="4.999500156940817">%</tspan></text>
@@ -78,8 +79,9 @@
 
             <div class="categoryGroup">
                 <div class="row">
-                    <p class="col-8"><span class="uppercase">Blocos</span> - <span>4 produtos</span></p>
-                    <p class="col-4 text-center"><span class="uppercase">Contentores</span> - 2 - 12m<sup>2</sup></p>
+                    <p class="col-12 col-md-8 text-center text-md-left"><span class="uppercase">[[Blocos]]</span> - <span>4 produtos</span></p>
+                    <p class="col-12 col-md-4 text-center"><span class="uppercase">[[Contentores]]</span> - 2 - 12m<sup>2</sup></p>
+                    <p class="col-12 text-center d-md-none">[[Contentor - A 75%]]</p>
                 </div>
 
                 <div class="row categoryRow">
@@ -98,7 +100,7 @@
                   </div>
                   <!-- repeat -->
 
-                  <div class="categoryContainer col-4 text-center">
+                  <div class="categoryContainer col-4 text-center d-none d-md-block">
                         <p class="uppercase">Contentor - A</p>
                         <figure class="chart" data-percent="50">
                             <svg width="89.926" height="89.923" viewBox="0 0 89.926 89.923">
@@ -464,6 +466,14 @@ body{margin: 0}
       .input_group{ margin-top: 30px;}
     }
 }
+
+
+@media (max-width: 768px) {
+    #shoppingCartPage .cartTitle h1:before, #shoppingCartPage .cartTitle2 h1:before {
+        display: none;
+    }
+}
+
 
 
 

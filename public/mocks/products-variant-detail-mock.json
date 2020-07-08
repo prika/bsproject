@@ -2,9 +2,9 @@
     {
         "id ": "Prod1",
         "ref": "BE1-266",
-        "name": "Atlantic White",
-        "firstName": "Atlantic",
-        "secondName": "White",
+        "name": "Black Magic",
+        "firstName": "Black",
+        "secondName": "Magic",
         "size": {
             "width": "295",
             "height": "110",

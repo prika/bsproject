@@ -188,4 +188,11 @@ export default {
         }
     }
 }
+
+@media (max-width: 768px) {
+    .modal-mask .gallerySliderContainer .gallerySlider .galleryImage.selected img {
+        max-width: 190%;
+        margin-left: -45%;
+    }
+}
 </style>

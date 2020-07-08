@@ -33,7 +33,7 @@
       
       <transition tag="div" enter-active-class="animated fade" leave-active-class="animated fade">
           <div class="productVariationList col-12 col-md-10 col-lg-9" key="2" v-if="showDetail">
-                <div class="filters col-6">
+                <div class="filters col-12 col-lg-8 col-xl-6">
                     <div class="order">
 
                         <a @click="customFilter( filter.id, 'asc')"
@@ -52,7 +52,7 @@
         
       <transition tag="div" enter-active-class="animated slideInUp" leave-active-class="animated slideOutDown">
           <div class="productVariationList col-12 col-md-10 col-lg-9" key="3" v-if="showDetail">
-              <div class="col-12 col-sm-10 col-md-8">
+              <div class="col-12 col-lg-10 col-xl-8">
 
                 <div class="tableScroll">
                   <ul class="variantTable">
@@ -63,13 +63,13 @@
                                 <img :src="variant.img" :alt="variant.alt" />
                               </div>
                               <div class="info row">
-                                  <h2 class="col-4">{{variant.ref}}</h2>
+                                  <h2 class="col-12 col-md-4">{{variant.ref}}</h2>
                                   
-                                  <div class="col-4">
+                                  <div class="col-12 col-md-4">
                                     <p><span>{{product.titleSize}}</span><br>{{variant.size.width}}x{{variant.size.height}}x{{variant.size.depth}} {{$t('units_cm')}}</p>
                                   </div>
 
-                                  <div class="col-4">
+                                  <div class="col-12 col-md-4">
                                       <p><span>{{product.titleWeight}}</span><br>{{variant.weight}} {{$t('units_ton_abrev')}}</p>
                                   </div>
                               </div>
@@ -543,5 +543,85 @@ body{margin: 0}
             }
         }
     }
+}
+
+@media (max-width: 768px) {
+
+    #detailPage {
+      
+      .productDetailLeft {
+
+        &.showDetail{ 
+            width: 0; 
+
+            .productName {
+                text-indent: 0;
+                top: 67px;
+                padding: 40px 0 30px;
+                font-size: 38px;
+                line-height: 43px;
+                background-color: #F0F0F0;
+                text-align: center;
+
+                mark{background-color: transparent;}
+                span{ display: none}
+            }
+        }
+
+        .productName{
+          position: fixed;
+          width: 100%;
+          text-align: center;
+          right: 0;
+        }
+
+        .pageTitle{display: none;}
+      }
+
+      .productDetailLinks{
+          padding: 100% 0 0;
+          left: 25%;
+
+           a {
+              padding-left: 130px;
+
+              &:before{
+                width: 100px;
+              }
+           }
+      }
+
+      .productVariationList ul.variantTable li{
+          display: table;
+          height: auto;
+          width: auto;
+          margin: 20px auto;
+          padding: 30px;
+
+          .img{
+            margin: 0 auto;
+            width: auto;
+            height: auto;
+          }
+          .info{
+              height: auto;
+              width: auto;
+
+              h2{ margin: 30px auto; }
+              div { margin: 5px auto; border: 0; }
+          }
+      }
+
+      .productVariationList {
+          top: 170px;
+
+          .filters{display: none;}
+      }
+    }
+   
+}
+
+@media (max-width: 1024px) {
+  .productVariationList .filters{left: 155px;}
 }
 </style>

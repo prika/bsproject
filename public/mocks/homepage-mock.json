@@ -33,31 +33,31 @@
             "src": "news/exemplo_noticia_c.jpg", 
             "alt": "Image Test", 
             "speed": "0",
-            "addclass": "col-5 img-fluid"
+            "addclass": "col-12 col-md-5 img-fluid"
         },
         {
             "src": "news/exemplo_noticia_d.jpg", 
             "alt": "Image Test", 
             "speed": "2",
-            "addclass": "col-4 img-fluid"
+            "addclass": "col-12 col-md-6 img-fluid"
         },
         {
             "src": "news/exemplo_noticia_a.jpg", 
             "alt": "Image Test", 
             "speed": "-1",
-            "addclass": "col-4 img-fluid"
+            "addclass": "col-12 col-md-4 img-fluid"
         },
         {
             "src": "news/exemplo_noticia_b.jpg", 
             "alt": "Image Test", 
             "speed": "-2",
-            "addclass": "col-4 img-fluid"
+            "addclass": "col-12 col-md-4 img-fluid"
         },
         {
             "src": "news/exemplo_noticia_a.jpg", 
             "alt": "Image Test", 
             "speed": "4",
-            "addclass": "col-4 img-fluid"
+            "addclass": "col-12 col-md-7 img-fluid"
         }
     ],
     "featured_text1": "productos em",

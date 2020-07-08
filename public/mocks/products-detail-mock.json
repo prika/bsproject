@@ -1,7 +1,7 @@
 { "product" :
     {
         "id": "Prod1",
-        "name": "Atlantic White",
+        "name": "Black Magic",
         "category": 2,
         "categoryName": "Chapas",
         "categoryNameSplit1": "Cha",

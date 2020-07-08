@@ -6,7 +6,7 @@
 
             <slot></slot>
 
-            <div class="col-xs-12 col-md-6 parallaxGroup1 order-md-1">
+            <div class="col-12 col-md-6 parallaxGroup1 order-md-1">
                 <img    v-for="(image, index) in imageGroup1"
                         :key="index"
                         :src="image.src" 
@@ -38,18 +38,25 @@ export default {
             imageGroup2:[]
         }
     },
-    created() {
+    beforeCreate() {
         let rellaxjs = document.createElement("script")
         rellaxjs.setAttribute("src", "https://cdnjs.cloudflare.com/ajax/libs/rellax/1.0.0/rellax.min.js")
         document.head.appendChild(rellaxjs)
-
+        console.log('Before Create - rellaxjs');
+    },
+    created() {
+        console.log('Created');
         this.imageGroup1 = this.$parent.gallery1
         this.imageGroup2 = this.$parent.gallery2
 
         let rellax = new Rellax('.rellax');
     },
-    mounted() {
+    beforeMount() {
+        console.log('Before Mount');
         this.rellax.refresh();
+    },
+    mounted(){
+        console.log('Mounted');
     },
     watch: {
         $route(to , from){
@@ -158,6 +165,13 @@ export default {
 
     p{padding-top: 30px;}
     .quote {padding-left: 5%; font-style: italic;}
+}
+
+@media (max-width: 768px) {
+    .parallaxGroup1 img,
+    .parallaxGroup2 img {
+        position: initial;
+    }
 }
 
 </style>
