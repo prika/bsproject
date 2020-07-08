@@ -14,8 +14,8 @@
           <transition appear enter-active-class="animated slideInRight" leave-active-class="animated slideInRight ">
             <div class="moreinfo row">
                   <h2 class="col-12">{{variant.ref}}</h2>
-                  <p class="col-12 col-lg-6"><span class="title">medidas</span><br>{{variant.size.width}}x{{variant.size.height}}x{{variant.size.depth}}cm - <span class="color">{{variant.size.total}}</span> Total de m<sup>3</sup></p>
-                  <p class="col-12 col-lg-6"><span class="title">peso</span><br><span class="color">{{variant.weight}}</span> toneladas</p>
+                  <p class="col-12 col-lg-6"><span class="title">{{$t('units_measures')}}</span><br>{{variant.size.width}}x{{variant.size.height}}x{{variant.size.depth}} {{$t('units_cm')}} - <span class="color">{{variant.size.total}}</span> {{$t('units_total_m3')}} m<sup>3</sup></p>
+                  <p class="col-12 col-lg-6"><span class="title">{{$t('units_weight')}}</span><br><span class="color">{{variant.weight}}</span> {{$t('units_ton')}}</p>
             </div>
           </transition>
       </div>
@@ -33,11 +33,11 @@
 
       <transition appear enter-active-class="animated slideInUp" leave-active-class="animated slideOutUp">
          <div class="row pagecontrols">
-              <a @click="$router.go(-1)" href="javascript:void(0)" class="backlink col-3"><arrowRightIcon />voltar</a>
-              <a @click="showShareModal = true" class="shareLink col-3" href="javascript:void(0)"><arrowRightIcon />partilhar<shareIcon/></a>
+              <a @click="$router.go(-1)" href="javascript:void(0)" class="backlink col-3"><arrowRightIcon />{{$t('actions_back')}}</a>
+              <a @click="showShareModal = true" class="shareLink col-3" href="javascript:void(0)"><arrowRightIcon />{{$t('actions_share')}}<shareIcon/></a>
 
-              <a @click="addToCart" v-if="!productAdded" href="javascript:void(0)" class="cartLink col-6"><arrowRightIcon />encomendar <cartIcon/></a>
-              <a @click="goToCart" v-else href="javascript:void(0)" class="cartLink removeProduct col-6"><arrowRightIcon />remover produto <cartIcon/></a>
+              <a @click="addToCart" v-if="!productAdded" href="javascript:void(0)" class="cartLink col-6"><arrowRightIcon />{{$t('actions_addtocart')}} <cartIcon/></a>
+              <a @click="goToCart" v-else href="javascript:void(0)" class="cartLink removeProduct col-6"><arrowRightIcon />{{$t('actions_removefromcart')}} <cartIcon/></a>
          </div>
       </transition>
 
@@ -236,18 +236,26 @@ body{margin: 0}
             display: inline-block;
 
             img {
-              filter:brightness(70%);
+              filter: brightness(70%);
+              -webkit-filter: brightness(70%);
+              -moz-filter: brightness(70%);
               width: 100%;
               height: 100%;
-              -webkit-transition: all 0.2s ease;
-              -moz-transition: all 0.2s ease;
-              -o-transition: all 0.2s ease;
-              transition: all 0.2s ease;
+              -webkit-transition:   filter 0.2s ease, transform 0.2s ease;
+              -moz-transition:      filter 0.2s ease, transform 0.2s ease;
+              -o-transition:        filter 0.2s ease, transform 0.2s ease;
+              transition:           filter 0.2s ease, transform 0.2s ease;
             }
 
             &:hover img {
-              filter:brightness(100%);
-              transform: scale(1.1);
+              filter: brightness(100%);
+              -webkit-filter: brightness(100%);
+              -moz-filter: brightness(100%);
+
+              -webkit-transform:     scale(1.1);
+              -moz-transform:        scale(1.1);
+              -o-transform:          scale(1.1);
+              transform:             scale(1.1);
             }
         }
     }
@@ -289,10 +297,10 @@ body{margin: 0}
                 width: 50px;
                 height: 1px;
                 background: #333;
-                -webkit-transition:     all 0.2s ease;
-                -moz-transition:        all 0.2s ease;
-                -o-transition:          all 0.2s ease;
-                transition:             all 0.2s ease;
+                -webkit-transition:     width 0.2s ease;
+                -moz-transition:        width 0.2s ease;
+                -o-transition:          width 0.2s ease;
+                transition:             width 0.2s ease;
             }
 
             .arrowSlimIcon{
@@ -300,10 +308,10 @@ body{margin: 0}
                 position: absolute;
                 top: 40%;
                 right: 162px;
-                -webkit-transition:     all 0.2s ease;
-                -moz-transition:        all 0.2s ease;
-                -o-transition:          all 0.2s ease;
-                transition:             all 0.2s ease;
+                -webkit-transition:     right 0.2s ease;
+                -moz-transition:        right 0.2s ease;
+                -o-transition:          right 0.2s ease;
+                transition:             right 0.2s ease;
             }
 
             &:hover{
@@ -327,10 +335,10 @@ body{margin: 0}
                 width: 70px;
                 height: 1px;
                 background: #FFF;
-                -webkit-transition:     all 0.2s ease;
-                -moz-transition:        all 0.2s ease;
-                -o-transition:          all 0.2s ease;
-                transition:             all 0.2s ease;
+                -webkit-transition:     opacity 0.2s ease, left 0.2s ease;
+                -moz-transition:        opacity 0.2s ease, left 0.2s ease;
+                -o-transition:          opacity 0.2s ease, left 0.2s ease;
+                transition:             opacity 0.2s ease, left 0.2s ease;
                 opacity:0;
             }
 
@@ -338,10 +346,10 @@ body{margin: 0}
                 position: absolute;
                 top: 36%;
                 left: 162px;
-                -webkit-transition:     all 0.2s ease;
-                -moz-transition:        all 0.2s ease;
-                -o-transition:          all 0.2s ease;
-                transition:             all 0.2s ease;
+                -webkit-transition:     opacity 0.2s ease, left 0.2s ease;
+                -moz-transition:        opacity 0.2s ease, left 0.2s ease;
+                -o-transition:          opacity 0.2s ease, left 0.2s ease;
+                transition:             opacity 0.2s ease, left 0.2s ease;
                 opacity:0;
 
                 svg *{ stroke: #FFF; }
@@ -377,10 +385,10 @@ body{margin: 0}
                 width: 70px;
                 height: 1px;
                 background: #FFF;
-                -webkit-transition:     all 0.2s ease;
-                -moz-transition:        all 0.2s ease;
-                -o-transition:          all 0.2s ease;
-                transition:             all 0.2s ease;
+                -webkit-transition:     opacity 0.2s ease, left 0.2s ease;
+                -moz-transition:        opacity 0.2s ease, left 0.2s ease;
+                -o-transition:          opacity 0.2s ease, left 0.2s ease;
+                transition:             opacity 0.2s ease, left 0.2s ease;
                 opacity:0;
             }
 
@@ -388,10 +396,10 @@ body{margin: 0}
                 position: absolute;
                 top: 36%;
                 left: 232px;
-                -webkit-transition:     all 0.2s ease;
-                -moz-transition:        all 0.2s ease;
-                -o-transition:          all 0.2s ease;
-                transition:             all 0.2s ease;
+                -webkit-transition:     opacity 0.2s ease, left 0.2s ease;
+                -moz-transition:        opacity 0.2s ease, left 0.2s ease;
+                -o-transition:          opacity 0.2s ease, left 0.2s ease;
+                transition:             opacity 0.2s ease, left 0.2s ease;
                 opacity:0;
 
                 svg *{ stroke: #FFF; }

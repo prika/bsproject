@@ -26,12 +26,12 @@
                 </transition>
 
                 <transition appear enter-active-class="animated slideInLeft faster" leave-active-class="animated slideOutLeft faster">
-                    <a class="buttonPrev"  v-on:click="prevSlide" alt="Previous Slide" v-if="selectedIndex>0">
+                    <a class="buttonPrev" v-on:click="prevSlide" :alt="$t('popup-gallery-prev-slide')" v-if="selectedIndex>0">
                         <prevIcon />
                     </a>
                 </transition>
                 <transition appear enter-active-class="animated slideInRight faster" leave-active-class="animated slideOutRight faster">
-                    <a class="buttonNext" v-on:click="nextSlide" alt="Next Slide" v-if="largeImages.length > selectedIndex+1">
+                    <a class="buttonNext" v-on:click="nextSlide" :alt="$t('popup-gallery-next-slide')" v-if="largeImages.length > selectedIndex+1">
                         <prevIcon />
                     </a>
                  </transition>
@@ -98,10 +98,10 @@ export default {
             justify-content: center;
             align-items: center;
             align-content: center;
-            -webkit-transition: all 0.2s ease;
-            -moz-transition: all 0.2s ease;
-            -o-transition: all 0.2s ease;
-            transition: all 0.2s ease;
+            -webkit-transition:     all 0.2s ease;
+            -moz-transition:        all 0.2s ease;
+            -o-transition:          all 0.2s ease;
+            transition:             all 0.2s ease;
             
 
             .galleryImage{
@@ -112,16 +112,21 @@ export default {
                 img { 
                     max-width: 40%;
                     height: 100%;
-                    filter:brightness(30%);
-                    -webkit-transition: all 0.2s ease;
-                    -moz-transition: all 0.2s ease;
-                    -o-transition: all 0.2s ease;
-                    transition: all 0.2s ease;
+                    filter:         brightness(30%);
+                    -webkit-filter: brightness(30%);
+                    -moz-filter:    brightness(30%);
+
+                    -webkit-transition:     all 0.2s ease;
+                    -moz-transition:        all 0.2s ease;
+                    -o-transition:          all 0.2s ease;
+                    transition:             all 0.2s ease;
                 }
 
                 &.selected img{ 
                     max-width: 65%;
-                    filter:brightness(100%);
+                    filter:         brightness(100%);
+                    -webkit-filter: brightness(100%);
+                    -moz-filter:    brightness(100%);
                 }
             }
         }
@@ -143,10 +148,10 @@ export default {
                 width: 53px;
                 margin-top: -27px;
                 margin-left: -27px;
-                -webkit-transition: all 0.2s ease;
-                -moz-transition: all 0.2s ease;
-                -o-transition: all 0.2s ease;
-                transition: all 0.2s ease;
+                -webkit-transition:     left 0.2s ease, opacity 0.2s ease;
+                -moz-transition:        left 0.2s ease, opacity 0.2s ease;
+                -o-transition:          left 0.2s ease, opacity 0.2s ease;
+                transition:             left 0.2s ease, opacity 0.2s ease;
             }
         }
 
@@ -167,7 +172,10 @@ export default {
             right: 0;
 
             .prevIcon{
-                transform: rotate(180deg);
+                -webkit-transform:     rotate(180deg);
+                -moz-transform:        rotate(180deg);
+                -o-transform:          rotate(180deg);
+                transform:             rotate(180deg);
             }
 
             &:hover .prevIcon{

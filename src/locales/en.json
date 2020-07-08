@@ -46,7 +46,21 @@
 
   "backlink": "back",
 
+  "units_measures": "measures",
+  "units_weight": "weight",
   "units_cm": "cm",
-  "units_ton": "toneladas"
+  "units_ton": "toneladas",
+  "units_ton_abrev": "ton",
+  "units_total_m3": "Total of",
+
+  "actions_back": "back",
+  "actions_share": "share",
+  "actions_addtocart": "add to cart",
+  "actions_removefromcart": "remove from cart",
+
+  "popup-close-here": "Close here",
+  "popup-gallery-prev-slide": "Go to previous slide",
+  "popup-gallery-next-slide": "Go to next slide"
+
 }
 

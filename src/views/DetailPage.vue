@@ -41,10 +41,9 @@
                            v-for="filter in product.filters" 
                            :key="filter.id">
                            {{filter.name}}</a>
-
                     </div>
                     <div class="pagination">
-                        <p><span class="active">01</span>/02</p>
+                        <p><span class="active">[[01]]</span>/[[02]]</p>
                         <a href="/" class="arrowRight"> <arrowRightIcon /></a>
                     </div>
                 </div>
@@ -67,11 +66,11 @@
                                   <h2 class="col-4">{{variant.ref}}</h2>
                                   
                                   <div class="col-4">
-                                    <p><span>{{product.titleSize}}</span><br>{{variant.size.width}}x{{variant.size.height}}x{{variant.size.depth}}cm</p>
+                                    <p><span>{{product.titleSize}}</span><br>{{variant.size.width}}x{{variant.size.height}}x{{variant.size.depth}} {{$t('units_cm')}}</p>
                                   </div>
 
                                   <div class="col-4">
-                                      <p><span>{{product.titleWeight}}</span><br>{{variant.weight}} t.</p>
+                                      <p><span>{{product.titleWeight}}</span><br>{{variant.weight}} {{$t('units_ton_abrev')}}</p>
                                   </div>
                               </div>
                       
@@ -107,7 +106,7 @@ export default {
   },
   computed: {
     orderedVariants: function () {
-      //return _.orderBy( this.product.variants, 'ref', this.sortDirection)
+      return _.orderBy( this.product.variants, 'ref', this.sortDirection)
     }
   },
   methods:{
@@ -231,7 +230,11 @@ body{margin: 0}
         & .productName:hover > .containerImage img,
         & .pageTitle:hover > .containerImage img{ 
           cursor: pointer;
-          transform: scale(1.2);
+          
+          -webkit-transform:     scale(1.2);
+          -moz-transform:        scale(1.2);
+          -o-transform:          scale(1.2);
+          transform:             scale(1.2);
         }
 
         .pageTitle{ 
@@ -495,7 +498,10 @@ body{margin: 0}
                     h2{ color: #C47C5A}
 
                     img{
-                        transform: scale(1.1);
+                        -webkit-transform:     scale(1.1);
+                        -moz-transform:        scale(1.1);
+                        -o-transform:          scale(1.1);
+                        transform:             scale(1.1);
                     }
                 }
 
