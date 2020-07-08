@@ -4,14 +4,17 @@
         <slot></slot>
 
         <div class="row">        
-            <router-link :to="'/news/:'+singleNews.id" class="col-4 newsBlock animated zoomIn" v-for="singleNews in news" :key="singleNews.id">
+            <router-link    :to="'/news/'+singleNews.id" 
+                            v-for="singleNews in news" :key="singleNews.id"
+                            class="col-12 col-md-6 col-lg-4 newsBlock animated zoomIn">
+
                  <div class="newsContentIimage">
                     <img :src="getImgUrl(singleNews.gallery[0].src)" class="img-fluid" :alt="singleNews.gallery[0].alt">
                 </div>
                  
-                 <div class="newsContentText col-7" >
+                 <div class="newsContentText col-12">
                     <div class="text">
-                        <p>{{singleNews.title}}</p>
+                        <p v-html="singleNews.title">{{singleNews.title}}</p>
                         <p class="newsDate">{{singleNews.pubdata}}</p>
                     </div>
                  </div>
@@ -20,12 +23,12 @@
         
         <a @click="loadMoreClick" v-if="hasPaging && hasLink"
             style="display: block; text-align: center; margin: 100px 0;">
-            <seeMoreButton>Ver mais</seeMoreButton>
+            <seeMoreButton>{{ $t('actions_seemore') }}</seeMoreButton>
         </a>
 
         <router-link to="/news" v-if="( !hasPaging ) && hasLink"
             style="display: block; text-align: center; margin: 100px 0;">
-            <seeMoreButton>Carregar mais</seeMoreButton>
+            <seeMoreButton>{{ $t('actions_loadmore') }}</seeMoreButton>
         </router-link>
     </section>
 </template>
@@ -104,10 +107,10 @@ export default {
             overflow: hidden;
 
             img{
-                -webkit-transition: all 0.4s cubic-bezier(0, .5, 0, 1);
-                -moz-transition: all 0.4s cubic-bezier(0, .5, 0, 1);
-                -o-transition: all 0.4s cubic-bezier(0, .5, 0, 1);
-                transition: all 0.4s cubic-bezier(0, .5, 0, 1);
+                -webkit-transition:     transform 0.4s cubic-bezier(0, .5, 0, 1);
+                -moz-transition:        transform 0.4s cubic-bezier(0, .5, 0, 1);
+                -o-transition:          transform 0.4s cubic-bezier(0, .5, 0, 1);
+                transition:             transform 0.4s cubic-bezier(0, .5, 0, 1);
             }
         }
 
@@ -149,10 +152,10 @@ export default {
                 height: 460px;
 
                 background: #FFF;
-                -webkit-transition: all 0.4s cubic-bezier(0, .5, 0, 1);
-                -moz-transition: all 0.4s cubic-bezier(0, .5, 0, 1);
-                -o-transition: all 0.4s cubic-bezier(0, .5, 0, 1);
-                transition: all 0.4s cubic-bezier(0, .5, 0, 1);
+                -webkit-transition:     all 0.4s cubic-bezier(0, .5, 0, 1);
+                -moz-transition:        all 0.4s cubic-bezier(0, .5, 0, 1);
+                -o-transition:          all 0.4s cubic-bezier(0, .5, 0, 1);
+                transition:             all 0.4s cubic-bezier(0, .5, 0, 1);
 
                 -webkit-clip-path:  polygon( 100px 2px,  0px 2px,  100px 63px ); 
                 -o-clip-path:       polygon( 100px 2px,  0px 2px,  100px 63px ); 
@@ -165,7 +168,11 @@ export default {
             cursor: pointer;
 
             .newsContentIimage img{
-                transform: scale(1.1);
+
+                -webkit-transform:     scale(1.1);
+                -moz-transform:        scale(1.1);
+                -o-transform:          scale(1.1);
+                transform:             scale(1.1);
             }
 
             .newsContentText::after {
@@ -202,5 +209,11 @@ export default {
     font-weight: 400;
     font-style: normal;
     color: #575757;
+}
+
+@media (max-width: 768px) {
+    .newsContainer{
+        padding: 0 20px 0 45px;
+    }
 }
 </style>

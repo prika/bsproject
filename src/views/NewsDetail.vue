@@ -7,8 +7,8 @@
      
       <ArticleParallaxSmall>
           <div class="pageContentText col-5 order-md-2">
-              <h1>{{news.title}}</h1>
-              <p>{{news.content}}</p>
+              <h1 v-html="news.title">{{news.title}}</h1>
+              <p v-html="news.content">{{news.content}}</p>
               <p class="newsDate">{{news.pubdata}}</p>
           </div>
       </ArticleParallaxSmall>

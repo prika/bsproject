@@ -58,6 +58,9 @@
   "actions_addtocart": "add to cart",
   "actions_removefromcart": "remove from cart",
 
+  "actions_seemore": "See More",
+  "actions_loadmore": "Load More",
+
   "popup-close-here": "Close here",
   "popup-gallery-prev-slide": "Go to previous slide",
   "popup-gallery-next-slide": "Go to next slide"
