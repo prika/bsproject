@@ -63,14 +63,8 @@
                         </div>
 
                          <div class="col-xs-12 col-sm-6">
-                            <button class="button submitForm" :aria-label="formContact.submit">
-                                <span class="text">{{formContact.submit}}</span>
-                                <span class="arrow"></span>
-                                <span class="icon">
-                                    <svg class="svgpath" :alt="formContact.inputfile" xmlns="http://www.w3.org/2000/svg" width="8.821" height="14.813" viewBox="0 0 8.821 14.813">
-                                        <path d="M230.221,220.144l-6.7-6.7,6.7-6.7" transform="translate(230.928 220.851) rotate(180)" fill="none" stroke="#c47c5a" stroke-miterlimit="10" stroke-width="2"/>
-                                    </svg>
-                                </span>
+                            <button class="button submitButton" :aria-label="formContact.submit">
+                                <submitIcon>{{formContact.submit}}</submitIcon>
                             </button>
                         </div>
                     </div>
@@ -89,7 +83,12 @@
 </template>
 
 <script>
+import submitIcon from '@/components/ui/submitIcon.vue'
+
 export default {
+    components:{
+        submitIcon
+    },
     data() {
         return {
             formContact: '',

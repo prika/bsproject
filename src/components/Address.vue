@@ -13,14 +13,8 @@
                 </div>
 
                 <div class="col-md-7 col-md-pull-5 order-md-1 col-xs-12">
-                    <a class="seeOnMap" :href="address.map" target="_blank" rel="noopener noreferrer nofollow">
-                        <span class="text">Veja no mapa</span>
-                        <span class="arrow"></span>
-                        <span class="icon">
-                            <svg class="svgpath" xmlns="http://www.w3.org/2000/svg" width="8.821" height="14.813" viewBox="0 0 8.821 14.813">
-                                <path d="M230.221,220.144l-6.7-6.7,6.7-6.7" transform="translate(230.928 220.851) rotate(180)" fill="none" stroke="#c47c5a" stroke-miterlimit="10" stroke-width="2"/>
-                            </svg>
-                        </span>
+                    <a class="extendedButton submitButton" :href="address.map" target="_blank" rel="noopener noreferrer nofollow">
+                        <submitIcon>{{address.button}}</submitIcon>
                     </a>
                 </div>
                
@@ -46,7 +40,12 @@
 </template>
 
 <script>
+import submitIcon from '@/components/ui/submitIcon.vue'
+
 export default {
+    components:{
+        submitIcon
+    },
     data() {
         return {
             address: "",
@@ -96,110 +95,6 @@ export default {
       font-size:    2.4rem; //38px
     }
 
-  
-    & .seeOnMap{
-        margin-top:   70px;
-        width:        380px;
-        margin-right:     20px;
-
-
-        & .arrow{
-          float:left;
-          width: 230px;
-
-          &::before {
-            margin: 4px auto;
-            width: 170px;
-          }
-        }
-
-        & .icon{
-          right: 45px;
-        }
-
-        &:hover .arrow::before{
-          width: 210px;
-        }
-    }
-
-    & .submitForm{
-        background: none;
-        border: none;
-        outline: none;
-
-        & .arrow{
-          float:left;
-          
-          &::before {
-            width: 0;
-            margin-top: 6px;
-          }
-        }
-
-        & .icon{
-          right: 3px;
-        }
-
-        &:hover .arrow::before{
-          width: 30px;
-        }
-    }
-
-    & .seeOnMap,
-    & .submitForm{
-      display:      block;
-      float:        right;
-      position:     relative;
-      
-      & .text{
-        float: left;
-        text-transform:   uppercase;
-        text-decoration:  none;
-        font-family:      'Oswald', sans-serif;
-        font-size:        22px;
-        font-weight:      300;
-        color:            #313131;
-        line-height:      15px;
-        -webkit-transition:   color 0.2s cubic-bezier(0, .5, 0, 1);
-        -moz-transition:      color 0.2s cubic-bezier(0, .5, 0, 1);
-        -o-transition:        color 0.2s cubic-bezier(0, .5, 0, 1);
-        transition:           color 0.2s cubic-bezier(0, .5, 0, 1);
-      }
-      
-      & .arrow{
-        float:left;
-
-        &::before {
-          content: '';
-          display:block;
-          background-color: #313131;
-          height: 2px;
-          -webkit-transition:   background-color 0.2s cubic-bezier(0, .5, 0, 1);
-          -moz-transition:      background-color 0.2s cubic-bezier(0, .5, 0, 1);
-          -o-transition:        background-color 0.2s cubic-bezier(0, .5, 0, 1);
-          transition:           background-color 0.2s cubic-bezier(0, .5, 0, 1);
-        }
-      }
-
-      & .icon{
-        position: absolute;
-        top: -8px;
-
-        & .svgpath{
-          -webkit-transition:   .1s opacity 0.1s cubic-bezier(0, .5, 0, 1);
-          -moz-transition:      .1s opacity 0.1s cubic-bezier(0, .5, 0, 1);
-          -o-transition:        .1s opacity 0.1s cubic-bezier(0, .5, 0, 1);
-          transition:           .1s opacity 0.1s cubic-bezier(0, .5, 0, 1);
-          opacity: 0;
-        }
-      } 
-      
-      &:hover {
-        .text{ color: #c47c5a; }
-        .arrow::before{ background-color: #c47c5a; }
-        .svgpath{ opacity: 1; }
-      }
-    }
 
   //  Vertical Line 
 	&::before,
