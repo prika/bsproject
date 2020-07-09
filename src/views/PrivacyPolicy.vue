@@ -1,9 +1,12 @@
 <template>
     <div class="pageReduced">
         <div class="containerReduced">
-            <button class="closeMenuButton" 
-                    v-bind:aria-label="$t('button-arialabel-close-menu')"
-                    @click="$router.go(-1)"><closeIcon></closeIcon></button>
+
+            <transition appear enter-active-class="animated slideInDown faster" leave-active-class="animated slideOutUp faster">
+                <button class="closebutton" @click="$router.go(-1)"> 
+                    <closeIcon />
+                </button>
+            </transition>
 
             <h1>{{privacypolicy.title}}</h1>
 
@@ -61,12 +64,12 @@ export default {
         padding: 0 25px;
     }
 
-    .closeMenuButton{
-        position: fixed;
-        top: 50px;
-        left: calc( 50% - 20px );
-        display: block;
-    }
+    // .closeMenuButton{
+    //     position: fixed;
+    //     top: 50px;
+    //     left: calc( 50% - 20px );
+    //     display: block;
+    // }
 
     h1{  position: fixed;
         top: 150px; }

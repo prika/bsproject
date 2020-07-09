@@ -1,10 +1,11 @@
 <template>
     <transition appear enter-active-class="animated fadeIn faster" leave-active-class="animated fadeOut faster">
         <div class="modal-mask-share">
+
             <transition appear enter-active-class="animated slideInDown faster" leave-active-class="animated slideOutUp faster">
-                <slot>
-                    <button class="closebutton" @click="$emit('close')"> <closeIcon/> </button>
-                </slot>
+                <button class="closebutton" @click="$emit('close')"> 
+                    <closeIcon />
+                </button>
             </transition>
 
             <div class="modal-container">

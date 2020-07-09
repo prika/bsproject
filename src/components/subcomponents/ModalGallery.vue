@@ -3,9 +3,9 @@
         <div class="modal-mask">
 
             <transition appear enter-active-class="animated slideInDown faster" leave-active-class="animated slideOutUp faster">
-                <slot>
-                    <button class="closebutton" @click="$emit('close')"> <closeIcon/> </button>
-                </slot>
+                <button class="closebutton" @click="$emit('close')"> 
+                    <closeIcon rectBackgroundColor="#FFFFFF" strokeColor="#000000"></closeIcon>
+                </button>
             </transition>
 
             <div class="gallerySliderContainer">

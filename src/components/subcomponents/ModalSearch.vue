@@ -1,9 +1,13 @@
 <template>
     <div class="modalSearch">  <!-- <PORTAL to="search" -->
-        <button class="closeMenuButton" 
-              v-bind:aria-label="$t('button-arialabel-close-menu')"
-              @click="$emit('close')"></button>
-             <!-- @click="$router.go(-1)"" -->
+
+        <transition appear enter-active-class="animated slideInDown faster" leave-active-class="animated slideOutUp faster">
+            <button class="closebutton" @click="$emit('close')"> 
+                <closeIcon />
+            </button>
+        </transition>
+
+       
 
         <div class="row" v-bind:class="{hasSearchText}">
           <div class="col-6 clearfix">  
@@ -71,7 +75,13 @@
 </template>
 
 <script>
+
+import closeIcon from '@/components/ui/closeIcon.vue'
+
     export default {
+      components: {
+          closeIcon
+      },
       data(){
         return {
           searchText: "",
@@ -125,13 +135,9 @@
     bottom: 0;
     left: 0;
     right: 0;
+    z-index: 3;
     overflow: hidden;
     background: #f0f0f0;
-    
-
-    .closeMenuButton{
-      display: block;
-    }
 
     .row{
       display: flex;

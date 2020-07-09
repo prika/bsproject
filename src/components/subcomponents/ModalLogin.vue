@@ -1,8 +1,10 @@
 <template>
     <div class="modalLogin">
+
         <transition mode="out-in" appear enter-active-class="animated slideInRight" leave-active-class="animated slideOutRight">
             <button class="closeLoginButton" v-bind:aria-label="$t('button-arialabel-close-menu')" @click="$emit('close')"><closeIcon></closeIcon></button>
         </transition>
+
         <div class="formLogin revertColor">
             <p class="h1 col-12">[[Entrar <br>na minha <br>conta]]</p>
 

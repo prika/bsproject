@@ -1,9 +1,12 @@
 <template>
     <div class="pageReduced">
         <div class="containerReduced">
-            <button class="closeMenuButton" 
-                    v-bind:aria-label="$t('button-arialabel-close-menu')"
-                    @click="$router.go(-1)"><closeIcon></closeIcon></button>
+
+            <transition appear enter-active-class="animated slideInDown faster" leave-active-class="animated slideOutUp faster">
+                <button class="closebutton" @click="$router.go(-1)"> 
+                    <closeIcon />
+                </button>
+            </transition>
 
             <h1>{{faqs.title}}</h1>
 
