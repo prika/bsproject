@@ -1,16 +1,37 @@
 { 
     "id": "homepage",
     "slidergallery": [
-        {"type": "img", "src": "banners/BlocoB-7234_Banner.jpg", "alt": "Image Test"},
-        {"type": "img", "src": "banners/banner_stone_foto_1.jpg", "alt": "Image Test"},
-        {"type": "img", "src": "banners/banner_stone_foto_2.jpg", "alt": "Image Test"},
-        {"type": "video", "src": "banners/banner_stone_foto_2.jpg", "srcvideo": "media/video_exemplo.mp4", "alt": "Image Test"},
-        {"type": "img", "src": "banners/BlocoB-7234_Banner.jpg", "alt": "Image Test"},
-        {"type": "img", "src": "banners/banner_stone_foto_1.jpg", "alt": "Image Test"},
-        {"type": "img", "src": "banners/banner_stone_foto_2.jpg", "alt": "Image Test"},
-        {"type": "video", "src": "banners/banner_stone_foto_2.jpg", "srcvideo": "media/video_exemplo.mp4", "alt": "Image Test"},
-        {"type": "img", "src": "banners/BlocoB-7234_Banner.jpg", "alt": "Image Test"},
-        {"type": "img", "src": "banners/banner_stone_foto_1.jpg", "alt": "Image Test"}
+        {
+            "type": "img", 
+            "src": "banners/BlocoB-7234_Banner.jpg", 
+            "alt": "Image Test"},
+        {
+            "type": "img", 
+            "src": "banners/banner_stone_foto_1.jpg", 
+            "alt": "Image Test"},
+        {
+            "type": "img", 
+            "src": "banners/banner_stone_foto_2.jpg", 
+            "alt": "Image Test"},
+        {
+            "type": "video-uploaded",
+            "src": "banners/banner_stone_foto_2.jpg", 
+            "srcvideo": "media/video_exemplo.mp4",
+            "srcvideo1080": "media/video_exemplo.mp4",
+            "autoplay": "autoplay",
+            "alt": "Image Test"},
+        {
+            "type": "video-youtube", 
+            "src": "banners/BlocoB-7234_Banner.jpg", 
+            "srcvideo": "https://www.youtube.com/embed/bTqVqk7FSmY?iv_load_policy=3&modestbranding=1&playsinline=1&showinfo=0&rel=0&enablejsapi=1&origin=http://localhost:8080", 
+            "autoplay": "autoplay",
+            "alt": "Image Test"},
+        {
+            "type": "video-vimeo", 
+            "src": "banners/banner_stone_foto_1.jpg", 
+            "srcvideo": "https://player.vimeo.com/video/76979871?loop=false&byline=false&portrait=false&title=false&speed=true&transparent=0&gesture=media", 
+            "autoplay": "autoplay",
+            "alt": "Image Test"}
     ],
     "title": "Home",
     "content": "A versatilidade, robustez e magnificência fazem do mármore o material mais desejado para vários ambientes, do mais clássico ao vanguardista. B innovation promete criar a solução ideal para si, à sua medida.",

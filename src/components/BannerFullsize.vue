@@ -12,25 +12,54 @@
                         :class="(index === 0 ? 'active': '')" 
                         data-target="#carouselExampleFade" 
                         data-slide-to="0">
+                        
                         <span v-if="index < 9">0</span>{{index+1}}
                 </li>
             </ol>
 
             <div class="carousel-inner">
 
-                <div v-for="(image, index) in imageGroupSliderGallery"  :class="['carousel-item', (index === 0 ? 'active': '')]">
-                     <img :src="image.src" 
-                        :alt="image.alt" class="d-block w-100">
-                </div>
+                <template v-for="(image, index) in imageGroupSliderGallery">
+                    <!-- Image -->
+                    <div v-if="image.type == 'img'" :class="['carousel-item', (index === 0 ? 'active': '')]">
+                        <img :src="image.src" 
+                            :alt="image.alt" class="d-block w-100">
+                    </div>
 
-                <div class="carousel-item">
-                     <vue-plyr ref="player1">
-                        <video poster="../assets/images/explore/explore_5.jpg" src="../assets/media/video_exemplo.mp4" aria-label="Video ....">
-                            <source src="../assets/media/video_exemplo.mp4" type="video/mp4" size="720">
-                            <source src="../assets/media/video_exemplo.mp4" type="video/mp4" size="1080">
+                    <!-- Video Mp4 -->
+                    <vue-plyr v-if="image.type == 'video-uploaded'" :class="['carousel-item', (index === 0 ? 'active': '')]" ref="player1">
+                        <video :poster="image.src" :src="image.srcvideo" :aria-label="image.alt">
+                            <source :src="image.srcvideo" type="video/mp4" size="720">
+                            <source :src="image.srcvideo1080" type="video/mp4" size="1080">
                         </video>
                     </vue-plyr>
-                </div>
+
+                    <!-- Video Youtube -->
+                    <vue-plyr v-if="image.type == 'video-youtube'" :class="['carousel-item', (index === 0 ? 'active': '')]" ref="player1">
+                        <div class="plyr__video-embed">
+                            <iframe     :alt="image.alt"
+                                        :poster="image.src"
+                                        :src="image.srcvideo"
+                                        allow="autoplay"
+                                        allowfullscreen allowtransparency  controls="false">
+                            </iframe>
+                        </div>
+                    </vue-plyr>
+                 
+                    <!-- Video Vimeo -->
+                    <vue-plyr v-if="image.type == 'video-vimeo'" :class="['carousel-item', (index === 0 ? 'active': '')]" ref="player1">
+                        <div class="plyr__video-embed">
+                            <iframe :alt="image.alt"
+                                    :poster="image.src"
+                                    :src="image.srcvideo"
+                                    allow="autoplay"
+                                    allowfullscreen allowtransparency>
+                            </iframe>
+                        </div>
+                    </vue-plyr>
+
+                </template>
+
             </div>
         </div>
 
@@ -44,11 +73,8 @@ export default {
             imageGroupSliderGallery:[]
         }
     },
-    beforeMount() {
+    created() {
         this.imageGroupSliderGallery = this.$parent.slidergallery
-    },
-    mounted() {
-        //jQuery('carousel').carousel()
     }
 }
 </script>
@@ -111,8 +137,6 @@ export default {
 
 
 
-
-
 #bannerFullsize{
 	margin: 0; padding: 0;
 	position: relative;
@@ -125,7 +149,7 @@ export default {
         max-height: calc( var(--vh, 1vh) * 100 - 124px );
     }
    
-    &::after{
+    &::before{
                     
         content: '';
         position: absolute;
