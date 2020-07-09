@@ -95,3 +95,72 @@ export default {
     }
 }
 </script>
+
+<style lang="scss">
+header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 4;
+  width: 100%;
+  background: #FFF;
+  white-space: nowrap;
+
+  .containerHeader {
+    height: 68px;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .logo{
+    align-items: center;
+    justify-content: center;
+  }
+
+   nav.menu {
+      display: none;
+      //bottom: 0;
+      //align-items: center;
+      justify-content: center;
+      padding: 200px 0;
+      //height:0;
+      overflow:hidden;
+      
+      &.active{display:block;}
+
+        & ul {
+            display: flex;
+            flex-direction: column;
+            
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            padding-left: 0;
+            list-style: none;
+
+            & li {
+                //margin-right: 18px;
+                position: relative;
+
+                &:not(:last-child):after {
+                    display: none;
+                    content: "";
+                    background-color: #a7a7a7;
+                    width: 18px;
+                    height: 1px;
+                    position: absolute;
+                    top: 50%;
+                    right: -15px;
+                }
+
+                a {
+                    font-size: 1.5rem; //22px
+                    padding: 10px 17px;
+                    font-weight: 300;
+                }
+            }
+        }
+    }
+}
+</style>
