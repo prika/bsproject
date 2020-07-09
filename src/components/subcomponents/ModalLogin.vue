@@ -1,7 +1,7 @@
 <template>
     <div class="modalLogin">
 
-        <transition mode="out-in" appear enter-active-class="animated slideInRight" leave-active-class="animated slideOutRight">
+        <transition appear enter-active-class="animated slideInRight" leave-active-class="animated slideOutRight">
             <button class="closeLoginButton" v-bind:aria-label="$t('button-arialabel-close-menu')" @click="$emit('close')"><closeIcon></closeIcon></button>
         </transition>
 
@@ -31,9 +31,10 @@
                 </div>
 
                 
-                <a class="passwordRecoveryLink col-12" href="javacript:void(0)" >[[Esqueceu-se da palavra-chave?]]</a>
+                <router-link to="/auth/recovery" class="passwordRecoveryLink col-12">[[Esqueceu-se da palavra-chave?]]</router-link>
+                <router-link to="/auth/account" class="passwordRecoveryLink col-12">[[Para apagar - AccountInfo]]</router-link>
 
-                <a class="accountRegisterLink col-12" href="javacript:void(0)" >[[criar conta]]</a>
+                <router-link to="/auth/register" class="accountRegisterLink col-12">[[criar conta]]</router-link>
 
                 <button class="loginLink" type="button" v-on:click="login()">[[Login]]</button>
             </form>
@@ -45,10 +46,10 @@
 import closeIcon from '../ui/closeIcon'
 
 export default {
+    name: 'loginModal',
     components: {
         closeIcon
     },
-    //name: 'Login',
     data() {
         return {
             inputs: {
@@ -79,7 +80,10 @@ export default {
 
 <style lang="scss">
 .modalLogin {
-    
+    position: fixed;
+    top: 0;
+    right: 0;
+
     .closeLoginButton{
         background: #333;
         border: 0;
@@ -89,15 +93,11 @@ export default {
         width: 124px;
         height: 124px;
 
-        #fechar path {
-            stroke: #FFF;
-        }
+        rect { display: none; }
     }
 
     .formLogin{
-        position: fixed;
-        top: 124px;
-        right: 0;
+        margin-top: 124px;
         background: black;
         height: 500px;
         width: 430px;

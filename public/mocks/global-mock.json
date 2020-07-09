@@ -110,7 +110,8 @@
         "street": "Estrada Nacional n.º 4, km 152", 
         "location": "Sítio Courela dos Aléns", 
         "postcode": "7100-011",
-        "map": "https://goo.gl/maps/KYpeemR9z2YcZENQA"
+        "map": "https://goo.gl/maps/KYpeemR9z2YcZENQA",
+        "button": "Veja no mapa"
     },
     "contacts": {
         "email": "info@bstone.pt",
@@ -165,5 +166,88 @@
         {"question": "quais são as formas de pagamento?", "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut leo hendrerit, semper purus non, pellentesque mauris."},
         {"question": "Quais são as formas de pagamento?", "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut leo hendrerit, semper purus non, pellentesque mauris."}
      ]
+    },
+    "accountregister": {
+        "title": "Criar <br>uma conta",
+        "subtitle": "Campos de preenchimento obrigatório",
+        "inputname": {
+            "placeholder": "nome próprio", 
+            "errors": "Campo de preenchimento obrigatório"
+        },
+        "inputsurname": {
+            "placeholder": "apelido", 
+            "errors": "Campo de preenchimento obrigatório"
+        },
+        "inputphone": {
+            "placeholder": "número de telefone", 
+            "errors": "Campo de preenchimento obrigatório"
+        },
+        "inputcompany": {
+            "placeholder": "nome da empresa", 
+            "errors": "Campo de preenchimento obrigatório"
+        },
+        "inputemail": {
+            "placeholder": "e-mail", 
+            "errors": "Campo de preenchimento obrigatório"
+        },
+        "inputemailconfirm": {
+            "placeholder": "confirmação de e-mail", 
+            "errors": "Campo de preenchimento obrigatório"
+        },
+        "inputpassword": {
+            "placeholder": "palavra-chave", 
+            "errors": "Campo de preenchimento obrigatório"
+        },
+        "inputpasswordconfirm": {
+            "placeholder": "confirmação da palavra-chave", 
+            "errors": "Campo de preenchimento obrigatório"
+        },
+        "inputcountry": {
+            "placeholder": "país", 
+            "errors": "Campo de preenchimento obrigatório"
+        },
+        "submit": "Registar",
+        "success": "O seu pedido de recuperação de palavra-chave foi submetido com sucesso. <br> Verifique o seu email por favor. <br> <br> Caso não consiga encontrar sugerimos que verifique na Caixa de Spam."
+    },
+    "accountrecovery": {
+        "title": "Esqueceu-se <br>da palavra-passe?",
+        "subtitle": "Introduza o seu endereço de e-mail e enviar-lhe-emos <br>instruções para repor a sua palavra-passe.",
+        "input": {
+            "placeholder": "endereço de email", 
+            "errors": "Introduza um endereço de e-mail válido."
+        },
+        "submit": "Recuperar",
+        "success": "O seu pedido de recuperação de palavra-chave foi submetido com sucesso. <br> Verifique o seu email por favor. <br> <br> Caso não consiga encontrar sugerimos que verifique na Caixa de Spam."
+    },
+    "accountinfo": {
+        "title": "Informações <br>da conta",
+        "subtitle": "",
+        "inputname": {
+            "placeholder": "nome próprio", 
+            "errors": "Campo de preenchimento obrigatório"
+        },
+        "inputsurname": {
+            "placeholder": "apelido", 
+            "errors": "Campo de preenchimento obrigatório"
+        },
+        "inputphone": {
+            "placeholder": "número de telefone", 
+            "errors": "Campo de preenchimento obrigatório"
+        },
+        "inputpassword": {
+            "placeholder": "palavra-chave", 
+            "errors": "Campo de preenchimento obrigatório"
+        },
+        "inputpasswordconfirm": {
+            "placeholder": "confirmação da palavra-chave", 
+            "errors": "Campo de preenchimento obrigatório"
+        },
+        "inputcountry": {
+            "placeholder": "país", 
+            "errors": "Campo de preenchimento obrigatório"
+        },
+        "submit": "Guardar",
+        "success": "Sucesso na edição",
+        "logoutButton": "Logout"
     }
 }
