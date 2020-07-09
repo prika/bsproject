@@ -38,7 +38,7 @@
                     '--collection2-count': this.collections.collection2.count
                 }
             }
-        },
+        }
     }
 </script>
 
