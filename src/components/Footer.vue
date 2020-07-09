@@ -84,7 +84,7 @@ footer{
   background: #2A2A2A;
   position:   relative;
   color:      #FFF;
-  z-index:    2;
+  z-index:    3;
 
       .row {
         border-top: 1px solid #363636;

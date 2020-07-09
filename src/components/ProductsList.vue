@@ -227,12 +227,14 @@ export default {
         .productsContainer {
             margin-top: 300px;
             padding-left: 25%;
+            z-index: 0;
         }
 
         h1.pageTitle{
             position: fixed;
             margin-left: 0;
             font-size: 10rem;
+            z-index: 2;
         }
     }
 
@@ -243,14 +245,14 @@ export default {
 
     .filters {
         position: relative;
-        z-index: 3;
+        z-index: 1;
         
         .categoryMenu,
         .collectionMenu,
         .colorFilters{
             list-style: none;
             position: fixed;
-            top: 400px;
+            top: 450px;
             margin: 0;
             padding: 0;
         }
@@ -289,9 +291,9 @@ export default {
             -o-transition:          top 0.5s ease;
             transition:             top 0.5s ease;
 
-            &.cat-0{top: 450px;}
-            &.cat-1{top: 490px;}
-            &.cat-2{top: 530px;}
+            &.cat-0{top: 500px;}
+            &.cat-1{top: 540px;}
+            &.cat-2{top: 580px;}
 
             li {
                 a{
@@ -335,7 +337,7 @@ export default {
         }
 
         .colorFilters{ 
-            top: 700px;
+            top: 750px;
 
             a {
                 height: 40px;
