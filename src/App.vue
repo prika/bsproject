@@ -5,19 +5,19 @@
       
       <Header v-if="!(['faqs', 'privacy-policy'].indexOf($route.name) > -1)">
             <div class="logo d-flex col-lg-2 col-md-1" itemscope itemtype="http://schema.org/Organization">
-                <router-link to="/" itemprop="url">
+                <router-link to="/" itemprop="url" :alt="'Link to ' + $t('logo-aria-label')">
                     <!-- Desktop -->
                     <img v-if="!isMobile()" class="d-none d-md-block" itemprop="logo" 
                         src="./assets/images/logo/logo_home.svg" 
-                        v-bind:alt="$t('logo-aria-label')"
-                        v-bind:title="$t('logo-aria-label')"
-                        v-bind:aria-label="$t('logo-aria-label')" />
+                        :alt="$t('logo-aria-label')"
+                        :title="$t('logo-aria-label')"
+                        :aria-label="$t('logo-aria-label')" />
                     <!-- Desktop and Mobile -->
                     <img class="d-block d-md-none" itemprop="logo" 
                         src="./assets/images/logo/logo_home_mobile.svg" 
-                        v-bind:alt="$t('logo-aria-label')"
-                        v-bind:title="$t('logo-aria-label')"
-                        v-bind:aria-label="$t('logo-aria-label')" />
+                        :alt="$t('logo-aria-label')"
+                        :title="$t('logo-aria-label')"
+                        :aria-label="$t('logo-aria-label')" />
                 </router-link>
             </div>
 
