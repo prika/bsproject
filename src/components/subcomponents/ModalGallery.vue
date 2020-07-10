@@ -4,7 +4,7 @@
 
             <transition appear enter-active-class="animated slideInDown faster" leave-active-class="animated slideOutUp faster">
                 <button class="closebutton" @click="$emit('close')"> 
-                    <closeIcon rectBackgroundColor="#FFFFFF" strokeColor="#000000"></closeIcon>
+                    <closeIcon rectBackgroundColor="#FFFFFF" strokeColor="#000000" borderColor="#FFFFFF"></closeIcon>
                 </button>
             </transition>
 

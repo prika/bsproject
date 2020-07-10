@@ -1,7 +1,7 @@
 <template>
     <svg xmlns="http://www.w3.org/2000/svg" :aria-labelledby="$t('popup-close-here')" width="70" height="70" viewBox="0 0 60 60">
         <title :id="$t('popup-close-here')">{{$t('popup-close-here')}} icon</title>
-        <rect x="10" y="10" width="40" height="40" transform="rotate(45)" :fill="rectBackgroundColor" stroke-width="0"></rect>
+        <rect x="10" y="10" width="40" height="40" transform="rotate(45)" :fill="rectBackgroundColor" stroke-width="1" :stroke="borderColor"></rect>
         
         <g id="fechar" transform="translate(21 21)">
             <path d="M0,0H26" transform="translate(18.385 0) rotate(135)" fill="none" :stroke="strokeColor" stroke-width="2"/>
@@ -13,6 +13,10 @@
 export default {
     props: {
         rectBackgroundColor: {
+            type: String,
+            default: '#575757'
+        },
+        borderColor: {
             type: String,
             default: '#575757'
         },
