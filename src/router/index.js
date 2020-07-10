@@ -1,17 +1,14 @@
 //import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
 
 Vue.use(VueRouter)
-
-//added to global Vue use
 global.Vue = Vue
 
 const routes = [
   {
     path: '/',
     name: 'Home',
-    component: Home
+    component: () => import('../views/Home.vue')
   },
   {
     path: '/b-explore',
@@ -37,12 +34,12 @@ const routes = [
     path: '/news/:id',
     name: 'newsdetail',
     //props: (route) => ({ query: route.query.q }),
-    component: () => import(  /* webpackChunkName: "news-group" */ '../views/NewsDetail.vue')
+    component: () => import( /* webpackChunkName: "news-group" */ '../views/NewsDetail.vue')
   },
   {
     path: '/faqs',
     name: 'faqs',
-    component: () => import(  /* webpackChunkName: "institutional-group" */ '../views/Faqs.vue')
+    component: () => import( /* webpackChunkName: "institutional-group" */ '../views/Faqs.vue')
   },
   {
     path: '/privacy-policy',
@@ -51,9 +48,14 @@ const routes = [
   },
   {
     path: '/bloco-b',
-    name: 'bloco',
-    component: () => import( /* webpackChunkName: "product-group" */ '../views/BlocoB.vue')
+    name: 'categories',
+    component: () => import( /* webpackChunkName: "product-group" */ '../views/BlocoBCategories.vue')
   },
+  // {
+  //   path: '/bloco-b/:category/:collection',
+  //   name: 'bloco',
+  //   component: () => import( /* webpackChunkName: "product-group" */ '../views/BlocoB.vue')
+  // },
   {
     path: '/bloco-b/:id-:name',
     name: 'product',

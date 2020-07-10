@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="2847" height="1368" viewBox="0 0 2847 1368">
+  <defs>
+    <clipPath id="clip-MENU_HOME">
+      <rect width="2847" height="1368"/>
+    </clipPath>
+  </defs>
+  <g id="MENU_HOME" data-name="MENU HOME" clip-path="url(#clip-MENU_HOME)">
+    <g id="Group_50" data-name="Group 50" transform="translate(377.5 1464.5) rotate(-90)">
+      <line id="Line_1" data-name="Line 1" x2="1807" transform="translate(0.5 540.5)" fill="none" stroke="#707070" stroke-width="1" opacity="0.16"/>
+    </g>
+    <g id="Group_52" data-name="Group 52" transform="translate(-750.695 525.036) rotate(-29)">
+      <line id="Line_1-2" data-name="Line 1" x2="2124.922" transform="translate(0.5 540.5)" fill="none" stroke="#707070" stroke-width="1" opacity="0.16"/>
+    </g>
+    <g id="Group_51" data-name="Group 51" transform="translate(-263.5 1390.5) rotate(-90)">
+      <line id="Line_1-3" data-name="Line 1" x2="1807" transform="translate(0.5 540.5)" fill="none" stroke="#707070" stroke-width="1" opacity="0.16"/>
+    </g>
+    <g id="Group_395" data-name="Group 395" transform="translate(0 140)">
+      <g id="Group_49" data-name="Group 49" transform="translate(-2216.014 -648.834)">
+        <path id="Path_55" data-name="Path 55" d="M2871.973,1389.634c95.629-36.191,204.145-93.052,204.145-209.3,0-153.754-147.279-195.1-364.369-195.1h-50.391l-248.535,138.976,80.241,161.97.338,584.071h206.724c183.476,0,432.854-50.391,432.854-236.444C3132.979,1502.043,3033.457,1425.824,2871.973,1389.634Zm-166.64-363.054c89.1,0,204.091,24.511,204.091,179.582,0,100.783-82.688,175.686-248.066,175.686V1026.58Zm-3.893,793.28h-40.083V1414.145c165.378,0,281.681,45.238,281.681,215.77C2943.038,1753.948,2833.205,1819.86,2701.44,1819.86Z" transform="translate(0 3)" fill="#f0f0f0"/>
+      </g>
+    </g>
+    <line id="Line_1-4" data-name="Line 1" x2="2873" transform="translate(0.5 1111.5)" fill="none" stroke="#000" stroke-width="1" opacity="0.16"/>
+  </g>
+</svg>
