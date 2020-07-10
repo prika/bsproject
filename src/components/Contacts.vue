@@ -13,13 +13,13 @@
 
                     <div class="row">
                         <div class="col-xs-12 col-sm-6">
-                        <div class="input_group">
-                            <input type="text" 
-                                    v-model="cont_name"
-                                    id="cont_name" placeholder=" ">
-                            <label for="cont_name">{{formContact.inputname}}</label>
-                            <span class="bar"></span>
-                        </div>
+                            <div class="input_group">
+                                <input type="text" 
+                                        v-model="cont_name"
+                                        id="cont_name" placeholder=" ">
+                                <label for="cont_name">{{formContact.inputname}}</label>
+                                <span class="bar"></span>
+                            </div>
                         </div>
 
                         <div class="col-xs-12 col-sm-6">

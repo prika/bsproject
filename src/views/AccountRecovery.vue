@@ -21,14 +21,16 @@
 
                     <transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut">
                         <div class="row d-flex align-items-center">
-                            <div class="input_group col-12 col-md-7">  
-                                <input id="emailrecovery"
-                                        v-model="email"
-                                        type="email"
-                                        name="email"
-                                        :aria-label="accountrecovery.input.placeholder" placeholder=" ">
-                                <label for="emailrecovery">{{accountrecovery.input.placeholder}}</label>
-                                <span class="bar"></span>
+                            <div class="col-12 col-md-7">  
+                                <div class="input_group">  
+                                    <input id="emailrecovery"
+                                            v-model="email"
+                                            type="email"
+                                            name="email"
+                                            :aria-label="accountrecovery.input.placeholder" placeholder=" ">
+                                    <label for="emailrecovery">{{accountrecovery.input.placeholder}}</label>
+                                    <span class="bar"></span>
+                                </div>
                             </div>
 
                             <div class="col-12 col-md-6">  
