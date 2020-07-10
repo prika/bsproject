@@ -1,22 +1,8 @@
 <template>
     <header>
       <div class="containerHeader d-flex">
-          <div class="logo d-flex col-lg-2 col-md-1" itemscope itemtype="http://schema.org/Organization">
-              <a href="/" itemprop="url">
-                <img class="d-none d-md-block" itemprop="logo" 
-                    src="../assets/images/logo/logo_home.svg" 
-                    v-bind:alt="$t('logo-aria-label')"
-                    v-bind:title="$t('logo-aria-label')"
-                    v-bind:aria-label="$t('logo-aria-label')" />
-                <img class="d-block d-md-none" itemprop="logo" 
-                    src="../assets/images/logo/logo_home_mobile.svg" 
-                    v-bind:alt="$t('logo-aria-label')"
-                    v-bind:title="$t('logo-aria-label')"
-                    v-bind:aria-label="$t('logo-aria-label')" />
-              </a>
-          </div>
-        
-          <!-- Menus -->
+          
+          <!-- Logo and Menus -->
           <slot></slot>
           
           <Language class="d-none" />
