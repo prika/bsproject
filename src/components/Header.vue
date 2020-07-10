@@ -16,11 +16,10 @@
               </a>
           </div>
         
-          <Menu />
-          <MenuMobile v-if="showMobileMenu == true" @close="showMobileMenu = false" />
-        
-
-          <Language />
+          <!-- Menus -->
+          <slot></slot>
+          
+          <Language class="d-none" />
 
           <div class="controls d-flex">
                 <!--router-link to="/search" itemprop="url" class="buttons searchButton" -->
@@ -52,18 +51,13 @@
           <ModalSearch v-if="showModal" @close="showModal = false"></ModalSearch>
       </transition>
 
-      
-      <button class="openMenuButton"  
-        v-bind:aria-label="$t('button-arialabel-open-menu')"  
-        @click="showMobileMenu = true"></button>
 
   </header>
     
 </template>
 
 <script>
-import Menu from './subcomponents/Header_menu.vue'
-import MenuMobile from './subcomponents/Header_menu_mobile.vue'
+
 
 import Language from './subcomponents/Header_language.vue'
 import SearchButton from './ui/searchButton'
@@ -76,9 +70,7 @@ import ModalLogin from './subcomponents/ModalLogin'
 export default {
     name: 'Header',
     components: {
-        Menu,
         Language,
-        MenuMobile,
         ModalSearch,
         ModalLogin,
         SearchButton,
@@ -87,7 +79,6 @@ export default {
     },
     data() {
         return {
-            showMobileMenu: false,
             //user: uv.user.name,
             showModal: false,
             showLoginForm: false

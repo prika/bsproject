@@ -3,21 +3,38 @@
   
       <Preloader :class="{isLoaded}"></Preloader>
       
-      <Header v-show="!(['faqs', 'privacy-policy'].indexOf($route.name) > -1)" />
+      <Header v-if="!(['faqs', 'privacy-policy'].indexOf($route.name) > -1)">
+            
+            <!-- Desktop -->
+            <Menu v-if="!isMobile()" />
+            
+            <!-- Mobile -->
+            <MenuMobile v-else-if="isMobile() && showMobileMenu == true" @close="showMobileMenu = false" />
+            
+            <button class="openMenuButton"  
+                    v-bind:aria-label="$t('button-arialabel-open-menu')"  
+                    v-if="isMobile()"
+                    @click="showMobileMenu = true"></button>
+      </Header>
 
       <router-view />
 
-      <Address v-show="!(['faqs', 'privacy-policy', 'news', 'newsdetail', 'product', 'productdetail', 'shoppingcart'].indexOf($route.name) > -1)" />
+      <Scroll v-if="!isMobile() && (['Home', 'bloco-b'].indexOf($route.name) > -1)" />
 
-      <Contacts v-show="!(['faqs', 'privacy-policy','news', 'newsdetail', 'product', 'productdetail', 'shoppingcart'].indexOf($route.name) > -1)" />
+      <Address v-if="!(['faqs', 'privacy-policy', 'news', 'newsdetail', 'product', 'productdetail', 'shoppingcart'].indexOf($route.name) > -1)" />
 
-      <Footer v-show="!(['faqs', 'privacy-policy','product', 'productdetail', 'shoppingcart'].indexOf($route.name) > -1)" />
+      <Contacts v-if="!(['faqs', 'privacy-policy','news', 'newsdetail', 'product', 'productdetail', 'shoppingcart'].indexOf($route.name) > -1)" />
+
+      <Footer v-if="!(['faqs', 'privacy-policy','product', 'productdetail', 'shoppingcart'].indexOf($route.name) > -1)" />
 
   </div>
 </template>
 
 <script>
 import Preloader from './components/Preloader.vue'
+import Menu from '@/components/subcomponents/Header_menu.vue'
+import MenuMobile from '@/components/subcomponents/Header_menu_mobile.vue'
+import Scroll from '@/components/subcomponents/scroll'
 import Header from './components/Header.vue'
 import Address from '@/components/Address'
 import Contacts from '@/components/Contacts'
@@ -26,15 +43,19 @@ import Footer from '@/components/Footer.vue'
 export default {
   name: 'bstoneproject',
   components: {
-      Header,
       Preloader,
+      Header,
+      Menu,
+      MenuMobile,
+      Scroll,
       Address,
       Contacts,
       Footer
   },
   data() {
       return {
-          isLoaded: false
+          isLoaded: false,
+          showMobileMenu: false
       }
   },
   beforeMount(){
@@ -46,6 +67,15 @@ export default {
     this.$eventBus.$on('componentFinishLoad', (data) => {
       this.isLoaded = true;
     });
+  },
+  methods: {
+    isMobile() {
+      if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        return true
+      } else {
+        return false
+      }
+    }
   }
 }
 </script>

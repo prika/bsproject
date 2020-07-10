@@ -1,5 +1,5 @@
 <template>
-    <div class="languageLinks d-none d-md-flex ml-auto"> 
+    <div class="languageLinks d-md-flex ml-auto"> 
 
         <label v-for="(lang, i) in langs">
             <input type="radio" v-model="$i18n.locale" :key="`Lang${i}`" :value="lang">

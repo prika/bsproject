@@ -41,8 +41,6 @@
 </template>
 
 <script>
-
-
 export default {
     methods: {
         handleScroll: function (evt, el) {
@@ -57,9 +55,7 @@ export default {
         }
     }
 }
-
 </script>
-
 
 <style lang="scss">
 .box {
@@ -96,17 +92,17 @@ export default {
     }
     
     &:hover{
-        -webkit-animation-play-state: paused;
-        -moz-animation-play-state: paused;
-        -o-animation-play-state: paused;
-        animation-play-state: paused;
+        -webkit-animation-play-state:   paused;
+        -moz-animation-play-state:      paused;
+        -o-animation-play-state:        paused;
+        animation-play-state:           paused;
 
         a{transform: scale(.85);}
         .simutadorButton{
-            -webkit-animation-play-state: paused;
-            -moz-animation-play-state: paused;
-            -o-animation-play-state: paused;
-            animation-play-state: paused;
+            -webkit-animation-play-state:   paused;
+            -moz-animation-play-state:      paused;
+            -o-animation-play-state:        paused;
+            animation-play-state:           paused;
         }
         *{ fill: #161615; }
     }

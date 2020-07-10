@@ -581,81 +581,6 @@ input[type=file]{
 // ===================================================================== //
 // HEADER
 
-header{
-
-nav.menuMobile{
-  background-color: #FFF;
-  position: fixed;
-  z-index: 2;
-  top: 0;
-  left: 0; right: 0;
-  bottom: 0;
-  display: block;
-  height: 100vh;
-  width: 100vw;
-  overflow: hidden;
-
-    & .mobileAdd{
-      background-color: $gray-900;
-      height: 240px;
-      position: fixed;
-      text-align: center;
-      z-index: 2;
-
-      bottom: -240px;
-      left: 0; right: 0;
-      overflow: hidden;
-    
-      .social-icons{
-        justify-content: center;
-      }
-    }
-
-    &.active{
-      top: 0;
-
-      & .mobileAdd{ 
-        bottom: 0!important;
-      }
-    }
-}
-
-
-  .controls .buttons{
-      border: none;
-      border-left: 1px solid #E8E8E8;
-      width: 90px; 
-      outline: none!important;
-  }
-
-  .closeMenuButton{
-    display: block;
-    position: absolute;
-    z-index: 3;
-    width: 50px;
-    height: 50px;
-    top: 50px;
-    left: calc(50% - 25px);
-    right: 0;
-    border: 0;
-    background-size: 30px;
-    background: center center no-repeat url(assets/images/icons/close.svg);
-  }
-
-  .openMenuButton{
-    display:    block;
-    position:   fixed;
-    width:      90px;
-    height:     90px;
-    top:        20%;
-    right:      40px;
-    border:     0;
-    background-size:  30px;
-    background:       center center no-repeat url(assets/images/icons/menu.svg);
-  }
-}
-
-
 
 // @include media-breakpoint-up(xs) {
 //   header nav.menu{
@@ -697,12 +622,11 @@ nav.menuMobile{
         }
     }
 
-    .closeMenuButton,
-    nav.menuMobile {display:none;}
+    //nav.menuMobile { display: none }
 
   }
 
-  header .openMenuButton{display:none}
+  //header .openMenuButton{ display:none }
 
 }
 
@@ -713,9 +637,9 @@ nav.menuMobile{
     padding: 10px 10px;
   }
 
-  header nav.menu .mobileAdd{
-    display: none;
-  }
+  // header nav.menu .mobileAdd{
+  //   display: none;
+  // }
 }
 
 @include media-breakpoint-up(xl) {
