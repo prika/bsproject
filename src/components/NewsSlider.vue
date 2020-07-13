@@ -6,7 +6,7 @@
         <div class="row">        
             <router-link    :to="'/news/'+singleNews.id" 
                             v-for="singleNews in news" :key="singleNews.id"
-                            class="col-12 col-md-6 col-lg-4 newsBlock animated zoomIn">
+                            class="col-12 col-md-6 col-lg-4 newsBlock animated slideInUp">
 
                  <div class="newsContentIimage">
                     <img :src="getImgUrl(singleNews.gallery[0].src)" class="img-fluid" :alt="singleNews.gallery[0].alt">
