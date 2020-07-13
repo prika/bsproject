@@ -6,7 +6,8 @@
         </transition>
 
         <div class="formLogin revertColor">
-            <p class="h1 col-12">[[Entrar <br>na minha <br>conta]]</p>
+
+            <p class="h1 col-12" v-html="accountlogin.title">{{accountlogin.title}}</p>
 
             <form   id="login" 
                     @submit.prevent="checkLoginForm"
@@ -17,26 +18,24 @@
                             type="text"
                             name="username"
                             placeholder=" ">
-                    <label for="UserLogin">[[Username]]</label>
+                    <label for="UserLogin">{{accountlogin.inputuser.placeholder}}</label>
                     <span class="bar"></span>
                 </div>
 
                 <div class="input_group col-12">  
                     <input id="PasswordLogin"
-                            type="password"
+                            type="text"
                             name="password"
                             placeholder=" ">
-                    <label for="PasswordLogin">[[Password]]</label>
+                    <label for="PasswordLogin">{{accountlogin.inputpassword.placeholder}}</label>
                     <span class="bar"></span>
                 </div>
 
                 
-                <router-link to="/auth/recovery" class="passwordRecoveryLink col-12">[[Esqueceu-se da palavra-chave?]]</router-link>
-                <router-link to="/auth/account" class="passwordRecoveryLink col-12">[[Para apagar - AccountInfo]]</router-link>
+                <router-link to="/auth/recovery" class="passwordRecoveryLink col-12">{{accountlogin.recoveryLink}}</router-link>
+                <router-link to="/auth/register" class="accountRegisterLink col-12">{{accountlogin.registerLink}}</router-link>
 
-                <router-link to="/auth/register" class="accountRegisterLink col-12">[[criar conta]]</router-link>
-
-                <button class="loginLink" type="button" v-on:click="login()">[[Login]]</button>
+                <button class="loginLink" type="button" v-on:click="login()">{{accountlogin.submit}}</button>
             </form>
         </div>
     </div>
@@ -52,27 +51,36 @@ export default {
     },
     data() {
         return {
+            accountlogin: '',
             inputs: {
-                username: "",
-                password: ""
+                username: '',
+                password: ''
             }
         }
+    },
+    created() {
+        this.$http.get('../mocks/global-mock.json').then(response => {
+            this.accountlogin = response.data.accountlogin
+        })
     },
     methods: {
         checkLoginForm(){
 
         },
         login() {
-            if(this.input.username != "" && this.input.password != "") {
-                if(this.input.username == this.$parent.mockAccount.username && this.input.password == this.$parent.mockAccount.password) {
-                    this.$emit("authenticated", true);
-                    this.$router.replace({ name: "secure" });
-                } else {
-                    console.log("The username and / or password is incorrect");
-                }
-            } else {
-                console.log("A username and password must be present");
-            }
+            
+            // if(this.input.username != "" && this.input.password != "") {
+            //     if(this.input.username == this.$parent.mockAccount.username && this.input.password == this.$parent.mockAccount.password) {
+            //         this.$emit("authenticated", true);
+            //         this.$router.replace({ name: "secure" });
+            //     } else {
+            //         console.log("The username and / or password is incorrect");
+            //     }
+            // } else {
+            //     console.log("A username and password must be present");
+            // }
+
+            // to="/auth/account"
         }
     }
 }

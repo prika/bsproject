@@ -1,4 +1,11 @@
 { 
+    "header":{
+        "identity": { 
+            "name": "BStone", 
+            "logo": "./assets/images/logo/logo_home.svg", 
+            "logomobile": "./assets/images/logo/logo_home_mobile.svg"},
+            "menuOrder": [1,2,3,4]
+    },
     "menu":[
         { 
             "id": 1,
@@ -25,10 +32,6 @@
             "preloader": "preloader/b-innovation.svg"
         }
     ],
-    "header":{
-        "identity": { "name": "BStone", "logo": ""},
-        "menuOrder": [1,2,3,4]
-    },
     "footer": {
         "menuOrder": [2,3,4,1],
         "menuFooter": [
@@ -166,6 +169,22 @@
         {"question": "quais são as formas de pagamento?", "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut leo hendrerit, semper purus non, pellentesque mauris."},
         {"question": "Quais são as formas de pagamento?", "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut leo hendrerit, semper purus non, pellentesque mauris."}
      ]
+    },
+    "accountlogin": {
+        "title": "Entrar <br>na minha <br>conta",
+        "subtitle": "",
+        "inputuser": {
+            "placeholder": "username", 
+            "errors": "Introduza um endereço de e-mail válido."
+        },
+        "inputpassword": {
+            "placeholder": "password", 
+            "errors": "Introduza um endereço de e-mail válido."
+        },
+        "submit": "login",
+        "success": "O seu pedido de recuperação de palavra-chave foi submetido com sucesso. <br> Verifique o seu email por favor. <br> <br> Caso não consiga encontrar sugerimos que verifique na Caixa de Spam.",
+        "recoveryLink": "Esqueceu-se da palavra-chave?",
+        "registerLink": "criar conta"
     },
     "accountregister": {
         "title": "Criar <br>uma conta",
