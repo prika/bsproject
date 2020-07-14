@@ -13,50 +13,51 @@
 
                     <div class="row">
                         <div class="col-xs-12 col-sm-6">
-                            <div class="input_group">
-                                <input type="text" 
+
+                            <div class="input_group" :class="(cont_name_error === true ? 'error': '')">
+                                <input type="text"
                                         v-model="cont_name"
                                         id="cont_name" placeholder=" ">
                                 <label for="cont_name">{{formContact.inputname}}</label>
                                 <span class="bar"></span>
+                                <p class="errormessage"> {{cont_name_validator}} </p>
                             </div>
-                            <p class="errormessage" v-if="cont_name_error"> {{cont_name_validator}} </p>
                         </div>
 
                         <div class="col-xs-12 col-sm-6">
-                            <div class="input_group">
+                            <div class="input_group" :class="(cont_surname_error === true ? 'error': '')">
                                 <input type="text" 
                                         v-model="cont_surname"
                                         id="cont_surname" placeholder=" ">
                                 <label for="cont_surname">{{formContact.inputsurname}}</label>
                                 <span class="bar"></span>
+                                <p class="errormessage"> {{cont_surname_validator}} </p>
                             </div>
-                            <p class="errormessage" v-if="cont_surname_error"> {{cont_surname_validator}} </p>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-xs-12 col-sm-6">
-                            <div class="input_group">
+                            <div class="input_group" :class="(cont_email_error === true ? 'error': '')">
                                 <input  type="email" 
                                         v-model="cont_email"
                                         id="cont_email" placeholder=" ">
                                 <label for="cont_email">{{formContact.inputemail}}</label>
                                 <span class="bar"></span>
+                                <p class="errormessage"> {{cont_email_validator}} </p>
                             </div>
-                            <p class="errormessage" v-if="cont_email_error"> {{cont_email_validator}} </p>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-12">
-                            <div class="input_group">
+                            <div class="input_group" :class="(cont_message_error === true ? 'error': '')">
                                 <textarea v-model="cont_message"
                                             id="cont_message" rows="1" placeholder=" "></textarea>
                                 <label for="cont_message">{{formContact.inputmessage}}</label>
                                 <span class="bar"></span>
+                                <p class="errormessage"> {{cont_message_validator}} </p>
                             </div>
-                            <p class="errormessage" v-if="cont_message_error"> {{cont_message_validator}} </p>
                         </div>
                     </div>
 
@@ -64,8 +65,8 @@
                         <div class="col-xs-12 col-sm-6">
                             <input id="cont_file" type="file">
                             <label for="cont_file" :aria-label="formContact.inputfile"></label>
-                            <p class="errormessage" v-if="cont_file_error"> {{cont_file_validator}} </p>
                         </div>
+
 
                          <div class="col-xs-12 col-sm-6">
                             <button class="button submitButton" :aria-label="formContact.submit">
@@ -110,9 +111,7 @@ export default {
             cont_message: '',
             cont_message_validator: '',
             cont_message_error: false,
-            cont_file: '',
-            cont_file_validator: '',
-            cont_file_error: false,
+            cont_file: ''
         }
     },
     created() {
@@ -153,7 +152,6 @@ export default {
             this.cont_surname_error =   false
             this.cont_email_error =     false
             this.cont_message_error =   false
-            this.cont_file_error =      false
             
 
             if (this.cont_name.length == 0) 
@@ -184,13 +182,6 @@ export default {
                 this.cont_message_validator = "Missing field"
             }
 
-            if (this.cont_file.length == 0) 
-            { 
-                hasErrors = true
-                this.cont_file_error = true
-                this.cont_file_validator = "Missing field"
-            }
-
             return !hasErrors
          }
     }
@@ -199,15 +190,5 @@ export default {
 
 <style lang="scss">
 
-.error{
-    border: #FA0B4C;
-}
-.errormessage { 
-    color: #FA0B4C;
-    font-weight: 200;
-    font-size: 14px;
-    position: absolute;
-    left: 15px;
-    bottom: -15px;
-}
+
 </style>
