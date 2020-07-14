@@ -1,0 +1,91 @@
+{ 
+    "page": {
+        "step1": "Lista de Encomenda",
+        "step2": "Condições de Entrega"
+    },
+    "totalProducts": {
+        "generalquantity": 5,
+        "categoriesTotal": [
+           {"name":"Blocos", "number": 4, "dimensions": "10"},
+           {"name":"Chapas", "number": 1, "dimensions": "145"}
+        ]
+    },
+    "categoryContainers": [
+        {
+            "category": "Blocos",
+            "quantity": 4,
+            "containerDimensions": 12,
+            "containerCount": 2,
+            "containerItems":  [
+                {
+                    "id": 1,
+                    "name": "Container A",
+                    "percentage": 75,
+                    "products": 
+                    [
+                        {
+                            "id": "Prod1",
+                            "name": "Bla1 Bambu Pink",
+                            "imgURL": "product/bambu_pink.jpg",
+                            "variantName": "BE1 - 266",
+                            "dimensions": "255x43x53"
+                        },
+                        {
+                            "id": "Prod2",
+                            "name": "Bl2 Bambu Pink",
+                            "imgURL": "product/bambu_pink.jpg",
+                            "variantName": "BE1 - 266",
+                            "dimensions": "255x43x53"
+                        },
+                        {
+                            "id": "Prod3",
+                            "name": "Bla3 Atlantic White",
+                            "imgURL": "product/atlantic_white.jpg",
+                            "variantName": "BE1 - 266",
+                            "dimensions": "255x43x53"
+                        }
+                    ]
+                },
+                {
+                    "id": 2,
+                    "name": "Container B",
+                    "percentage": 25,
+                    "products": 
+                    [
+                        {
+                            "id": "Prod1",
+                            "name": "Atlantic White",
+                            "imgURL": "product/atlantic_white.jpg",
+                            "variantName": "BE1 - 266",
+                            "dimensions": "255x43x53"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "category": "Chapas",
+            "quantity": 1,
+            "containerDimensions": 145,
+            "containerCount": 1,
+            "containerItems":  [
+                {
+                    "id": 1,
+                    "name": "Container A",
+                    "percentage": 33,
+                    "products": 
+                    [
+                        {
+                            "id": "Prod1",
+                            "name": "Atlantic White",
+                            "imgURL": "product/atlantic_white.jpg",
+                            "variantName": "BE1 - 266",
+                            "dimensions": "255x43x53"
+                        }
+                    ]
+                }
+            ]
+        } 
+    ]
+   
+}

@@ -1,120 +1,63 @@
 <template>
   <div id="shoppingCartPage">
       
-      <transition appear enter-active-class="animated slideInLeft" leave-active-class="animated slideOutLeft">
+      <transition appear enter-active-class="animated slideInUp" leave-active-class="animated slideOutLeft">
       <div class="row justify-content-center" v-if="checkoutStep == 1">
           
           <div class="cartTitle col-12 col-md-8">
-              <h1 class="text-center text-md-left">[[Lista da Encomenda]]</h1>
+              <h1 class="text-center text-md-left">{{ page.step1 }}</h1>
           </div>
 
           <div class="cartTable col-12 col-md-8">
               
           <!-- Repeater containers -->
-            <div class="categoryGroup">
+            <div class="categoryGroup" v-for="container in categoryContainers">
+                
                 <div class="row">
-                    <p class="col-12 col-md-8 text-center text-md-left"><span class="uppercase">Blocos</span> - <span>4 produtos</span></p>
-                    <p class="col-12 col-md-4 text-center"><span class="uppercase">Contentores</span> - 2 - 12m<sup>2</sup></p>
-                    <p class="col-12 text-center d-md-none">[[Contentor - A 75%]]</p>
+                    <p class="col-12 col-md-8 text-center text-md-left"><span class="uppercase">{{container.category}}</span> - <span>{{container.quantity}} produtos</span></p>
+                    <p class="col-12 col-md-4 text-center"><span class="uppercase">[[Contentores]]</span> - {{container.containerCount}} - {{container.containerDimensions}}m<sup>2</sup></p>
                 </div>
 
-                <div class="row categoryRow">
-
+                <div class="row categoryRow" v-for="item in container.containerItems">
+                  <p v-if="isMobile()" class="col-12 text-center d-md-none">{{item.name}} - {{item.percentage}}%</p>
                   <!-- repeat -->
-                  <div class="productCart col-12 col-md-8  d-flex align-items-center">
+                  <div  v-for="product in item.products"
+                        class="productCart col-12 col-md-8 d-flex align-items-center">
+
                       <img src="/img/variant1-4.5af13b48.jpg" 
                             class="col-4"
                             width="150" height="150"/>
                       <div class="productInfo col-7">
-                          <h2>Stormy Grey</h2>
-                          <h3>BE1 - 266</h3>
-                          <p>255x43x53 cm</p>
+                          <h2>{{ product.name }}</h2>
+                          <h3>{{ product.variantName}}</h3>
+                          <p>{{ product.dimensions}}cm</p>
                       </div>
-                      <div class="col-1">X</div>
-                  </div>
-                  <!-- repeat -->
-
-                  <!-- repeat -->
-                  <div class="productCart col-12 col-md-8  d-flex align-items-center">
-                      <img src="/img/variant1-4.5af13b48.jpg" 
-                            class="col-4"
-                            width="150" height="150"/>
-                      <div class="productInfo col-7">
-                          <h2>Stormy Grey</h2>
-                          <h3>BE1 - 266</h3>
-                          <p>255x43x53 cm</p>
+                      <div class="col-1">
+                         <button class="removebutton" @click="$emit('close')"> 
+                            <removeIcon />
+                        </button>
                       </div>
-                      <div class="col-1">X</div>
-                  </div>
-                  <!-- repeat -->
-
-                  <!-- repeat -->
-                  <div class="productCart col-12 col-md-8  d-flex align-items-center">
-                      <img src="/img/variant1-4.5af13b48.jpg" 
-                            class="col-4"
-                            width="150" height="150"/>
-                      <div class="productInfo col-7">
-                          <h2>Stormy Grey</h2>
-                          <h3>BE1 - 266</h3>
-                          <p>255x43x53 cm</p>
-                      </div>
-                      <div class="col-1">X</div>
                   </div>
                   <!-- repeat -->
 
                   <div class="categoryContainer col-4 text-center d-none d-md-block">
-                        <p class="uppercase">[[Contentor - A]]</p>
-                        <figure class="chart" data-percent="50">
+                        <p class="uppercase">{{item.name}}</p>
+                        <figure class="chart" :data-percent="item.percentage">
                             <svg width="89.926" height="89.923" viewBox="0 0 89.926 89.923">
-                                <text id="text" transform="translate(47 50.793)" fill="#333" font-size="15" font-family="Oswald-Medium, Oswald" font-weight="500" letter-spacing="0.03em"><tspan x="-11.401" y="0">25</tspan><tspan y="0" font-size="8.75" baseline-shift="4.999500156940817">%</tspan></text>
+                                <text id="text" transform="translate(47 50.793)" fill="#333" font-size="15" font-family="Oswald-Medium, Oswald" font-weight="500" letter-spacing="0.03em"><tspan x="-11.401" y="0">{{item.percentage}}</tspan><tspan y="0" font-size="8.75" baseline-shift="4.999500156940817">%</tspan></text>
                                 <path d="M-19498.4,3474.4l35.063,35.062-35.062,35.062-35.062-35.062Z" transform="translate(19543.959 -3463.896)" fill="none" stroke="#FFF" stroke-width="14"/>
-                                <path class="containerFull" d="M-19498.4,3474.4l35.063,35.062-35.062,35.062-35.062-35.062Z" transform="translate(19543.959 -3463.896)" fill="none" stroke-width="14" stroke-dasharray="50, 283"/>
+                                <path class="containerFull" d="M-19498.4,3474.4l35.063,35.062-35.062,35.062-35.062-35.062Z" transform="translate(19543.959 -3463.896)" fill="none" stroke-width="14" :stroke-dasharray="item.percentage*2+', 283'"/>
                             </svg>
                         </figure>
                   </div>
                 </div>
             </div>
 
-            <!-- Repeater containers -->
-
-            <div class="categoryGroup">
-                <div class="row">
-                    <p class="col-12 col-md-8 text-center text-md-left"><span class="uppercase">[[Blocos]]</span> - <span>4 produtos</span></p>
-                    <p class="col-12 col-md-4 text-center"><span class="uppercase">[[Contentores]]</span> - 2 - 12m<sup>2</sup></p>
-                    <p class="col-12 text-center d-md-none">[[Contentor - A 75%]]</p>
-                </div>
-
-                <div class="row categoryRow">
-
-                  <!-- repeat -->
-                  <div class="productCart col-8 d-flex align-items-center">
-                      <img src="/img/variant1-4.5af13b48.jpg" 
-                            class="col-4"
-                            width="150" height="150"/>
-                      <div class="productInfo col-7">
-                          <h2>Stormy Grey</h2>
-                          <h3>BE1 - 266</h3>
-                          <p>255x43x53 cm</p>
-                      </div>
-                      <div class="col-1">X</div>
-                  </div>
-                  <!-- repeat -->
-
-                  <div class="categoryContainer col-4 text-center d-none d-md-block">
-                        <p class="uppercase">Contentor - A</p>
-                        <figure class="chart" data-percent="50">
-                            <svg width="89.926" height="89.923" viewBox="0 0 89.926 89.923">
-                                <text id="text" transform="translate(47 50.793)" fill="#333" font-size="15" font-family="Oswald-Medium, Oswald" font-weight="500" letter-spacing="0.03em"><tspan x="-11.401" y="0">50</tspan><tspan y="0" font-size="8.75" baseline-shift="4.999500156940817">%</tspan></text>
-                                <path d="M-19498.4,3474.4l35.063,35.062-35.062,35.062-35.062-35.062Z" transform="translate(19543.959 -3463.896)" fill="none" stroke="#FFF" stroke-width="14"/>
-                                <path class="containerFull" d="M-19498.4,3474.4l35.063,35.062-35.062,35.062-35.062-35.062Z" transform="translate(19543.959 -3463.896)" fill="none" stroke-width="14" stroke-dasharray="100, 283"/> <!-- stroke-dasharray o primeiro valor é o dobro da percentagem   -->
-                            </svg>
-                        </figure>
-                  </div>
-                </div>
-            </div>
         </div>
       </div>
       </transition>
+
+
 
 
 
@@ -123,7 +66,7 @@
         <div class="row justify-content-center" v-if="checkoutStep == 2" >
             
             <div class="cartTitle2 col-12 col-md-8">
-                <h1>Condições de Entrega</h1>
+                <h1>{{ page.step2 }}</h1>
             </div>
 
             <transition appear enter-active-class="animated slideInRight" leave-active-class="animated slideOutLeft">
@@ -166,13 +109,17 @@
 
       <transition appear enter-active-class="animated slideInUp delay-1s">
           <div class="row pagecontrols">
-              <a v-if="checkoutStep == 2" @click="checkoutStep = 1" href="javascript:void(0)" class="backlink col-2"><arrowRightIcon />voltar</a>
-              <div class="info" :class="(checkoutStep === 1 ? 'col-9': 'col-6')">
-                <p><span class="textUppercase"><b>Total </b><span class="textColor">5 Produtos: </span></span>  4 Produtos (blocos) 10m<sup>3</sup> - 1 produto (chapas) 145 m<sup>2</sup></p>
+              <a v-if="checkoutStep == 2" @click="checkoutStep = 1" href="javascript:void(0)" class="backlink col-12 col-md-2"><arrowRightIcon />voltar</a>
+              
+              <div class="info" :class="(checkoutStep === 1 ? 'col-12 col-md-9': 'col-12 col-md-6')">
+                <p>
+                  <span class="textUppercase" style="margin-right: 20px"><b>Total </b><span class="textColor">{{totalProducts.generalquantity}} Produtos: </span></span>  
+                  <template v-for="item in totalProducts.categoriesTotal"> {{item.number}} Produtos ({{item.name}}) {{item.dimensions}}m<sup>3</sup></template>
+                </p>
               </div>
 
-              <a @click="checkoutStep = 2" href="javascript:void(0)" 
-                :class="(checkoutStep === 1 ? 'cartLink col-3': 'cartLink col-4')"><arrowRightIcon />continuar</a>
+              <a  @click="checkoutStep = 2" href="javascript:void(0)" 
+                  :class="(checkoutStep === 1 ? 'cartLink col-12 col-md-3': 'cartLink col-12 col-md-4')"><arrowRightIcon />continuar</a>
             
           </div>
       </transition>
@@ -185,10 +132,12 @@ import cartIcon from '@/components/ui/cartButton.vue'
 import shareIcon from '@/components/ui/shareButton.vue'
 import modalShare from '@/components/subcomponents/ShareThisModal.vue'
 import modalGallery from '@/components/subcomponents/ModalGallery.vue'
+import removeIcon from '@/components/ui/removeIcon.vue'
 
 export default {
   name: 'shoppingCartPage',
   components: {
+      removeIcon,
       arrowRightIcon,
       cartIcon,
       shareIcon,
@@ -197,18 +146,35 @@ export default {
   }, 
   data() {
     return {
-        checkoutStep: 1
+        checkoutStep: 1,
+        page: '',
+        categoryContainers: [],
+        containerItems: [],
+        totalProducts: '',
+        categoriesTotal: ''
     }
   },
   mounted() {
       this.$eventBus.$emit('componentFinishLoad', true);
+  },
+  created(){
+ 
+        this.$http.get('../mocks/cart-list-mock.json').then(response => {
+            this.page = response.data.page
+            this.categoryContainers = response.data.categoryContainers
+            this.containerItems = response.data.categoryContainers.containerItems
+            this.totalProducts = response.data.totalProducts
+        })
+  },
+  methods: {
+    isMobile() {
+      if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        return true
+      } else {
+        return false
+      }
+    }
   }
-  // ,
-  // created(){
-  //       this.$http.get('../mocks/.json').then(response => {
-  //         this. = response.data.
-  //       })
-  // }
 }
 </script>
 
@@ -298,11 +264,17 @@ body{margin: 0}
 
         .categoryGroup{
           width: 100%;
+          margin-bottom: 100px;
 
           .categoryRow{
             position: relative;
             border-bottom: 1px solid #909090;
-            margin-bottom: 100px;
+
+            & > p {
+              padding: 10px;
+              margin-bottom: 0;
+              background: #FFF;
+            }
 
             .categoryContainer{
                 position: absolute;
@@ -315,6 +287,7 @@ body{margin: 0}
             padding: 0;
             height: 190px;
             border-top: 1px solid #909090;
+            margin-top: -1px;
 
             .productInfo{
               height: 150px;
@@ -365,6 +338,11 @@ body{margin: 0}
                 font-size: 18px;
                 font-weight: 200;
             }
+
+            sup{
+              margin-right: 20px;
+            }
+
             .textUppercase{ text-transform: uppercase;}
             .textColor{ color: #C47C5A}
 
@@ -472,9 +450,13 @@ body{margin: 0}
     #shoppingCartPage .cartTitle h1:before, #shoppingCartPage .cartTitle2 h1:before {
         display: none;
     }
+
+    #shoppingCartPage .productCart{
+      background: #FFF;
+      border-top: 0!important;
+      margin-bottom: 2px;
+    }
 }
-
-
 
 
 @-webkit-keyframes progress {
