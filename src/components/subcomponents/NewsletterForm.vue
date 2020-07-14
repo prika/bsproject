@@ -43,7 +43,7 @@ export default {
     data() {
         return {
             errors: '',
-            email: null,
+            email: '',
             success: false
         }
     },
@@ -53,7 +53,7 @@ export default {
             e.preventDefault()
             if(!this.validEmail()) return
             
-            const data = { email: this.email}
+            const data = { email: this.email }
             var self = this;
 
             this.$http.post('https://bafdc7b9-222e-4e30-a8ec-f760c186fb05.mock.pstmn.io/subscribe', data).then(response => {
@@ -64,7 +64,7 @@ export default {
                 }, 2500)
 
             }).catch((e) => {
-                this.errors.push(e.message)
+                this.errors = e.message
             })
             
         },
@@ -72,15 +72,15 @@ export default {
             
             if (!this.email) // No email 
             {
-                this.errors.push('[[Email required.]]');
+                this.errors = '[[Email required.]]'
                 return false
             } 
             
             const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-            if (re.test(email))
+            if (!re.test(this.email))
             {
-                this.errors.push('[[Valid email required.]]');
+                this.errors = '[[Valid email required.]]'
                 return false
             }
             return true
