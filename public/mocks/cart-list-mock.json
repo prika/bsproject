@@ -1,8 +1,4 @@
 { 
-    "page": {
-        "step1": "Lista de Encomenda",
-        "step2": "Condições de Entrega"
-    },
     "totalProducts": {
         "generalquantity": 5,
         "categoriesTotal": [
@@ -53,7 +49,7 @@
                     "products": 
                     [
                         {
-                            "id": "Prod1",
+                            "id": "Prod5",
                             "name": "Atlantic White",
                             "imgURL": "product/atlantic_white.jpg",
                             "variantName": "BE1 - 266",
@@ -86,6 +82,10 @@
                 }
             ]
         } 
+    ],
+    "deliveryOptions": [
+        {"id": 1, "name": "EXW (Ex Works)"},
+        {"id": 2, "name": "FOB (Free on Board)"},
+        {"id": 3, "name": "C&F (Cost and Freigh)"}
     ]
-   
 }

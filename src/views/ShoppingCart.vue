@@ -5,7 +5,7 @@
       <div class="row justify-content-center" v-if="checkoutStep == 1">
           
           <div class="cartTitle col-12 col-md-8">
-              <h1 class="text-center text-md-left">{{ page.step1 }}</h1>
+              <h1 class="text-center text-md-left">{{$t('checkout-title-step1')}}</h1>
           </div>
 
           <div class="cartTable col-12 col-md-8">
@@ -14,8 +14,8 @@
             <div class="categoryGroup" v-for="container in categoryContainers">
                 
                 <div class="row">
-                    <p class="col-12 col-md-8 text-center text-md-left"><span class="uppercase">{{container.category}}</span> - <span>{{container.quantity}} produtos</span></p>
-                    <p class="col-12 col-md-4 text-center"><span class="uppercase">[[Contentores]]</span> - {{container.containerCount}} - {{container.containerDimensions}}m<sup>2</sup></p>
+                    <p class="col-12 col-md-8 text-center text-md-left"><span class="uppercase">{{container.category}}</span> - <span>{{container.quantity}} {{$tc('checkout-products', container.quantity)}}</span></p>
+                    <p class="col-12 col-md-4 text-center"><span class="uppercase">{{$tc('checkout-container', container.containerCount)}}</span> - {{container.containerCount}} - {{container.containerDimensions}}m<sup>2</sup></p>
                 </div>
 
                 <div class="row categoryRow" v-for="item in container.containerItems">
@@ -41,14 +41,7 @@
                   <!-- repeat -->
 
                   <div class="categoryContainer col-4 text-center d-none d-md-block">
-                        <p class="uppercase">{{item.name}}</p>
-                        <figure class="chart" :data-percent="item.percentage">
-                            <svg width="89.926" height="89.923" viewBox="0 0 89.926 89.923">
-                                <text id="text" transform="translate(47 50.793)" fill="#333" font-size="15" font-family="Oswald-Medium, Oswald" font-weight="500" letter-spacing="0.03em"><tspan x="-11.401" y="0">{{item.percentage}}</tspan><tspan y="0" font-size="8.75" baseline-shift="4.999500156940817">%</tspan></text>
-                                <path d="M-19498.4,3474.4l35.063,35.062-35.062,35.062-35.062-35.062Z" transform="translate(19543.959 -3463.896)" fill="none" stroke="#FFF" stroke-width="14"/>
-                                <path class="containerFull" d="M-19498.4,3474.4l35.063,35.062-35.062,35.062-35.062-35.062Z" transform="translate(19543.959 -3463.896)" fill="none" stroke-width="14" :stroke-dasharray="item.percentage*2+', 283'"/>
-                            </svg>
-                        </figure>
+                       <chartContainer :datapercent="item.percentage" :itemname="item.name"></chartContainer>
                   </div>
                 </div>
             </div>
@@ -60,44 +53,40 @@
 
 
 
-
-
       <transition enter-class="animated slideInRight" leave-active-class="animated slideOutLeft">
         <div class="row justify-content-center" v-if="checkoutStep == 2" >
             
-            <div class="cartTitle2 col-12 col-md-8">
-                <h1>{{ page.step2 }}</h1>
+            <div class="col-12 col-md-8">
+              <div class="cartTitle2 col-12 col-md-8">
+                  <h1>{{$t('checkout-title-step2')}}</h1>
+              </div>
             </div>
 
             <transition appear enter-active-class="animated slideInRight" leave-active-class="animated slideOutLeft">
-            <div class="shippingOptions col-12 col-md-8">
-              <label class="radioButtonStyle">
-                <input type="radio" id="" value="EXW (Ex Works)" v-model="selectedOs" checked="checked"> 
-                <div class="radioButton"></div>EXW (Ex Works)
-              </label>
-
-               <label class="radioButtonStyle">
-                <input type="radio" id="" value="FOB (Free on Board)" v-model="selectedOs" :checked="checked"> 
-                <div class="radioButton"></div>FOB (Free on Board)
-              </label>
-
-               <label class="radioButtonStyle">
-                <input type="radio" id="" value="C&F (Cost and Freigh)" v-model="selectedOs" :checked="checked"> 
-                <div class="radioButton"></div>C&F (Cost and Freigh)
-              </label>
-            </div>
+               <div class="shippingOptions col-12 col-md-8">
+              <div class=" col-12 col-md-8">
+                <label class="radioButtonStyle" v-for="option in deliveryOptions">
+                    <input type="radio" 
+                            :id="option.id" 
+                            :value="option.name" 
+                            v-model="selectedOs" checked="checked"> 
+                    <div class="radioButton"></div>{{option.name}}
+                </label>
+              </div>
+              </div>
             </transition>
 
             <div class="notes col-12 col-md-8">
-              <h3>Notas</h3>
-              <div class="input_group col-md-9">  
-                  <input id=""
-                          type="text"
-                          name="notes" placeholder=" ">
-                  <label>deixe uma nota na sua encomenda</label>
-                  <span class="bar"></span>
+              <div class="col-12 col-md-8">
+                <h3>{{$t('checkout-notes')}}</h3>
+                <div class="input_group">  
+                    <input id="notesInput"
+                            type="text"
+                            name="notes" placeholder=" ">
+                    <label>{{$t('checkout-notes-placeholder')}}</label>
+                    <span class="bar"></span>
+                </div>
               </div>
-
             </div>
 
         </div>
@@ -105,21 +94,29 @@
 
 
 
-
-
       <transition appear enter-active-class="animated slideInUp delay-1s">
           <div class="row pagecontrols">
-              <a v-if="checkoutStep == 2" @click="checkoutStep = 1" href="javascript:void(0)" class="backlink col-12 col-md-2"><arrowRightIcon />voltar</a>
+              <a   v-if="checkoutStep == 2" 
+                  @click="checkoutStep = 1" href="javascript:void(0)" 
+                  class="backlink col-12 col-md-2"><arrowRightIcon />{{$t('checkout-prev-step')}}</a>
               
               <div class="info" :class="(checkoutStep === 1 ? 'col-12 col-md-9': 'col-12 col-md-6')">
                 <p>
-                  <span class="textUppercase" style="margin-right: 20px"><b>Total </b><span class="textColor">{{totalProducts.generalquantity}} Produtos: </span></span>  
-                  <template v-for="item in totalProducts.categoriesTotal"> {{item.number}} Produtos ({{item.name}}) {{item.dimensions}}m<sup>3</sup></template>
+                  <span class="textUppercase" style="margin-right: 20px">
+                      <b>{{$t('checkout-total')}}</b>
+                      <span class="textColor">
+                          {{totalProducts.generalquantity}} 
+                          {{$tc('checkout-products', totalProducts.generalquantity )}}:</span>
+                  </span>  
+                  <template v-for="item in totalProducts.categoriesTotal"> 
+                      {{item.number}} {{$tc('checkout-products', item.number)}} ({{item.name}}) {{item.dimensions}}m<sup>3</sup>
+                  </template>
                 </p>
               </div>
 
               <a  @click="checkoutStep = 2" href="javascript:void(0)" 
-                  :class="(checkoutStep === 1 ? 'cartLink col-12 col-md-3': 'cartLink col-12 col-md-4')"><arrowRightIcon />continuar</a>
+                  :class="(checkoutStep === 1 ? 'cartLink col-12 col-md-3': 'cartLink col-12 col-md-4')">
+                  <arrowRightIcon />{{$t('checkout-next-step')}}</a>
             
           </div>
       </transition>
@@ -133,6 +130,7 @@ import shareIcon from '@/components/ui/shareButton.vue'
 import modalShare from '@/components/subcomponents/ShareThisModal.vue'
 import modalGallery from '@/components/subcomponents/ModalGallery.vue'
 import removeIcon from '@/components/ui/removeIcon.vue'
+import chartContainer from '@/components/ui/chartContainer.vue'
 
 export default {
   name: 'shoppingCartPage',
@@ -142,7 +140,8 @@ export default {
       cartIcon,
       shareIcon,
       modalShare,
-      modalGallery
+      modalGallery,
+      chartContainer
   }, 
   data() {
     return {
@@ -151,7 +150,8 @@ export default {
         categoryContainers: [],
         containerItems: [],
         totalProducts: '',
-        categoriesTotal: ''
+        categoriesTotal: '',
+        deliveryOptions: []
     }
   },
   mounted() {
@@ -160,10 +160,10 @@ export default {
   created(){
  
         this.$http.get('../mocks/cart-list-mock.json').then(response => {
-            this.page = response.data.page
             this.categoryContainers = response.data.categoryContainers
             this.containerItems = response.data.categoryContainers.containerItems
             this.totalProducts = response.data.totalProducts
+            this.deliveryOptions = response.data.deliveryOptions
         })
   },
   methods: {
@@ -210,14 +210,6 @@ body{margin: 0}
     }
     .uppercase{text-transform: uppercase;font-weight: 400;}
 
-    .containerFull {
-      fill: none;   
-      stroke: #333;
-      stroke-width: 14;
-      stroke-linecap: square;
-      animation: progress .5s ease-out forwards;
-    }
-
 
     .cartTitle h1,
     .cartTitle2 h1{
@@ -256,8 +248,6 @@ body{margin: 0}
         left: -30vw;
         width: 28vw;
     }
-
-
 
     .cartTable{
         background: #F0F0F0;
@@ -322,10 +312,10 @@ body{margin: 0}
           text-decoration: none;
           letter-spacing: 1px;
           padding: 0 50px;
-          -webkit-transition:     all 0.2s ease;
-          -moz-transition:        all 0.2s ease;
-          -o-transition:          all 0.2s ease;
-          transition:             all 0.2s ease;
+          -webkit-transition:     max-width .4s ease, width .4s ease;
+          -moz-transition:        max-width .4s ease, width .4s ease;
+          -o-transition:          max-width .4s ease, width .4s ease;
+          transition:             max-width .4s ease, width .4s ease;
         }
         
         .info{
@@ -372,10 +362,10 @@ body{margin: 0}
                 width: 70px;
                 height: 1px;
                 background: #FFF;
-                -webkit-transition:     all 0.2s ease;
-                -moz-transition:        all 0.2s ease;
-                -o-transition:          all 0.2s ease;
-                transition:             all 0.2s ease;
+                -webkit-transition:     opacity 0.2s ease, left 0.2s ease;
+                -moz-transition:        opacity 0.2s ease, left 0.2s ease;
+                -o-transition:          opacity 0.2s ease, left 0.2s ease;
+                transition:             opacity 0.2s ease, left 0.2s ease;
                 opacity:0;
             }
 
@@ -383,10 +373,10 @@ body{margin: 0}
                 position: absolute;
                 top: 44%;
                 left: 162px;
-                -webkit-transition:     all 0.2s ease;
-                -moz-transition:        all 0.2s ease;
-                -o-transition:          all 0.2s ease;
-                transition:             all 0.2s ease;
+                -webkit-transition:     opacity 0.2s ease, left 0.2s ease;
+                -moz-transition:        opacity 0.2s ease, left 0.2s ease;
+                -o-transition:          opacity 0.2s ease, left 0.2s ease;
+                transition:             opacity 0.2s ease, left 0.2s ease;
                 opacity:0;
 
                 svg *{ stroke: #FFF; }
@@ -414,10 +404,10 @@ body{margin: 0}
                 width: 50px;
                 height: 1px;
                 background: #333;
-                -webkit-transition:     all 0.2s ease;
-                -moz-transition:        all 0.2s ease;
-                -o-transition:          all 0.2s ease;
-                transition:             all 0.2s ease;
+                -webkit-transition:     width 0.2s ease;
+                -moz-transition:        width 0.2s ease;
+                -o-transition:          width 0.2s ease;
+                transition:             width 0.2s ease;
             }
 
             .arrowSlimIcon{
@@ -425,10 +415,10 @@ body{margin: 0}
                 position: absolute;
                 top: 44%;
                 right: 112px;
-                -webkit-transition:     all 0.2s ease;
-                -moz-transition:        all 0.2s ease;
-                -o-transition:          all 0.2s ease;
-                transition:             all 0.2s ease;
+                -webkit-transition:     right 0.2s ease;
+                -moz-transition:        right 0.2s ease;
+                -o-transition:          right 0.2s ease;
+                transition:             right 0.2s ease;
             }
 
             &:hover{

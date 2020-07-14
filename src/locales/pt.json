@@ -63,6 +63,18 @@
 
   "popup-close-here": "Fechar aqui",
   "popup-gallery-prev-slide": "Ir para o slide anterior",
-  "popup-gallery-next-slide": "Ir para o slide seguinte"
+  "popup-gallery-next-slide": "Ir para o slide seguinte",
+
+  "checkout-title-step1": "Lista de Encomenda",
+  "checkout-title-step2": "Condições de Entrega",
+  "checkout-next-step": "continuar",
+  "checkout-prev-step": "voltar",
+
+  "checkout-container": "Contentor | Contentores",
+  "checkout-total": "Total",
+  "checkout-products": " produto | produtos ",
+
+  "checkout-notes": "Notas",
+  "checkout-notes-placeholder": "Deixe uma nota na sua encomenda"
 
 }
