@@ -20,39 +20,43 @@
                                 <label for="cont_name">{{formContact.inputname}}</label>
                                 <span class="bar"></span>
                             </div>
+                            <p class="errormessage" v-if="cont_name_error"> {{cont_name_validator}} </p>
                         </div>
 
                         <div class="col-xs-12 col-sm-6">
-                        <div class="input_group">
-                            <input type="text" 
-                                    v-model="cont_surname"
-                                    id="cont_surname" placeholder=" ">
-                            <label for="cont_surname">{{formContact.inputsurname}}</label>
-                            <span class="bar"></span>
-                        </div>
+                            <div class="input_group">
+                                <input type="text" 
+                                        v-model="cont_surname"
+                                        id="cont_surname" placeholder=" ">
+                                <label for="cont_surname">{{formContact.inputsurname}}</label>
+                                <span class="bar"></span>
+                            </div>
+                            <p class="errormessage" v-if="cont_surname_error"> {{cont_surname_validator}} </p>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-xs-12 col-sm-6">
-                        <div class="input_group">
-                            <input  type="email" 
-                                    v-model="cont_email"
-                                    id="cont_email" placeholder=" ">
-                            <label for="cont_email">{{formContact.inputemail}}</label>
-                            <span class="bar"></span>
-                        </div>
+                            <div class="input_group">
+                                <input  type="email" 
+                                        v-model="cont_email"
+                                        id="cont_email" placeholder=" ">
+                                <label for="cont_email">{{formContact.inputemail}}</label>
+                                <span class="bar"></span>
+                            </div>
+                            <p class="errormessage" v-if="cont_email_error"> {{cont_email_validator}} </p>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-12">
-                        <div class="input_group">
-                            <textarea v-model="cont_message"
-                                        id="cont_message" rows="1" placeholder=" "></textarea>
-                            <label for="cont_message">{{formContact.inputmessage}}</label>
-                            <span class="bar"></span>
-                        </div>
+                            <div class="input_group">
+                                <textarea v-model="cont_message"
+                                            id="cont_message" rows="1" placeholder=" "></textarea>
+                                <label for="cont_message">{{formContact.inputmessage}}</label>
+                                <span class="bar"></span>
+                            </div>
+                            <p class="errormessage" v-if="cont_message_error"> {{cont_message_validator}} </p>
                         </div>
                     </div>
 
@@ -60,6 +64,7 @@
                         <div class="col-xs-12 col-sm-6">
                             <input id="cont_file" type="file">
                             <label for="cont_file" :aria-label="formContact.inputfile"></label>
+                            <p class="errormessage" v-if="cont_file_error"> {{cont_file_validator}} </p>
                         </div>
 
                          <div class="col-xs-12 col-sm-6">
@@ -94,9 +99,20 @@ export default {
             formContact: '',
             errors: [],
             cont_name: '',
+            cont_name_validator: '',
+            cont_name_error: false,
             cont_surname: '',
+            cont_surname_validator: '',
+            cont_surname_error: false,
             cont_email: '',
-            cont_message: ''
+            cont_email_validator: '',
+            cont_email_error: false,
+            cont_message: '',
+            cont_message_validator: '',
+            cont_message_error: false,
+            cont_file: '',
+            cont_file_validator: '',
+            cont_file_error: false,
         }
     },
     created() {
@@ -108,20 +124,17 @@ export default {
         checkContactsForm: function (e) {
             
             e.preventDefault()
-            if(!this.validEmail()) return
+            if(!this.validateForm()) return
             
             const data = { 
-                cont_name: this.cont_name,
-                cont_surname: this.cont_surname,
-                cont_email: this.cont_email,
-                cont_message: this.cont_message
+                cont_name:      this.cont_name,
+                cont_surname:   this.cont_surname,
+                cont_email:     this.cont_email,
+                cont_message:   this.cont_message,
+                cont_file:      this.cont_file
             }
             
-            console.log( "data: "+data )
             var self = this;
-
-            console.log( "self: "+self )
-
             this.$http.post('https://bafdc7b9-222e-4e30-a8ec-f760c186fb05.mock.pstmn.io/subscribe', data).then(response => {
                 this.success = true
                 
@@ -133,60 +146,68 @@ export default {
                 this.errors.push(e.message)
             })
         },
-         validEmail: function () {
+         validateForm: function () {
             
-            if (!this.cont_email) // No email 
-            {
-                this.errors.push('[[Email required.]]');
-                return false
-            } 
+            var hasErrors =             false
+            this.cont_name_error =      false
+            this.cont_surname_error =   false
+            this.cont_email_error =     false
+            this.cont_message_error =   false
+            this.cont_file_error =      false
             
-            const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-            if (re.test(cont_email))
-            {
-                this.errors.push('[[Valid email required.]]');
-                return false
+            if (this.cont_name.length == 0) 
+            { 
+                hasErrors = true
+                this.cont_name_error = true
+                this.cont_name_validator = "Missing field"
             }
-            return true
+
+            if (this.cont_surname.length == 0) 
+            { 
+                hasErrors = true
+                this.cont_surname_error = true
+                this.cont_surname_validator = "Missing field"
+            }
+
+            if (this.cont_email.length == 0) 
+            { 
+                hasErrors = true
+                this.cont_email_error = true
+                this.cont_email_validator = "Missing field"
+            }
+
+            if (this.cont_message.length == 0) 
+            { 
+                hasErrors = true
+                this.cont_message_error = true
+                this.cont_message_validator = "Missing field"
+            }
+
+            if (this.cont_file.length == 0) 
+            { 
+                hasErrors = true
+                this.cont_file_error = true
+                this.cont_file_validator = "Missing field"
+            }
+
+            return !hasErrors
          }
     }
 }
-
-
-// $("input, textarea")
-//         .on("input", function (d) {
-//             if ($(this).val().length > 0) {
-//                 $(this).addClass("edited");
-//             } else {
-//                 $(this).removeClass("edited");
-//             }
-//         })
-//         .each(function () {
-//             if ($(this).val().length > 0) {
-//                 $(this).addClass("edited");
-//             } else {
-//                 $(this).removeClass("edited");
-//             }
-//         });
-//     $(".hasDatepicker")
-//         .blur(function () {
-//             if ($(this).val().length > 0) {
-//                 $(this).addClass("edited");
-//             } else {
-//                 $(this).removeClass("edited");
-//             }
-//         })
-//         .each(function () {
-//             console.log("1");
-//             if ($(this).val().length > 0) {
-//                 $(this).addClass("edited");
-//             } else {
-//                 $(this).removeClass("edited");
-//             }
-//         });
 </script>
 
 <style lang="scss">
 
+.error{
+    border: #FA0B4C;
+}
+.errormessage { 
+    color: #FA0B4C;
+    font-weight: 200;
+    font-size: 14px;
+    position: absolute;
+    left: 15px;
+    bottom: -15px;
+}
 </style>
