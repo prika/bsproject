@@ -13,22 +13,22 @@
                     @submit.prevent="checkLoginForm"
                     method="post" novalidate="true" class="col-12">
 
-                <div class="input_group col-12">  
+                <div class="input_group" :class="(cont_user_error === true ? 'error': '')">  
                     <input id="UserLogin"
                             type="text"
                             name="username"
                             placeholder=" ">
                     <label for="UserLogin">{{accountlogin.inputuser.placeholder}}</label>
-                    <span class="bar"></span>
+                    <p class="errormessage"> [[erro]] </p>
                 </div>
 
-                <div class="input_group col-12">  
+                <div class="input_group" :class="(cont_password_error === true ? 'error': '')">  
                     <input id="PasswordLogin"
                             type="text"
                             name="password"
                             placeholder=" ">
                     <label for="PasswordLogin">{{accountlogin.inputpassword.placeholder}}</label>
-                    <span class="bar"></span>
+                    <p class="errormessage"> [[erro]] </p>
                 </div>
 
                 
@@ -55,7 +55,9 @@ export default {
             inputs: {
                 username: '',
                 password: ''
-            }
+            },
+            cont_user_error: false,
+            cont_password_error: false
         }
     },
     created() {

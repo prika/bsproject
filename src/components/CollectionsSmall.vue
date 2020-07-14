@@ -1,12 +1,12 @@
 <template>
     <div class="container" :style="collectionVariables">
         <div class="row">
-            <a class="collection collection1 col-6">
+            <a class="collection collection1 col-12 col-md-6">
                 <h1 class="pageTitle" :aria-label="$t('home-title-page')"> 
                     Lusi<span>tania</span>
                 </h1>
             </a>
-            <a class="collection collection2 col-6">              
+            <a class="collection collection2 col-12 col-md-6">              
                  <h1 class="pageTitle" :aria-label="$t('home-title-page')" > 
                     Sahu<span>ra</span>
                 </h1>

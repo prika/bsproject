@@ -19,7 +19,6 @@
                                         v-model="cont_name"
                                         id="cont_name" placeholder=" ">
                                 <label for="cont_name">{{formContact.inputname}}</label>
-                                <span class="bar"></span>
                                 <p class="errormessage"> {{cont_name_validator}} </p>
                             </div>
                         </div>
@@ -30,7 +29,6 @@
                                         v-model="cont_surname"
                                         id="cont_surname" placeholder=" ">
                                 <label for="cont_surname">{{formContact.inputsurname}}</label>
-                                <span class="bar"></span>
                                 <p class="errormessage"> {{cont_surname_validator}} </p>
                             </div>
                         </div>
@@ -43,7 +41,6 @@
                                         v-model="cont_email"
                                         id="cont_email" placeholder=" ">
                                 <label for="cont_email">{{formContact.inputemail}}</label>
-                                <span class="bar"></span>
                                 <p class="errormessage"> {{cont_email_validator}} </p>
                             </div>
                         </div>
@@ -55,7 +52,6 @@
                                 <textarea v-model="cont_message"
                                             id="cont_message" rows="1" placeholder=" "></textarea>
                                 <label for="cont_message">{{formContact.inputmessage}}</label>
-                                <span class="bar"></span>
                                 <p class="errormessage"> {{cont_message_validator}} </p>
                             </div>
                         </div>
@@ -147,7 +143,7 @@ export default {
         },
          validateForm: function () {
             
-            var hasErrors =             false
+            var hasErrors =            false
             this.cont_name_error =      false
             this.cont_surname_error =   false
             this.cont_email_error =     false
@@ -185,6 +181,12 @@ export default {
             return !hasErrors
          }
     }
+    // ,
+    // watch: { 
+    //   	cont_name_error: function(newVal, oldVal) { // watch it
+    //       console.log('Prop changed: ', newVal, ' | was: ', oldVal)
+    //     }
+    //   }
 }
 </script>
 

@@ -9,22 +9,18 @@
 
         <transition enter-active-class="animated fadeIn faster" leave-active-class="animated fadeOut faster">
         <div v-if="!success">
-            <div class="input_group col-9">  
+            <div class="input_group col-9" :class="( hasError === true ? 'error': '')">  
                 <input id="emailnewsletter"
                         v-model="email"
                         type="email"
                         name="email"
                         :aria-label="$t('footer-input-email')" placeholder=" ">
                 <label for="emailnewsletter">{{ $t('footer-input-email') }}</label>
-                <span class="bar"></span>
+                <p class="errormessage"> {{ errors }} </p>
             </div>
 
             <input class="button" type="submit" :aria-label="$t('footer-submit-email')">
             
-            <p style="margin-top: 36px; color: red">
-                <!--span v-if="errors">{{ $t('footer-newsletter-error') }}</!span-->
-                <span>{{ errors }}</span>
-            </p>
         </div>
         </transition>
 
@@ -43,6 +39,7 @@ export default {
     data() {
         return {
             errors: '',
+            hasError: false,
             email: '',
             success: false
         }
@@ -72,6 +69,7 @@ export default {
             
             if (!this.email) // No email 
             {
+                this.hasError = true
                 this.errors = '[[Email required.]]'
                 return false
             } 
@@ -80,6 +78,7 @@ export default {
 
             if (!re.test(this.email))
             {
+                this.hasError = true
                 this.errors = '[[Valid email required.]]'
                 return false
             }
