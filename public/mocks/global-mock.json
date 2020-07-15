@@ -142,7 +142,8 @@
         "inputemail": "Email",
         "inputmessage": "Mensagem",
         "inputfile": "Ficheiro",
-        "submit": "Enviar"
+        "submit": "Enviar",
+        "feedbacksuccess": "A sua mensagem foi enviada com sucesso!<br><br>Em breve entraremos em contacto."
     },
     "faqs": {
        "title": "Perguntas frequentes",
