@@ -15,11 +15,10 @@
             <div>   <!-- v-if="!success" -->
                 <p v-html="accountregister.subtitle">{{accountregister.subtitle}}</p>
 
-                <form  id="recovery"
-                        @submit.prevent="checkFormRecovery"
-                        novalidate="true">
+                <transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut">
+                <form  id="register"
+                        @submit.prevent="checkFormRegister">
 
-                    <transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut">
                         <div class="row">
 
                             <div class="col-12 col-md-6">
@@ -27,52 +26,105 @@
                                     <input id="inputname"
                                             v-model="inputname"
                                             type="text"
-                                            name="inputname"
+                                            required name="name" autocomplete="name" autofocus
                                             :aria-label="accountregister.inputname.placeholder" placeholder=" ">
                                     <label for="inputname">{{accountregister.inputname.placeholder}}</label>
                                     <span class="bar"></span>
                                 </div>
+                            </div>
 
-                                
+                             <div class="col-12 col-md-6">  
+                                <div class="input_group">  
+                                    <input id="inputsurname"
+                                            v-model="inputsurname"
+                                            type="text"
+                                            required name="lname" autocomplete="family-name"
+                                            :aria-label="accountregister.inputsurname.placeholder" placeholder=" ">
+                                    <label for="inputsurname">{{accountregister.inputsurname.placeholder}}</label>
+                                    <span class="bar"></span>
+                                </div>
+                            </div>
 
+                            <div class="col-12 col-md-6">
                                 <div class="input_group">  
                                     <input id="inputphone"
                                             v-model="inputphone"
-                                            type="text"
-                                            name="inputphone"
+                                            type="tel"
+                                            pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                                            required name="phone" autocomplete="tel"
                                             :aria-label="accountregister.inputphone.placeholder" placeholder=" ">
                                     <label for="inputphone">{{accountregister.inputphone.placeholder}}</label>
                                     <span class="bar"></span>
                                 </div>
+                            </div>
+
+                             <div class="col-12 col-md-6">  
+                                <div class="input_group">  
+                                    <input id="inputcompany"
+                                            v-model="inputcompany"
+                                            type="text"
+                                            name="inputcompany"
+                                            :aria-label="accountregister.inputcompany.placeholder" placeholder=" ">
+                                    <label for="inputcompany">{{accountregister.inputcompany.placeholder}}</label>
+                                    <span class="bar"></span>
+                                </div>
+                            </div>
 
 
+                            <div class="col-12 col-md-6">
                                 <div class="input_group">  
                                     <input id="inputemail"
                                             v-model="inputemail"
                                             type="email"
-                                            name="inputemail"
+                                            required name="email" autocomplete="email"
                                             :aria-label="accountregister.inputemail.placeholder" placeholder=" ">
                                     <label for="inputemail">{{accountregister.inputemail.placeholder}}</label>
                                     <span class="bar"></span>
                                 </div>
+                            </div>
 
-                                
+                             <div class="col-12 col-md-6">  
+                                <div class="input_group">  
+                                    <input id="inputemailconfirm"
+                                            v-model="inputemailconfirm"
+                                            type="email"
+                                            required name="email" autocomplete="email"
+                                            :aria-label="accountregister.inputemailconfirm.placeholder" placeholder=" ">
+                                    <label for="inputemailconfirm">{{accountregister.inputemailconfirm.placeholder}}</label>
+                                    <span class="bar"></span>
+                                </div>
+                            </div>
 
+                            <div class="col-12 col-md-6">   
                                 <div class="input_group">  
                                     <input id="inputpassword"
                                             v-model="inputpassword"
-                                            type="password"
-                                            name="inputpassword"
+                                            type="password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"
+                                            required name="password" autocomplete="new-password"
                                             :aria-label="accountregister.inputpassword.placeholder" placeholder=" ">
                                     <label for="inputpassword">{{accountregister.inputpassword.placeholder}}</label>
                                     <span class="bar"></span>
                                 </div>
+                            </div>
+
+                             <div class="col-12 col-md-6">  
+                                <div class="input_group">  
+                                    <input id="inputpasswordconfirm"
+                                            v-model="inputpasswordconfirm"
+                                            type="password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"
+                                            required name="password" autocomplete="new-password"
+                                            :aria-label="accountregister.inputpasswordconfirm.placeholder" placeholder=" ">
+                                    <label for="inputpasswordconfirm">{{accountregister.inputpasswordconfirm.placeholder}}</label>
+                                    <span class="bar"></span>
+                                </div>
+                            </div>
 
                                 
-
+                            <div class="col-12 col-md-6">
                                 <div class="input_group">  
                                     <select id="inputcountry"
-                                            v-model="inputcountry" name="inputcountry"
+                                            v-model="inputcountry" 
+                                            required name="country" autocomplete="country"
                                             :aria-label="accountregister.inputcountry.placeholder" placeholder=" ">
                                         <option>Portugal</option>
                                         <option>Portugal</option>
@@ -84,49 +136,9 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 col-md-6">  
-                                <div class="input_group">  
-                                    <input id="inputsurname"
-                                            v-model="inputsurname"
-                                            type="text"
-                                            name="inputsurname"
-                                            :aria-label="accountregister.inputsurname.placeholder" placeholder=" ">
-                                    <label for="inputsurname">{{accountregister.inputsurname.placeholder}}</label>
-                                    <span class="bar"></span>
-                                </div>
+                        </div>
 
-                                <div class="input_group">  
-                                    <input id="inputcompany"
-                                            v-model="inputcompany"
-                                            type="text"
-                                            name="inputcompany"
-                                            :aria-label="accountregister.inputcompany.placeholder" placeholder=" ">
-                                    <label for="inputcompany">{{accountregister.inputcompany.placeholder}}</label>
-                                    <span class="bar"></span>
-                                </div>
-
-                                <div class="input_group">  
-                                    <input id="inputemailconfirm"
-                                            v-model="inputemailconfirm"
-                                            type="email"
-                                            name="inputemailconfirm"
-                                            :aria-label="accountregister.inputemailconfirm.placeholder" placeholder=" ">
-                                    <label for="inputemailconfirm">{{accountregister.inputemailconfirm.placeholder}}</label>
-                                    <span class="bar"></span>
-                                </div>
-
-                                <div class="input_group">  
-                                    <input id="inputpasswordconfirm"
-                                            v-model="inputpasswordconfirm"
-                                            type="password"
-                                            name="inputpasswordconfirm"
-                                            :aria-label="accountregister.inputpasswordconfirm.placeholder" placeholder=" ">
-                                    <label for="inputpasswordconfirm">{{accountregister.inputpasswordconfirm.placeholder}}</label>
-                                    <span class="bar"></span>
-                                </div>
-                            </div>
-
-
+                        <div class="row">  
                             <div class="col-12 col-md-6">  
                                 <p style="margin-top: 36px; color: red">
                                     <span> {{accountregister.inputname.errors}} </span>
@@ -140,9 +152,9 @@
                             </div>
 
                         </div>
-                    </transition>
-
+                
                 </form>
+                 </transition>
             </div>
             <!-- </transition-->
 

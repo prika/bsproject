@@ -180,7 +180,7 @@
         },
         "inputpassword": {
             "placeholder": "password", 
-            "errors": "Introduza um endereço de e-mail válido."
+            "errors": "Introduza uma palavra-chave válida."
         },
         "submit": "login",
         "success": "O seu pedido de recuperação de palavra-chave foi submetido com sucesso. <br> Verifique o seu email por favor. <br> <br> Caso não consiga encontrar sugerimos que verifique na Caixa de Spam.",

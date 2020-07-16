@@ -10,11 +10,10 @@
                 <form id="contact"
                     @submit.prevent="checkContactsForm"
                     method="post"
-                    novalidate="true" v-if="!success">
+                    v-if="!success">
 
                     <div class="row">
                         <div class="col-xs-12 col-sm-6">
-
                             <div class="input_group" :class="(cont_name_error === true ? 'error': '')">
                                 <input type="text" required
                                         v-model.lazy="cont_name"
@@ -127,7 +126,7 @@ export default {
             
             e.preventDefault()
             if(!this.validateForm()) return
-            if(!this.validEmail()) return
+            
             
             const data = { 
                 cont_name:      this.cont_name,
@@ -179,6 +178,8 @@ export default {
                 hasErrors = true
                 this.cont_email_error = true
                 this.cont_email_validator = "Email necessário"
+
+                if(!this.validEmail()) return
             }
 
             if (this.cont_message === '') 
@@ -188,12 +189,29 @@ export default {
                 this.cont_message_validator = "Mensagem de preenchimento obrigatório"
             }
 
-            if (this.cont_file.files.size > 1024 * 1024) 
-            {   
-                alert( this.cont_file.files.size  )
-                hasErrors = true
-                this.cont_file_error = true
-                this.cont_file_validator = "File too big (> 1MB)"
+
+            var FS = document.getElementById("cont_file");
+            var files = FS.files;
+
+            if ( files.length > 0) 
+            {  
+                if ( files[0].size > 75 * 1024 ) { // Check the constraint
+                    //FS.setCustomValidity("Teste The selected file must not be larger than 75 kB");
+                    hasErrors = true
+                    this.cont_file_error = true
+                    this.cont_file_validator = "The selected file must not be larger than 75 kB"
+                    return;
+                }
+
+                 if ( files[0].size < 1024 * 1024 * 2 ) { // Check the constraint
+                    //FS.setCustomValidity("File too big (> 1MB)");
+                    hasErrors = true
+                    this.cont_file_error = true
+                    this.cont_file_validator = "File too big (> 2MB)"
+                    return;
+                }
+
+                FS.setCustomValidity("");
             }
 
             return !hasErrors

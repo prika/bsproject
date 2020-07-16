@@ -328,17 +328,6 @@ header  {
   float: left;
   width: 100%;
 
-    &:before{
-        position: absolute;
-        content: '';
-        height: 1px;
-        width: 100%;
-        padding: 0 10px;
-        bottom: 0;
-        background: #333;
-    }
-
-
     input[type=text],
     input[type=email], 
     input[type=password],
@@ -351,14 +340,17 @@ header  {
         -webkit-appearance: none;
         -moz-appearance: none;
         border-radius: 0;
-        border: none;
+        border: 0;
         background: none;
         display: block;
         padding: 10px 0;
         width: 100%;
         font-size: 1em;
+        border-bottom: 1px solid #333;
         
-        &:focus { outline: none; }
+        //&:invalid { border-color: #FA0B4C;}
+        &:focus { border-color: #333; outline: none; }
+       
     }
 
     select {
@@ -507,9 +499,10 @@ header  {
     font-weight: 200;
     font-size: 14px;
     position: absolute;
-    left: 0;
-    bottom: -40px;
+    left: 84px;
+    bottom: -18px;
     opacity: 0;
+    width: 100%;
   }
 
   &.error{
@@ -519,29 +512,17 @@ header  {
 
 }
 
-input[type="file" i] {
-  text-align: right !important;
-}
-
-
-
 .revertColor .input_group {
   padding: 0;
-  color: $white;
+  color: #FFF;
 
   input{
     border: none;
     outline: 0;
     color: #FFF;
+    border-bottom: 1px solid #FFF!important;
   }
-
-  &::before,
-  & .bar::before{ background: #fff; }
 }
-
-
-
-
 
 
 

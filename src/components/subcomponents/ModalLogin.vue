@@ -11,31 +11,31 @@
 
             <form   id="login" 
                     @submit.prevent="checkLoginForm"
-                    method="post" novalidate="true" class="col-12">
+                    method="post" class="col-12">
 
                 <div class="input_group" :class="(cont_user_error === true ? 'error': '')">  
-                    <input id="UserLogin"
-                            type="text"
-                            name="username"
+                    <input  id="UserLogin"
+                            type="email"
+                            required name="email" autocomplete="email" autofocus
                             placeholder=" ">
                     <label for="UserLogin">{{accountlogin.inputuser.placeholder}}</label>
-                    <p class="errormessage"> [[erro]] </p>
+                    <p class="errormessage">{{cont_user_validator}}</p>
                 </div>
 
                 <div class="input_group" :class="(cont_password_error === true ? 'error': '')">  
                     <input id="PasswordLogin"
-                            type="text"
-                            name="password"
+                            type="password"
+                            required name="password" autocomplete="current-password"
                             placeholder=" ">
                     <label for="PasswordLogin">{{accountlogin.inputpassword.placeholder}}</label>
-                    <p class="errormessage"> [[erro]] </p>
+                    <p class="errormessage">{{cont_password_validator}}</p>
                 </div>
 
                 
                 <router-link to="/auth/recovery" class="passwordRecoveryLink col-12">{{accountlogin.recoveryLink}}</router-link>
                 <router-link to="/auth/register" class="accountRegisterLink col-12">{{accountlogin.registerLink}}</router-link>
 
-                <button class="loginLink" type="button" v-on:click="login()">{{accountlogin.submit}}</button>
+                <input class="loginLink" type="submit">{{accountlogin.submit}}</input>
             </form>
         </div>
     </div>
@@ -51,13 +51,26 @@ export default {
     },
     data() {
         return {
-            accountlogin: '',
-            inputs: {
-                username: '',
-                password: ''
+            accountlogin: {
+                title: '',
+                subtitle: '',
+                inputuser: {
+                    placeholder: '',
+                    errors: ''
+                },
+                inputpassword: {
+                    placeholder: '',
+                    errors: ''
+                }
             },
+            cont_user: '',
+            cont_password: '',
             cont_user_error: false,
-            cont_password_error: false
+            cont_password_error: false,
+            cont_user_validator: '',
+            cont_password_validator: '',
+            success: false
+            
         }
     },
     created() {
@@ -66,23 +79,72 @@ export default {
         })
     },
     methods: {
-        checkLoginForm(){
+        checkLoginForm: function (e) {
+
+            e.preventDefault()
+            if(!this.validateForm()) return
+
+            const data = { 
+                cont_user:      this.cont_user,
+                cont_password:  this.cont_password
+            }
+
+            var self = this;
+            this.$http.post('https://bafdc7b9-222e-4e30-a8ec-f760c186fb05.mock.pstmn.io/subscribe', data).then(response => {
+                
+                this.success = true
+                
+                setTimeout(function(){
+                    self.success = false
+                }, 5000)
+
+            }).catch((e) => {
+                this.errors.push(e.message)
+            })
+        },
+        validateForm: function () {
+            
+            var hasErrors =             false
+            this.cont_user_error =      false
+            this.cont_password_error =  false
+
+
+            if( this.cont_user === "" ) {
+
+                hasErrors = true
+                this.cont_user_error = true
+                this.cont_user_validator = this.accountlogin.inputuser.errors
+            }
+
+            if( this.cont_password === "" ) {
+                
+                hasErrors = true
+                this.cont_password_error = true
+                this.cont_password_validator = this.accountlogin.inputpassword.errors
+
+            }
+
+            return !hasErrors
 
         },
         login() {
             
-            // if(this.input.username != "" && this.input.password != "") {
-            //     if(this.input.username == this.$parent.mockAccount.username && this.input.password == this.$parent.mockAccount.password) {
-            //         this.$emit("authenticated", true);
-            //         this.$router.replace({ name: "secure" });
-            //     } else {
-            //         console.log("The username and / or password is incorrect");
-            //     }
-            // } else {
-            //     console.log("A username and password must be present");
-            // }
+            console.log('login')
+            
+            const userId = '123'
+            router.push({ path: '/auth/account', params: { userId } }) // -> /user
+            
+// {
+//     if(this.cont_user == this.$parent.mockAccount.username && this.cont_password == this.$parent.mockAccount.password) {
+//         this.$emit("authenticated", true);
+//         this.$router.replace({ name: "secure" });
+//     } else {
 
-            // to="/auth/account"
+//         console.log("The username and / or password is incorrect");
+//     }
+// } else {
+    
+// }
         }
     }
 }

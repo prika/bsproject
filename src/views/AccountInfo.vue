@@ -24,8 +24,7 @@
                 <p v-html="accountinfo.subtitle">{{accountinfo.subtitle}}</p>
 
                 <form  id="recovery"
-                        @submit.prevent="checkFormRecovery"
-                        novalidate="true">
+                        @submit.prevent="checkFormRecovery">
 
                     <transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut">
                         <div class="row">

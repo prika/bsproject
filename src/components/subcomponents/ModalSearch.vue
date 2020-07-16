@@ -13,7 +13,7 @@
           <div class="col-6 clearfix">  
               <input id="search"
                       placeholder="Pesquisar"
-                      type="text"
+                      type="search"
                       name="searchInput"
                       v-model="searchText"
                       @input="onTextInputChanged">

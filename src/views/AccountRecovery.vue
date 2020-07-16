@@ -16,8 +16,7 @@
                 <p v-html="accountrecovery.subtitle">{{accountrecovery.subtitle}}</p>
 
                 <form  id="recovery"
-                        @submit.prevent="checkFormRecovery"
-                        novalidate="true">
+                        @submit.prevent="checkFormRecovery">
 
                     <transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut">
                         <div class="row d-flex align-items-center">
@@ -26,7 +25,7 @@
                                     <input id="emailrecovery"
                                             v-model="email"
                                             type="email"
-                                            name="email"
+                                            required name="email" autocomplete="email"
                                             :aria-label="accountrecovery.input.placeholder" placeholder=" ">
                                     <label for="emailrecovery">{{accountrecovery.input.placeholder}}</label>
                                     <span class="bar"></span>

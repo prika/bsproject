@@ -4,8 +4,7 @@
     <h1>  {{ $t('footer-sub-text-newsletter') }} </h1>
     <form
         id="newsletter"
-        @submit.prevent="checkForm"
-        novalidate="true">
+        @submit.prevent="checkForm">
 
         <transition enter-active-class="animated fadeIn faster" leave-active-class="animated fadeOut faster">
         <div v-if="!success">
@@ -58,7 +57,7 @@ export default {
                 
                 setTimeout(function(){
                     self.success = false
-                }, 2500)
+                }, 5000)
 
             }).catch((e) => {
                 this.errors = e.message
