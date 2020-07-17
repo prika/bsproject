@@ -384,17 +384,20 @@ header  {
     select:active,
     input:not(:placeholder-shown),
     textarea:not(:placeholder-shown) {
-      
+  
       ~ label{
         top: -14px;
         font-size: 13px;
         font-weight: 600;
       }
+    }
 
-      // ~ .bar:before {
-      //   //background: #fff;
-      //   width: 100%;
-      // }
+    input:disabled,
+    textarea:disabled,
+    select:disabled{
+        border-color: #999999;
+
+        ~ label{ color: #999999 }
     }
 
     .errormessage{
@@ -409,8 +412,14 @@ header  {
 
     &.error{
 
-      &:before{
-        background: #FA0B4C;
+      input[type=text],
+      input[type=email], 
+      input[type=password],
+      input[type=tel], 
+      input[type=search],
+      textarea,
+      select{
+        border-bottom: 1px solid #FA0B4C!important;
       }
 
       .errormessage {
@@ -419,9 +428,6 @@ header  {
 
     }
 }
-
-// input file
-
 
 .input_file_group{
   position: relative;

@@ -9,52 +9,38 @@
             </transition>
 
             <h1 v-html="accountrecovery.title">{{accountrecovery.title}}</h1>
-            
-           
-           <!--transition enter-active-class="animated fadeIn faster" leave-active-class="animated fadeOut faster">-->
-            <div>   <!-- v-if="!success" -->
-                <p v-html="accountrecovery.subtitle">{{accountrecovery.subtitle}}</p>
+            <p  v-if="!success" v-html="accountrecovery.subtitle">{{accountrecovery.subtitle}}</p>
 
-                <form  id="recovery"
+            <transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut">
+                <form  id="recovery" v-if="!success"
                         @submit.prevent="checkFormRecovery">
 
-                    <transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut">
-                        <div class="row d-flex align-items-center">
-                            <div class="col-12 col-md-7">  
-                                <div class="input_group">  
-                                    <input id="emailrecovery"
-                                            v-model="email"
-                                            type="email"
-                                            required name="email" autocomplete="email"
-                                            :aria-label="accountrecovery.input.placeholder" placeholder=" ">
-                                    <label for="emailrecovery">{{accountrecovery.input.placeholder}}</label>
-                                    <span class="bar"></span>
-                                </div>
+                    <div class="row d-flex align-items-center">
+                        <div class="col-12 col-md-7">  
+                            <div class="input_group" :class="(cont_email_recovery_error === true ? 'error': '')">  
+                                <input id="emailrecovery"
+                                        type="email"
+                                        v-model.lazy="emailrecovery"
+                                        name="email" autocomplete="email"
+                                        :aria-label="accountrecovery.input.placeholder" placeholder=" ">
+                                <label for="emailrecovery">{{accountrecovery.input.placeholder}}</label>
+                                <p class="errormessage">{{cont_email_recovery_validator}}</p>
                             </div>
-
-                            <div class="col-12 col-md-6">  
-                                <p style="margin-top: 36px; color: red">
-                                    <!--span v-if="errors">{{ $t('footer-newsletter-error') }}</!span-->
-                                    <span> {{accountrecovery.input.errors}} </span>
-                                </p>
-                            </div>
-
-                            <div class="col-12 col-md-6">
-                                <button class="button submitButton" :aria-label="accountrecovery.submit">
-                                    <submitIcon>{{accountrecovery.submit}}</submitIcon>
-                                </button>
-                            </div>
-
                         </div>
-                    </transition>
 
+                        <div class="col-12 col-md-7">
+                            <button class="button submitButton" :aria-label="accountrecovery.submit">
+                                <submitIcon>{{accountrecovery.submit}}</submitIcon>
+                            </button>
+                        </div>
+
+                    </div>
                 </form>
-            </div>
-            <!-- </transition-->
-
+            
+            </transition>
 
             <transition enter-active-class="animated fadeIn faster" leave-active-class="animated fadeOut faster">
-                <div class=""> <!-- v-if="success"-->
+                <div v-if="success">
                     <p v-html="accountrecovery.success">{{accountrecovery.success}}</p>
                 </div>
             </transition>
@@ -74,13 +60,64 @@ export default {
     },
     data() {
         return {
-            accountrecovery: ''
+            accountrecovery: {
+                title: '',
+                subtitle: '',
+                input: {
+                    placeholder: '',
+                    errors: ''
+                },
+                submit: '',
+                success: ''
+            },
+            success: false,
+            cont_email_recovery: '',
+            cont_email_recovery_validator: '',
+            cont_email_recovery_error: false
         }
     },
     created(){
         this.$http.get('../mocks/global-mock.json').then(response => {
             this.accountrecovery = response.data.accountrecovery
         })
+    },
+    methods: {
+        checkFormRecovery: function (e) {
+
+            e.preventDefault()
+            if(!this.validateForm()) return
+
+            const data = { 
+                cont_email_recovery:      this.cont_email_recovery,
+            }
+
+            var self = this;
+            this.$http.post('https://bafdc7b9-222e-4e30-a8ec-f760c186fb05.mock.pstmn.io/subscribe', data).then(response => {
+                
+                this.success = true
+                
+                setTimeout(function(){
+                    self.success = false
+                }, 5000)
+
+            }).catch((e) => {
+                this.errors.push(e.message)
+            })
+        },
+        validateForm: function () {
+            
+            var hasErrors =                         false
+            this.cont_email_recovery_error =        false
+
+            if( this.cont_email_recovery === "" ) {
+
+                hasErrors = true
+                this.cont_email_recovery_error = true
+                this.cont_email_recovery_validator = "Campo de preenchimento obrigatório"
+            }
+
+            return !hasErrors
+        }
     }
 }
 </script>

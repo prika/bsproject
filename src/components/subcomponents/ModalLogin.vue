@@ -16,7 +16,7 @@
                 <div class="input_group" :class="(cont_user_error === true ? 'error': '')">  
                     <input  id="UserLogin"
                             type="email"
-                            required name="email" autocomplete="email" autofocus
+                            name="email" autocomplete="email"
                             placeholder=" ">
                     <label for="UserLogin">{{accountlogin.inputuser.placeholder}}</label>
                     <p class="errormessage">{{cont_user_validator}}</p>
@@ -25,7 +25,7 @@
                 <div class="input_group" :class="(cont_password_error === true ? 'error': '')">  
                     <input id="PasswordLogin"
                             type="password"
-                            required name="password" autocomplete="current-password"
+                            name="password" autocomplete="current-password"
                             placeholder=" ">
                     <label for="PasswordLogin">{{accountlogin.inputpassword.placeholder}}</label>
                     <p class="errormessage">{{cont_password_validator}}</p>
@@ -33,9 +33,12 @@
 
                 
                 <router-link to="/auth/recovery" class="passwordRecoveryLink col-12">{{accountlogin.recoveryLink}}</router-link>
+
+                <router-link to="/auth/account" class="passwordRecoveryLink col-12">Account settings</router-link>
+
                 <router-link to="/auth/register" class="accountRegisterLink col-12">{{accountlogin.registerLink}}</router-link>
 
-                <input class="loginLink" type="submit">{{accountlogin.submit}}</input>
+                <button class="loginLink" type="submit" form="login">{{accountlogin.submit}}</button>
             </form>
         </div>
     </div>
@@ -134,17 +137,17 @@ export default {
             const userId = '123'
             router.push({ path: '/auth/account', params: { userId } }) // -> /user
             
-// {
-//     if(this.cont_user == this.$parent.mockAccount.username && this.cont_password == this.$parent.mockAccount.password) {
-//         this.$emit("authenticated", true);
-//         this.$router.replace({ name: "secure" });
-//     } else {
+            // {
+            //     if(this.cont_user == this.$parent.mockAccount.username && this.cont_password == this.$parent.mockAccount.password) {
+            //         this.$emit("authenticated", true);
+            //         this.$router.replace({ name: "secure" });
+            //     } else {
 
-//         console.log("The username and / or password is incorrect");
-//     }
-// } else {
-    
-// }
+            //         console.log("The username and / or password is incorrect");
+            //     }
+            // } else {
+                
+            // }
         }
     }
 }

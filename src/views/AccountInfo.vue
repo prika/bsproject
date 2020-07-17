@@ -16,92 +16,95 @@
             
 
             <div class="col-12 col-md-12 order-3">
-            <h1 v-html="accountinfo.title">{{accountinfo.title}}</h1>
-            
-           
-           <!--transition enter-active-class="animated fadeIn faster" leave-active-class="animated fadeOut faster">-->
-            <div>   <!-- v-if="!success" -->
-                <p v-html="accountinfo.subtitle">{{accountinfo.subtitle}}</p>
+                <h1 v-html="accountinfo.title">{{accountinfo.title}}</h1>
 
-                <form  id="recovery"
+                <p v-if="!success" v-html="accountinfo.subtitle">{{accountinfo.subtitle}}</p>
+
+                <form  v-if="!success" id="recovery"
                         @submit.prevent="checkFormRecovery">
 
                     <transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut">
                         <div class="row">
 
                             <div class="col-12 col-md-6">
-                                <div class="input_group">  
-                                    <input id="inputname"
-                                            v-model="inputname"
+                                <div class="input_group" :class="(cont_name_account_error === true ? 'error': '')"> 
+                                    <input id="cont_name_account"
                                             type="text"
-                                            name="inputname"
+                                            name="name" autocomplete="name"
                                             :aria-label="accountinfo.inputname.placeholder" placeholder=" ">
-                                    <label for="inputname">{{accountinfo.inputname.placeholder}}</label>
-                                    <span class="bar"></span>
-                                </div>
-
-                                <div class="input_group">  
-                                    <input id="inputphone"
-                                            v-model="inputphone"
-                                            type="text"
-                                            name="inputphone"
-                                            :aria-label="accountinfo.inputphone.placeholder" placeholder=" ">
-                                    <label for="inputphone">{{accountinfo.inputphone.placeholder}}</label>
-                                    <span class="bar"></span>
-                                </div>
-
-                                <div class="input_group">  
-                                    <input id="inputpassword"
-                                            v-model="inputpassword"
-                                            type="password"
-                                            name="inputpassword"
-                                            :aria-label="accountinfo.inputpassword.placeholder" placeholder=" ">
-                                    <label for="inputpassword">{{accountinfo.inputpassword.placeholder}}</label>
-                                    <span class="bar"></span>
+                                    <label for="cont_name_account">{{accountinfo.inputname.placeholder}}</label>
+                                    <!--p class="errormessage"> {{cont_name_account_validator}} </p-->
                                 </div>
                             </div>
 
                             <div class="col-12 col-md-6">  
-                                <div class="input_group">  
-                                    <input id="inputsurname"
+                                <div class="input_group" :class="(cont_surname_account_error === true ? 'error': '')">  
+                                    <input id="cont_surname_account"
                                             v-model="inputsurname"
                                             type="text"
-                                            name="inputsurname"
+                                            name="lname" autocomplete="family-name"
                                             :aria-label="accountinfo.inputsurname.placeholder" placeholder=" ">
-                                    <label for="inputsurname">{{accountinfo.inputsurname.placeholder}}</label>
-                                    <span class="bar"></span>
+                                    <label for="cont_surname_account">{{accountinfo.inputsurname.placeholder}}</label>
+                                    <!--p class="errormessage"> {{cont_surname_account_validator}} </p-->
                                 </div>
+                            </div>
 
-                                <div class="input_group">  
-                                    <select id="inputcountry"
-                                            v-model="inputcountry" name="inputcountry"
+                            <div class="col-12 col-md-6">
+                                <div class="input_group" :class="(cont_phone_account_error === true ? 'error': '')">  
+                                    <input id="cont_phone_account"
+                                            v-model="inputphone"
+                                            type="text"
+                                            name="phone" autocomplete="tel"
+                                            :aria-label="accountinfo.inputphone.placeholder" placeholder=" ">
+                                    <label for="cont_phone_account">{{accountinfo.inputphone.placeholder}}</label>
+                                    <!--p class="errormessage"> {{cont_phone_account_validator}} </p-->
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-md-6"></div>
+
+                            <div class="col-12 col-md-6">
+                                <div class="input_group" :class="(cont_password_account_error === true ? 'error': '')">  
+                                    <input id="cont_password_account"
+                                            v-model="inputpassword"
+                                            type="password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"
+                                            name="password" autocomplete="new-password"
+                                            :aria-label="accountinfo.inputpassword.placeholder" placeholder=" ">
+                                    <label for="cont_password_account">{{accountinfo.inputpassword.placeholder}}</label>
+                                    <!--p class="errormessage"> {{cont_password_account_validator}} </p-->
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-md-6">
+                                <div class="input_group" :class="(cont_password_confirm_account_error === true ? 'error': '')">  
+                                    <input id="cont_password_confirm_account"
+                                            v-model="inputpasswordconfirm"
+                                            type="password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"
+                                            name="password" autocomplete="new-password"
+                                            :aria-label="accountinfo.inputpasswordconfirm.placeholder" placeholder=" ">
+                                    <label for="cont_password_confirm_account">{{accountinfo.inputpasswordconfirm.placeholder}}</label>
+                                    <!--p class="errormessage"> {{cont_password_confirm_account_validator}} </p-->
+                                </div>
+                            </div>
+
+                            
+                            <div class="col-12 col-md-6">  
+                                <div class="input_group" :class="(cont_country_account_error === true ? 'error': '')">
+                                    <select id="cont_country_account"
+                                            name="country" autocomplete="country"
                                             :aria-label="accountinfo.inputcountry.placeholder" placeholder=" ">
                                         <option>Portugal</option>
                                         <option>Portugal</option>
                                         <option>Portugal</option>
                                         <option>Portugal</option>
                                     </select>
-                                    <label for="inputcountry">{{accountinfo.inputcountry.placeholder}}</label>
-                                    <span class="bar"></span>
-                                </div>
-
-                                <div class="input_group">  
-                                    <input id="inputpasswordconfirm"
-                                            v-model="inputpasswordconfirm"
-                                            type="password"
-                                            name="inputpasswordconfirm"
-                                            :aria-label="accountinfo.inputpasswordconfirm.placeholder" placeholder=" ">
-                                    <label for="inputpasswordconfirm">{{accountinfo.inputpasswordconfirm.placeholder}}</label>
-                                    <span class="bar"></span>
+                                    <label for="cont_country_account">{{accountinfo.inputcountry.placeholder}}</label>
+                                    <!--p class="errormessage"> {{cont_country_account_validator}} </p-->
                                 </div>
                             </div>
-
-
-                            <div class="col-12 col-md-6">  
-                                <p style="margin-top: 36px; color: red">
-                                    <span> {{accountinfo.inputname.errors}} </span>
-                                </p>
-                            </div>
+                            
+                            <div class="col-12 col-md-6"></div>
+                            <div class="col-12 col-md-6"></div>
 
                             <div class="col-12 col-md-6">
                                 <button class="button submitButton" :aria-label="accountinfo.submit">
@@ -111,16 +114,11 @@
 
                         </div>
                     </transition>
-
                 </form>
-            </div>
-            <!-- </transition-->
             </div>
 
             <transition enter-active-class="animated fadeIn faster" leave-active-class="animated fadeOut faster">
-                <div class=""> <!-- v-if="success"-->
-                    <p v-html="accountinfo.success">{{accountinfo.success}}</p>
-                </div>
+                <p v-if="success" v-html="accountinfo.success">{{accountinfo.success}}</p>
             </transition>
         </div>
     </div>
@@ -138,7 +136,59 @@ export default {
     },
     data() {
         return {
-            accountinfo: ''
+            accountinfo: {
+                title: '',
+                subtitle: '',
+                inputname: {
+                    placeholder: '', 
+                    errors: ''
+                },
+                inputsurname: {
+                    placeholder: '', 
+                    errors: ''
+                 },
+                inputphone: {
+                    placeholder: '', 
+                    errors: ''
+                },
+                inputpassword: {
+                    placeholder: '', 
+                    errors: ''
+                },
+                inputpasswordconfirm: {
+                    placeholder: '',
+                    errors: ''
+                },
+                inputcountry: {
+                    placeholder: '', 
+                    errors: ''
+                },
+                submit: '',
+                success: ''
+            },
+            cont_name_account: '',
+            cont_name_account_validator: '',
+            cont_name_account_error: false,
+            cont_surname_account: '',
+            cont_surname_account_validator: '',
+            cont_surname_account_error: false,
+
+
+            cont_phone_account: '',
+            cont_phone_account_validator: '',
+            cont_phone_account_error: false,
+            cont_password_account: '',
+            cont_password_account_validator: '',
+            cont_password_account_error: false,
+            cont_password_confirm_account: '',
+            cont_password_confirm_account_validator: '',
+            cont_password_confirm_account_error: false,
+
+            cont_country_account: '',
+            cont_country_account_validator: '',
+            cont_country_account_error: false,
+
+            success: false
         }
     },
     created(){
