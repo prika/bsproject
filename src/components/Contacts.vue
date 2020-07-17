@@ -14,8 +14,8 @@
 
                     <div class="row">
                         <div class="col-xs-12 col-sm-6">
-                            <div class="input_group" :class="(cont_name_error === true ? 'error': '')">
-                                <input type="text" required
+                            <div class="input_group" :class="(cont_name_error ? 'error': '')">
+                                <input type="text" 
                                         v-model.lazy="cont_name"
                                         id="cont_name" placeholder=" ">
                                 <label for="cont_name">{{formContact.inputname}}</label>
@@ -24,8 +24,8 @@
                         </div>
 
                         <div class="col-xs-12 col-sm-6">
-                            <div class="input_group" :class="(cont_surname_error === true ? 'error': '')">
-                                <input type="text" required
+                            <div class="input_group" :class="(cont_surname_error ? 'error': '')">
+                                <input type="text" 
                                         v-model.lazy="cont_surname"
                                         id="cont_surname" placeholder=" ">
                                 <label for="cont_surname">{{formContact.inputsurname}}</label>
@@ -36,8 +36,8 @@
 
                     <div class="row">
                         <div class="col-xs-12 col-sm-6">
-                            <div class="input_group" :class="(cont_email_error === true ? 'error': '')">
-                                <input  type="email" required
+                            <div class="input_group" :class="(cont_email_error ? 'error': '')">
+                                <input  type="email" 
                                         v-model.lazy="cont_email"
                                         id="cont_email" placeholder=" ">
                                 <label for="cont_email">{{formContact.inputemail}}</label>
@@ -48,8 +48,8 @@
 
                     <div class="row">
                         <div class="col-12">
-                            <div class="input_group" :class="(cont_message_error === true ? 'error': '')">
-                                <textarea v-model.lazy="cont_message" required
+                            <div class="input_group" :class="(cont_message_error  ? 'error': '')">
+                                <textarea v-model.lazy="cont_message" 
                                             id="cont_message" rows="1" placeholder=" "></textarea>
                                 <label for="cont_message">{{formContact.inputmessage}}</label>
                                 <p class="errormessage"> {{cont_message_validator}} </p>
@@ -58,12 +58,11 @@
                     </div>
 
                     <div class="row d-flex align-items-center">
-                        <div class="input_file_group col-6" :class="(cont_file_error === true ? 'error': '')">
-                            <input id="cont_file" type="file">
+                        <div class="input_file_group col-6" :class="(cont_file_error  ? 'error': '')">
+                            <input id="cont_file" type="file" multiple accept="image/* , .doc, .docx, .pdf, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document">
                             <label for="cont_file" :aria-label="formContact.inputfile"></label>
                             <p class="errormessage"> {{cont_file_validator}} </p>
                         </div>
-
 
                          <div class="col-xs-12 col-sm-6">
                             <button class="button submitButton" :aria-label="formContact.submit">
@@ -97,7 +96,6 @@ export default {
     data() {
         return {
             formContact: '',
-            errors: [],
             cont_name: '',
             cont_name_validator: '',
             cont_name_error: false,
@@ -127,7 +125,6 @@ export default {
             e.preventDefault()
             if(!this.validateForm()) return
             
-            
             const data = { 
                 cont_name:      this.cont_name,
                 cont_surname:   this.cont_surname,
@@ -137,7 +134,7 @@ export default {
             }
             
             var self = this;
-            this.$http.post('https://bafdc7b9-222e-4e30-a8ec-f760c186fb05.mock.pstmn.io/subscribe', data).then(response => {
+            this.$http.post('https://bafdc7b9-222e-4e30-a8ec-f760c186fb05.mock.pstmn.io/subscribeFail', data).then(response => {
                 
                 this.success = true
                 
@@ -146,95 +143,111 @@ export default {
                 }, 5000)
 
             }).catch((e) => {
-                this.errors.push(e.message)
+                console.log(e.message)
             })
         },
          validateForm: function () {
             
-            var hasErrors =             false
-            this.cont_name_error =      false
-            this.cont_surname_error =   false
-            this.cont_email_error =     false
-            this.cont_message_error =   false
-            this.cont_file_error    =   false
+            const validName = this.validateName()
+            const validSurname = this.validateSurname()
+            const validEmail = this.validateEmail()
+            const validMessage = this.validateMessage()
+            const validFile =  this.validateFile()
+
+            debugger
+            return validName && validSurname && validEmail && validMessage && validFile
+         },
+         validateName: function() {
+            this.cont_name_error = this.cont_name === '' 
+            this.cont_name_validator = this.cont_name_error ?  "Campo de preenchimento obrigatório" : ""
+            return !this.cont_name_error
+         },
+         validateSurname: function() {
+            this.cont_surname_error = this.cont_surname === '' 
+            this.cont_surname_validator = this.cont_surname_error ?  "Campo de preenchimento obrigatório" : ""
+            return !this.cont_surname_error
+         },
+         validateEmail: function () {
             
-
-            if (this.cont_name === '') 
-            { 
-                hasErrors = true
-                this.cont_name_error = true
-                this.cont_name_validator = "Campo de preenchimento obrigatório"
-            }
-
-            if (this.cont_surname === '') 
-            { 
-                hasErrors = true
-                this.cont_surname_error = true
-                this.cont_surname_validator = "Campo de preenchimento obrigatório"
-            }
-
             if (this.cont_email === '') 
             { 
-                hasErrors = true
                 this.cont_email_error = true
-                this.cont_email_validator = "Email necessário"
-
-                if(!this.validEmail()) return
+                this.cont_email_validator = '[[Campo de preenchimento obrigatório]]'
+                return false
             }
 
-            if (this.cont_message === '') 
-            { 
-                hasErrors = true
-                this.cont_message_error = true
-                this.cont_message_validator = "Mensagem de preenchimento obrigatório"
-            }
+            const regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-
-            var FS = document.getElementById("cont_file");
-            var files = FS.files;
-
-            if ( files.length > 0) 
-            {  
-                if ( files[0].size > 75 * 1024 ) { // Check the constraint
-                    //FS.setCustomValidity("Teste The selected file must not be larger than 75 kB");
-                    hasErrors = true
-                    this.cont_file_error = true
-                    this.cont_file_validator = "The selected file must not be larger than 75 kB"
-                    return;
-                }
-
-                 if ( files[0].size < 1024 * 1024 * 2 ) { // Check the constraint
-                    //FS.setCustomValidity("File too big (> 1MB)");
-                    hasErrors = true
-                    this.cont_file_error = true
-                    this.cont_file_validator = "File too big (> 2MB)"
-                    return;
-                }
-
-                FS.setCustomValidity("");
-            }
-
-            return !hasErrors
-         },
-         validEmail: function () {
-            
-            const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-
-            if (!re.test(this.cont_email))
+            if (!regex.test(this.cont_email))
             {
                 this.cont_email_error = true
                 this.cont_email_validator = '[[Valid email required.]]'
                 return false
             }
+
+            this.cont_email_error = false
+            this.cont_email_validator = ''
             return true
-         }
-    }
-    // ,
-    // watch: { 
-    //   	cont_name_error: function(newVal, oldVal) { // watch it
-    //       console.log('Prop changed: ', newVal, ' | was: ', oldVal)
-    //     }
-    //   }
+        },
+        validateMessage: function() 
+        {
+            this.cont_message_error = this.cont_message === '' 
+            this.cont_message_validator = this.cont_message_error ?  "Campo de preenchimento obrigatório" : ""
+            return !this.cont_message_error
+         },
+        validateFile: function()
+        {
+            var FS = document.getElementById("cont_file");
+            var files = FS.files;
+            
+            if (files.length == 0) { // No 
+                this.cont_file_error = false
+                this.cont_file_validator = ""
+                return true
+            }
+
+            if ( files[0].size > 75 * 1024 ) { // Check the constraint
+                //FS.setCustomValidity("Teste The selected file must not be larger than 75 kB");
+                this.cont_file_error = true
+                this.cont_file_validator = "The selected file must not be larger than 75 kB"
+                return false
+            }
+
+            if ( files[0].size < 1024 * 1024 * 2 ) { // Check the constraint
+                
+                this.cont_file_error = true
+                this.cont_file_validator = "File too big (> 2MB)"
+                return false
+            }
+
+            FS.setCustomValidity("");
+            this.cont_file_validator = ""
+            this.cont_file_error = false
+            return true
+        }
+    },
+    watch: { 
+      	cont_name: function(newVal, oldVal) 
+        { 
+            this.validateName()
+        },
+        cont_surname: function(newVal, oldVal) 
+        { 
+            this.validateSurname()
+        },
+        cont_email: function(newVal, oldVal) 
+        { 
+            this.validateEmail()
+        },
+        cont_message: function(newVal, oldVal) 
+        { 
+            this.validateMessage()
+        },
+        cont_file: function(newVal, oldVal) 
+        { 
+            this.validateFile()
+        }
+      }
 }
 </script>
 
