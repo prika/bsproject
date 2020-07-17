@@ -8,6 +8,7 @@
         </div>
 
         <div class="row">
+            <keep-alive>
             <div class="col-12 col-md-8 cofinancedby d-block d-md-flex">
                 <a  v-for="item in cofinance" 
                     :key="item.id"
@@ -19,6 +20,7 @@
                     rel="noopener noreferrer nofollow">
                 </a>
             </div> 
+            </keep-alive>
            
            <SocialButtons />
             
