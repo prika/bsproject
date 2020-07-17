@@ -1,5 +1,5 @@
 <template>
-    <div class="accountPage pageReduced">
+    <div class="accountPage accountRecovery pageReduced">
         <div class="containerReduced">
 
             <transition appear enter-active-class="animated slideInDown faster" leave-active-class="animated slideOutUp faster">
@@ -8,22 +8,25 @@
                 </button>
             </transition>
 
+
+            <transition appear enter-active-class="animated slideInUp" leave-active-class="animated slideOutDown">
+            <div>
             <h1 v-html="accountrecovery.title">{{accountrecovery.title}}</h1>
             <p  v-if="!success" v-html="accountrecovery.subtitle">{{accountrecovery.subtitle}}</p>
 
-            <transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut">
+            
                 <form  id="recovery" v-if="!success"
                         @submit.prevent="checkFormRecovery">
 
                     <div class="row d-flex align-items-center">
                         <div class="col-12 col-md-7">  
                             <div class="input_group" :class="(cont_email_recovery_error === true ? 'error': '')">  
-                                <input id="emailrecovery"
+                                <input id="cont_email_recovery"
                                         type="email"
-                                        v-model.lazy="emailrecovery"
+                                        v-model.lazy="cont_email_recovery"
                                         name="email" autocomplete="email"
                                         :aria-label="accountrecovery.input.placeholder" placeholder=" ">
-                                <label for="emailrecovery">{{accountrecovery.input.placeholder}}</label>
+                                <label for="cont_email_recovery">{{accountrecovery.input.placeholder}}</label>
                                 <p class="errormessage">{{cont_email_recovery_validator}}</p>
                             </div>
                         </div>
@@ -36,12 +39,13 @@
 
                     </div>
                 </form>
-            
-            </transition>
+        
 
-            <transition enter-active-class="animated fadeIn faster" leave-active-class="animated fadeOut faster">
-                <div v-if="success">
-                    <p v-html="accountrecovery.success">{{accountrecovery.success}}</p>
+                <transition enter-active-class="animated fadeIn faster" leave-active-class="animated fadeOut faster">
+                    <div v-if="success">
+                        <p v-html="accountrecovery.success">{{accountrecovery.success}}</p>
+                    </div>
+                </transition>
                 </div>
             </transition>
         </div>
@@ -70,10 +74,11 @@ export default {
                 submit: '',
                 success: ''
             },
-            success: false,
             cont_email_recovery: '',
             cont_email_recovery_validator: '',
-            cont_email_recovery_error: false
+            cont_email_recovery_error: false,
+            success: false
+
         }
     },
     created(){
@@ -101,29 +106,49 @@ export default {
                 }, 5000)
 
             }).catch((e) => {
-                this.errors.push(e.message)
+                alert(e.message)
             })
         },
         validateForm: function () {
             
-            var hasErrors =                         false
-            this.cont_email_recovery_error =        false
+            const validEmail = this.validateEmail()
 
-            if( this.cont_email_recovery === "" ) {
-
-                hasErrors = true
+            return validEmail
+        },
+        validateEmail: function () {
+            
+            if (this.cont_email_recovery === '') 
+            { 
                 this.cont_email_recovery_error = true
-                this.cont_email_recovery_validator = "Campo de preenchimento obrigatório"
+                this.cont_email_recovery_validator = '[[Campo de preenchimento obrigatório]]'
+                return false
             }
 
-            return !hasErrors
+            const regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+            if (!regex.test(this.cont_email_recovery))
+            {
+                this.cont_email_recovery_error = true
+                this.cont_email_recovery_validator = '[[Valid email required.]]'
+                return false
+            }
+
+            this.cont_email_recovery_error = false
+            this.cont_email_recovery_validator = ''
+            return true
+        }
+    },
+    watch: { 
+      	cont_email_recovery: function(newVal, oldVal) 
+        { 
+            this.validateEmail()
         }
     }
 }
 </script>
 
 <style lang="scss">
-.pageReduced.accountPage{
+.pageReduced.accountPage.accountRecovery{
     width: 100%;
     position: fixed;
     z-index: 5;
