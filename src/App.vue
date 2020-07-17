@@ -3,6 +3,7 @@
   
       <Preloader :class="{isLoaded}"></Preloader>
       
+      <keep-alive>
       <Header v-if="!(['faqs', 'privacy-policy'].indexOf($route.name) > -1)">
             <div class="logo d-flex col-lg-2 col-md-1" itemscope itemtype="http://schema.org/Organization">
                 <router-link to="/" itemprop="url" :alt="'Link to ' + $t('logo-aria-label')">
@@ -31,17 +32,24 @@
                     v-if="isMobile()"
                     @click="showMobileMenu = true"></button>
       </Header>
-
+      </keep-alive>
+      
       <router-view />
+      
 
       <Scroll v-if="!isMobile() && (['Home', 'bloco-b'].indexOf($route.name) > -1)" />
 
+      <keep-alive>
       <Address v-if="!(['faqs', 'privacy-policy', 'news', 'newsdetail', 'product', 'productdetail', 'shoppingcart'].indexOf($route.name) > -1)" />
+      </keep-alive>
 
+      <keep-alive>
       <Contacts v-if="!(['faqs', 'privacy-policy','news', 'newsdetail', 'product', 'productdetail', 'shoppingcart'].indexOf($route.name) > -1)" />
+      </keep-alive>
 
+      <keep-alive>
       <Footer v-if="!(['faqs', 'privacy-policy','product', 'productdetail', 'shoppingcart'].indexOf($route.name) > -1)" />
-
+      </keep-alive>
   </div>
 </template>
 
