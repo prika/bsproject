@@ -143,7 +143,7 @@ export default {
                 }, 5000)
 
             }).catch((e) => {
-                console.log(e.message)
+                alert(e.message)
             })
         },
          validateForm: function () {
@@ -154,7 +154,6 @@ export default {
             const validMessage = this.validateMessage()
             const validFile =  this.validateFile()
 
-            debugger
             return validName && validSurname && validEmail && validMessage && validFile
          },
          validateName: function() {

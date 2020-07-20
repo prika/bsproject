@@ -81,7 +81,7 @@
                                 <div class="input_group" :class="(cont_email_confirm_register_error === true ? 'error': '')">  
                                     <input id="cont_email_confirm_register"
                                             type="email"
-                                            name="email" autocomplete="email" disabled
+                                            name="email" autocomplete="email" :disabled="cont_email_register_error === true ? disabled : ''"
                                             :aria-label="accountregister.inputemailconfirm.placeholder" placeholder=" ">
                                     <label for="cont_email_confirm_register">{{accountregister.inputemailconfirm.placeholder}}</label>
                                     <p class="errormessage"> {{cont_email_confirm_register_validator}} </p>
@@ -103,7 +103,7 @@
                                 <div class="input_group" :class="(cont_password_confirm_register_error === true ? 'error': '')">  
                                     <input id="cont_password_confirm_register"
                                             type="password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"
-                                             name="password" autocomplete="new-password" disabled
+                                             name="password" autocomplete="new-password" :disabled="cont_password_register_error  === true ? disabled : ''"
                                             :aria-label="accountregister.inputpasswordconfirm.placeholder" placeholder=" ">
                                     <label for="cont_password_confirm_register">{{accountregister.inputpasswordconfirm.placeholder}}</label>
                                     <p class="errormessage"> {{cont_password_confirm_register_validator}} </p>
@@ -116,7 +116,7 @@
                                     <select id="cont_country_register"
                                              name="country" autocomplete="country"
                                             :aria-label="accountregister.inputcountry.placeholder" placeholder=" ">
-                                        <option>Portugal</option>
+                                        <option selected>Portugal</option>
                                         <option>Portugal</option>
                                         <option>Portugal</option>
                                         <option>Portugal</option>
@@ -326,10 +326,9 @@ export default {
                 this.cont_email_register_error = true
                 this.cont_email_register_validator = "Campo de preenchimento obrigatório"
                 
-            } else {
+            } 
+            //else {
                 
-                console.log('dddd');
-                document.getElementById('cont_email_confirm_register').disabled = false;
 
                 if (this.cont_email_confirm_register === '') 
                 { 
@@ -338,7 +337,7 @@ export default {
                     this.cont_email_confirm_register_validator = "Campo de preenchimento obrigatório"
                 }
 
-            }
+            //}
 
 
             if (this.cont_password_register === '') 
@@ -348,15 +347,16 @@ export default {
                 this.cont_password_register_validator = "Campo de preenchimento obrigatório"
 
 
-            } else {
-                
+            } 
+            //else {
+
                 if (this.cont_password_confirm_register === '') 
                 { 
                     hasErrors = true
                     this.cont_password_confirm_register_error = true
                     this.cont_password_confirm_register_validator = "Campo de preenchimento obrigatório"
                 }
-            }
+           //}
 
             
 

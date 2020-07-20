@@ -330,6 +330,7 @@ header  {
 
     input[type=text],
     input[type=email], 
+    input[type=number],
     input[type=password],
     input[type=tel], 
     input[type=search],
@@ -354,11 +355,11 @@ header  {
     }
 
     select {
-        -webkit-appearance: none;  /* Remove estilo padrão do Chrome */
-        -moz-appearance: none; /* Remove estilo padrão do FireFox */
-        appearance: none; /* Remove estilo padrão do FireFox*/
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
 
-        &::-ms-expand {display: none;} /* Remove seta padrão do IE*/
+        &::-ms-expand {display: none;}
     }
 
     label{
@@ -367,13 +368,11 @@ header  {
       pointer-events: none;
       left: 0;
       top: 10px;
-      //padding-left: 15px;
 
       -moz-transition:    top 0.3s ease 0.1s, font-size 0.3s ease 0.05s, font-weight 0.3s ease;
       -o-transition:      top 0.3s ease 0.1s, font-size 0.3s ease 0.05s, font-weight 0.3s ease;
       -webkit-transition: top 0.3s ease 0.1s, font-size 0.3s ease 0.05s, font-weight 0.3s ease;
       transition:         top 0.3s ease 0.1s, font-size 0.3s ease 0.05s, font-weight 0.3s ease;
-
     }
 
     input:focus,
@@ -414,6 +413,7 @@ header  {
 
       input[type=text],
       input[type=email], 
+      input[type=number],
       input[type=password],
       input[type=tel], 
       input[type=search],
@@ -425,7 +425,6 @@ header  {
       .errormessage {
         opacity: 1;
       }
-
     }
 }
 
@@ -515,7 +514,6 @@ header  {
     &:before{background: #FA0B4C;}
     .errormessage {opacity: 1;}
   }
-
 }
 
 .revertColor .input_group {
@@ -529,7 +527,6 @@ header  {
     border-bottom: 1px solid #FFF!important;
   }
 }
-
 
 
 // ===================================================================== //
@@ -554,11 +551,9 @@ header  {
     position: fixed;
     top: calc(50% - 50px);
     left: 50%;
-    margin-left: -255px; 
-  
+    margin-left: -255px;
     z-index: 2;
     fill: #ffffff;
-  
     overflow: visible;
     width: 510px;
   
@@ -614,7 +609,6 @@ header  {
 // ===================================================================== //
 // HEADER
 
-
 // @include media-breakpoint-up(xs) {
 //   header nav.menu{
 //     height: 0;
@@ -660,7 +654,6 @@ header  {
   }
 
   //header .openMenuButton{ display:none }
-
 }
 
 @include media-breakpoint-up(lg) {
