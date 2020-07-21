@@ -24,7 +24,8 @@
                             <div class="col-12 col-md-6">
                                 <div class="input_group" :class="(cont_name_register_error === true ? 'error': '')">  
                                     <input id="cont_name_register"
-                                            type="text"
+                                            v-model.lazy="cont_name_register"
+                                            type="text" required
                                             name="name" autocomplete="name"
                                             :aria-label="accountregister.inputname.placeholder" placeholder=" ">
                                     <label for="cont_name_register">{{accountregister.inputname.placeholder}}</label>
@@ -35,7 +36,8 @@
                              <div class="col-12 col-md-6">  
                                 <div class="input_group" :class="(cont_surname_register_error === true ? 'error': '')">  
                                     <input id="cont_surname_register"
-                                            type="text"
+                                            v-model.lazy="cont_surname_register"
+                                            type="text" required
                                             name="lname" autocomplete="family-name"
                                             :aria-label="accountregister.inputsurname.placeholder" placeholder=" ">
                                     <label for="cont_surname_register">{{accountregister.inputsurname.placeholder}}</label>
@@ -43,11 +45,37 @@
                                 </div>
                             </div>
 
+                             <div class="col-12 col-md-6">  
+                                <div class="input_group" :class="(cont_company_register_error === true ? 'error': '')">  
+                                    <input id="cont_company_register"
+                                            v-model.lazy="cont_company_register"
+                                            type="text" required
+                                            :aria-label="accountregister.inputcompany.placeholder" placeholder=" ">
+                                    <label for="cont_company_register">{{accountregister.inputcompany.placeholder}}</label>
+                                    <p class="errormessage"> {{cont_company_register_validator}} </p>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-md-6">
+                                <div class="input_group" :class="(cont_country_register_error === true ? 'error': '')">  
+                                    <select id="cont_country_register"
+                                            v-model.lazy="cont_country_register" required
+                                             name="country" autocomplete="country"
+                                             :class="(cont_country_register.length > 0 ? 'selected': '')"
+                                            :aria-label="accountregister.inputcountry.placeholder" placeholder=" ">
+                                            
+                                            <option v-for="country in accountregister.inputcountry.options">{{country.name}}</option>
+                                    </select>
+                                    <label for="cont_country_register">{{accountregister.inputcountry.placeholder}}</label>
+                                    <p class="errormessage"> {{cont_country_register_validator}} </p>
+                                </div>
+                            </div>
+
                             <div class="col-12 col-md-6">
                                 <div class="input_group" :class="(cont_phone_register_error === true ? 'error': '')">  
                                     <input id="cont_phone_register"
-                                            type="tel"
-                                            pattern="[0-9]{3}-[0-9]{9}"
+                                            v-model.lazy="cont_phone_register" required
+                                            type="number" pattern="/^\d{10,}(?:,\d{10,})*$/"
                                             name="phone" autocomplete="tel"
                                             :aria-label="accountregister.inputphone.placeholder" placeholder=" ">
                                     <label for="cont_phone_register">{{accountregister.inputphone.placeholder}}</label>
@@ -55,21 +83,14 @@
                                 </div>
                             </div>
 
-                             <div class="col-12 col-md-6">  
-                                <div class="input_group" :class="(cont_company_register_error === true ? 'error': '')">  
-                                    <input id="cont_company_register"
-                                            type="text"
-                                            :aria-label="accountregister.inputcompany.placeholder" placeholder=" ">
-                                    <label for="cont_company_register">{{accountregister.inputcompany.placeholder}}</label>
-                                    <p class="errormessage"> {{cont_company_register_validator}} </p>
-                                </div>
-                            </div>
+                            <div class="col-12 col-md-6"></div>
 
 
                             <div class="col-12 col-md-6">
                                 <div class="input_group" :class="(cont_email_register_error === true ? 'error': '')">  
                                     <input id="cont_email_register"
-                                            type="email"
+                                            v-model="cont_email_register"
+                                            type="email" required
                                             name="email" autocomplete="email"
                                             :aria-label="accountregister.inputemail.placeholder" placeholder=" ">
                                     <label for="cont_email_register">{{accountregister.inputemail.placeholder}}</label>
@@ -80,8 +101,10 @@
                              <div class="col-12 col-md-6">  
                                 <div class="input_group" :class="(cont_email_confirm_register_error === true ? 'error': '')">  
                                     <input id="cont_email_confirm_register"
-                                            type="email"
-                                            name="email" autocomplete="email" :disabled="cont_email_register_error === true ? disabled : ''"
+                                            v-model="cont_email_confirm_register"
+                                            type="email" required
+                                            name="email" autocomplete="email" 
+                                            :disabled="disabledInputEmail"
                                             :aria-label="accountregister.inputemailconfirm.placeholder" placeholder=" ">
                                     <label for="cont_email_confirm_register">{{accountregister.inputemailconfirm.placeholder}}</label>
                                     <p class="errormessage"> {{cont_email_confirm_register_validator}} </p>
@@ -91,38 +114,28 @@
                             <div class="col-12 col-md-6">   
                                 <div class="input_group" :class="(cont_password_register_error === true ? 'error': '')">  
                                     <input id="cont_password_register"
-                                            type="password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"
+                                            v-model="cont_password_register"
+                                            type="password" required
                                             name="password" autocomplete="new-password"
                                             :aria-label="accountregister.inputpassword.placeholder" placeholder=" ">
                                     <label for="cont_password_register">{{accountregister.inputpassword.placeholder}}</label>
                                     <p class="errormessage"> {{cont_password_register_validator}} </p>
+                                    <ul class="passwordValidationRules">
+                                        <li v-for='error in passwordValidation.errors'>{{error}}</li>
+                                    </ul>
                                 </div>
                             </div>
 
                              <div class="col-12 col-md-6">  
                                 <div class="input_group" :class="(cont_password_confirm_register_error === true ? 'error': '')">  
                                     <input id="cont_password_confirm_register"
-                                            type="password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"
-                                             name="password" autocomplete="new-password" :disabled="cont_password_register_error  === true ? disabled : ''"
+                                            v-model="cont_password_confirm_register"
+                                            type="password" required
+                                            :disabled="disabledInput"
+                                             name="password" autocomplete="new-password" 
                                             :aria-label="accountregister.inputpasswordconfirm.placeholder" placeholder=" ">
                                     <label for="cont_password_confirm_register">{{accountregister.inputpasswordconfirm.placeholder}}</label>
                                     <p class="errormessage"> {{cont_password_confirm_register_validator}} </p>
-                                </div>
-                            </div>
-
-                                
-                            <div class="col-12 col-md-6">
-                                <div class="input_group" :class="(cont_country_register_error === true ? 'error': '')">  
-                                    <select id="cont_country_register"
-                                             name="country" autocomplete="country"
-                                            :aria-label="accountregister.inputcountry.placeholder" placeholder=" ">
-                                        <option selected>Portugal</option>
-                                        <option>Portugal</option>
-                                        <option>Portugal</option>
-                                        <option>Portugal</option>
-                                    </select>
-                                    <label for="cont_country_register">{{accountregister.inputcountry.placeholder}}</label>
-                                    <p class="errormessage"> {{cont_country_register_validator}} </p>
                                 </div>
                             </div>
 
@@ -144,7 +157,7 @@
 
 
             <transition enter-active-class="animated fadeIn faster" leave-active-class="animated fadeOut faster">
-                <div class="" v-if="success">
+                <div class="col-12" v-if="success">
                     <p v-html="accountregister.success">{{accountregister.success}}</p>
                 </div>
             </transition>
@@ -201,7 +214,8 @@ export default {
                 },
                 inputcountry: {
                     placeholder: '', 
-                    errors: ''
+                    errors: '',
+                    options: []
                 },
                 submit: '',
                 success: ''
@@ -212,39 +226,74 @@ export default {
             cont_surname_register: '',
             cont_surname_register_validator: '',
             cont_surname_register_error: false,
-
             cont_phone_register: '',
             cont_phone_register_validator: '',
             cont_phone_register_error: false,
             cont_company_register: '',
             cont_company_register_validator: '',
             cont_company_register_error: false,
-
             cont_email_register: '',
             cont_email_register_validator: '',
             cont_email_register_error: false,
             cont_email_confirm_register: '',
             cont_email_confirm_register_validator: '',
             cont_email_confirm_register_error: false,
-
             cont_password_register: '',
             cont_password_register_validator: '',
             cont_password_register_error: false,
             cont_password_confirm_register: '',
             cont_password_confirm_register_validator: '',
             cont_password_confirm_register_error: false,
-
             cont_country_register: '',
             cont_country_register_validator: '',
             cont_country_register_error: false,
-
+            password_rules: [
+				{ message:'One lowercase letter required.', regex:/[a-z]+/ },
+				{ message:"One uppercase letter required.",  regex:/[A-Z]+/ },
+				{ message:"8 characters minimum.", regex:/.{8,}/ },
+				{ message:"One number required.", regex:/[0-9]+/ }
+			],
             success: false
         }
     },
     created(){
-        this.$http.get('../mocks/global-mock.json').then(response => {
+        this.$http.get('../mocks/account-mock.json').then(response => {
             this.accountregister = response.data.accountregister
         })
+    },
+    computed: {
+		emailValidation () {
+
+            const regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            let hasError = !regex.test(this.cont_email_register)
+            this.cont_email_register_error = hasError
+            this.cont_email_register_validator = hasError ? '[[Valid email required.]]' : ""
+            return !hasError
+		},
+        disabledInputEmail () {
+
+            const regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return !regex.test(this.cont_email_register)
+        },
+        passwordValidation () {
+			let errors = []
+            
+			for ( let condition of this.password_rules ) {
+
+				if ( !condition.regex.test(this.cont_password_register) ) {
+                    errors.push( condition.message )
+                }
+			}
+
+			if ( errors.length === 0) {
+				return { valid:true, errors }
+			} else {
+				return { valid:false, errors }
+			}
+		},
+        disabledInput () {
+            return !this.passwordValidation.valid
+        }
     },
     methods: {
         checkFormRegister: function (e) {
@@ -279,109 +328,151 @@ export default {
         },
          validateForm: function () {
             
-            var hasErrors =                             false
-            this.cont_name_register_error             = false
-            this.cont_surname_register_error          = false
-            this.cont_phone_register_error            = false
-            this.cont_company_register_error          = false
-            this.cont_email_register_error            = false
-            this.cont_email_confirm_register_error    = false
-            this.cont_password_register_error         = false
-            this.cont_password_confirm_register_error = false
-            this.cont_country_register_error          = false
-            
+            const validName = this.validateName()
+            const validSurname = this.validateSurname()
+            const validPhone = this.validatePhone()
+            const validCompany = this.validateCompany()
+            const validEmail = this.validateEmail()
+            const validEmailCheck = this.validateEmailCheck()
+            const validPassword = this.validatePassword()
+            const validConfirmPassword = this.validateConfirmationPassword()
+            const validCountry =  this.validateCountry()
 
-            if (this.cont_name_register === '') 
-            { 
-                hasErrors = true
-                this.cont_name_register_error = true
-                this.cont_name_register_validator = "Campo de preenchimento obrigatório"
-            }
+            return validName && validSurname && validPhone && validCompany && validEmail && validEmailCheck && validPassword && validConfirmPassword && validCountry
+        },
+        validateName: function() {
+            this.cont_name_register_error = this.cont_name_register === '' 
+            this.cont_name_register_validator = this.cont_name_register_error ?  "Campo de preenchimento obrigatório" : ""
+            return !this.cont_name_register_error
+         },
+         validateSurname: function() {
+            this.cont_surname_register_error = this.cont_surname_register === '' 
+            this.cont_surname_register_validator = this.cont_surname_register_error ?  "Campo de preenchimento obrigatório" : ""
+            return !this.cont_surname_register_error
+         },
+         validatePhone: function() {
+            this.cont_phone_register_error = this.cont_phone_register === '' 
+            this.cont_phone_register_validator = this.cont_phone_register_error ?  "Campo de preenchimento obrigatório" : ""
+            return !this.cont_phone_register_error
+         },
+         validateCompany: function() {
+            this.cont_company_register_error = this.cont_company_register === '' 
+            this.cont_company_register_validator = this.cont_company_register_error ?  "Campo de preenchimento obrigatório" : ""
+            return !this.cont_company_register_error
+         },
+        validateEmail: function (){
 
-            if (this.cont_surname_register === '') 
-            { 
-                hasErrors = true
-                this.cont_surname_register_error = true
-                this.cont_surname_register_validator = "Campo de preenchimento obrigatório"
-            }
-
-            if (this.cont_phone_register === '') 
-            { 
-                hasErrors = true
-                this.cont_phone_register_error = true
-                this.cont_phone_register_validator = "Campo de preenchimento obrigatório"
-            }
-
-            if (this.cont_company_register === '') 
-            { 
-                hasErrors = true
-                this.cont_company_register_error = true
-                this.cont_company_register_validator = "Campo de preenchimento obrigatório"
-            }
-
-
-            if (this.cont_email_register === '') 
-            { 
-                hasErrors = true
+            if( cont_email_register.value === '' ){
                 this.cont_email_register_error = true
-                this.cont_email_register_validator = "Campo de preenchimento obrigatório"
-                
-            } 
-            //else {
-                
-
-                if (this.cont_email_confirm_register === '') 
-                { 
-                    hasErrors = true
-                    this.cont_email_confirm_register_error = true
-                    this.cont_email_confirm_register_validator = "Campo de preenchimento obrigatório"
-                }
-
-            //}
-
-
-            if (this.cont_password_register === '') 
-            { 
-                hasErrors = true
-                this.cont_password_register_error = true
-                this.cont_password_register_validator = "Campo de preenchimento obrigatório"
-
+                this.cont_email_register_validator = this.cont_email_register_error ?  "Campo de preenchimento obrigatório" : ""
+                return false
 
             } 
-            //else {
-
-                if (this.cont_password_confirm_register === '') 
-                { 
-                    hasErrors = true
-                    this.cont_password_confirm_register_error = true
-                    this.cont_password_confirm_register_validator = "Campo de preenchimento obrigatório"
-                }
-           //}
-
-            
-
-
-            if (this.cont_country_register === '') 
-            { 
-                hasErrors = true
-                this.cont_country_register_error = true
-                this.cont_country_register_validator = "Campo de preenchimento obrigatório"
+            else {
+                this.emailValidation
+                return false
             }
 
-            return !hasErrors
+            return !this.cont_email_register_error
+        },
+        validateEmailCheck: function() {
+            
+            if( cont_email_confirm_register.value == '' ) {
+                this.cont_email_confirm_register_error = true
+                this.cont_email_confirm_register_validator = this.cont_email_confirm_register_error ?  "Campo de preenchimento obrigatório" : ""
+            } else {
+
+                if( cont_email_register.value != cont_email_confirm_register.value ) {
+                    
+                    this.cont_email_confirm_register_error = true
+                    this.cont_email_confirm_register_validator = this.cont_email_confirm_register_error ?  "A confirmação ainda não coincide com a palavra-chave" : ""
+                
+                } else {
+                    this.cont_email_confirm_register_error = false
+                    this.cont_email_confirm_register_validator = this.cont_email_confirm_register_error ?  "" : ""
+                }
+            }
+
+            return !this.cont_email_confirm_register_error
+         },
+        validatePassword: function() {
+
+            if( cont_password_register.value == '' ){
+                this.cont_password_register_error = true
+                this.cont_password_register_validator = this.cont_password_register_error ?  "Campo de preenchimento obrigatório" : ""
+            } else {
+                this.passwordValidation
+                this.cont_password_register_error = false
+                this.cont_password_register_validator = this.cont_password_register_error ?  "" : ""
+            }
+
+            return !this.cont_password_register_error
+        },
+        validateConfirmationPassword: function() {
+            
+            if( cont_password_confirm_register.value == '' ) {
+                this.cont_password_confirm_register_error = true
+                this.cont_password_confirm_register_validator = this.cont_password_confirm_register_error ?  "Campo de preenchimento obrigatório" : ""
+            } else {
+
+                if( cont_password_register.value != cont_password_confirm_register.value ) {
+                    
+                    this.cont_password_confirm_register_error = true
+                    this.cont_password_confirm_register_validator = this.cont_password_confirm_register_error ?  "A confirmação ainda não coincide com a palavra-chave" : ""
+                
+                } else {
+                    this.cont_password_confirm_register_error = false
+                    this.cont_password_confirm_register_validator = this.cont_password_confirm_register_error ?  "" : ""
+                }
+            }
+
+            return !this.cont_password_confirm_register_error
+         },
+         validateCountry: function() {
+            this.cont_country_register_error = this.cont_country_register === '' 
+            this.cont_country_register_validator = this.cont_country_register_error ?  "Campo de preenchimento obrigatório" : ""
+            return !this.cont_country_register_error
+         }
+        },
+        watch: {
+            cont_name_register: function(newVal, oldVal) 
+            { 
+                this.validateName()
+            },
+            cont_surname_register: function(newVal, oldVal) 
+            { 
+                this.validateSurname()
+            },
+            cont_phone_register: function(newVal, oldVal) 
+            { 
+                this.validatePhone()
+            },
+            cont_company_register: function(newVal, oldVal) 
+            { 
+                this.validateCompany()
+            },
+             cont_email_register: function(newVal, oldVal) 
+            { 
+                this.validateEmail()
+            },
+             cont_email_confirm_register: function(newVal, oldVal) 
+            { 
+                this.validateEmailCheck()
+            },
+            cont_password_register: function(newVal, oldVal) 
+            { 
+                this.validatePassword()
+            },
+            cont_password_confirm_register: function(newVal, oldVal) 
+            { 
+                this.validateConfirmationPassword()
+            },
+            cont_country_register: function(newVal, oldVal) 
+            { 
+                this.validateCountry()
+            }
         }
     }
-
-
-
-//     function validatePassword(){
-//   if(password.value != confirm_password.value) {
-//     confirm_password.setCustomValidity("Passwords Don't Match");
-//   } else {
-//     confirm_password.setCustomValidity('');
-//   }
-// }
-}
 </script>
 
 <style lang="scss">
@@ -410,6 +501,15 @@ export default {
 .accountPageRegister{
     .containerReduced{
         padding: 10% 5% 5% 20px;
+    }
+}
+.passwordValidationRules{
+    padding: 15px 15px 0;
+    height: 100px;
+
+    li{
+    font-weight: 200;
+    font-size: 14px;
     }
 }
 </style>

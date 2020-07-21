@@ -52,7 +52,14 @@
         },
         "inputcountry": {
             "placeholder": "país", 
-            "errors": "Campo de preenchimento obrigatório"
+            "errors": "Campo de preenchimento obrigatório",
+            "options": [
+                { "name": "Portugal"},
+                { "name": "Espanha"},
+                { "name": "França"},
+                { "name": "Alemanha"},
+                { "name": "Itália"}
+            ]
         },
         "submit": "Registar",
         "success": "O seu pedido de recuperação de palavra-chave foi submetido com sucesso. <br> Verifique o seu email por favor. <br> <br> Caso não consiga encontrar sugerimos que verifique na Caixa de Spam."
