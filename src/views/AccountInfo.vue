@@ -95,7 +95,7 @@
                                 <div class="input_group" :class="(cont_password_confirm_account_error === true ? 'error': '')">  
                                     <input id="cont_password_confirm_account"
                                             v-model="cont_password_confirm_account"
-                                            type="password"
+                                            type="password" required
                                             :disabled="disabledInput"
                                             name="password" autocomplete="new-password"
                                             :aria-label="accountinfo.inputpasswordconfirm.placeholder" placeholder=" ">
@@ -156,8 +156,7 @@ export default {
                 },
                 inputpassword: {
                     placeholder: '', 
-                    errors: '',
-                    password_rules: ''
+                    errors: ''
                 },
                 inputpasswordconfirm: {
                     placeholder: '',
@@ -165,7 +164,8 @@ export default {
                 },
                 inputcountry: {
                     placeholder: '', 
-                    errors: ''    
+                    errors: '',
+                    options: []    
                 },
                 submit: '',
                 success: ''
@@ -207,7 +207,6 @@ export default {
 			let errors = []
             
 			for ( let condition of this.password_rules ) {
-
 				if ( !condition.regex.test(this.cont_password_account) ) {
                     errors.push( condition.message )
                 }
@@ -220,18 +219,13 @@ export default {
 			}
 		},
         disabledInput () {
-            if ( this.passwordValidation.valid !== false ) {
-                return false
-            } else {
-                return true
-            }
+            return !this.passwordValidation.valid
         }
     },
     methods:{
         checkAccountEditForm: function (e) {
             
             e.preventDefault()            
-
             if(!this.validateForm()) return
             
             const data = { 
@@ -392,6 +386,4 @@ export default {
     font-size: 14px;
     }
 }
-
-
 </style>
