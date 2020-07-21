@@ -23,7 +23,6 @@
                 <form   v-if="!success" id="recovery"
                         @submit.prevent="checkAccountEditForm">
 
-                    <transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut">
                         <div class="row">
 
                             <div class="col-12 col-md-6">
@@ -54,7 +53,7 @@
                                 <div class="input_group" :class="(cont_phone_account_error === true ? 'error': '')">  
                                     <input id="cont_phone_account"
                                             v-model.number="cont_phone_account"
-                                            type="number"
+                                            type="number" pattern="/^\d{10,}(?:,\d{10,})*$/"
                                             name="phone" autocomplete="tel"
                                             :aria-label="accountinfo.inputphone.placeholder" placeholder=" ">
                                     <label for="cont_phone_account">{{accountinfo.inputphone.placeholder}}</label>
@@ -67,11 +66,10 @@
                                     <select id="cont_country_account"
                                             v-model.lazy="cont_country_account"
                                             name="country" autocomplete="country"
+                                            :class="(cont_country_account.length > 0 ? 'selected': '')"
                                             :aria-label="accountinfo.inputcountry.placeholder" placeholder=" ">
-                                        <option>Portugal</option>
-                                        <option>Portugal</option>
-                                        <option>Portugal</option>
-                                        <option>Portugal</option>
+
+                                            <option v-for="country in accountinfo.inputcountry.options">{{country.name}}</option>
                                     </select>
                                     <label for="cont_country_account">{{accountinfo.inputcountry.placeholder}}</label>
                                     <p class="errormessage"> {{cont_country_account_validator}} </p>
@@ -86,10 +84,10 @@
                                             name="password" autocomplete="new-password"
                                             :aria-label="accountinfo.inputpassword.placeholder" placeholder=" ">
                                     <label for="cont_password_account">{{accountinfo.inputpassword.placeholder}}</label>
-                                    <ul>
+                                    <p class="errormessage"> {{cont_password_account_validator}} </p>
+                                    <ul class="passwordValidationRules">
                                         <li v-for='error in passwordValidation.errors'>{{error}}</li>
                                     </ul>
-                                    <p class="errormessage"> {{cont_password_account_validator}} </p>
                                 </div>
                             </div>
 
@@ -116,12 +114,14 @@
                             </div>
 
                         </div>
-                    </transition>
+                   
                 </form>
             </div>
 
             <transition enter-active-class="animated fadeIn faster" leave-active-class="animated fadeOut faster">
-                <p v-if="success" v-html="accountinfo.success">{{accountinfo.success}}</p>
+             <div v-if="success" class="col-12">
+                <p v-html="accountinfo.success">{{accountinfo.success}}</p>
+            </div>
             </transition>
         </div>
     </div>
@@ -156,7 +156,8 @@ export default {
                 },
                 inputpassword: {
                     placeholder: '', 
-                    errors: ''
+                    errors: '',
+                    password_rules: ''
                 },
                 inputpasswordconfirm: {
                     placeholder: '',
@@ -164,7 +165,7 @@ export default {
                 },
                 inputcountry: {
                     placeholder: '', 
-                    errors: ''
+                    errors: ''    
                 },
                 submit: '',
                 success: ''
@@ -193,39 +194,25 @@ export default {
 				{ message:"8 characters minimum.", regex:/.{8,}/ },
 				{ message:"One number required.", regex:/[0-9]+/ }
 			],
-            //disabledInput: true,
             success: false
         }
     },
     created(){
-        this.$http.get('../mocks/global-mock.json').then(response => {
+        this.$http.get('../mocks/account-mock.json').then(response => {
             this.accountinfo = response.data.accountinfo
         })
     },
     computed: {
-        // password_rules_aplied(){
-        //     for ( let rule of this.password_rules ){
-        //         this.password_rules_applied.push(rule.message)
-        //     }
-            
-        // }
-        // notSamePasswords () {
-		// 	if ( this.passwordsFilled ) {
-		// 		return (this.cont_password_account.value !== this.cont_password_confirm_account.value)
-		// 	} else {
-		// 		return false
-		// 	}
-		// },
-		// passwordsFilled () {
-		// 	return (this.cont_password_account.value !== '' && this.cont_password_confirm_account.value !== '')
-		// },
 		passwordValidation () {
 			let errors = []
-			for (let condition of this.password_rules) {
-				if (!condition.regex.test(this.cont_password_account)) {
-					errors.push(condition.message)
-				}
+            
+			for ( let condition of this.password_rules ) {
+
+				if ( !condition.regex.test(this.cont_password_account) ) {
+                    errors.push( condition.message )
+                }
 			}
+
 			if ( errors.length === 0) {
 				return { valid:true, errors }
 			} else {
@@ -258,7 +245,7 @@ export default {
 
             
             var self = this;
-            this.$http.post('https://bafdc7b9-222e-4e30-a8ec-f760c186fb05.mock.pstmn.io/subscribeFail', data).then(response => {
+            this.$http.post('https://bafdc7b9-222e-4e30-a8ec-f760c186fb05.mock.pstmn.io/subscribe', data).then(response => {
                 
                 this.success = true
                 
@@ -302,8 +289,8 @@ export default {
                 this.cont_password_account_validator = this.cont_password_account_error ?  "Campo de preenchimento obrigatório" : ""
             } else {
                 this.passwordValidation
-                cont_password_confirm_account.$nextTick(() => this.setFocus());
-                
+                this.cont_password_account_error = false
+                this.cont_password_account_validator = this.cont_password_account_error ?  "" : ""
             }
 
             return !this.cont_password_account_error
@@ -316,25 +303,23 @@ export default {
             } else {
 
                 if( cont_password_account.value != cont_password_confirm_account.value ) {
-                    //confirm_password.setCustomValidity("Passwords Don't Match");
+                    
                     this.cont_password_confirm_account_error = true
-                    this.cont_password_confirm_account_validator = this.cont_password_confirm_account_error ?  "A confirmação palavra-chave não coincide com a palavra-chave" : ""
-                } 
-                else {
-
+                    this.cont_password_confirm_account_validator = this.cont_password_confirm_account_error ?  "A confirmação ainda não coincide com a palavra-chave" : ""
+                
+                } else {
                     this.cont_password_confirm_account_error = false
                     this.cont_password_confirm_account_validator = this.cont_password_confirm_account_error ?  "" : ""
-                    //confirm_password.setCustomValidity('');
                 }
-
             }
 
             return !this.cont_password_confirm_account_error
          },
-         setFocus: function() {
-            // Note, you need to add a ref="search" attribute to your input.
-            this.$refs.search.focus();
-        }
+         validateCountry: function() {
+            this.cont_country_account_error = this.cont_country_account === '' 
+            this.cont_country_account_validator = this.cont_country_account_error ?  "Campo de preenchimento obrigatório" : ""
+            return !this.cont_country_account_error
+         }
     },
     watch: {
         cont_name_account: function(newVal, oldVal) 
@@ -397,4 +382,16 @@ export default {
         &:hover .arrow::before{ width: 147px; }
     }
 }
+
+.passwordValidationRules{
+    padding: 15px 15px 0;
+    height: 100px;
+
+    li{
+    font-weight: 200;
+    font-size: 14px;
+    }
+}
+
+
 </style>

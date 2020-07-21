@@ -1,0 +1,108 @@
+{ 
+    "accountlogin": {
+        "title": "Entrar <br>na minha <br>conta",
+        "subtitle": "",
+        "inputuser": {
+            "placeholder": "username", 
+            "errors": "Introduza um endereço de e-mail válido."
+        },
+        "inputpassword": {
+            "placeholder": "password", 
+            "errors": "Introduza uma palavra-chave válida."
+        },
+        "submit": "login",
+        "success": "O seu pedido de recuperação de palavra-chave foi submetido com sucesso. <br> Verifique o seu email por favor. <br> <br> Caso não consiga encontrar sugerimos que verifique na Caixa de Spam.",
+        "recoveryLink": "Esqueceu-se da palavra-chave?",
+        "registerLink": "criar conta"
+    },
+    "accountregister": {
+        "title": "Criar <br>uma conta",
+        "subtitle": "Campos de preenchimento obrigatório",
+        "inputname": {
+            "placeholder": "nome próprio", 
+            "errors": "Campo de preenchimento obrigatório"
+        },
+        "inputsurname": {
+            "placeholder": "apelido", 
+            "errors": "Campo de preenchimento obrigatório"
+        },
+        "inputphone": {
+            "placeholder": "número de telefone", 
+            "errors": "Campo de preenchimento obrigatório"
+        },
+        "inputcompany": {
+            "placeholder": "nome da empresa", 
+            "errors": "Campo de preenchimento obrigatório"
+        },
+        "inputemail": {
+            "placeholder": "e-mail", 
+            "errors": "Campo de preenchimento obrigatório"
+        },
+        "inputemailconfirm": {
+            "placeholder": "confirmação de e-mail", 
+            "errors": "Campo de preenchimento obrigatório"
+        },
+        "inputpassword": {
+            "placeholder": "palavra-chave", 
+            "errors": "Campo de preenchimento obrigatório"
+        },
+        "inputpasswordconfirm": {
+            "placeholder": "confirmação da palavra-chave", 
+            "errors": "Campo de preenchimento obrigatório"
+        },
+        "inputcountry": {
+            "placeholder": "país", 
+            "errors": "Campo de preenchimento obrigatório"
+        },
+        "submit": "Registar",
+        "success": "O seu pedido de recuperação de palavra-chave foi submetido com sucesso. <br> Verifique o seu email por favor. <br> <br> Caso não consiga encontrar sugerimos que verifique na Caixa de Spam."
+    },
+    "accountrecovery": {
+        "title": "Esqueceu-se <br>da palavra-passe?",
+        "subtitle": "Introduza o seu endereço de e-mail e enviar-lhe-emos <br>instruções para repor a sua palavra-passe.",
+        "input": {
+            "placeholder": "endereço de email", 
+            "errors": "Introduza um endereço de e-mail válido."
+        },
+        "submit": "Recuperar",
+        "success": "O seu pedido de recuperação de palavra-chave foi submetido com sucesso. <br> Verifique o seu email por favor. <br> <br> Caso não consiga encontrar sugerimos que verifique na Caixa de Spam."
+    },
+    "accountinfo": {
+        "title": "Informações <br>da conta",
+        "subtitle": "",
+        "inputname": {
+            "placeholder": "nome próprio", 
+            "errors": "Campo de preenchimento obrigatório"
+        },
+        "inputsurname": {
+            "placeholder": "apelido", 
+            "errors": "Campo de preenchimento obrigatório"
+        },
+        "inputphone": {
+            "placeholder": "número de telefone", 
+            "errors": "Campo de preenchimento obrigatório"
+        },
+        "inputpassword": {
+            "placeholder": "palavra-chave", 
+            "errors": "Campo de preenchimento obrigatório"
+        },
+        "inputpasswordconfirm": {
+            "placeholder": "confirmação da palavra-chave", 
+            "errors": "Campo de preenchimento obrigatório"
+        },
+        "inputcountry": {
+            "placeholder": "país", 
+            "errors": "Campo de preenchimento obrigatório",
+            "options": [
+                { "name": "Portugal"},
+                { "name": "Espanha"},
+                { "name": "França"},
+                { "name": "Alemanha"},
+                { "name": "Itália"}
+            ]
+        },
+        "submit": "Guardar",
+        "success": "O formulário de alteração de informações da conta foi submetido e <br> os dados alterados com sucesso.<br> <br> Se precisar alterar algum dos outros dados entre em contacto conosco pelos contactos diponibilizados nesta plataforma.",
+        "logoutButton": "Logout"
+    }
+}
