@@ -190,3 +190,81 @@ export default {
   }
 }
 </script>
+<style lang="scss">
+  
+// ===================================================================== //
+// PRELOADER
+
+.loader{
+  background: #DEDEDE;
+  position: fixed;
+  z-index: 99999;
+  top: 0; bottom: 0; left: 0; right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  -webkit-transition:   all 0.3s cubic-bezier(0, .5, 0, 1);
+  -moz-transition:      all 0.3s cubic-bezier(0, .5, 0, 1);
+  -o-transition:        all 0.3s cubic-bezier(0, .5, 0, 1);
+  transition:           all 0.3s cubic-bezier(0, .5, 0, 1);
+
+
+  #animatedlogo{
+    position: fixed;
+    top: calc(50% - 50px);
+    left: 50%;
+    margin-left: -255px;
+    z-index: 2;
+    fill: #fff;
+    overflow: visible;
+    width: 510px;
+  
+    -webkit-animation:  changeLogos 1s ease-in-out 3s forwards;
+    -moz-animation:     changeLogos 1s ease-in-out 3s forwards;
+    -o-animation:       changeLogos 1s ease-in-out 3s forwards ;
+    animation:          changeLogos 1s ease-in-out 3s forwards;
+
+    & #B{
+        transform: translateX(18%);
+        opacity: 1;
+        -webkit-animation:  myanimation1 2s 1s ease-in-out forwards;
+        -moz-animation:     myanimation1 2s 1s ease-in-out forwards;
+        -o-animation:       myanimation1 2s 1s ease-in-out forwards;
+        animation:          myanimation1 2s 1s ease-in-out forwards;
+    }
+
+    & #Stone{
+        transform: translateX(50%);
+        opacity: 0;
+        -webkit-animation:  myanimation2 2s 1s ease-in-out forwards;
+        -moz-animation:     myanimation2 2s 1s ease-in-out forwards;
+        -o-animation:       myanimation2 2s 1s ease-in-out forwards;
+        animation:          myanimation2 2s 1s ease-in-out forwards;
+    }
+
+    & #Rreferencias{
+        transform: translateX(-50%);
+        opacity: 0;
+        -webkit-animation:  myanimation3 2s 1s ease-in-out forwards;
+        -moz-animation:     myanimation3 2s 1s ease-in-out forwards;
+        -o-animation:       myanimation3 2s 1s ease-in-out forwards;
+        animation:          myanimation3 2s 1s ease-in-out forwards;
+    }
+  }
+
+  &.isLoaded { 
+      -webkit-animation:    fade-out-display-none .6s cubic-bezier(0, .5, 0, 1) .5s forwards;
+      -moz-animation:       fade-out-display-none .6s cubic-bezier(0, .5, 0, 1) .5s forwards;
+      -o-animation:         fade-out-display-none .6s cubic-bezier(0, .5, 0, 1) .5s forwards;
+      animation:            fade-out-display-none .6s cubic-bezier(0, .5, 0, 1) .5s forwards;
+
+      & h1{
+        -webkit-animation:  fade-out-display-none .5s cubic-bezier(0, .5, 0, 1) .3s forwards;
+        -moz-animation:     fade-out-display-none .5s cubic-bezier(0, .5, 0, 1) .3s forwards;
+        -o-animation:       fade-out-display-none .5s cubic-bezier(0, .5, 0, 1) .3s forwards;
+        animation:          fade-out-display-none .5s cubic-bezier(0, .5, 0, 1) .3s forwards;
+      }
+  }
+}
+</style>
