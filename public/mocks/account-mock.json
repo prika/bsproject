@@ -3,7 +3,7 @@
         "title": "Entrar <br>na minha <br>conta",
         "subtitle": "",
         "inputuser": {
-            "placeholder": "username", 
+            "placeholder": "email", 
             "errors": "Introduza um endereço de e-mail válido."
         },
         "inputpassword": {

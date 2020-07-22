@@ -8,7 +8,7 @@
                 </button>
             </transition>
             
-            <div class="col-12 col-md-1 order-md-1">
+            <div class="col-12 order-md-1">
                 <a class="extendedButton submitButton" href="javascript:void(0)" target="_blank" rel="noopener noreferrer nofollow">
                     <submitIcon>{{accountinfo.logoutButton}}</submitIcon>
                 </a>

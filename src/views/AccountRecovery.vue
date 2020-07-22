@@ -12,7 +12,7 @@
             <transition appear enter-active-class="animated slideInUp" leave-active-class="animated slideOutDown">
             <div>
             <h1 v-html="accountrecovery.title">{{accountrecovery.title}}</h1>
-            <p  v-if="!success" v-html="accountrecovery.subtitle">{{accountrecovery.subtitle}}</p>
+            <p class="subtitle" v-if="!success" v-html="accountrecovery.subtitle">{{accountrecovery.subtitle}}</p>
 
             
                 <form  id="recovery" v-if="!success"

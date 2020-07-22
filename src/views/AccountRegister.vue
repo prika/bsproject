@@ -13,7 +13,7 @@
            
            <!--transition enter-active-class="animated fadeIn faster" leave-active-class="animated fadeOut faster">-->
             <div v-if="!success">
-                <p v-html="accountregister.subtitle">{{accountregister.subtitle}}</p>
+                <p v-html="accountregister.subtitle" class="subtitle">{{accountregister.subtitle}}</p>
 
                 <transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut">
                 <form  id="register"
@@ -512,4 +512,5 @@ export default {
     font-size: 14px;
     }
 }
+
 </style>

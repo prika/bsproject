@@ -36,8 +36,7 @@
                     
                 <router-link to="/auth/recovery" class="passwordRecoveryLink col-12">{{accountlogin.recoveryLink}}</router-link>
                 <router-link to="/auth/register" class="accountRegisterLink col-12">{{accountlogin.registerLink}}</router-link>
-
-                <button class="loginLink" type="submit" form="login">{{accountlogin.submit}}</button>
+                <button class="loginLink col-12 col-sm-8 col-md-6" type="submit" form="login">{{accountlogin.submit}}</button>
             </form>
         </div>
 
@@ -271,6 +270,100 @@ export default {
             &:hover{ background-color: #C47C5A; }
         }
         
+    }
+}
+
+
+
+@media (max-width: 768px) {
+    .modalLogin {
+        .closeLoginButton{
+            width: 94px;
+            height: 68px;
+        }
+        .formLogin{
+            margin-top: 68px;
+            width: 100%;
+            height: calc( 100vh - 68px - 75px );
+            padding: 75px 25px;
+            overflow: auto;
+
+            p.h1{
+                margin-bottom: 60px;
+            }
+
+            .passwordRecoveryLink,
+            .accountRegisterLink{
+                text-align: center;
+            }
+
+            a.accountRegisterLink{
+                margin-top: 130px;
+                margin-bottom: 110px;
+            }
+
+            .loginLink{
+                top: inherit;
+                bottom: 0;
+                padding: 30px 60px;
+            }
+        }
+    }
+
+    .pageReduced.accountPage.accountInfo,
+    .pageReduced.accountPage.accountPageRegister,
+    .pageReduced.accountPage.accountRecovery {
+        padding-top: 150px;
+
+        
+        .containerReduced{
+            float: none;
+            overflow: scroll;
+            height: 100%!important;
+            padding: 0 15px 200px 15px!important;
+            margin: 0!important;
+        }
+
+        .submitButton.extendedButton{
+            position: relative;
+            margin: 0;
+            left: auto;
+            width: 100%;
+            top: auto;
+            margin-bottom: 70px;
+            
+            .text{
+                width: 100%;
+                padding: 15px;
+                text-align: center;
+                font-size: 25px;
+                font-weight: 200;
+                color: inherit;
+                text-decoration: underline; 
+            }
+
+            .arrow, .icon {
+                display: none;
+            }
+        }
+
+        h1 {
+            font-size: 38px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .subtitle{
+            text-align: center;
+            margin-bottom: 70px;
+            font-size: 20px;
+
+            br{display: none;}
+        }
+
+        form{ margin-top: 50px; }
+        .passwordValidationRules{ display: none; }
+        .submitButton{ margin-top: 70px;}
     }
 }
 
