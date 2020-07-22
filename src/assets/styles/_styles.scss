@@ -362,8 +362,7 @@ header  {
         font-size: 1em;
         border-bottom: 1px solid #333;
         
-        //&:invalid { border-color: #FA0B4C;}
-        &:focus { border-color: #333; outline: none; }
+        &:focus { outline: none; }
        
     }
 
@@ -371,7 +370,7 @@ header  {
         -webkit-appearance: none;
         -moz-appearance: none;
         appearance: none;
-         //background-image: url(...);   /* add custom arrow */
+        background: url(assets/images/icons/select.svg) no-repeat right 23px;
 
         &::-ms-expand {display: none;}
 
