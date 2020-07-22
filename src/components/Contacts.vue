@@ -16,7 +16,7 @@
                         <div class="col-xs-12 col-sm-6">
                             <div class="input_group" :class="(cont_name_error ? 'error': '')">
                                 <input type="text" 
-                                        v-model.lazy="cont_name"
+                                        v-model="cont_name"
                                         id="cont_name" placeholder=" ">
                                 <label for="cont_name">{{formContact.inputname}}</label>
                                 <p class="errormessage"> {{cont_name_validator}} </p>
@@ -26,7 +26,7 @@
                         <div class="col-xs-12 col-sm-6">
                             <div class="input_group" :class="(cont_surname_error ? 'error': '')">
                                 <input type="text" 
-                                        v-model.lazy="cont_surname"
+                                        v-model="cont_surname"
                                         id="cont_surname" placeholder=" ">
                                 <label for="cont_surname">{{formContact.inputsurname}}</label>
                                 <p class="errormessage"> {{cont_surname_validator}} </p>
@@ -38,7 +38,7 @@
                         <div class="col-xs-12 col-sm-6">
                             <div class="input_group" :class="(cont_email_error ? 'error': '')">
                                 <input  type="email" 
-                                        v-model.lazy="cont_email"
+                                        v-model="cont_email"
                                         id="cont_email" placeholder=" ">
                                 <label for="cont_email">{{formContact.inputemail}}</label>
                                 <p class="errormessage"> {{cont_email_validator}} </p>
@@ -49,7 +49,7 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="input_group" :class="(cont_message_error  ? 'error': '')">
-                                <textarea v-model.lazy="cont_message" 
+                                <textarea v-model="cont_message" 
                                             id="cont_message" rows="1" placeholder=" "></textarea>
                                 <label for="cont_message">{{formContact.inputmessage}}</label>
                                 <p class="errormessage"> {{cont_message_validator}} </p>
@@ -196,30 +196,28 @@ export default {
          },
         validateFile: function()
         {
-            var FS = document.getElementById("cont_file");
-            var files = FS.files;
+            var files = cont_file.files;
             
-            if (files.length == 0) { // No 
+            if (files.length == 0) {
                 this.cont_file_error = false
                 this.cont_file_validator = ""
                 return true
+            } else {
+
+                if ( files[0].size < 75 * 1024 ) {
+                    this.cont_file_error = true
+                    this.cont_file_validator = "The selected file must not be larger than 75 kB"
+                    return false
+                }
+
+                if ( files[0].size > 1024 * 1024 * 4 ) {
+                    
+                    this.cont_file_error = true
+                    this.cont_file_validator = "File too big (> 4MB)"
+                    return false
+                }
             }
 
-            if ( files[0].size > 75 * 1024 ) { // Check the constraint
-                //FS.setCustomValidity("Teste The selected file must not be larger than 75 kB");
-                this.cont_file_error = true
-                this.cont_file_validator = "The selected file must not be larger than 75 kB"
-                return false
-            }
-
-            if ( files[0].size < 1024 * 1024 * 2 ) { // Check the constraint
-                
-                this.cont_file_error = true
-                this.cont_file_validator = "File too big (> 2MB)"
-                return false
-            }
-
-            FS.setCustomValidity("");
             this.cont_file_validator = ""
             this.cont_file_error = false
             return true
