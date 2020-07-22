@@ -1,5 +1,5 @@
 <template>
-<div class="newsletterForm revertColor col-12 col-lg-4 order-1 order-lg-2">
+<div class="newsletterForm col-12 col-lg-4 order-1 order-lg-2">
     <h2>  {{ $t('footer-text-newsletter') }} </h2>
     <h1>  {{ $t('footer-sub-text-newsletter') }} </h1>
     <form
@@ -8,14 +8,14 @@
 
         <transition enter-active-class="animated fadeIn faster" leave-active-class="animated fadeOut faster">
         <div v-if="!success">
-            <div class="input_group col-9" :class="( hasError === true ? 'error': '')">  
-                <input id="emailnewsletter"
-                        v-model="email"
-                        type="email"
-                        name="email"
+            <div class="input_group col-9" :class="( cont_email_newsletter_error === true ? 'error': '')">  
+                <input id="cont_email_newsletter"
+                        v-model="cont_email_newsletter"
+                        type="email" required
+                        name="email" autocomplete="email"
                         :aria-label="$t('footer-input-email')" placeholder=" ">
-                <label for="emailnewsletter">{{ $t('footer-input-email') }}</label>
-                <p class="errormessage"> {{ errors }} </p>
+                <label for="cont_email_newsletter">{{ $t('footer-input-email') }}</label>
+                <p class="errormessage"> {{cont_email_newsletter_validator}} </p>
             </div>
 
             <input class="button" type="submit" :aria-label="$t('footer-submit-email')">
@@ -35,11 +35,12 @@
 <script>
 
 export default {
+    name: 'newsletterForm',
     data() {
         return {
-            errors: '',
-            hasError: false,
-            email: '',
+            cont_email_newsletter: '',
+            cont_email_newsletter_error: false,
+            cont_email_newsletter_validator: '',
             success: false
         }
     },
@@ -49,9 +50,9 @@ export default {
             e.preventDefault()
             if(!this.validEmail()) return
             
-            const data = { email: this.email }
+            const data = { cont_email_newsletter: this.cont_email_newsletter }
+            
             var self = this;
-
             this.$http.post('https://bafdc7b9-222e-4e30-a8ec-f760c186fb05.mock.pstmn.io/subscribe', data).then(response => {
                 this.success = true
                 
@@ -66,29 +67,34 @@ export default {
         },
         validEmail: function () {
             
-            if (!this.email) // No email 
-            {
-                this.hasError = true
-                this.errors = '[[Email required.]]'
+            if( cont_email_newsletter.value === '' ){
+
+                this.cont_email_newsletter_error = true
+                this.cont_email_newsletter_validator = this.cont_email_newsletter_error ?  "Campo de preenchimento obrigatório" : ""
                 return false
             } 
-            
-            const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            else {
 
-            if (!re.test(this.email))
-            {
-                this.hasError = true
-                this.errors = '[[Valid email required.]]'
-                return false
+                const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                this.cont_email_newsletter_error = !re.test(this.cont_email_newsletter)
+                this.cont_email_newsletter_validator = this.cont_email_newsletter_error ? '[[Valid email required.]]' : ""
+                return !this.cont_email_newsletter_error
+
             }
-            return true
+
+            return !this.cont_email_newsletter_error
          }
+    },
+    watch: {
+        cont_email_newsletter: function(newVal, oldVal) 
+        { 
+            this.validEmail()
+        }
     }
 }
 </script>
 
 <style lang="scss">
-
 #newsletter{
     position: relative;
     min-height: 140px;

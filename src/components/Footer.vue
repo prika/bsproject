@@ -1,6 +1,6 @@
 <template>
 <footer>
-    <div class="container">
+    <div class="container revertColor">
 
         <div class="row">
             <NewsletterForm />
@@ -97,8 +97,7 @@ footer{
       .footerMenu {
         padding: 4%;
 
-        a { 
-          color: #FFF;
+        a {
           display: table;
           padding-bottom: 20px; 
           position: relative;
@@ -140,8 +139,6 @@ footer{
       .newsletterForm {
           border-left: 1px solid #363636
       }
-
-      h1, h2{ color: #FFF; }
 
       .newsletterForm {
           padding: 4%;
