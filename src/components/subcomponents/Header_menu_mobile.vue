@@ -119,8 +119,7 @@ export default {
     }
 }
 
-
-  .mobileAdd{
+    .mobileAdd{
         background-color: #313131;
         //height: 240px;
         //position: fixed;
@@ -134,22 +133,6 @@ export default {
             justify-content: center;
         }
     } 
-  
-    //   &.active{
-    //     top: 0;
-  
-    //     & .mobileAdd{ 
-    //       bottom: 0!important;
-    //     }
-    //   }
-  
-
-  .controls .buttons{
-      border: none;
-      border-left: 1px solid #E8E8E8;
-      width: 90px; 
-      outline: none!important;
-  }
 
   .openMenuButton{
     display:    block;

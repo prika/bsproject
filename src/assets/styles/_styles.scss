@@ -218,7 +218,6 @@ button{
 
 
 // Menus
-
 nav a,
 footer a{
   text-decoration:  $menu-link-decoration;
@@ -238,12 +237,10 @@ header  {
         }
     }
 
-  
-
     & .languageLinks{
         border-left: 1px solid $gray-300;
         padding: 0 2%;
-        width: 240px;
+        width: 171px;
         align-items: center;
         justify-content: center;
         
@@ -272,10 +269,11 @@ header  {
                   align-items: center;
                   justify-content: center;
                   text-align: center;
-                  -webkit-transition: all 0.1s ease;
-                  -moz-transition: all 0.1s ease;
-                  -o-transition: all 0.1s ease;
-                  transition: all 0.1s ease;
+                  will-change: font-size, color;
+                  -webkit-transition:   all 0.1s ease;
+                  -moz-transition:      all 0.1s ease;
+                  -o-transition:        all 0.1s ease;
+                  transition:           all 0.1s ease;
 
                       &::after{
                         position: absolute;
@@ -287,6 +285,7 @@ header  {
                         height: 1px;
                         background-color: $gray-900;
                         opacity: 0;
+                        will-change: left, opacity;
                         -webkit-transition: all 0.1s ease;
                         -moz-transition: all 0.1s ease;
                         -o-transition: all 0.1s ease;
@@ -376,11 +375,7 @@ header  {
 
 
         // .styled select {
-        //   background: transparent;
         //   width: 150px;
-        //   font-size: 16px;
-        //   border: 1px solid #ccc;
-        //   height: 34px;
         // }
         // .styled {
         //   margin: 50px;
@@ -561,103 +556,31 @@ header  {
 }
 
 
-// ===================================================================== //
-// ===================================================================== //
-// HEADER
-
-// @include media-breakpoint-up(xs) {
-//   header nav.menu{
-//     height: 0;
-//     overflow:hidden;
-//   }
-// }
-
-@include media-breakpoint-up(md) {
-  body{ margin-top: 90px;}
-  
-  header {
-    .containerHeader {
-        height: 90px;
-    }
-
-    nav.menu {
-      position: relative;
-      display:flex!important;
-      background: none;
-      padding: 0!important;
 
 
-      ul{
-          flex-direction: row;
-
-          li:not(:last-child):after{
-            display:block;
-          }
-
-          & li{
-            margin-right: 18px; 
-        
-            a{
-              font-size: 1.2rem!important;
-              padding: 10px 3px;
-            }
-          }
-        }
-    }
-
-    //nav.menuMobile { display: none }
-
-  }
-
-  //header .openMenuButton{ display:none }
-}
-
-@include media-breakpoint-up(lg) {
-
-  header nav.menu ul li a{
-    font-size: 1.2rem!important;
-    padding: 10px 10px;
-  }
-
-  // header nav.menu .mobileAdd{
-  //   display: none;
-  // }
-}
-
-@include media-breakpoint-up(xl) {
-    body{ margin-top: 124px;}
-
-    header .controls .buttons{
-      width: 124px;
-    }
-    header .containerHeader {
-      height: 124px;
-    }
-}
-
-
-
-
-
-// @include media-breakpoint-up(sm) {
+//@include media-breakpoint-up(sm) 
+// @media (min-width: 576px){
 //   html {
 //       font-size: .7rem;
 //   }
 // }
 
-// @include media-breakpoint-up(md) {
+//@include media-breakpoint-up(md)
+//@media (min-width: 768px)  {
 //   html {
 //       font-size: .9rem;
 //   }
 // }
 
-@include media-breakpoint-up(lg) {
+//@include media-breakpoint-up(lg) 
+@media (min-width: 992px) {
   html {
       font-size: 1rem;
   }
 }
 
-@include media-breakpoint-up(xl) {
+//@include media-breakpoint-up(xl) 
+@media (min-width: 1200px) {
   html {
       font-size: 1rem;
   }

@@ -5,7 +5,7 @@
       
       <keep-alive>
       <Header v-if="!(['faqs', 'privacy-policy'].indexOf($route.name) > -1)">
-            <div class="logo d-flex col-lg-2 col-md-1" itemscope itemtype="http://schema.org/Organization">
+            <div class="logo d-flex col-lg-2 col-md-2" itemscope itemtype="http://schema.org/Organization">
                 <router-link to="/" itemprop="url" :alt="'Link to ' + $t('logo-aria-label')">
                     <!-- Desktop -->
                     <img v-if="!isMobile()" class="d-none d-md-block" itemprop="logo" 

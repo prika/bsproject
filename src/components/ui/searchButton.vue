@@ -28,10 +28,16 @@
             -o-transition:        all 0.3s cubic-bezier(0, .5, 0, 1);
             transition:           all 0.3s cubic-bezier(0, .5, 0, 1);
         }
+
+         svg{
+            width: 30px;
+        }
     }
 
     &:hover #path{
-        transform: scale(1.2);
+        -webkit-transform:  scale(1.2);
+        -ms-transform:      scale(1.2);
+        transform:          scale(1.2);
     }
  }
 </style>

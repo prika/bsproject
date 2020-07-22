@@ -19,6 +19,7 @@
     position: relative;
 
     .userIcon svg {
+        width: 25px;
         -webkit-transition:   transform 0.2s cubic-bezier(0, .5, 0, 1);
         -moz-transition:      transform 0.2s cubic-bezier(0, .5, 0, 1);
         -o-transition:        transform 0.2s cubic-bezier(0, .5, 0, 1);
@@ -27,7 +28,9 @@
 
     &:hover {
         & .userIcon svg { 
-            transform: scale(1.15);
+            -webkit-transform:  scale(1.5);
+            -ms-transform:      scale(1.5);
+            transform:          scale(1.5);
         }
     }
  }

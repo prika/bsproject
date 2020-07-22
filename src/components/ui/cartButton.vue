@@ -53,6 +53,10 @@
         transition:           transform 0.2s cubic-bezier(0, .5, 0, 1);
     }
 
+    svg{
+        width: 60px;
+    }
+
     &:hover {
         .cartIcon svg,
         .qttProducts{ 
