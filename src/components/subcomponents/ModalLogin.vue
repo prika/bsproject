@@ -5,41 +5,47 @@
             <button class="closeLoginButton" v-bind:aria-label="$t('button-arialabel-close-menu')" @click="$emit('close')"><closeIcon></closeIcon></button>
         </transition>
 
-        <div class="formLogin revertColor">
+        <div v-if="!success" class="formLogin revertColor">
 
             <p class="h1 col-12" v-html="accountlogin.title">{{accountlogin.title}}</p>
 
             <form   id="login" 
                     @submit.prevent="checkLoginForm"
-                    method="post" class="col-12">
+                    class="col-12">
 
-                <div class="input_group" :class="(cont_user_error === true ? 'error': '')">  
-                    <input  id="UserLogin"
-                            type="email"
+                <div class="input_group" :class="(cont_email_login_error === true ? 'error': '')">  
+                    <input  id="cont_email_login"
+                            v-model="cont_email_login"
+                            type="email" required
                             name="email" autocomplete="email"
+                            :aria-label="accountlogin.inputuser.placeholder"
                             placeholder=" ">
-                    <label for="UserLogin">{{accountlogin.inputuser.placeholder}}</label>
-                    <p class="errormessage">{{cont_user_validator}}</p>
+                    <label for="cont_email_login">{{accountlogin.inputuser.placeholder}}</label>
+                    <p class="errormessage">{{cont_email_login_validator}}</p>
                 </div>
 
-                <div class="input_group" :class="(cont_password_error === true ? 'error': '')">  
-                    <input id="PasswordLogin"
-                            type="password"
+                <div class="input_group" :class="(cont_password_login_error === true ? 'error': '')">  
+                    <input id="cont_password_login"
+                            v-model="cont_password_login"
+                            type="password" required
                             name="password" autocomplete="current-password"
                             placeholder=" ">
-                    <label for="PasswordLogin">{{accountlogin.inputpassword.placeholder}}</label>
-                    <p class="errormessage">{{cont_password_validator}}</p>
+                    <label for="cont_password_login">{{accountlogin.inputpassword.placeholder}}</label>
+                    <p class="errormessage">{{cont_password_login_validator}}</p>
                 </div>
-
-                
+                    
                 <router-link to="/auth/recovery" class="passwordRecoveryLink col-12">{{accountlogin.recoveryLink}}</router-link>
-
-                <router-link to="/auth/account" class="passwordRecoveryLink col-12">Account settings</router-link>
-
                 <router-link to="/auth/register" class="accountRegisterLink col-12">{{accountlogin.registerLink}}</router-link>
 
                 <button class="loginLink" type="submit" form="login">{{accountlogin.submit}}</button>
             </form>
+        </div>
+
+        <div v-if="success" class="formLogin revertColor">
+            <p class="h1 col-12">Bem vindo user X</p>
+            <br> <br>
+            <p>Aceda aqui aos detalhes da sua conta:</p>
+            <router-link to="/auth/account" class="passwordRecoveryLink col-12">Account settings</router-link>
         </div>
     </div>
 </template>
@@ -66,20 +72,53 @@ export default {
                     errors: ''
                 }
             },
-            cont_user: '',
-            cont_password: '',
-            cont_user_error: false,
-            cont_password_error: false,
-            cont_user_validator: '',
-            cont_password_validator: '',
+            cont_email_login: '',
+            cont_email_login_error: false,
+            cont_email_login_validator: '',
+            cont_password_login: '',
+            cont_password_login_error: false,
+            cont_password_login_validator: '',
+            password_rules: [
+				{ message:'One lowercase letter required.', regex:/[a-z]+/ },
+				{ message:"One uppercase letter required.",  regex:/[A-Z]+/ },
+				{ message:"8 characters minimum.", regex:/.{8,}/ },
+				{ message:"One number required.", regex:/[0-9]+/ }
+			],
             success: false
             
         }
     },
     created() {
-        this.$http.get('../mocks/global-mock.json').then(response => {
+        this.$http.get('../mocks/account-mock.json').then(response => {
             this.accountlogin = response.data.accountlogin
         })
+    },
+    computed: {
+		emailValidation () {
+
+            const regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            let hasError = !regex.test(this.cont_email_login)
+            this.cont_email_login_error = hasError
+            this.cont_email_login_validator = hasError ? '[[Valid email required.]]' : ""
+            return !hasError
+
+		},
+        passwordValidation () {
+			let errors = []
+            
+			for ( let condition of this.password_rules ) {
+
+				if ( !condition.regex.test(this.cont_password_login) ) {
+                    errors.push( condition )
+                }
+			}
+
+			if ( errors.length === 0) {
+				return { valid:true, errors }
+			} else {
+				return { valid:false, errors }
+			}
+		}
     },
     methods: {
         checkLoginForm: function (e) {
@@ -88,8 +127,8 @@ export default {
             if(!this.validateForm()) return
 
             const data = { 
-                cont_user:      this.cont_user,
-                cont_password:  this.cont_password
+                cont_email_login:       this.cont_email_login,
+                cont_password_login:    this.cont_password_login
             }
 
             var self = this;
@@ -97,9 +136,9 @@ export default {
                 
                 this.success = true
                 
-                setTimeout(function(){
-                    self.success = false
-                }, 5000)
+                // setTimeout(function(){
+                //     self.success = false
+                // }, 5000)
 
             }).catch((e) => {
                 this.errors.push(e.message)
@@ -107,28 +146,35 @@ export default {
         },
         validateForm: function () {
             
-            var hasErrors =             false
-            this.cont_user_error =      false
-            this.cont_password_error =  false
+            const validEmail = this.validateEmail()
+            const validPassword = this.validatePassword()
 
+            return validEmail && validPassword
 
-            if( this.cont_user === "" ) {
+        },
+        validateEmail: function (){
 
-                hasErrors = true
-                this.cont_user_error = true
-                this.cont_user_validator = this.accountlogin.inputuser.errors
+            if( cont_email_login.value === '' ){
+                this.cont_email_login_error = true
+                this.cont_email_login_validator = this.cont_email_login_error ?  "Campo de preenchimento obrigatório" : ""
+            } 
+            else {
+                this.emailValidation
             }
 
-            if( this.cont_password === "" ) {
-                
-                hasErrors = true
-                this.cont_password_error = true
-                this.cont_password_validator = this.accountlogin.inputpassword.errors
+            return !this.cont_email_login_error
+        },
+        validatePassword: function() {
 
+            if( cont_password_login.value == '' ){
+                this.cont_password_login_error = true
+                this.cont_password_login_validator = this.cont_password_login_error ?  "Campo de preenchimento obrigatório" : ""
+            } else {
+                this.cont_password_login_error = false
+                this.cont_password_login_validator = this.cont_password_login_error ?  "" : ""
             }
 
-            return !hasErrors
-
+            return !this.cont_password_login_error
         },
         login() {
             
@@ -138,7 +184,7 @@ export default {
             router.push({ path: '/auth/account', params: { userId } }) // -> /user
             
             // {
-            //     if(this.cont_user == this.$parent.mockAccount.username && this.cont_password == this.$parent.mockAccount.password) {
+            //     if(this.cont_email_login == this.$parent.mockAccount.username && this.cont_password == this.$parent.mockAccount.password) {
             //         this.$emit("authenticated", true);
             //         this.$router.replace({ name: "secure" });
             //     } else {
@@ -149,6 +195,16 @@ export default {
                 
             // }
         }
+    },
+    watch: {
+        cont_email_login: function(newVal, oldVal) 
+        { 
+            this.validateEmail()
+        },
+        cont_password_login: function(newVal, oldVal) 
+        { 
+            this.validatePassword()
+        },
     }
 }
 </script>
@@ -185,7 +241,6 @@ export default {
         }
         p.h1 {
             width: 100%;
-            color: #FFF;
             font-size: 36px;
             white-space: normal;
         }
@@ -195,14 +250,12 @@ export default {
             float: left; 
             display: block;
             padding: 0;
-            color: #FFF;
         }
 
         a.accountRegisterLink{ margin-top: 70px}
 
         .loginLink{
             background-color: #000;
-            color: #FFF;
             font-size: 20px;
             padding: 25px 60px;
             outline: none;
@@ -220,4 +273,5 @@ export default {
         
     }
 }
+
 </style>

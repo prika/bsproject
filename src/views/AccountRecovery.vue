@@ -82,7 +82,7 @@ export default {
         }
     },
     created(){
-        this.$http.get('../mocks/global-mock.json').then(response => {
+        this.$http.get('../mocks/account-mock.json').then(response => {
             this.accountrecovery = response.data.accountrecovery
         })
     },
