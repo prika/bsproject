@@ -319,6 +319,7 @@ export default {
         .containerReduced{
             float: none;
             overflow: scroll;
+            -webkit-overflow-scrolling: touch;
             height: 100%!important;
             padding: 0 15px 200px 15px!important;
             margin: 0!important;

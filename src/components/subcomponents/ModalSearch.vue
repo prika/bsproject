@@ -191,6 +191,7 @@ import closeIcon from '@/components/ui/closeIcon.vue'
     width: 100%;
     height: 100%;
     overflow: scroll;
+    -webkit-overflow-scrolling: touch;
     position: relative;
     padding: 0;
     padding-top: 65px;
