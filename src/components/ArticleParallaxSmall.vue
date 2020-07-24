@@ -12,7 +12,8 @@
                         :src="image.src" 
                         :alt="image.alt" 
                         :data-rellax-speed="image.speed"
-                        :class="['rellax',(image.addclass),('imageParallax'+(index+1))]">
+                        :class="['rellax',(image.addclass),('imageParallax'+(index+1))]"
+                        importance="high">
             </div>
 
           </div>
@@ -24,7 +25,8 @@
                     :src="image.src" 
                     :alt="image.alt" 
                     :data-rellax-speed="image.speed"
-                    :class="['rellax',(image.addclass),('imageParallax'+(index+3))]">
+                    :class="['rellax',(image.addclass),('imageParallax'+(index+3))]"
+                    importance="low">
         </div>
     </section>
 </template>
