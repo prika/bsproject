@@ -89,7 +89,7 @@ const routes = [
   {
     path: '/shoppingcart',
     name: 'shoppingcart',
-    component: () => import( /* webpackChunkName: "shooping-group" */ '../views/ShoppingCart.vue')
+    component: () => import( /* webpackChunkName: "shopping-group" */ '../views/ShoppingCart.vue')
   }
 ]
 
