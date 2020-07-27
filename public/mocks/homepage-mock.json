@@ -2,6 +2,7 @@
     "id": "homepage",
     "slidergallery": [
         {
+            "id": "slide01",
             "type": "img", 
             "src": "banners/BlocoB-7234_Banner.jpg", 
             "alt": "Image Test",
@@ -9,6 +10,7 @@
             "height": 3795
         },
         {
+            "id": "slide02",
             "type": "img", 
             "src": "banners/banner_stone_foto_1.jpg", 
             "alt": "Image Test",
@@ -16,6 +18,7 @@
             "height": 2331
         },
         {
+            "id": "slide03",
             "type": "video-uploaded",
             "src": "banners/banner_stone_foto_2.jpg", 
             "srcvideo": "video_exemplo.mp4",
@@ -26,6 +29,7 @@
             "height": 1080
         },
         {
+            "id": "slide04",
             "type": "video-youtube", 
             "src": "banners/BlocoB-7234_Banner.jpg", 
             "srcvideo": "https://www.youtube.com/embed/bTqVqk7FSmY?iv_load_policy=3&modestbranding=1&playsinline=1&showinfo=0&rel=0&enablejsapi=1&origin=http://localhost:8080", 
@@ -35,6 +39,7 @@
             "height": 3795
         },
         {
+            "id": "slide05",
             "type": "video-vimeo", 
             "src": "banners/banner_stone_foto_1.jpg", 
             "srcvideo": "https://player.vimeo.com/video/76979871?loop=false&byline=false&portrait=false&title=false&speed=true&transparent=0&gesture=media", 
@@ -48,12 +53,14 @@
     "content": "A versatilidade, robustez e magnificência fazem do mármore o material mais desejado para vários ambientes, do mais clássico ao vanguardista. B innovation promete criar a solução ideal para si, à sua medida.",
     "gallery1": [
         {   
+            "id": "homeparallax01",
             "src": "news/exemplo_noticia_a.jpg", 
             "alt": "Image Test", 
             "speed": "-2",
             "addclass": "col-9 col-sm-7 img-fluid"
         },
         {
+            "id": "homeparallax02",
             "src": "news/exemplo_noticia_b.jpg", 
             "alt": "Image Test", 
             "speed": "4",
@@ -61,31 +68,31 @@
         }
     ],
     "gallery2": [
-        {
+        {   "id": "homeparallax03",
             "src": "news/exemplo_noticia_c.jpg", 
             "alt": "Image Test", 
             "speed": "0",
             "addclass": "col-12 col-md-5 img-fluid"
         },
-        {
+        {   "id": "homeparallax04",
             "src": "news/exemplo_noticia_d.jpg", 
             "alt": "Image Test", 
             "speed": "2",
             "addclass": "col-12 col-md-6 img-fluid"
         },
-        {
+        {   "id": "homeparallax05",
             "src": "news/exemplo_noticia_a.jpg", 
             "alt": "Image Test", 
             "speed": "-1",
             "addclass": "col-12 col-md-4 img-fluid"
         },
-        {
+        {   "id": "homeparallax06",
             "src": "news/exemplo_noticia_b.jpg", 
             "alt": "Image Test", 
             "speed": "-2",
             "addclass": "col-12 col-md-4 img-fluid"
         },
-        {
+        {   "id": "homeparallax07",
             "src": "news/exemplo_noticia_a.jpg", 
             "alt": "Image Test", 
             "speed": "4",

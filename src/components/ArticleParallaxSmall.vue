@@ -8,7 +8,7 @@
 
             <div class="col-12 col-md-6 parallaxGroup1 order-md-1">
                 <img    v-for="(image, index) in imageGroup1"
-                        :key="index"
+                        :key="image.id"
                         :src="image.src" 
                         :alt="image.alt" 
                         :data-rellax-speed="image.speed"
@@ -21,7 +21,7 @@
 
         <div class="col-12 parallaxGroup2">
             <img    v-for="(image, index) in imageGroup2"
-                    :key="index"
+                    :key="image.id"
                     :src="image.src" 
                     :alt="image.alt" 
                     :data-rellax-speed="image.speed"

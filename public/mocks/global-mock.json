@@ -8,25 +8,25 @@
     },
     "menu":[
         { 
-            "id": 1,
+            "id": "menu1",
             "name": "Bloco B",
             "link": "/bloco-b",
             "preloader": "preloader/b-innovation.svg"
         },
         { 
-            "id": 2,
+            "id": "menu2",
             "name": "B Explore",
             "link": "/b-explore",
             "preloader": "preloader/b-innovation.svg"
         },
         { 
-            "id": 3,
+            "id": "menu3",
             "name": "B Project",
             "link": "/b-project",
             "preloader": "preloader/b-innovation.svg"
         },
         { 
-            "id": 4,
+            "id": "menu4",
             "name": "B Innovation",
             "link": "/b-innovation",
             "preloader": "preloader/b-innovation.svg"
@@ -36,67 +36,67 @@
         "menuOrder": [2,3,4,1],
         "menuFooter": [
             { 
-                "id": 2,
+                "id": "footermenu2",
                 "name": "Simulator",
                 "link": "/simulator"
             },
             { 
-                "id": 1,
+                "id": "footermenu1",
                 "name": "Blocos",
                 "link": "/"
             },
             { 
-                "id": 3,
+                "id": "footermenu3",
                 "name": "Chapas",
                 "link": "/"
             },
             { 
-                "id": 4,
+                "id": "footermenu4",
                 "name": "Ladrilhos",
                 "link": "/"
             }
         ],
         "menuFooter2": [
             { 
-                "id": 1,
+                "id": "footermenu1",
                 "name": "News",
                 "link": "/news"
             },
             { 
-                "id": 2,
+                "id": "footermenu2",
                 "name": "Faqs",
                 "link": "/faqs"
             },
             { 
-                "id": 3,
+                "id": "footermenu3",
                 "name": "Privacy Policy",
                 "link": "/privacy-policy"
             }
         ],
         "social": [
             {   
-                "id": 1,
+                "id": "social1",
                 "order": 1,
                 "name": "Facebook",
                 "code": "fb",
                 "link": "https://www.facebook.com/bstone.marble/"
             },
             {   
-                "id": 2,
+                "id": "social2",
                 "order": 3,
                 "name": "Instagram",
                 "code": "in",
                 "link": "https://www.instagram.com/bstone.marble/"
             },
             {   
-                "id": 3,
+                "id": "social3",
                 "order": 2,
                 "name": "Pinterest",
                 "code": "pi",
                 "link": "https://www.pinterest.pt/bstone_marble/"
             },
             {   
-                "id": 4,
+                "id": "social4",
                 "order": 4,
                 "name": "Linkedin",
                 "code": "lk",
@@ -104,8 +104,8 @@
             }
         ],
         "cofinance": [
-            {"id": 1, "name": "Alentejo2020", "img": "footer/cofinanced1.svg", "file": "footer/Alentejo2020x.jpg"},
-            {"id": 2, "name": "Compete2020", "img": "footer/cofinanced2.svg", "file": "footer/Compete2020x.jpg"}
+            {"id": "cofinanced1", "name": "Alentejo2020", "img": "footer/cofinanced1.svg", "file": "footer/Alentejo2020x.jpg"},
+            {"id": "cofinanced2", "name": "Compete2020", "img": "footer/cofinanced2.svg", "file": "footer/Compete2020x.jpg"}
         ]
     },
     "address": { 
@@ -120,15 +120,18 @@
         "email": "info@bstone.pt",
         "phone": "(+351) 268 848 030",
         "departments":[
-            {
+            {   
+                "id": "department1",
                 "name": "Sales Department",
                 "phone": "(+351)  964  956  929"
             },
-            {
+            {   
+                "id": "department2",
                 "name": "Logistics",
                 "phone": "(+351)  914  490  070"
             },
-            {
+            {   
+                "id": "department3",
                 "name": "Branding & Communication",
                 "phone": "(+351)  925  278  115"
             }
@@ -148,27 +151,27 @@
     "faqs": {
        "title": "Perguntas frequentes",
        "questions": [
-          {"question": "Quais são as formas de pagamento?", "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut leo hendrerit, semper purus non, pellentesque mauris."},
-          {"question": "É POSSÍVEL PARCELAR O PAGAMENTO?", "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut leo hendrerit, semper purus non, pellentesque mauris."},
-          {"question": "quais são as formas de pagamento?", "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut leo hendrerit, semper purus non, pellentesque mauris."},
-          {"question": "Quais são as formas de pagamento?", "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut leo hendrerit, semper purus non, pellentesque mauris."},
-          {"question": "Quais são as formas de pagamento?", "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut leo hendrerit, semper purus non, pellentesque mauris."},
-          {"question": "É POSSÍVEL PARCELAR O PAGAMENTO?", "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut leo hendrerit, semper purus non, pellentesque mauris."},
-          {"question": "quais são as formas de pagamento?", "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut leo hendrerit, semper purus non, pellentesque mauris."},
-          {"question": "Quais são as formas de pagamento?", "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut leo hendrerit, semper purus non, pellentesque mauris."}
+          { "id": "faqs1", "question": "Quais são as formas de pagamento?", "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut leo hendrerit, semper purus non, pellentesque mauris."},
+          { "id": "faqs2", "question": "É POSSÍVEL PARCELAR O PAGAMENTO?", "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut leo hendrerit, semper purus non, pellentesque mauris."},
+          { "id": "faqs3", "question": "quais são as formas de pagamento?", "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut leo hendrerit, semper purus non, pellentesque mauris."},
+          { "id": "faqs4", "question": "Quais são as formas de pagamento?", "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut leo hendrerit, semper purus non, pellentesque mauris."},
+          { "id": "faqs5", "question": "Quais são as formas de pagamento?", "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut leo hendrerit, semper purus non, pellentesque mauris."},
+          { "id": "faqs6", "question": "É POSSÍVEL PARCELAR O PAGAMENTO?", "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut leo hendrerit, semper purus non, pellentesque mauris."},
+          { "id": "faqs7", "question": "quais são as formas de pagamento?", "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut leo hendrerit, semper purus non, pellentesque mauris."},
+          { "id": "faqs8", "question": "Quais são as formas de pagamento?", "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut leo hendrerit, semper purus non, pellentesque mauris."}
        ]
     },
     "privacypolicy": {
       "title": "Política de Privacidade",
       "questions": [
-        {"question": "Quais são as formas de pagamento?", "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut leo hendrerit, semper purus non, pellentesque mauris."},
-        {"question": "É POSSÍVEL PARCELAR O PAGAMENTO?", "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut leo hendrerit, semper purus non, pellentesque mauris."},
-        {"question": "quais são as formas de pagamento?", "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut leo hendrerit, semper purus non, pellentesque mauris."},
-        {"question": "Quais são as formas de pagamento?", "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut leo hendrerit, semper purus non, pellentesque mauris."},
-        {"question": "Quais são as formas de pagamento?", "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut leo hendrerit, semper purus non, pellentesque mauris."},
-        {"question": "É POSSÍVEL PARCELAR O PAGAMENTO?", "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut leo hendrerit, semper purus non, pellentesque mauris."},
-        {"question": "quais são as formas de pagamento?", "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut leo hendrerit, semper purus non, pellentesque mauris."},
-        {"question": "Quais são as formas de pagamento?", "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut leo hendrerit, semper purus non, pellentesque mauris."}
+        {"id": "pp1","question": "Quais são as formas de pagamento?", "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut leo hendrerit, semper purus non, pellentesque mauris."},
+        {"id": "pp2","question": "É POSSÍVEL PARCELAR O PAGAMENTO?", "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut leo hendrerit, semper purus non, pellentesque mauris."},
+        {"id": "pp3","question": "quais são as formas de pagamento?", "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut leo hendrerit, semper purus non, pellentesque mauris."},
+        {"id": "pp4","question": "Quais são as formas de pagamento?", "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut leo hendrerit, semper purus non, pellentesque mauris."},
+        {"id": "pp5","question": "Quais são as formas de pagamento?", "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut leo hendrerit, semper purus non, pellentesque mauris."},
+        {"id": "pp6","question": "É POSSÍVEL PARCELAR O PAGAMENTO?", "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut leo hendrerit, semper purus non, pellentesque mauris."},
+        {"id": "pp7","question": "quais são as formas de pagamento?", "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut leo hendrerit, semper purus non, pellentesque mauris."},
+        {"id": "pp8","question": "Quais são as formas de pagamento?", "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut leo hendrerit, semper purus non, pellentesque mauris."}
      ]
     }
 }

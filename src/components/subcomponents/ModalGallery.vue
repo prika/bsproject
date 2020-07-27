@@ -12,7 +12,7 @@
 
                 <transition appear enter-active-class="animated fadeIn faster" leave-active-class="animated fadeOut faster">
                     <div class="gallerySlider" :style="'margin-left:' + galleryPosition + 'vw'">
-                        <div v-for="(image, index) in largeImages" :key="index"
+                        <div v-for="(image, index) in largeImages" :key="image.id"
                             :class="(index === selectedIndex ? 'galleryImage selected': 'galleryImage')">
 
                             <img :src="image.url"

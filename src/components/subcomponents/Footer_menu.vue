@@ -5,21 +5,21 @@
         <nav class="col-12 col-md-4">
             <router-link    v-for="item in itemsMenu1" 
                             :to="item.link" 
-                            :key="item.name" 
+                            :key="item.id" 
                             itemprop="url">{{item.name}}</router-link>
         </nav>
         
         <nav class="col-12 col-md-4 mobileHided">
             <router-link    v-for="item in itemsMenu2" 
                             :to="item.link" 
-                            :key="item.name" 
+                            :key="item.id" 
                             itemprop="url">{{item.name}}</router-link>
         </nav>
 
         <nav class="col-12 col-md-4 mobileHided secondaryLinks">
             <router-link    v-for="item in itemsMenu3" 
                             :to="item.link" 
-                            :key="item.name" 
+                            :key="item.id" 
                             itemprop="url">{{item.name}}</router-link>
         </nav>
     </div>

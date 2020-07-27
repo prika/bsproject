@@ -1,7 +1,7 @@
 <template>
     <nav class="menu">
         <ul itemscope itemtype="http://www.schema.org/SiteNavigationElement">
-            <li v-for="item in itensMenu" :key="item.name" itemprop="name">
+            <li v-for="item in itensMenu" :key="item.id" itemprop="name">
                 <router-link :to="item.link" itemprop="url">{{item.name}}</router-link>
             </li>
         </ul>

@@ -11,7 +11,7 @@
             <h1>{{faqs.title}}</h1>
 
             <div class="questionsContainer">
-                <div v-for="(item, index) in questions" :key="item.index" class="questionContainer">
+                <div v-for="(item, index) in questions" :key="item.id" class="questionContainer">
                     <h2>{{item.question}}</h2>
                     <p>{{item.answer}}</p>
                 </div>

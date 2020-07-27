@@ -23,7 +23,7 @@
 
       <transition appear enter-active-class="animated fadeInUp delay-1s" leave-active-class="animated fadeOutDown">
          <div class="galleryScrollSlider">
-              <a @click="showGalleryFunction(index)" href="javascript:void(0)" class="containerImage" v-for="(thumb, index) in thumbs" :key="index">
+              <a @click="showGalleryFunction(index)" href="javascript:void(0)" class="containerImage" v-for="(thumb, index) in thumbs" :key="thumb.id">
                    <img :src="thumb.url"
                     class="productImage" itemprop="image"
                     :alt="thumb.alt" :width="thumb.width" :height="thumb.height">
