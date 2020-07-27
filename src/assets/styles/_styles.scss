@@ -605,20 +605,18 @@ header  {
   margin: 0; padding: 0;
   position: relative;
   z-index: 2;
-  overflow: hidden;
-  width: 100%;
+  //overflow: hidden;
+  width: 100vw;
   //min-width: 980px;
   height: 100vh;
-  height: calc(var(--vh,1vh) * 100);
+  //height: calc(var(--vh,1vh) * 100);
 
   .carouselContainer{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
     
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 
       //.carouselContent{
         // height: 100vh;
@@ -626,19 +624,31 @@ header  {
         
       
         .slide{
-          
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transform: translateX(100vw);
+          overflow: hidden;
+          //position: absolute;
+          // top: 0;
+          // left: 100vw;
+
           // position: relative;
           // min-width: 100vw;
           // min-height: 100vh;
           // height: calc(var(--vh,1vh) * 100);
       
+          -webkit-transition:     transform .8s cubic-bezier(0, .5, 0, 1);
+          -moz-transition:        transform .8s cubic-bezier(0, .5, 0, 1);
+          -o-transition:          transform .8s cubic-bezier(0, .5, 0, 1);
+          transition:             transform .8s cubic-bezier(0, .5, 0, 1);
 
-          // -webkit-transition:     opacity .8s cubic-bezier(0, .5, 0, 1);
-          // -moz-transition:        opacity .8s cubic-bezier(0, .5, 0, 1);
-          // -o-transition:          opacity .8s cubic-bezier(0, .5, 0, 1);
-          // transition:             opacity .8s cubic-bezier(0, .5, 0, 1);
+          &.active{
+            transform: translateX(0);
+          }
 
           img, video{
+            
             // position: absolute; 
             // top: 50%; 
             // left: 50%; 
@@ -674,9 +684,12 @@ header  {
 }
 
 
+:root {
+  --plyr-color-main: #1ac266;
+}
+
 .plyr__video-wrapper,
-.plyr--video,
-.plyr__poster {
+.plyr--video{
   background: #FFF!important;
 }
 
@@ -695,10 +708,28 @@ header  {
   height: 100vh!important;
 }
 
-.plyr,
-.plyr video,
+.plyr__video-wrapper
+{
+  top: -25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.plyr__poster {
+  top: 35px!important;
+  background-color: #FFF!important;
+}
+
+.plyr video{
+  width: auto!important;
+  height: auto!important;
+}
+
 .player .vp-video-wrapper object, 
 .player .vp-video-wrapper video {
+
   width: auto!important;
   height: auto!important;
   min-width: 100vw!important;

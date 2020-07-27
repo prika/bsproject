@@ -14,23 +14,28 @@
             </ol>
 
 
-            <div v-for="(image, index) in imageGroupSliderGallery">
+            <template v-for="(image, index) in imageGroupSliderGallery">
                 <!-- Image -->
-                <template v-if="image.type == 'img'" :class="['slide', (index === 0 ? 'active': '')]">
+                <div v-if="image.type == 'img'" :class="['slide', (index === 0 ? 'active': '')]"
+                    :width="newResizedWidth + 'px'" 
+                    :height="newResizedHeight + 'px'"
+                    :key="image.id">
                     <img    :src="getImgUrl(image.src)" 
                             :alt="image.alt"
                             v-model="slide"
                             :width="newResizedWidth + 'px'" 
                             :height="newResizedHeight + 'px'"
                             :importance="(index === 0 ? 'high': 'low')">
-                </template>
+                </div>
 
                  <!-- Video Mp4 -->
                 <vue-plyr v-if="image.type == 'video-uploaded'" :class="['slide', (index === 0 ? 'active': '')]" 
                             :ref="'player'+index"
                             :width="newResizedWidth + 'px'" 
-                            :height="newResizedHeight + 'px'">
-                    <video  :poster="getImgUrl(image.src)" 
+                            :height="newResizedHeight + 'px'"
+                            :key="image.id">
+                    <video  loop poster playsinline autoplay
+                            :poster="getImgUrl(image.src)" 
                             :src="getVideoUrl(image.srcvideo)"
                             v-model="slide"
                             :aria-label="image.alt"
@@ -45,7 +50,8 @@
                 <!-- Video Vimeo -->
                 <vue-plyr v-if="image.type == 'video-vimeo'" :class="['slide', (index === 0 ? 'active': '')]" :ref="'player'+index" 
                         :width="newResizedWidth + 'px'" 
-                        :height="newResizedHeight + 'px'">
+                        :height="newResizedHeight + 'px'"
+                        :key="image.id">
 
                     <div    class="plyr__video-embed" 
                             :width="newResizedWidth + 'px'" 
@@ -53,6 +59,8 @@
 
                         <iframe v-model="slide"
                                 :alt="image.alt"
+                                :width="newResizedWidth + 'px'" 
+                                :height="newResizedHeight + 'px'"
                                 :poster="getImgUrl(image.src)"
                                 :src="image.srcvideo"
                                 :style="{ width: newResizedWidth, height: newResizedHeight}"
@@ -62,7 +70,7 @@
                         </iframe>
                     </div>
                 </vue-plyr>
-            </div>
+            </template>
 
         </div>
     </section>
@@ -95,17 +103,25 @@ export default {
         }
     },
     created() {
+
         this.$http.get('../mocks/homepage-mock.json').then(response => {
 
-            this.imageGroupSliderGallery = response.data.slidergallery    
+            this.imageGroupSliderGallery = response.data.slidergallery
+            if ( this.imageGroupSliderGallery[0].type !== "img" ) {
+                let plyr__video = document.createElement("script")
+                plyr__video.setAttribute("type", "text/javascript")
+                plyr__video.setAttribute("src", "https://cdn.plyr.io/3.6.2/plyr.polyfilled.js")
+                document.head.appendChild(plyr__video)
+            }
+
             this.slideWidth = this.imageGroupSliderGallery[0].width
             this.slideHeight = this.imageGroupSliderGallery[0].height
             this.slideAspectRatio = this.slideWidth / this.slideHeight
-
             this.resizeContent()
-            
             window.addEventListener('resize', this.resizeContent )
+            
         })
+
     },
     // destroyed() {
     //     window.removeEventListener('resize', this.resizeContent);
