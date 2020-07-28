@@ -605,99 +605,102 @@ header  {
   margin: 0; padding: 0;
   position: relative;
   z-index: 2;
+  overflow: hidden;
   //overflow: hidden;
   width: 100vw;
   //min-width: 980px;
   height: 100vh;
   //height: calc(var(--vh,1vh) * 100);
 
-  .carouselContainer{
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-    position: relative;
-    
+    .carouselContainer{
+      width: 100vw;
+      height: 100vh;
+      position: relative;
 
-      //.carouselContent{
-        // height: 100vh;
-        // height: calc(var(--vh,1vh) * 100);
-        
-      
-        .slide{
+      .slide{
+          position: absolute;
+          float: left;
+          width: 100vw;
           display: flex;
           align-items: center;
           justify-content: center;
-          transform: translateX(100vw);
           overflow: hidden;
-          //position: absolute;
-          // top: 0;
-          // left: 100vw;
+          transform: translateY(-100vh);
+          opacity: .9;
 
-          // position: relative;
-          // min-width: 100vw;
-          // min-height: 100vh;
-          // height: calc(var(--vh,1vh) * 100);
-      
-          -webkit-transition:     transform .8s cubic-bezier(0, .5, 0, 1);
-          -moz-transition:        transform .8s cubic-bezier(0, .5, 0, 1);
-          -o-transition:          transform .8s cubic-bezier(0, .5, 0, 1);
-          transition:             transform .8s cubic-bezier(0, .5, 0, 1);
-
+          -webkit-transition:     transform .6s cubic-bezier(0, .5, 0, 1), opacity .4s cubic-bezier(0, .5, 0, 1);
+          -moz-transition:        transform .6s cubic-bezier(0, .5, 0, 1), opacity .4s cubic-bezier(0, .5, 0, 1);
+          -o-transition:          transform .6s cubic-bezier(0, .5, 0, 1), opacity .4s cubic-bezier(0, .5, 0, 1);
+          transition:             transform .6s cubic-bezier(0, .5, 0, 1), opacity .4s cubic-bezier(0, .5, 0, 1);
+          
+        
           &.active{
-            transform: translateX(0);
+            transform: translateY(0);
+            z-index: 2;
+            opacity: 1;
+
+
+            //IMAGE
+            &::after{            
+              content: '';
+              position: absolute;
+                  top: 0;
+                  bottom: 0;
+                  left: 0;
+                  right: 0;
+              z-index: 0;
+
+              width: 100%;
+              height: 100%;
+              //opacity: 0;
+              
+              background-image: url(./assets/images/logo/intro_home.svg);
+              background-repeat: no-repeat; 
+              background-position: center center;
+              background-attachment: fixed; 
+
+              -webkit-background-size:    510px;
+              -moz-background-size:       510px;
+              -o-background-size:         510px;
+              background-size:            510px;
+
+              -webkit-clip-path:  polygon(0px 0px, 100% 0px, 100% 55.61%, 65.58% 55.93%, 34.29% 99.70%, 0px 100%);
+              -o-clip-path:       polygon(0px 0px, 100% 0px, 100% 55.61%, 65.58% 55.93%, 34.29% 99.70%, 0px 100%);
+              -ms-clip-path:      polygon(0px 0px, 100% 0px, 100% 55.61%, 65.58% 55.93%, 34.29% 99.70%, 0px 100%);
+              clip-path:          polygon(0px 0px, 100% 0px, 100% 55.61%, 65.58% 55.93%, 34.29% 99.70%, 0px 100%);
+
+              -webkit-animation:  changeLogos2 .3s cubic-bezier(0, .5, 0, 1)  forwards;
+              -moz-animation:     changeLogos2 .3s cubic-bezier(0, .5, 0, 1)  forwards;
+              -o-animation:       changeLogos2 .3s cubic-bezier(0, .5, 0, 1)  forwards;
+              animation:          changeLogos2 .3s cubic-bezier(0, .5, 0, 1)  forwards;
+          }
           }
 
-          img, video{
-            
-            // position: absolute; 
-            // top: 50%; 
-            // left: 50%; 
-            // right: 0; bottom: 0; 
 
-            // margin: auto; 
-            //min-width: 50%;
-            //min-height: 50%;
-           
-            // width: auto;
-            // height: auto;
-            // min-width: 100vw;
-            // max-width: 130vw;
-            // max-height: 130vh;
-            
-            //min-height: 100vh;
 
-              // position: absolute;
-              // left: 50%;
-              // top: 50%;
+      
+      }
+    }
 
-              // width: 100%;
-              // height: 100%;
-              // min-height: 100vh;
-
-              //max-height: calc( 100vh - 124px );
-              //max-height: calc( var(--vh, 1vh) * 100 - 124px );
-          }
-        }
-      //}
-  }
   
 }
 
+.plyr__controls,
+.plyr__control--overlaid svg{display: none!important;}
 
-:root {
-  --plyr-color-main: #1ac266;
-}
-
+.plyr__poster,
 .plyr__video-wrapper,
 .plyr--video{
-  background: #FFF!important;
+  background-color: #FFF!important;
 }
 
 .plyr__video-embed,
 .vp-video-wrapper,
 #player,
 .plyr__poster{
+  width: 100vw!important;
   height: 100vh!important;
+  padding: 0!important;
 }
 
 .plyr__video-embed iframe, 
@@ -705,12 +708,12 @@ header  {
 .plyr--full-ui .plyr__video-embed > .plyr__video-embed__container{
   transform: none!important;
   padding-bottom: 0!important;
+  width: 100vw!important;
   height: 100vh!important;
 }
 
-.plyr__video-wrapper
-{
-  top: -25px;
+.plyr__video-wrapper {
+  //top: -25px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -719,12 +722,12 @@ header  {
 
 .plyr__poster {
   top: 35px!important;
-  background-color: #FFF!important;
+  background-size: cover!important;
 }
 
-.plyr video{
-  width: auto!important;
-  height: auto!important;
+.plyr video {
+    width: auto!important;
+    height: auto!important;
 }
 
 .player .vp-video-wrapper object, 
@@ -737,54 +740,100 @@ header  {
 }
 
 
+.plyr__control--overlaid.plyr__control{
+  border-radius: 0;
+  padding: 0;
+  width: 60px;
+  height: 60px;
+  background: transparent;
+
+    &::before,
+    &::after{
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 60px;
+      height: 60px;
+      -webkit-transition:   opacity 0.3s cubic-bezier(0, .5, 0, 1);
+      -moz-transition:      opacity 0.3s cubic-bezier(0, .5, 0, 1);
+      -o-transition:        opacity 0.3s cubic-bezier(0, .5, 0, 1);
+      transition:           opacity 0.3s cubic-bezier(0, .5, 0, 1);
+      background: url(./assets/images/icons/play.svg) no-repeat center center;
+    }
+
+    &::after{
+      background: url(./assets/images/icons/play-hover.svg) no-repeat center center;
+      opacity: 0;
+    }
+
+    &:hover{
+        background: transparent!important;
+
+        &::before{opacity: 0;}
+        &::after{opacity: 1;}
+    }
+}
+
+// .plyr--video:hover {
+  
+//     cursor: pointer!important;
+
+//     .plyr__control--overlaid.plyr__control{
+//           &::before{opacity: 0;}
+//           &::after{opacity: 1;}
+//     }
+// }
+
 
 
 .carousel-indicators {
   align-items: baseline;
-  position: fixed;
-  bottom: 10px;
+  position: absolute;
+  bottom: 25px;
   z-index: 4;
 
-li {
-  flex: 0 1 auto;
-  width: 100px;
-  height: 40px;
-  text-indent: 0;
-  justify-items: center;
-  color: #FFF;
-  font-family: 'Oswald', sans-serif;
-  font-weight: 300;
-  font-size: 18px;
-  line-height: 38px;
-  text-align: center;
-  cursor: pointer;
-  background: none;
-  -webkit-transition:     opacity 2s cubic-bezier(0, .5, 0, 1);
-  -moz-transition:        opacity 2s cubic-bezier(0, .5, 0, 1);
-  -o-transition:          opacity 2s cubic-bezier(0, .5, 0, 1);
-  transition:             opacity 2s cubic-bezier(0, .5, 0, 1);
-  position: relative;
-  opacity: 1;
+  a {
+    flex: 0 1 auto;
+    width: 100px;
+    height: 40px;
+    text-indent: 0;
+    justify-items: center;
+    color: #FFF;
+    font-family: 'Oswald', sans-serif;
+    text-decoration: none;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 38px;
+    text-align: center;
+    cursor: pointer;
+    background: none;
+    -webkit-transition:     opacity 2s cubic-bezier(0, .5, 0, 1);
+    -moz-transition:        opacity 2s cubic-bezier(0, .5, 0, 1);
+    -o-transition:          opacity 2s cubic-bezier(0, .5, 0, 1);
+    transition:             opacity 2s cubic-bezier(0, .5, 0, 1);
+    position: relative;
+    opacity: 1;
 
-  &:before{
-      content: '';
-      position: absolute;
-      background: #FFF;
-      height: 2px;
-      width: 45px;
-      bottom: 20px;
-      left: -24px;
+    &:before{
+        content: '';
+        position: absolute;
+        background: #FFF;
+        height: 2px;
+        width: 45px;
+        bottom: 20px;
+        left: -24px;
+    }
+    
+    &:first-child:before{
+        display:none;
+    }
   }
-  
-  &:first-child:before{
-      display:none;
-  }
-}
 
-.active {
-  line-height: 28px;
-  font-size: 28px;
-}
+  .active {
+    line-height: 28px;
+    font-size: 28px;
+  }
 }
 
 
@@ -810,40 +859,7 @@ li {
 
 
 
-  //IMAGE
-  // &::after{            
-  //     content: '';
-  //     position: absolute;
-  //         top: 0;
-  //         bottom: 0;
-  //         left: 0;
-  //         right: 0;
-  //     z-index: 1;
 
-  //     width: 100%;
-  //     height: 100%;
-  //     opacity: 0;
-      
-  //     //background-image: url(../assets/images/logo/intro_home.svg);
-  //     background-repeat: no-repeat; 
-  //     background-position: center center;
-  //     background-attachment: fixed; 
-
-  //     -webkit-background-size:    510px;
-  //     -moz-background-size:       510px;
-  //     -o-background-size:         510px;
-  //     background-size:            510px;
-
-  //     -webkit-clip-path:  polygon(0px 0px, 100% 0px, 100% 55.61%, 65.58% 55.93%, 34.29% 99.70%, 0px 100%);
-  //     -o-clip-path:       polygon(0px 0px, 100% 0px, 100% 55.61%, 65.58% 55.93%, 34.29% 99.70%, 0px 100%);
-  //     -ms-clip-path:      polygon(0px 0px, 100% 0px, 100% 55.61%, 65.58% 55.93%, 34.29% 99.70%, 0px 100%);
-  //     clip-path:          polygon(0px 0px, 100% 0px, 100% 55.61%, 65.58% 55.93%, 34.29% 99.70%, 0px 100%);
-
-  //     -webkit-animation:  changeLogos2 .3s cubic-bezier(0, .5, 0, 1)  forwards;
-  //     -moz-animation:     changeLogos2 .3s cubic-bezier(0, .5, 0, 1)  forwards;
-  //     -o-animation:       changeLogos2 .3s cubic-bezier(0, .5, 0, 1)  forwards;
-  //     animation:          changeLogos2 .3s cubic-bezier(0, .5, 0, 1)  forwards;
-  // }
 
 .line{
   position: absolute;

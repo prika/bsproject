@@ -23,7 +23,6 @@
             "src": "banners/banner_stone_foto_2.jpg", 
             "srcvideo": "video_exemplo.mp4",
             "srcvideo1080": "video_exemplo.mp4",
-            "autoplay": "autoplay",
             "alt": "Image Test",
             "width": 1920,
             "height": 1080
@@ -33,20 +32,18 @@
             "type": "video-youtube", 
             "src": "banners/BlocoB-7234_Banner.jpg", 
             "srcvideo": "https://www.youtube.com/embed/bTqVqk7FSmY?iv_load_policy=3&modestbranding=1&playsinline=1&showinfo=0&rel=0&enablejsapi=1&origin=http://localhost:8080", 
-            "autoplay": "autoplay",
             "alt": "Image Test",
-            "width": 5693,
-            "height": 3795
+            "width": 1920,
+            "height": 1080
         },
         {
             "id": "slide05",
             "type": "video-vimeo", 
             "src": "banners/banner_stone_foto_1.jpg", 
-            "srcvideo": "https://player.vimeo.com/video/76979871?loop=false&byline=false&portrait=false&title=false&speed=true&transparent=0&gesture=media", 
-            "autoplay": "autoplay",
+            "srcvideo": "https://player.vimeo.com/video/76979871?loop=false&byline=false&portrait=false&title=false&speed=true&transparent=0&gesture=media",
             "alt": "Image Test",
-            "width": 5693,
-            "height": 3795
+            "width": 1920,
+            "height": 1080
         }
     ],
     "title": "Home",
