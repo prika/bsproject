@@ -183,48 +183,48 @@ padding-top: 110px;
 .plyr__controls,
 .plyr__control--overlaid svg{display: none!important;}
 
-.plyr__control--overlaid.plyr__control{
-  border-radius: 0;
-  padding: 0;
-  width: 60px;
-  height: 60px;
-  background: transparent;
+// .plyr__control--overlaid.plyr__control{
+//   border-radius: 0;
+//   padding: 0;
+//   width: 60px;
+//   height: 60px;
+//   background: transparent;
 
-    &::before,
-    &::after{
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 60px;
-      height: 60px;
-      -webkit-transition:   opacity 0.3s cubic-bezier(0, .5, 0, 1);
-      -moz-transition:      opacity 0.3s cubic-bezier(0, .5, 0, 1);
-      -o-transition:        opacity 0.3s cubic-bezier(0, .5, 0, 1);
-      transition:           opacity 0.3s cubic-bezier(0, .5, 0, 1);
-      background: url(../assets/images/icons/play.svg) no-repeat center center;
-    }
+//     &::before,
+//     &::after{
+//       content: '';
+//       position: absolute;
+//       top: 0;
+//       left: 0;
+//       width: 60px;
+//       height: 60px;
+//       -webkit-transition:   opacity 0.3s cubic-bezier(0, .5, 0, 1);
+//       -moz-transition:      opacity 0.3s cubic-bezier(0, .5, 0, 1);
+//       -o-transition:        opacity 0.3s cubic-bezier(0, .5, 0, 1);
+//       transition:           opacity 0.3s cubic-bezier(0, .5, 0, 1);
+//       background: url(../assets/images/icons/play.svg) no-repeat center center;
+//     }
 
-    &::after{
-      background: url(../assets/images/icons/play-hover.svg) no-repeat center center;
-      opacity: 0;
-    }
+//     &::after{
+//       background: url(../assets/images/icons/play-hover.svg) no-repeat center center;
+//       opacity: 0;
+//     }
 
-    &:hover{
-        background: transparent!important;
+//     &:hover{
+//         background: transparent!important;
 
-        &::before{opacity: 0;}
-        &::after{opacity: 1;}
-    }
-}
+//         &::before{opacity: 0;}
+//         &::after{opacity: 1;}
+//     }
+// }
 
-.plyr--video:hover {
+// .plyr--video:hover {
   
-    cursor: pointer!important;
+//     cursor: pointer!important;
 
-    .plyr__control--overlaid.plyr__control{
-          &::before{opacity: 0;}
-          &::after{opacity: 1;}
-    }
-}
+//     .plyr__control--overlaid.plyr__control{
+//           &::before{opacity: 0;}
+//           &::after{opacity: 1;}
+//     }
+// }
 </style>
