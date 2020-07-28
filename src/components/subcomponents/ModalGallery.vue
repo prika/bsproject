@@ -31,7 +31,7 @@
                     </a>
                 </transition>
                 <transition appear enter-active-class="animated slideInRight faster" leave-active-class="animated slideOutRight faster">
-                    <a class="buttonNext" v-on:click="nextSlide" :alt="$t('popup-gallery-next-slide')" v-if="largeImages.length > selectedIndex+1">
+                    <a class="buttonNext" v-on:click="nextSlide" :alt="$t('popup-gallery-next-slide')" v-if="largeImages.length"> selectedIndex+1">
                         <prevIcon />
                     </a>
                  </transition>
