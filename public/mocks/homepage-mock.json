@@ -31,7 +31,7 @@
             "id": "slide04",
             "type": "video-youtube", 
             "src": "banners/BlocoB-7234_Banner.jpg", 
-            "srcvideo": "https://www.youtube.com/embed/bTqVqk7FSmY?iv_load_policy=3&modestbranding=1&playsinline=1&showinfo=0&rel=0&enablejsapi=1&origin=http://localhost:8080", 
+            "srcvideo": "https://www.youtube.com/embed/bTqVqk7FSmY?iv_load_policy=3&modestbranding=1&playsinline=1&showinfo=0&rel=0&enablejsapi=1", 
             "alt": "Image Test",
             "width": 1920,
             "height": 1080

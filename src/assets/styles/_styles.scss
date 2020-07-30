@@ -599,16 +599,12 @@ header  {
 }
 
 
-
-
 #bannerFullsize{
   margin: 0; padding: 0;
   position: relative;
   z-index: 2;
   overflow: hidden;
-  //overflow: hidden;
   width: 100vw;
-  //min-width: 980px;
   height: 100vh;
   //height: calc(var(--vh,1vh) * 100);
 
@@ -626,19 +622,17 @@ header  {
           justify-content: center;
           overflow: hidden;
           transform: translateY(-100vh);
-          opacity: .9;
+          z-index: 1;
 
-          -webkit-transition:     transform .6s cubic-bezier(0, .5, 0, 1), opacity .4s cubic-bezier(0, .5, 0, 1);
-          -moz-transition:        transform .6s cubic-bezier(0, .5, 0, 1), opacity .4s cubic-bezier(0, .5, 0, 1);
-          -o-transition:          transform .6s cubic-bezier(0, .5, 0, 1), opacity .4s cubic-bezier(0, .5, 0, 1);
-          transition:             transform .6s cubic-bezier(0, .5, 0, 1), opacity .4s cubic-bezier(0, .5, 0, 1);
+          -webkit-transition:     transform .6s cubic-bezier(0, .5, 0, 1);
+          -moz-transition:        transform .6s cubic-bezier(0, .5, 0, 1);
+          -o-transition:          transform .6s cubic-bezier(0, .5, 0, 1);
+          transition:             transform .6s cubic-bezier(0, .5, 0, 1);
           
         
           &.active{
-            transform: translateY(0);
             z-index: 2;
-            opacity: 1;
-
+            transform: translateY(0);
 
             //IMAGE
             &::after{            
@@ -652,7 +646,6 @@ header  {
 
               width: 100%;
               height: 100%;
-              //opacity: 0;
               
               background-image: url(./assets/images/logo/intro_home.svg);
               background-repeat: no-repeat; 
@@ -674,15 +667,9 @@ header  {
               -o-animation:       changeLogos2 .3s cubic-bezier(0, .5, 0, 1)  forwards;
               animation:          changeLogos2 .3s cubic-bezier(0, .5, 0, 1)  forwards;
           }
-          }
-
-
-
-      
+        }
       }
     }
-
-  
 }
 
 .plyr__controls,
@@ -784,7 +771,6 @@ header  {
 //           &::after{opacity: 1;}
 //     }
 // }
-
 
 
 .carousel-indicators {
