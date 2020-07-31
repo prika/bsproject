@@ -2,7 +2,7 @@
     "id": "homepage",
     "slidergallery": [
         {
-            "id": "slide01",
+            "id": "slide0",
             "type": "img", 
             "src": "banners/BlocoB-7234_Banner.jpg", 
             "alt": "Image Test",
@@ -10,7 +10,7 @@
             "height": 3795
         },
         {
-            "id": "slide02",
+            "id": "slide1",
             "type": "img", 
             "src": "banners/banner_stone_foto_1.jpg", 
             "alt": "Image Test",
@@ -18,7 +18,7 @@
             "height": 2331
         },
         {
-            "id": "slide03",
+            "id": "slide2",
             "type": "video-uploaded",
             "src": "banners/banner_stone_foto_2.jpg", 
             "srcvideo": "video_exemplo.mp4",
@@ -28,7 +28,15 @@
             "height": 1080
         },
         {
-            "id": "slide04",
+            "id": "slide7",
+            "type": "img", 
+            "src": "banners/banner_stone_foto_1.jpg", 
+            "alt": "Image Test",
+            "width": 4000,
+            "height": 2331
+        },
+        {
+            "id": "slide3",
             "type": "video-youtube", 
             "src": "banners/BlocoB-7234_Banner.jpg", 
             "srcvideo": "https://www.youtube.com/embed/bTqVqk7FSmY?iv_load_policy=3&modestbranding=1&playsinline=1&showinfo=0&rel=0&enablejsapi=1", 
@@ -37,10 +45,19 @@
             "height": 1080
         },
         {
-            "id": "slide05",
+            "id": "slide4",
             "type": "video-vimeo", 
             "src": "banners/banner_stone_foto_1.jpg", 
             "srcvideo": "https://player.vimeo.com/video/76979871?loop=false&byline=false&portrait=false&title=false&speed=true&transparent=0&gesture=media",
+            "alt": "Image Test",
+            "width": 1920,
+            "height": 1080
+        },
+        {
+            "id": "slide8",
+            "type": "video-youtube", 
+            "src": "banners/BlocoB-7234_Banner.jpg", 
+            "srcvideo": "https://www.youtube.com/embed/bTqVqk7FSmY?iv_load_policy=3&modestbranding=1&playsinline=1&showinfo=0&rel=0&enablejsapi=1", 
             "alt": "Image Test",
             "width": 1920,
             "height": 1080
