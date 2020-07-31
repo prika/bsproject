@@ -11,10 +11,8 @@
                     href="javascript:void(0)"
                     @click="selectSlide(index)">
                         
-                        <span v-if="index < 9">0</span>{{index+1}}
+                    <span v-if="index < 9">0</span>{{index+1}}
                 </a>
-
-                 <a @click="pauseMovie()">Pause movie</a>
             </div>
 
             <!--button class="prev" @click="prev">&#10094; Previous</button -->
@@ -37,15 +35,15 @@
                 </div>
 
                  <!-- Video HTML5 -->
-                <div   v-if="image.type == 'video-uploaded'" 
+                <vue-plyr   :emit="['ended', 'duration']" @ended="endedMovie" @duration="durationMovie(event)"
+                            v-if="image.type == 'video-uploaded'" 
                             :class="['slide', (index === activeSlide ? 'active': '')]" 
                             :ref="'player'+index"
                             :width="resizedWidth[index] + 'px'" 
                             :height="resizedHeight[index] + 'px'"
                             :key="image.id">
 
-                    <video  :id="'video'+index"
-                            loop poster crossorigin playsinline
+                    <video  crossorigin playsinline :id="'video'+index"
                             :poster="getImgUrl(image.src)" 
                             :src="getVideoUrl(image.srcvideo)"
                             :aria-label="image.alt"
@@ -55,10 +53,11 @@
                         <source :src="getVideoUrl(image.srcvideo)" type="video/mp4" size="720">
                         <source :src="getVideoUrl(image.srcvideo1080)" type="video/mp4" size="1080">
                     </video>
-                </div>
+                </vue-plyr>
 
                 <!-- Video Youtube -->
-                <div   v-if="image.type == 'video-youtube'" 
+                <vue-plyr   :emit="['ended', 'duration']" @ended="endedMovie" @duration="durationMovie"
+                            v-if="image.type == 'video-youtube'" 
                             :class="['slide', (index === activeSlide ? 'active': '')]" 
                             :ref="'player'+index" 
                             :width="resizedWidth[index] + 'px'" 
@@ -67,7 +66,8 @@
                             class="plyr__video-embed"
                             data-plyr-provider="youtube"
                             :id="'video'+index">
-               
+
+                    <div class="plyr__video-embed">
                         <iframe     
                                     :width="resizedWidth[index] + 'px'" 
                                     :height="resizedHeight[index] + 'px'"
@@ -75,31 +75,30 @@
                                     :poster="image.src"
                                     :src="image.srcvideo"
                                     :importance="(index === 0 ? 'high': 'low')"
-                                    allowtransparency  allow="autoplay">
+                                    allowtransparency>
                         </iframe>
-                   
-                </div>
+                    </div>
+                </vue-plyr>
 
                 <!-- Video Vimeo -->
-                <vue-plyr   v-if="image.type == 'video-vimeo'" 
+                <vue-plyr   :emit="['ended', 'duration']" @ended="endedMovie" @duration="durationMovie"
+                            v-if="image.type == 'video-vimeo'" 
                             :class="['slide', (index === activeSlide ? 'active': '')]" 
                             :ref="'player'+index"
                             :width="resizedWidth[index] + 'px'" 
                             :height="resizedHeight[index] + 'px'"
                             data-plyr-provider="vimeo"
-                            :key="image.id">
+                            :key="image.id" :id="'video'+index">
 
-                    <div    class="plyr__video-embed" :id="'video'+index">
+                    <div class="plyr__video-embed">
 
-                        <iframe 
-                                :alt="image.alt"
+                        <iframe :alt="image.alt"
                                 :width="resizedWidth[index] + 'px'" 
                                 :height="resizedHeight[index] + 'px'"
                                 :poster="getImgUrl(image.src)"
                                 :src="image.srcvideo"
                                 :importance="(index === 0 ? 'high': 'low')"
-                                allow="autoplay"
-                                allowfullscreen allowtransparency>
+                                allowtransparency>
                         </iframe>
                     </div>
                 </vue-plyr>
@@ -111,12 +110,12 @@
 </template>
 
 <script>
-import VuePlyr from 'vue-plyr'
+//import VuePlyr from 'vue-plyr'
 export default {
     name: "bannerFullsize",
-    components: {
-        VuePlyr
-    },
+    // components: {
+    //     VuePlyr
+    // },
     data() {
         return {
             imageGroupSliderGallery:[
@@ -141,7 +140,9 @@ export default {
             timer: null,
             controls: true,
             pause: false,
-            player: null
+            player: null,
+            playElement: null,
+            pauseElement: null
         }
     },
     created() {
@@ -161,6 +162,9 @@ export default {
             window.addEventListener('resize', this.resizeContent )
             this.startSlide();
         })
+    },
+    mounted() {
+		console.log( this.$refs );
     },
     destroyed() {
         window.removeEventListener('resize', this.resizeContent);
@@ -200,13 +204,13 @@ export default {
             return require( '@/assets/media/'+src )
         },
         startSlide: function() {
-            
-            //this.timer = setInterval(this.next, 5000) 
+            this.timer = setInterval(this.next, 5000) 
         },
         selectSlide: function (slideNumber) {            
             this.pauseMovie(this.activeSlide)
             this.activeSlide = slideNumber
-            this.playMovie(this.activeSlide) 
+            this.playMovie(this.activeSlide)
+            this.timer = setInterval(this.next, 5000) 
         },
         next: function() {
             this.pauseMovie(this.activeSlide)
@@ -218,21 +222,63 @@ export default {
             this.activeSlide = (this.activeSlide - 1 == 0) ? this.imageGroupSliderGallery.length : this.activeSlide - 1
             this.playMovie(this.activeSlide) 
         },
-        playMovie: function(slideNumber) {
+        playMovie: function() {
 
-            if (this.imageGroupSliderGallery[slideNumber].type == "img") return
-            debugger
-            var playElement = document.getElementById("video" + slideNumber) 
+            let playElement = null
+
+            if (this.imageGroupSliderGallery[this.activeSlide].type == "img") return
+            clearInterval( this.timer );
+
+            if (this.imageGroupSliderGallery[this.activeSlide].type == "video-uploaded"){
+                console.log('play uploaded')
+                playElement = document.getElementById("video" + this.activeSlide) 
+            }
+
+            if (this.imageGroupSliderGallery[this.activeSlide].type == "video-youtube"){
+                console.log('play youtube')
+                playElement = document.getElementById("video" + this.activeSlide)
+            }
+
+            if (this.imageGroupSliderGallery[this.activeSlide].type == "video-vimeo"){
+                console.log('play vimeo')
+                playElement = document.getElementById("video" + this.activeSlide)
+            }
+            
+
             playElement.play()
+
         },
-        pauseMovie: function(slideNumber) {
+        pauseMovie: function() {
 
-            if (this.imageGroupSliderGallery[slideNumber].type == "img") return
-            var pauseElement = document.getElementById("video" +  slideNumber)
-            debugger
+            let pauseElement = null
+
+            if (this.imageGroupSliderGallery[this.activeSlide].type == "img") return
+
+            if (this.imageGroupSliderGallery[this.activeSlide].type == "video-uploaded"){
+                console.log('pause uploaded: ')
+                pauseElement = document.getElementById("video" + this.activeSlide)
+            }
+
+            if (this.imageGroupSliderGallery[this.activeSlide].type == "video-youtube"){
+                console.log('pause youtube')
+                //pauseElement = document.getElementById("video" + this.activeSlide)
+            }
+
+            if (this.imageGroupSliderGallery[this.activeSlide].type == "video-vimeo"){
+                console.log('pause vimeo')
+                pauseElement = document.getElementById("video" + this.activeSlide)
+            }
+            
             pauseElement.pause()
-        }
 
+        },
+        endedMovie: function(){
+            console.log('THE END')
+            this.timer = setInterval(this.next, 5000)
+        },
+        durationMovie: function(event){
+           console.log( "duration: "+ event.detail.plyr.currentTime )
+        }
     }
 }
 </script>

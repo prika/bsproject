@@ -2,7 +2,7 @@
 import App from './App.vue'
 import router from './router'
 import i18n from './i18n'
-//import VuePlyr from 'vue-plyr'
+import VuePlyr from 'vue-plyr'
 //import store from './store/store'
 import Vuex from 'vuex'
 import axios from 'axios'
@@ -26,15 +26,16 @@ Vue.directive('scroll', {
 Vue.use(router, axios, Vuex)
 //VueAxios,
 
-// Vue.use(VuePlyr, {
-//   plyr: {
-//     fullscreen: { enabled: true }
-//   },
-//   emit: ['ended']
-// })
+Vue.use(VuePlyr, {
+  plyr: {
+    fullscreen: { enabled: true }
+  },
+  emit: ['ended']
+})
 
 const vue = new Vue({
   router,
+  VuePlyr,
   //store,
   i18n,
   axios,
