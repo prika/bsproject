@@ -35,13 +35,12 @@
                 </div>
 
                  <!-- Video HTML5 -->
-                <vue-plyr   :emit="['ended', 'duration']" @ended="endedMovie" @duration="durationMovie(event)"
-                            v-if="image.type == 'video-uploaded'" 
-                            :class="['slide', (index === activeSlide ? 'active': '')]" 
-                            :ref="'player'+index"
-                            :width="resizedWidth[index] + 'px'" 
-                            :height="resizedHeight[index] + 'px'"
-                            :key="image.id">
+                <div    v-if="image.type == 'video-uploaded'" 
+                        :class="['slide', (index === activeSlide ? 'active': '')]" 
+                        :ref="'player'+index"
+                        :width="resizedWidth[index] + 'px'" 
+                        :height="resizedHeight[index] + 'px'"
+                        :key="image.id">
 
                     <video  crossorigin playsinline :id="'video'+index"
                             :poster="getImgUrl(image.src)" 
@@ -49,40 +48,22 @@
                             :aria-label="image.alt"
                             :width="resizedWidth[index] + 'px'" 
                             :height="resizedHeight[index] + 'px'"
-                            :importance="(index === 0 ? 'high': 'low')">
+                            :importance="(index === 0 ? 'high': 'low')" muted="muted">
                         <source :src="getVideoUrl(image.srcvideo)" type="video/mp4" size="720">
                         <source :src="getVideoUrl(image.srcvideo1080)" type="video/mp4" size="1080">
                     </video>
-                </vue-plyr>
+                </div>
 
-                <!-- Video Youtube -->
-                <vue-plyr   :emit="['ended', 'duration']" @ended="endedMovie" @duration="durationMovie"
-                            v-if="image.type == 'video-youtube'" 
-                            :class="['slide', (index === activeSlide ? 'active': '')]" 
-                            :ref="'player'+index" 
-                            :width="resizedWidth[index] + 'px'" 
-                            :height="resizedHeight[index] + 'px'"
-                            :key="image.id"
-                            class="plyr__video-embed"
-                            data-plyr-provider="youtube"
-                            :id="'video'+index">
-
-                    <div class="plyr__video-embed">
-                        <iframe     
-                                    :width="resizedWidth[index] + 'px'" 
-                                    :height="resizedHeight[index] + 'px'"
-                                    :alt="image.alt"
-                                    :poster="image.src"
-                                    :src="image.srcvideo"
-                                    :importance="(index === 0 ? 'high': 'low')"
-                                    allowtransparency>
-                        </iframe>
-                    </div>
-                </vue-plyr>
+                <div v-if="image.type == 'video-youtube'" 
+                        :class="['slide', (index === activeSlide ? 'active': '')]" 
+                        :id="'videoContainer'+index">
+                        <div :id="'youtube_video_'+index" 
+                        :width="resizedWidth[index] + 'px'" 
+                        :height="resizedHeight[index] + 'px'"></div>
+                </div>
 
                 <!-- Video Vimeo -->
-                <vue-plyr   :emit="['ended', 'duration']" @ended="endedMovie" @duration="durationMovie"
-                            v-if="image.type == 'video-vimeo'" 
+                <div    v-if="image.type == 'video-vimeo'" muted="muted"
                             :class="['slide', (index === activeSlide ? 'active': '')]" 
                             :ref="'player'+index"
                             :width="resizedWidth[index] + 'px'" 
@@ -90,18 +71,16 @@
                             data-plyr-provider="vimeo"
                             :key="image.id" :id="'video'+index">
 
-                    <div class="plyr__video-embed">
-
                         <iframe :alt="image.alt"
                                 :width="resizedWidth[index] + 'px'" 
                                 :height="resizedHeight[index] + 'px'"
                                 :poster="getImgUrl(image.src)"
                                 :src="image.srcvideo"
                                 :importance="(index === 0 ? 'high': 'low')"
-                                allowtransparency>
+                                allowtransparency muted="muted">
                         </iframe>
-                    </div>
-                </vue-plyr>
+                   
+                </div>
             </template>
             </div>
 
@@ -110,12 +89,8 @@
 </template>
 
 <script>
-//import VuePlyr from 'vue-plyr'
 export default {
     name: "bannerFullsize",
-    // components: {
-    //     VuePlyr
-    // },
     data() {
         return {
             imageGroupSliderGallery:[
@@ -141,11 +116,12 @@ export default {
             controls: true,
             pause: false,
             player: null,
-            playElement: null,
-            pauseElement: null
+            playElement: [],
+            pauseElement: []
         }
     },
     created() {
+
 
         this.$http.get('../mocks/homepage-mock.json').then(response => {
 
@@ -154,12 +130,16 @@ export default {
             for (let i = 0; i < this.imageGroupSliderGallery.length; i++) {
 
                 if (this.imageGroupSliderGallery[i].type === "img") continue
-                this.appendPlayerJS()
-                break
+
+                if (this.imageGroupSliderGallery[i].type === "video-youtube"){
+                    this.appendYoutubePlayerJS()
+                    break
+                } 
             }
 
             this.resizeContent()
             window.addEventListener('resize', this.resizeContent )
+            window.onYouTubeIframeAPIReady = this.onYouTubeIframeAPIReady
             this.startSlide();
         })
     },
@@ -170,11 +150,34 @@ export default {
         window.removeEventListener('resize', this.resizeContent);
     },
     methods: {
-        appendPlayerJS: function() {
-            let plyr__video = document.createElement("script")
-            plyr__video.setAttribute("type", "text/javascript")
-            plyr__video.setAttribute("src", "https://cdn.plyr.io/3.6.2/plyr.polyfilled.js")
-            document.head.appendChild(plyr__video)
+        appendYoutubePlayerJS: function() {
+
+            var tag = document.createElement('script');
+            tag.src = "https://www.youtube.com/iframe_api";
+            var firstScriptTag = document.getElementsByTagName('script')[0];
+            firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+        },
+        onYouTubeIframeAPIReady: function() {
+
+            for (let i = 0; i < this.imageGroupSliderGallery.length; i++) {
+
+                if (this.imageGroupSliderGallery[i].type === "video-youtube"){
+
+                    var player = new YT.Player('youtube_video_'+i, {
+                        videoId: this.imageGroupSliderGallery[i].srcvideo,
+                        playerVars: { 'autoplay': 0, 'controls': 0 },
+                        width: this.resizedWidth[i],
+                        height: this.resizedHeight[i],
+                        events: {
+                            //'onReady': onPlayerReady,
+                            //'onPlaybackQualityChange': onPlayerPlaybackQualityChange,
+                            //'onStateChange': onPlayerStateChange,
+                            //'onError': onPlayerError
+                        }
+                    })
+
+                }
+            }
         },
         resizeContent: function() {
 
@@ -204,7 +207,7 @@ export default {
             return require( '@/assets/media/'+src )
         },
         startSlide: function() {
-            this.timer = setInterval(this.next, 5000) 
+            //this.timer = setInterval(this.next, 5000) 
         },
         selectSlide: function (slideNumber) {            
             this.pauseMovie(this.activeSlide)
@@ -222,59 +225,67 @@ export default {
             this.activeSlide = (this.activeSlide - 1 == 0) ? this.imageGroupSliderGallery.length : this.activeSlide - 1
             this.playMovie(this.activeSlide) 
         },
+        // loadVideoByIndex: function(index)
+        // {
+
+        // },
         playMovie: function() {
 
-            let playElement = null
-
             if (this.imageGroupSliderGallery[this.activeSlide].type == "img") return
+            
             clearInterval( this.timer );
 
             if (this.imageGroupSliderGallery[this.activeSlide].type == "video-uploaded"){
                 console.log('play uploaded')
-                playElement = document.getElementById("video" + this.activeSlide) 
+                let playElement = document.getElementById("video" + this.activeSlide) 
+                playElement.play()
+                return
             }
 
             if (this.imageGroupSliderGallery[this.activeSlide].type == "video-youtube"){
-                console.log('play youtube')
-                playElement = document.getElementById("video" + this.activeSlide)
+                console.log('play youtube:  '+"video" + this.activeSlide)
+                
+                // let playElement = document.getElementById('youtube_video_'+this.activeSlide)
+                // playElement.playVideo()
+
+                return
             }
 
-            if (this.imageGroupSliderGallery[this.activeSlide].type == "video-vimeo"){
-                console.log('play vimeo')
-                playElement = document.getElementById("video" + this.activeSlide)
-            }
-            
-
-            playElement.play()
+            // if (this.imageGroupSliderGallery[this.activeSlide].type == "video-vimeo"){
+            //     console.log('play vimeo')
+            //     playElement = document.getElementById("video" + this.activeSlide)
+            // }
 
         },
         pauseMovie: function() {
-
-            let pauseElement = null
 
             if (this.imageGroupSliderGallery[this.activeSlide].type == "img") return
 
             if (this.imageGroupSliderGallery[this.activeSlide].type == "video-uploaded"){
                 console.log('pause uploaded: ')
-                pauseElement = document.getElementById("video" + this.activeSlide)
+                let pauseElement = document.getElementById("video" + this.activeSlide)
+                pauseElement.pause()
             }
 
             if (this.imageGroupSliderGallery[this.activeSlide].type == "video-youtube"){
-                console.log('pause youtube')
-                //pauseElement = document.getElementById("video" + this.activeSlide)
+                console.log('pause youtube: ')
+                //this.player[this.activeSlide].pauseVideo()
+                
             }
 
-            if (this.imageGroupSliderGallery[this.activeSlide].type == "video-vimeo"){
-                console.log('pause vimeo')
-                pauseElement = document.getElementById("video" + this.activeSlide)
-            }
+            // if (this.imageGroupSliderGallery[this.activeSlide].type == "video-vimeo"){
+            //     console.log('pause vimeo')
+            //     pauseElement = document.getElementById("video" + this.activeSlide)
+            // }
             
-            pauseElement.pause()
+            
 
         },
         endedMovie: function(){
             console.log('THE END')
             this.timer = setInterval(this.next, 5000)
+            
+            //YT.PlayerState.ENDED
         },
         durationMovie: function(event){
            console.log( "duration: "+ event.detail.plyr.currentTime )
