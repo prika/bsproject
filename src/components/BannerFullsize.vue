@@ -5,23 +5,23 @@
         <div class="line verticalLeftLine"></div>
         <div class="line verticalRightLine"></div>
 
-            <div class="carousel-indicators">
-                <a  v-for="(image, index) in imageGroupSliderGallery"  
-                    :class="(index === activeSlide ? 'active': '')"
-                    :data-slide-to="index"
-                    href="javascript:void(0)"
-                    @click="selectSlide(index)">
-                        
-                    <span v-if="index < 9">0</span>{{index+1}}
-                </a>
-            </div>
+        <div class="carousel-indicators">
+            <a  v-for="(image, index) in imageGroupSliderGallery"  
+                :class="(index === activeSlide ? 'active': '')"
+                :data-slide-to="index"
+                href="javascript:void(0)"
+                @click="selectSlide(index)">
+                    
+                <span v-if="index < 9">0</span>{{index+1}}
+            </a>
+        </div>
+        <!--button class="prev" @click="prev">&#10094; Previous</button -->
+        <!--button class="next" @click="next">&#10095; Next</button -->
 
-            <!--button class="prev" @click="prev">&#10094; Previous</button -->
-            <!--button class="next" @click="next">&#10095; Next</button -->
-
-            <div class="carouselContainer">
+        <div class="carouselContainer">
             <template v-for="(image, index) in imageGroupSliderGallery">
-                <!-- Image -->
+               
+
                 <div v-if="image.type == 'img'" 
                     :class="['slide', (index === activeSlide ? 'active': '')]"
                     :width="resizedWidth[index] + 'px'" 
@@ -35,8 +35,8 @@
                             :importance="(index === 0 ? 'high': 'low')">
                 </div>
 
-                 <!-- Video HTML5 -->
-                <div    v-if="image.type == 'video-uploaded'" 
+
+                <div v-if="image.type == 'video-uploaded'" 
                         :class="['slide', (index === activeSlide ? 'active': '')]" 
                         :ref="'player'+index"
                         :width="resizedWidth[index] + 'px'" 
@@ -55,6 +55,7 @@
                     </video>
                 </div>
 
+
                 <div v-if="image.type == 'video-youtube'" 
                         :class="['slide', (index === activeSlide ? 'active': '')]" 
                         :id="'videoContainer'+index">
@@ -62,8 +63,8 @@
                         <div :id="'youtube_video_'+index" :width="resizedWidth[index] + 'px'"  :height="resizedHeight[index] + 'px'"></div>
                 </div>
 
-                <!-- Video Vimeo -->
-                <div    v-if="image.type == 'video-vimeo'"
+
+                <div v-if="image.type == 'video-vimeo'"
                             :class="['slide', (index === activeSlide ? 'active': '')]" 
                             :ref="'player'+index"
                             :width="resizedWidth[index] + 'px'" 
@@ -73,13 +74,10 @@
                         <div    :id="'vimeo_video_'+index"
                                 :alt="image.alt"
                                 :importance="(index === 0 ? 'high': 'low')"
-                                frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen muted="muted">
-                        </div>
+                                frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></div>
                 </div>
             </template>
-            </div>
-
-       
+        </div>
     </section>
 </template>
 
@@ -88,7 +86,7 @@ export default {
     name: "bannerFullsize",
     data() {
         return {
-            imageGroupSliderGallery:[
+            imageGroupSliderGallery: [
                 {   
                     type: String,
                     src: String,
@@ -98,27 +96,17 @@ export default {
                 }
             ],
             activeSlide: 0,
-            slide: '',
             slideWidth: [],
             slideHeight: [],
             slideAspectRatio: [],
-            windowHeight: 0,
-            windowWidth: 0,
-            windowRatio: 0,
             resizedWidth: [],
             resizedHeight: [],
             timer: null,
-            controls: true,
-            pause: false,
-            pauseElement: [],
             youtubePlayers: {},
             vimeoPlayers: {}
         }
     },
     created() {
-
-        
-
         this.$http.get('../mocks/homepage-mock.json').then(response => {
 
             this.imageGroupSliderGallery = response.data.slidergallery
@@ -174,6 +162,11 @@ export default {
                     playerVars: { 'autoplay': 0, 'controls': 0 },
                     width: this.resizedWidth[i],
                     height: this.resizedHeight[i],
+                    showinfo: 0,
+                    modestbranding: 1,
+                    cc_load_policy: 0,
+                    iv_load_policy: 3,
+                    controls: 0,
                     events: {
                         'onStateChange': this.endedMedia
                     }
@@ -191,7 +184,10 @@ export default {
                 let options = {
                     id: this.imageGroupSliderGallery[i].srcvideo,
                     width: this.resizedWidth[i],
-                    height: this.resizedHeight[i]
+                    height: this.resizedHeight[i],
+                    controls: false,
+                    muted: true,
+                    title: false
                 }
 
                 var vimeoPlayer = new Vimeo.Player('vimeo_video_'+i, options)
@@ -200,10 +196,9 @@ export default {
             }
         },
         resizeContent: function() {
-
-            this.windowWidth = window.innerWidth
-            this.windowHeight = window.innerHeight
-            this.windowRatio = this.windowWidth / this.windowHeight
+            let windowWidth = window.innerWidth
+            let windowHeight = window.innerHeight
+            let windowRatio = windowWidth / windowHeight
 
             for (let i = 0; i < this.imageGroupSliderGallery.length; i++) {
 
@@ -211,11 +206,11 @@ export default {
                 this.slideHeight[i] = this.imageGroupSliderGallery[i].height
                 this.slideAspectRatio[i] = this.slideWidth[i] / this.slideHeight[i]
                 
-                if (this.slideAspectRatio[i] < this.windowRatio) {
-                    this.resizedWidth[i] = this.windowWidth
+                if (this.slideAspectRatio[i] < windowRatio) {
+                    this.resizedWidth[i] = windowWidth
                     this.resizedHeight[i] =  this.resizedWidth[i] / this.slideAspectRatio[i]
                 } else {
-                    this.resizedHeight[i] = this.windowHeight
+                    this.resizedHeight[i] = windowHeight
                     this.resizedWidth[i] = this.resizedHeight[i] * this.slideAspectRatio[i]
                 }
             }
@@ -246,56 +241,43 @@ export default {
         },
         playMedia: function() {
 
-            if (this.imageGroupSliderGallery[this.activeSlide].type == "img") 
+            let videoType = this.imageGroupSliderGallery[this.activeSlide].type 
+
+            if ( videoType == "img")
             {
                 this.timer = setInterval(this.next, 5000) 
                 return
             }
 
-            if (this.imageGroupSliderGallery[this.activeSlide].type == "video-uploaded"){
-                console.log('play uploaded')
+            if ( videoType == "video-uploaded" ){
                 let playElement = document.getElementById("video" + this.activeSlide)
                 playElement.addEventListener('ended', this.next );
                 playElement.play()
                 return
             }
 
-            if (this.imageGroupSliderGallery[this.activeSlide].type == "video-youtube") {
-                console.log('play youtube:  '+"video" + this.activeSlide)
-                this.youtubePlayers[this.activeSlide].playVideo()
+            if ( videoType == "video-youtube" ) {
+                this.youtubePlayers[this.activeSlide].playVideo().mute()
                 return
             }
 
-            if (this.imageGroupSliderGallery[this.activeSlide].type == "video-vimeo"){
-                console.log('play vimeo')
-                console.log( this.vimeoPlayers[this.activeSlide] )
+            if ( videoType == "video-vimeo" ){
                 this.vimeoPlayers[this.activeSlide].play()
                 return
             }
         },
         pauseMedia: function() {
 
-            if (this.imageGroupSliderGallery[this.activeSlide].type == "img") 
-            {
-                clearInterval(this.timer);
+            let videoType = this.imageGroupSliderGallery[this.activeSlide].type
+
+            if ( videoType == "img") {
+                clearInterval(this.timer); 
                 return
             }
 
-            if (this.imageGroupSliderGallery[this.activeSlide].type == "video-uploaded"){
-                console.log('pause uploaded: ')
-                let pauseElement = document.getElementById("video" + this.activeSlide)
-                pauseElement.pause()
-            }
-
-            if (this.imageGroupSliderGallery[this.activeSlide].type == "video-youtube"){
-                console.log('pause youtube: ')
-                this.youtubePlayers[this.activeSlide].pauseVideo()
-            }
-
-            if (this.imageGroupSliderGallery[this.activeSlide].type == "video-vimeo"){
-                console.log('pause vimeo')
-                this.vimeoPlayers[this.activeSlide].pause()
-            }
+            if ( videoType == "video-uploaded" ){   document.getElementById("video" + this.activeSlide).pause() }
+            if ( videoType == "video-youtube" ){    this.youtubePlayers[this.activeSlide].pauseVideo() }
+            if ( videoType == "video-vimeo" ){      this.vimeoPlayers[this.activeSlide].pause() }
         },
         endedMedia: function(event)
         {
@@ -304,3 +286,232 @@ export default {
     }
 }
 </script>
+
+<style lang="scss">
+
+#bannerFullsize{
+  margin: 0; padding: 0;
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  //height: calc(var(--vh,1vh) * 100);
+
+    .carouselContainer{
+      width: 100vw;
+      height: 100vh;
+      position: relative;
+
+      .slide{
+          position: absolute;
+          float: left;
+          width: 100vw;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          overflow: hidden;
+          transform: translateY(-100vh);
+          z-index: 1;
+
+          -webkit-transition:     transform .6s cubic-bezier(0, .5, 0, 1);
+          -moz-transition:        transform .6s cubic-bezier(0, .5, 0, 1);
+          -o-transition:          transform .6s cubic-bezier(0, .5, 0, 1);
+          transition:             transform .6s cubic-bezier(0, .5, 0, 1);
+          
+        
+          &.active{
+            z-index: 2;
+            transform: translateY(0);
+
+            //IMAGE
+            &::after{            
+              content: '';
+              position: absolute;
+                  top: 0;
+                  bottom: 0;
+                  left: 0;
+                  right: 0;
+              z-index: 0;
+
+              width: 100%;
+              height: 100%;
+              
+              background-image: url(../assets/images/logo/intro_home.svg);
+              background-repeat: no-repeat; 
+              background-position: center center;
+              background-attachment: fixed; 
+
+              -webkit-background-size:    510px;
+              -moz-background-size:       510px;
+              -o-background-size:         510px;
+              background-size:            510px;
+
+              -webkit-clip-path:  polygon(0px 0px, 100% 0px, 100% 55.61%, 65.58% 55.93%, 34.29% 99.70%, 0px 100%);
+              -o-clip-path:       polygon(0px 0px, 100% 0px, 100% 55.61%, 65.58% 55.93%, 34.29% 99.70%, 0px 100%);
+              -ms-clip-path:      polygon(0px 0px, 100% 0px, 100% 55.61%, 65.58% 55.93%, 34.29% 99.70%, 0px 100%);
+              clip-path:          polygon(0px 0px, 100% 0px, 100% 55.61%, 65.58% 55.93%, 34.29% 99.70%, 0px 100%);
+
+              -webkit-animation:  changeLogos2 .3s cubic-bezier(0, .5, 0, 1)  forwards;
+              -moz-animation:     changeLogos2 .3s cubic-bezier(0, .5, 0, 1)  forwards;
+              -o-animation:       changeLogos2 .3s cubic-bezier(0, .5, 0, 1)  forwards;
+              animation:          changeLogos2 .3s cubic-bezier(0, .5, 0, 1)  forwards;
+          }
+        }
+      }
+    }
+
+
+
+    .carousel-indicators {
+    align-items: baseline;
+    position: absolute;
+    bottom: 25px;
+    z-index: 4;
+
+    a {
+        flex: 0 1 auto;
+        width: 100px;
+        height: 40px;
+        text-indent: 0;
+        justify-items: center;
+        color: #FFF;
+        font-family: 'Oswald', sans-serif;
+        text-decoration: none;
+        font-weight: 300;
+        font-size: 18px;
+        line-height: 38px;
+        text-align: center;
+        cursor: pointer;
+        background: none;
+        -webkit-transition:     opacity 2s cubic-bezier(0, .5, 0, 1);
+        -moz-transition:        opacity 2s cubic-bezier(0, .5, 0, 1);
+        -o-transition:          opacity 2s cubic-bezier(0, .5, 0, 1);
+        transition:             opacity 2s cubic-bezier(0, .5, 0, 1);
+        position: relative;
+        opacity: 1;
+
+        &:before{
+            content: '';
+            position: absolute;
+            background: #FFF;
+            height: 2px;
+            width: 45px;
+            bottom: 20px;
+            left: -24px;
+        }
+        
+        &:first-child:before{
+            display:none;
+        }
+    }
+
+    .active {
+        line-height: 28px;
+        font-size: 28px;
+    }
+    }
+}
+
+// @include media-breakpoint-up(md) {
+//     #bannerFullsize{
+//         height: calc(100vh - 90px);
+//         height: calc(var(--vh, 1vh) * 100 - 90px);
+//     }
+// }
+
+// @include media-breakpoint-up(xl) {
+//     #bannerFullsize{
+//         height: calc(100vh - 124px);
+//         height: calc(var(--vh, 1vh) * 100 - 124px);
+//     }
+// }
+
+
+
+
+// .plyr__control--overlaid.plyr__control{
+//   border-radius: 0;
+//   padding: 0;
+//   width: 60px;
+//   height: 60px;
+//   background: transparent;
+
+//     &::before,
+//     &::after{
+//       content: '';
+//       position: absolute;
+//       top: 0;
+//       left: 0;
+//       width: 60px;
+//       height: 60px;
+//       -webkit-transition:   opacity 0.3s cubic-bezier(0, .5, 0, 1);
+//       -moz-transition:      opacity 0.3s cubic-bezier(0, .5, 0, 1);
+//       -o-transition:        opacity 0.3s cubic-bezier(0, .5, 0, 1);
+//       transition:           opacity 0.3s cubic-bezier(0, .5, 0, 1);
+//       background: url(./assets/images/icons/play.svg) no-repeat center center;
+//     }
+
+//     &::after{
+//       background: url(./assets/images/icons/play-hover.svg) no-repeat center center;
+//       opacity: 0;
+//     }
+
+//     &:hover{
+//         background: transparent!important;
+
+//         &::before{opacity: 0;}
+//         &::after{opacity: 1;}
+//     }
+// }
+
+
+
+.line{
+  position: absolute;
+  background: rgba(240, 240, 240, 0.3);
+  z-index: 4;
+  display: block;
+  opacity: 0;
+
+  &.horizontalLine{
+    top: 0;
+    left:0;
+    right: 0;
+
+    width: 100%;
+    height: 1px;
+    
+    -webkit-animation:  horizontalLineAnim 2s ease-in-out 7s forwards;
+    -moz-animation:     horizontalLineAnim 2s ease-in-out 7s forwards;
+    -o-animation:       horizontalLineAnim 2s ease-in-out 7s forwards;
+    animation:          horizontalLineAnim 2s ease-in-out 7s forwards;
+  }
+  &.verticalLeftLine{
+    top:0;
+    bottom: 0;
+    left: 0;
+    
+    width: 1px;
+    height: 100vh;
+
+    -webkit-animation:  verticalLineAnim 2s ease-in-out 7s forwards;
+    -moz-animation:     verticalLineAnim 2s ease-in-out 7s forwards;
+    -o-animation:       verticalLineAnim 2s ease-in-out 7s forwards;
+    animation:          verticalLineAnim 2s ease-in-out 7s forwards;
+  }
+  &.verticalRightLine{
+    top:0;
+    bottom: 0;
+    right: 0;
+    
+    width: 1px;
+    height: 100vh;
+
+    -webkit-animation:  verticalLineAnim2 2s ease-in-out 6s forwards;
+    -moz-animation:     verticalLineAnim2 2s ease-in-out 6s forwards;
+    -o-animation:       verticalLineAnim2 2s ease-in-out 6s forwards;
+    animation:          verticalLineAnim2 2s ease-in-out 6s forwards;
+  }
+}
+</style>
