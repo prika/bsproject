@@ -2,7 +2,7 @@
   <div id="binnovationpage">
 
       <ArticleParallaxSmall>
-          <div class="pageContentText col-5 order-md-2">
+          <div class="pageContentText  col-12 col-md-5 order-md-2">
               <h1>{{binnovation.title}}</h1>
               <p>{{binnovation.content}}</p>
           </div>
