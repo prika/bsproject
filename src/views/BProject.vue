@@ -2,9 +2,9 @@
   <div id="bprojectpage">
 
        <ArticleParallaxSmall>
-          <div class="pageContentText col-12 col-md-5 order-md-2">
+          <div class="pageContentText col-12 col-md-4 order-md-2">
               <h1>{{bproject.title}}</h1>
-              <p>{{bproject.content}}</p>
+              <p v-html="bproject.content">{{bproject.content}}</p>
           </div>
       </ArticleParallaxSmall>
 
@@ -56,7 +56,7 @@ export default {
          this.$http.get('../mocks/b-project-mock.json').then(response => {
             this.bproject = response.data
             this.parseObject(response.data.gallery1, this.gallery1)            
-            this.parseObject(response.data.gallery2, this.gallery2) 
+            //this.parseObject(response.data.gallery2, this.gallery2) 
             this.parseObject( response.data.mansory, this.mansory )           
          })
     },

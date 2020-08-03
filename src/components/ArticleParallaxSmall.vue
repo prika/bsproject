@@ -6,7 +6,7 @@
 
             <slot></slot>
 
-            <div class="col-12 col-md-6 parallaxGroup1 order-md-1">
+            <div class="col-12 col-md-7 parallaxGroup1 order-md-1">
                 <img    v-for="(image, index) in imageGroup1"
                         :key="image.id"
                         :src="image.src" 
@@ -19,7 +19,7 @@
           </div>
         </div>
 
-        <div class="col-12 parallaxGroup2">
+        <div class="col-12 parallaxGroup2" v-if="imageGroup2.length > 0">
             <img    v-for="(image, index) in imageGroup2"
                     :key="image.id"
                     :src="image.src" 
@@ -37,28 +37,25 @@ export default {
     data() {
         return {
             imageGroup1:[],
-            imageGroup2:[]
+            imageGroup2:[],
+            rellax: null
         }
     },
-    beforeCreate() {
-        let rellaxjs = document.createElement("script")
-        rellaxjs.setAttribute("src", "https://cdnjs.cloudflare.com/ajax/libs/rellax/1.0.0/rellax.min.js")
-        document.head.appendChild(rellaxjs)
-        console.log('Before Create - rellaxjs');
-    },
     created() {
-        console.log('Created');
+
         this.imageGroup1 = this.$parent.gallery1
         this.imageGroup2 = this.$parent.gallery2
 
-        let rellax = new Rellax('.rellax');
+        var tag = document.createElement('script');
+        tag.src = "https://cdnjs.cloudflare.com/ajax/libs/rellax/1.0.0/rellax.min.js";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+        tag.onload = this.rellaxLoaded        
     },
-    beforeMount() {
-        console.log('Before Mount');
-        this.rellax.refresh();
-    },
-    mounted(){
-        console.log('Mounted');
+    methods: {
+        rellaxLoaded: function()  {
+            this.rellax = new Rellax('.rellax');
+        }
     },
     watch: {
         $route(to , from){
@@ -72,81 +69,102 @@ export default {
 <style lang="scss">
 
 .parallaxContainer {
-    background: url(../assets/images/B_Simbolo_estatico_Corpo.svg) no-repeat 65% 150px fixed;
-
-    -webkit-background-size:  300px;
-    -moz-background-size:     300px;
-    -o-background-size:       300px;
-    background-size:          300px;
-
-    /* filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='assets/B_Simbolo_estatico_Corpo.svg', sizingMethod='scale');
-    -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='assets/B_Simbolo_estatico_Corpo.svg', sizingMethod='scale')"; */
+    padding-top: 150px; 
+    padding-bottom: 240px;
+    margin-bottom: 240px;
     position: relative;
     z-index: 0;
+    overflow:hidden;
+}
 
-    &:after{
-        content: '';
-        display: block;
-        background: linear-gradient(rgba(240, 240, 240, 0) 0%, #f0f0f0 100%);
-        height: 130px;
+
+.parallaxGroup1,
+.parallaxGroup2{
+
+    img{
+        width: 100%;
+        height: auto;
+        margin: 0 auto;
+        position: absolute;
+
+        -webkit-filter:     grayscale(100%);
+        -moz-filter:        grayscale(100%);
+        filter:             grayscale(100%);
+        -webkit-transition:     filter .3s cubic-bezier(.4,1.03,.83,.56);
+        -moz-transition:        filter .3s cubic-bezier(.4,1.03,.83,.56);
+        -o-transition:          filter .3s cubic-bezier(.4,1.03,.83,.56);
+        transition:             filter .3s cubic-bezier(.4,1.03,.83,.56);
+
+        &:hover{
+            -webkit-filter: grayscale(0%);
+            -moz-filter: grayscale(0%);
+            filter: grayscale(0%);
+        }
     }
 }
 
 
 .parallaxGroup1{
-  .imageParallax1{
-      float: right;
-      z-index: 1;
-      padding-right: 70px;
-  }
+
+    .imageParallax1{
+        z-index: 1;
+        right: 10%;
+        top: 30%;
+    }
+
+    .imageParallax2{
+        z-index: 3;
+        top: 70%; 
+        left: 10%;
+    }
+
+    .imageParallax3{
+        z-index: 2;
+        top: 10%;
+        left: 25%;
+    }
 }
 
 .parallaxGroup2{
-  overflow: hidden;
-  position: relative;
-  height: 2900px;
+    overflow: hidden;
+    position: relative;
+    height: 2900px;
 
+    & .imageParallax3{
+        top: 400px;
+        right: 20%;
+        z-index: 0;
+    }
 
-  & img{
-      position: absolute;
-  }
+    & .imageParallax4{
+        top: 790px;
+        left: 10%;
+        z-index: 1;
+    }
 
-  & .imageParallax3{
-      top: 400px;
-      right: 20%;
-      z-index: 0;
-  }
+    & .imageParallax5{
+        top: 980px; 
+        right: 0;
+        z-index: 1;
+    }
 
-  & .imageParallax4{
-      top: 790px;
-      left: 10%;
-      z-index: 1;
-  }
+    & .imageParallax6{
+        top: 1600px; 
+        left: 10%;
+        z-index: 0;
+    }
 
-  & .imageParallax5{
-      top: 980px; 
-      right: 0;
-      z-index: 1;
-  }
-
-  & .imageParallax6{
-      top: 1600px; 
-      left: 10%;
-      z-index: 0;
-  }
-
-  & .imageParallax7{
-      top: 2230px; 
-      left: 0;
-      z-index: 1;
-  }
+    & .imageParallax7{
+        top: 2230px; 
+        left: 0;
+        z-index: 1;
+    }
 }
 
 
 .pageContentText { 
   z-index: 2;
-  margin-top: 110px; 
-  padding-top: 110px; 
+  padding-top: 50vh; 
   background: rgb(240,240,240);
   background: linear-gradient(180deg, rgba(240,240,240,0) 0%, rgba(240,240,240,1) 10%, rgba(240,240,240,1) 90%, rgba(240,240,240,0) 100%);
 
@@ -173,6 +191,24 @@ export default {
     .parallaxGroup1 img,
     .parallaxGroup2 img {
         position: initial;
+    }
+}
+
+
+#homepage .parallaxContainer{
+    background: url(../assets/images/B_Simbolo_estatico_Corpo.svg) no-repeat 75% 100% fixed;
+    /* filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='assets/B_Simbolo_estatico_Corpo.svg', sizingMethod='scale');
+    -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='assets/B_Simbolo_estatico_Corpo.svg', sizingMethod='scale')"; */
+    -webkit-background-size:  250px;
+    -moz-background-size:     250px;
+    -o-background-size:       250px;
+    background-size:          250px;
+
+    &:after{
+        content: '';
+        display: block;
+        background: linear-gradient(rgba(240, 240, 240, 0) 0%, #f0f0f0 100%);
+        height: 130px;
     }
 }
 

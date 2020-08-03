@@ -2,9 +2,9 @@
   <div id="binnovationpage">
 
       <ArticleParallaxSmall>
-          <div class="pageContentText  col-12 col-md-5 order-md-2">
+          <div class="pageContentText  col-12 col-md-4 order-md-2">
               <h1>{{binnovation.title}}</h1>
-              <p>{{binnovation.content}}</p>
+              <p v-html="binnovation.content">{{binnovation.content}}</p>
           </div>
       </ArticleParallaxSmall>
 
@@ -55,7 +55,7 @@ export default {
             this.binnovation = response.data
             
             this.parseObject(response.data.gallery1, this.gallery1)            
-            this.parseObject(response.data.gallery2, this.gallery2)
+            //this.parseObject(response.data.gallery2, this.gallery2)
             this.parseObject(response.data.mansory, this.mansory)
          })
 

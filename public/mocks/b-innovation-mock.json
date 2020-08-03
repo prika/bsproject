@@ -6,48 +6,23 @@
         {   
             "src": "news/exemplo_noticia_a.jpg", 
             "alt": "Image Test", 
-            "speed": "-2",
-            "addclass": "col-9 col-sm-7 img-fluid"
+            "speed": "4",
+            "addclass": "col-9 col-lg-6"
         },
         {
             "src": "news/exemplo_noticia_b.jpg", 
             "alt": "Image Test", 
-            "speed": "4",
-            "addclass": "col-9 col-sm-7 img-fluid"
+            "speed": "7",
+            "addclass": "col-9 col-lg-7"
+        },
+        {
+            "src": "B_Simbolo_estatico_Corpo.svg", 
+            "alt": "Image Test", 
+            "speed": "-8",
+            "addclass": "col-9 col-lg-4"
         }
     ],
-    "gallery2": [
-        {
-            "src": "news/exemplo_noticia_c.jpg", 
-            "alt": "Image Test", 
-            "speed": "0",
-            "addclass": "col-5 img-fluid"
-        },
-        {
-            "src": "news/exemplo_noticia_d.jpg", 
-            "alt": "Image Test", 
-            "speed": "2",
-            "addclass": "col-4 img-fluid"
-        },
-        {
-            "src": "news/exemplo_noticia_a.jpg", 
-            "alt": "Image Test", 
-            "speed": "-1",
-            "addclass": "col-4 img-fluid"
-        },
-        {
-            "src": "news/exemplo_noticia_b.jpg", 
-            "alt": "Image Test", 
-            "speed": "-2",
-            "addclass": "col-4 img-fluid"
-        },
-        {
-            "src": "news/exemplo_noticia_a.jpg", 
-            "alt": "Image Test", 
-            "speed": "4",
-            "addclass": "col-4 img-fluid"
-        }
-    ],
+    "gallery2": [],
     "title1": "Port",
     "title2": "folio",
     "mansory": [

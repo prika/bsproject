@@ -3,51 +3,26 @@
     "title": "B project",
     "content": "B project consegue garantir todo o processo do mármore, desde o primeiro corte até sua casa. <br> Formada pela natureza, que lhe oferece tons e características únicas, o mármore é a escolha preferida na Arquitetura e Decoração.",
     "gallery1": [
+        {
+            "src": "news/exemplo_noticia_b.jpg", 
+            "alt": "Image Test", 
+            "speed": "7",
+            "addclass": "col-9 col-lg-7"
+        },
         {   
             "src": "news/exemplo_noticia_a.jpg", 
             "alt": "Image Test", 
-            "speed": "-2",
-            "addclass": "col-9 col-sm-7 img-fluid"
+            "speed": "4",
+            "addclass": "col-9 col-lg-6"
         },
         {
-            "src": "news/exemplo_noticia_b.jpg", 
+            "src": "B_Simbolo_estatico_Corpo.svg", 
             "alt": "Image Test", 
-            "speed": "4",
-            "addclass": "col-9 col-sm-7 img-fluid"
+            "speed": "-8",
+            "addclass": "col-9 col-lg-4"
         }
     ],
-    "gallery2": [
-        {
-            "src": "news/exemplo_noticia_c.jpg", 
-            "alt": "Image Test", 
-            "speed": "0",
-            "addclass": "col-5 img-fluid"
-        },
-        {
-            "src": "news/exemplo_noticia_d.jpg", 
-            "alt": "Image Test", 
-            "speed": "2",
-            "addclass": "col-4 img-fluid"
-        },
-        {
-            "src": "news/exemplo_noticia_a.jpg", 
-            "alt": "Image Test", 
-            "speed": "-1",
-            "addclass": "col-4 img-fluid"
-        },
-        {
-            "src": "news/exemplo_noticia_b.jpg", 
-            "alt": "Image Test", 
-            "speed": "-2",
-            "addclass": "col-4 img-fluid"
-        },
-        {
-            "src": "news/exemplo_noticia_a.jpg", 
-            "alt": "Image Test", 
-            "speed": "4",
-            "addclass": "col-4 img-fluid"
-        }
-    ],
+    "gallery2": [],
     "title1": "Port",
     "title2": "folio",
     "mansory": [
