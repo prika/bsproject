@@ -1,4 +1,5 @@
 <template>
+    
     <section id="bannerFullsize">
         <div class="line horizontalLine"></div>
         <div class="line verticalLeftLine"></div>
@@ -57,29 +58,23 @@
                 <div v-if="image.type == 'video-youtube'" 
                         :class="['slide', (index === activeSlide ? 'active': '')]" 
                         :id="'videoContainer'+index">
-                        <div :id="'youtube_video_'+index" 
-                        :width="resizedWidth[index] + 'px'" 
-                        :height="resizedHeight[index] + 'px'"></div>
+                        
+                        <div :id="'youtube_video_'+index" :width="resizedWidth[index] + 'px'"  :height="resizedHeight[index] + 'px'"></div>
                 </div>
 
                 <!-- Video Vimeo -->
-                <div    v-if="image.type == 'video-vimeo'" muted="muted"
+                <div    v-if="image.type == 'video-vimeo'"
                             :class="['slide', (index === activeSlide ? 'active': '')]" 
                             :ref="'player'+index"
                             :width="resizedWidth[index] + 'px'" 
                             :height="resizedHeight[index] + 'px'"
-                            data-plyr-provider="vimeo"
-                            :key="image.id" :id="'video'+index">
+                            :key="image.id" :poster="getImgUrl(image.src)">
 
-                        <iframe :alt="image.alt"
-                                :width="resizedWidth[index] + 'px'" 
-                                :height="resizedHeight[index] + 'px'"
-                                :poster="getImgUrl(image.src)"
-                                :src="image.srcvideo"
+                        <div    :id="'vimeo_video_'+index"
+                                :alt="image.alt"
                                 :importance="(index === 0 ? 'high': 'low')"
-                                allowtransparency muted="muted">
-                        </iframe>
-                   
+                                frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen muted="muted">
+                        </div>
                 </div>
             </template>
             </div>
@@ -115,25 +110,33 @@ export default {
             timer: null,
             controls: true,
             pause: false,
-            player: null,
-            playElement: [],
-            pauseElement: []
+            pauseElement: [],
+            youtubePlayers: {},
+            vimeoPlayers: {}
         }
     },
     created() {
 
+        
 
         this.$http.get('../mocks/homepage-mock.json').then(response => {
 
             this.imageGroupSliderGallery = response.data.slidergallery
+            var hasYoutubeVideoPlayerScript = false
+            var hasVimeoVideoPlayerScript = false
 
             for (let i = 0; i < this.imageGroupSliderGallery.length; i++) {
 
                 if (this.imageGroupSliderGallery[i].type === "img") continue
 
-                if (this.imageGroupSliderGallery[i].type === "video-youtube"){
+                if (this.imageGroupSliderGallery[i].type === "video-youtube" && !hasYoutubeVideoPlayerScript) {
                     this.appendYoutubePlayerJS()
-                    break
+                    hasYoutubeVideoPlayerScript = true
+                } 
+
+                if (this.imageGroupSliderGallery[i].type === "video-vimeo" && !hasVimeoVideoPlayerScript) {
+                    this.appendVimeoPlayerJS()
+                    hasVimeoVideoPlayerScript = true
                 } 
             }
 
@@ -143,40 +146,57 @@ export default {
             this.startSlide();
         })
     },
-    mounted() {
-		console.log( this.$refs );
-    },
     destroyed() {
         window.removeEventListener('resize', this.resizeContent);
     },
     methods: {
         appendYoutubePlayerJS: function() {
-
             var tag = document.createElement('script');
             tag.src = "https://www.youtube.com/iframe_api";
             var firstScriptTag = document.getElementsByTagName('script')[0];
             firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
         },
+        appendVimeoPlayerJS: function() {
+            var tag = document.createElement('script');
+            tag.src = "https://player.vimeo.com/api/player.js";
+            var firstScriptTag = document.getElementsByTagName('script')[0];
+            firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+            tag.onload = this.onVimeoIframeAPIReady
+        },
         onYouTubeIframeAPIReady: function() {
 
             for (let i = 0; i < this.imageGroupSliderGallery.length; i++) {
 
-                if (this.imageGroupSliderGallery[i].type === "video-youtube"){
+                if (this.imageGroupSliderGallery[i].type != "video-youtube") continue
 
-                    var player = new YT.Player('youtube_video_'+i, {
-                        videoId: this.imageGroupSliderGallery[i].srcvideo,
-                        playerVars: { 'autoplay': 0, 'controls': 0 },
-                        width: this.resizedWidth[i],
-                        height: this.resizedHeight[i],
-                        events: {
-                            //'onReady': onPlayerReady,
-                            //'onPlaybackQualityChange': onPlayerPlaybackQualityChange,
-                            //'onStateChange': onPlayerStateChange,
-                            //'onError': onPlayerError
-                        }
-                    })
+                var player = new YT.Player('youtube_video_'+i, {
+                    videoId: this.imageGroupSliderGallery[i].srcvideo,
+                    playerVars: { 'autoplay': 0, 'controls': 0 },
+                    width: this.resizedWidth[i],
+                    height: this.resizedHeight[i],
+                    events: {
+                        'onStateChange': this.endedMedia
+                    }
+                })
 
+                this.youtubePlayers[i] = player
+            }
+        },
+        onVimeoIframeAPIReady: function() {
+            
+            for (let i = 0; i < this.imageGroupSliderGallery.length; i++) {
+
+                if (this.imageGroupSliderGallery[i].type != "video-vimeo") continue
+
+                let options = {
+                    id: this.imageGroupSliderGallery[i].srcvideo,
+                    width: this.resizedWidth[i],
+                    height: this.resizedHeight[i]
                 }
+
+                var vimeoPlayer = new Vimeo.Player('vimeo_video_'+i, options)
+                vimeoPlayer.on('ended', this.next );
+                this.vimeoPlayers[i] = vimeoPlayer
             }
         },
         resizeContent: function() {
@@ -207,59 +227,59 @@ export default {
             return require( '@/assets/media/'+src )
         },
         startSlide: function() {
-            //this.timer = setInterval(this.next, 5000) 
+            this.selectSlide(0) 
         },
         selectSlide: function (slideNumber) {            
-            this.pauseMovie(this.activeSlide)
+            this.pauseMedia(this.activeSlide)
             this.activeSlide = slideNumber
-            this.playMovie(this.activeSlide)
-            this.timer = setInterval(this.next, 5000) 
+            this.playMedia(this.activeSlide)
         },
         next: function() {
-            this.pauseMovie(this.activeSlide)
+            this.pauseMedia(this.activeSlide)
             this.activeSlide = this.activeSlide + 1 ==  this.imageGroupSliderGallery.length ?  0 : this.activeSlide + 1
-            this.playMovie(this.activeSlide) 
+            this.playMedia(this.activeSlide) 
         },
         prev: function() {
-            this.pauseMovie(this.activeSlide)
+            this.pauseMedia(this.activeSlide)
             this.activeSlide = (this.activeSlide - 1 == 0) ? this.imageGroupSliderGallery.length : this.activeSlide - 1
-            this.playMovie(this.activeSlide) 
+            this.playMedia(this.activeSlide) 
         },
-        // loadVideoByIndex: function(index)
-        // {
+        playMedia: function() {
 
-        // },
-        playMovie: function() {
-
-            if (this.imageGroupSliderGallery[this.activeSlide].type == "img") return
-            
-            clearInterval( this.timer );
+            if (this.imageGroupSliderGallery[this.activeSlide].type == "img") 
+            {
+                this.timer = setInterval(this.next, 5000) 
+                return
+            }
 
             if (this.imageGroupSliderGallery[this.activeSlide].type == "video-uploaded"){
                 console.log('play uploaded')
-                let playElement = document.getElementById("video" + this.activeSlide) 
+                let playElement = document.getElementById("video" + this.activeSlide)
+                playElement.addEventListener('ended', this.next );
                 playElement.play()
                 return
             }
 
-            if (this.imageGroupSliderGallery[this.activeSlide].type == "video-youtube"){
+            if (this.imageGroupSliderGallery[this.activeSlide].type == "video-youtube") {
                 console.log('play youtube:  '+"video" + this.activeSlide)
-                
-                // let playElement = document.getElementById('youtube_video_'+this.activeSlide)
-                // playElement.playVideo()
-
+                this.youtubePlayers[this.activeSlide].playVideo()
                 return
             }
 
-            // if (this.imageGroupSliderGallery[this.activeSlide].type == "video-vimeo"){
-            //     console.log('play vimeo')
-            //     playElement = document.getElementById("video" + this.activeSlide)
-            // }
-
+            if (this.imageGroupSliderGallery[this.activeSlide].type == "video-vimeo"){
+                console.log('play vimeo')
+                console.log( this.vimeoPlayers[this.activeSlide] )
+                this.vimeoPlayers[this.activeSlide].play()
+                return
+            }
         },
-        pauseMovie: function() {
+        pauseMedia: function() {
 
-            if (this.imageGroupSliderGallery[this.activeSlide].type == "img") return
+            if (this.imageGroupSliderGallery[this.activeSlide].type == "img") 
+            {
+                clearInterval(this.timer);
+                return
+            }
 
             if (this.imageGroupSliderGallery[this.activeSlide].type == "video-uploaded"){
                 console.log('pause uploaded: ')
@@ -269,26 +289,17 @@ export default {
 
             if (this.imageGroupSliderGallery[this.activeSlide].type == "video-youtube"){
                 console.log('pause youtube: ')
-                //this.player[this.activeSlide].pauseVideo()
-                
+                this.youtubePlayers[this.activeSlide].pauseVideo()
             }
 
-            // if (this.imageGroupSliderGallery[this.activeSlide].type == "video-vimeo"){
-            //     console.log('pause vimeo')
-            //     pauseElement = document.getElementById("video" + this.activeSlide)
-            // }
-            
-            
-
+            if (this.imageGroupSliderGallery[this.activeSlide].type == "video-vimeo"){
+                console.log('pause vimeo')
+                this.vimeoPlayers[this.activeSlide].pause()
+            }
         },
-        endedMovie: function(){
-            console.log('THE END')
-            this.timer = setInterval(this.next, 5000)
-            
-            //YT.PlayerState.ENDED
-        },
-        durationMovie: function(event){
-           console.log( "duration: "+ event.detail.plyr.currentTime )
+        endedMedia: function(event)
+        {
+            if ( this.imageGroupSliderGallery[this.activeSlide].type == "video-youtube" && event.data == 0) this.next()
         }
     }
 }

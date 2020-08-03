@@ -31,7 +31,7 @@
             "id": "slide3",
             "type": "video-youtube", 
             "src": "banners/BlocoB-7234_Banner.jpg", 
-            "srcvideo": "M7lc1UVf-VE", 
+            "srcvideo": "eFxV1CaHqhE", 
             "alt": "Image Test",
             "width": 1920,
             "height": 1080
@@ -40,7 +40,7 @@
             "id": "slide4",
             "type": "video-vimeo", 
             "src": "banners/banner_stone_foto_1.jpg", 
-            "srcvideo": "https://player.vimeo.com/video/76979871?loop=false&byline=false&portrait=false&title=false&speed=true&transparent=0&gesture=media",
+            "srcvideo": "76979871",
             "alt": "Image Test",
             "width": 1920,
             "height": 1080
