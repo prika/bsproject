@@ -112,7 +112,7 @@ export default {
 }
   
 .contactsContainer{
-  padding: 30px 0;
+  padding: 70px 0;
 
   & > a {
     line-height: 2.5rem;

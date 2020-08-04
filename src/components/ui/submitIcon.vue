@@ -26,7 +26,7 @@
 <style lang="scss">
 .submitButton{
     display:      block;
-    float:        right;
+    //float:        right;
     position:     relative;
     background: none;
     border: none;
@@ -108,5 +108,18 @@
     &:hover .arrow::before{
         width: 210px;
     }
+}
+
+@media (max-width: 768px) {
+    .submitButton.extendedButton {
+        .text{ color: #c47c5a; }
+        .arrow::before{ width: 210px;}
+        .svgpath{ 
+            opacity: 1; 
+            path{stroke: #313131}
+        }
+    }
+
+    .contactForm .submitButton{ float: right }
 }
 </style>
