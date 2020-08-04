@@ -4,7 +4,7 @@
       <BannerFullsize />
 
       <ArticleParallaxSmall>
-          <div class="pageContentText col-12 col-md-4 order-md-2">
+          <div class="pageContentText col-12 col-md-5 order-2 order-sm-2">
               <h1 v-html="home.title">{{home.title}}</h1>
               <p v-html="home.content">{{home.content}}</p>
           </div>

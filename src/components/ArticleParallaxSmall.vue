@@ -1,12 +1,9 @@
 <template>
      <section class="parallaxContainer">
-        <div class="container">
-          
+        <div class="container">          
           <div class="row">
 
-            <slot></slot>
-
-            <div class="col-12 col-md-7 parallaxGroup1 order-md-1">
+            <div class="col-12 col-md-7 parallaxGroup1 order-1 order-sm-2">
                 <img    v-for="(image, index) in imageGroup1"
                         :key="image.id"
                         :src="image.src" 
@@ -15,6 +12,8 @@
                         :class="['rellax',(image.addclass),('imageParallax'+(index+1))]"
                         importance="high">
             </div>
+
+            <slot></slot>
 
           </div>
         </div>
@@ -59,7 +58,6 @@ export default {
     },
     watch: {
         $route(to , from){
-            // Destroy and create again parallax with previous settings
             this.rellax.refresh();
         }
     }
@@ -212,15 +210,59 @@ export default {
     background-size:          250px;
     padding-top: 0;
 
+    .parallaxGroup1{
+        .imageParallax1{ z-index: 1; }
+        .imageParallax2{ z-index: 0; left: 3%;}
+    }
+
 }
 
 
 @media (max-width: 768px) {
-    .parallaxGroup1 img,
-    .parallaxGroup2 img {
-        position: initial;
+
+    .pageContentText{
+        margin-top: 0;
+        padding-top: 10px;
+    }
+
+    .parallaxGroup1 {
+        img{
+            position: initial;
+            padding-top: 10%;
+        }
+        img.imageParallax2 { float: right; }
+    }
+    
+    .parallaxGroup2{
+        margin-top: 240px;
+        height: 1600px;
+
+        & .imageParallax3{
+            top: 0;
+            right: 20%;
+            z-index: 2;
+        }
+
+        & .imageParallax4{
+            top: 720px;
+            left: -10%;
+            z-index: 1;
+        }
+
+        & .imageParallax5{
+            right: 30%;
+            z-index: 0;
+        }
+
+        & .imageParallax6{
+            top: 900px; 
+            right: 0;
+        }
+
+        & .imageParallax7{
+            top: 1980px; 
+            left: 0;
+        }
     }
 }
-
-
 </style>

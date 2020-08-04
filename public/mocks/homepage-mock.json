@@ -60,14 +60,14 @@
     "gallery1": [
         {   
             "id": "homeparallax01",
-            "src": "news/exemplo_noticia_a.jpg", 
+            "src": "shared/institucional_2.jpg", 
             "alt": "Image Test", 
             "speed": "0",
-            "addclass": "col-9 col-sm-6"
+            "addclass": "col-8 col-sm-6"
         },
         {
             "id": "homeparallax02",
-            "src": "news/exemplo_noticia_b.jpg", 
+            "src": "shared/institucional_1.jpg", 
             "alt": "Image Test", 
             "speed": "3",
             "addclass": "col-9 col-sm-7"
@@ -78,31 +78,31 @@
             "src": "shared/exemplo_1.jpg", 
             "alt": "Image Test", 
             "speed": "0",
-            "addclass": "col-12 col-md-5 col-xl-4"
+            "addclass": "col-8 col-md-5 col-xl-4"
         },
         {   "id": "homeparallax04",
             "src": "shared/exemplo_2.jpg", 
             "alt": "Image Test", 
             "speed": "2",
-            "addclass": "col-12 col-md-6 col-xl-4"
+            "addclass": "col-8 col-md-6 col-xl-4"
         },
         {   "id": "homeparallax05",
             "src": "shared/exemplo_3.jpg", 
             "alt": "Image Test", 
             "speed": "-1",
-            "addclass": "col-12 col-md-4 col-xl-3"
+            "addclass": "col-6 col-md-4 col-xl-3"
         },
         {   "id": "homeparallax06",
             "src": "shared/exemplo_4.jpg", 
             "alt": "Image Test", 
             "speed": "0",
-            "addclass": "col-12 col-md-4 col-xl-3"
+            "addclass": "col-8 col-md-4 col-xl-3"
         },
         {   "id": "homeparallax07",
             "src": "shared/exemplo_5.jpg", 
             "alt": "Image Test", 
             "speed": "2",
-            "addclass": "col-12 col-md-6 col-xl-5"
+            "addclass": "col-9 col-md-6 col-xl-5"
         }
     ],
     "featured_text1": "productos em",
