@@ -1,5 +1,5 @@
 <template>
-    <div class="container" :style="collectionVariables">
+    <div class="collectionContainer container" :style="collectionVariables">
         <div class="row">
             <a class="collection collection1 col-12 col-md-6">
                 <h1 class="pageTitle" :aria-label="$t('home-title-page')"> 
@@ -67,6 +67,10 @@ $calcCollection2: calc(-293px * var(--collection2-count));
 }
 
 
+.collectionContainer{
+    position: relative;
+    padding-top:130px;
+}
 
     .collection{
         cursor: pointer;

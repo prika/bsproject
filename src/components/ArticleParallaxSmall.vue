@@ -69,7 +69,7 @@ export default {
 <style lang="scss">
 
 .parallaxContainer {
-    min-height: calc(100vh + 150px);
+    min-height: calc(100vh + 290px);
     padding-top: 150px; 
     position: relative;
     z-index: 0;
@@ -86,7 +86,6 @@ export default {
         height: 130px;
     }
 }
-
 
 .parallaxGroup1,
 .parallaxGroup2{
