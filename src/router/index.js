@@ -66,11 +66,17 @@ const routes = [
     name: 'productdetail',
     component: () => import( /* webpackChunkName: "product-group" */ '../views/ProductPage.vue')
   },
-  //{ 
-  //path: '/search', 
-  //name: 'search',
-  //component: () => import('../components/subcomponents/ModalSearch.vue'), 
-  //props: (route) => ({ query: route.query.q }) },
+  { 
+    path: '/search/:term', 
+    name: 'search',
+    component: () => import('../components/subcomponents/ModalSearch.vue'), 
+    props: (route) => ({ query: route.query.term }) 
+  },
+  { 
+    path: '/search/', 
+    name: 'search',
+    component: () => import('../components/subcomponents/ModalSearch.vue')
+  },
   {
     path: '/auth/recovery',
     name: 'recovery',

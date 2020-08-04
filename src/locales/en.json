@@ -13,6 +13,9 @@
   "button-arialabel-open-menu": "Open Menu",
   "button-arialabel-close-menu": "Close Menu",
 
+  "search-input-placeholder": "Search",
+  "in-stock": "in stock",
+
   "product-type-blocos": "Blocos",
   "product-type-chapas": "Chapas",
   "product-type-ladrilhos": "Ladrilhos",

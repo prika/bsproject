@@ -1,24 +1,24 @@
 <template>
     <div class="modalSearch">  <!-- <PORTAL to="search" -->
 
-        <transition appear enter-active-class="animated slideInDown faster" leave-active-class="animated slideOutUp faster">
-            <button class="closebutton" @click="$emit('close')"> 
-                <closeIcon />
-            </button>
-        </transition>
+         <transition appear enter-active-class="animated slideInDown faster" leave-active-class="animated slideOutUp faster">
+                <button class="closebutton" @click="$router.go(-1)"> 
+                    <closeIcon />
+                </button>
+          </transition>
 
-       
 
         <div class="row" v-bind:class="{hasSearchText}">
           <div class="col-6 clearfix">  
               <input id="search"
-                      placeholder="Pesquisar"
+                      :placeholder="$t('search-input-placeholder')"
                       type="search"
                       name="searchInput"
                       v-model="searchText"
                       @input="onTextInputChanged">
           </div>
         </div>
+
 
         <transition enter-active-class="animated fadeInUpBig faster" leave-active-class="animated fadeOutDownBig faster">
         <div class="resultsList" v-if="hasSearchText" v-bind:class="{hasSearchText}">
@@ -27,20 +27,20 @@
             <div class="container col-12">
                 
                 <div v-for="item in sections" v-if="item.results > 0">
-                    <p  class="numberResults">
-                      {{ item.title }} <span></span>{{item.results}}</p>
+
+                    <p class="numberResults">{{ item.title }} <span></span>{{ item.results }}</p>
 
                     <ul>
                         <li v-for="itemlist in item.list" :key="item.id" :href="itemlist.link">
                             <div class="img">
                               <img  width="190px" height="190px"
-                                    :src="itemlist.src" 
+                                    :src="getImgUrl(itemlist.src)"
                                     :alt="itemlist.name"/>
                             </div>
                             
                             <div class="text">
                                 <h2 v-html="itemlist.name">{{itemlist.name}}</h2>
-                                <p> {{itemlist.stock}} <span class="stock">em stock</span></p>
+                                <p> {{itemlist.stock}} <span class="stock"> {{ $t('in-stock')}}</span></p>
                             </div>
                         </li>
                     </ul>
@@ -70,7 +70,7 @@
             <!-- SEM RESULTADOS -->
             <!--div class="container col-12" v-if="searchedProducts.length == 0 && searchedNews.length == 0">
               <p class="text-center" style="font-size: 25px">[nenhum resultado encontrado]</p>
-            </div-->
+            </!--div-->
             <!-- FIM SEM RESULTADOS -->
 
         </div>
@@ -90,44 +90,55 @@ import closeIcon from '@/components/ui/closeIcon.vue'
         return {
           sections: [],
           searchText: "",
-          hasSearchText: false
-          //searchedProducts: [],
-          //searchedNews: []
+          hasSearchText: false,
+          searchedProducts: [],
+          searchedNews: []
         }
+      }, 
+      mounted() {
+        this.$eventBus.$emit('componentFinishLoad', true);
+        let query = this.$route.query
+        if(query && query.term) this.searchText = query.term
+        this.hasSearchText = true
+        this.search()
       },
       methods: {
 
           getImgUrl: function (src) {
               return require( '@/assets/images/'+src )
           },
+          // parseObject: function(source, destination)
+          // {
+          //     destination = []
 
-          parseObject: function(source, destination)
+          //     for ( var i = 0 ; i < source.length; i++ ) {
+          //       let obj = source[i]
+          //       let fullPath = this.getImgUrl(obj.src)
+          //       obj.src = fullPath
+          //       destination.push(obj)
+          //     }
+          // },  
+          search: function()
           {
-              destination = []
+            console.log(this.searchText)
+            this.$http.get('./mocks/search-mock.json').then(response => {
+    
+                this.sections = response.data.sections
 
-              for ( var i = 0 ; i < source.length; i++ ) {
-                let obj = source[i]
-                let fullPath = this.getImgUrl(obj.src)
-                obj.src = fullPath
-                destination.push(obj)
-              }
-          },  
+               // this.searchedProducts = response.data.products
+               // this.parseObject(response.data.products, this.searchedProducts)
+
+               // this.searchedNews = response.data.news
+               // this.parseObject(response.data.news, this.searchedNews)
+
+                console.log( this.searchedNews )
+                                    
+              })
+          },
          onTextInputChanged (e) {
 
-           this.hasSearchText = this.searchText != "" && this.searchText.length > 0
-
-           //q = this.$route.query.q
-
-           this.$http.get('./mocks/search-mock.json').then(response => {
-              this.sections = response.data.sections
-
-              // this.searchedProducts = response.data.products
-              // this.parseObject(response.data.products, this.searchedProducts)
-
-              // this.searchedNews = response.data.news
-              // this.parseObject(response.data.news, this.searchedNews)
-                        
-          })
+          this.hasSearchText = this.searchText != "" && this.searchText.length > 0
+          this.search()
         }
       }
     }
@@ -141,7 +152,7 @@ import closeIcon from '@/components/ui/closeIcon.vue'
     bottom: 0;
     left: 0;
     right: 0;
-    z-index: 3;
+    z-index: 4;
     overflow: hidden;
     background: #f0f0f0;
 
@@ -236,7 +247,11 @@ import closeIcon from '@/components/ui/closeIcon.vue'
         cursor: pointer;
         
         opacity: 0;
-        transform: translateX(10%);
+
+        -webkit-transform:     translateX(10%);
+        -moz-transform:        translateX(10%);
+        -o-transform:          translateX(10%);
+        transform:             translateX(10%);
         transition: 0.4s;
 
 
@@ -247,10 +262,10 @@ import closeIcon from '@/components/ui/closeIcon.vue'
           overflow: hidden;
 
           img{
-            -webkit-transition: all 0.2s ease;
-            -moz-transition: all 0.2s ease;
-            -o-transition: all 0.2s ease;
-            transition: all 0.2s ease;
+            -webkit-transition:   transform 0.2s ease;
+            -moz-transition:      transform 0.2s ease;
+            -o-transition:        transform 0.2s ease;
+            transition:           transform 0.2s ease;
           }
         }
 
@@ -280,35 +295,37 @@ import closeIcon from '@/components/ui/closeIcon.vue'
         
         &:hover{
             .img img{
-                transform: scale(1.1);
+              -webkit-transform: scale(1.1);
+              -moz-transform:    scale(1.1);
+              -o-transform:      scale(1.1);
+              transform:         scale(1.1);
             }
         }
-
       }
     }
-
-    
-
 }
 
 .resultsList:not(.animated) {
 
-  .numberResults{
-    opacity: 1;
-  }
+    .numberResults{
+      opacity: 1;
+    }
 
-  ul li {
-    transform: translateX(0);
-    opacity: 1;
+    ul li {
+      -webkit-transform:     translateX(0);
+      -moz-transform:        translateX(0);
+      -o-transform:          translateX(0);
+      transform:             translateX(0);
+      opacity: 1;
 
-    &:nth-child(1){ transition-delay: 0.0s; }
-    &:nth-child(2){ transition-delay: 0.1s; }
-    &:nth-child(3){ transition-delay: 0.2s; }
-    &:nth-child(4){ transition-delay: 0.3s; }
-    &:nth-child(5){ transition-delay: 0.4s; }
-    &:nth-child(6){ transition-delay: 0.5s; }
-    &:nth-child(7){ transition-delay: 0.6s; }
-  }
+      &:nth-child(1){ transition-delay: 0.0s; }
+      &:nth-child(2){ transition-delay: 0.1s; }
+      &:nth-child(3){ transition-delay: 0.2s; }
+      &:nth-child(4){ transition-delay: 0.3s; }
+      &:nth-child(5){ transition-delay: 0.4s; }
+      &:nth-child(6){ transition-delay: 0.5s; }
+      &:nth-child(7){ transition-delay: 0.6s; }
+    }
 }
 
 </style>
