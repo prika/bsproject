@@ -345,6 +345,7 @@ header  {
         font-weight: 200;
         -webkit-appearance: none;
         -moz-appearance: none;
+        appearance: none;
         border-radius: 0;
         border: 0;
         background: none;
@@ -380,6 +381,17 @@ header  {
         //   background: url(http://www.stackoverflow.com/favicon.ico) 96% / 20% no-repeat #eee;
         // }
     }
+
+    // input[type=search]::-webkit-search-cancel-button{
+    //     position:relative;
+    //     right:20px;  
+    
+    //     -webkit-appearance: none;
+    //     height: 20px;
+    //     width: 20px;
+    //     border-radius:10px;
+    //     background: red;
+    // }
 
     label{
       font-family: $font-family-sans-serif2;

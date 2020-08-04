@@ -26,17 +26,19 @@
                     <p class="numberResults">{{ item.title }} <span></span>{{ item.results }}</p>
 
                     <ul>
-                        <li v-for="itemlist in item.list" :key="item.id" :href="itemlist.link">
-                            <div class="img">
-                              <img  width="190px" height="190px"
-                                    :src="getImgUrl(itemlist.src)"
-                                    :alt="itemlist.name"/>
-                            </div>
-                            
-                            <div class="text">
-                                <h2 v-html="itemlist.name">{{itemlist.name}}</h2>
-                                <p> {{itemlist.stock}} <span class="stock"> {{ $t('in-stock')}}</span></p>
-                            </div>
+                        <li v-for="itemlist in item.list" :key="item.id">
+                          <router-link :to="itemlist.link">
+                              <div class="img">
+                                <img  width="190px" height="190px"
+                                      :src="getImgUrl(itemlist.src)"
+                                      :alt="itemlist.name"/>
+                              </div>
+                              
+                              <div class="text">
+                                  <h2 v-html="itemlist.name">{{itemlist.name}}</h2>
+                                  <p> {{itemlist.stock}} <span class="stock"> {{ $t('in-stock')}}</span></p>
+                              </div>
+                            </router-link>
                         </li>
                     </ul>
                 </div>
@@ -158,8 +160,10 @@ import closeIcon from '@/components/ui/closeIcon.vue'
         background: transparent;
         border: none;
         border-bottom: 1px solid #BABABA;
-        
+
         outline: none;
+        -webkit-appearance: none;
+        appearance: none;
 
         &::-webkit-input-placeholder,
         &:-ms-input-placeholder,
@@ -214,20 +218,34 @@ import closeIcon from '@/components/ui/closeIcon.vue'
       padding: 0;
       list-style: none;
       margin-top: 65px;
+
+      overflow: hidden;
  
       li{
-        display: flex;
         margin-bottom: 54px;
-        cursor: pointer;
-        
         opacity: 0;
-
         -webkit-transform:     translateX(10%);
         -moz-transform:        translateX(10%);
         -o-transform:          translateX(10%);
         transform:             translateX(10%);
         transition: 0.4s;
 
+        a{
+            display: flex;
+            width: 100%; 
+            text-decoration: none;
+            -webkit-transition:   transform 0.2s ease;
+            -moz-transition:      transform 0.2s ease;
+            -o-transition:        transform 0.2s ease;
+            transition:           transform 0.2s ease;
+
+            &:hover {
+              -webkit-transform:     translateX(1%);
+              -moz-transform:        translateX(1%);
+              -o-transform:          translateX(1%);
+              transform:             translateX(1%);
+            }
+        }
 
         .img{
           margin-right: 52px;
@@ -302,4 +320,16 @@ import closeIcon from '@/components/ui/closeIcon.vue'
     }
 }
 
+@media (max-width: 768px) {
+    .resultsList ul li {
+        .img{
+          width: 129px;
+          height: 129px;
+          margin-right: 20px;
+        }
+        h2{font-size: 16px}
+        p{ font-size: 14px}
+    }
+    
+}
 </style>
