@@ -36,7 +36,7 @@
                     
                 <router-link to="/auth/recovery" class="passwordRecoveryLink col-12">{{accountlogin.recoveryLink}}</router-link>
                 <router-link to="/auth/register" class="accountRegisterLink col-12">{{accountlogin.registerLink}}</router-link>
-                <button class="loginLink col-12 col-sm-8 col-md-6" type="submit" form="login">{{accountlogin.submit}}</button>
+                <button class="loginLink col-12 col-md-3 col-lg-2 col-xl-1" type="submit" form="login">{{accountlogin.submit}}</button>
             </form>
         </div>
 
@@ -256,7 +256,7 @@ export default {
         .loginLink{
             background-color: #000;
             font-size: 20px;
-            padding: 25px 60px;
+            padding: 25px 10px;
             outline: none;
             border: none;
             position: fixed;
@@ -283,7 +283,7 @@ export default {
         }
         .formLogin{
             margin-top: 68px;
-            width: 100%;
+            width: 100vw;
             height: calc( 100vh - 68px - 75px );
             padding: 75px 25px;
             overflow: auto;
