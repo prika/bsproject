@@ -22,12 +22,12 @@
         </div>
         
         <a @click="loadMoreClick" v-if="hasPaging && hasLink"
-            style="display: block; text-align: center; margin: 100px 0;">
+            style="display: block; text-align: center; margin: 30px 0 200px;">
             <seeMoreButton>{{ $t('actions_seemore') }}</seeMoreButton>
         </a>
 
         <router-link to="/news" v-if="( !hasPaging ) && hasLink"
-            style="display: block; text-align: center; margin: 100px 0;">
+            style="display: block; text-align: center; margin: 30px 0 200px;">
             <seeMoreButton>{{ $t('actions_loadmore') }}</seeMoreButton>
         </router-link>
     </section>

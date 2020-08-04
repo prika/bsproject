@@ -13,13 +13,9 @@ body {
 
 
 // // Paragraphs
-// //
-
 h1, .h1 {
   font-family: $font-family-serif;
-  font-size: 80px;
   font-size: 50px;
-	// line-height: 32px;
   color: $gray-1000;
   
     &.pageTitle {
@@ -53,8 +49,6 @@ h2, .h2{
     font-family: $font-family-sans-serif;
     font-weight: normal;
     font-size: 2.5rem;
-    // font-size: 20px;
-    // line-height: 32px;
     color: $gray-1000;
 
     &.pageTitleh2 {
@@ -96,15 +90,10 @@ p {
 	font-weight: 300;
 	font-size: 1rem;
 	line-height: 1.7rem;
-	color: #313131;
-	
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
-
-
-// Links
 
 a {
   text-decoration:  $link-decoration;
@@ -559,6 +548,34 @@ header  {
     outline: 0;
     color: #FFF;
     border-bottom: 1px solid #FFF!important;
+  }
+}
+
+
+
+
+
+
+
+
+@media (max-width: 768px)  {
+  #newsdetailpage {
+      margin-top: 120px;
+  }
+
+  .newsDate{position: initial}
+
+  h1, .h1 {
+    &.pageTitle {
+      font-size: 9rem;
+      margin-left: -20%;
+
+      & > span {
+        padding-left: 100px;
+
+        &::before{ width: 80px; }
+      }
+    }
   }
 }
 

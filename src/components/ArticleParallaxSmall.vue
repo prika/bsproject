@@ -103,13 +103,12 @@ export default {
         transition:             filter .3s cubic-bezier(.4,1.03,.83,.56);
 
         &:hover{
-            -webkit-filter: grayscale(0%);
-            -moz-filter: grayscale(0%);
-            filter: grayscale(0%);
+            -webkit-filter:     grayscale(0%);
+            -moz-filter:        grayscale(0%);
+            filter:             grayscale(0%);
         }
     }
 }
-
 
 .parallaxGroup1{
 
@@ -170,7 +169,6 @@ export default {
     }
 }
 
-
 .pageContentText { 
   z-index: 2;
   margin-top: 40vh; 
@@ -193,12 +191,9 @@ export default {
         }
     }
 
-    p{padding-top: 30px;}
+    p{ padding: 30px 0; }
     .quote {padding-left: 5%; font-style: italic;}
 }
-
-
-
 
 #homepage .parallaxContainer{
     background: url(../assets/images/B_Simbolo_estatico_Corpo.svg) no-repeat 75% 100% fixed;
