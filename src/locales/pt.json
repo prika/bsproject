@@ -40,11 +40,12 @@
   "simulator": "Simulador",
   "footer-scroll-top": "Clique aqui para subir na página",
 
-  "home-title-page": "Noticias",
+  "home-title-page": "notícias",
   "home-title-page-split1": "Noti",
   "home-title-page-split2": "cias",
 
   "backlink": "voltar",
+  "readlink": "ler mais",
 
   "units_measures": "medidas",
   "units_weight": "peso",

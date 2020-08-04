@@ -40,11 +40,12 @@
   "simulator": "Simulator",
   "footer-scroll-top": "Click here to scroll top",
 
-  "home-title-page": "News",
+  "home-title-page": "news",
   "home-title-page-split1": "Ne",
   "home-title-page-split2": "ws",
 
   "backlink": "back",
+  "readlink": "read more",
 
   "units_measures": "measures",
   "units_weight": "weight",
