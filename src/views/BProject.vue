@@ -3,7 +3,7 @@
 
        <ArticleParallaxSmall>
           <div class="pageContentText col-12 col-md-4 order-md-2">
-              <h1>{{bproject.title}}</h1>
+              <h1 v-html="bproject.title">{{bproject.title}}</h1>
               <p v-html="bproject.content">{{bproject.content}}</p>
           </div>
       </ArticleParallaxSmall>
