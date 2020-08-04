@@ -1,5 +1,5 @@
 <template>
-    <div class="modalSearch">  <!-- <PORTAL to="search" -->
+    <div class="modalSearch">
 
          <transition appear enter-active-class="animated slideInDown faster" leave-active-class="animated slideOutUp faster">
                 <button class="closebutton" @click="$router.go(-1)"> 
@@ -10,23 +10,18 @@
 
         <div class="row" v-bind:class="{hasSearchText}">
           <div class="col-6 clearfix">  
-              <input id="search"
+              <input id="search" name="searchInput" v-model="searchText"
                       :placeholder="$t('search-input-placeholder')"
                       type="search"
-                      name="searchInput"
-                      v-model="searchText"
                       @input="onTextInputChanged">
           </div>
         </div>
 
 
         <transition enter-active-class="animated fadeInUpBig faster" leave-active-class="animated fadeOutDownBig faster">
-        <div class="resultsList" v-if="hasSearchText" v-bind:class="{hasSearchText}">
-            
-            <!-- RESULTADOS -->
-            <div class="container col-12">
-                
-                <div v-for="item in sections" v-if="item.results > 0">
+        <div class="resultsList" v-if="hasSearchText" :class="{hasSearchText}">
+            <div class="container col-12">    
+                <div v-for="item in sections" v-if="item.results > 0" :key="item.id">
 
                     <p class="numberResults">{{ item.title }} <span></span>{{ item.results }}</p>
 
@@ -45,34 +40,12 @@
                         </li>
                     </ul>
                 </div>
-
-                <!--div v-for="item in sections">
-                    <p class="numberResults" v-if="searchedNews.length > 0">
-                      {{ item.title }} <span></span>{{searchedNews.length}}</p>
-                    <ul v-if="searchedNews.length > 0">
-                        <li v-for="item in searchedNews">
-                          <div class="img">
-                                <img width="190px" height="190px" 
-                                    :src="item.src" :alt="item.name"/>
-                          </div>
-                          
-                          <div class="text">
-                              <h2 v-html="item.name">{{item.name}}</h2>
-                              <p v-html="item.content">{{item.content}}</p>
-                          </div>
-                        </li>
-                    </ul>
-                </div -->
-
             </div>
-            <!-- FIM RESULTADOS -->
 
             <!-- SEM RESULTADOS -->
-            <!--div class="container col-12" v-if="searchedProducts.length == 0 && searchedNews.length == 0">
-              <p class="text-center" style="font-size: 25px">[nenhum resultado encontrado]</p>
-            </!--div-->
-            <!-- FIM SEM RESULTADOS -->
-
+            <div class="container col-12" v-if="hasSearchText && searchedProducts.length == 0 && searchedNews.length == 0">
+                <p class="text-center" style="font-size: 25px">{{ $t('no-search-result')}}</p>
+            </div>
         </div>
       </transition>
     </div>
@@ -83,6 +56,7 @@
 import closeIcon from '@/components/ui/closeIcon.vue'
 
     export default {
+      name: "searchPage",
       components: {
           closeIcon
       },
