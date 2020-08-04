@@ -59,8 +59,17 @@ export default {
 </script>
 
 <style lang="scss">
-#newsdetailpage .newsContainer {
-        padding-top: 100px;
-        .row{padding: 300px 0 0;}
+#newsdetailpage {
+    margin-top: 200px;
+
+    .parallaxContainer{
+        padding-top: 0;
+
+        .pageContentText{margin-top: 330px;}
+    }
+
+    .newsContainer {
+        .row{padding: 100px 0 0;}
+    }
 }
 </style>

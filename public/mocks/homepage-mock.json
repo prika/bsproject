@@ -55,54 +55,54 @@
             "height": 1080
         }
     ],
-    "title": "Home",
-    "content": "A versatilidade, robustez e magnificência fazem do mármore o material mais desejado para vários ambientes, do mais clássico ao vanguardista. B innovation promete criar a solução ideal para si, à sua medida.",
+    "title": "B group comprehends <br> 4 diferent, yet complimentary companies and activities",
+    "content": "Quarrying with <a href='/b-explore'>B explore</a>; Transformation and distribution with <a href='/bloco-b'>Bloco B</a>, Cut to size projects with <a href='/b-project'>B project</a> and 3D special projects with <a href='/b-innovation'>B innovation</a>. <br> <br> With all of this growth and evolution, we share with you an all inclusive brand that represents the quality, the advanced processing systems, the creativity the design and all the hard work all of us puts into every single square meter of marble that leaves our factory.",
     "gallery1": [
         {   
             "id": "homeparallax01",
             "src": "news/exemplo_noticia_a.jpg", 
             "alt": "Image Test", 
-            "speed": "-2",
-            "addclass": "col-9 col-sm-7 img-fluid"
+            "speed": "0",
+            "addclass": "col-9 col-sm-6"
         },
         {
             "id": "homeparallax02",
             "src": "news/exemplo_noticia_b.jpg", 
             "alt": "Image Test", 
-            "speed": "4",
-            "addclass": "col-9 col-sm-7 img-fluid"
+            "speed": "3",
+            "addclass": "col-9 col-sm-7"
         }
     ],
     "gallery2": [
         {   "id": "homeparallax03",
-            "src": "news/exemplo_noticia_c.jpg", 
+            "src": "shared/exemplo_1.jpg", 
             "alt": "Image Test", 
             "speed": "0",
-            "addclass": "col-12 col-md-5 img-fluid"
+            "addclass": "col-12 col-md-5 col-xl-4"
         },
         {   "id": "homeparallax04",
-            "src": "news/exemplo_noticia_d.jpg", 
+            "src": "shared/exemplo_2.jpg", 
             "alt": "Image Test", 
             "speed": "2",
-            "addclass": "col-12 col-md-6 img-fluid"
+            "addclass": "col-12 col-md-6 col-xl-4"
         },
         {   "id": "homeparallax05",
-            "src": "news/exemplo_noticia_a.jpg", 
+            "src": "shared/exemplo_3.jpg", 
             "alt": "Image Test", 
             "speed": "-1",
-            "addclass": "col-12 col-md-4 img-fluid"
+            "addclass": "col-12 col-md-4 col-xl-3"
         },
         {   "id": "homeparallax06",
-            "src": "news/exemplo_noticia_b.jpg", 
+            "src": "shared/exemplo_4.jpg", 
             "alt": "Image Test", 
-            "speed": "-2",
-            "addclass": "col-12 col-md-4 img-fluid"
+            "speed": "0",
+            "addclass": "col-12 col-md-4 col-xl-3"
         },
         {   "id": "homeparallax07",
-            "src": "news/exemplo_noticia_a.jpg", 
+            "src": "shared/exemplo_5.jpg", 
             "alt": "Image Test", 
-            "speed": "4",
-            "addclass": "col-12 col-md-7 img-fluid"
+            "speed": "2",
+            "addclass": "col-12 col-md-6 col-xl-5"
         }
     ],
     "featured_text1": "productos em",

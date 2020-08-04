@@ -69,12 +69,22 @@ export default {
 <style lang="scss">
 
 .parallaxContainer {
+    min-height: calc(100vh + 150px);
     padding-top: 150px; 
-    padding-bottom: 240px;
-    margin-bottom: 240px;
     position: relative;
     z-index: 0;
     overflow:hidden;
+
+    &:after{
+        position: absolute;
+        left: 0; bottom: 0;
+        right: 0;
+        content: '';
+        display: block;
+        z-index: 2;
+        background: linear-gradient(rgba(240, 240, 240, 0) 0%, #f0f0f0 100%);
+        height: 130px;
+    }
 }
 
 
@@ -109,18 +119,18 @@ export default {
     .imageParallax1{
         z-index: 1;
         right: 10%;
-        top: 30%;
+        top: 40%;
     }
 
     .imageParallax2{
         z-index: 3;
-        top: 70%; 
+        top: 80%; 
         left: 10%;
     }
 
     .imageParallax3{
         z-index: 2;
-        top: 10%;
+        top: 20%;
         left: 25%;
     }
 }
@@ -128,34 +138,36 @@ export default {
 .parallaxGroup2{
     overflow: hidden;
     position: relative;
-    height: 2900px;
+    height: 1800px;
+    margin-top: 400px;
+    background: #F0F0F0;
 
     & .imageParallax3{
-        top: 400px;
+        top: 0;
         right: 20%;
         z-index: 0;
     }
 
     & .imageParallax4{
-        top: 790px;
+        top: 820px;
         left: 10%;
         z-index: 1;
     }
 
     & .imageParallax5{
-        top: 980px; 
+        top: 120px; 
         right: 0;
         z-index: 1;
     }
 
     & .imageParallax6{
-        top: 1600px; 
-        left: 10%;
+        top: 800px; 
+        left: 27%;
         z-index: 0;
     }
 
     & .imageParallax7{
-        top: 2230px; 
+        top: 1980px; 
         left: 0;
         z-index: 1;
     }
@@ -164,7 +176,8 @@ export default {
 
 .pageContentText { 
   z-index: 2;
-  padding-top: 50vh; 
+  margin-top: 40vh; 
+  padding-top: 150px;
   background: rgb(240,240,240);
   background: linear-gradient(180deg, rgba(240,240,240,0) 0%, rgba(240,240,240,1) 10%, rgba(240,240,240,1) 90%, rgba(240,240,240,0) 100%);
 
@@ -187,12 +200,7 @@ export default {
     .quote {padding-left: 5%; font-style: italic;}
 }
 
-@media (max-width: 768px) {
-    .parallaxGroup1 img,
-    .parallaxGroup2 img {
-        position: initial;
-    }
-}
+
 
 
 #homepage .parallaxContainer{
@@ -203,13 +211,17 @@ export default {
     -moz-background-size:     250px;
     -o-background-size:       250px;
     background-size:          250px;
+    padding-top: 0;
 
-    &:after{
-        content: '';
-        display: block;
-        background: linear-gradient(rgba(240, 240, 240, 0) 0%, #f0f0f0 100%);
-        height: 130px;
+}
+
+
+@media (max-width: 768px) {
+    .parallaxGroup1 img,
+    .parallaxGroup2 img {
+        position: initial;
     }
 }
+
 
 </style>
