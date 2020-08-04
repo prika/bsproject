@@ -53,7 +53,6 @@ export default {
         }      
     },
     mounted() {
-        // Preloader
         this.$eventBus.$emit('componentFinishLoad', true);
         this.itemsPerPage = this.$parent.newsAmount
         this.hasPaging = this.$parent.hasPaging
@@ -68,6 +67,7 @@ export default {
             let slice = this.fullNews.slice(this.currentPage*this.itemsPerPage, (this.currentPage + 1) * this.itemsPerPage)
             this.news = this.news.concat(slice)
             this.currentPage++
+            if (Math.round(this.fullNews.length/this.itemsPerPage) == this.currentPage) this.hasLink = false 
         }
     },
     created(){
