@@ -21,12 +21,12 @@
         <transition enter-active-class="animated fadeInUpBig faster" leave-active-class="animated fadeOutDownBig faster">
         <div class="resultsList" v-if="hasSearchText" :class="{hasSearchText}">
             <div class="container col-12">    
-                <div v-for="item in sections" v-if="item.results > 0" :key="item.id">
+                <div v-for="section in sections" v-if="section.results > 0" :key="section.id">
 
-                    <p class="numberResults">{{ item.title }} <span></span>{{ item.results }}</p>
+                    <p class="numberResults">{{ section.title }} <span></span>{{ section.results }}</p>
 
                     <ul>
-                        <li v-for="itemlist in item.list" :key="item.id">
+                        <li v-for="itemlist in section.list" :key="itemlist.id">
                           <router-link :to="itemlist.link">
                               <div class="img">
                                 <img  width="190px" height="190px"
@@ -45,7 +45,7 @@
             </div>
 
             <!-- SEM RESULTADOS -->
-            <div class="container col-12" v-if="hasSearchText && searchedProducts.length == 0 && searchedNews.length == 0">
+            <div class="container col-12" v-if="hasSearchText && sections.length == 0">
                 <p class="text-center" style="font-size: 25px">{{ $t('no-search-result')}}</p>
             </div>
         </div>
@@ -66,15 +66,17 @@ import closeIcon from '@/components/ui/closeIcon.vue'
         return {
           sections: [],
           searchText: "",
-          hasSearchText: false,
-          searchedProducts: [],
-          searchedNews: []
+          hasSearchText: false
         }
       }, 
       mounted() {
+
         this.$eventBus.$emit('componentFinishLoad', true);
-        let query = this.$route.query
-        if(query && query.term) this.searchText = query.term
+        let query = this.$route.query // Querystring params
+
+        if (!(query && query.term)) return // no value defined
+
+        this.searchText = query.term
         this.hasSearchText = true
         this.search()
       },
@@ -83,33 +85,11 @@ import closeIcon from '@/components/ui/closeIcon.vue'
           getImgUrl: function (src) {
               return require( '@/assets/images/'+src )
           },
-          // parseObject: function(source, destination)
-          // {
-          //     destination = []
-
-          //     for ( var i = 0 ; i < source.length; i++ ) {
-          //       let obj = source[i]
-          //       let fullPath = this.getImgUrl(obj.src)
-          //       obj.src = fullPath
-          //       destination.push(obj)
-          //     }
-          // },  
           search: function()
           {
-            console.log(this.searchText)
             this.$http.get('./mocks/search-mock.json').then(response => {
-    
                 this.sections = response.data.sections
-
-               // this.searchedProducts = response.data.products
-               // this.parseObject(response.data.products, this.searchedProducts)
-
-               // this.searchedNews = response.data.news
-               // this.parseObject(response.data.news, this.searchedNews)
-
-                console.log( this.searchedNews )
-                                    
-              })
+            })
           },
          onTextInputChanged (e) {
 
@@ -117,7 +97,7 @@ import closeIcon from '@/components/ui/closeIcon.vue'
           this.search()
         }
       }
-    }
+}
 </script>
 
 <style lang="scss">
