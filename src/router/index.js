@@ -51,11 +51,16 @@ const routes = [
     name: 'categories',
     component: () => import( /* webpackChunkName: "product-group" */ '../views/BlocoBCategories.vue')
   },
-  // {
-  //   path: '/bloco-b/:category/:collection',
-  //   name: 'bloco',
-  //   component: () => import( /* webpackChunkName: "product-group" */ '../views/BlocoB.vue')
-  // },
+  {
+    path: '/bloco-b/',
+    name: 'bloco',
+    component: () => import( /* webpackChunkName: "product-group" */ '../views/BlocoB.vue'),
+  },
+  {
+    path: '/bloco-b/category/:category/collection/:collection',
+    name: 'bloco',
+    component: () => import( /* webpackChunkName: "product-group" */ '../views/BlocoB.vue'),
+  },
   {
     path: '/bloco-b/:id-:name',
     name: 'product',

@@ -20,13 +20,14 @@
                         <ul class="categoryMenu" ref="filterCategory" key="filterCategory" >
                             <li v-for="category in categories"> <!-- :class="(category.id === selectedCategory ? 'filters__item active': 'filters__item')"-->
                                 
-                                <a  href="javascript:void(0);"
-                                    @click="filterByCategory(category.id)">{{category.name}}</a>
-
+                                <a  href="javascript:void(0);">{{category.name}}</a>
+                                
                                 <ul :class="'cat-'+selectedCategory+' collectionMenu'" ref="filterCollection" key="filterCollection">
                                     <li class="filters__item" v-for="collection in collections" :class="(collection.id === selectedCollection ? 'filters__item active': 'filters__item')">
-                                        <a  href="javascript:void(0);" 
-                                            @click="filterByCollection(collection.id)">{{collection.name}}</a>
+                                        <router-link 
+                                        :to="{path: '/bloco-b/category/'+ category.id + '/collection/' + collection.id + '/'}" 
+                                        >{{collection.name}}</router-link>
+                                        
                                     </li>
                                 </ul>
 
@@ -58,7 +59,9 @@ export default {
     data() {
         return {
             categories: [],
-            collections: []
+            collections: [],
+            selectedCategory: null,
+            selectedCollection: null
         }
     },
     beforeCreate() {

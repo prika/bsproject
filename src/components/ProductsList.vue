@@ -6,10 +6,10 @@
 
                     <transition appear enter-active-class="animated slideInDown" leave-active-class="animated slideOutDown">
                         <h1 class="pageTitleh2 h2" v-if="hasFeaturedProducts"><slot></slot></h1>
-                        <h1 class="pageTitle" v-else>{{categories[selectedCategory].splitName1}}<span>{{categories[selectedCategory].splitName2}}</span></h1>
+                        <h1 class="pageTitle" v-else >{{categoryName1}}<span>{{categoryName2}}</span></h1>
                     </transition>
-                    
-                   
+
+                     
                    <transition appear enter-active-class="animated fadeIn" leave-active-class="animated fadeOut">
                     <nav class="filters col-lg-3" v-if="!hasFeaturedProducts">
                         <ul class="categoryMenu" ref="menu" key="filterCategory" >
@@ -82,22 +82,28 @@ export default {
             active: '',
             selectedCategory: 0,
             selectedCollection: null,
-            selectedColors: []
+            selectedColors: [],
+            categoryName1:"",
+            categoryName2:"",
+            rellax: null
         }
     },
-    beforeCreate() {
-        let rellaxjs = document.createElement("script")
-        rellaxjs.setAttribute("src", "https://cdnjs.cloudflare.com/ajax/libs/rellax/1.0.0/rellax.min.js")
-        document.head.appendChild(rellaxjs)
-        console.log('Before Create - rellaxjs');
-    },
-    created() {
-        console.log('Created');
+    mounted() {
+
+        if(this.$route.params)
+        {
+            this.selectedCategory = this.$route.params.category
+            this.selectedCollection = this.$route.params.collection
+        }
+
         this.$http.get('../mocks/products-list-mock.json').then(response => {
             
-            this.collections = response.data.collections
-            this.categories = response.data.categories
-            this.rawColors = response.data.colors            
+            this.collections =  response.data.collections
+            this.categories =   response.data.categories
+            this.rawColors =    response.data.colors   
+
+            this.productsPerPage = this.$parent.productsPerPage
+            this.hasFeaturedProducts = this.$parent.hasFeaturedProducts         
       
             if (this.hasFeaturedProducts) 
             {
@@ -105,26 +111,40 @@ export default {
                 return
             }
             
-            this.selectedCategory = this.categories[0].id
-            this.selectedCollection = this.collections[0].id    
-            this.parseObject(response.data.products, this.products, this.hasFeaturedProducts)
+            if (!this.$route.params)
+            {
+                this.selectedCategory = this.categories[0].id
+                this.selectedCollection = this.collections[0].id    
+            }
+
+            this.parseObject(response.data.products, this.products, this.hasFeaturedProducts) //linha em cima igual
             
             this.applyFilter()
-        })
-    },
-    beforeMount() {
-        console.log('Before Mount');
-    },
-    mounted() {
-        console.log('Mounted');
 
-        this.productsPerPage = this.$parent.productsPerPage
-        this.hasFeaturedProducts = this.$parent.hasFeaturedProducts
+            var tag = document.createElement('script');
+            tag.src = "https://cdnjs.cloudflare.com/ajax/libs/rellax/1.0.0/rellax.min.js";
+            var firstScriptTag = document.getElementsByTagName('script')[0];
+            firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+            tag.onload = this.rellaxLoaded   
+        })
 
         this.$eventBus.$emit('componentFinishLoad', true);
+    }, 
+    watch: {
+
+        categories: function(newVal, oldVal)
+        {
+            if (this.hasFeaturedProducts) return ""
+            this.categoryName1 = this.categories[this.selectedCategory].splitName1
+            this.categoryName2 = this.categories[this.selectedCategory].splitName2    
+        }
     },
     methods:
-    {
+    {   
+        rellaxLoaded: function()  {
+            console.log('rellaxloaded')
+            this.rellax = new Rellax('.rellaxProduct');
+        },
         getImgUrl: function (src) {
             return require( '@/assets/images/'+src )
         },
@@ -164,7 +184,6 @@ export default {
             this.selectedCollection = id
             this.selectedColors = []
             this.applyFilter()
-            
         },
         filterByColor(id) {
 
@@ -210,9 +229,6 @@ export default {
 
                 this.availableColors = this.rawColors.filter(color => filteredColors.indexOf(color.id) > - 1)
             }
-
-            console.log('Methods - rellax');
-            let rellaxProduct = new Rellax('.rellaxProduct');
         }
     }
 }
@@ -507,16 +523,15 @@ export default {
     .product {
             transform: none!important;
 
-    //     .containerImage{
-    //         width: 100%;
-    //         height: 100%;
-    //         padding: 0 20%;
+         .containerImage{
+            width: 327px;
+            height: 470px;
 
-    //         .productImage{
-    //             width: 100%;
-    //             height: 100%;
-    //         }
-    //     }
+            .productImage{
+                width: 327px;
+                height: 470px;
+            }
+        }
     }
 }
 
