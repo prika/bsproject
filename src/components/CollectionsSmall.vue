@@ -1,16 +1,16 @@
 <template>
     <div class="collectionContainer container" :style="collectionVariables">
         <div class="row">
-            <a class="collection collection1 col-12 col-md-6">
-                <h1 class="pageTitle" :aria-label="$t('home-title-page')"> 
-                    Lusi<span>tania</span>
+            <a  v-for="(collection, index) in collections" 
+                href="/"
+                :class="'collection col-12 col-md-6 collection'+index" 
+                :style="{'background-image':'url(' + getImgUrl(collection.imgsrc) +')'}">
+
+                <h1 class="pageTitle" :aria-label="collection.name"> 
+                    {{collection.splitname1}}<span>{{collection.splitname2}}</span>
                 </h1>
             </a>
-            <a class="collection collection2 col-12 col-md-6">              
-                 <h1 class="pageTitle" :aria-label="$t('home-title-page')" > 
-                    Sahu<span>ra</span>
-                </h1>
-            </a>
+
         </div>
     </div>
 </template>
@@ -19,24 +19,26 @@
     export default {
         data() {
             return {
-                collections: {
-                    collection1: {
-                        url: '../assets/images/shared/collection1.jpg',
-                        count: 10
-                    },
-                    collection2: {
-                        url: '../assets/images/shared/collection2.jpg',
-                        count: 9
-                    }
-                }
+                collections: [],
+                collectionVariables:[]
             }
         },
-        computed: {
-            collectionVariables(){
-                return {
-                    '--collection1-count': this.collections.collection1.count,
-                    '--collection2-count': this.collections.collection2.count
+        created() {
+
+            this.$eventBus.$on('collectionsLoadedEvent', (data) => {
+
+                this.collections = data
+
+                this.collectionVariables = 
+                {
+                    '--collection1-count': this.collections[0].count,
+                    '--collection2-count': this.collections[1].count
                 }
+            });
+        },
+        methods: {
+            getImgUrl: function (src) {
+                return require( '@/assets/images/'+src )
             }
         }
     }
@@ -110,13 +112,10 @@ $calcCollection2: calc(-293px * var(--collection2-count));
         }
     }
 
-    &.collection1{ background: url('../assets/images/shared/collection1.jpg') 0 0; }
-    &.collection2{ background: url('../assets/images/shared/collection2.jpg') 0 0; }
-
     &:hover{
 
-        &.collection1{ animation: play1 2s steps(var(--collection1-count)) infinite;}
-        &.collection2{ animation: play2 1s steps(var(--collection2-count)) infinite;}
+        &.collection0{ animation: play1 2s steps(var(--collection1-count)) infinite;}
+        &.collection1{ animation: play2 1s steps(var(--collection2-count)) infinite;}
         
         & span::after{
             left: -20px;

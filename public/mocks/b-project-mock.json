@@ -23,6 +23,24 @@
         }
     ],
     "gallery2": [],
+    "collections": [
+        { 
+            "id": 1,
+            "name": "Lusitania",
+            "splitname1": "Lusi",
+            "splitname2": "tania",
+            "imgsrc": "shared/collection1.jpg",
+            "count": 10
+        },
+        { 
+            "id": 2,
+            "name": "Sahura",
+            "splitname1": "Sahu",
+            "splitname2": "ra",
+            "imgsrc": "shared/collection2.jpg",
+            "count": 9
+        }
+    ],
     "title1": "Port",
     "title2": "folio",
     "mansory": [
