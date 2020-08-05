@@ -74,6 +74,7 @@
   "checkout-title-step2": "Delivery Conditions",
   "checkout-next-step": "continue",
   "checkout-prev-step": "back",
+  "checkout-final-step": "finalize",
 
   "checkout-container": "Container | Containers",
   "checkout-total": "Total",

@@ -74,6 +74,7 @@
   "checkout-title-step2": "Condições de Entrega",
   "checkout-next-step": "continuar",
   "checkout-prev-step": "voltar",
+  "checkout-final-step": "finalizar",
 
   "checkout-container": "Contentor | Contentores",
   "checkout-total": "Total",

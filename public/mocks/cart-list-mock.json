@@ -3,7 +3,8 @@
         "generalquantity": 5,
         "categoriesTotal": [
            {"name":"Blocos", "number": 4, "dimensions": "10"},
-           {"name":"Chapas", "number": 1, "dimensions": "145"}
+           {"name":"Chapas", "number": 1, "dimensions": "145"},
+           {"name":"Ladrilhos", "number": 1, "dimensions": "145"}
         ]
     },
     "categoryContainers": [
@@ -15,7 +16,7 @@
             "containerItems":  [
                 {
                     "id": 1,
-                    "name": "Container A",
+                    "name": "A",
                     "percentage": 75,
                     "products": 
                     [
@@ -24,27 +25,30 @@
                             "name": "Bla1 Bambu Pink",
                             "imgURL": "product/bambu_pink.jpg",
                             "variantName": "BE1 - 266",
-                            "dimensions": "255x43x53"
+                            "dimensions": "255x43x53",
+                            "link": ""
                         },
                         {
                             "id": "Prod2",
                             "name": "Bl2 Bambu Pink",
                             "imgURL": "product/bambu_pink.jpg",
                             "variantName": "BE1 - 266",
-                            "dimensions": "255x43x53"
+                            "dimensions": "255x43x53",
+                            "link": ""
                         },
                         {
                             "id": "Prod3",
                             "name": "Bla3 Atlantic White",
                             "imgURL": "product/atlantic_white.jpg",
                             "variantName": "BE1 - 266",
-                            "dimensions": "255x43x53"
+                            "dimensions": "255x43x53",
+                            "link": ""
                         }
                     ]
                 },
                 {
                     "id": 2,
-                    "name": "Container B",
+                    "name": "B",
                     "percentage": 25,
                     "products": 
                     [
@@ -53,7 +57,8 @@
                             "name": "Atlantic White",
                             "imgURL": "product/atlantic_white.jpg",
                             "variantName": "BE1 - 266",
-                            "dimensions": "255x43x53"
+                            "dimensions": "255x43x53",
+                            "link": ""
                         }
                     ]
                 }
@@ -67,7 +72,7 @@
             "containerItems":  [
                 {
                     "id": 1,
-                    "name": "Container A",
+                    "name": "A",
                     "percentage": 33,
                     "products": 
                     [
@@ -76,7 +81,32 @@
                             "name": "Atlantic White",
                             "imgURL": "product/atlantic_white.jpg",
                             "variantName": "BE1 - 266",
-                            "dimensions": "255x43x53"
+                            "dimensions": "255x43x53",
+                            "link": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "category": "Ladrilhos",
+            "quantity": 1,
+            "containerDimensions": 145,
+            "containerCount": 1,
+            "containerItems":  [
+                {
+                    "id": 1,
+                    "name": "C",
+                    "percentage": 33,
+                    "products": 
+                    [
+                        {
+                            "id": "Prod1",
+                            "name": "Atlantic White",
+                            "imgURL": "product/atlantic_white.jpg",
+                            "variantName": "BE1 - 266",
+                            "dimensions": "255x43x53",
+                            "link": ""
                         }
                     ]
                 }
