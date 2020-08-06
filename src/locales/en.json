@@ -81,7 +81,11 @@
   "checkout-products": " product | products ",
 
   "checkout-notes": "Notes",
-  "checkout-notes-placeholder": "Leave a note on your order"
+  "checkout-notes-placeholder": "Leave a note on your order",
 
+  "contacts-error-required": "Required information",
+  "contacts-error-valid-email": "Valid email required.",
+  "contacts-error-file-limit-min": "The selected file must not be larger than 75 kB",
+  "contacts-error-file-limit-max": "File too big (> 4MB)"
 }
 

@@ -65,12 +65,11 @@
                         </div>
 
                          <div class="col-xs-12 col-sm-6">
-                            <button class="button submitButton" :aria-label="formContact.submit">
+                            <button class="button submitButton float-right" :aria-label="formContact.submit">
                                 <submitIcon>{{formContact.submit}}</submitIcon>
                             </button>
                         </div>
                     </div>
-                   
                 </form>
 
                  <transition enter-active-class="animated slideInRight">
@@ -111,13 +110,22 @@ export default {
             cont_file: '',
             cont_file_validator: '',
             cont_file_error: false,
-            success: false
+            success: false,
+            error_required: '',
+            error_invalid: '', 
+            error_file_min: '', 
+            error_file_max: ''
         }
     },
     created() {
       this.$eventBus.$on('jsonGlobalLoaded', (response) => {
           this.formContact = response.data.formContact
       });
+            this.error_required     =   this.$i18n.t('contacts-error-required')
+            this.error_invalid      =   this.$i18n.t('contacts-error-valid-email')
+            this.error_file_min     =   this.$i18n.t('contacts-error-file-limit-min')
+            this.error_file_max     =   this.$i18n.t('contacts-error-file-limit-max')
+      
     },
     methods: {
         checkContactsForm: function (e) {
@@ -158,12 +166,12 @@ export default {
          },
          validateName: function() {
             this.cont_name_error = this.cont_name === '' 
-            this.cont_name_validator = this.cont_name_error ?  "Campo de preenchimento obrigatório" : ""
+            this.cont_name_validator = this.cont_name_error ?  this.error_required : ""
             return !this.cont_name_error
          },
          validateSurname: function() {
             this.cont_surname_error = this.cont_surname === '' 
-            this.cont_surname_validator = this.cont_surname_error ?  "Campo de preenchimento obrigatório" : ""
+            this.cont_surname_validator = this.cont_surname_error ?  this.error_required : ""
             return !this.cont_surname_error
          },
          validateEmail: function () {
@@ -171,7 +179,7 @@ export default {
             if (this.cont_email === '') 
             { 
                 this.cont_email_error = true
-                this.cont_email_validator = '[[Campo de preenchimento obrigatório]]'
+                this.cont_email_validator = this.error_required
                 return false
             }
 
@@ -180,7 +188,7 @@ export default {
             if (!regex.test(this.cont_email))
             {
                 this.cont_email_error = true
-                this.cont_email_validator = '[[Valid email required.]]'
+                this.cont_email_validator = this.error_invalid
                 return false
             }
 
@@ -191,7 +199,7 @@ export default {
         validateMessage: function() 
         {
             this.cont_message_error = this.cont_message === '' 
-            this.cont_message_validator = this.cont_message_error ?  "Campo de preenchimento obrigatório" : ""
+            this.cont_message_validator = this.cont_message_error ?  this.error_required : ""
             return !this.cont_message_error
          },
         validateFile: function()
@@ -206,14 +214,14 @@ export default {
 
                 if ( files[0].size < 75 * 1024 ) {
                     this.cont_file_error = true
-                    this.cont_file_validator = "The selected file must not be larger than 75 kB"
+                    this.cont_file_validator = this.error_file_min
                     return false
                 }
 
                 if ( files[0].size > 1024 * 1024 * 4 ) {
                     
                     this.cont_file_error = true
-                    this.cont_file_validator = "File too big (> 4MB)"
+                    this.cont_file_validator = this.error_file_max
                     return false
                 }
             }

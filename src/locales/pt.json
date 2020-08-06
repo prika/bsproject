@@ -81,6 +81,11 @@
   "checkout-products": " produto | produtos ",
 
   "checkout-notes": "Notas",
-  "checkout-notes-placeholder": "Deixe uma nota na sua encomenda"
+  "checkout-notes-placeholder": "Deixe uma nota na sua encomenda",
+
+  "contacts-error-required": "Campo de preenchimento obrigatório",
+  "contacts-error-valid-email": "Email não válido",
+  "contacts-error-file-limit-min": "O ficheiro selecionado deve ter no mínimo 75 kB",
+  "contacts-error-file-limit-max": "O ficheiro deve ser menos do que 4MB (> 4MB)"
 
 }

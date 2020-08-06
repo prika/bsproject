@@ -13,7 +13,7 @@
                 </div>
 
                 <div class="col-md-7 col-md-pull-5 order-md-1 col-xs-12">
-                    <a class="extendedButton submitButton" :href="address.map" target="_blank" rel="noopener noreferrer nofollow">
+                    <a class="extendedButton submitButton float-left float-md-right" :href="address.map" target="_blank" rel="noopener noreferrer nofollow">
                         <submitIcon>{{address.button}}</submitIcon>
                     </a>
                 </div>
