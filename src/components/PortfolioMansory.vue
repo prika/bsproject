@@ -6,64 +6,70 @@
         <div class="wrapper">
             <div class="masonry masonry--v effect">
 
-              <figure class="masonry-brick masonry-brick--v" v-for="image in imageGroupMansory">
-                  <img  :src="image.src" 
+              <figure v-for="(image, index) in thumbs"
+                      @click="showGalleryFunction(index)" 
+                      class="masonry-brick masonry-brick--v">
+
+                  <img  :src="image.url" 
                         :alt="image.alt" 
                         :width="image.width"  :height="image.height"
                         class="masonry-img">
               </figure>
-
-              <!--  
-                <vue-plyr ref="player1">
-                  <video poster="../assets/images/explore/explore_5.jpg" src="../assets/media/video_exemplo.mp4" aria-label="Video ....">
-                    <source src="../assets/media/video_exemplo.mp4" type="video/mp4" size="720">
-                    <source src="../assets/media/video_exemplo.mp4" type="video/mp4" size="1080">
-                  </video>
-                </vue-plyr>
-
-                <vue-plyr>
-                  <div class="plyr__video-embed">
-                    <iframe 
-                      poster="../assets/images/explore/explore_5.jpg"
-                      src="https://www.youtube.com/embed/bTqVqk7FSmY?iv_load_policy=3&modestbranding=1&playsinline=1&showinfo=0&rel=0&enablejsapi=1"
-                      allowfullscreen allowtransparency allow="autoplay" controls="false">
-                    </iframe>
-                  </div>
-                </vue-plyr>
-                 
-                <vue-plyr>
-                    <div class="plyr__video-embed">
-                      <iframe
-                        src="https://player.vimeo.com/video/76979871?loop=false&byline=false&portrait=false&title=false&speed=true&transparent=0&gesture=media"
-                        allowfullscreen allowtransparency allow="autoplay">
-                      </iframe>
-                    </div>
-                </vue-plyr>
-                -->
             
             </div>
 
-            <seeMoreButton>Ver mais</seeMoreButton>
+            <seeMoreButton> {{ $t('seemoreLink') }} </seeMoreButton>
         </div>
+
+        <modalGallery v-if="showGallery" @close="showGallery = false" />
     </div>
 </template>
 
 <script>
-    import seeMoreButton from '@/components/ui/seeMoreButton'
+import seeMoreButton from '@/components/ui/seeMoreButton'
+import modalGallery from '@/components/subcomponents/ModalGallery.vue'
 
-    export default {
-        components: {
-           seeMoreButton
-        },
-        data() {
-            return {
-                imageGroupMansory:[]
-            }
-        },
-        beforeMount() {
-            this.imageGroupMansory = this.$parent.mansory
+export default {
+    components: {
+        seeMoreButton,
+        modalGallery
+    },
+    data() {
+        return {
+            thumbs: [],
+            largeImages:[],
+            showGallery: false,
+            selectedIndex: 0
         }
+    },
+    methods: {
+      getImgUrl: function (src) {
+        return require('@/assets/images/'+src)
+      },
+      parseObject: function(source)
+      {
+          for ( var i = 0 ; i < source.length; i++) {
+              let thumb = source[i].thumb
+              let largeImage = source[i].large
+
+              thumb.url = this.getImgUrl(thumb.url) 
+              largeImage.url = this.getImgUrl(largeImage.url) 
+              
+              this.thumbs.push(thumb)
+              this.largeImages.push(largeImage)
+          }
+      },
+      showGalleryFunction(index){
+          this.showGallery = true
+          this.selectedIndex = index
+          console.log( "selected:"+this.selectedIndex )
+      }
+    },
+    mounted() {
+        this.mansory = this.$parent.mansory
+        this.parseObject( this.$parent.mansory )
     }
+}
 </script>
 
 <style lang="scss">
@@ -88,7 +94,6 @@ padding-top: 110px;
       }
   }
 
-  
 
 // .masonry .effect{
 //   perspective: 1300px;
@@ -111,14 +116,13 @@ padding-top: 110px;
 .masonry--v {
   flex-flow: column wrap;
   max-height: 1080px;
-
   margin-left: -8px;
-  /*counter-reset: brick;*/
+  // counter-reset: brick;
 }
 
 .masonry-brick {
   overflow: hidden;
-  margin: 0 0 8px 8px;  /* Some Gutter */
+  margin: 0 0 8px 8px;
   color: white;
   position: relative;
   -webkit-transition:     all .3s cubic-bezier(.4,1.03,.83,.56);
@@ -148,13 +152,10 @@ padding-top: 110px;
     max-height: 2000px;
   }
 
-  /* Vertical masonry bricks on tablet-sized screen */
   .masonry-brick--v {
     width: 50%;
   }
 }
-
-// .masonry-video .plyr--stopped.plyr__poster-enabled .plyr__poster{}
 
 .masonry-img,
 .masonry-video{
@@ -162,26 +163,27 @@ padding-top: 110px;
   width: 100%;
   height: 100%;
   cursor: pointer;
-  -webkit-filter: grayscale(100%);
-  -moz-filter: grayscale(100%);
-  filter: grayscale(100%);
 
-  -webkit-transition:     filter .3s cubic-bezier(.4,1.03,.83,.56);
-  -moz-transition:        filter .3s cubic-bezier(.4,1.03,.83,.56);
-  -o-transition:          filter .3s cubic-bezier(.4,1.03,.83,.56);
-  transition:             filter .3s cubic-bezier(.4,1.03,.83,.56);
+  -webkit-filter: grayscale(100%);
+  -moz-filter:    grayscale(100%);
+  filter:         grayscale(100%);
+
+  -webkit-transition:     all .3s cubic-bezier(.4,1.03,.83,.56);
+  -moz-transition:        all .3s cubic-bezier(.4,1.03,.83,.56);
+  -o-transition:          all .3s cubic-bezier(.4,1.03,.83,.56);
+  transition:             all .3s cubic-bezier(.4,1.03,.83,.56);
 
   &:hover{
-      -webkit-filter: grayscale(0%);
-      -moz-filter: grayscale(0%);
-      filter: grayscale(0%);
+      -webkit-filter:   grayscale(0%);
+      -moz-filter:      grayscale(0%);
+      filter:           grayscale(0%);
   }
 }
 
 
-.plyr__poster{ background-size: cover!important; }
-.plyr__controls,
-.plyr__control--overlaid svg{display: none!important;}
+// .plyr__poster{ background-size: cover!important; }
+// .plyr__controls,
+// .plyr__control--overlaid svg{display: none!important;}
 
 // .plyr__control--overlaid.plyr__control{
 //   border-radius: 0;

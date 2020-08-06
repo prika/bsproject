@@ -52,13 +52,12 @@ export default {
     },
     created(){
          this.$http.get('../mocks/b-innovation-mock.json').then(response => {
-            this.binnovation = response.data
-            
-            this.parseObject(response.data.gallery1, this.gallery1)            
-            //this.parseObject(response.data.gallery2, this.gallery2)
-            this.parseObject(response.data.mansory, this.mansory)
-         })
 
+            this.binnovation = response.data
+            this.parseObject(response.data.gallery1, this.gallery1)            
+            this.mansory = response.data.mansory
+            
+         })
     },
     mounted() {
         this.$eventBus.$emit('componentFinishLoad', true);

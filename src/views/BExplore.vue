@@ -12,48 +12,26 @@
 import PortfolioMansory from '@/components/PortfolioMansory'
 
 export default {
-  name: 'bexplorepage',
-  components: {
-      PortfolioMansory
-  },
-  data() {
-    return {
-      bexplore: '',
-      mansory: []
-    }
-  },
-  methods:
-    {
-        getImgUrl: function (src) {
-            return require('@/assets/images/'+src)
-        },
-        parseObject: function(source, destination)
-        {
-            for ( var i = 0 ; i < source.length; i++ ) {
-               let obj = source[i]
-               let fullPath = this.getImgUrl(obj.src)
-               obj.src = fullPath
-               destination.push(obj)
-            }
-        }        
+    name: 'bexplorepage',
+    components: {
+        PortfolioMansory
+    },
+    data() {
+      return {
+        bexplore: '',
+        mansory: []
+      }
     },
     created(){
-         this.$http.get('../mocks/b-explore-mock.json').then(response => {
-            this.bexplore = response.data
-            this.parseObject( response.data.mansory, this.mansory )          
-         })
-    },
-  // computed: {
-  //   player () {
-  //     //return this.$refs.player1.player;
-  //     //document.getElementsByClassName("plyr__poster").style.filter = "grayscale(100%)";
-  //   }
-  // },
-  mounted() {
-    //console.log( document.getElementsByClassName("plyr__poster") );
-    //console.log(this.player)
-    this.$eventBus.$emit('componentFinishLoad', true);
-  }
+        this.$http.get('../mocks/b-explore-mock.json').then(response => {
 
+          this.bexplore = response.data
+          this.mansory = this.bexplore.mansory
+          
+        })
+    },
+    mounted() {
+      this.$eventBus.$emit('componentFinishLoad', true);
+    }
 }
 </script>

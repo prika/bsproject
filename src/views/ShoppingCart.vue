@@ -136,8 +136,6 @@
 import arrowRightIcon from '@/components/ui/arrow-slim-right.vue'
 import cartIcon from '@/components/ui/cartButton.vue'
 import shareIcon from '@/components/ui/shareButton.vue'
-import modalShare from '@/components/subcomponents/ShareThisModal.vue'
-import modalGallery from '@/components/subcomponents/ModalGallery.vue'
 import removeIcon from '@/components/ui/removeIcon.vue'
 import chartContainer from '@/components/ui/chartContainer.vue'
 
@@ -148,8 +146,6 @@ export default {
       arrowRightIcon,
       cartIcon,
       shareIcon,
-      modalShare,
-      modalGallery,
       chartContainer
   }, 
   data() {
