@@ -122,4 +122,45 @@ $calcCollection2: calc(-293px * var(--collection2-count));
         }
     }
 }
+
+@media (max-width: 768px) {
+    .collection{
+        margin-bottom: 0;
+
+        .pageTitle{
+            font-size: 50px;
+            line-height: 3rem;
+            text-align: center;
+            top: 70px;
+
+            span{
+                padding-left: 65px;
+
+                &::before { width: 50px }
+                &::after {
+                    top: 150%;
+                    left: calc( 50% - 60px );
+                }
+            }
+            
+        }
+    }
+}
+
+@media (max-width: 1024px) {
+    .collectionContainer{
+        max-width: 100%;
+
+        .pageTitle{
+            line-height: 4rem;
+            text-align: center;
+            top: 60px;
+
+            span::after {
+                top: 120%;
+                left: calc( 50% - 60px );
+            }
+        }
+    }
+}
 </style>

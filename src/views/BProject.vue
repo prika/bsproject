@@ -8,7 +8,7 @@
           </div>
       </ArticleParallaxSmall>
 
-      <CollectionsSmall />
+      <Collections />
 
       <PortfolioMansory>
           <h1 class="pageTitleh2 h2">{{bproject.title1}}<span>{{bproject.title2}}</span></h1>
@@ -20,14 +20,14 @@
 <script>
 import ArticleParallaxSmall from '@/components/ArticleParallaxSmall'
 import PortfolioMansory from '@/components/PortfolioMansory'
-import CollectionsSmall from '@/components/CollectionsSmall'
+import Collections from '@/components/Collections'
 
 export default {
   name: 'bprojectpage',
   components: {
       ArticleParallaxSmall,
       PortfolioMansory,
-      CollectionsSmall
+      Collections
   },
   data() {
     return {
