@@ -16,9 +16,8 @@
                             :class="(index === selectedIndex ? 'galleryImage selected': 'galleryImage')">
 
                             <img :src="image.url"
-                                :alt="image.alt" 
-                                :width="image.width" 
-                                :height="image.height" itemprop="image">
+                                :width="image.width" :height="image.height" 
+                                :alt="image.alt"  itemprop="image">
                             
                             <p style="color: #FFF">{{index+1}} / {{largeImages.length}}</p>
                         </div>
