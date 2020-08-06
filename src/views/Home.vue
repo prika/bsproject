@@ -67,17 +67,17 @@ export default {
         }        
     },
     beforeCreate() {
-      
-         this.$http.get('../mocks/homepage-mock.json').then(response => {
+        this.$eventBus.$emit('componentFinishLoad', false);
+    },
+    created() {
+        this.$http.get('../mocks/homepage-mock.json').then(response => {
             this.home = response.data
             this.parseObject(response.data.gallery1, this.gallery1)
             this.parseObject(response.data.gallery2, this.gallery2)
 
             this.parseObject(response.data.slidergallery, this.slidergallery)            
-         })
-    },
-    mounted() {
-        this.$eventBus.$emit('componentFinishLoad', true);
+        }).then(() => {this.$eventBus.$emit('componentFinishLoad', true)})
+        
     }
 }
 </script>

@@ -53,17 +53,18 @@ export default {
             }
         }        
     },
+    beforeCreate() {
+        this.$eventBus.$emit('componentFinishLoad', false);
+    },
     created(){
-         this.$http.get('../mocks/b-project-mock.json').then(response => {
+        this.$http.get('../mocks/b-project-mock.json').then(response => {
             this.bproject = response.data
             this.parseObject( response.data.gallery1, this.gallery1 )            
             this.parseObject( response.data.mansory, this.mansory )
 
             this.$eventBus.$emit('collectionsLoadedEvent', response.data.collections);
-         })
-    },
-    mounted() {
-        this.$eventBus.$emit('componentFinishLoad', true);
+        }).then(() => {this.$eventBus.$emit('componentFinishLoad', true)})
+                
     }
 }
 </script>

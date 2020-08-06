@@ -1,5 +1,6 @@
 //import Vue from 'vue'
 import VueRouter from 'vue-router'
+import Home from '../views/Home.vue'
 
 Vue.use(VueRouter)
 global.Vue = Vue
@@ -8,7 +9,7 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: () => import('../views/Home.vue')
+    component: Home
   },
   {
     path: '/b-explore',
@@ -58,7 +59,7 @@ const routes = [
   },
   {
     path: '/bloco-b/category/:category/collection/:collection',
-    name: 'bloco',
+    name: 'blocoselection',
     component: () => import( /* webpackChunkName: "product-group" */ '../views/BlocoB.vue'),
   },
   {
@@ -73,7 +74,7 @@ const routes = [
   },
   { 
     path: '/search/:term', 
-    name: 'search',
+    name: 'searchterm',
     component: () => import('../components/subcomponents/ModalSearch.vue'), 
     props: (route) => ({ query: route.query.term }) 
   },
@@ -95,6 +96,7 @@ const routes = [
   {
     path: '/auth/account',
     name: 'account',
+    meta: { requiresAuth: true }, // a meta field
     component: () => import( /* webpackChunkName: "account-group" */ '../views/AccountInfo.vue')
   },
   {
@@ -109,17 +111,20 @@ const router = new VueRouter({
     base: process.env.BASE_URL,
     routes,
     scrollBehavior (to, from, savedPosition) {
-
-    //     // if (savedPosition) {
-    //     //   return savedPosition
-    //     // } 
-    //     // else if ( to.hash ) {
-    //     //   return { selector: to.hash }
-    //     // } 
-    //     // else {
-           return { x: 0, y: 0 }
-    //     // }
+        return { x: 0, y: 0 }
     }
+})
+
+router.beforeResolve((to, from, next) => {
+  if ( to.name ) {
+      //this.name = to.name
+      console.log( to.name )
+  }
+  next()
+})
+
+router.afterEach((to, from) => {
+    console.log( 'done' )
 })
 
 export default router

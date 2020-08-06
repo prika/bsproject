@@ -1,7 +1,9 @@
 <template>
-  <div id="bstoneproject"> <!--:class="$route.name"-->
+  <div id="bstoneproject" :class="$route.name">
   
-      <Preloader :class="{isLoaded}"></Preloader>
+      <transition leave-active-class="animated slideOutUp faster">
+          <Preloader v-if=" isLoaded === false " class="loader"></Preloader>
+      </transition>
       
       <keep-alive>
       <Header v-if="!(['faqs', 'privacy-policy'].indexOf($route.name) > -1)">
@@ -22,9 +24,8 @@
                 </router-link>
             </div>
 
-            <!-- Desktop -->
+            
             <Menu v-if="!isMobile()" />
-            <!-- Mobile -->
             <MenuMobile v-else-if="isMobile() && showMobileMenu == true" @close="showMobileMenu = false" />
             
             <button class="openMenuButton"  
@@ -35,7 +36,6 @@
       </keep-alive>
       
       <router-view />
-      
 
       <Scroll v-if="!isMobile() && (['Home', 'bloco-b'].indexOf($route.name) > -1)" />
 
@@ -81,19 +81,44 @@ export default {
           showMobileMenu: false
       }
   },
-  beforeMount(){
-      this.$http.get('../mocks/global-mock.json').then(response => {
-          this.$eventBus.$emit('jsonGlobalLoaded', response);
-      })
+  beforeCreate() {
+      this.isLoaded = false
+     // debugger
   },
   created() {
-    this.$eventBus.$on('componentFinishLoad', (data) => {
-      this.isLoaded = true;
-    });
+    this.$http.get('../mocks/global-mock.json').then(response => {
+        this.$eventBus.$emit('jsonGlobalLoaded', response);
+
+       // debugger
+    })
+    // .then(
+    //     this.isLoaded = true
+    // )
   },
+  mounted() {
+
+    this.$eventBus.$on('componentFinishLoad', (data) => {
+       // debugger
+        this.isLoaded = true;
+      })
+  },
+  // beforeUpdate() {
+  //     //this.isLoaded = false;
+  //     console.log('before update')
+  // },
+  // updated() {
+  //     //this.isLoaded = true;
+  //     console.log('updated')
+  // },
   methods: {
     isMobile() {
       return /Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) 
+    }
+  },
+  watch: {
+    isLoaded: function(newVal, oldVal) 
+    { 
+        console.log('mudou de'+oldVal+" para "+newVal)
     }
   }
 }

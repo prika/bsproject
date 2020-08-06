@@ -10,26 +10,22 @@
         { 
             "id": "menu1",
             "name": "Bloco B",
-            "link": "/bloco-b",
-            "preloader": "preloader/b-innovation.svg"
+            "link": "/bloco-b"
         },
         { 
             "id": "menu2",
             "name": "B Explore",
-            "link": "/b-explore",
-            "preloader": "preloader/b-innovation.svg"
+            "link": "/b-explore"
         },
         { 
             "id": "menu3",
             "name": "B Project",
-            "link": "/b-project",
-            "preloader": "preloader/b-innovation.svg"
+            "link": "/b-project"
         },
         { 
             "id": "menu4",
             "name": "B Innovation",
-            "link": "/b-innovation",
-            "preloader": "preloader/b-innovation.svg"
+            "link": "/b-innovation"
         }
     ],
     "footer": {
