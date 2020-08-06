@@ -329,4 +329,16 @@ export default {
   //     }
   // }
 }
+
+
+
+@media (max-width: 768px) {
+
+  .loader #animatedlogo {
+      transform: scale(.9);
+      margin-left: -241px;
+  }
+  
+}
+
 </style>

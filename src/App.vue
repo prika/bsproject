@@ -98,9 +98,9 @@ export default {
   mounted() {
 
     this.$eventBus.$on('componentFinishLoad', (data) => {
-       // debugger
-        this.isLoaded = true;
-      })
+       debugger
+       this.isLoaded = true;
+    })
   },
   // beforeUpdate() {
   //     //this.isLoaded = false;
