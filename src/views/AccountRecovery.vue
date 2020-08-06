@@ -32,7 +32,7 @@
                         </div>
 
                         <div class="col-12 col-md-7">
-                            <button class="button submitButton" :aria-label="accountrecovery.submit">
+                            <button class="button submitButton float-right" :aria-label="accountrecovery.submit">
                                 <submitIcon>{{accountrecovery.submit}}</submitIcon>
                             </button>
                         </div>
@@ -77,11 +77,16 @@ export default {
             cont_email_recovery: '',
             cont_email_recovery_validator: '',
             cont_email_recovery_error: false,
-            success: false
-
+            success: false,
+            error_required: '',
+            error_invalid: ''
         }
     },
     created(){
+        this.error_required     =   this.$i18n.t('input-error-required')
+        this.error_invalid      =   this.$i18n.t('input-error-valid-email')
+
+
         this.$http.get('../mocks/account-mock.json').then(response => {
             this.accountrecovery = response.data.accountrecovery
         })
@@ -120,7 +125,7 @@ export default {
             if (this.cont_email_recovery === '') 
             { 
                 this.cont_email_recovery_error = true
-                this.cont_email_recovery_validator = '[[Campo de preenchimento obrigatório]]'
+                this.cont_email_recovery_validator = this.error_required
                 return false
             }
 
@@ -129,7 +134,7 @@ export default {
             if (!regex.test(this.cont_email_recovery))
             {
                 this.cont_email_recovery_error = true
-                this.cont_email_recovery_validator = '[[Valid email required.]]'
+                this.cont_email_recovery_validator = this.error_invalid
                 return false
             }
 

@@ -118,14 +118,14 @@ export default {
         }
     },
     created() {
-      this.$eventBus.$on('jsonGlobalLoaded', (response) => {
-          this.formContact = response.data.formContact
-      });
-            this.error_required     =   this.$i18n.t('contacts-error-required')
-            this.error_invalid      =   this.$i18n.t('contacts-error-valid-email')
-            this.error_file_min     =   this.$i18n.t('contacts-error-file-limit-min')
-            this.error_file_max     =   this.$i18n.t('contacts-error-file-limit-max')
-      
+        this.error_required     =   this.$i18n.t('input-error-required')
+        this.error_invalid      =   this.$i18n.t('input-error-valid-email')
+        this.error_file_min     =   this.$i18n.t('input-error-file-limit-min')
+        this.error_file_max     =   this.$i18n.t('input-error-file-limit-max')
+
+        this.$eventBus.$on('jsonGlobalLoaded', (response) => {
+            this.formContact = response.data.formContact
+        });
     },
     methods: {
         checkContactsForm: function (e) {

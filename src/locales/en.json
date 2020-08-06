@@ -50,6 +50,7 @@
 
   "backlink": "back",
   "readlink": "read more",
+  "golink": "Arrow to go",
 
   "units_measures": "measures",
   "units_weight": "weight",
@@ -83,9 +84,15 @@
   "checkout-notes": "Notes",
   "checkout-notes-placeholder": "Leave a note on your order",
 
-  "contacts-error-required": "Required information",
-  "contacts-error-valid-email": "Valid email required.",
-  "contacts-error-file-limit-min": "The selected file must not be larger than 75 kB",
-  "contacts-error-file-limit-max": "File too big (> 4MB)"
+  "input-error-required": "Required information",
+  "input-error-valid-email": "Valid email required.",
+  "input-error-file-limit-min": "The selected file must not be larger than 75 kB",
+  "input-error-file-limit-max": "File too big (> 4MB)",
+  "input-password-lowercase": "One lowercase letter required.",
+	"input-password-uppercase": "One uppercase letter required.",
+  "input-password-car-min": "8 characters minimum.",
+  "input-password-number": "One number required.",
+  "input-email-confirmation": "A confirmação ainda não coincide com o email",
+  "input-password-confirmation": "A confirmação ainda não coincide com a palavra-chave"
 }
 

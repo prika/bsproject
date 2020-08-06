@@ -3,7 +3,7 @@
         <span class="text"><slot></slot></span>
         <span class="arrow"></span>
         <span class="icon">
-            <svg class="svgpath" alt="[[Icon de seta para avançar]]" xmlns="http://www.w3.org/2000/svg" width="8.821" height="14.813" viewBox="0 0 8.821 14.813">
+            <svg class="svgpath" :alt="$t('golink')" xmlns="http://www.w3.org/2000/svg" width="8.821" height="14.813" viewBox="0 0 8.821 14.813">
                 <path d="M230.221,220.144l-6.7-6.7,6.7-6.7" transform="translate(230.928 220.851) rotate(180)" fill="none" stroke="#c47c5a" stroke-miterlimit="10" stroke-width="2"/>
             </svg>
         </span>
@@ -26,7 +26,6 @@
 <style lang="scss">
 .submitButton{
     display:      block;
-    //float:        right;
     position:     relative;
     background: none;
     border: none;

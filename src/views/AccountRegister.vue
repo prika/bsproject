@@ -144,7 +144,7 @@
                         <div class="row">  
                             <div class="col-12 col-md-6"></div>
                             <div class="col-12 col-md-6">
-                                <button class="button submitButton" :aria-label="accountregister.submit">
+                                <button class="button submitButton float-right" :aria-label="accountregister.submit">
                                     <submitIcon>{{accountregister.submit}}</submitIcon>
                                 </button>
                             </div>
@@ -248,15 +248,24 @@ export default {
             cont_country_register_validator: '',
             cont_country_register_error: false,
             password_rules: [
-				{ message:'One lowercase letter required.', regex:/[a-z]+/ },
-				{ message:"One uppercase letter required.",  regex:/[A-Z]+/ },
-				{ message:"8 characters minimum.", regex:/.{8,}/ },
-				{ message:"One number required.", regex:/[0-9]+/ }
+				{ message: this.$i18n.t('input-password-lowercase') , regex:/[a-z]+/ },
+				{ message: this.$i18n.t('input-password-uppercase'),  regex:/[A-Z]+/ },
+				{ message: this.$i18n.t('input-password-car-min'), regex:/.{8,}/ },
+				{ message: this.$i18n.t('input-password-number'), regex:/[0-9]+/ }
 			],
-            success: false
+            success: false,
+            error_required: '',
+            error_invalid: '',
+            error_email_confirmation: '',
+            error_password_confirmation: ''
         }
     },
     created(){
+        this.error_required     =   this.$i18n.t('input-error-required')
+        this.error_invalid      =   this.$i18n.t('input-error-valid-email')
+        this.error_email_confirmation = this.$i18n.t('input-email-confirmation') 
+        this.error_password_confirmation = this.$i18n.t('input-password-confirmation') 
+
         this.$http.get('../mocks/account-mock.json').then(response => {
             this.accountregister = response.data.accountregister
         })
@@ -267,7 +276,7 @@ export default {
             const regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
             let hasError = !regex.test(this.cont_email_register)
             this.cont_email_register_error = hasError
-            this.cont_email_register_validator = hasError ? '[[Valid email required.]]' : ""
+            this.cont_email_register_validator = hasError ? this.error_invalid : ""
             return !hasError
 		},
         disabledInputEmail () {
@@ -342,29 +351,29 @@ export default {
         },
         validateName: function() {
             this.cont_name_register_error = this.cont_name_register === '' 
-            this.cont_name_register_validator = this.cont_name_register_error ?  "Campo de preenchimento obrigatório" : ""
+            this.cont_name_register_validator = this.cont_name_register_error ?  this.error_required : ""
             return !this.cont_name_register_error
          },
          validateSurname: function() {
             this.cont_surname_register_error = this.cont_surname_register === '' 
-            this.cont_surname_register_validator = this.cont_surname_register_error ?  "Campo de preenchimento obrigatório" : ""
+            this.cont_surname_register_validator = this.cont_surname_register_error ?  this.error_required : ""
             return !this.cont_surname_register_error
          },
          validatePhone: function() {
             this.cont_phone_register_error = this.cont_phone_register === '' 
-            this.cont_phone_register_validator = this.cont_phone_register_error ?  "Campo de preenchimento obrigatório" : ""
+            this.cont_phone_register_validator = this.cont_phone_register_error ?  this.error_required : ""
             return !this.cont_phone_register_error
          },
          validateCompany: function() {
             this.cont_company_register_error = this.cont_company_register === '' 
-            this.cont_company_register_validator = this.cont_company_register_error ?  "Campo de preenchimento obrigatório" : ""
+            this.cont_company_register_validator = this.cont_company_register_error ?  this.error_required : ""
             return !this.cont_company_register_error
          },
         validateEmail: function (){
 
             if( cont_email_register.value === '' ){
                 this.cont_email_register_error = true
-                this.cont_email_register_validator = this.cont_email_register_error ?  "Campo de preenchimento obrigatório" : ""
+                this.cont_email_register_validator = this.cont_email_register_error ?  this.error_required : ""
                 return false
 
             } 
@@ -379,13 +388,13 @@ export default {
             
             if( cont_email_confirm_register.value == '' ) {
                 this.cont_email_confirm_register_error = true
-                this.cont_email_confirm_register_validator = this.cont_email_confirm_register_error ?  "Campo de preenchimento obrigatório" : ""
+                this.cont_email_confirm_register_validator = this.cont_email_confirm_register_error ?  this.error_required : ""
             } else {
 
                 if( cont_email_register.value != cont_email_confirm_register.value ) {
                     
                     this.cont_email_confirm_register_error = true
-                    this.cont_email_confirm_register_validator = this.cont_email_confirm_register_error ?  "A confirmação ainda não coincide com a palavra-chave" : ""
+                    this.cont_email_confirm_register_validator = this.cont_email_confirm_register_error ?  this.error_email_confirmation : ""
                 
                 } else {
                     this.cont_email_confirm_register_error = false
@@ -399,7 +408,7 @@ export default {
 
             if( cont_password_register.value == '' ){
                 this.cont_password_register_error = true
-                this.cont_password_register_validator = this.cont_password_register_error ?  "Campo de preenchimento obrigatório" : ""
+                this.cont_password_register_validator = this.cont_password_register_error ?  this.error_required : ""
             } else {
                 this.passwordValidation
                 this.cont_password_register_error = false
@@ -412,13 +421,13 @@ export default {
             
             if( cont_password_confirm_register.value == '' ) {
                 this.cont_password_confirm_register_error = true
-                this.cont_password_confirm_register_validator = this.cont_password_confirm_register_error ?  "Campo de preenchimento obrigatório" : ""
+                this.cont_password_confirm_register_validator = this.cont_password_confirm_register_error ?  this.error_required : ""
             } else {
 
                 if( cont_password_register.value != cont_password_confirm_register.value ) {
                     
                     this.cont_password_confirm_register_error = true
-                    this.cont_password_confirm_register_validator = this.cont_password_confirm_register_error ?  "A confirmação ainda não coincide com a palavra-chave" : ""
+                    this.cont_password_confirm_register_validator = this.cont_password_confirm_register_error ?  this.error_password_confirmation : ""
                 
                 } else {
                     this.cont_password_confirm_register_error = false
@@ -430,7 +439,7 @@ export default {
          },
          validateCountry: function() {
             this.cont_country_register_error = this.cont_country_register === '' 
-            this.cont_country_register_validator = this.cont_country_register_error ?  "Campo de preenchimento obrigatório" : ""
+            this.cont_country_register_validator = this.cont_country_register_error ?  this.error_required : ""
             return !this.cont_country_register_error
          }
         },

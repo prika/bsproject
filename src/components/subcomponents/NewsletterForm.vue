@@ -70,7 +70,7 @@ export default {
             if( cont_email_newsletter.value === '' ){
 
                 this.cont_email_newsletter_error = true
-                this.cont_email_newsletter_validator = this.cont_email_newsletter_error ?  "Campo de preenchimento obrigatório" : ""
+                this.cont_email_newsletter_validator = this.cont_email_newsletter_error ?  "[[Campo de preenchimento obrigatório]]" : ""
                 return false
             } 
             else {

@@ -78,16 +78,21 @@ export default {
             cont_password_login_error: false,
             cont_password_login_validator: '',
             password_rules: [
-				{ message:'One lowercase letter required.', regex:/[a-z]+/ },
-				{ message:"One uppercase letter required.",  regex:/[A-Z]+/ },
-				{ message:"8 characters minimum.", regex:/.{8,}/ },
-				{ message:"One number required.", regex:/[0-9]+/ }
+				{ message: this.$i18n.t('input-password-lowercase') , regex:/[a-z]+/ },
+				{ message: this.$i18n.t('input-password-uppercase'),  regex:/[A-Z]+/ },
+				{ message: this.$i18n.t('input-password-car-min'), regex:/.{8,}/ },
+				{ message: this.$i18n.t('input-password-number'), regex:/[0-9]+/ }
 			],
-            success: false
+            success: false,
+            error_required: '',
+            error_invalid: ''
             
         }
     },
     created() {
+        this.error_required     =   this.$i18n.t('input-error-required')
+        this.error_invalid      =   this.$i18n.t('input-error-valid-email')
+
         this.$http.get('../mocks/account-mock.json').then(response => {
             this.accountlogin = response.data.accountlogin
         })
@@ -98,7 +103,7 @@ export default {
             const regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
             let hasError = !regex.test(this.cont_email_login)
             this.cont_email_login_error = hasError
-            this.cont_email_login_validator = hasError ? '[[Valid email required.]]' : ""
+            this.cont_email_login_validator = hasError ? this.error_invalid : ""
             return !hasError
 
 		},
@@ -134,10 +139,6 @@ export default {
             this.$http.post('https://bafdc7b9-222e-4e30-a8ec-f760c186fb05.mock.pstmn.io/subscribe', data).then(response => {
                 
                 this.success = true
-                
-                // setTimeout(function(){
-                //     self.success = false
-                // }, 5000)
 
             }).catch((e) => {
                 this.errors.push(e.message)
@@ -155,7 +156,7 @@ export default {
 
             if( cont_email_login.value === '' ){
                 this.cont_email_login_error = true
-                this.cont_email_login_validator = this.cont_email_login_error ?  "Campo de preenchimento obrigatório" : ""
+                this.cont_email_login_validator = this.cont_email_login_error ?  this.error_required : ""
             } 
             else {
                 this.emailValidation
@@ -167,7 +168,7 @@ export default {
 
             if( cont_password_login.value == '' ){
                 this.cont_password_login_error = true
-                this.cont_password_login_validator = this.cont_password_login_error ?  "Campo de preenchimento obrigatório" : ""
+                this.cont_password_login_validator = this.cont_password_login_error ?  this.error_required : ""
             } else {
                 this.cont_password_login_error = false
                 this.cont_password_login_validator = this.cont_password_login_error ?  "" : ""
@@ -186,7 +187,6 @@ export default {
             //   if (to.name !== 'Login' && !isAuthenticated) next({ name: 'Login' })
             //   else next()
             // })
-
 
             
             // {
