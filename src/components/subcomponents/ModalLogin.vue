@@ -182,6 +182,13 @@ export default {
             const userId = '123'
             router.push({ path: '/auth/account', params: { userId } }) // -> /user
             
+            // router.beforeEach((to, from, next) => {
+            //   if (to.name !== 'Login' && !isAuthenticated) next({ name: 'Login' })
+            //   else next()
+            // })
+
+
+            
             // {
             //     if(this.cont_email_login == this.$parent.mockAccount.username && this.cont_password == this.$parent.mockAccount.password) {
             //         this.$emit("authenticated", true);
