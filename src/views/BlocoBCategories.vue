@@ -249,11 +249,19 @@ export default {
         }   
 
         .blocoBSelectCategory {
-            padding: 30px 120px 30px 30px;
+            padding: 30px 100px 30px 50px;
 
-            .categoryMenu > li > a{
-                font-size: 3rem;
-                margin: 20px 0 20px;
+            .categoryMenu{
+                & > li{
+                    & > a { 
+                        font-size: 3rem;
+                        margin: 10px 0 100px;
+
+                        &:before{ left: -20px; width: 115%;}
+                    }
+
+                    .collectionMenu{ top: 80px; height:100%; opacity: 1; }
+                }
             }
         }
     }
