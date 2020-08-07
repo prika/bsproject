@@ -83,13 +83,13 @@ export default {
         }
     },
     created(){
-        this.error_required     =   this.$i18n.t('input-error-required')
-        this.error_invalid      =   this.$i18n.t('input-error-valid-email')
-
-
+        
         this.$http.get('../mocks/account-mock.json').then(response => {
             this.accountrecovery = response.data.accountrecovery
         })
+
+        this.error_required     =   this.$i18n.t('input-error-required')
+        this.error_invalid      =   this.$i18n.t('input-error-valid-email')
     },
     methods: {
         checkFormRecovery: function (e) {

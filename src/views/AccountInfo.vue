@@ -13,7 +13,6 @@
                     <submitIcon>{{accountinfo.logoutButton}}</submitIcon>
                 </a>
             </div>
-            
 
             <div class="col-12 col-md-12 order-3">
                 <h1 v-html="accountinfo.title">{{accountinfo.title}}</h1>
@@ -104,7 +103,6 @@
                                 </div>
                             </div>
 
-                        
                             <div class="col-12 col-md-6"></div>
 
                             <div class="col-12 col-md-6">
@@ -114,7 +112,6 @@
                             </div>
 
                         </div>
-                   
                 </form>
             </div>
 
@@ -189,18 +186,26 @@ export default {
             cont_country_account_validator: '',
             cont_country_account_error: false,
             password_rules: [
-				{ message:'One lowercase letter required.', regex:/[a-z]+/ },
-				{ message:"One uppercase letter required.",  regex:/[A-Z]+/ },
-				{ message:"8 characters minimum.", regex:/.{8,}/ },
-				{ message:"One number required.", regex:/[0-9]+/ }
+				{ message: this.$i18n.t('input-password-lowercase') , regex:/[a-z]+/ },
+				{ message: this.$i18n.t('input-password-uppercase'),  regex:/[A-Z]+/ },
+				{ message: this.$i18n.t('input-password-car-min'), regex:/.{8,}/ },
+				{ message: this.$i18n.t('input-password-number'), regex:/[0-9]+/ }
 			],
-            success: false
+            success: false,
+            error_required: '',
+            error_password_confirmation: ''
+        
         }
     },
     created(){
+
         this.$http.get('../mocks/account-mock.json').then(response => {
             this.accountinfo = response.data.accountinfo
         })
+
+        this.error_required     =   this.$i18n.t('input-error-required')
+        this.error_password_confirmation = this.$i18n.t('input-password-confirmation')
+        
     },
     computed: {
 		passwordValidation () {
@@ -263,24 +268,24 @@ export default {
         },
          validateName: function() {
             this.cont_name_account_error = this.cont_name_account === '' 
-            this.cont_name_account_validator = this.cont_name_account_error ?  "Campo de preenchimento obrigatório" : ""
+            this.cont_name_account_validator = this.cont_name_account_error ?  this.error_required : ""
             return !this.cont_name_account_error
          },
          validateSurname: function() {
             this.cont_surname_account_error = this.cont_surname_account === '' 
-            this.cont_surname_account_validator = this.cont_surname_account_error ?  "Campo de preenchimento obrigatório" : ""
+            this.cont_surname_account_validator = this.cont_surname_account_error ?  this.error_required : ""
             return !this.cont_surname_account_error
          },
          validatePhone: function() {
             this.cont_phone_account_error = this.cont_phone_account === '' 
-            this.cont_phone_account_validator = this.cont_phone_account_error ?  "Campo de preenchimento obrigatório" : ""
+            this.cont_phone_account_validator = this.cont_phone_account_error ?  this.error_required : ""
             return !this.cont_phone_account_error
          },
          validatePassword: function() {
 
             if( cont_password_account.value == '' ){
                 this.cont_password_account_error = true
-                this.cont_password_account_validator = this.cont_password_account_error ?  "Campo de preenchimento obrigatório" : ""
+                this.cont_password_account_validator = this.cont_password_account_error ?  this.error_required : ""
             } else {
                 this.passwordValidation
                 this.cont_password_account_error = false
@@ -293,13 +298,13 @@ export default {
             
             if( cont_password_confirm_account.value == '' ) {
                 this.cont_password_confirm_account_error = true
-                this.cont_password_confirm_account_validator = this.cont_password_confirm_account_error ?  "Campo de preenchimento obrigatório" : ""
+                this.cont_password_confirm_account_validator = this.cont_password_confirm_account_error ?  this.error_required : ""
             } else {
 
                 if( cont_password_account.value != cont_password_confirm_account.value ) {
                     
                     this.cont_password_confirm_account_error = true
-                    this.cont_password_confirm_account_validator = this.cont_password_confirm_account_error ?  "A confirmação ainda não coincide com a palavra-chave" : ""
+                    this.cont_password_confirm_account_validator = this.cont_password_confirm_account_error ?  this.error_password_confirmation : ""
                 
                 } else {
                     this.cont_password_confirm_account_error = false
@@ -311,7 +316,7 @@ export default {
          },
          validateCountry: function() {
             this.cont_country_account_error = this.cont_country_account === '' 
-            this.cont_country_account_validator = this.cont_country_account_error ?  "Campo de preenchimento obrigatório" : ""
+            this.cont_country_account_validator = this.cont_country_account_error ?  this.error_required : ""
             return !this.cont_country_account_error
          }
     },
