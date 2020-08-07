@@ -34,13 +34,16 @@ export default {
             itemsMenu3: []
         }
     },
-   created() {
-    this.$eventBus.$on('jsonGlobalLoaded', (response) => {
-        this.itemsMenu1 = response.data.menu
-        this.itemsMenu2 = response.data.footer.menuFooter
-        this.itemsMenu3 = response.data.footer.menuFooter2
-    });    
-  }
+    created() {
+        this.$eventBus.$on('jsonGlobalLoaded', (response) => {
+            this.itemsMenu1 = response.data.menu
+            this.itemsMenu2 = response.data.footer.menuFooter
+            this.itemsMenu3 = response.data.footer.menuFooter2
+        })   
+    },
+    beforeDestroy() {
+        this.$eventBus.$off('jsonGlobalLoaded') // releases the subscription
+    }
 }
 </script>
 

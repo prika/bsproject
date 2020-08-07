@@ -127,6 +127,9 @@ export default {
             this.formContact = response.data.formContact
         });
     },
+    beforeDestroy() {
+        this.$eventBus.$off('jsonGlobalLoaded') // releases the subscription
+    },
     methods: {
         checkContactsForm: function (e) {
             

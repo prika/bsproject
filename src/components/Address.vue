@@ -59,6 +59,9 @@ export default {
           this.contacts = response.data.contacts
           this.departments = response.data.contacts.departments
       });
+    },
+    beforeDestroy() {
+        this.$eventBus.$off('jsonGlobalLoaded') // releases the subscription
     }
 }
 </script>

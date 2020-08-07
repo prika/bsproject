@@ -18,9 +18,10 @@ export default {
     return {
         hasFeaturedProducts: false
     }
-  },
-  mounted() {
-      this.$eventBus.$emit('componentFinishLoad', true);
   }
+  // ,
+  // mounted() {
+  //     this.$eventBus.$emit('componentFinishLoad', true);
+  // }
 }
 </script>

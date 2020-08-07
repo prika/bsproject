@@ -76,6 +76,9 @@ export default {
       this.$eventBus.$on('jsonGlobalLoaded', (response) => {
           this.parseObject(response.data.footer.cofinance, this.cofinance)
       });
+    },
+    beforeDestroy() {
+        this.$eventBus.$off('jsonGlobalLoaded') // releases the subscription
     }
 }
 </script>

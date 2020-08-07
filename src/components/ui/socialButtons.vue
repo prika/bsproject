@@ -20,7 +20,10 @@ export default {
     created() {
       this.$eventBus.$on('jsonGlobalLoaded', (response) => {
           this.social = response.data.footer.social
-      });
+      })
+    },
+    beforeDestroy() {
+        this.$eventBus.$off('jsonGlobalLoaded') // releases the subscription
     }
 }
 </script>

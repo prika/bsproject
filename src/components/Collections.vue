@@ -35,12 +35,16 @@
                     '--collection2-count': this.collections[1].count
                 }
             });
+        }, 
+        beforeDestroy() {
+            this.$eventBus.$off('collectionsLoadedEvent') // releases the subscription
         },
         methods: {
             getImgUrl: function (src) {
                 return require( '@/assets/images/'+src )
             }
         }
+
     }
 </script>
 

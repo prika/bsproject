@@ -141,21 +141,19 @@ export default {
         // this.sortProperty = property
       }
   },
-  mounted() {
-      this.$eventBus.$emit('componentFinishLoad', true);
-  },
   created(){
-        this.$http.get('../mocks/products-detail-mock.json').then(response => {
-            
-            this.product = response.data.product
-            this.simulator = response.data.product.simulator
-            
-            if( this.simulator == false) { this.showDetail = true }
+      this.$http.get('../mocks/products-detail-mock.json').then(response => {
+          
+          this.product = response.data.product
+          this.simulator = response.data.product.simulator
+          
+          if( this.simulator == false) { this.showDetail = true }
 
-            this.parseObject(response.data.product.variants, this.product.variants)
+          this.parseObject(response.data.product.variants, this.product.variants)
+          this.$eventBus.$emit('componentFinishLoad', true);
 
-        })
-    }
+      })
+  }
 }
 </script>
 

@@ -66,17 +66,15 @@ export default {
             }
         }        
     },
-    beforeCreate() {
-        this.$eventBus.$emit('componentFinishLoad', false);
-    },
     created() {
         this.$http.get('../mocks/homepage-mock.json').then(response => {
             this.home = response.data
             this.parseObject(response.data.gallery1, this.gallery1)
             this.parseObject(response.data.gallery2, this.gallery2)
 
-            this.parseObject(response.data.slidergallery, this.slidergallery)            
-        }).then(() => {this.$eventBus.$emit('componentFinishLoad', true)})
+            this.parseObject(response.data.slidergallery, this.slidergallery)   
+            //this.$eventBus.$emit('componentFinishLoad', true)         
+        })
         
     }
 }

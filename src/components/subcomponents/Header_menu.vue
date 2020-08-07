@@ -18,7 +18,10 @@ export default {
     created() {
       this.$eventBus.$on('jsonGlobalLoaded', (response) => {
           this.itensMenu = response.data.menu
-      });
+      })
+    },
+    beforeDestroy() {
+        this.$eventBus.$off('jsonGlobalLoaded') // releases the subscription
     }
 }
 </script>
