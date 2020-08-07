@@ -18,20 +18,15 @@ export default {
     },
     data() {
       return {
-        bexplore: '',
-        mansory: []
+        bexplore: ''
       }
     },
-    created(){
+    created() {
         this.$http.get('../mocks/b-explore-mock.json').then(response => {
-
-          this.bexplore = response.data
-          this.mansory = this.bexplore.mansory
-          
+            this.bexplore = response.data  
+            this.$eventBus.$emit('mansoryFinishLoad', response.data.mansory)
+            this.$eventBus.$emit('componentFinishLoad', true);
         })
-    },
-    mounted() {
-      this.$eventBus.$emit('componentFinishLoad', true);
     }
 }
 </script>

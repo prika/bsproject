@@ -6,13 +6,14 @@
         <div class="wrapper">
             <div class="masonry masonry--v effect">
 
-              <figure v-for="(image, index) in thumbs"
+              <figure v-for="(image, index) in thumbs" :key="image.id"
                       @click="showGalleryFunction(index)" 
                       class="masonry-brick masonry-brick--v">
 
                   <img  :src="image.url" 
                         :alt="image.alt" 
-                        :width="image.width"  :height="image.height"
+                        :width="image.width"  
+                        :height="image.height"
                         class="masonry-img">
               </figure>
             
@@ -44,11 +45,16 @@ export default {
     },
     methods: {
       getImgUrl: function (src) {
+        
         return require('@/assets/images/'+src)
       },
       parseObject: function(source)
       {
+          this.thumbs = []
+          this.largeImages = []
+
           for ( var i = 0 ; i < source.length; i++) {
+
               let thumb = source[i].thumb
               let largeImage = source[i].large
 
@@ -60,14 +66,19 @@ export default {
           }
       },
       showGalleryFunction(index){
+
           this.showGallery = true
           this.selectedIndex = index
-          console.log( "selected:"+this.selectedIndex )
+
       }
     },
     mounted() {
-        this.mansory = this.$parent.mansory
-        this.parseObject( this.$parent.mansory )
+        this.$eventBus.$on('mansoryFinishLoad', (data) => {
+            this.parseObject( data )
+        })
+    }, 
+    beforeDestroy() {
+        this.$eventBus.$off('mansoryFinishLoad') // releases the subscription
     }
 }
 </script>

@@ -34,7 +34,6 @@ export default {
          bproject: '',
          gallery1: [],
          gallery2: [],
-         mansory: [],
          collections: []
     }
   },
@@ -53,19 +52,16 @@ export default {
             }
         }        
     },
-    beforeCreate() {
-        this.$eventBus.$emit('componentFinishLoad', false);
-    },
     created(){
         this.$http.get('../mocks/b-project-mock.json').then(response => {
             
             this.bproject = response.data
-            this.mansory = response.data.mansory
-            this.parseObject( response.data.gallery1, this.gallery1 ) 
+            this.parseObject( response.data.gallery1, this.gallery1 )
+
             this.$eventBus.$emit('collectionsLoadedEvent', response.data.collections);
-            
-        }).then(() => {this.$eventBus.$emit('componentFinishLoad', true)})
-                
+            this.$eventBus.$emit('mansoryFinishLoad', response.data.mansory)
+            this.$eventBus.$emit('componentFinishLoad', true)
+        })
     }
 }
 </script>

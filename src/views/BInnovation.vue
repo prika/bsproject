@@ -54,13 +54,10 @@ export default {
          this.$http.get('../mocks/b-innovation-mock.json').then(response => {
 
             this.binnovation = response.data
-            this.parseObject(response.data.gallery1, this.gallery1)            
-            this.mansory = response.data.mansory
-            
+            this.parseObject(response.data.gallery1, this.gallery1)
+            this.$eventBus.$emit('mansoryFinishLoad', response.data.mansory)
+            this.$eventBus.$emit('componentFinishLoad', true);
          })
-    },
-    mounted() {
-        this.$eventBus.$emit('componentFinishLoad', true);
     }
 }
 </script>
