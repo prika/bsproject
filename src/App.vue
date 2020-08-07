@@ -81,35 +81,26 @@ export default {
           showMobileMenu: false
       }
   },
-  beforeCreate() {
-      this.isLoaded = false
-     // debugger
-  },
   created() {
-    this.$http.get('../mocks/global-mock.json').then(response => {
-        this.$eventBus.$emit('jsonGlobalLoaded', response);
 
-       // debugger
-    })
-    // .then(
-    //     this.isLoaded = true
-    // )
-  },
-  mounted() {
+      this.$http.get('../mocks/global-mock.json').then(response => {
 
-    this.$eventBus.$on('componentFinishLoad', (data) => {
-       debugger
-       this.isLoaded = true;
-    })
+          this.$eventBus.$emit('jsonGlobalLoaded', response);
+
+      })
+
+      this.$eventBus.$on('componentFinishLoad', (data) => {
+          
+          debugger
+          setTimeout(function(){
+                this.isLoaded = true
+          }, 2000)
+
+      })
   },
-  // beforeUpdate() {
-  //     //this.isLoaded = false;
-  //     console.log('before update')
-  // },
-  // updated() {
-  //     //this.isLoaded = true;
-  //     console.log('updated')
-  // },
+  beforeDestroy() {
+      this.$eventBus.$off('componentFinishLoad') // releases the subscription
+  },
   methods: {
     isMobile() {
       return /Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) 
