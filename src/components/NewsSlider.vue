@@ -4,8 +4,8 @@
         <slot></slot>
 
         <div class="row">        
-            <router-link    :to="'/news/'+singleNews.id" 
-                            v-for="singleNews in news" :key="singleNews.id"
+            <router-link    v-for="singleNews in news" :key="singleNews.id"
+                            :to="'/news/'+singleNews.id+'-'+singleNews.title"
                             class="col-12 col-md-6 col-lg-4 newsBlock animated slideInUp">
 
                  <div class="newsContentIimage">
@@ -47,7 +47,6 @@ export default {
             fullNews:[],
             currentPage:1,
             itemsPerPage: 0,
-            language: "en",
             hasPaging: true,
             hasLink: true
         }      

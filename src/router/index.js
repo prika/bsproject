@@ -3,7 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 
 Vue.use(VueRouter)
-global.Vue = Vue
+//global.Vue = Vue
 
 const routes = [
   {
@@ -32,10 +32,10 @@ const routes = [
     component: () => import( /* webpackChunkName: "news-group" */ '../views/News.vue')
   },
   {
-    path: '/news/:id',
+    path: '/news/:id-:title',
     name: 'newsdetail',
-    //props: (route) => ({ query: route.query.q }),
-    component: () => import( /* webpackChunkName: "news-group" */ '../views/NewsDetail.vue')
+    component: () => import( /* webpackChunkName: "news-group" */ '../views/NewsDetail.vue'),
+    props: (route) => ({ query: route.query.news })
   },
   {
     path: '/faqs',
@@ -50,7 +50,7 @@ const routes = [
   {
     path: '/bloco-b',
     name: 'categories',
-    component: () => import( /* webpackChunkName: "product-group" */ '../views/BlocoBCategories.vue')
+    component: () => import('../views/BlocoBCategories.vue')
   },
   {
     path: '/bloco-b/',
@@ -118,13 +118,13 @@ const router = new VueRouter({
 router.beforeResolve((to, from, next) => {
   if ( to.name ) {
       //this.name = to.name
-      console.log( to.name )
+      console.log( "router name - "+to.name )
   }
   next()
 })
 
 router.afterEach((to, from) => {
-    console.log( 'done' )
+    console.log( "router - after link" )
 })
 
 export default router

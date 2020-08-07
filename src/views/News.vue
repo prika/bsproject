@@ -19,6 +19,12 @@ export default {
    components: {
       NewsSlider
    },
+   props:{
+      selectedNews: {
+         type: String,
+         default: null
+      }
+   },
    data() {
     return {
       newsAmount: 3,

@@ -48,10 +48,14 @@ export default {
         }        
     },
     created(){
+
+        let selectedNews = this.$route.params.id
+        console.log( selectedNews )
+
          this.$http.get('../mocks/news-detail-mock.json').then(response => {
             this.news = response.data
             this.parseObject(response.data.gallery1, this.gallery1)            
-            this.parseObject(response.data.gallery2, this.gallery2)            
+            this.parseObject(response.data.gallery2, this.gallery2)    
          })
     }
 }
@@ -68,8 +72,7 @@ export default {
         .pageContentText{margin-top: 330px;}
     }
 
-    .newsContainer {
-        .row{padding: 100px 0 0;}
-    }
+    .newsContainer .row{padding: 100px 0 0;}
+    .newsDate{position: inherit;}
 }
 </style>
