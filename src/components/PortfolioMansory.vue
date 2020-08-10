@@ -45,7 +45,6 @@ export default {
     },
     methods: {
       getImgUrl: function (src) {
-        
         return require('@/assets/images/'+src)
       },
       parseObject: function(source)
@@ -74,11 +73,14 @@ export default {
     },
     mounted() {
         this.$eventBus.$on('mansoryFinishLoad', (data) => {
+
             this.parseObject( data )
+            this.$eventBus.$emit('componentFinishLoad', 'mansoryLoaded')
+
         })
     }, 
     beforeDestroy() {
-        this.$eventBus.$off('mansoryFinishLoad') // releases the subscription
+        this.$eventBus.$off('mansoryFinishLoad')
     }
 }
 </script>

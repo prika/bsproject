@@ -48,7 +48,10 @@ export default {
       gallery2: [],
       slidergallery: [],
       hasFeaturedProducts: true,
-      productsPerPage: 6
+      productsPerPage: 6,
+      bannerLoaded: false,
+      rellaxLoaded: false,
+      hasJsonData: false
     }
   },
   methods:
@@ -64,18 +67,40 @@ export default {
                obj.src = fullPath
                destination.push(obj)
             }
-        }        
+        },
+        notifyFinishLoad()
+        {
+            if (!(this.bannerLoaded && this.rellaxLoaded && this.hasJsonData)) return
+            this.$eventBus.$emit('pageFinishLoad', true) 
+        }     
     },
     created() {
+         
+        this.$eventBus.$on('componentFinishLoad', (data) => { 
+        
+            if (data == 'bannerLoaded') 
+            { 
+                this.bannerLoaded = true 
+                this.notifyFinishLoad()
+                return
+            }
+
+            if (data == 'rellaxLoaded') 
+            { 
+                this.rellaxLoaded = true 
+                this.notifyFinishLoad()
+                return
+            }
+        })
+
         this.$http.get('../mocks/homepage-mock.json').then(response => {
             this.home = response.data
             this.parseObject(response.data.gallery1, this.gallery1)
             this.parseObject(response.data.gallery2, this.gallery2)
-
-            this.parseObject(response.data.slidergallery, this.slidergallery)   
-            //this.$eventBus.$emit('componentFinishLoad', true)         
+            this.parseObject(response.data.slidergallery, this.slidergallery)
+            this.hasJsonData = true
+            this.notifyFinishLoad()            
         })
-        
     }
 }
 </script>

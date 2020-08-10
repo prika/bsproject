@@ -18,15 +18,40 @@ export default {
     },
     data() {
       return {
-        bexplore: ''
+        bexplore: '',
+        mansoryLoaded: false,
+        hasJsonData: false
       }
     },
+    methods: {
+        notifyFinishLoad()
+        {
+            if (!(this.mansoryLoaded && this.hasJsonData)) return
+            this.$eventBus.$emit('pageFinishLoad', true) 
+        }  
+    },
     created() {
+        
+        this.$eventBus.$on('componentFinishLoad', (data) => { 
+
+            if (data == 'mansoryLoaded') 
+            { 
+                this.mansoryLoaded = true 
+                this.notifyFinishLoad()
+                return
+            }
+            
+        })
+
         this.$http.get('../mocks/b-explore-mock.json').then(response => {
             this.bexplore = response.data  
             this.$eventBus.$emit('mansoryFinishLoad', response.data.mansory)
-            this.$eventBus.$emit('componentFinishLoad', true);
+            this.hasJsonData = true
+            this.notifyFinishLoad()
         })
+    }, 
+    beforeDestroy() {
+        this.$eventBus.$off('componentFinishLoad')
     }
 }
 </script>

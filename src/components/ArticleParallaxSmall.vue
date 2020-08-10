@@ -54,6 +54,7 @@ export default {
     methods: {
         rellaxLoaded: function()  {
             this.rellax = new Rellax('.rellax');
+            this.$eventBus.$emit('componentFinishLoad', 'rellaxLoaded');
         }
     },
     watch: {

@@ -132,6 +132,8 @@ export default {
             window.addEventListener('resize', this.resizeContent )
             window.onYouTubeIframeAPIReady = this.onYouTubeIframeAPIReady
             this.startSlide();
+
+            this.$eventBus.$emit('componentFinishLoad', 'bannerLoaded');
         })
     },
     destroyed() {

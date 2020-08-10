@@ -70,8 +70,8 @@ import closeIcon from '@/components/ui/closeIcon.vue'
         }
       }, 
       mounted() {
+        this.$eventBus.$emit('pageFinishLoad', true);
 
-        this.$eventBus.$emit('componentFinishLoad', true);
         let query = this.$route.query // Querystring params
 
         if (!(query && query.term)) return // no value defined
@@ -91,11 +91,11 @@ import closeIcon from '@/components/ui/closeIcon.vue'
                 this.sections = response.data.sections
             })
           },
-         onTextInputChanged (e) {
+          onTextInputChanged (e) {
 
-          this.hasSearchText = this.searchText != "" && this.searchText.length > 0
-          this.search()
-        }
+            this.hasSearchText = this.searchText != "" && this.searchText.length > 0
+            this.search()
+          }
       }
 }
 </script>

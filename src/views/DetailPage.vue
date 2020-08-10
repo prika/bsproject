@@ -150,8 +150,8 @@ export default {
           if( this.simulator == false) { this.showDetail = true }
 
           this.parseObject(response.data.product.variants, this.product.variants)
-          this.$eventBus.$emit('componentFinishLoad', true);
 
+          this.$eventBus.$emit('pageFinishLoad', true)
       })
   }
 }

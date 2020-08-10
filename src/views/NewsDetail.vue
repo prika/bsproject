@@ -52,11 +52,13 @@ export default {
         let selectedNews = this.$route.params.id
         console.log( selectedNews )
 
-         this.$http.get('../mocks/news-detail-mock.json').then(response => {
+        this.$http.get('../mocks/news-detail-mock.json').then(response => {
             this.news = response.data
             this.parseObject(response.data.gallery1, this.gallery1)            
-            this.parseObject(response.data.gallery2, this.gallery2)    
-         })
+            this.parseObject(response.data.gallery2, this.gallery2)
+            
+            this.$eventBus.$emit('pageFinishLoad', true);
+        })
     }
 }
 

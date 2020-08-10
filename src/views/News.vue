@@ -30,6 +30,12 @@ export default {
       newsAmount: 3,
       hasPaging: true
     }
+  },
+  created() {
+     
+     this.$eventBus.$on('componentFinishLoad', () => { 
+         this.$eventBus.$emit('pageFinishLoad', true)
+     })
   }
 }
 

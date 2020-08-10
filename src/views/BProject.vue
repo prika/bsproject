@@ -31,10 +31,13 @@ export default {
   },
   data() {
     return {
-         bproject: '',
-         gallery1: [],
-         gallery2: [],
-         collections: []
+        bproject: '',
+        gallery1: [],
+        gallery2: [],
+        collections: [],
+        mansoryLoaded: false,
+        rellaxLoaded: false,
+        hasJsonData: false
     }
   },
   methods:
@@ -50,17 +53,40 @@ export default {
                obj.src = fullPath
                destination.push(obj)
             }
-        }        
+        },
+        notifyFinishLoad()
+        {
+            if (!(this.mansoryLoaded && this.rellaxLoaded && this.hasJsonData)) return
+            this.$eventBus.$emit('pageFinishLoad', true) 
+        }       
     },
     created(){
+        this.$eventBus.$on('componentFinishLoad', (data) => { 
+            
+            if (data == 'rellaxLoaded') 
+            { 
+                this.rellaxLoaded = true 
+                this.notifyFinishLoad()
+                return
+            }
+
+            if (data == 'mansoryLoaded') 
+            { 
+                this.mansoryLoaded = true 
+                this.notifyFinishLoad()
+                return
+            }
+        })
+
         this.$http.get('../mocks/b-project-mock.json').then(response => {
             
             this.bproject = response.data
             this.parseObject( response.data.gallery1, this.gallery1 )
-
             this.$eventBus.$emit('collectionsLoadedEvent', response.data.collections);
             this.$eventBus.$emit('mansoryFinishLoad', response.data.mansory)
-            this.$eventBus.$emit('componentFinishLoad', true)
+            this.hasJsonData = true
+            this.notifyFinishLoad()
+            
         })
     }
 }
