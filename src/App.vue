@@ -87,7 +87,7 @@ export default {
           this.$eventBus.$emit('jsonGlobalLoaded', response);
       })
 
-      this.$eventBus.$on('pageFinishLoad', (data) => {
+      this.$eventBus.$on('pageFinishLoad', () => {
           this.isLoaded = true
       })
   },
@@ -104,9 +104,8 @@ export default {
     { 
         console.log('mudou de: ' + oldVal + " para " + newVal )
     },
-    $route(to , from){
-        console.log("to: " + to.name+" from: "+from.name)
-        this.isLoaded = false
+    $route(to , from, next){
+       this.isLoaded = false
     }
   }
 }

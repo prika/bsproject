@@ -74,7 +74,7 @@ export default {
             this.$eventBus.$emit('pageFinishLoad', true) 
         }     
     },
-    created() {
+    mounted() {
          
         this.$eventBus.$on('componentFinishLoad', (data) => { 
         
@@ -99,8 +99,11 @@ export default {
             this.parseObject(response.data.gallery2, this.gallery2)
             this.parseObject(response.data.slidergallery, this.slidergallery)
             this.hasJsonData = true
-            this.notifyFinishLoad()            
+            this.notifyFinishLoad()          
         })
+    },
+    beforeDestroy() {
+        this.$eventBus.$off('componentFinishLoad')
     }
 }
 </script>

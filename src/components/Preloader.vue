@@ -235,25 +235,24 @@ export default {
   name: 'prealoader',
   data() {
       return {
-          name: "Home"
+          name: {
+            type: String,
+            default: "Home"
+          }
       }
   },
-  beforeCreate() {
+  created() {
       this.name = this.$route.name
-  },
-  watch: {
-      $route (to, from){
-        
-        console.log( from.name )
-        console.log( to.name )
-
-        // setTimeout(function(){
-            this.name = to.name
-        // }, 1000);
-
-        console.log( this.name )
-      }
   }
+  // ,
+  // watch: {
+  //     $route (to, from){
+        
+  //       this.name = to.name
+  //       console.log( from.name )
+  //       console.log( to.name )
+  //     }
+  // }
 }
 </script>
 <style lang="scss">

@@ -68,6 +68,7 @@ export default {
         this.$http.get('../mocks/products-list-mock.json').then(response => {
             this.categories = response.data.categories
             this.collections = response.data.collections
+            this.$eventBus.$emit('pageFinishLoad', true) 
         })
     }
 }

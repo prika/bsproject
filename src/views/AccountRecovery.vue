@@ -86,6 +86,7 @@ export default {
         
         this.$http.get('../mocks/account-mock.json').then(response => {
             this.accountrecovery = response.data.accountrecovery
+            this.$eventBus.$emit('pageFinishLoad', true) 
         })
 
         this.error_required     =   this.$i18n.t('input-error-required')

@@ -201,6 +201,7 @@ export default {
 
         this.$http.get('../mocks/account-mock.json').then(response => {
             this.accountinfo = response.data.accountinfo
+            this.$eventBus.$emit('pageFinishLoad', true)
         })
 
         this.error_required     =   this.$i18n.t('input-error-required')

@@ -58,7 +58,8 @@ export default {
             this.$eventBus.$emit('pageFinishLoad', true) 
         } 
     },
-    created(){
+    mounted() {
+        
         this.$eventBus.$on('componentFinishLoad', (data) => { 
             
             if (data == 'rellaxLoaded') 

@@ -118,15 +118,14 @@ export default {
             e.preventDefault();
         });
       })
-
-      
   },
   created(){
       $('html, body').mousewheel(function(e, delta) {
             this.scrollLeft -= (delta);
             e.preventDefault();
         });
-      this.$eventBus.$emit('componentFinishLoad', true);
+
+      this.$eventBus.$emit('pageFinishLoad', true)
   }
   // ,
   // destroyed() {

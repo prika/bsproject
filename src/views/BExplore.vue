@@ -30,7 +30,7 @@ export default {
             this.$eventBus.$emit('pageFinishLoad', true) 
         }  
     },
-    created() {
+    mounted() {
         
         this.$eventBus.$on('componentFinishLoad', (data) => { 
 
@@ -40,7 +40,6 @@ export default {
                 this.notifyFinishLoad()
                 return
             }
-            
         })
 
         this.$http.get('../mocks/b-explore-mock.json').then(response => {

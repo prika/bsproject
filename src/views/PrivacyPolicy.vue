@@ -35,6 +35,8 @@ export default {
         }
     },
     created(){
+        this.$eventBus.$emit('pageFinishLoad', true)
+        
         this.$http.get('../mocks/global-mock.json').then(response => {
             this.privacypolicy = response.data.privacypolicy
             this.questions = response.data.privacypolicy.questions

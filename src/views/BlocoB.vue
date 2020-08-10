@@ -19,9 +19,5 @@ export default {
         hasFeaturedProducts: false
     }
   }
-  // ,
-  // mounted() {
-  //     this.$eventBus.$emit('componentFinishLoad', true);
-  // }
 }
 </script>

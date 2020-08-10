@@ -268,6 +268,7 @@ export default {
 
         this.$http.get('../mocks/account-mock.json').then(response => {
             this.accountregister = response.data.accountregister
+            this.$eventBus.$emit('pageFinishLoad', true)
         })
     },
     computed: {
