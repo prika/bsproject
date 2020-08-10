@@ -76,7 +76,7 @@
                     <input type="radio" 
                             :id="option.id" 
                             :value="option.name" 
-                            v-model="selectedOs" checked="checked"> 
+                            v-model="selectedShippingOption" checked="checked"> 
                     <div class="radioButton"></div>{{option.name}}
                 </label>
               </div>
@@ -156,11 +156,9 @@ export default {
         containerItems: [],
         totalProducts: '',
         categoriesTotal: '',
-        deliveryOptions: []
+        deliveryOptions: [],
+        selectedShippingOption: ''
     }
-  },
-  mounted() {
-      this.$eventBus.$emit('componentFinishLoad', true);
   },
   created(){
         this.$http.get('../mocks/cart-list-mock.json').then(response => {
@@ -168,6 +166,8 @@ export default {
             this.containerItems = response.data.categoryContainers.containerItems
             this.totalProducts = response.data.totalProducts
             this.deliveryOptions = response.data.deliveryOptions
+
+            this.$eventBus.$emit('pageFinishLoad', true) 
         })
   },
   methods: {
@@ -180,7 +180,13 @@ export default {
     removeProduct(product){
         //
     }
+  },
+  watch: {
+    selectedShippingOption: function(newVal, oldVal){
+      console.log(newVal)
+    }
   }
+
 }
 </script>
 
