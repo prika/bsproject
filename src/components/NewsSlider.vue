@@ -4,8 +4,8 @@
         <slot></slot>
 
         <div class="row">        
-            <router-link    v-for="singleNews in news" :key="singleNews.id"
-                            :to="'/news/'+singleNews.id+'-'+singleNews.title"
+            <router-link    v-for="(singleNews, index) in news" :key="singleNews.id"
+                            :to="getNewsLink(index)"
                             class="col-12 col-md-6 col-lg-4 newsBlock animated slideInUp">
 
                  <div class="newsContentIimage">
@@ -51,13 +51,8 @@ export default {
             hasLink: true
         }      
     },
-    mounted() {
-        this.$eventBus.$emit('componentFinishLoad', true);
-        this.itemsPerPage = this.$parent.newsAmount
-        this.hasPaging = this.$parent.hasPaging
-    },
     methods:
-    {
+    {   
         getImgUrl: function (src) {
             return require('@/assets/images/'+src)
         },
@@ -67,12 +62,20 @@ export default {
             this.news = this.news.concat(slice)
             this.currentPage++
             if (Math.round(this.fullNews.length/this.itemsPerPage) == this.currentPage) this.hasLink = false 
+        },
+        getNewsLink: function (index){
+            return "/news/" + this.news[index].id + "-" + this.news[index].title.replace(/\s/g, "_")
         }
     },
     created(){
+        this.itemsPerPage = this.$parent.newsAmount
+        this.hasPaging = this.$parent.hasPaging
+
         this.$http.get('../mocks/news-list-mock.json').then(response => {
             this.fullNews = response.data
             this.news = this.fullNews.slice(0, this.itemsPerPage)
+            
+            this.$eventBus.$emit('componentFinishLoad', true);
         })
     }
 }
