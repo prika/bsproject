@@ -84,22 +84,15 @@ export default {
   created() {
 
       this.$http.get('../mocks/global-mock.json').then(response => {
-
           this.$eventBus.$emit('jsonGlobalLoaded', response);
-
       })
 
-      this.$eventBus.$on('componentFinishLoad', (data) => {
-          
-          debugger
-          setTimeout(function(){
-                this.isLoaded = true
-          }, 2000)
-
+      this.$eventBus.$on('pageFinishLoad', (data) => {
+          this.isLoaded = true
       })
   },
   beforeDestroy() {
-      this.$eventBus.$off('componentFinishLoad') // releases the subscription
+      this.$eventBus.$off('pageFinishLoad')
   },
   methods: {
     isMobile() {
@@ -109,7 +102,11 @@ export default {
   watch: {
     isLoaded: function(newVal, oldVal) 
     { 
-        console.log('mudou de'+oldVal+" para "+newVal)
+        console.log('mudou de: ' + oldVal + " para " + newVal )
+    },
+    $route(to , from){
+        console.log("to: " + to.name+" from: "+from.name)
+        this.isLoaded = false
     }
   }
 }
