@@ -161,7 +161,7 @@ export default {
     }
   },
   created(){
-        this.$http.get('../mocks/cart-list-mock.json').then(response => {
+        this.$http.get('http://localhost:8081/mocks/cart-list-mock.json').then(response => {
             this.categoryContainers = response.data.categoryContainers
             this.containerItems = response.data.categoryContainers.containerItems
             this.totalProducts = response.data.totalProducts

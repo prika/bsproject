@@ -93,7 +93,7 @@ export default {
             }
         })
 
-        this.$http.get('../mocks/homepage-mock.json').then(response => {
+        this.$http.get('http://localhost:8081/mocks/homepage-mock.json').then(response => {
             this.home = response.data
             this.parseObject(response.data.gallery1, this.gallery1)
             this.parseObject(response.data.gallery2, this.gallery2)

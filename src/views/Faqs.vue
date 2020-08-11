@@ -37,7 +37,7 @@ export default {
     created(){
         this.$eventBus.$emit('pageFinishLoad', true)
         
-        this.$http.get('../mocks/global-mock.json').then(response => {
+        this.$http.get('http://localhost:8081/mocks/global-mock.json').then(response => {
             this.faqs = response.data.faqs
             this.questions = response.data.faqs.questions
         })

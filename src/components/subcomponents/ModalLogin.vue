@@ -93,7 +93,7 @@ export default {
         this.error_required     =   this.$i18n.t('input-error-required')
         this.error_invalid      =   this.$i18n.t('input-error-valid-email')
 
-        this.$http.get('../mocks/account-mock.json').then(response => {
+        this.$http.get('http://localhost:8081/mocks/account-mock.json').then(response => {
             this.accountlogin = response.data.accountlogin
         })
     },

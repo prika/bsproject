@@ -83,7 +83,7 @@ export default {
   },
   created() {
 
-      this.$http.get('../mocks/global-mock.json').then(response => {
+      this.$http.get('http://localhost:8081/mocks/global-mock.json').then(response => {
           this.$eventBus.$emit('jsonGlobalLoaded', response);
       })
 

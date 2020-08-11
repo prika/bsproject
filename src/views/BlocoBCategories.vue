@@ -65,7 +65,7 @@ export default {
         }
     },
     beforeCreate() {
-        this.$http.get('../mocks/products-list-mock.json').then(response => {
+        this.$http.get('http://localhost:8081/mocks/products-list-mock.json').then(response => {
             this.categories = response.data.categories
             this.collections = response.data.collections
             this.$eventBus.$emit('pageFinishLoad', true) 

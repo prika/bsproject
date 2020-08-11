@@ -79,7 +79,7 @@ export default {
             }
         })
 
-        this.$http.get('../mocks/b-project-mock.json').then(response => {
+        this.$http.get('http://localhost:8081/mocks/b-project-mock.json').then(response => {
             
             this.bproject = response.data
             this.parseObject( response.data.gallery1, this.gallery1 )

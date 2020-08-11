@@ -56,7 +56,7 @@
 
                 <div class="tableScroll">
                   <ul class="variantTable">
-                        <router-link to="/productpage/:id" tag="li"  class="variantItem" 
+                        <router-link :to="'/productpage/:'+variant.ref" tag="li"  class="variantItem" 
                                   v-for="variant in orderedVariants" :key="variant.name">
                      
                               <div class="img">
@@ -141,8 +141,8 @@ export default {
         // this.sortProperty = property
       }
   },
-  created(){
-      this.$http.get('../mocks/products-detail-mock.json').then(response => {
+  mounted(){
+      this.$http.get('http://localhost:8081/mocks/products-detail-mock.json').then(response => {
           
           this.product = response.data.product
           this.simulator = response.data.product.simulator
@@ -151,8 +151,9 @@ export default {
 
           this.parseObject(response.data.product.variants, this.product.variants)
 
-          this.$eventBus.$emit('pageFinishLoad', true)
+          
       })
+      this.$eventBus.$emit('pageFinishLoad', true)
   }
 }
 </script>
@@ -342,6 +343,8 @@ body{margin: 0}
         position: absolute;
         top: 230px;
         right: 0;
+        max-height: 68vh;
+        overflow-x: scroll;
 
         .filters{
             background: #F0F0F0;

@@ -199,7 +199,7 @@ export default {
     },
     created(){
 
-        this.$http.get('../mocks/account-mock.json').then(response => {
+        this.$http.get('http://localhost:8081/mocks/account-mock.json').then(response => {
             this.accountinfo = response.data.accountinfo
             this.$eventBus.$emit('pageFinishLoad', true)
         })

@@ -266,7 +266,7 @@ export default {
         this.error_email_confirmation = this.$i18n.t('input-email-confirmation') 
         this.error_password_confirmation = this.$i18n.t('input-password-confirmation') 
 
-        this.$http.get('../mocks/account-mock.json').then(response => {
+        this.$http.get('http://localhost:8081/mocks/account-mock.json').then(response => {
             this.accountregister = response.data.accountregister
             this.$eventBus.$emit('pageFinishLoad', true)
         })

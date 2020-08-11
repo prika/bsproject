@@ -107,7 +107,7 @@ export default {
         }
     },
     created() {
-        this.$http.get('../mocks/homepage-mock.json').then(response => {
+        this.$http.get('http://localhost:8081/mocks/homepage-mock.json').then(response => {
 
             this.imageGroupSliderGallery = response.data.slidergallery
             var hasYoutubeVideoPlayerScript = false
