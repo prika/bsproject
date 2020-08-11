@@ -35,16 +35,17 @@
           <div class="productVariationList col-12 col-md-10 col-lg-9" key="2" v-if="showDetail">
                 <div class="filters col-12 col-lg-8 col-xl-6">
                     <div class="order">
-
                         <a @click="customFilter( filter.id, 'asc')"
-                          href="javascript:void(0)"
+                            href="javascript:void(0)"
+                            :class="{'active':(filter.id === activeFilter)}"
                            v-for="filter in product.filters" 
                            :key="filter.id">
                            {{filter.name}}</a>
                     </div>
                     <div class="pagination">
-                        <p><span class="active">[[01]]</span>/[[02]]</p>
-                        <a href="/" class="arrowRight"> <arrowRightIcon /></a>
+                        <a v-if="hasPrevLink" href="javascript:void(0)" @click="prevPageClick()" class="arrowLeft"> <arrowRightIcon /></a>
+                        <p><span class="active">{{currentPage + 1}}</span>/{{totalPages}}</p>
+                        <a v-if="hasNextLink" href="javascript:void(0)" @click="nextPageClick()" class="arrowRight"> <arrowRightIcon /></a>
                     </div>
                 </div>
             </div>
@@ -57,10 +58,10 @@
                 <div class="tableScroll">
                   <ul class="variantTable">
                         <router-link :to="'/productpage/:'+variant.ref" tag="li"  class="variantItem" 
-                                  v-for="variant in orderedVariants" :key="variant.name">
+                                  v-for="variant in variants" :key="variant.name">
                      
                               <div class="img">
-                                <img :src="variant.img" :alt="variant.alt" />
+                                <img :src="getImgUrl(variant.img)" :alt="variant.alt" />
                               </div>
                               <div class="info row">
                                   <h2 class="col-12 col-md-4">{{variant.ref}}</h2>
@@ -99,60 +100,91 @@ export default {
   data() {
     return {
         product: '',
+        fullVariants: [],
         variants: [],
         showDetail:'',
-        simulator:''    
+        simulator:'',
+        currentPage: 0,
+        itemsPerPage: 3,
+        hasPaging: true,
+        hasPrevLink: false,
+        hasNextLink: false,
+        totalPages: 0,
+        sortedProducts: [],
+        activeFilter: ''
       }
-  },
-  computed: {
-    orderedVariants: function () {
-      return _.orderBy( this.product.variants, 'ref', this.sortDirection)
-    }
   },
   methods:{
-      getImgUrl: function (src) {
+      getImgUrl: function (src) 
+      {
           return require('@/assets/images/'+src)
       },
-      parseObject: function(source, destination)
+      prevPageClick()
       {
-          for ( var i = 0 ; i < source.length; i++ ) {
-              let obj = source[i]
-              let fullPath = this.getImgUrl(obj.img)
-              obj.img = fullPath
-              destination.push(obj)
-              this.variants.push(obj)
-          }
+        this.currentPage--
+        this.changePage()
       },
-      customFilter( sortProperty , sortDirection){
+      nextPageClick()
+      {
+          this.currentPage++
+          this.changePage()
+      }, 
+      changePage() 
+      {    
+          this.hasPrevLink = this.currentPage > 0
+          this.hasNextLink = this.currentPage < this.totalPages - 1
+          this.slice()
+      },
+      slice() 
+      {
+          let slice = this.sortedProducts.slice(this.currentPage * this.itemsPerPage, (this.currentPage + 1)  * this.itemsPerPage)
+          this.variants = slice
+      },
+      customFilter( sortProperty , sortDirection) 
+      {
+          this.currentPage = 0
 
-        console.log( sortProperty , sortDirection )
 
-        // function orderedVariants () {
-        //   return _.orderBy( this.product.variants, this.sortProperty, this.sortDirection)
-        // }
+          if( this.activeFilter == sortProperty ) {
+              this.activeFilter = ''
+          } else {
+            this.activeFilter = sortProperty
+          }
+          
 
-        // ev.preventDefault()
-        
-        // if (this.sortDirection == 'asc' && this.sortProperty == property ) {
-        //     this.sortDirection = 'desc'
-        // } else {
-        //     this.sortDirection = 'asc'
-        // }
-        // this.sortProperty = property
+          switch (sortProperty)
+          {
+            case "filter1":
+              this.sortedProducts = this.product.variants.sort(function(a, b) { return a.ref.localeCompare(b.ref) })
+              break
+            case "filter2":
+              this.sortedProducts = this.product.variants.sort(function(a, b) { return a.size.width > b.size.width ? 1 : -1 })
+              break
+            case "filter3":
+              this.sortedProducts = this.product.variants.sort(function(a, b) { return a.size.weight > b.size.weight ? 1 : -1 })
+              break
+            case "filter4":
+              this.sortedProducts = this.product.variants.sort(function(a, b) { return a.size.depth > b.size.depth ? 1 : -1 })
+              break    
+          }
+
+          this.changePage()
       }
   },
-  mounted(){
+  mounted()
+  {
       this.$http.get('http://localhost:8081/mocks/products-detail-mock.json').then(response => {
           
           this.product = response.data.product
           this.simulator = response.data.product.simulator
-          
-          if( this.simulator == false) { this.showDetail = true }
-
-          this.parseObject(response.data.product.variants, this.product.variants)
-
-          
+          this.showDetail = !this.simulator
+          this.totalPages = Math.round(this.product.variants.length / this.itemsPerPage)
+          this.sortedProducts = this.product.variants
+          this.currentPage = 0
+        
+          this.changePage()
       })
+
       this.$eventBus.$emit('pageFinishLoad', true)
   }
 }
@@ -341,10 +373,8 @@ body{margin: 0}
 
     .productVariationList {
         position: absolute;
-        top: 230px;
+        top: 220px;
         right: 0;
-        max-height: 68vh;
-        overflow-x: scroll;
 
         .filters{
             background: #F0F0F0;
@@ -425,6 +455,8 @@ body{margin: 0}
             }
 
             .pagination {
+                
+                .arrowLeft,
                 .arrowRight {
                     width: 70px;
                     height: 15px;
@@ -451,9 +483,22 @@ body{margin: 0}
                     }
                 }
 
+                .arrowLeft{
+                  .arrowSlimIcon{
+                    float: left;
+                    transform: rotate(180deg) translateY(-3px);
+                  }
+
+                  &::before{
+                    right: inherit;
+                    left: 0;
+                  }
+                }
+
                 &:hover {
                   span.active {color: #C47C5A;}
 
+                  .arrowLeft::before,
                   .arrowRight::before{
                       width: 60px;
                   }
@@ -466,7 +511,7 @@ body{margin: 0}
             list-style: none;
             margin: 85px 0;
 
-            li{
+            li.variantItem{
                 width: 100%;
                 height: 180px;
                 margin-bottom: 1px;
@@ -475,6 +520,10 @@ body{margin: 0}
                 justify-content: center;
                 align-items: center;
                 cursor: pointer;
+                -webkit-transition:   transform 0.2s ease;
+                -moz-transition:      transform 0.2s ease;
+                -o-transition:        transform 0.2s ease;
+                transition:           transform 0.2s ease;
 
                 .img{
                   width: 190px;
@@ -494,6 +543,10 @@ body{margin: 0}
                 }
 
                 &:hover{
+                   -webkit-transform:     translateX(2%);
+                    -moz-transform:        translateX(2%);
+                    -o-transform:          translateX(2%);
+                    transform:             translateX(2%);
                     overflow: none;
 
                     h2{ color: #C47C5A}
