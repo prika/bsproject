@@ -38,7 +38,7 @@
                     <div class="col-12 col-lg-11 productsContainer" :class="(hasFeaturedProducts === true ? 'featuredCenter': '')" itemscope itemtype="http://schema.org/ItemList">
                         <transition-group appear enter-active-class="animated slideInUp delay" tag="div" class="row">
                             <router-link    class="rellaxProduct product col-12 col-lg-6 col-xl-4" itemprop="itemListElement" itemscope itemtype="http://schema.org/Product"
-                                            v-for="(product, index) in products"  
+                                            v-for="(product, index) in products"
                                             :to="{path: '/bloco-b/'+product.id+'-'+product.firstName+'-'+product.secondName }" 
                                             :key="product.id"
                                             :data-rellax-speed="getDataSpeed(index)">
@@ -85,7 +85,8 @@ export default {
             selectedColors: [],
             categoryName1:"",
             categoryName2:"",
-            rellax: null
+            rellax: null,
+            rellaxJSLoaded: false
         }
     },
     beforeMount() {
@@ -95,16 +96,18 @@ export default {
             this.selectedCollection = this.$route.params.collection
         }
     },
-    mounted() {
-        
-        this.$http.get('http://localhost:8081/mocks/products-list-mock.json').then(response => {
-            
+    created() {
+
             var tag = document.createElement('script');
             tag.src = "https://cdnjs.cloudflare.com/ajax/libs/rellax/1.0.0/rellax.min.js";
             var firstScriptTag = document.getElementsByTagName('script')[0];
             firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-            tag.onload = this.rellaxLoaded   
-
+            tag.onload = this.rellaxLoaded
+    },
+    mounted() {
+        
+        this.$http.get('http://localhost:8081/mocks/products-list-mock.json').then(response => {
+        
             this.collections =  response.data.collections
             this.categories =   response.data.categories
             this.rawColors =    response.data.colors   
@@ -125,7 +128,8 @@ export default {
             }
 
             this.parseObject(response.data.products, this.products, this.hasFeaturedProducts) //linha em cima igual
-            this.applyFilter()           
+            this.applyFilter()
+            this.pageLoaded()           
         })
     }, 
     watch: {
@@ -139,9 +143,15 @@ export default {
     },
     methods:
     {   
+        pageLoaded:function()
+        {
+            if (!(this.rellaxJSLoaded && this.rawProducts.length > 0)) return
+            this.$eventBus.$emit('pageFinishLoad', true);
+        },
         rellaxLoaded: function()  {
             this.rellax = new Rellax('.rellaxProduct');
-            this.$eventBus.$emit('pageFinishLoad', true);
+            this.rellaxJSLoaded = true
+            this.pageLoaded()
         },
         getImgUrl: function (src) {
             return require( '@/assets/images/'+src )
@@ -152,7 +162,7 @@ export default {
         },
         getDataSpeed(index)
         {
-            return index%3 == 1 ? 1 : 0;
+            return index % 3 == 1 ? 2 : -1;
         },
         getColorStatus(id)
         {
@@ -423,105 +433,111 @@ export default {
 
 
     .product {
-    position: relative;
-    text-decoration: none;
-    -webkit-transform:  translateZ(.25px);
-    -ms-transform:      translateZ(.25px);
-    transform:          translateZ(.25px);
+        position: relative;
+        text-decoration: none;
+        -webkit-transform:  translateZ(.25px);
+        -ms-transform:      translateZ(.25px);
+        transform:          translateZ(.25px);
 
-    .containerImage{
-        width: 260px;
-        height: 373px;
-        margin: 0 auto;
-        overflow: hidden;
-    }
-
-    .productImage{
-        width: 260px;
-        height: 373px;
-        overflow: hidden;
-
-        -webkit-transition: transform 0.5s ease;
-        -moz-transition:    transform 0.5s ease;
-        -o-transition:      transform 0.5s ease;
-        transition:         transform 0.5s ease;
-
-        img {
-            width: 100%;
+        .containerImage{
+            width: 260px;
+            height: 373px;
+            margin: 0 auto;
+            overflow: hidden;
         }
-    }
 
-    .productName{
-        width: 140px;
-        position: absolute;
-        right: -20px;
-        top: 270px;
-        z-index: 2;
-        
-        font-family: 'Noe Display', serif;
-        font-weight: normal;
-        font-size: 25px;
-        line-height: 30px;
-        color: #333;
-        text-align: left;
-        text-indent: 25px;
+        .productImage{
+            width: 260px;
+            height: 373px;
+            overflow: hidden;
 
-        -webkit-transition: top 0.5s ease;
-        -moz-transition:    top 0.5s ease;
-        -o-transition:      top 0.5s ease;
-        transition:         top 0.5s ease;
+            -webkit-transition: transform 0.5s ease;
+            -moz-transition:    transform 0.5s ease;
+            -o-transition:      transform 0.5s ease;
+            transition:         transform 0.5s ease;
 
-        span{
-            border: 3px solid #333;
-            width: 32px;
-            display: block;
-            content: '';
+            img {
+                width: 100%;
+            }
+        }
+
+        .productName{
+            width: 140px;
             position: absolute;
-            top: 9px;
-            left: -10px;
+            right: -20px;
+            top: 270px;
+            z-index: 2;
+            
+            font-family: 'Noe Display', serif;
+            font-weight: normal;
+            font-size: 25px;
+            line-height: 30px;
+            color: #333;
+            text-align: left;
+            text-indent: 25px;
+
+            -webkit-transition: top 0.5s ease;
+            -moz-transition:    top 0.5s ease;
+            -o-transition:      top 0.5s ease;
+            transition:         top 0.5s ease;
+
+            span{
+                border: 3px solid #333;
+                width: 32px;
+                display: block;
+                content: '';
+                position: absolute;
+                top: 9px;
+                left: -10px;
+            }
+
+            mark {
+                background-color: white;
+                padding: 2px 5px;
+            }
         }
 
-        mark {
-            background-color: white;
-            padding: 2px 5px;
+        .categoryName{
+            font-family: "Oswald", sans-serif;
+            font-size: 15px;
+            color: #333;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            text-align: center;
+            margin: 5px;
+        } 
+
+        &:nth-of-type(3n+2){
+            margin-top: 130px;
+            -webkit-transform:  translateZ(.7px) scale(1);
+            -ms-transform:      translateZ(.7px) scale(1);
+            transform:          translateZ(.7px) scale(1);
         }
-    }
 
-    .categoryName{
-        font-family: "Oswald", sans-serif;
-        font-size: 15px;
-        color: #333;
-        text-transform: uppercase;
-        letter-spacing: 1.5px;
-        text-align: center;
-        margin: 5px;
-    } 
+        &:nth-of-type(3n+2) .productName{
+            top: 52px;
+        }
 
-    &:nth-of-type(3n+2){
-        // margin-top: 130px;
-        // -webkit-transform:  translateZ(.7px) scale(1);
-        // -ms-transform:      translateZ(.7px) scale(1);
-        // transform:          translateZ(.7px) scale(1);
+        &:hover .productImage{ 
+            -webkit-transform:  scale(1.1);
+            -ms-transform:      scale(1.1);
+            transform:          scale(1.1);
+        }
+        &:hover .productName{top: 170px;}
     }
-
-    &:nth-of-type(3n+2) .productName{
-        top: 52px;
-    }
-
-    &:hover .productImage{ 
-        -webkit-transform:  scale(1.1);
-        -ms-transform:      scale(1.1);
-        transform:          scale(1.1);
-    }
-    &:hover .productName{top: 170px;}
 }
+
+#bstoneproject.Home {
+    .product:nth-of-type(3n+2){
+        margin-top: 230px;
+    }
 }
 
 
 
 @media (max-width: 768px) {
     
-    .product {
+    .productsList .product {
             transform: none!important;
 
          .containerImage{
@@ -538,7 +554,7 @@ export default {
 
 @media (max-width: 1400px) {
 
-    .product {
+    .productsList .product {
         margin-bottom: 130px;
 
         .productName{
@@ -556,7 +572,7 @@ export default {
 
 @media (min-width: 1400px) {
     
-    .product:nth-of-type(3n+2) {margin-top: 130px;}
+    .productsList .product:nth-of-type(3n+2) {margin-top: 130px;}
 
 }
 
