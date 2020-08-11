@@ -31,8 +31,7 @@ export default {
       hasPaging: true
     }
   },
-  created() {
-     
+  mounted() {
      this.$eventBus.$on('componentFinishLoad', () => { 
          this.$eventBus.$emit('pageFinishLoad', true)
      })

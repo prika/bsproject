@@ -162,7 +162,8 @@ export default {
         },
         getDataSpeed(index)
         {
-            return index % 3 == 1 ? 2 : -1;
+            if (this.hasFeaturedProducts) return 0
+            return index % 3 == 1 ? 2 : -2;
         },
         getColorStatus(id)
         {
@@ -435,9 +436,9 @@ export default {
     .product {
         position: relative;
         text-decoration: none;
-        -webkit-transform:  translateZ(.25px);
-        -ms-transform:      translateZ(.25px);
-        transform:          translateZ(.25px);
+        // -webkit-transform:  translateZ(.25px);
+        // -ms-transform:      translateZ(.25px);
+        // transform:          translateZ(.25px);
 
         .containerImage{
             width: 260px;
@@ -527,11 +528,7 @@ export default {
     }
 }
 
-#bstoneproject.Home {
-    .product:nth-of-type(3n+2){
-        margin-top: 230px;
-    }
-}
+
 
 
 
@@ -570,8 +567,17 @@ export default {
     .productsList { margin-bottom: 0; }
 }
 
+
+@media (min-width: 10244px) {
+    #bstoneproject.Home {
+        .product:nth-of-type(3n+2){
+            margin-top: 230px;
+        }
+    }
+}
+
 @media (min-width: 1400px) {
-    
+
     .productsList .product:nth-of-type(3n+2) {margin-top: 130px;}
 
 }
