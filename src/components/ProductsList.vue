@@ -13,13 +13,13 @@
                    <transition appear enter-active-class="animated fadeIn" leave-active-class="animated fadeOut">
                     <nav class="filters col-lg-3" v-if="!hasFeaturedProducts">
                         <ul class="categoryMenu" ref="menu" key="filterCategory" >
-                            <li v-for="category in categories" :class="(category.id === selectedCategory ? 'filters__item active': 'filters__item')">
+                            <li v-for="category in categories" :class="(category.id == selectedCategory ? 'filters__item active': 'filters__item')">
                                 <a href="javascript:void(0);" @click="filterByCategory(category.id)">{{category.name}}</a>
                             </li>
                         </ul>
 
                         <ul ref="menu" key="filterCollection" :class="'cat-'+selectedCategory+' collectionMenu'">
-                            <li class="filters__item" v-for="collection in collections" :class="(collection.id === selectedCollection ? 'filters__item active': 'filters__item')">
+                            <li class="filters__item" v-for="collection in collections" :class="(collection.id == selectedCollection ? 'filters__item active': 'filters__item')">
                                 <a href="javascript:void(0);" @click="filterByCollection(collection.id)" >{{collection.name}}</a>
                             </li>
                         </ul>
@@ -80,7 +80,7 @@ export default {
             hasFeaturedProducts: false,
             productsPerPage: 12,
             active: '',
-            selectedCategory: 0,
+            selectedCategory: null,
             selectedCollection: null,
             selectedColors: [],
             categoryName1:"",
@@ -88,16 +88,23 @@ export default {
             rellax: null
         }
     },
-    mounted() {
-
+    beforeMount() {
         if(this.$route.params)
         {
             this.selectedCategory = this.$route.params.category
             this.selectedCollection = this.$route.params.collection
         }
-
-        this.$http.get('../mocks/products-list-mock.json').then(response => {
+    },
+    mounted() {
+        
+        this.$http.get('http://localhost:8081/mocks/products-list-mock.json').then(response => {
             
+            var tag = document.createElement('script');
+            tag.src = "https://cdnjs.cloudflare.com/ajax/libs/rellax/1.0.0/rellax.min.js";
+            var firstScriptTag = document.getElementsByTagName('script')[0];
+            firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+            tag.onload = this.rellaxLoaded   
+
             this.collections =  response.data.collections
             this.categories =   response.data.categories
             this.rawColors =    response.data.colors   
@@ -118,17 +125,8 @@ export default {
             }
 
             this.parseObject(response.data.products, this.products, this.hasFeaturedProducts) //linha em cima igual
-            
-            this.applyFilter()
-
-            var tag = document.createElement('script');
-            tag.src = "https://cdnjs.cloudflare.com/ajax/libs/rellax/1.0.0/rellax.min.js";
-            var firstScriptTag = document.getElementsByTagName('script')[0];
-            firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-            tag.onload = this.rellaxLoaded   
+            this.applyFilter()           
         })
-
-        this.$eventBus.$emit('componentFinishLoad', true);
     }, 
     watch: {
 
@@ -137,13 +135,13 @@ export default {
             if (this.hasFeaturedProducts) return ""
             this.categoryName1 = this.categories[this.selectedCategory].splitName1
             this.categoryName2 = this.categories[this.selectedCategory].splitName2    
-        }
+        }        
     },
     methods:
     {   
         rellaxLoaded: function()  {
-            console.log('rellaxloaded')
             this.rellax = new Rellax('.rellaxProduct');
+            this.$eventBus.$emit('pageFinishLoad', true);
         },
         getImgUrl: function (src) {
             return require( '@/assets/images/'+src )
@@ -154,7 +152,7 @@ export default {
         },
         getDataSpeed(index)
         {
-            return index%3 == 1 ? 2 : -2;
+            return index%3 == 1 ? 1 : 0;
         },
         getColorStatus(id)
         {
@@ -171,7 +169,7 @@ export default {
                 this.rawProducts.push(obj)
             }
         },      
-        filterByCategory(id)
+        filterByCategory(id) // <- this is a line
         {
             this.selectedCategory = id
             this.selectedCollection = this.collections[0].id // selects the first collection by default
@@ -422,9 +420,9 @@ export default {
             }
         }
     }
-}
 
-.product {
+
+    .product {
     position: relative;
     text-decoration: none;
     -webkit-transform:  translateZ(.25px);
@@ -500,7 +498,7 @@ export default {
     } 
 
     &:nth-of-type(3n+2){
-        //margin-top: 130px;
+        // margin-top: 130px;
         // -webkit-transform:  translateZ(.7px) scale(1);
         // -ms-transform:      translateZ(.7px) scale(1);
         // transform:          translateZ(.7px) scale(1);
@@ -517,6 +515,9 @@ export default {
     }
     &:hover .productName{top: 170px;}
 }
+}
+
+
 
 @media (max-width: 768px) {
     
@@ -554,7 +555,9 @@ export default {
 }
 
 @media (min-width: 1400px) {
+    
     .product:nth-of-type(3n+2) {margin-top: 130px;}
+
 }
 
 </style>

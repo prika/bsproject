@@ -70,7 +70,9 @@ export default {
         showShareModal: false,
         showGallery: false,
         selectedIndex: 0,
-        productAdded: false
+        productAdded: false,
+        hasScrollScript: false,
+        hasData: false
     }
   },
   methods:{
@@ -100,32 +102,35 @@ export default {
           addProductToCart( this.variant.ref )
       }
   },
-  beforeCreate() {
-      console.log("productpage - entra no mousewheel")
+  mounted(){
 
-      let themejs = document.createElement("script")
-      themejs.setAttribute("src", "https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js")
-      document.head.appendChild(themejs)
-      
-      
-      this.$http.get('../mocks/products-variant-detail-mock.json').then(response => {
-        this.variant = response.data.variant
-        this.parseObject(response.data.variant.images)
-        
-        console.log("productpage - terminou parse de imagens")
-        $('html, body').mousewheel(function(e, delta) {
-            this.scrollLeft -= (delta);
-            e.preventDefault();
-        });
+      if(!this.hasScrollScript) {
+          var tagScroll = document.createElement('script');
+          tagScroll.src = "https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js";
+          var firstScriptTag = document.getElementsByTagName('script')[0];
+          firstScriptTag.parentNode.insertBefore(tagScroll, firstScriptTag);
+
+          this.hasScrollScript = true
+      } 
+
+      this.$http.get('http://localhost:8081/mocks/products-variant-detail-mock.json').then(response => {
+
+          this.variant = response.data.variant
+          this.parseObject(response.data.variant.images)
+          this.hasData = true
+
+          if( this.hasScrollScript && this.hasData ) {
+
+              $('html, body').mousewheel(function( e, delta ) {
+                  this.scrollLeft -= (delta);
+                  e.preventDefault();
+              });
+
+              this.$eventBus.$emit('pageFinishLoad', true)
+          }
       })
-  },
-  created(){
-      $('html, body').mousewheel(function(e, delta) {
-            this.scrollLeft -= (delta);
-            e.preventDefault();
-        });
-
-      this.$eventBus.$emit('pageFinishLoad', true)
+      
+      
   }
   // ,
   // destroyed() {
@@ -305,7 +310,7 @@ body{margin: 0}
             .arrowSlimIcon{
                 transform: rotate(180deg);
                 position: absolute;
-                top: 40%;
+                top: calc( 50% - 11px );
                 right: 162px;
                 -webkit-transition:     right 0.2s ease;
                 -moz-transition:        right 0.2s ease;
@@ -343,7 +348,7 @@ body{margin: 0}
 
             .arrowSlimIcon{
                 position: absolute;
-                top: 36%;
+                top: calc( 50% - 15px );
                 left: 162px;
                 -webkit-transition:     opacity 0.2s ease, left 0.2s ease;
                 -moz-transition:        opacity 0.2s ease, left 0.2s ease;
@@ -393,7 +398,7 @@ body{margin: 0}
 
             .arrowSlimIcon{
                 position: absolute;
-                top: 36%;
+                top: calc( 50% - 15px );
                 left: 232px;
                 -webkit-transition:     opacity 0.2s ease, left 0.2s ease;
                 -moz-transition:        opacity 0.2s ease, left 0.2s ease;

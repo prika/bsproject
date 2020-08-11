@@ -3,10 +3,8 @@ import App from './App.vue'
 import router from './router'
 import i18n from './i18n'
 //import store from './store/store'
-import Vuex from 'vuex'
+//import Vuex from 'vuex'
 import axios from 'axios'
-//import VueAxios from 'vue-axios'
-
 import "./plugins/axios"
  
 //Vue.config.productionTip = false
@@ -22,16 +20,15 @@ Vue.directive('scroll', {
   }
 })
 
-Vue.use(router, axios, Vuex)
-//VueAxios,
+Vue.use(router, axios)
+//Vuex
 
 const vue = new Vue({
   router,
   //store,
   i18n,
   axios,
-  //VueAxios,
-  Vuex,
+  //Vuex,
   render: function (h) { return h(App) }
 })
 
