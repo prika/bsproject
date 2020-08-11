@@ -322,6 +322,27 @@ header  {
     }    
 }
 
+@media (max-width: 769px){
+  header .languageLinks {
+      margin-right: auto;
+      border-left: 0px;
+      margin-bottom: 20px;
+
+      p{ font-size: 15px }
+  }
+
+  .mobileAdd a.simulator{
+    font-size: 22px;
+    font-weight: 200;
+    text-transform: uppercase;
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: 2px;
+    margin: 45px auto;
+    display: block;
+  }
+    
+}
+
 
 // ===================================================================== //
 // ===================================================================== //

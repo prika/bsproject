@@ -82,12 +82,13 @@ export default {
     left: 0;
     right: 0;
     bottom: 0;
-    background: #000;
+    
 
     .gallerySliderContainer {
         height: 100vh;
         width: 100vw;
         overflow: hidden;
+        background: #000;
 
         .gallerySlider{
             margin-left: 25vw;

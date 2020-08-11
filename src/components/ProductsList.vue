@@ -6,7 +6,7 @@
 
                     <transition appear enter-active-class="animated slideInDown" leave-active-class="animated slideOutDown">
                         <h1 class="pageTitleh2 h2" v-if="hasFeaturedProducts"><slot></slot></h1>
-                        <h1 class="pageTitle" v-else >{{categoryName1}}<span>{{categoryName2}}</span></h1>
+                        <h1 class="pageTitle" v-if="!hasFeaturedProducts">{{ categoryName1 }}<span>{{ categoryName2 }}</span></h1>
                     </transition>
 
                      
@@ -208,6 +208,9 @@ export default {
         },
         applyFilter()
         {
+            this.categoryName1 = this.categories[this.selectedCategory].splitName1
+            this.categoryName2 = this.categories[this.selectedCategory].splitName2 
+
             this.products = []
             var filteredColors = []
 
@@ -249,6 +252,8 @@ export default {
     margin-bottom: 430px;
 
     &.notFeaturedProducts {
+        padding-top: 145px;
+
         .productsContainer {
             margin-top: 300px;
             padding-left: 25%;
@@ -259,7 +264,7 @@ export default {
             position: fixed;
             margin-left: 0;
             font-size: 10rem;
-            z-index: 2;
+            //z-index: 2;
         }
     }
 
@@ -534,10 +539,32 @@ export default {
 
 @media (max-width: 768px) {
     
-    .productsList .product {
-            transform: none!important;
+    .productsList.notFeaturedProducts {
+        
+        h1.pageTitle{
+            font-size: 100px;
+            line-height: 6rem;
+            padding-left: 15px;
+        }
+        .filters {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            z-index: 3;
+            background: red;
+            display: none;
+        }
+        .productsContainer{
+            padding: 0;    
+        }
+    } 
 
-         .containerImage{
+    .product {
+        transform: none!important;
+        margin-bottom: 90px!important;
+        margin-top: 0!important;
+
+        .containerImage{
             width: 327px;
             height: 470px;
 
@@ -547,6 +574,7 @@ export default {
             }
         }
     }
+    
 }
 
 @media (max-width: 1400px) {

@@ -23,34 +23,12 @@
 
             <transition enter-active-class="animated slideInDown" leave-active-class="animated slideOutDown">
                 <div class="mobileAdd">
-                    <a href="/simulador">{{$t('simulator')}}</a>
+                    <a href="/simulador" class="simulator">{{$t('simulator')}}</a>
                     
                     <SocialButtons />
                 </div>
             </transition>
 
-            <!--transition appear enter-active-class="animated fadeInRight" leave-active-class="animated fadeOutRight">
-                    
-                <nav class="col-12 col-md-4 blocoBSelectCategory">
-                    <ul class="categoryMenu" ref="filterCategory" key="filterCategory" >
-                        <li v-for="category in categories">
-                            
-                            <a  href="javascript:void(0);"
-                                @click="filterByCategory(category.id)">{{category.name}}</a>
-
-                            <ul :class="'cat-'+selectedCategory+' collectionMenu'" ref="filterCollection" key="filterCollection">
-                                <li class="filters__item" v-for="collection in collections" :class="(collection.id === selectedCollection ? 'filters__item active': 'filters__item')">
-                                    <a  href="javascript:void(0);" 
-                                        @click="filterByCollection(collection.id)">{{collection.name}}</a>
-                                </li>
-                            </ul>
-
-                        </li>
-                    </ul>
-
-                    <router-link to="/simulator" class="simulatorLink">Simulador</router-link>
-                </nav>
-            </transition-->
         </div>
     </transition>
 </template>
@@ -73,7 +51,7 @@ export default {
             showMobileMenu: true
         }
     },
-    created() {
+    mounted() {
         this.$http.get('http://localhost:8081/mocks/global-mock.json').then(response => {
             this.itensMenu = response.data.menu
         })
@@ -84,20 +62,20 @@ export default {
 <style lang="scss">
 
 .modal-mask{ 
-    width: 100%;
     position: fixed;
     z-index: 5;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-    background: #FFF;
-    overflow-y: scroll;
+    overflow-y: hidden;
 }
 
 .menuMobile {
+    background: #FFF;
     padding-top: 150px;
     padding-bottom: 50px;
+    height: 100%;
 
     & > ul{
         list-style: none;
@@ -119,22 +97,22 @@ export default {
     }
 }
 
-    .mobileAdd{
-        background-color: #313131;
-        //height: 240px;
-        //position: fixed;
-        text-align: center;
-        z-index: 2;
-        //bottom: -240px;
-        //left: 0; right: 0;
-        //overflow: hidden;
-    
-        .social-icons{
-            justify-content: center;
-        }
-    } 
+.mobileAdd{
+    background-color: #313131;
+    position: fixed;
+    text-align: center;
+    z-index: 2;
+    top: 550px;
+    bottom: 0;
+    left: 0; right: 0;
+    overflow: hidden;
 
-  .openMenuButton{
+    .social-icons{
+        justify-content: center;
+    }
+} 
+
+.openMenuButton{
     display:    block;
     position:   fixed;
     width:      90px;
@@ -144,6 +122,6 @@ export default {
     border:     0;
     background-size:  30px;
     background:       center center no-repeat url(../../assets/images/icons/menu.svg);
-  }
+}
 
 </style>

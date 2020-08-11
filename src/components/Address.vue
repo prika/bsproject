@@ -82,7 +82,7 @@ export default {
 
     padding: 180px 0;
     position: relative;
-    z-index: 0;
+    z-index: 1;
   
     & .contactForm h1,
     & .addressContainer h1{
