@@ -6,19 +6,19 @@
         {   
             "src": "news/exemplo_noticia_a.jpg", 
             "alt": "Image Test", 
-            "speed": "7",
+            "speed": 7,
             "addclass": "col-9 col-lg-6"
         },
         {
             "src": "news/exemplo_noticia_b.jpg", 
             "alt": "Image Test", 
-            "speed": "4",
+            "speed": 4,
             "addclass": "col-9 col-lg-7"
         },
         {
             "src": "B_Simbolo_estatico_Corpo.svg", 
             "alt": "Image Test", 
-            "speed": "-10",
+            "speed": -10,
             "addclass": "col-9 col-lg-4"
         }
     ],
