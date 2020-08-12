@@ -15,121 +15,121 @@
                 "ref": "BE12661",
                 "img": "product/variant/variant1-1.jpg",
                 "size": {
-                    "width": "29",
-                    "height": "110",
-                    "depth": "60"
+                    "width": 29,
+                    "height": 110,
+                    "depth": 60
                 },
-                "weight" : "653"
+                "weight" : 653
             },
             {   
                 "ref": "AE12702",
                 "img": "product/variant/variant1-2.jpg",
                 "size": {
-                    "width": "295",
-                    "height": "11",
-                    "depth": "60"
+                    "width": 295,
+                    "height": 11,
+                    "depth": 60
                 },
-                "weight" : "2653"
+                "weight" : 2653
             },
             {   
                 "ref": "BE22803",
                 "img": "product/variant/variant1-3.jpg",
                 "size": {
-                    "width": "295",
-                    "height": "10",
-                    "depth": "60"
+                    "width": 295,
+                    "height": 10,
+                    "depth": 60
                 },
-                "weight" : "2653"
+                "weight" : 2653
             },
             {   
                 "ref": "BE32904",
                 "img": "product/variant/variant1-4.jpg",
                 "size": {
-                    "width": "295",
-                    "height": "110",
-                    "depth": "60"
+                    "width": 295,
+                    "height": 110,
+                    "depth": 60
                 },
-                "weight" : "2653"
+                "weight" : 2653
             },
             {   
                 "ref": "BE13005",
                 "img": "product/variant/variant1-5.jpg",
                 "size": {
-                    "width": "295",
-                    "height": "110",
-                    "depth": "60"
+                    "width": 295,
+                    "height": 110,
+                    "depth": 60
                 },
-                "weight" : "2653"
+                "weight" : 2053
             },
             {   
                 "ref": "BE43106",
                 "img": "product/variant/variant1-6.jpg",
                 "size": {
-                    "width": "295",
-                    "height": "110",
-                    "depth": "60"
+                    "width": 295,
+                    "height": 110,
+                    "depth": 60
                 },
-                "weight" : "2653"
+                "weight" : 653
             },
             {   
                 "ref": "BE12667",
                 "img": "product/variant/variant1-1.jpg",
                 "size": {
-                    "width": "295",
-                    "height": "110",
-                    "depth": "60"
+                    "width": 295,
+                    "height": 110,
+                    "depth": 60
                 },
-                "weight" : "2653"
+                "weight" : 1653
             },
             {   
                 "ref": "BE52708",
                 "img": "product/variant/variant1-2.jpg",
                 "size": {
-                    "width": "295",
-                    "height": "110",
-                    "depth": "60"
+                    "width": 295,
+                    "height": 110,
+                    "depth": 60
                 },
-                "weight" : "2653"
+                "weight" : 2653
             },
             {   
                 "ref": "BE12709",
                 "img": "product/variant/variant1-3.jpg",
                 "size": {
-                    "width": "295",
-                    "height": "110",
-                    "depth": "60"
+                    "width": 295,
+                    "height": 110,
+                    "depth": 60
                 },
-                "weight" : "2653"
+                "weight" : 2653
             },
             {   
                 "ref": "BE127011",
                 "img": "product/variant/variant1-4.jpg",
                 "size": {
-                    "width": "295",
-                    "height": "110",
-                    "depth": "60"
+                    "width": 295,
+                    "height": 110,
+                    "depth": 60
                 },
-                "weight" : "2653"
+                "weight" : 2653
             },
             {   
                 "ref": "BE127012",
                 "img": "product/variant/variant1-5.jpg",
                 "size": {
-                    "width": "2",
-                    "height": "10",
-                    "depth": "60"
+                    "width": 4,
+                    "height": 110,
+                    "depth": 60
                 },
-                "weight" : "2653"
+                "weight" : 253
             },
             {   
                 "ref": "BE127013",
                 "img": "product/variant/variant1-6.jpg",
                 "size": {
-                    "width": "295",
-                    "height": "110",
-                    "depth": "6"
+                    "width": 295,
+                    "height": 210,
+                    "depth": 160
                 },
-                "weight" : "2653"
+                "weight" : 2653
             }
         ],
         "filters" : [
