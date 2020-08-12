@@ -63,6 +63,7 @@ import Address from '@/components/Address'
 import Contacts from '@/components/Contacts'
 import Footer from '@/components/Footer.vue'
 
+
 export default {
   name: 'bstoneproject',
   components: {
@@ -81,8 +82,7 @@ export default {
           showMobileMenu: false
       }
   },
-  created() {
-
+  mounted() {
       this.$http.get('http://localhost:8081/mocks/global-mock.json').then(response => {
           this.$eventBus.$emit('jsonGlobalLoaded', response);
       })
@@ -100,10 +100,6 @@ export default {
     }
   },
   watch: {
-    isLoaded: function(newVal, oldVal) 
-    { 
-        console.log('mudou de: ' + oldVal + " para " + newVal )
-    },
     $route(to , from, next){
        this.isLoaded = false
     }
