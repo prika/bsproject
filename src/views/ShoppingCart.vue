@@ -160,43 +160,43 @@ export default {
         selectedShippingOption: ''
     }
   },
-  created(){
+  created() {
         this.$http.get('http://localhost:8081/mocks/cart-list-mock.json').then(response => {
+
             this.categoryContainers = response.data.categoryContainers
             this.containerItems = response.data.categoryContainers.containerItems
             this.totalProducts = response.data.totalProducts
             this.deliveryOptions = response.data.deliveryOptions
-
             this.$eventBus.$emit('pageFinishLoad', true) 
         })
   },
-  methods: {
-    getImgUrl: function (src) {
+  methods: 
+  {
+    getImgUrl: function (src) 
+    {
         return require( '@/assets/images/'+src )
     },
-    isMobile() {
+    isMobile() 
+    {
         return /Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) 
     },
-    removeProduct(product){
-        //
-    }
-  },
-  watch: {
-    selectedShippingOption: function(newVal, oldVal){
-      console.log(newVal)
+    removeProduct(product)
+    {
+        this.$store.dispatch('removeFromCart', product)
     }
   }
-
 }
 </script>
 
 <style lang="scss">
 body{margin: 0}
 
+.shoppingcart{
+  overflow-y: hidden;
+}
 #shoppingCartPage{
-    width: 100%;
+    width: 100vw;
     height: 100%;
-    overflow: hidden;
     padding-top: 200px;
     margin-bottom: 200px;
 
@@ -372,6 +372,7 @@ body{margin: 0}
             color: #FFF;
             white-space: nowrap;
             padding: 0 5%;
+            height: 116px;
             
             span{
                 font-family: 'Oswald', sans-serif;
@@ -483,7 +484,7 @@ body{margin: 0}
     }
 
     .notes{
-      margin: 100px 0 200px;
+      margin: 100px 0 20px;
 
       .input_group{ margin-top: 30px;}
     }

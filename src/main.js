@@ -1,15 +1,11 @@
-//import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import i18n from './i18n'
-//import store from './store/store'
-//import Vuex from 'vuex'
 import axios from 'axios'
 import "./plugins/axios"
- 
-//Vue.config.productionTip = false
+import { store } from './plugins/store'
 
-Vue.directive('scroll', {     
+Vue.directive('scroll', {
   inserted: function (el, binding) {
       let f = function (evt) {
           if (binding.value(evt, el)) {
@@ -21,14 +17,12 @@ Vue.directive('scroll', {
 })
 
 Vue.use(router, axios)
-//Vuex
 
 const vue = new Vue({
   router,
-  //store,
   i18n,
   axios,
-  //Vuex,
+  store,
   render: function (h) { return h(App) }
 })
 

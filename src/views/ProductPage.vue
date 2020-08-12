@@ -36,8 +36,8 @@
               <a @click="$router.go(-1)" href="javascript:void(0)" class="backlink col-3"><arrowRightIcon />{{$t('actions_back')}}</a>
               <a @click="showShareModal = true" class="shareLink col-3" href="javascript:void(0)"><arrowRightIcon />{{$t('actions_share')}}<shareIcon/></a>
 
-              <a @click="addToCart" v-if="!productAdded" href="javascript:void(0)" class="cartLink col-6"><arrowRightIcon />{{$t('actions_addtocart')}} <cartIcon/></a>
-              <a @click="goToCart" v-else href="javascript:void(0)" class="cartLink removeProduct col-6"><arrowRightIcon />{{$t('actions_removefromcart')}} <cartIcon/></a>
+              <a @click="addToCart()" v-if="!productAdded" href="javascript:void(0)" class="cartLink col-6"><arrowRightIcon />{{$t('actions_addtocart')}} <cartIcon/></a>
+              <a @click="removeFromCart()" v-else href="javascript:void(0)" class="cartLink removeProduct col-6"><arrowRightIcon />{{$t('actions_removefromcart')}} <cartIcon/></a>
          </div>
       </transition>
 
@@ -61,7 +61,10 @@ export default {
       shareIcon,
       modalShare,
       modalGallery
-  }, 
+  },
+  props: [
+    
+  ],
   data() {
     return {
         variant: '',
@@ -72,16 +75,39 @@ export default {
         selectedIndex: 0,
         productAdded: false,
         hasScrollScript: false,
-        hasData: false
+        cartProducts: [],
+        cartQuantity: 0
     }
   },
   methods:{
-      getImgUrl: function (src) {
+
+      mouseWheelListener()
+      {
+          if( !this.hasScrollScript ) 
+          {  
+              var tagScroll = document.createElement('script');
+              tagScroll.src = "https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js";
+              var firstScriptTag = document.getElementsByTagName('script')[0];
+              firstScriptTag.parentNode.insertBefore(tagScroll, firstScriptTag);
+
+              this.hasScrollScript = true
+              return
+          }
+  
+          $('html, body').mousewheel( function( e, delta ) 
+          {
+              this.scrollLeft -= (delta);
+              //e.preventDefault();
+          })
+      },
+      getImgUrl: function (src) 
+      {
         return require('@/assets/images/'+src)
       },
       parseObject: function(source)
       {
-          for ( var i = 0 ; i < source.length; i++) {
+          for ( var i = 0 ; i < source.length; i++) 
+          {
               let thumb = source[i].thumb
               let largeImage = source[i].large
 
@@ -92,44 +118,32 @@ export default {
               this.largeImages.push(largeImage)
           }
       },
-      showGalleryFunction(index){
+      showGalleryFunction(index)
+      {
           this.showGallery = true
           this.selectedIndex = index
-          console.log("selected:"+this.selectedIndex)
       },
-      addToCart(){
+      addToCart() 
+      {
           this.productAdded = true
-          addProductToCart( this.variant.ref )
+          this.$store.dispatch('addToCart', this.variant.ref)
+      },
+      removeFromCart() 
+      {
+          this.productAdded = false
+          this.$store.dispatch('removeFromCart', this.variant.ref)
       }
   },
-  mounted(){
-
-      if(!this.hasScrollScript) {
-          var tagScroll = document.createElement('script');
-          tagScroll.src = "https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js";
-          var firstScriptTag = document.getElementsByTagName('script')[0];
-          firstScriptTag.parentNode.insertBefore(tagScroll, firstScriptTag);
-
-          this.hasScrollScript = true
-      } 
+  created(){
 
       this.$http.get('http://localhost:8081/mocks/products-variant-detail-mock.json').then(response => {
 
           this.variant = response.data.variant
           this.parseObject(response.data.variant.images)
-          this.hasData = true
-
-          if( this.hasScrollScript && this.hasData ) {
-
-              $('html, body').mousewheel(function( e, delta ) {
-                  this.scrollLeft -= (delta);
-                  e.preventDefault();
-              });
-
-              this.$eventBus.$emit('pageFinishLoad', true)
-          }
+          this.mouseWheelListener()
+          this.productAdded = this.$store.getters.isItemInCart(this.variant.ref)   
+          this.$eventBus.$emit('pageFinishLoad', true)
       })
-      
       
   }
   // ,

@@ -21,7 +21,7 @@
 
               <router-link to="/shoppingcart" tag="button" class="buttons cartButton"
                 v-bind:aria-label="$t('button-arialabel-open-cart')">
-                <CartButton>99</CartButton>
+                <CartButton>{{cartSize}}</CartButton>
               </router-link>
           </div>
       </div>
@@ -40,15 +40,14 @@
 </template>
 
 <script>
-
-
 import Language from './subcomponents/Header_language.vue'
 import SearchButton from './ui/searchButton'
 import CartButton from './ui/cartButton'
 import UserButton from './ui/userButton'
-
 import ModalSearch from './subcomponents/ModalSearch.vue'
 import ModalLogin from './subcomponents/ModalLogin'
+
+import {mapState, mapGetters} from 'vuex'
 
 export default {
     name: 'Header',
@@ -59,6 +58,15 @@ export default {
         SearchButton,
         UserButton,
         CartButton
+    },
+    computed: {
+            ...mapState([
+                "cart"
+            ]),
+            ...mapGetters([
+                "cartSize",
+                "cartTotalAmount"
+            ])
     },
     data() {
         return {
