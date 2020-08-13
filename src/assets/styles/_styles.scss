@@ -5,6 +5,18 @@ html {
   -ms-overflow-style: -ms-autohiding-scrollbar;
 }
 
+@media screen and (min-width: 320px) and (max-width: 812px) and (orientation: landscape) {
+  html {
+    transform: rotate(-90deg);
+    transform-origin: left top;
+    width: 100vh;
+    overflow-x: hidden;
+    position: absolute;
+    top: 100%;
+    left: 0;
+  }
+}
+
 body {
   background-color: $body-bg;
   //margin-top: 90px;
@@ -322,7 +334,7 @@ header  {
     }    
 }
 
-@media (max-width: 769px){
+@media (max-width: 812px){
   header .languageLinks {
       margin-right: auto;
       border-left: 0px;
@@ -595,7 +607,7 @@ sup{
 
 
 
-@media (max-width: 768px)  {
+@media (max-width: 812px)  {
   #newsdetailpage {
       margin-top: 120px;
   }
@@ -626,7 +638,7 @@ sup{
 // }
 
 //@include media-breakpoint-up(md)
-//@media (min-width: 768px)  {
+//@media (min-width: 812px)  {
 //   html {
 //       font-size: .9rem;
 //   }

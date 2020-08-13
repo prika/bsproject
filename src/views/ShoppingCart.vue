@@ -371,8 +371,8 @@ body{margin: 0}
             background: #1F1F1F;
             color: #FFF;
             white-space: nowrap;
-            padding: 0 5%;
-            height: 116px;
+            padding: 2% 5%;
+            //height: 116px;
             
             span{
                 font-family: 'Oswald', sans-serif;
@@ -491,7 +491,7 @@ body{margin: 0}
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: 812px) {
 
 
     #shoppingCartPage{

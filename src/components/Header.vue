@@ -97,7 +97,7 @@ header{
 
   .logo{
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
   }
 
    nav.menu {
@@ -160,13 +160,15 @@ header{
 }
 
 //@include media-breakpoint-up(md)
-@media (min-width: 768px) {
+@media (min-width: 812px) {
 
   body{ margin-top: 90px;}
   
   header {
     .containerHeader {
         height: 90px;
+
+        .logo{justify-content: center;}
     }
 
     nav.menu {

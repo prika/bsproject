@@ -16,6 +16,7 @@
                   <h2 class="col-12">{{variant.ref}}</h2>
                   <p class="col-12 col-lg-6"><span class="title">{{$t('units_measures')}}</span><br>{{variant.size.width}}x{{variant.size.height}}x{{variant.size.depth}} {{$t('units_cm')}} - <span class="color">{{variant.size.total}}</span> {{$t('units_total_m3')}} m<sup>3</sup></p>
                   <p class="col-12 col-lg-6"><span class="title">{{$t('units_weight')}}</span><br><span class="color">{{variant.weight}}</span> {{$t('units_ton')}}</p>
+                  <a @click="showShareModal = true" class="shareLinkButton" href="javascript:void(0)">{{$t('actions_share')}}</a>
             </div>
           </transition>
       </div>
@@ -91,13 +92,12 @@ export default {
               firstScriptTag.parentNode.insertBefore(tagScroll, firstScriptTag);
 
               this.hasScrollScript = true
-              return
+              //return
           }
   
-          $('html, body').mousewheel( function( e, delta ) 
-          {
+          $('html, body').mousewheel( function( e, delta ) {
               this.scrollLeft -= (delta);
-              //e.preventDefault();
+              e.preventDefault();
           })
       },
       getImgUrl: function (src) 
@@ -229,6 +229,8 @@ body{margin: 0}
                 font-weight: 400; 
               }
             }
+
+            .shareLinkButton{display: none}
             
         }
     }
@@ -444,12 +446,12 @@ body{margin: 0}
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 812px) {
     #productPage {
         .productName{
             text-indent: 0;
             top: 0;
-            padding: 50px 0 40px;
+            padding: 50px 0 20px;
             font-size: 38px;
             line-height: 43px;
             display: block;
@@ -461,7 +463,7 @@ body{margin: 0}
         }
 
         .productDetailInfo {
-            top: 68px;
+            top: 58px;
             display: block;
             z-index: 0;
             
@@ -470,6 +472,19 @@ body{margin: 0}
               margin-left: 0;
               padding-right: 0;
               text-align: center;
+
+              h2{margin-bottom: 30px;}
+
+              .shareLinkButton{
+                  display: block;
+                  background: #FFF;
+                  color: #333;
+                  text-align: center;
+                  padding: 20px 30px;
+                  text-decoration: none;
+                  text-transform: uppercase;
+                  margin: 30px auto;
+              }
             }
         }
 
@@ -478,7 +493,7 @@ body{margin: 0}
             overflow-x: auto;
             overflow-y: auto;
             white-space: initial;
-            margin-top: 570px;
+            margin-top: 640px;
 
             .containerImage{
               display: block;

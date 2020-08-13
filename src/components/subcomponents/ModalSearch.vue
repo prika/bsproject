@@ -300,7 +300,7 @@ import closeIcon from '@/components/ui/closeIcon.vue'
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 812px) {
     .resultsList ul li {
         .img{
           width: 129px;

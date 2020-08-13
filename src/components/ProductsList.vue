@@ -39,7 +39,7 @@
                         <transition-group appear enter-active-class="animated slideInUp delay" tag="div" class="row">
                             <router-link    class="rellaxProduct product col-12 col-lg-6 col-xl-4" itemprop="itemListElement" itemscope itemtype="http://schema.org/Product"
                                             v-for="(product, index) in products"
-                                            :to="{path: '/bloco-b/'+product.id+'-'+product.firstName+'-'+product.secondName }" 
+                                            :to="{path: '/bloco-b/category:'+ selectedCategory + '/collection:' + selectedCollection + '/id:' + product.id + '/name:' + product.firstName+'-'+product.secondName}"
                                             :key="product.id"
                                             :data-rellax-speed="getDataSpeed(index)">
 
@@ -537,62 +537,67 @@ export default {
 
 
 
-@media (max-width: 768px) {
+@media (max-width: 812px) {
     
-    .productsList.notFeaturedProducts {
+    .productsList{
+        &.notFeaturedProducts {
         
-        h1.pageTitle{
-            font-size: 100px;
-            line-height: 6rem;
-            padding-left: 15px;
-        }
-        .filters {
-            position: fixed;
-            top: 0;
-            bottom: 0;
-            z-index: 3;
-            background: red;
-            display: none;
-        }
-        .productsContainer{
-            padding: 0;    
-        }
-    } 
+            h1.pageTitle{
+                font-size: 100px;
+                line-height: 6rem;
+                padding-left: 15px;
+            }
+            .filters {
+                position: fixed;
+                top: 0;
+                bottom: 0;
+                z-index: 3;
+                background: red;
+                display: none;
+            }
+            .productsContainer{
+                padding: 0;
+            
+            }
+        } 
 
-    .product {
-        transform: none!important;
-        margin-bottom: 90px!important;
-        margin-top: 0!important;
+        .product {
+            transform: none!important;
+            margin-bottom: 90px!important;
+            margin-top: 0!important;
 
-        .containerImage{
-            width: 327px;
-            height: 470px;
+            .containerImage{
+                width: 327px!important;
+                height: 470px!important;
 
-            .productImage{
-                width: 327px;
-                height: 470px;
+                .productImage{
+                    width: 327px!important;
+                    height: 470px!important;
+                }
             }
         }
     }
-    
 }
 
 @media (max-width: 1400px) {
 
-    .productsList .product {
-        margin-bottom: 130px;
+    .productsList {
+        margin-bottom: 0;
 
-        .productName{
-            right: calc( 50% - 70px );
-            top: -30px!important;
-            text-indent: 0;
-            text-align: center;
+        .product {
+            margin-bottom: 130px;
 
-            span{display: none;}
+            .productName{
+                right: calc( 50% - 70px );
+                top: -30px!important;
+                text-indent: 0;
+                text-align: center;
+
+                span{display: none;}
+            }
         }
+
     }
-    
-    .productsList { margin-bottom: 0; }
 }
 
 
@@ -605,9 +610,7 @@ export default {
 }
 
 @media (min-width: 1400px) {
-
     .productsList .product:nth-of-type(3n+2) {margin-top: 130px;}
-
 }
 
 </style>

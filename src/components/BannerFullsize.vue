@@ -516,4 +516,11 @@ export default {
     animation:          verticalLineAnim2 2s ease-in-out 6s forwards;
   }
 }
+
+@media (max-width: 812px){
+    #bannerFullsize .carouselContainer .slide.active::after{
+        background-size: 370px;
+    }
+
+}
 </style>

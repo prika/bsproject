@@ -127,7 +127,7 @@ $calcCollection2: calc(-293px * var(--collection2-count));
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 812px) {
     .collection{
         margin-bottom: 0;
 

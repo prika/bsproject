@@ -158,7 +158,7 @@ padding-top: 110px;
   }
 }
 
-@media only screen and (max-width: 1023px) and (min-width: 768px) {
+@media only screen and (max-width: 1023px) and (min-width: 812px) {
 
   /* Adjusting vertical masonry height on tablet-sized screen */
   .masonry--v {

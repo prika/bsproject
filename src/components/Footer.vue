@@ -260,7 +260,7 @@ footer{
 
 .scrollButton{display:none;}
 
-@media (max-width: 768px) {
+@media (max-width: 812px) {
   
   .scrollButton{
         display: block;

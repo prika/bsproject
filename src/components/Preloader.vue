@@ -331,7 +331,7 @@ export default {
 
 
 
-@media (max-width: 768px) {
+@media (max-width: 812px) {
 
   .loader #animatedlogo {
       transform: scale(.9);

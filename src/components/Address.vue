@@ -143,7 +143,7 @@ export default {
 
 
 
-@media (max-width: 768px) {
+@media (max-width: 812px) {
     #addressSection,
     #contactsSection {
       padding: 80px 0;

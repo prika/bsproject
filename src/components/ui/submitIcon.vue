@@ -109,7 +109,7 @@
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 812px) {
     .submitButton.extendedButton {
         .text{ color: #c47c5a; }
         .arrow::before{ width: 210px;}

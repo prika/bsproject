@@ -282,7 +282,7 @@ export default {
 
 
 
-@media (max-width: 768px) {
+@media (max-width: 812px) {
     .modalLogin {
         .closeLoginButton{
             width: 94px;

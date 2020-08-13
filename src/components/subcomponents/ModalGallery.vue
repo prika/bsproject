@@ -189,7 +189,7 @@ export default {
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 812px) {
     .modal-mask .gallerySliderContainer .gallerySlider .galleryImage.selected img {
         max-width: 190%;
         margin-left: -45%;

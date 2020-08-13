@@ -213,7 +213,7 @@ export default {
     color: #575757;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 812px) {
     .newsContainer{
         padding: 0 20px 0 45px;
     }
