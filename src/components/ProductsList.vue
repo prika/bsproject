@@ -39,7 +39,7 @@
                         <transition-group appear enter-active-class="animated slideInUp delay" tag="div" class="row">
                             <router-link    class="rellaxProduct product col-12 col-lg-6 col-xl-4" itemprop="itemListElement" itemscope itemtype="http://schema.org/Product"
                                             v-for="(product, index) in products"
-                                            :to="{path: '/bloco-b/category:'+ selectedCategory + '/collection:' + selectedCollection + '/id:' + product.id + '/name:' + product.firstName+'-'+product.secondName}"
+                                            :to="{path: '/bloco-b/category/'+ selectedCategory + '/collection/' + selectedCollection + '/id/' + product.id + '/name/' + product.firstName+'-'+product.secondName}"
                                             :key="product.id"
                                             :data-rellax-speed="getDataSpeed(index)">
 

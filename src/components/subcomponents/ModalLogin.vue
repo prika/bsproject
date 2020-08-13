@@ -122,9 +122,15 @@ export default {
 			} else {
 				return { valid:false, errors }
 			}
-		}
+		},
+        isLoggedIn : function()
+        { 
+            return this.$store.getters.isLoggedIn
+        }
+    
     },
     methods: {
+        
         checkLoginForm: function (e) {
 
             e.preventDefault()
@@ -138,6 +144,7 @@ export default {
             var self = this;
             this.$http.post('https://bafdc7b9-222e-4e30-a8ec-f760c186fb05.mock.pstmn.io/subscribe', data).then(response => {
                 
+                this.$store.dispatch('login', 'token' ) // TODO: replace token to real one
                 this.success = true
 
             }).catch((e) => {

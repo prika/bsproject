@@ -64,12 +64,12 @@ const routes = [
     component: () => import( /* webpackChunkName: "product-group" */ '../views/BlocoB.vue')
   },
   {
-    path: '/bloco-b/:category:category/:collection:collection/:id:id/:name:name',
+    path: '/bloco-b/category/:category/collection/:collection/:id:id/:name:name',
     name: 'productDetail',
     component: () => import( /* webpackChunkName: "product-group" */ '../views/DetailPage.vue')
   },
   {
-    path: '/bloco-b/:category:category/:collection:collection/:id:id/:name:name/:variant:variant-ref',
+    path: '/bloco-b/category/:category/collection/:collection/id/:id/name/:name/variant/variant-ref',
     name: 'variantDetail',
     component: () => import( /* webpackChunkName: "product-group" */ '../views/ProductPage.vue'), 
     props: (route) => ({ query: route.query.variant }) 

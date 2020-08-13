@@ -20,7 +20,7 @@
                 <UserButton></UserButton>
               </button>
 
-              <router-link to="/shoppingcart" tag="button" class="buttons cartButton"
+              <router-link to="/shoppingcart" v-if="isLoggedIn && cartSize > 0" tag="button" class="buttons cartButton"
                 v-bind:aria-label="$t('button-arialabel-open-cart')">
                 <CartButton>{{cartSize}}</CartButton>
               </router-link>
@@ -47,7 +47,6 @@ import CartButton from './ui/cartButton'
 import UserButton from './ui/userButton'
 import ModalSearch from './subcomponents/ModalSearch.vue'
 import ModalLogin from './subcomponents/ModalLogin'
-
 import {mapState, mapGetters} from 'vuex'
 
 export default {
@@ -62,16 +61,17 @@ export default {
     },
     computed: {
             ...mapState([
-                "cart"
+                "cart",
+                "login"
             ]),
             ...mapGetters([
                 "cartSize",
-                "cartTotalAmount"
+                "cartTotalAmount",
+                "isLoggedIn"
             ])
     },
     data() {
         return {
-            //user: uv.user.name,
             showModal: false,
             showLoginForm: false
         }

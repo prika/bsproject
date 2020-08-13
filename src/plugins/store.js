@@ -2,7 +2,8 @@ import Vuex from 'vuex'
   
 export const store = new Vuex.Store({
   state: {
-    cart: []
+    cart: [],
+    token: null
   },
   mutations:
   {
@@ -17,13 +18,17 @@ export const store = new Vuex.Store({
         let cartProductIndex = state.cart.findIndex((product) => product == productId); // find the product in the cart list
         if (cartProductIndex < 0) return // not in the cart
         state.cart.splice(cartProductIndex, 1)
+    },
+    login: (state, token) =>
+    {
+        state.token = token
     }
   },
   actions: 
   {
     addToCart: ({ commit }, productId) => 
     {
-        commit("addToCart", productId);   
+        commit("addToCart", productId)  
     },
     removeFromCart: ({ commit }, productId) => 
     {
@@ -32,6 +37,10 @@ export const store = new Vuex.Store({
     checkItemInCart: ({ commit }, productId) => 
     {
         commit("removeFromCart", productId)
+    },
+    login: ({commit}, token) =>
+    {
+        commit("login", token)
     }
   },
   getters: 
@@ -43,6 +52,10 @@ export const store = new Vuex.Store({
     isItemInCart: state => productId => {
 
         return state.cart.find((product) => product == productId) != null
-      }
+    },
+    isLoggedIn: (state) =>
+    {
+        return state.token
+    }
   }
 })
