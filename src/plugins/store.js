@@ -1,11 +1,10 @@
-import Vue from 'vue'
 import Vuex from 'vuex'
   
 export const store = new Vuex.Store({
   state: {
-    cart: [],
+    cart: []
   },
-  mutations: 
+  mutations:
   {
     addToCart: (state, productId) => 
     {      
@@ -33,8 +32,7 @@ export const store = new Vuex.Store({
     checkItemInCart: ({ commit }, productId) => 
     {
         commit("removeFromCart", productId)
-    },
-
+    }
   },
   getters: 
   {

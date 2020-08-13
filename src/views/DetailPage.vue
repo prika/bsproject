@@ -57,8 +57,8 @@
 
                 <div class="tableScroll">
                   <ul class="variantTable">
-                        <router-link :to="'/productpage/:'+variant.ref" tag="li"  class="variantItem" 
-                                  v-for="variant in variants" :key="variant.name">
+                        <router-link v-for="variant in variants" :key="variant.name" tag="li" class="variantItem" 
+                                  :to="{path: '/bloco-b/category:'+ product.category + '/collection:' + product.collection + '/id:' + product.id + '/name:' + product.firstName+'-'+product.secondName+'/variant:'+variant.ref}">
                      
                               <div class="img">
                                 <img :src="getImgUrl(variant.img)" :alt="variant.alt" />
@@ -80,8 +80,18 @@
                 </div>
                 
               </div>
+
+               <div class="filtersMobile">
+                  <div class="pagination">
+                        <a v-if="hasPrevLink" href="javascript:void(0)" @click="prevPageClick()" class="arrowLeft"> <arrowRightIcon /></a>
+                        <p><span class="active">{{currentPage + 1}}</span>/{{totalPages}}</p>
+                        <a v-if="hasNextLink" href="javascript:void(0)" @click="nextPageClick()" class="arrowRight"> <arrowRightIcon /></a>
+                  </div>
+                </div>
           </div>
       </transition>
+
+
   </div>
 </template>
 
@@ -248,8 +258,8 @@ body{margin: 0}
           z-index: 0;
 
           img {
-            min-width: 100%;
-            min-height: 100%;
+            width: auto;
+            height: 100vh;
             -webkit-transition:   all 0.2s ease;
             -moz-transition:      all 0.2s ease;
             -o-transition:        all 0.2s ease;
@@ -376,7 +386,8 @@ body{margin: 0}
         top: 220px;
         right: 0;
 
-        .filters{
+        .filters,
+        .filtersMobile{
             background: #F0F0F0;
             height: 150px;
             position: fixed;
@@ -505,6 +516,8 @@ body{margin: 0}
                 }
             }
         }
+
+        .filtersMobile{display: none}
         
         ul.variantTable {
             padding: 0;
@@ -599,14 +612,15 @@ body{margin: 0}
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 812px) {
 
     #detailPage {
       
       .productDetailLeft {
 
         &.showDetail{ 
-            width: 0; 
+            //width: 100%; 
+            //z-index: 0;
 
             .productName {
                 text-indent: 0;
@@ -616,17 +630,32 @@ body{margin: 0}
                 line-height: 43px;
                 background-color: #F0F0F0;
                 text-align: center;
+                margin-right: 0;
+                right: -83vw;
+                width: 100vw;
+                z-index: 1;
 
                 mark{background-color: transparent;}
                 span{ display: none}
+                
             }
+
+            .backLink{
+                color: #333;
+                bottom: auto;
+                top: 130px;
+                right: 80%;
+
+                &:before{background: #333}
+                .arrowBoldIcon svg path { stroke: #333;}
+            }
+            .containerImage{display:none}
         }
 
         .productName{
-          position: fixed;
-          width: 100%;
-          text-align: center;
-          right: 0;
+            text-align: center;
+            right: -110%;
+            margin-right: 40%
         }
 
         .pageTitle{display: none;}
@@ -645,7 +674,7 @@ body{margin: 0}
            }
       }
 
-      .productVariationList ul.variantTable li{
+      .productVariationList ul.variantTable li.variantItem{
           display: table;
           height: auto;
           width: auto;
@@ -667,9 +696,28 @@ body{margin: 0}
       }
 
       .productVariationList {
-          top: 170px;
+          top: 230px;
 
-          .filters{display: none;}
+          .filters{
+            left: 0;
+            top: 210px;
+            height: 80px;
+            padding: 15px 0;
+
+            .order{ width: 100%}
+            .pagination {display: none;}
+          }
+
+
+          .filtersMobile{
+            display: block;
+            height: 30px;
+            position: relative;
+            top: 0;
+            left: 0;
+            padding: 0 15px 150px;
+            justify-content: center;
+          }
       }
     }
    

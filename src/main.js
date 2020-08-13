@@ -5,6 +5,8 @@ import axios from 'axios'
 import "./plugins/axios"
 import { store } from './plugins/store'
 
+Vue.config.productionTip = false
+
 Vue.directive('scroll', {
   inserted: function (el, binding) {
       let f = function (evt) {

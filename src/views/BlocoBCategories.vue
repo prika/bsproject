@@ -18,23 +18,20 @@
                     
                     <nav class="col-12 col-md-4 blocoBSelectCategory">
                         <ul class="categoryMenu" ref="filterCategory" key="filterCategory" >
-                            <li v-for="category in categories"> <!-- :class="(category.id === selectedCategory ? 'filters__item active': 'filters__item')"-->
+                            <li v-for="category in categories" :class="( category.id == selectedCategory ? 'filters__item active': 'filters__item')">
                                 
                                 <a  href="javascript:void(0);">{{category.name}}</a>
                                 
                                 <ul :class="'cat-'+selectedCategory+' collectionMenu'" ref="filterCollection" key="filterCollection">
-                                    <li class="filters__item" v-for="collection in collections" :class="(collection.id === selectedCollection ? 'filters__item active': 'filters__item')">
-                                        <router-link 
-                                        :to="{path: '/bloco-b/category/'+ category.id + '/collection/' + collection.id + '/'}" 
-                                        >{{collection.name}}</router-link>
-                                        
+                                    <li class="filters__item" v-for="collection in collections" :class="(collection.id == selectedCollection ? 'filters__item active': 'filters__item')">
+                                        <router-link :to="{path: '/bloco-b/category/'+ category.id + '/collection/' + collection.id + '/'}" >{{collection.name}}</router-link>
                                     </li>
                                 </ul>
 
                             </li>
                         </ul>
 
-                        <router-link to="/simulator" class="simulatorLink">Simulador</router-link>
+                        <router-link to="/simulator" class="simulatorLink">{{$t('simulator')}}</router-link>
                     </nav>
                 </transition>
 
@@ -238,7 +235,7 @@ export default {
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 812px) {
     .blocobmenu {
 
         &:before { left: calc( 65vw + 42px ); }
@@ -250,18 +247,35 @@ export default {
         }   
 
         .blocoBSelectCategory {
-            padding: 30px 100px 30px 50px;
+            padding: 30px;
 
             .categoryMenu{
                 & > li{
-                    & > a { 
-                        font-size: 3rem;
-                        margin: 10px 0 100px;
+                    text-align: center;
+                    height: 200px;
+                    width: 100%;
 
-                        &:before{ left: -20px; width: 115%;}
+                    & > a,
+                    &.active > a,
+                    &:hover > a { 
+                        text-align: center;
+                        font-size: 1.8rem;
+                        margin: 5px auto;
+
+                        &:before{ 
+                            display: none;
+                            left: -20px; width: 115%;
+                        }
                     }
 
-                    .collectionMenu{ top: 80px; height:100%; opacity: 1; }
+                    .collectionMenu{ 
+                        width: 100%;
+                        top: 70px; height:100%; opacity: 1;
+
+                        & li a,
+                        & li:hover a,
+                        & li a.active{margin: 20px auto!important}
+                    }
                 }
             }
         }

@@ -53,24 +53,22 @@ const routes = [
     component: () => import('../views/BlocoBCategories.vue')
   },
   {
-    path: '/bloco-b/',
-    name: 'bloco',
-    component: () => import( /* webpackChunkName: "product-group" */ '../views/BlocoB.vue'),
-  },
-  {
     path: '/bloco-b/category/:category/collection/:collection',
     name: 'blocoselection',
     component: () => import( /* webpackChunkName: "product-group" */ '../views/BlocoB.vue'),
+    props: (route) => ({ query: route.query.collection })
   },
   {
-    path: '/bloco-b/:id-:name',
+    path: '/bloco-b/:category:category/:collection:collection/:id:id/:name:name',
     name: 'product',
-    component: () => import( /* webpackChunkName: "product-group" */ '../views/DetailPage.vue')
+    component: () => import( /* webpackChunkName: "product-group" */ '../views/DetailPage.vue'),
+    props: (route) => ({ query: route.query.productId })
   },
   {
-    path: '/productpage/:id',
+    path: '/bloco-b/:category:category/:collection:collection/:id:id/:name:name/:variant:variant-ref',
     name: 'productdetail',
-    component: () => import( /* webpackChunkName: "product-group" */ '../views/ProductPage.vue')
+    component: () => import( /* webpackChunkName: "product-group" */ '../views/ProductPage.vue'),
+    props: (route) => ({ query: route.query.variant })
   },
   { 
     path: '/search/:term', 
