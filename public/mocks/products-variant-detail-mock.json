@@ -2,6 +2,8 @@
     {
         "id ": "Prod1",
         "ref": "BE1-266",
+        "category": 0,
+        "collection": 1,
         "name": "Black Magic",
         "firstName": "Black",
         "secondName": "Magic",

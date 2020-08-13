@@ -2,7 +2,8 @@
     {
         "id": "Prod1",
         "name": "Black Magic",
-        "category": 2,
+        "category": 0,
+        "collection": 1,
         "categoryName": "Chapas",
         "categoryNameSplit1": "Cha",
         "categoryNameSplit2": "pas",
