@@ -34,8 +34,8 @@
                     <p class="errormessage">{{cont_password_login_validator}}</p>
                 </div>
                     
-                <router-link to="/auth/recovery" class="passwordRecoveryLink col-12">{{accountlogin.recoveryLink}}</router-link>
-                <router-link to="/auth/register" class="accountRegisterLink col-12">{{accountlogin.registerLink}}</router-link>
+                <router-link to="/recovery" class="passwordRecoveryLink col-12">{{accountlogin.recoveryLink}}</router-link>
+                <router-link to="/register" class="accountRegisterLink col-12">{{accountlogin.registerLink}}</router-link>
                 <button class="loginLink col-12 col-md-3 col-lg-2 col-xl-1" type="submit" form="login">{{accountlogin.submit}}</button>
             </form>
         </div>
@@ -44,7 +44,7 @@
             <p class="h1 col-12">Bem vindo user X</p>
             <br> <br>
             <p>Aceda aqui aos detalhes da sua conta:</p>
-            <router-link to="/auth/account" class="passwordRecoveryLink col-12">Account settings</router-link>
+            <router-link to="/account" class="passwordRecoveryLink col-12">Account settings</router-link>
         </div>
     </div>
 </template>
