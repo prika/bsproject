@@ -28,15 +28,6 @@
             "height": 1080
         },
         {
-            "id": "slide3",
-            "type": "video-youtube", 
-            "src": "banners/BlocoB-7234_Banner.jpg", 
-            "srcvideo": "eFxV1CaHqhE", 
-            "alt": "Image Test",
-            "width": 1920,
-            "height": 1080
-        },
-        {
             "id": "slide4",
             "type": "video-vimeo", 
             "src": "banners/banner_stone_foto_1.jpg", 

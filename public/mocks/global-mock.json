@@ -39,17 +39,17 @@
             { 
                 "id": "footermenu1",
                 "name": "Blocos",
-                "link": "/"
+                "link": "/bloco-b/category/0"
             },
             { 
                 "id": "footermenu3",
                 "name": "Chapas",
-                "link": "/"
+                "link": "/bloco-b/category/1"
             },
             { 
                 "id": "footermenu4",
                 "name": "Ladrilhos",
-                "link": "/"
+                "link": "/bloco-b/category/2"
             }
         ],
         "menuFooter2": [

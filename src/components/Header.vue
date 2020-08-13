@@ -9,7 +9,8 @@
 
           <div class="controls d-flex">
 
-               <router-link to="/search" itemprop="url" class="buttons searchButton" :aria-label="$t('button-arialabel-open-search')">
+               <router-link to="/search" itemprop="url" class="buttons searchButton" 
+                            :aria-label="$t('button-arialabel-open-search')">
                   <SearchButton></SearchButton>
                </router-link>
 

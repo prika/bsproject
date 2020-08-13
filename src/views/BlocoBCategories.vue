@@ -67,6 +67,13 @@ export default {
             this.collections = response.data.collections
             this.$eventBus.$emit('pageFinishLoad', true) 
         })
+    },
+    mounted() {
+        
+        let query = this.$route.params // Querystring params
+
+        if (!(query && query.category)) return // no value defined
+        this.selectedCategory = this.$route.params.category
     }
 }
 </script>

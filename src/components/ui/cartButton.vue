@@ -17,15 +17,13 @@
             <line x1="6.254" transform="translate(71.121 65.318)" fill="none" stroke="#585858" stroke-miterlimit="10" stroke-width="2"/>
         </g>
         </svg>
-
         <!-- Show number of products in cart by slot in Header -->
         <span class="qttProducts"><slot></slot></span>
     </div>
 </template>
 
 <style lang="scss">
- 
- .cartButton{
+.cartButton{
     background: #FFF;
     position: relative;
 
@@ -33,10 +31,8 @@
         position: absolute;
         left: calc( 50% - 17px );
         top: calc(50% - 36px);
-        
         width: 28px;
         height: 28px;
-
         border-radius: 50%;
         background: #C47C5A;
         color: #FFF;
@@ -53,9 +49,7 @@
         transition:           transform 0.2s cubic-bezier(0, .5, 0, 1);
     }
 
-    svg{
-        width: 60px;
-    }
+    svg{width: 60px;}
 
     &:hover {
         .cartIcon svg,
@@ -64,5 +58,5 @@
             transform: scale(1.15);
         }
     }
- }
+}
 </style>
