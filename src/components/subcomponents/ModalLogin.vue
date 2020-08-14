@@ -5,7 +5,7 @@
             <button class="closeLoginButton" v-bind:aria-label="$t('button-arialabel-close-menu')" @click="$emit('close')"><closeIcon></closeIcon></button>
         </transition>
 
-        <div v-if="!success" class="formLogin revertColor">
+        <div v-if="!success && !isLoggedIn" class="formLogin revertColor">
 
             <p class="h1 col-12" v-html="accountlogin.title">{{accountlogin.title}}</p>
 
@@ -40,7 +40,7 @@
             </form>
         </div>
 
-        <div v-if="success" class="formLogin revertColor">
+        <div v-if="isLoggedIn" class="formLogin revertColor">
             <p class="h1 col-12">Bem vindo user X</p>
             <br> <br>
             <p>Aceda aqui aos detalhes da sua conta:</p>
@@ -51,6 +51,7 @@
 
 <script>
 import closeIcon from '../ui/closeIcon'
+import {mapState, mapGetters} from 'vuex'
 
 export default {
     name: 'loginModal',
@@ -86,7 +87,6 @@ export default {
             success: false,
             error_required: '',
             error_invalid: ''
-            
         }
     },
     created() {
@@ -98,6 +98,9 @@ export default {
         })
     },
     computed: {
+        ...mapGetters([
+            "isLoggedIn"
+        ]),
 		emailValidation () {
 
             const regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -147,6 +150,12 @@ export default {
                 this.$store.dispatch('login', 'token' ) // TODO: replace token to real one
                 this.success = true
 
+                if( this.$parent.redirectURL != '' ) 
+                {
+                    this.$router.push(this.$parent.redirectURL)
+                    this.$parent.showLoginForm = false
+                }
+
             }).catch((e) => {
                 this.errors.push(e.message)
             })
@@ -182,31 +191,6 @@ export default {
             }
 
             return !this.cont_password_login_error
-        },
-        login() {
-            
-            console.log('login')
-            
-            const userId = '123'
-            router.push({ path: '/auth/account', params: { userId } }) // -> /user
-            
-            // router.beforeEach((to, from, next) => {
-            //   if (to.name !== 'Login' && !isAuthenticated) next({ name: 'Login' })
-            //   else next()
-            // })
-
-            
-            // {
-            //     if(this.cont_email_login == this.$parent.mockAccount.username && this.cont_password == this.$parent.mockAccount.password) {
-            //         this.$emit("authenticated", true);
-            //         this.$router.replace({ name: "secure" });
-            //     } else {
-
-            //         console.log("The username and / or password is incorrect");
-            //     }
-            // } else {
-                
-            // }
         }
     },
     watch: {
@@ -217,7 +201,7 @@ export default {
         cont_password_login: function(newVal, oldVal) 
         { 
             this.validatePassword()
-        },
+        }
     }
 }
 </script>

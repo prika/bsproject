@@ -192,7 +192,7 @@ export default {
 body{margin: 0}
 
 .shoppingcart{
-  overflow-y: hidden;
+  overflow-x: hidden;
 }
 #shoppingCartPage{
     width: 100vw;

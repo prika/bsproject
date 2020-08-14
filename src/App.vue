@@ -5,7 +5,7 @@
           <Preloader v-if=" isLoaded === false " class="loader"></Preloader>
       </transition>
       
-      <transition appear enter-active-class="animated slideInDown delay-2s" leave-active-class="animated slideOutDown">
+      <transition appear enter-active-class="animated slideInDown delay-2s" leave-active-class="animated slideOutUp">
       <Header v-if="!(['faqs', 'privacy-policy'].indexOf($route.name) > -1)">
             <div class="logo d-flex col-lg-2 col-md-2" itemscope itemtype="http://schema.org/Organization">
                 <router-link to="/" itemprop="url" :alt="'Link to ' + $t('logo-aria-label')">
@@ -39,15 +39,15 @@
       <Scroll v-if="!isMobile() && (['Home', 'bloco-b'].indexOf($route.name) > -1)" />
 
       <keep-alive>
-      <Address v-if="!(['faqs', 'privacy-policy', 'news', 'newsdetail', 'product', 'productdetail', 'shoppingcart'].indexOf($route.name) > -1)" />
+      <Address v-if="!(['faqs', 'privacy-policy', 'news', 'newsdetail', 'productDetail', 'variantDetail', 'shoppingcart'].indexOf($route.name) > -1)" />
       </keep-alive>
 
       <keep-alive>
-      <Contacts v-if="!(['faqs', 'privacy-policy','news', 'newsdetail', 'product', 'productdetail', 'shoppingcart'].indexOf($route.name) > -1)" />
+      <Contacts v-if="!(['faqs', 'privacy-policy','news', 'newsdetail', 'productDetail', 'variantDetail', 'shoppingcart'].indexOf($route.name) > -1)" />
       </keep-alive>
 
       <keep-alive>
-      <Footer v-if="!(['faqs', 'privacy-policy','product', 'productdetail', 'shoppingcart'].indexOf($route.name) > -1)" />
+      <Footer v-if="!(['faqs', 'privacy-policy','productDetail', 'variantDetail', 'shoppingcart'].indexOf($route.name) > -1)" />
       </keep-alive>
   </div>
 </template>

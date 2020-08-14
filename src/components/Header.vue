@@ -20,10 +20,10 @@
                 <UserButton></UserButton>
               </button>
 
-              <router-link to="/shoppingcart" v-if="isLoggedIn && cartSize > 0" tag="button" class="buttons cartButton"
+              <button @click="showCart" v-if="cartSize > 0" tag="button" class="buttons cartButton"
                 v-bind:aria-label="$t('button-arialabel-open-cart')">
                 <CartButton>{{cartSize}}</CartButton>
-              </router-link>
+              </button>
           </div>
       </div>
 
@@ -73,9 +73,36 @@ export default {
     data() {
         return {
             showModal: false,
-            showLoginForm: false
+            showLoginForm: false,
+            redirectURL: null
         }
+    },
+    methods: 
+    {
+      showCart() 
+      {
+          if( this.isLoggedIn ) 
+          {
+              console.log('logged in')
+              this.$router.push('/shoppingcart')
+          } 
+          else 
+          {
+              console.log('not logged in')
+              this.showLoginForm = true
+              this.redirectURL = "/shoppingcart"
+              
+          }
+      }
     }
+    // ,
+    // watch: {
+    //     isLoggedIn
+    // }
+
+    // beforeDestroy() {
+    //   this.$eventBus.$off('pageFinishLoad')
+    // }
 }
 </script>
 

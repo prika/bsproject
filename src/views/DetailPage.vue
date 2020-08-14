@@ -58,7 +58,7 @@
                 <div class="tableScroll">
                   <ul class="variantTable">
                         <router-link v-for="variant in variants" :key="variant.name" tag="li" class="variantItem" 
-                                  :to="{path: '/bloco-b/category/'+ product.category + '/collection/' + product.collection + '/id/' + product.id + '/name/' + product.firstName+'-'+product.secondName+'/variant/'+variant.ref}">
+                                  :to="{path: '/bloco-b/category/'+ product.category + '/collection/' + product.collection + '/id/' + product.id + '/name/' + product.firstName+'_'+product.secondName+'/variant/'+variant.ref}">
                      
                               <div class="img">
                                 <img :src="getImgUrl(variant.img)" :alt="variant.alt" />

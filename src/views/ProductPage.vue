@@ -94,11 +94,12 @@ export default {
               this.hasScrollScript = true
               //return
           }
-  
+          /*
           $('html, body').mousewheel( function( e, delta ) {
               this.scrollLeft -= (delta);
               e.preventDefault();
           })
+          */
       },
       getImgUrl: function (src) 
       {
@@ -134,8 +135,8 @@ export default {
           this.$store.dispatch('removeFromCart', this.variant.ref)
       }
   },
-  created(){
-
+  created() {
+      
       this.$http.get('http://localhost:8081/mocks/products-variant-detail-mock.json').then(response => {
 
           this.variant = response.data.variant
