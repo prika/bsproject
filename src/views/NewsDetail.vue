@@ -66,12 +66,13 @@ export default {
 
 <style lang="scss">
 #newsdetailpage {
-    margin-top: 200px;
+    margin-top: 140px;
 
     .parallaxContainer{
         padding-top: 0;
 
-        .pageContentText{margin-top: 330px;}
+        .parallaxGroup1 .imageParallax1{top: 30%;}
+        .pageContentText{margin-top: 250px;}
     }
 
     .newsContainer .row{padding: 100px 0 0;}

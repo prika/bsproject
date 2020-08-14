@@ -42,7 +42,7 @@ export default {
 
 <style lang="scss">
 #newspage .newsContainer {
-   padding-top: 100px;
+   padding-top: 140px;
    .row{padding: 300px 0 0;}
 }
 </style>

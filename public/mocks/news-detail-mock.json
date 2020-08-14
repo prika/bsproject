@@ -7,14 +7,14 @@
         {   
             "src": "news/exemplo_noticia_a.jpg", 
             "alt": "Image Test", 
-            "speed": -2,
-            "addclass": "col-9 col-sm-7 img-fluid"
+            "speed": 2,
+            "addclass": "col-9 col-sm-7"
         },
         {
             "src": "news/exemplo_noticia_b.jpg", 
             "alt": "Image Test", 
-            "speed": 4,
-            "addclass": "col-9 col-sm-7 img-fluid"
+            "speed": 5,
+            "addclass": "col-9 col-sm-7"
         }
     ],
     "gallery2": [
@@ -22,31 +22,31 @@
             "src": "news/exemplo_noticia_c.jpg", 
             "alt": "Image Test", 
             "speed": 0,
-            "addclass": "col-5 img-fluid"
+            "addclass": "col-5"
         },
         {
             "src": "news/exemplo_noticia_d.jpg", 
             "alt": "Image Test", 
             "speed": 2,
-            "addclass": "col-4 img-fluid"
+            "addclass": "col-4"
         },
         {
             "src": "news/exemplo_noticia_a.jpg", 
             "alt": "Image Test", 
             "speed": -1,
-            "addclass": "col-4 img-fluid"
+            "addclass": "col-4"
         },
         {
             "src": "news/exemplo_noticia_b.jpg", 
             "alt": "Image Test", 
             "speed": -2,
-            "addclass": "col-4 img-fluid"
+            "addclass": "col-4"
         },
         {
             "src": "news/exemplo_noticia_a.jpg", 
             "alt": "Image Test", 
             "speed": 4,
-            "addclass": "col-4 img-fluid"
+            "addclass": "col-4"
         }
     ]
 }
