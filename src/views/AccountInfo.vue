@@ -9,7 +9,7 @@
             </transition>
             
             <div class="col-12 order-md-1">
-                <a class="extendedButton submitButton" href="javascript:void(0)" target="_blank" rel="noopener noreferrer nofollow">
+                <a @click="logout" class="extendedButton submitButton" href="javascript:void(0)" rel="noopener noreferrer nofollow">
                     <submitIcon>{{accountinfo.logoutButton}}</submitIcon>
                 </a>
             </div>
@@ -295,7 +295,8 @@ export default {
 
             return !this.cont_password_account_error
          },
-         validateConfirmationPassword: function() {
+         validateConfirmationPassword: function() 
+         {
             
             if( cont_password_confirm_account.value == '' ) {
                 this.cont_password_confirm_account_error = true
@@ -315,11 +316,17 @@ export default {
 
             return !this.cont_password_confirm_account_error
          },
-         validateCountry: function() {
+        validateCountry: function() 
+        {
             this.cont_country_account_error = this.cont_country_account === '' 
             this.cont_country_account_validator = this.cont_country_account_error ?  this.error_required : ""
             return !this.cont_country_account_error
-         }
+        },
+        logout: function()
+        {
+            this.$store.dispatch('logout', null)
+            this.$router.go(-1)
+        }
     },
     watch: {
         cont_name_account: function(newVal, oldVal) 

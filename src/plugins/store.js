@@ -22,6 +22,10 @@ export const store = new Vuex.Store({
     login: (state, token) =>
     {
         state.token = token
+    },
+    logout: (state, token) =>
+    {
+        state.token = null
     }
   },
   actions: 
@@ -41,6 +45,10 @@ export const store = new Vuex.Store({
     login: ({commit}, token) =>
     {
         commit("login", token)
+    },
+    logout: ({commit}, token) =>
+    {
+        commit("logout", token)
     }
   },
   getters: 

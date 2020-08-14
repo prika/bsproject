@@ -15,7 +15,7 @@
                </router-link>
 
               <button class="buttons userButton" 
-                @click="showLoginForm = true"
+                @click="autentication()"
                 v-bind:aria-label="$t('button-arialabel-open-login')">
                 <UserButton></UserButton>
               </button>
@@ -83,26 +83,28 @@ export default {
       {
           if( this.isLoggedIn ) 
           {
-              console.log('logged in')
               this.$router.push('/shoppingcart')
           } 
           else 
           {
-              console.log('not logged in')
               this.showLoginForm = true
               this.redirectURL = "/shoppingcart"
               
           }
+      },
+      autentication()
+      {
+          if( !this.isLoggedIn ) 
+          {
+            this.showLoginForm = true
+            this.redirectURL = "/account"
+          } 
+          else 
+          {
+            this.$router.push('/account')
+          }
       }
     }
-    // ,
-    // watch: {
-    //     isLoggedIn
-    // }
-
-    // beforeDestroy() {
-    //   this.$eventBus.$off('pageFinishLoad')
-    // }
 }
 </script>
 
