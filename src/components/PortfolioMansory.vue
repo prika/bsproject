@@ -10,7 +10,7 @@
                       @click="showGalleryFunction(index)" 
                       class="masonry-brick masonry-brick--v">
 
-                  <img  :src="image.url" 
+                  <img  :src="image.src" 
                         :alt="image.alt" 
                         :width="image.width"  
                         :height="image.height"
@@ -57,8 +57,8 @@ export default {
               let thumb = source[i].thumb
               let largeImage = source[i].large
 
-              thumb.url = this.getImgUrl(thumb.url) 
-              largeImage.url = this.getImgUrl(largeImage.url) 
+              thumb.src = this.getImgUrl(thumb.src) 
+              largeImage.src = this.getImgUrl(largeImage.src) 
               
               this.thumbs.push(thumb)
               this.largeImages.push(largeImage)
