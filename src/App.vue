@@ -1,11 +1,11 @@
 <template>
   <div id="bstoneproject" :class="$route.name">
   
-      <transition leave-active-class="animated slideOutUp faster">
+      <transition leave-active-class="animated slideOutUp faster delay-1s">
           <Preloader v-if=" isLoaded === false " class="loader"></Preloader>
       </transition>
       
-      <keep-alive>
+      <transition appear enter-active-class="animated slideInDown delay-2s" leave-active-class="animated slideOutDown">
       <Header v-if="!(['faqs', 'privacy-policy'].indexOf($route.name) > -1)">
             <div class="logo d-flex col-lg-2 col-md-2" itemscope itemtype="http://schema.org/Organization">
                 <router-link to="/" itemprop="url" :alt="'Link to ' + $t('logo-aria-label')">
@@ -23,7 +23,6 @@
                         :aria-label="$t('logo-aria-label')" />
                 </router-link>
             </div>
-
             
             <Menu v-if="!isMobile()" />
             <MenuMobile v-else-if="isMobile() && showMobileMenu == true" @close="showMobileMenu = false" />
@@ -33,7 +32,7 @@
                     v-if="isMobile()"
                     @click="showMobileMenu = true"></button>
       </Header>
-      </keep-alive>
+      </transition>
       
       <router-view />
 
