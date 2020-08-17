@@ -4,14 +4,13 @@
         <slot></slot>
 
         <div class="wrapper">
-            <div class="masonry masonry--v effect">
+            <div class="masonry masonry--v effect" :page="currentPage">
 
-              <figure v-for="(image, index) in thumbs" :key="image.id"
+              <figure v-for="(image, index) in selectedThumbs" :key="image.id"
                       @click="showGalleryFunction(index)" 
-                      :class=" image.type == 'video' ? 'video masonry-brick masonry-brick--v' : 'masonry-brick masonry-brick--v' "
-                      class="">
+                      :class=" image.type == 'video' ? 'video masonry-brick masonry-brick--v' : 'masonry-brick masonry-brick--v' ">
 
-                  <img  :src="image.src" 
+                  <img  :src="image.src"
                         :alt="image.alt" 
                         :width="image.width+'px'"  
                         :height="image.height+'px'"
@@ -20,7 +19,10 @@
             
             </div>
 
-            <seeMoreButton> {{ $t('seemoreLink') }} </seeMoreButton>
+            <a @click="loadMoreClick" v-if="currentPage < this.thumbs.length / this.itemsPerComponent"
+            style="display: block; text-align: center; margin: 50px 0 200px;">
+              <seeMoreButton>{{ $t('seemoreLink') }}</seeMoreButton></a>
+
         </div>
 
         <modalGallery v-if="showGallery" @close="showGallery = false" />
@@ -39,13 +41,19 @@ export default {
     data() {
         return {
             thumbs: [],
+            selectedThumbs: [],
             largeImages:[],
             showGallery: false,
-            selectedIndex: 0
+            selectedIndex: 0,
+            currentPage: 1,
+            itemsPerComponent: 7,
+            hasLink: false
         }
     },
-    methods: {
-      getImgUrl: function (src) {
+    methods: 
+    {
+      getImgUrl: function (src) 
+      {
         return require('@/assets/images/'+src)
       },
       parseObject: function(source)
@@ -65,17 +73,25 @@ export default {
               this.largeImages.push(largeImage)
           }
       },
-      showGalleryFunction(index){
+      showGalleryFunction(index)
+      {
 
           this.showGallery = true
           this.selectedIndex = index
 
+      },
+      loadMoreClick()
+      {
+          let slice = this.thumbs.slice( this.currentPage * this.itemsPerComponent, ( this.currentPage + 1 ) * this.itemsPerComponent)
+          this.selectedThumbs = this.selectedThumbs.concat(slice)
+          this.currentPage++
       }
     },
     mounted() {
         this.$eventBus.$on('mansoryFinishLoad', (data) => {
 
             this.parseObject( data )
+            this.selectedThumbs = this.thumbs.slice(0, this.itemsPerComponent)
             this.$eventBus.$emit('componentFinishLoad', 'mansoryLoaded')
 
         })
@@ -99,33 +115,36 @@ padding-top: 110px;
 
       .masonry {
         display: flex;
-        max-height: 1500px;
 
-         img {
-            vertical-align: middle;
-            max-width: 100%;
-          }
+        &[page="1"]{ max-height: 1000px }
+        &[page="2"]{ max-height: 1500px }
+        &[page="3"]{ max-height: 2000px }
+        &[page="4"]{ max-height: 2500px }
+
+        img {
+          vertical-align: middle;
+          max-width: 100%;
+        }
       }
   }
 
 
-// .masonry .effect{
-//   perspective: 1300px;
+/* .masonry .effect{
+  perspective: 1300px;
 
-//   figure{
-//       transform-style: preserve-3d;
+  figure{
+      transform-style: preserve-3d;
+      transform: translateZ(400px) translateY(300px) rotateX(-90deg);
+      animation: fallPerspective .8s ease-in-out forwards;
+  }
+}
 
-//       &.animate{
-//           transform: translateZ(400px) translateY(300px) rotateX(-90deg);
-// 	        animation: fallPerspective .8s ease-in-out forwards;
-//       }
-//   }
-
-// }
-
-// @keyframes fallPerspective {
-// 	100% { transform: translateZ(0px) translateY(0px) rotateX(0deg); opacity: 1; }
-// }
+@keyframes fallPerspective {
+  100% { 
+          transform: translateZ(0px) translateY(0px) rotateX(0deg); 
+          opacity: 1; 
+        }
+} */
 
 .masonry--v {
   flex-flow: column wrap;
