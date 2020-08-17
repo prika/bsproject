@@ -6,7 +6,7 @@
               <p class="productName" itemprop="name" :aria-label="variant.firstName+' '+variant.secondName">
                   <mark>
                       <span></span>
-                      {{variant.firstName}}</br>{{variant.secondName}} 
+                      {{variant.firstName}}<br>{{variant.secondName}} 
                   </mark>
               </p>
           </transition>
@@ -24,10 +24,11 @@
 
       <transition appear enter-active-class="animated fadeInUp delay-1s" leave-active-class="animated fadeOutDown">
          <div class="galleryScrollSlider">
-              <a @click="showGalleryFunction(index)" href="javascript:void(0)" class="containerImage" v-for="(thumb, index) in thumbs" :key="thumb.id">
+              <a @click="showGalleryFunction(index)" href="javascript:void(0)" class="containerImage" 
+                v-for="(thumb, index) in thumbs" :key="thumb.id">
                    <img :src="thumb.url"
                     class="productImage" itemprop="image"
-                    :alt="thumb.alt" :width="thumb.width" :height="thumb.height">
+                    :alt="thumb.alt" :width="thumb.width+'px'" :height="thumb.height+'px'">
               </a>
          </div>
       </transition>
@@ -94,12 +95,12 @@ export default {
               this.hasScrollScript = true
               //return
           }
-          /*
+          
           $('html, body').mousewheel( function( e, delta ) {
               this.scrollLeft -= (delta);
-              e.preventDefault();
+              //e.preventDefault();
           })
-          */
+         
       },
       getImgUrl: function (src) 
       {
@@ -147,13 +148,6 @@ export default {
       })
       
   }
-  // ,
-  // destroyed() {
-  //     $('html').mousewheel(function(e, delta) {
-  //       this.scrollLeft == (delta);
-  //       //e.preventDefault();
-  //     });
-  // }
 }
 </script>
 

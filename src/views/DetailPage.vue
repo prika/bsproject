@@ -6,7 +6,7 @@
               <p class="productName" itemprop="name">
                   <mark>
                       <span></span>
-                      {{ product.firstName }} </br> {{ product.secondName }}
+                      {{ product.firstName }} <br> {{ product.secondName }}
                   </mark>
               </p>
               <h1 class="pageTitle" v-show="!showDetail">{{product.categoryNameSplit1}}<span>{{product.categoryNameSplit2}}</span></h1>
@@ -154,14 +154,12 @@ export default {
       {
           this.currentPage = 0
 
-
           if( this.activeFilter == sortProperty ) {
               this.activeFilter = ''
           } else {
             this.activeFilter = sortProperty
           }
           
-
           switch (sortProperty)
           {
             case "filter1":
@@ -724,6 +722,17 @@ body{margin: 0}
 }
 
 @media (max-width: 1024px) {
+  #detailPage .productDetailLeft .pageTitle{
+    font-size: 8rem;
+    line-height: 7rem;
+
+    span{
+        padding-left: 115px;
+
+        &:before{ width: 90px; }
+    }
+  }
+  
   .productVariationList .filters{left: 155px;}
 }
 </style>
