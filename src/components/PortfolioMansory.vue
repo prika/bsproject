@@ -8,12 +8,13 @@
 
               <figure v-for="(image, index) in thumbs" :key="image.id"
                       @click="showGalleryFunction(index)" 
-                      class="masonry-brick masonry-brick--v">
+                      :class=" image.type == 'video' ? 'video masonry-brick masonry-brick--v' : 'masonry-brick masonry-brick--v' "
+                      class="">
 
                   <img  :src="image.src" 
                         :alt="image.alt" 
-                        :width="image.width"  
-                        :height="image.height"
+                        :width="image.width+'px'"  
+                        :height="image.height+'px'"
                         class="masonry-img">
               </figure>
             
@@ -142,6 +143,35 @@ padding-top: 110px;
   -moz-transition:        all .3s cubic-bezier(.4,1.03,.83,.56);
   -o-transition:          all .3s cubic-bezier(.4,1.03,.83,.56);
   transition:             all .3s cubic-bezier(.4,1.03,.83,.56);
+
+  &.video{
+
+    &::before,
+    &::after{
+      content: '';
+      position: absolute;
+      top: calc( 50% - 30px );
+      left: calc( 50% - 30px );
+      width: 60px;
+      height: 60px;
+      z-index: 2;
+      -webkit-transition:   opacity 0.3s cubic-bezier(0, .5, 0, 1);
+      -moz-transition:      opacity 0.3s cubic-bezier(0, .5, 0, 1);
+      -o-transition:        opacity 0.3s cubic-bezier(0, .5, 0, 1);
+      transition:           opacity 0.3s cubic-bezier(0, .5, 0, 1);
+      background: url(../assets/images/icons/play.svg) no-repeat center center;
+    }
+
+    &::after{
+      background: url(../assets/images/icons/play-hover.svg) no-repeat center center;
+      opacity: 0;
+    }
+
+    &:hover {
+      &::before{  opacity: 0}
+      &::after{   opacity: 1}
+    }
+  }
 }
 
 
