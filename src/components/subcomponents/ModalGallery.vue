@@ -17,12 +17,12 @@
 
                             <img v-if="image.type == 'img'"
                                 :src="image.src"
-                                :width="image.width" :height="image.height" 
+                                :width="image.width+'px'" :height="image.height+'px'" 
                                 :alt="image.alt"  itemprop="image">
 
                             <div v-if="image.type == 'video' && image.provider == 'upload'" 
                                 :ref="'player'+index"
-                                :width="image.width"  :height="image.height"
+                                :width="image.width+'px'"  :height="image.height+'px'"
                                 :key="image.id">
 
                                 <video  crossorigin playsinline :id="'video'+index"
@@ -38,13 +38,14 @@
 
                             <div v-if="image.type == 'video' && image.provider == 'youtube'"
                                     :id="'videoContainer'+index">
-                                    <div :id="'youtube_video_'+index" :width="image.width"  :height="image.height"></div>
+                                    <div :id="'youtube_video_'+index" 
+                                        :width="image.width+'px'"  :height="image.height+'px'"></div>
                             </div>
 
 
                             <div v-if="image.type == 'video' && image.provider == 'vimeo'" 
                                         :ref="'player'+index"
-                                        :width="image.width"  :height="image.height"
+                                        :width="image.width+'px'"  :height="image.height+'px'"
                                         :key="image.id" :poster="getImgUrl(image.src)">
 
                                     <div    :id="'vimeo_video_'+index"
@@ -103,12 +104,10 @@ export default {
             vimeoPlayers: {}
         }
     },
-    mounted() {
+    created() {
         this.largeImages = this.$parent.largeImages
         this.selectedIndex = this.$parent.selectedIndex
-        this.galleryPosition = 25-(this.selectedIndex * 50);
-
-        debugger
+        this.galleryPosition = 25-(this.selectedIndex * 50)
 
         var hasYoutubeVideoPlayerScript = false
         var hasVimeoVideoPlayerScript = false
@@ -129,7 +128,6 @@ export default {
         }
 
         window.onYouTubeIframeAPIReady = this.onYouTubeIframeAPIReady
-
     },
     methods: {
         prevSlide: function() {
@@ -179,7 +177,6 @@ export default {
                 })
 
                 this.youtubePlayers[i] = player
-                debugger
             }
         },
         onVimeoIframeAPIReady: function() {
@@ -211,13 +208,11 @@ export default {
 
             if ( videoType == "uploaded" ){
                 let playElement = document.getElementById("video" + this.selectedIndex)
-                //playElement.addEventListener('ended', this.next );
                 playElement.play()
                 return
             }
 
             if ( videoType == "youtube" ) {
-                debugger
                 console.log(this.youtubePlayers[this.selectedIndex])
                 this.youtubePlayers[this.selectedIndex].playVideo().mute()
                 return
@@ -231,11 +226,6 @@ export default {
         pauseMedia: function() {
 
             let videoType = this.imageGroupSliderGallery[this.selectedIndex].provider
-
-            // if ( videoType == "img") {
-            //     clearInterval(this.timer); 
-            //     return
-            // }
 
             if ( videoType == "uploaded" ){   document.getElementById("video" + this.selectedIndex).pause() }
             if ( videoType == "youtube" ){    this.youtubePlayers[this.selectedIndex].pauseVideo() }
@@ -254,6 +244,7 @@ export default {
     right: 0;
     bottom: 0;
     
+    .closebutton{z-index:2}
 
     .gallerySliderContainer {
         height: 100vh;
@@ -293,8 +284,13 @@ export default {
                     transition:             all 0.2s ease;
                 }
 
+                iframe{
+                    max-width: 100%;
+                    max-height: 100%;
+                }
+
                 &.selected img{ 
-                    max-width: 65%;
+                    max-width: 100%;
                     filter:         brightness(100%);
                     -webkit-filter: brightness(100%);
                     -moz-filter:    brightness(100%);

@@ -24,9 +24,10 @@
 
       <transition appear enter-active-class="animated fadeInUp delay-1s" leave-active-class="animated fadeOutDown">
          <div class="galleryScrollSlider">
-              <a @click="showGalleryFunction(index)" href="javascript:void(0)" class="containerImage" 
-                v-for="(thumb, index) in thumbs" :key="thumb.id">
-                   <img :src="thumb.url"
+              <a @click="showGalleryFunction(index)" href="javascript:void(0)"
+                v-for="(thumb, index) in thumbs" :key="thumb.id"
+                :class=" thumb.type == 'img' ? 'containerImage' : 'containerImage video'">
+                   <img :src="thumb.src"
                     class="productImage" itemprop="image"
                     :alt="thumb.alt" :width="thumb.width+'px'" :height="thumb.height+'px'">
               </a>
@@ -113,8 +114,8 @@ export default {
               let thumb = source[i].thumb
               let largeImage = source[i].large
 
-              thumb.url = this.getImgUrl(thumb.url) 
-              largeImage.url = this.getImgUrl(largeImage.url) 
+              thumb.src = this.getImgUrl(thumb.src) 
+              largeImage.src = this.getImgUrl(largeImage.src) 
               
               this.thumbs.push(thumb)
               this.largeImages.push(largeImage)
@@ -246,6 +247,7 @@ body{margin: 0}
         .containerImage{
             height: 20vh;
             width: 20vh;
+            position: relative;
             overflow: hidden;
             z-index: 0;
             display: inline-block;
@@ -272,6 +274,35 @@ body{margin: 0}
               -o-transform:          scale(1.1);
               transform:             scale(1.1);
             }
+
+            &.video{
+
+              &::before,
+              &::after{
+                content: '';
+                position: absolute;
+                top: calc( 50% - 30px );
+                left: calc( 50% - 30px );
+                width: 60px;
+                height: 60px;
+                z-index: 2;
+                -webkit-transition:   opacity 0.3s cubic-bezier(0, .5, 0, 1);
+                -moz-transition:      opacity 0.3s cubic-bezier(0, .5, 0, 1);
+                -o-transition:        opacity 0.3s cubic-bezier(0, .5, 0, 1);
+                transition:           opacity 0.3s cubic-bezier(0, .5, 0, 1);
+                background: url(../assets/images/icons/play.svg) no-repeat center center;
+              }
+
+              &::after{
+                background: url(../assets/images/icons/play-hover.svg) no-repeat center center;
+                opacity: 0;
+              }
+
+              &:hover {
+                &::before{  opacity: 0}
+                &::after{   opacity: 1}
+              }
+          }
         }
     }
 
