@@ -30,122 +30,135 @@
             "id": "bi0",
             "type": "img",
             "thumb" : {
-                "url": "explore/explore_1.jpg",
+                "type": "img",
+                "src": "explore/explore_1.jpg",
                 "alt": "bi1-266 - Bla bla bla",
-                "width": "300px",
-                "height": "300px"
+                "width": 300,
+                "height": 300
             },
             "large" : {
-                "url": "explore/explore_1.jpg",
+                "type": "img",
+                "src": "explore/explore_1.jpg",
                 "alt": "bi1-266 - Bla bla bla",
-                "width": "800px",
-                "height": "800px"
+                "width": 800,
+                "height": 800
             }
         },
         {
             "id": "bi1",
             "type": "img",
             "thumb" : {
-                "url": "explore/explore_2.jpg",
+                "type": "img",
+                "src": "explore/explore_2.jpg",
                 "alt": "bi1-266 - Bla bla bla",
-                "width": "1067px",
-                "height": "1600px"
+                "width": 1067,
+                "height": 1600
             },
             "large" : {
-                "url": "explore/explore_2.jpg",
+                "type": "img",
+                "src": "explore/explore_2.jpg",
                 "alt": "bi1-266 - Bla bla bla",
-                "width": "1067px",
-                "height": "1600px"
+                "width": 1067,
+                "height": 1600
             }
         },
         {
             "id": "bi2",
             "type": "img",
             "thumb" : {
-                "url": "explore/explore_3.jpg",
+                "type": "img",
+                "src": "explore/explore_3.jpg",
                 "alt": "bi1-266 - Bla bla bla",
-                "width": "348px",
-                "height": "232px"
+                "width": 348,
+                "height": 232
             },
             "large" : {
-                "url": "explore/explore_3.jpg",
+                "type": "img",
+                "src": "explore/explore_3.jpg",
                 "alt": "bi1-266 - Bla bla bla",
-                "width": "348px",
-                "height": "232px"
+                "width": 348,
+                "height": 232
             }
         },
         {
             "id": "bi3",
             "type": "img",
             "thumb" : {
-                "url": "explore/explore_4.jpg",
+                "type": "img",
+                "src": "explore/explore_4.jpg",
                 "alt": "bi1-266 - Bla bla bla",
-                "width": "871px", "height": "1270px"
+                "width": 871, "height": 1270
             },
             "large" : {
-                "url": "explore/explore_4.jpg",
+                "type": "img",
+                "src": "explore/explore_4.jpg",
                 "alt": "bi1-266 - Bla bla bla",
-                "width": "871px", "height": "1270px"
+                "width": 871, "height": 1270
             }
         },
         {
             "id": "bi4",
             "type": "video",
-            "provider": "youtubi",
+            "provider": "youtube",
             "thumb" : {
-                "url": "explore/explore_5.jpg",
+                "type": "img",
+                "src": "explore/explore_5.jpg",
                 "alt": "bi1-266 - Bla bla bla",
-                "width": "348px", "height": "232px"
+                "width": 348, "height": 232
             },
             "large" : {
-                "url": "explore/explore_5.jpg",
+                "type": "img",
+                "src": "explore/explore_5.jpg",
                 "alt": "bi1-266 - Bla bla bla",
-                "width": "871px", "height": "1270px"
+                "width": 871, "height": 1270
             }
         },
         {
             "id": "bi5",
             "type": "img",
-            "provider": "",
             "thumb" : {
-                "url": "explore/explore_6.jpg",
+                "type": "img",
+                "src": "explore/explore_6.jpg",
                 "alt": "bi1-266 - Bla bla bla",
-                "width": "348px", "height": "521px"
+                "width": 348, "height": 521
             },
             "large" : {
-                "url": "explore/explore_6.jpg",
+                "type": "img",
+                "src": "explore/explore_6.jpg",
                 "alt": "bi1-266 - Bla bla bla",
-                "width": "871px", "height": "1270px"
+                "width": 871, "height": 1270
             }
         },
         {
             "id": "bi6",
             "type": "img",
-            "provider": "",
             "thumb" : {
-                "url": "explore/explore_7.jpg",
+                "type": "img",
+                "src": "explore/explore_7.jpg",
                 "alt": "bi1-266 - Bla bla bla",
-                "width": "1600px", "height": "1089px"
+                "width": 1600, "height": 1089
             },
             "large" : {
-                "url": "explore/explore_7.jpg",
+                "type": "img",
+                "src": "explore/explore_7.jpg",
                 "alt": "bi1-266 - Bla bla bla",
-                "width": "871px", "height": "1270px"
+                "width": 871, "height": 1270
             }
         },
         {
             "id": "bi7",
             "type": "img",
-            "provider": "",
             "thumb" : {
-                "url": "explore/explore_8.jpg",
+                "type": "img",
+                "src": "explore/explore_8.jpg",
                 "alt": "bi1-266 - Bla bla bla",
-                "width": "348px", "height": "232px"
+                "width": 348, "height": 232
             },
             "large" : {
-                "url": "explore/explore_8.jpg",
+                "type": "img",
+                "src": "explore/explore_8.jpg",
                 "alt": "bi1-266 - Bla bla bla",
-                "width": "871px", "height": "1270px"
+                "width": 871, "height": 1270
             }
         },
         {
@@ -153,151 +166,167 @@
             "type": "img",
             "provider": "",
             "thumb" : {
-                "url": "explore/explore_9.jpg",
+                "type": "img",
+                "src": "explore/explore_9.jpg",
                 "alt": "bi1-266 - Bla bla bla",
-                "width": "348px", "height": "232px"
+                "width": 348, "height": 232
             },
             "large" : {
-                "url": "explore/explore_9.jpg",
+                "type": "img",
+                "src": "explore/explore_9.jpg",
                 "alt": "bi1-266 - Bla bla bla",
-                "width": "871px", "height": "1270px"
+                "width": 871, "height": 1270
             }
         },
         {
             "id": "bi9",
             "type": "img",
             "thumb" : {
-                "url": "explore/explore_1.jpg",
+                "type": "img",
+                "src": "explore/explore_1.jpg",
                 "alt": "bi1-266 - Bla bla bla",
-                "width": "300px",
-                "height": "300px"
+                "width": 300,
+                "height": 300
             },
             "large" : {
-                "url": "explore/explore_1.jpg",
+                "type": "img",
+                "src": "explore/explore_1.jpg",
                 "alt": "bi1-266 - Bla bla bla",
-                "width": "800px",
-                "height": "800px"
+                "width": 800,
+                "height": 800
             }
         },
         {
             "id": "bi10",
             "type": "img",
             "thumb" : {
-                "url": "explore/explore_2.jpg",
+                "type": "img",
+                "src": "explore/explore_2.jpg",
                 "alt": "bi1-266 - Bla bla bla",
-                "width": "1067px",
-                "height": "1600px"
+                "width": 1067,
+                "height": 1600
             },
             "large" : {
-                "url": "explore/explore_2.jpg",
+                "type": "img",
+                "src": "explore/explore_2.jpg",
                 "alt": "bi1-266 - Bla bla bla",
-                "width": "1067px",
-                "height": "1600px"
+                "width": 1067,
+                "height": 1600
             }
         },
         {
             "id": "bi11",
             "type": "img",
             "thumb" : {
-                "url": "explore/explore_3.jpg",
+                "type": "img",
+                "src": "explore/explore_3.jpg",
                 "alt": "bi1-266 - Bla bla bla",
-                "width": "348px",
-                "height": "232px"
+                "width": 348,
+                "height": 232
             },
             "large" : {
-                "url": "explore/explore_3.jpg",
+                "type": "img",
+                "src": "explore/explore_3.jpg",
                 "alt": "bi1-266 - Bla bla bla",
-                "width": "348px",
-                "height": "232px"
+                "width": 348,
+                "height": 232
             }
         },
         {
             "id": "bi12",
             "type": "img",
             "thumb" : {
-                "url": "explore/explore_4.jpg",
+                "type": "img",
+                "src": "explore/explore_4.jpg",
                 "alt": "bi1-266 - Bla bla bla",
-                "width": "871px", "height": "1270px"
+                "width": 871, "height": 1270
             },
             "large" : {
-                "url": "explore/explore_4.jpg",
+                "type": "img",
+                "src": "explore/explore_4.jpg",
                 "alt": "bi1-266 - Bla bla bla",
-                "width": "871px", "height": "1270px"
+                "width": 871, "height": 1270
             }
         },
         {
             "id": "bi13",
             "type": "video",
-            "provider": "youtubi",
+            "provider": "youtube",
             "thumb" : {
-                "url": "explore/explore_5.jpg",
+                "type": "img",
+                "src": "explore/explore_5.jpg",
                 "alt": "bi1-266 - Bla bla bla",
-                "width": "348px", "height": "232px"
+                "width": 348, "height": 232
             },
             "large" : {
-                "url": "explore/explore_5.jpg",
+                "type": "img",
+                "src": "explore/explore_5.jpg",
                 "alt": "bi1-266 - Bla bla bla",
-                "width": "871px", "height": "1270px"
+                "width": 871, "height": 1270
             }
         },
         {
             "id": "bi14",
             "type": "img",
-            "provider": "",
             "thumb" : {
-                "url": "explore/explore_6.jpg",
+                "type": "img",
+                "src": "explore/explore_6.jpg",
                 "alt": "bi1-266 - Bla bla bla",
-                "width": "348px", "height": "521px"
+                "width": 348, "height": 521
             },
             "large" : {
-                "url": "explore/explore_6.jpg",
+                "type": "img",
+                "src": "explore/explore_6.jpg",
                 "alt": "bi1-266 - Bla bla bla",
-                "width": "871px", "height": "1270px"
+                "width": 871, "height": 1270
             }
         },
         {
             "id": "bi15",
             "type": "img",
-            "provider": "",
             "thumb" : {
-                "url": "explore/explore_7.jpg",
+                "type": "img",
+                "src": "explore/explore_7.jpg",
                 "alt": "bi1-266 - Bla bla bla",
-                "width": "1600px", "height": "1089px"
+                "width": 1600, "height": 1089
             },
             "large" : {
-                "url": "explore/explore_7.jpg",
+                "type": "img",
+                "src": "explore/explore_7.jpg",
                 "alt": "bi1-266 - Bla bla bla",
-                "width": "871px", "height": "1270px"
+                "width": 871, "height": 1270
             }
         },
         {
             "id": "bi16",
             "type": "img",
-            "provider": "",
             "thumb" : {
-                "url": "explore/explore_8.jpg",
+                "type": "img",
+                "src": "explore/explore_8.jpg",
                 "alt": "bi1-266 - Bla bla bla",
-                "width": "348px", "height": "232px"
+                "width": 348, "height": 232
             },
             "large" : {
-                "url": "explore/explore_8.jpg",
+                "type": "img",
+                "src": "explore/explore_8.jpg",
                 "alt": "bi1-266 - Bla bla bla",
-                "width": "871px", "height": "1270px"
+                "width": 871, "height": 1270
             }
         },
         {
             "id": "bi17",
             "type": "img",
-            "provider": "",
             "thumb" : {
-                "url": "explore/explore_9.jpg",
+                "type": "img",
+                "src": "explore/explore_9.jpg",
                 "alt": "bi1-266 - Bla bla bla",
-                "width": "348px", "height": "232px"
+                "width": 348, "height": 232
             },
             "large" : {
-                "url": "explore/explore_9.jpg",
+                "type": "img",
+                "src": "explore/explore_9.jpg",
                 "alt": "bi1-266 - Bla bla bla",
-                "width": "871px", "height": "1270px"
+                "width": 871, "height": 1270
             }
         }
     ]

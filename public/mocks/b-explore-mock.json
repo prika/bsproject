@@ -11,15 +11,15 @@
                 "type": "img",
                 "src": "explore/explore_1.jpg",
                 "alt": "BE1-266 - Bla bla bla",
-                "width": "300px",
-                "height": "300px"
+                "width": 300, 
+                "height": 300
             },
             "large" : {
                 "type": "img",
                 "src": "explore/explore_1.jpg",
                 "alt": "BE1-266 - Bla bla bla",
-                "width": "800px",
-                "height": "800px"
+                "width": 800,
+                "height": 800
             }
         },
         {
@@ -29,15 +29,15 @@
                 "type": "img",
                 "src": "explore/explore_2.jpg",
                 "alt": "BE1-266 - Bla bla bla",
-                "width": "1067px",
-                "height": "1600px"
+                "width": 1067,
+                "height": 1600
             },
             "large" : {
                 "type": "img",
                 "src": "explore/explore_2.jpg",
                 "alt": "BE1-266 - Bla bla bla",
-                "width": "1067px",
-                "height": "1600px"
+                "width": 1067,
+                "height": 1600
             }
         },
         {
@@ -47,15 +47,15 @@
                 "type": "img",
                 "src": "explore/explore_3.jpg",
                 "alt": "BE1-266 - Bla bla bla",
-                "width": "348px",
-                "height": "232px"
+                "width": 348,
+                "height": 232
             },
             "large" : {
                 "type": "img",
                 "src": "explore/explore_3.jpg",
                 "alt": "BE1-266 - Bla bla bla",
-                "width": "348px",
-                "height": "232px"
+                "width": 348,
+                "height": 232
             }
         },
         {
@@ -65,13 +65,15 @@
                 "type": "img",
                 "src": "explore/explore_4.jpg",
                 "alt": "BE1-266 - Bla bla bla",
-                "width": "871px", "height": "1270px"
+                "width": 871, 
+                "height": 1270
             },
             "large" : {
                 "type": "img",
                 "src": "explore/explore_4.jpg",
                 "alt": "BE1-266 - Bla bla bla",
-                "width": "871px", "height": "1270px"
+                "width": 871, 
+                "height": 1270
             }
         },
         {
@@ -81,7 +83,8 @@
                 "type": "video",
                 "src": "explore/explore_5.jpg",
                 "alt": "BE1-266 - Bla bla bla",
-                "width": "348px", "height": "232px"
+                "width": 348, 
+                "height": 232
             },
             "large" : {
                 "type": "video",
@@ -89,7 +92,8 @@
                 "src": "banners/BlocoB-7234_Banner.jpg", 
                 "srcvideo": "bTqVqk7FSmY",
                 "alt": "BE1-266 - Bla bla bla",
-                "width": "871px", "height": "1270px"
+                "width": 871, 
+                "height": 1270
             }
         },
         {
@@ -99,13 +103,15 @@
                 "type": "img",
                 "src": "explore/explore_6.jpg",
                 "alt": "BE1-266 - Bla bla bla",
-                "width": "348px", "height": "521px"
+                "width": 348, 
+                "height": 521
             },
             "large" : {
                 "type": "img",
                 "src": "explore/explore_6.jpg",
                 "alt": "BE1-266 - Bla bla bla",
-                "width": "871px", "height": "1270px"
+                "width": 871, 
+                "height": 1270
             }
         },
         {
@@ -115,13 +121,15 @@
                 "type": "img",
                 "src": "explore/explore_7.jpg",
                 "alt": "BE1-266 - Bla bla bla",
-                "width": "1600px", "height": "1089px"
+                "width": 1600, 
+                "height": 1089
             },
             "large" : {
                 "type": "img",
                 "src": "explore/explore_7.jpg",
                 "alt": "BE1-266 - Bla bla bla",
-                "width": "871px", "height": "1270px"
+                "width": 871, 
+                "height": 1270
             }
         },
         {
@@ -131,13 +139,15 @@
                 "type": "img",
                 "src": "explore/explore_8.jpg",
                 "alt": "BE1-266 - Bla bla bla",
-                "width": "348px", "height": "232px"
+                "width": 348, 
+                "height": 232
             },
             "large" : {
                 "type": "img",
                 "src": "explore/explore_8.jpg",
                 "alt": "BE1-266 - Bla bla bla",
-                "width": "871px", "height": "1270px"
+                "width": 871, 
+                "height": 1270
             }
         },
         {
@@ -146,13 +156,15 @@
                 "type": "img",
                 "src": "explore/explore_9.jpg",
                 "alt": "BE1-266 - Bla bla bla",
-                "width": "348px", "height": "232px"
+                "width": 348, 
+                "height": 232
             },
             "large" : {
                 "type": "img",
                 "src": "explore/explore_9.jpg",
                 "alt": "BE1-266 - Bla bla bla",
-                "width": "871px", "height": "1270px"
+                "width": 871, 
+                "height": 1270
             }
         },
         {
@@ -162,15 +174,15 @@
                 "type": "img",
                 "src": "explore/explore_1.jpg",
                 "alt": "BE1-266 - Bla bla bla",
-                "width": "300px",
-                "height": "300px"
+                "width": 300,
+                "height": 300
             },
             "large" : {
                 "type": "img",
                 "src": "explore/explore_1.jpg",
                 "alt": "BE1-266 - Bla bla bla",
-                "width": "800px",
-                "height": "800px"
+                "width": 800,
+                "height": 800
             }
         },
         {
@@ -180,15 +192,15 @@
                 "type": "img",
                 "src": "explore/explore_2.jpg",
                 "alt": "BE1-266 - Bla bla bla",
-                "width": "1067px",
-                "height": "1600px"
+                "width": 1067,
+                "height": 1600
             },
             "large" : {
                 "type": "img",
                 "src": "explore/explore_2.jpg",
                 "alt": "BE1-266 - Bla bla bla",
-                "width": "1067px",
-                "height": "1600px"
+                "width": 1067,
+                "height": 1600
             }
         },
         {
@@ -198,15 +210,15 @@
                 "type": "img",
                 "src": "explore/explore_3.jpg",
                 "alt": "BE1-266 - Bla bla bla",
-                "width": "348px",
-                "height": "232px"
+                "width": 348,
+                "height": 232
             },
             "large" : {
                 "type": "img",
                 "src": "explore/explore_3.jpg",
                 "alt": "BE1-266 - Bla bla bla",
-                "width": "348px",
-                "height": "232px"
+                "width": 348,
+                "height": 232
             }
         },
         {
@@ -216,13 +228,15 @@
                 "type": "img",
                 "src": "explore/explore_4.jpg",
                 "alt": "BE1-266 - Bla bla bla",
-                "width": "871px", "height": "1270px"
+                "width": 871,
+                "height": 1270
             },
             "large" : {
                 "type": "img",
                 "src": "explore/explore_4.jpg",
                 "alt": "BE1-266 - Bla bla bla",
-                "width": "871px", "height": "1270px"
+                "width": 871,
+                "height": 1270
             }
         },
         {
@@ -232,7 +246,8 @@
                 "type": "video",
                 "src": "explore/explore_5.jpg",
                 "alt": "BE1-266 - Bla bla bla",
-                "width": "348px", "height": "232px"
+                "width": 348,
+                "height": 232
             },
             "large" : {
                 "type": "video",
@@ -240,7 +255,8 @@
                 "src": "banners/BlocoB-7234_Banner.jpg", 
                 "srcvideo": "bTqVqk7FSmY",
                 "alt": "BE1-266 - Bla bla bla",
-                "width": "871px", "height": "1270px"
+                "width": 871,
+                "height": 1270
             }
         },
         {
@@ -250,14 +266,16 @@
                 "type": "img",
                 "src": "explore/explore_6.jpg",
                 "alt": "BE1-266 - Bla bla bla",
-                "width": "348px", "height": "521px"
+                "width": 348,
+                "height": 521
             },
             "large" : {
                 "type": "img",
                 "provider": "",
                 "src": "explore/explore_6.jpg",
                 "alt": "BE1-266 - Bla bla bla",
-                "width": "871px", "height": "1270px"
+                "width": 871,
+                "height": 1270
             }
         },
         {
@@ -267,14 +285,16 @@
                 "type": "img",
                 "src": "explore/explore_7.jpg",
                 "alt": "BE1-266 - Bla bla bla",
-                "width": "1600px", "height": "1089px"
+                "width": 1600,
+                "height": 1089
             },
             "large" : {
                 "type": "img",
                 "provider": "",
                 "src": "explore/explore_7.jpg",
                 "alt": "BE1-266 - Bla bla bla",
-                "width": "871px", "height": "1270px"
+                "width": 871,
+                "height": 1270
             }
         }
     ]

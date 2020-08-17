@@ -8,300 +8,365 @@
         "firstName": "Black",
         "secondName": "Magic",
         "size": {
-            "width": "295",
-            "height": "110",
-            "depth": "60",
-            "total": "6,278"
+            "width": 295,
+            "height": 110,
+            "depth": 60,
+            "total": 6.278
         },
-        "weight" : "2653",
+        "weight" : 2653,
         "images": [
             {   
+                "type": "img",
                 "thumb" : {
+                    "type": "img",
                     "url": "product/variant/variant1-1.jpg",
                     "alt": "BE1-266 - Bla bla bla",
-                    "width": "300px",
-                    "height": "300px"
+                    "width": 300,
+                    "height": 300
                 },
                 "large" : {
+                    "type": "img",
                     "url": "product/variant/variant1-1.jpg",
                     "alt": "BE1-266 - Bla bla bla",
-                    "width": "800px",
-                    "height": "800px"
+                    "width": 800,
+                    "height": 800
                 }
             },
             {   
+                "type": "img",
                 "thumb" : {
+                    "type": "img",
                     "url": "product/variant/variant1-2.jpg",
                     "alt": "BE1-266 - Bla bla bla",
-                    "width": "300px",
-                    "height": "300px"
+                    "width": 300,
+                    "height": 300
                 },
                 "large" : {
+                    "type": "img",
                     "url": "product/variant/variant1-2.jpg",
                     "alt": "BE1-266 - Bla bla bla",
-                    "width": "800px",
-                    "height": "800px"
+                    "width": 800,
+                    "height": 800
                 }
             },
             {   
+                "type": "img",
                 "thumb" : {
+                    "type": "img",
                     "url": "product/variant/variant1-3.jpg",
                     "alt": "BE1-266 - Bla bla bla",
-                    "width": "300px",
-                    "height": "300px"
+                    "width": 300,
+                    "height": 300
                 },
                 "large" : {
+                    "type": "img",
                     "url": "product/variant/variant1-3.jpg",
                     "alt": "BE1-266 - Bla bla bla",
-                    "width": "800px",
-                    "height": "800px"
+                    "width": 800,
+                    "height": 800
                 }
-            },{   
+            },{   "type": "img",
                 "thumb" : {
+                    "type": "img",
                     "url": "product/variant/variant1-4.jpg",
                     "alt": "BE1-266 - Bla bla bla",
-                    "width": "300px",
-                    "height": "300px"
+                    "width": 300,
+                    "height": 300
                 },
                 "large" : {
+                    "type": "img",
                     "url": "product/variant/variant1-4.jpg",
                     "alt": "BE1-266 - Bla bla bla",
-                    "width": "800px",
-                    "height": "800px"
+                    "width": 800,
+                    "height": 800
                 }
             },{   
+                "type": "img",
                 "thumb" : {
+                    "type": "img",
                     "url": "product/variant/variant1-5.jpg",
                     "alt": "BE1-266 - Bla bla bla",
-                    "width": "300px",
-                    "height": "300px"
+                    "width": 300,
+                    "height": 300
                 },
                 "large" : {
+                    "type": "img",
                     "url": "product/variant/variant1-5.jpg",
                     "alt": "BE1-266 - Bla bla bla",
-                    "width": "800px",
-                    "height": "800px"
+                    "width": 800,
+                    "height": 800
                 }
             },{   
+                "type": "img",
                 "thumb" : {
+                    "type": "img",
                     "url": "product/variant/variant1-6.jpg",
                     "alt": "BE1-266 - Bla bla bla",
-                    "width": "300px",
-                    "height": "300px"
+                    "width": 300,
+                    "height": 300
                 },
                 "large" : {
+                    "type": "img",
                     "url": "product/variant/variant1-6.jpg",
                     "alt": "BE1-266 - Bla bla bla",
-                    "width": "800px",
-                    "height": "800px"
+                    "width": 800,
+                    "height": 800
                 }
             },{   
+                "type": "img",
                 "thumb" : {
+                    "type": "img",
                     "url": "product/variant/variant1-7.jpg",
                     "alt": "BE1-266 - Bla bla bla",
-                    "width": "300px",
-                    "height": "300px"
+                    "width": 300,
+                    "height": 300
                 },
                 "large" : {
+                    "type": "img",
                     "url": "product/variant/variant1-7.jpg",
                     "alt": "BE1-266 - Bla bla bla",
-                    "width": "800px",
-                    "height": "800px"
+                    "width": 800,
+                    "height": 800
                 }
             },{   
+                "type": "img",
                 "thumb" : {
+                    "type": "img",
                     "url": "product/variant/variant1-8.jpg",
                     "alt": "BE1-266 - Bla bla bla",
-                    "width": "300px",
-                    "height": "300px"
+                    "width": 300,
+                    "height": 300
                 },
                 "large" : {
+                    "type": "img",
                     "url": "product/variant/variant1-8.jpg",
                     "alt": "BE1-266 - Bla bla bla",
-                    "width": "800px",
-                    "height": "800px"
+                    "width": 800,
+                    "height": 800
                 }
             },{   
+                "type": "img",
                 "thumb" : {
+                    "type": "img",
                     "url": "product/variant/variant1-1.jpg",
                     "alt": "BE1-266 - Bla bla bla",
-                    "width": "300px",
-                    "height": "300px"
+                    "width": 300,
+                    "height": 300
                 },
                 "large" : {
+                    "type": "img",
                     "url": "product/variant/variant1-1.jpg",
                     "alt": "BE1-266 - Bla bla bla",
-                    "width": "800px",
-                    "height": "800px"
+                    "width": 800,
+                    "height": 800
                 }
             },{   
+                "type": "img",
                 "thumb" : {
+                    "type": "img",
                     "url": "product/variant/variant1-2.jpg",
                     "alt": "BE1-266 - Bla bla bla",
-                    "width": "300px",
-                    "height": "300px"
+                    "width": 300,
+                    "height": 300
                 },
                 "large" : {
+                    "type": "img",
                     "url": "product/variant/variant1-2.jpg",
                     "alt": "BE1-266 - Bla bla bla",
-                    "width": "800px",
-                    "height": "800px"
+                    "width": 800,
+                    "height": 800
                 }
             },{   
+                "type": "img",
                 "thumb" : {
+                    "type": "img",
                     "url": "product/variant/variant1-3.jpg",
                     "alt": "BE1-266 - Bla bla bla",
-                    "width": "300px",
-                    "height": "300px"
+                    "width": 300,
+                    "height": 300
                 },
                 "large" : {
+                    "type": "img",
                     "url": "product/variant/variant1-3.jpg",
                     "alt": "BE1-266 - Bla bla bla",
-                    "width": "800px",
-                    "height": "800px"
+                    "width": 800,
+                    "height": 800
                 }
             },{   
+                "type": "img",
                 "thumb" : {
+                    "type": "img",
                     "url": "product/variant/variant1-4.jpg",
                     "alt": "BE1-266 - Bla bla bla",
-                    "width": "300px",
-                    "height": "300px"
+                    "width": 300,
+                    "height": 300
                 },
                 "large" : {
+                    "type": "img",
                     "url": "product/variant/variant1-4.jpg",
                     "alt": "BE1-266 - Bla bla bla",
-                    "width": "800px",
-                    "height": "800px"
+                    "width": 800,
+                    "height": 800
                 }
             },{   
+                "type": "img",
                 "thumb" : {
+                    "type": "img",
                     "url": "product/variant/variant1-5.jpg",
                     "alt": "BE1-266 - Bla bla bla",
-                    "width": "300px",
-                    "height": "300px"
+                    "width": 300,
+                    "height": 300
                 },
                 "large" : {
+                    "type": "img",
                     "url": "product/variant/variant1-5.jpg",
                     "alt": "BE1-266 - Bla bla bla",
-                    "width": "800px",
-                    "height": "800px"
+                    "width": 800,
+                    "height": 800
                 }
             },{   
+                "type": "img",
                 "thumb" : {
+                    "type": "img",
                     "url": "product/variant/variant1-6.jpg",
                     "alt": "BE1-266 - Bla bla bla",
-                    "width": "300px",
-                    "height": "300px"
+                    "width": 300,
+                    "height": 300
                 },
                 "large" : {
+                    "type": "img",
                     "url": "product/variant/variant1-6.jpg",
                     "alt": "BE1-266 - Bla bla bla",
-                    "width": "800px",
-                    "height": "800px"
+                    "width": 800,
+                    "height": 800
                 }
             },{   
+                "type": "img",
                 "thumb" : {
+                    "type": "img",
                     "url": "product/variant/variant1-7.jpg",
                     "alt": "BE1-266 - Bla bla bla",
-                    "width": "300px",
-                    "height": "300px"
+                    "width": 300,
+                    "height": 300
                 },
                 "large" : {
+                    "type": "img",
                     "url": "product/variant/variant1-7.jpg",
                     "alt": "BE1-266 - Bla bla bla",
-                    "width": "800px",
-                    "height": "800px"
+                    "width": 800,
+                    "height": 800
                 }
             },{   
+                "type": "img",
                 "thumb" : {
+                    "type": "img",
                     "url": "product/variant/variant1-8.jpg",
                     "alt": "BE1-266 - Bla bla bla",
-                    "width": "300px",
-                    "height": "300px"
+                    "width": 300,
+                    "height": 300
                 },
                 "large" : {
+                    "type": "img",
                     "url": "product/variant/variant1-8.jpg",
                     "alt": "BE1-266 - Bla bla bla",
-                    "width": "800px",
-                    "height": "800px"
+                    "width": 800,
+                    "height": 800
                 }
             },{   
+                "type": "img",
                 "thumb" : {
+                    "type": "img",
                     "url": "product/variant/variant1-1.jpg",
                     "alt": "BE1-266 - Bla bla bla",
-                    "width": "300px",
-                    "height": "300px"
+                    "width": 300,
+                    "height": 300
                 },
                 "large" : {
+                    "type": "img",
                     "url": "product/variant/variant1-1.jpg",
                     "alt": "BE1-266 - Bla bla bla",
-                    "width": "800px",
-                    "height": "800px"
+                    "width": 800,
+                    "height": 800
                 }
             },{   
+                "type": "img",
                 "thumb" : {
+                    "type": "img",
                     "url": "product/variant/variant1-2.jpg",
                     "alt": "BE1-266 - Bla bla bla",
-                    "width": "300px",
-                    "height": "300px"
+                    "width": 300,
+                    "height": 300
                 },
                 "large" : {
+                    "type": "img",
                     "url": "product/variant/variant1-2.jpg",
                     "alt": "BE1-266 - Bla bla bla",
-                    "width": "800px",
-                    "height": "800px"
+                    "width": 800,
+                    "height": 800
                 }
             },{   
+                "type": "img",
                 "thumb" : {
+                    "type": "img",
                     "url": "product/variant/variant1-3.jpg",
                     "alt": "BE1-266 - Bla bla bla",
-                    "width": "300px",
-                    "height": "300px"
+                    "width": 300,
+                    "height": 300
                 },
                 "large" : {
+                    "type": "img",
                     "url": "product/variant/variant1-3.jpg",
                     "alt": "BE1-266 - Bla bla bla",
-                    "width": "800px",
-                    "height": "800px"
+                    "width": 800,
+                    "height": 800
                 }
             },{   
+                "type": "img",
                 "thumb" : {
+                    "type": "img",
                     "url": "product/variant/variant1-4.jpg",
                     "alt": "BE1-266 - Bla bla bla",
-                    "width": "300px",
-                    "height": "300px"
+                    "width": 300,
+                    "height": 300
                 },
                 "large" : {
+                    "type": "img",
                     "url": "product/variant/variant1-4.jpg",
                     "alt": "BE1-266 - Bla bla bla",
-                    "width": "800px",
-                    "height": "800px"
+                    "width": 800,
+                    "height": 800
                 }
             },{   
+                "type": "img",
                 "thumb" : {
+                    "type": "img",
                     "url": "product/variant/variant1-5.jpg",
                     "alt": "BE1-266 - Bla bla bla",
-                    "width": "300px",
-                    "height": "300px"
+                    "width": 300,
+                    "height": 300
                 },
                 "large" : {
+                    "type": "img",
                     "url": "product/variant/variant1-5.jpg",
                     "alt": "BE1-266 - Bla bla bla",
-                    "width": "800px",
-                    "height": "800px"
+                    "width": 800,
+                    "height": 800
                 }
             },{   
+                "type": "img",
                 "thumb" : {
+                    "type": "img",
                     "url": "product/variant/variant1-6.jpg",
                     "alt": "BE1-266 - Bla bla bla",
-                    "width": "300px",
-                    "height": "300px"
+                    "width": 300,
+                    "height": 300
                 },
                 "large" : {
+                    "type": "img",
                     "url": "product/variant/variant1-6.jpg",
                     "alt": "BE1-266 - Bla bla bla",
-                    "width": "800px",
-                    "height": "800px"
+                    "width": 800,
+                    "height": 800
                 }
             }   
         ]

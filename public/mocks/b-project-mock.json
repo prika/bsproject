@@ -48,13 +48,15 @@
             "id": "bp0",
             "type": "img",
             "thumb" : {
-                "url": "explore/explore_1.jpg",
+                "type": "img",
+                "src": "explore/explore_1.jpg",
                 "alt": "bp1-266 - Bla bla bla",
                 "width": "300px",
                 "height": "300px"
             },
             "large" : {
-                "url": "explore/explore_1.jpg",
+                "type": "img",
+                "src": "explore/explore_1.jpg",
                 "alt": "bp1-266 - Bla bla bla",
                 "width": "800px",
                 "height": "800px"
@@ -64,13 +66,15 @@
             "id": "bp1",
             "type": "img",
             "thumb" : {
-                "url": "explore/explore_2.jpg",
+                "type": "img",
+                "src": "explore/explore_2.jpg",
                 "alt": "bp1-266 - Bla bla bla",
                 "width": "1067px",
                 "height": "1600px"
             },
             "large" : {
-                "url": "explore/explore_2.jpg",
+                "type": "img",
+                "src": "explore/explore_2.jpg",
                 "alt": "bp1-266 - Bla bla bla",
                 "width": "1067px",
                 "height": "1600px"
@@ -80,13 +84,15 @@
             "id": "bp2",
             "type": "img",
             "thumb" : {
-                "url": "explore/explore_3.jpg",
+                "type": "img",
+                "src": "explore/explore_3.jpg",
                 "alt": "bp1-266 - Bla bla bla",
                 "width": "348px",
                 "height": "232px"
             },
             "large" : {
-                "url": "explore/explore_3.jpg",
+                "type": "img",
+                "src": "explore/explore_3.jpg",
                 "alt": "bp1-266 - Bla bla bla",
                 "width": "348px",
                 "height": "232px"
@@ -96,12 +102,14 @@
             "id": "bp3",
             "type": "img",
             "thumb" : {
-                "url": "explore/explore_4.jpg",
+                "type": "img",
+                "src": "explore/explore_4.jpg",
                 "alt": "bp1-266 - Bla bla bla",
                 "width": "871px", "height": "1270px"
             },
             "large" : {
-                "url": "explore/explore_4.jpg",
+                "type": "img",
+                "src": "explore/explore_4.jpg",
                 "alt": "bp1-266 - Bla bla bla",
                 "width": "871px", "height": "1270px"
             }
@@ -109,14 +117,17 @@
         {
             "id": "bp4",
             "type": "video",
-            "provider": "youtubp",
+            "provider": "youtube",
             "thumb" : {
-                "url": "explore/explore_5.jpg",
+                "type": "img",
+                "src": "explore/explore_5.jpg",
                 "alt": "bp1-266 - Bla bla bla",
                 "width": "348px", "height": "232px"
             },
             "large" : {
-                "url": "explore/explore_5.jpg",
+                "type": "video",
+                "provider": "",
+                "src": "explore/explore_5.jpg",
                 "alt": "bp1-266 - Bla bla bla",
                 "width": "871px", "height": "1270px"
             }
@@ -124,14 +135,15 @@
         {
             "id": "bp5",
             "type": "img",
-            "provider": "",
             "thumb" : {
-                "url": "explore/explore_6.jpg",
+                "type": "img",
+                "src": "explore/explore_6.jpg",
                 "alt": "bp1-266 - Bla bla bla",
                 "width": "348px", "height": "521px"
             },
             "large" : {
-                "url": "explore/explore_6.jpg",
+                "type": "img",
+                "src": "explore/explore_6.jpg",
                 "alt": "bp1-266 - Bla bla bla",
                 "width": "871px", "height": "1270px"
             }
@@ -139,14 +151,15 @@
         {
             "id": "bp6",
             "type": "img",
-            "provider": "",
             "thumb" : {
-                "url": "explore/explore_7.jpg",
+                "type": "img",
+                "src": "explore/explore_7.jpg",
                 "alt": "bp1-266 - Bla bla bla",
                 "width": "1600px", "height": "1089px"
             },
             "large" : {
-                "url": "explore/explore_7.jpg",
+                "type": "img",
+                "src": "explore/explore_7.jpg",
                 "alt": "bp1-266 - Bla bla bla",
                 "width": "871px", "height": "1270px"
             }
@@ -154,14 +167,15 @@
         {
             "id": "bp7",
             "type": "img",
-            "provider": "",
             "thumb" : {
-                "url": "explore/explore_8.jpg",
+                "type": "img",
+                "src": "explore/explore_8.jpg",
                 "alt": "bp1-266 - Bla bla bla",
                 "width": "348px", "height": "232px"
             },
             "large" : {
-                "url": "explore/explore_8.jpg",
+                "type": "img",
+                "src": "explore/explore_8.jpg",
                 "alt": "bp1-266 - Bla bla bla",
                 "width": "871px", "height": "1270px"
             }
@@ -169,14 +183,15 @@
         {
             "id": "bp8",
             "type": "img",
-            "provider": "",
             "thumb" : {
-                "url": "explore/explore_9.jpg",
+                "type": "img",
+                "src": "explore/explore_9.jpg",
                 "alt": "bp1-266 - Bla bla bla",
                 "width": "348px", "height": "232px"
             },
             "large" : {
-                "url": "explore/explore_9.jpg",
+                "type": "img",
+                "src": "explore/explore_9.jpg",
                 "alt": "bp1-266 - Bla bla bla",
                 "width": "871px", "height": "1270px"
             }
@@ -185,13 +200,15 @@
             "id": "bp9",
             "type": "img",
             "thumb" : {
-                "url": "explore/explore_1.jpg",
+                "type": "img",
+                "src": "explore/explore_1.jpg",
                 "alt": "bp1-266 - Bla bla bla",
                 "width": "300px",
                 "height": "300px"
             },
             "large" : {
-                "url": "explore/explore_1.jpg",
+                "type": "img",
+                "src": "explore/explore_1.jpg",
                 "alt": "bp1-266 - Bla bla bla",
                 "width": "800px",
                 "height": "800px"
@@ -201,13 +218,15 @@
             "id": "bp10",
             "type": "img",
             "thumb" : {
-                "url": "explore/explore_2.jpg",
+                "type":"img",
+                "src": "explore/explore_2.jpg",
                 "alt": "bp1-266 - Bla bla bla",
                 "width": "1067px",
                 "height": "1600px"
             },
             "large" : {
-                "url": "explore/explore_2.jpg",
+                "type":"img",
+                "src": "explore/explore_2.jpg",
                 "alt": "bp1-266 - Bla bla bla",
                 "width": "1067px",
                 "height": "1600px"
@@ -217,13 +236,15 @@
             "id": "bp11",
             "type": "img",
             "thumb" : {
-                "url": "explore/explore_3.jpg",
+                "type":"img",
+                "src": "explore/explore_3.jpg",
                 "alt": "bp1-266 - Bla bla bla",
                 "width": "348px",
                 "height": "232px"
             },
             "large" : {
-                "url": "explore/explore_3.jpg",
+                "type":"img",
+                "src": "explore/explore_3.jpg",
                 "alt": "bp1-266 - Bla bla bla",
                 "width": "348px",
                 "height": "232px"
@@ -233,12 +254,14 @@
             "id": "bp12",
             "type": "img",
             "thumb" : {
-                "url": "explore/explore_4.jpg",
+                "type":"img",
+                "src": "explore/explore_4.jpg",
                 "alt": "bp1-266 - Bla bla bla",
                 "width": "871px", "height": "1270px"
             },
             "large" : {
-                "url": "explore/explore_4.jpg",
+                "type":"img",
+                "src": "explore/explore_4.jpg",
                 "alt": "bp1-266 - Bla bla bla",
                 "width": "871px", "height": "1270px"
             }
@@ -246,14 +269,16 @@
         {
             "id": "bp13",
             "type": "video",
-            "provider": "youtubp",
+            "provider": "youtube",
             "thumb" : {
-                "url": "explore/explore_5.jpg",
+                "type":"img",
+                "src": "explore/explore_5.jpg",
                 "alt": "bp1-266 - Bla bla bla",
                 "width": "348px", "height": "232px"
             },
             "large" : {
-                "url": "explore/explore_5.jpg",
+                "type":"img",
+                "src": "explore/explore_5.jpg",
                 "alt": "bp1-266 - Bla bla bla",
                 "width": "871px", "height": "1270px"
             }
@@ -261,14 +286,15 @@
         {
             "id": "bp14",
             "type": "img",
-            "provider": "",
             "thumb" : {
-                "url": "explore/explore_6.jpg",
+                "type":"img",
+                "src": "explore/explore_6.jpg",
                 "alt": "bp1-266 - Bla bla bla",
                 "width": "348px", "height": "521px"
             },
             "large" : {
-                "url": "explore/explore_6.jpg",
+                "type":"img",
+                "src": "explore/explore_6.jpg",
                 "alt": "bp1-266 - Bla bla bla",
                 "width": "871px", "height": "1270px"
             }
@@ -276,14 +302,15 @@
         {
             "id": "bp15",
             "type": "img",
-            "provider": "",
             "thumb" : {
-                "url": "explore/explore_7.jpg",
+                "type": "img",
+                "src": "explore/explore_7.jpg",
                 "alt": "bp1-266 - Bla bla bla",
                 "width": "1600px", "height": "1089px"
             },
             "large" : {
-                "url": "explore/explore_7.jpg",
+                "type": "img",
+                "src": "explore/explore_7.jpg",
                 "alt": "bp1-266 - Bla bla bla",
                 "width": "871px", "height": "1270px"
             }
@@ -291,14 +318,15 @@
         {
             "id": "bp16",
             "type": "img",
-            "provider": "",
             "thumb" : {
-                "url": "explore/explore_8.jpg",
+                "type": "img",
+                "src": "explore/explore_8.jpg",
                 "alt": "bp1-266 - Bla bla bla",
                 "width": "348px", "height": "232px"
             },
             "large" : {
-                "url": "explore/explore_8.jpg",
+                "type": "img",
+                "src": "explore/explore_8.jpg",
                 "alt": "bp1-266 - Bla bla bla",
                 "width": "871px", "height": "1270px"
             }
@@ -308,12 +336,14 @@
             "type": "img",
             "provider": "",
             "thumb" : {
-                "url": "explore/explore_9.jpg",
+                "type": "img",
+                "src": "explore/explore_9.jpg",
                 "alt": "bp1-266 - Bla bla bla",
                 "width": "348px", "height": "232px"
             },
             "large" : {
-                "url": "explore/explore_9.jpg",
+                "type": "img",
+                "src": "explore/explore_9.jpg",
                 "alt": "bp1-266 - Bla bla bla",
                 "width": "871px", "height": "1270px"
             }
