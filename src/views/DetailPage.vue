@@ -180,7 +180,19 @@ export default {
       }
   },
   mounted()
-  {
+  {   
+      document.body.addEventListener('keydown', (e) => {
+        switch (event.keyCode) {
+            case 39:
+                if(this.currentPage < this.totalPages - 1) this.nextPageClick()
+            break 
+
+            case 37:
+                if(this.currentPage > 0 ) this.prevPageClick()
+            break
+        }
+      })
+
       this.$http.get('http://localhost:8081/mocks/products-detail-mock.json').then(response => {
           
           this.product = response.data.product

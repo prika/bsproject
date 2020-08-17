@@ -104,6 +104,19 @@ export default {
             vimeoPlayers: {}
         }
     },
+    mounted () {
+  	    document.body.addEventListener('keydown', (e) => {
+				switch (event.keyCode) {
+                case 39:
+                    if( this.selectedIndex < this.largeImages.length - 1 ) this.nextSlide()
+                break 
+
+                case 37:
+                    if ( this.selectedIndex > 0 ) this.prevSlide()
+                break
+           } 
+		})
+    },
     created() {
         this.largeImages = this.$parent.largeImages
         this.selectedIndex = this.$parent.selectedIndex
