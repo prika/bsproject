@@ -12,14 +12,17 @@
                      
                    <transition appear enter-active-class="animated fadeIn" leave-active-class="animated fadeOut">
                     <nav class="filters col-lg-3" v-if="!hasFeaturedProducts">
-                        <ul class="categoryMenu" ref="menu" key="filterCategory" >
-                            <li v-for="category in categories" :class="(category.id == selectedCategory ? 'filters__item active': 'filters__item')">
+                        <ul class="categoryMenu" ref="menu" key="filterCategory">
+                            <li v-for="category in categories" :key="category.id"
+                                :class="(category.id == selectedCategory ? 'filters__item active': 'filters__item')">
                                 <a href="javascript:void(0);" @click="filterByCategory(category.id)">{{category.name}}</a>
                             </li>
                         </ul>
 
                         <ul ref="menu" key="filterCollection" :class="'cat-'+selectedCategory+' collectionMenu'">
-                            <li class="filters__item" v-for="collection in collections" :class="(collection.id == selectedCollection ? 'filters__item active': 'filters__item')">
+                            <li class="filters__item" 
+                                v-for="collection in collections" :key="collection.id"
+                                :class="(collection.id == selectedCollection ? 'filters__item active': 'filters__item')">
                                 <a href="javascript:void(0);" @click="filterByCollection(collection.id)" >{{collection.name}}</a>
                             </li>
                         </ul>
@@ -52,7 +55,7 @@
                                     <p class="productName" itemprop="name">
                                         <mark>
                                             <span></span>
-                                            {{ product.firstName }} </br> {{ product.secondName }}
+                                            {{ product.firstName }} <br> {{ product.secondName }}
                                         </mark>
                                     </p>
                                     <p class="categoryName" v-if="hasFeaturedProducts">{{getCategory(product).name}}</p>
