@@ -2,12 +2,11 @@
 <div class="newsletterForm col-12 col-lg-4 order-1 order-lg-2">
     <h2>  {{ $t('footer-text-newsletter') }} </h2>
     <h1>  {{ $t('footer-sub-text-newsletter') }} </h1>
-    <form
-        id="newsletter"
-        @submit.prevent="checkForm">
 
-        <transition enter-active-class="animated fadeIn faster" leave-active-class="animated fadeOut faster">
-        <div v-if="!success">
+    <transition enter-active-class="animated fadeIn faster">
+    <form id="newsletter"
+            @submit.prevent="checkForm" v-if="!success">
+
             <div class="input_group col-9" :class="( cont_email_newsletter_error === true ? 'error': '')">  
                 <input id="cont_email_newsletter"
                         v-model="cont_email_newsletter"
@@ -20,15 +19,14 @@
 
             <input class="button" type="submit" :aria-label="$t('footer-submit-email')">
             
-        </div>
-        </transition>
-
-        <transition enter-active-class="animated fadeIn faster" leave-active-class="animated fadeOut faster">
+    </form>
+    </transition>
+    
+    <transition enter-active-class="animated fadeIn faster">
         <div class="NewsletterRequestSubmited" v-if="success">
             <p>{{ $t('footer-newsletter-success') }}</p>
         </div>
-        </transition>
-    </form>
+    </transition>
 </div>
 </template>
 
@@ -98,10 +96,13 @@ export default {
 #newsletter{
     position: relative;
     min-height: 140px;
-
-     .NewsletterRequestSubmited{
-        position: absolute; 
-        top: 0; left: 0;
-    } 
+    justify-content: space-between;
+    display: flex;
 }
+.NewsletterRequestSubmited{
+    position: relative;
+    min-height: 140px;
+    justify-content: space-between;
+    display: flex;
+} 
 </style>

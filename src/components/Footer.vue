@@ -277,6 +277,7 @@ footer{
 
   footer{
     .newsletterForm{
+      text-align: center;
       border-left: 0;
       border-bottom: 1px solid #363636;
       padding: 10%;
