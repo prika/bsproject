@@ -68,7 +68,7 @@
                                             :class="(cont_country_account.length > 0 ? 'selected': '')"
                                             :aria-label="accountinfo.inputcountry.placeholder" placeholder=" ">
 
-                                            <option v-for="country in accountinfo.inputcountry.options">{{country.name}}</option>
+                                            <option v-for="(country, i) in accountinfo.inputcountry.options" :key="i">{{country.name}}</option>
                                     </select>
                                     <label for="cont_country_account">{{accountinfo.inputcountry.placeholder}}</label>
                                     <p class="errormessage"> {{cont_country_account_validator}} </p>
@@ -85,7 +85,7 @@
                                     <label for="cont_password_account">{{accountinfo.inputpassword.placeholder}}</label>
                                     <p class="errormessage"> {{cont_password_account_validator}} </p>
                                     <ul class="passwordValidationRules">
-                                        <li v-for='error in passwordValidation.errors'>{{error}}</li>
+                                        <li v-for='(error, i) in passwordValidation.errors' :key="i">{{error}}</li>
                                     </ul>
                                 </div>
                             </div>
@@ -199,7 +199,7 @@ export default {
     },
     created(){
 
-        this.$http.get('http://localhost:8081/mocks/account-mock.json').then(response => {
+        this.$http.get('https://dev5.incentea-mi.pt/bstone/mocks/account-mock.json').then(response => {
             this.accountinfo = response.data.accountinfo
             this.$eventBus.$emit('pageFinishLoad', true)
         })

@@ -71,7 +71,7 @@ export default {
         this.itemsPerPage = this.$parent.newsAmount
         this.hasPaging = this.$parent.hasPaging
 
-        this.$http.get('http://localhost:8081/mocks/news-list-mock.json').then(response => {
+        this.$http.get('https://dev5.incentea-mi.pt/bstone/mocks/news-list-mock.json').then(response => {
             this.fullNews = response.data
             this.news = this.fullNews.slice(0, this.itemsPerPage)
             

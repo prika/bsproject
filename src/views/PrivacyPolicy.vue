@@ -11,7 +11,7 @@
             <h1>{{privacypolicy.title}}</h1>
 
             <div class="questionsContainer">
-                <div v-for="(item, index) in questions" :key="item.id" class="questionContainer">
+                <div v-for="(item, index) in questions" :key="index" class="questionContainer">
                     <h2>{{item.question}}</h2>
                     <p>{{item.answer}}</p>
                 </div>
@@ -37,7 +37,7 @@ export default {
     created(){
         this.$eventBus.$emit('pageFinishLoad', true)
         
-        this.$http.get('http://localhost:8081/mocks/global-mock.json').then(response => {
+        this.$http.get('https://dev5.incentea-mi.pt/bstone/mocks/global-mock.json').then(response => {
             this.privacypolicy = response.data.privacypolicy
             this.questions = response.data.privacypolicy.questions
         })

@@ -52,7 +52,7 @@ export default {
         let selectedNews = this.$route.params.id
         console.log( selectedNews )
 
-        this.$http.get('http://localhost:8081/mocks/news-detail-mock.json').then(response => {
+        this.$http.get('https://dev5.incentea-mi.pt/bstone/mocks/news-detail-mock.json').then(response => {
             this.news = response.data
             this.parseObject(response.data.gallery1, this.gallery1)            
             this.parseObject(response.data.gallery2, this.gallery2)

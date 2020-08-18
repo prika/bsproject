@@ -139,7 +139,7 @@ export default {
   },
   created() {
       
-      this.$http.get('http://localhost:8081/mocks/products-variant-detail-mock.json').then(response => {
+      this.$http.get('https://dev5.incentea-mi.pt/bstone/mocks/products-variant-detail-mock.json').then(response => {
 
           this.variant = response.data.variant
           this.parseObject(response.data.variant.images)

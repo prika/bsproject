@@ -9,8 +9,7 @@
             </transition>
 
             <h1 v-html="accountregister.title">{{accountregister.title}}</h1>
-            
-           
+                
            <!--transition enter-active-class="animated fadeIn faster" leave-active-class="animated fadeOut faster">-->
             <div v-if="!success">
                 <p v-html="accountregister.subtitle" class="subtitle">{{accountregister.subtitle}}</p>
@@ -64,7 +63,7 @@
                                              :class="(cont_country_register.length > 0 ? 'selected': '')"
                                             :aria-label="accountregister.inputcountry.placeholder" placeholder=" ">
                                             
-                                            <option v-for="country in accountregister.inputcountry.options">{{country.name}}</option>
+                                            <option v-for="(country, c) in accountregister.inputcountry.options" :key="c">{{country.name}}</option>
                                     </select>
                                     <label for="cont_country_register">{{accountregister.inputcountry.placeholder}}</label>
                                     <p class="errormessage"> {{cont_country_register_validator}} </p>
@@ -84,7 +83,6 @@
                             </div>
 
                             <div class="col-12 col-md-6"></div>
-
 
                             <div class="col-12 col-md-6">
                                 <div class="input_group" :class="(cont_email_register_error === true ? 'error': '')">  
@@ -121,7 +119,7 @@
                                     <label for="cont_password_register">{{accountregister.inputpassword.placeholder}}</label>
                                     <p class="errormessage"> {{cont_password_register_validator}} </p>
                                     <ul class="passwordValidationRules">
-                                        <li v-for='error in passwordValidation.errors'>{{error}}</li>
+                                        <li v-for='(error, e) in passwordValidation.errors' :key="e">{{error}}</li>
                                     </ul>
                                 </div>
                             </div>
@@ -154,7 +152,6 @@
                  </transition>
             </div>
             <!-- </transition-->
-
 
             <transition enter-active-class="animated fadeIn faster" leave-active-class="animated fadeOut faster">
                 <div class="col-12" v-if="success">
@@ -266,7 +263,7 @@ export default {
         this.error_email_confirmation = this.$i18n.t('input-email-confirmation') 
         this.error_password_confirmation = this.$i18n.t('input-password-confirmation') 
 
-        this.$http.get('http://localhost:8081/mocks/account-mock.json').then(response => {
+        this.$http.get('https://dev5.incentea-mi.pt/bstone/mocks/account-mock.json').then(response => {
             this.accountregister = response.data.accountregister
             this.$eventBus.$emit('pageFinishLoad', true)
         })

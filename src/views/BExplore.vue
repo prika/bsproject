@@ -42,7 +42,7 @@ export default {
             }
         })
 
-        this.$http.get('http://localhost:8081/mocks/b-explore-mock.json').then(response => {
+        this.$http.get('https://dev5.incentea-mi.pt/bstone/mocks/b-explore-mock.json').then(response => {
             this.bexplore = response.data  
             this.$eventBus.$emit('mansoryFinishLoad', response.data.mansory)
             this.hasJsonData = true

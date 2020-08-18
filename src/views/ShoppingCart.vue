@@ -11,7 +11,7 @@
           <div class="cartTable col-12 col-md-9 col-lg-8">
               
           <!-- Repeater containers -->
-            <div class="categoryGroup" v-for="container in categoryContainers">
+            <div class="categoryGroup" v-for="(container, cat) in categoryContainers" :key="cat">
                 
                 <div class="row">
                     <p class="col-12 col-md-8 text-center text-md-left">
@@ -24,11 +24,12 @@
                 </div>
 
                 <!-- row -->
-                <div class="categoryRow" v-for="item in container.containerItems">
+                <div class="categoryRow" v-for="(item, index) in container.containerItems" :key="index">
                   <p v-if="isMobile()" class="categoryContainerMobile col-12 text-center d-block d-sm-none"><span class="bold lowercase">{{$tc('checkout-container', 1)}}</span> ({{item.name}}) <span class="bold">{{item.percentage}}%</span></p>
 
                   <!-- repeat -->
-                    <a v-for="product in item.products"
+                    <a v-for="(product, index) in item.products"
+                        :key="index"
                         :href="product.link"
                         class="productCart col-12 col-md-8 d-flex align-items-center justify-content-between">
                         
@@ -72,7 +73,7 @@
             <transition appear enter-active-class="animated slideInRight" leave-active-class="animated slideOutLeft">
                <div class="shippingOptions col-12 col-md-8">
               <div class=" col-12 col-md-8">
-                <label class="radioButtonStyle" v-for="option in deliveryOptions">
+                <label class="radioButtonStyle" v-for="(option, index) in deliveryOptions" :key="index">
                     <input type="radio" 
                             :id="option.id" 
                             :value="option.name" 
@@ -161,7 +162,7 @@ export default {
     }
   },
   created() {
-        this.$http.get('http://localhost:8081/mocks/cart-list-mock.json').then(response => {
+        this.$http.get('https://dev5.incentea-mi.pt/bstone/mocks/cart-list-mock.json').then(response => {
 
             this.categoryContainers = response.data.categoryContainers
             this.containerItems = response.data.categoryContainers.containerItems

@@ -18,12 +18,17 @@
                     
                     <nav class="col-12 col-md-4 blocoBSelectCategory">
                         <ul class="categoryMenu" ref="filterCategory" key="filterCategory" >
-                            <li v-for="category in categories" :class="( category.id == selectedCategory ? 'filters__item active': 'filters__item')">
+                            <li v-for="(category, i) in categories" 
+                                :key="i"
+                                :class="( category.id == selectedCategory ? 'filters__item active': 'filters__item')">
                                 
                                 <a  href="javascript:void(0);">{{category.name}}</a>
                                 
                                 <ul :class="'cat-'+selectedCategory+' collectionMenu'" ref="filterCollection" key="filterCollection">
-                                    <li class="filters__item" v-for="collection in collections" :class="(collection.id == selectedCollection ? 'filters__item active': 'filters__item')">
+                                    <li class="filters__item" 
+                                         v-for="(collection, c) in collections" 
+                                         :key="c"
+                                         :class="(collection.id == selectedCollection ? 'filters__item active': 'filters__item')">
                                         <router-link :to="{path: '/bloco-b/category/'+ category.id + '/collection/' + collection.id + '/'}" >{{collection.name}}</router-link>
                                     </li>
                                 </ul>
@@ -62,7 +67,7 @@ export default {
         }
     },
     beforeCreate() {
-        this.$http.get('http://localhost:8081/mocks/products-list-mock.json').then(response => {
+        this.$http.get('https://dev5.incentea-mi.pt/bstone/mocks/products-list-mock.json').then(response => {
             this.categories = response.data.categories
             this.collections = response.data.collections
             this.$eventBus.$emit('pageFinishLoad', true) 

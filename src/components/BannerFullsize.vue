@@ -6,7 +6,8 @@
         <div class="line verticalRightLine"></div>
 
         <div class="carousel-indicators">
-            <a  v-for="(image, index) in imageGroupSliderGallery"  
+            <a  v-for="(image, index) in imageGroupSliderGallery" 
+                :key="image.id+index"
                 :class="(index === activeSlide ? 'active': '')"
                 :data-slide-to="index"
                 href="javascript:void(0)"
@@ -56,7 +57,8 @@
                 </div>
 
 
-                <div v-if="image.type == 'video-youtube'" 
+                <div v-if="image.type == 'video-youtube'"
+                        :key="image.id"
                         :class="['slide', (index === activeSlide ? 'active': '')]" 
                         :id="'videoContainer'+index">
                         
@@ -107,7 +109,7 @@ export default {
         }
     },
     created() {
-        this.$http.get('http://localhost:8081/mocks/homepage-mock.json').then(response => {
+        this.$http.get('https://dev5.incentea-mi.pt/bstone/mocks/homepage-mock.json').then(response => {
 
             this.imageGroupSliderGallery = response.data.slidergallery
             var hasYoutubeVideoPlayerScript = false

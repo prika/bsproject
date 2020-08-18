@@ -28,7 +28,7 @@
                             aria-label="Call us">t.<span style="margin-left: 40px"></span>{{contacts.phone}}</a>
                         <br><br><br>
 
-                        <div v-for="item in departments">
+                        <div v-for="item in departments" :key="item.id">
                             <p>{{item.name}}<br>
                             <a :href="'tel:'+item.phone">{{item.phone}}</a></p>
                         </div>

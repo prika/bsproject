@@ -77,7 +77,7 @@ export default {
             }
         })
 
-         this.$http.get('http://localhost:8081/mocks/b-innovation-mock.json').then(response => {
+         this.$http.get('https://dev5.incentea-mi.pt/bstone/mocks/b-innovation-mock.json').then(response => {
 
             this.binnovation = response.data
             this.parseObject(response.data.gallery1, this.gallery1)

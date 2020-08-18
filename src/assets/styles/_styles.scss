@@ -132,7 +132,6 @@ button{
   font-weight:      200;
   text-transform:   uppercase;
   outline:          none!important;
-  background:       transparent!important;
   letter-spacing:   2px;
   font-size:        1.1rem;
 }
@@ -382,7 +381,7 @@ header  {
         appearance: none;
         border-radius: 0;
         border: 0;
-        background: none;
+        background: none!important;
         display: block;
         padding: 10px 0;
         width: 100%;

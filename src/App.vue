@@ -82,7 +82,7 @@ export default {
       }
   },
   mounted() {
-      this.$http.get('http://localhost:8081/mocks/global-mock.json').then(response => {
+      this.$http.get('https://dev5.incentea-mi.pt/bstone/mocks/global-mock.json').then(response => {
           this.$eventBus.$emit('jsonGlobalLoaded', response);
       })
 

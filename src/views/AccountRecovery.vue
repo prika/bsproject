@@ -84,7 +84,7 @@ export default {
     },
     created(){
         
-        this.$http.get('http://localhost:8081/mocks/account-mock.json').then(response => {
+        this.$http.get('https://dev5.incentea-mi.pt/bstone/mocks/account-mock.json').then(response => {
             this.accountrecovery = response.data.accountrecovery
             this.$eventBus.$emit('pageFinishLoad', true) 
         })
