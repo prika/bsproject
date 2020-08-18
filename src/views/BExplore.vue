@@ -54,3 +54,6 @@ export default {
     }
 }
 </script>
+<style lang="scss">
+#bexplorepage { padding-top: 120px }
+</style>
