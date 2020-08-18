@@ -1530,7 +1530,7 @@
     /* config.plugin('html') */
     new HtmlWebpackPlugin(
       {
-        title: 'bsproject',
+        title: 'B Stone Project',
         templateParameters: function () { /* omitted long function */ },
         template: '/Users/duca/BStoneProject/bsproject/public/index.html'
       }
