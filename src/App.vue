@@ -108,7 +108,5 @@ export default {
 
 <style lang="scss">
   @import './assets/styles/_bootstrap';
-  //@import './assets/styles/_variables';
-  @import './assets/styles/_custom';
   @import './assets/styles/_styles';
 </style>
