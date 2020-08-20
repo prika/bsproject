@@ -8,69 +8,240 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: Home
+    component: Home,
+    meta: {
+      title: 'Homepage bla bla bla',
+      metaTags: [
+        {
+          name: 'description',
+          content: 'Our site is ... bla bla bla'
+        },
+        {
+          property: 'og:description',
+          content: 'Our site is ... bla bla bla'
+        }
+      ]
+    }
   },
   {
     path: '/b-explore',
     name: 'explore',
-    component: () => import('../views/BExplore.vue')
+    component: () => import( /* webpackChunkName: "pages" */ '../views/BExplore.vue'),
+    meta: {
+      title: 'B Explore',
+      metaTags: [
+        {
+          name: 'description',
+          content: 'Our site is ... bla bla bla'
+        },
+        {
+          property: 'og:description',
+          content: 'Our site is ... bla bla bla'
+        }
+      ]
+    }
   },
   {
     path: '/b-project',
     name: 'project',
-    component: () => import('../views/BProject.vue')
+    component: () => import( /* webpackChunkName: "pages" */ '../views/BProject.vue'),
+    meta: {
+      title: 'B Project - B Stone Site',
+      metaTags: [
+        {
+          name: 'description',
+          content: 'Our site is ... bla bla bla'
+        },
+        {
+          property: 'og:description',
+          content: 'Our site is ... bla bla bla'
+        }
+      ]
+    }
+    
   },
   {
     path: '/b-innovation',
     name: 'innovation',
-    component: () => import('../views/BInnovation.vue')
+    component: () => import( /* webpackChunkName: "pages" */ '../views/BInnovation.vue'),
+    meta: {
+      title: 'B Innovation - B Stone Site',
+      metaTags: [
+        {
+          name: 'description',
+          content: 'Our site is ... bla bla bla'
+        },
+        {
+          property: 'og:description',
+          content: 'Our site is ... bla bla bla'
+        }
+      ]
+    }
+    
   },
   {
     path: '/news',
     name: 'news',
-    component: () => import( /* webpackChunkName: "news-group" */ '../views/News.vue')
+    component: () => import( /* webpackChunkName: "news-group" */ '../views/News.vue'),
+    meta: {
+      title: 'News List Page',
+      metaTags: [
+        {
+          name: 'description',
+          content: 'Our site is ... bla bla bla'
+        },
+        {
+          property: 'og:description',
+          content: 'Our site is ... bla bla bla'
+        }
+      ]
+    }  
   },
   {
     path: '/news/:id-:title',
     name: 'newsdetail',
     component: () => import( /* webpackChunkName: "news-group" */ '../views/NewsDetail.vue'),
-    props: (route) => ({ query: route.query.news })
+    props: (route) => ({ query: route.query.news }),
+    meta: {
+      title: 'News Detail Page',
+      metaTags: [
+        {
+          name: 'description',
+          content: 'Our site is ... bla bla bla'
+        },
+        {
+          property: 'og:description',
+          content: 'Our site is ... bla bla bla'
+        }
+      ]
+    }
   },
   {
     path: '/faqs',
     name: 'faqs',
-    component: () => import( /* webpackChunkName: "institutional-group" */ '../views/Faqs.vue')
+    component: () => import( /* webpackChunkName: "institutional-group" */ '../views/Faqs.vue'),
+    meta: {
+      title: 'Frequent answered questions',
+      metaTags: [
+        {
+          name: 'description',
+          content: 'Our site is ... bla bla bla'
+        },
+        {
+          property: 'og:description',
+          content: 'Our site is ... bla bla bla'
+        }
+      ]
+    }
   },
   {
     path: '/privacy-policy',
     name: 'privacy-policy',
-    component: () => import( /* webpackChunkName: "institutional-group" */ '../views/PrivacyPolicy.vue')
+    component: () => import( /* webpackChunkName: "institutional-group" */ '../views/PrivacyPolicy.vue'),
+    meta: {
+      title: 'This is our Privacy Policy Page',
+      metaTags: [
+        {
+          name: 'description',
+          content: 'Our site is ... bla bla bla'
+        },
+        {
+          property: 'og:description',
+          content: 'Our site is ... bla bla bla'
+        }
+      ]
+    }
   },
   {
     path: '/bloco-b',
     name: 'menu',
-    component: () => import('../views/BlocoBCategories.vue')
+    component: () => import('../views/BlocoBCategories.vue'),
+    meta: {
+      title: 'This is our BlocoBCategories',
+      metaTags: [
+        {
+          name: 'description',
+          content: 'Our site is ... bla bla bla'
+        },
+        {
+          property: 'og:description',
+          content: 'Our site is ... bla bla bla'
+        }
+      ]
+    }
   },
   {
     path: '/bloco-b/category/:category',
     name: 'menuCategories',
     component: () => import('../views/BlocoBCategories.vue'), 
-    props: (route) => ({ query: route.query.category }) 
+    props: (route) => ({ query: route.query.category }),
+    meta: {
+      title: 'This is menuCategories',
+      metaTags: [
+        {
+          name: 'description',
+          content: 'Our site is ... bla bla bla'
+        },
+        {
+          property: 'og:description',
+          content: 'Our site is ... bla bla bla'
+        }
+      ]
+    } 
   },
   {
     path: '/bloco-b/category/:category/collection/:collection',
     name: 'listpage',
-    component: () => import( /* webpackChunkName: "product-group" */ '../views/BlocoB.vue')
+    component: () => import( /* webpackChunkName: "product-group" */ '../views/BlocoB.vue'),
+    meta: {
+      title: 'listpage',
+      metaTags: [
+        {
+          name: 'description',
+          content: 'Our site is ... bla bla bla'
+        },
+        {
+          property: 'og:description',
+          content: 'Our site is ... bla bla bla'
+        }
+      ]
+    }
   },
   {
     path: '/bloco-b/category/:category/collection/:collection/id/:id/name/:name',
     name: 'productDetail',
-    component: () => import( /* webpackChunkName: "product-group" */ '../views/DetailPage.vue')
+    component: () => import( /* webpackChunkName: "product-group" */ '../views/DetailPage.vue'),
+    meta: {
+      title: 'listpage',
+      metaTags: [
+        {
+          name: 'description',
+          content: 'Our site is ... bla bla bla'
+        },
+        {
+          property: 'og:description',
+          content: 'Our site is ... bla bla bla'
+        }
+      ]
+    }
   },
   {
     path: '/bloco-b/category/:category/collection/:collection/id/:id/name/:name/variant/:variant',
     name: 'variantDetail',
-    component: () => import( /* webpackChunkName: "product-group" */ '../views/ProductPage.vue')
+    component: () => import( /* webpackChunkName: "product-group" */ '../views/ProductPage.vue'),
+    meta: {
+      title: 'listpage',
+      metaTags: [
+        {
+          name: 'description',
+          content: 'Our site is ... bla bla bla'
+        },
+        {
+          property: 'og:description',
+          content: 'Our site is ... bla bla bla'
+        }
+      ]
+    }
   },
   { 
     path: '/search/:term', 
@@ -101,7 +272,20 @@ const routes = [
   {
     path: '/shoppingcart',
     name: 'shoppingcart',
-    component: () => import( /* webpackChunkName: "shopping-group" */ '../views/ShoppingCart.vue')
+    component: () => import( /* webpackChunkName: "shopping-group" */ '../views/ShoppingCart.vue'),
+    meta: {
+      title: 'Shopping Cart',
+      metaTags: [
+        {
+          name: 'description',
+          content: 'Our site is ... bla bla bla'
+        },
+        {
+          property: 'og:description',
+          content: 'Our site is ... bla bla bla'
+        }
+      ]
+    }
   }
 ]
 
@@ -113,5 +297,42 @@ const router = new VueRouter({
         return { x: 0, y: 0 }
     }
 })
+
+router.beforeEach((to, from, next) => {
+  // This goes through the matched routes from last to first, finding the closest route with a title.
+  // eg. if we have /some/deep/nested/route and /some, /deep, and /nested have titles, nested's will be chosen.
+  const nearestWithTitle = to.matched.slice().reverse().find(r => r.meta && r.meta.title);
+
+  // Find the nearest route element with meta tags.
+  const nearestWithMeta = to.matched.slice().reverse().find(r => r.meta && r.meta.metaTags);
+  const previousNearestWithMeta = from.matched.slice().reverse().find(r => r.meta && r.meta.metaTags);
+
+  // If a route with a title was found, set the document (page) title to that value.
+  if(nearestWithTitle) document.title = nearestWithTitle.meta.title;
+
+  // Remove any stale meta tags from the document using the key attribute we set below.
+  Array.from(document.querySelectorAll('[data-vue-router-controlled]')).map(el => el.parentNode.removeChild(el));
+
+  // Skip rendering meta tags if there are none.
+  if(!nearestWithMeta) return next();
+
+  // Turn the meta tag definitions into actual elements in the head.
+  nearestWithMeta.meta.metaTags.map(tagDef => {
+    const tag = document.createElement('meta');
+
+    Object.keys(tagDef).forEach(key => {
+      tag.setAttribute(key, tagDef[key]);
+    });
+
+    // We use this to track which meta tags we create, so we don't interfere with other ones.
+    tag.setAttribute('data-vue-router-controlled', '');
+
+    return tag;
+  })
+  // Add the meta tags to the document head.
+  .forEach(tag => document.head.appendChild(tag));
+
+  next();
+});
 
 export default router
