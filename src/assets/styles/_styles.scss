@@ -1,5 +1,54 @@
 
+
+// // Paragraphs - Fonts
+@font-face {
+  font-family: 'Noe Display';
+  src:  url('assets/fonts/NoeDisplay-Black.eot');
+  src:  url('assets/fonts/NoeDisplay-Black.woff') format('woff'),
+        url('assets/fonts/NoeDisplay-Black.ttf') format('truetype'),
+        url('assets/fonts/NoeDisplay-Black.svg#NoeDisplay-Black') format('svg'),
+        url('assets/fonts/NoeDisplay-Black.woff2') format('woff2');
+  font-weight: 900;
+  font-style: normal;
+}
+
+$font-family-serif:       'Noe Display', serif;
+$font-family-sans-serif:  'Oswald', sans-serif;
+$font-family-sans-serif2: 'Ubuntu', sans-serif;
+
+// // Grid breakpoints
+// // Define the minimum dimensions at which your layout will change,
+// // adapting to different screen sizes, for use in media queries.
+
+/* $grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 1200px,
+  xl: 1400px,
+  xxl: 1500px
+); */
+/* 
+@include _assert-ascending($grid-breakpoints, "$grid-breakpoints");
+@include _assert-starts-at-zero($grid-breakpoints);
+ */
+// // Grid containers
+// //
+// // Define the maximum width of `.container` for different screen sizes.
+
+/* $container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1320px
+);
+
+@include _assert-ascending($container-max-widths, "$container-max-widths"); */
+
+
 @import "./assets/styles/_animations";
+
 
 html {
   -ms-overflow-style: -ms-autohiding-scrollbar;
@@ -18,17 +67,16 @@ html {
 } */
 
 body {
-  background-color: $body-bg;
+  background-color: #F0F0F0;
   //margin-top: 90px;
   font-family: $font-family-sans-serif2;
 }
-
 
 // // Paragraphs
 h1, .h1 {
   font-family: $font-family-serif;
   font-size: 50px;
-  color: $gray-1000;
+  color: #333;
   
     &.pageTitle {
       font-size: 11.25rem; //180px
@@ -61,7 +109,7 @@ h2, .h2{
     font-family: $font-family-sans-serif;
     font-weight: normal;
     font-size: 2.5rem;
-    color: $gray-1000;
+    color: #333;
 
     &.pageTitleh2 {
       text-align: center;
@@ -81,7 +129,7 @@ h2, .h2{
           height: 4px;
           margin-right: 5px;
           display: inline-flex;
-          background: $gray-1000;
+          background: #333;
           vertical-align: middle;
         }
       }
@@ -108,10 +156,11 @@ p {
 }
 
 a {
-  text-decoration:  $link-decoration;
+  text-decoration:  underline;
   font-family:      $font-family-sans-serif2;
   font-weight:      300;
-  color:            $link-color;
+  color:            #C47C5A;
+  will-change: color;
   -webkit-transition:     color 0.2s ease;
   -moz-transition:        color 0.2s ease;
   -o-transition:          color 0.2s ease;
@@ -121,8 +170,8 @@ a {
   &:hover,
   &:active,
   &:focus {
-      text-decoration:  $link-hover-decoration;
-      color:            $link-hover-color;
+      text-decoration:  none;
+      color:            #B76646;
       outline: none;
   }
 }
@@ -146,6 +195,7 @@ button{
    cursor: pointer;
    margin-bottom: 15px;
    padding-left: 40px;
+   will-change: padding;
     -webkit-transition:     padding 0.5s ease;
     -moz-transition:        padding 0.5s ease;
     -o-transition:          padding 0.5s ease;
@@ -160,6 +210,7 @@ button{
       height: 1px;
       width: 0;
       background: #333;
+      will-change: width;
       -webkit-transition:     width 0.5s ease;
       -moz-transition:        width 0.5s ease;
       -o-transition:          width 0.5s ease;
@@ -183,6 +234,7 @@ button{
       height: 22px;
       display: inline-flex;
       transform-origin: 50% 50%;
+      will-change: transform, background-color;
       -webkit-transition:     background-color 0.4s ease, transform 0.4s ease;
       -moz-transition:        background-color 0.4s ease, transform 0.4s ease;
       -o-transition:          background-color 0.4s ease, transform 0.4s ease;
@@ -225,9 +277,9 @@ button{
 // Menus
 nav a,
 footer a{
-  text-decoration:  $menu-link-decoration;
+  text-decoration:  none;
   font-family:      $font-family-sans-serif;
-  color:            $menu-link-color;
+  color:            #000;
   font-weight:      300;
 }
 
@@ -235,15 +287,15 @@ header  {
 
     nav a {
         &:hover{
-          color:     $menu-link-hover-color;
+          color:     #C47C5A;
         }
         &.router-link-exact-active{
-          color:     $menu-link-active-color;
+          color:     #a7a7a7;
         }
     }
 
     & .languageLinks{
-        border-left: 1px solid $gray-300;
+        border-left: 1px solid #E8E8E8;
         padding: 0 2%;
         width: 171px;
         align-items: center;
@@ -260,8 +312,8 @@ header  {
 
                 ~ p{
                   font-family: $font-family-sans-serif;
-                  color: $secondary-menu-link-color;
-                  text-decoration: $secondary-menu-link-decoration;
+                  color: #b7b7b7;
+                  text-decoration: none;
                   text-transform: uppercase;
                   letter-spacing: 1.5px;
                   font-size: 13px;
@@ -288,32 +340,32 @@ header  {
                         content: '';
                         width: 80%;
                         height: 1px;
-                        background-color: $gray-900;
+                        background-color: #313131;
                         opacity: 0;
                         will-change: left, opacity;
-                        -webkit-transition: all 0.1s ease;
-                        -moz-transition: all 0.1s ease;
-                        -o-transition: all 0.1s ease;
-                        transition: all 0.1s ease;
+                        -webkit-transition:   all 0.1s ease;
+                        -moz-transition:      all 0.1s ease;
+                        -o-transition:        all 0.1s ease;
+                        transition:           all 0.1s ease;
                       }
                 }
 
                 &:checked ~ p{
                   font-size: 15px;
-                  color: $secondary-menu-link-active-color;
+                  color: #333;
                 }
 
                 &:not(:checked):hover {
                     ~ p {
                       font-size: 15px;
-                      color: $secondary-menu-link-active-color;
+                      color: #333;
                     }
                 }
             }
         }
 
         &:hover input:checked ~ p{
-          color: $secondary-menu-link-color!important;
+          color: #b7b7b7!important;
           font-size: 13px!important;
   
           &::after{
@@ -324,7 +376,7 @@ header  {
   
       &:hover input:checked:hover ~ p{
           font-size: 15px!important;
-          color: $secondary-menu-link-active-color!important;
+          color: #333!important;
   
           &::after{
             opacity: 0;
@@ -432,7 +484,7 @@ header  {
       pointer-events: none;
       left: 0;
       top: 10px;
-
+      will-change: top, font-size, font-weight;
       -moz-transition:    top 0.3s ease 0.1s, font-size 0.3s ease 0.05s, font-weight 0.3s ease;
       -o-transition:      top 0.3s ease 0.1s, font-size 0.3s ease 0.05s, font-weight 0.3s ease;
       -webkit-transition: top 0.3s ease 0.1s, font-size 0.3s ease 0.05s, font-weight 0.3s ease;
