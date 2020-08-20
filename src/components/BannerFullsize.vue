@@ -367,10 +367,24 @@ export default {
 
 
     .carousel-indicators {
+    // position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 15;
+    display: flex;
+    justify-content: center;
+    padding-left: 0;
+    margin-right: 15%;
+    margin-left: 15%;
+    list-style: none;
+
     align-items: baseline;
     position: absolute;
     bottom: 25px;
     z-index: 4;
+
+   
 
     a {
         flex: 0 1 auto;
