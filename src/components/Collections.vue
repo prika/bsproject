@@ -1,15 +1,15 @@
 <template>
-    <div class="collectionContainer container" :style="collectionVariables">
+    <div class="collectionContainer container" :style="collectionVariables" v-once>
         <div class="row">
-            <a  v-for="(collection, index) in collections" 
-                href="/"
-                :class="'collection col-12 col-md-6 collection'+index" 
+            <router-link  v-for="(collection, index) in collections" :key="index"
+                :to="'/bloco-b/category/0/collection/'+collection.id"
+                :class="'collection col-12 col-md-6 collection'+index"
                 :style="{'background-image':'url(' + getImgUrl(collection.imgsrc) +')'}">
 
                 <h1 class="pageTitle" :aria-label="collection.name"> 
                     {{collection.splitname1}}<span>{{collection.splitname2}}</span>
                 </h1>
-            </a>
+            </router-link>
 
         </div>
     </div>
