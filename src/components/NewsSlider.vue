@@ -109,6 +109,7 @@ export default {
             overflow: hidden;
 
             img{
+                 will-change: transform;
                 -webkit-transition:     transform 0.4s cubic-bezier(0, .5, 0, 1);
                 -moz-transition:        transform 0.4s cubic-bezier(0, .5, 0, 1);
                 -o-transition:          transform 0.4s cubic-bezier(0, .5, 0, 1);

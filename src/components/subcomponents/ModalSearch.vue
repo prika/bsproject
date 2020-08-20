@@ -117,6 +117,7 @@ import closeIcon from '@/components/ui/closeIcon.vue'
       justify-content: center;
       align-items: center;
       height: 100vh;
+      will-change: height;
       -webkit-transition:   height 0.7s ease;
       -moz-transition:      height 0.7s ease;
       -o-transition:        height 0.7s ease;
@@ -183,7 +184,11 @@ import closeIcon from '@/components/ui/closeIcon.vue'
         font-size: 18px;
         text-transform: uppercase;
         opacity: 0;
-        transition: opacity 0.2s;
+        will-change: opacity;
+        -webkit-transition: opacity 0.2s;
+        -moz-transition:    opacity 0.2s;
+        -o-transition:      opacity 0.2s;
+        transition:         opacity 0.2s;
 
         span{
           background: #707070;
@@ -208,12 +213,16 @@ import closeIcon from '@/components/ui/closeIcon.vue'
         -moz-transform:        translateX(10%);
         -o-transform:          translateX(10%);
         transform:             translateX(10%);
-        transition: 0.4s;
+        -webkit-transition: 0.4s;
+        -moz-transition:    0.4s;
+        -o-transition:      0.4s;
+        transition:         0.4s;
 
         a{
             display: flex;
             width: 100%; 
             text-decoration: none;
+            will-change: transform;
             -webkit-transition:   transform 0.2s ease;
             -moz-transition:      transform 0.2s ease;
             -o-transition:        transform 0.2s ease;
@@ -234,6 +243,7 @@ import closeIcon from '@/components/ui/closeIcon.vue'
           overflow: hidden;
 
           img{
+            will-change: transform;
             -webkit-transition:   transform 0.2s ease;
             -moz-transition:      transform 0.2s ease;
             -o-transition:        transform 0.2s ease;

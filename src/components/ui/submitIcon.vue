@@ -40,6 +40,7 @@
         font-weight:      300;
         color:            #313131;
         line-height:      15px;
+        will-change: color;
         -webkit-transition:   color 0.2s cubic-bezier(0, .5, 0, 1);
         -moz-transition:      color 0.2s cubic-bezier(0, .5, 0, 1);
         -o-transition:        color 0.2s cubic-bezier(0, .5, 0, 1);
@@ -56,6 +57,7 @@
             display:block;
             background-color: #313131;
             height: 2px;
+            will-change: background-color, width;
             -webkit-transition:   background-color 0.2s cubic-bezier(0, .5, 0, 1), width 0.2s cubic-bezier(0, .5, 0, 1);
             -moz-transition:      background-color 0.2s cubic-bezier(0, .5, 0, 1), width 0.2s cubic-bezier(0, .5, 0, 1);
             -o-transition:        background-color 0.2s cubic-bezier(0, .5, 0, 1), width 0.2s cubic-bezier(0, .5, 0, 1);

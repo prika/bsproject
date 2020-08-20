@@ -302,6 +302,7 @@ export default {
                     line-height: 2rem;
                     text-transform: uppercase;
                     margin: 10px 0;
+                     will-change: color, margin;
                     -webkit-transition:     color 0.5s ease, margin 0.5s ease;
                     -moz-transition:        color 0.5s ease, margin 0.5s ease;
                     -o-transition:          color 0.5s ease, margin 0.5s ease;
@@ -319,6 +320,7 @@ export default {
         }
 
         .collectionMenu{ 
+            will-change: top;
             -webkit-transition:     top 0.5s ease;
             -moz-transition:        top 0.5s ease;
             -o-transition:          top 0.5s ease;
@@ -349,6 +351,7 @@ export default {
                         width: 30px;
                         height: 1px;
                         background-color: #333;
+                        will-change: width, background-color;
                         -webkit-transition:     width 0.5s ease, background-color 0.3s ease;
                         -moz-transition:        width 0.5s ease, background-color 0.3s ease;
                         -o-transition:          width 0.5s ease, background-color 0.3s ease;
@@ -384,6 +387,7 @@ export default {
                     color: #6A6A6A;
                     padding-left: 15px;
                     position: relative;
+                    will-change: padding, color;
                     -webkit-transition:     color 0.3s ease, padding 0.5s ease;
                     -moz-transition:        color 0.3s ease, padding 0.5s ease;
                     -o-transition:          color 0.3s ease, padding 0.5s ease;
@@ -397,6 +401,7 @@ export default {
                         width: 0;
                         height: 1px;
                         background-color: #6A6A6A;
+                        will-change: width, background-color;
                         -webkit-transition:     width 0.5s ease, background-color 0.3s ease;
                         -moz-transition:        width 0.5s ease, background-color 0.3s ease;
                         -o-transition:          width 0.5s ease, background-color 0.3s ease;
@@ -412,6 +417,7 @@ export default {
                     -ms-transform: rotate(45deg); 
                     transform: rotate(45deg); 
                     transform-origin: 50% 50%;
+                    will-change: transform, background-color;
                     -webkit-transition:     transform 0.5s ease, background-color 0.3s ease;
                     -moz-transition:        transform 0.5s ease, background-color 0.3s ease;
                     -o-transition:          transform 0.5s ease, background-color 0.3s ease;
@@ -459,7 +465,7 @@ export default {
             width: 260px;
             height: 373px;
             overflow: hidden;
-
+            will-change: transform;
             -webkit-transition: transform 0.5s ease;
             -moz-transition:    transform 0.5s ease;
             -o-transition:      transform 0.5s ease;
@@ -484,7 +490,7 @@ export default {
             color: #333;
             text-align: left;
             text-indent: 25px;
-
+            will-change: top;
             -webkit-transition: top 0.5s ease;
             -moz-transition:    top 0.5s ease;
             -o-transition:      top 0.5s ease;

@@ -10,7 +10,6 @@
 
             <h1 v-html="accountregister.title">{{accountregister.title}}</h1>
                 
-           <!--transition enter-active-class="animated fadeIn faster" leave-active-class="animated fadeOut faster">-->
             <div v-if="!success">
                 <p v-html="accountregister.subtitle" class="subtitle">{{accountregister.subtitle}}</p>
 
@@ -151,7 +150,6 @@
                 </form>
                  </transition>
             </div>
-            <!-- </transition-->
 
             <transition enter-active-class="animated fadeIn faster" leave-active-class="animated fadeOut faster">
                 <div class="col-12" v-if="success">

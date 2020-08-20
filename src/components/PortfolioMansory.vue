@@ -150,6 +150,7 @@ export default {
           width: 60px;
           height: 60px;
           z-index: 2;
+          will-change: opacity;
           -webkit-transition:   opacity 0.3s cubic-bezier(0, .5, 0, 1);
           -moz-transition:      opacity 0.3s cubic-bezier(0, .5, 0, 1);
           -o-transition:        opacity 0.3s cubic-bezier(0, .5, 0, 1);

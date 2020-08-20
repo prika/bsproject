@@ -296,7 +296,8 @@ body{margin: 0}
             cursor: pointer;
             text-decoration: none;
             color: inherit;
-             -webkit-transition:   transform 0.2s ease;
+            will-change: transform;
+            -webkit-transition:   transform 0.2s ease;
             -moz-transition:      transform 0.2s ease;
             -o-transition:        transform 0.2s ease;
             transition:           transform 0.2s ease;
@@ -362,6 +363,7 @@ body{margin: 0}
           text-decoration: none;
           letter-spacing: .8px;
           //padding: 0 50px;
+          will-change: max-width, width;
           -webkit-transition:     max-width .4s ease, width .4s ease;
           -moz-transition:        max-width .4s ease, width .4s ease;
           -o-transition:          max-width .4s ease, width .4s ease;
@@ -411,6 +413,7 @@ body{margin: 0}
                 width: 70px;
                 height: 1px;
                 background: #FFF;
+                will-change: opacity, left;
                 -webkit-transition:     opacity 0.2s ease, left 0.2s ease;
                 -moz-transition:        opacity 0.2s ease, left 0.2s ease;
                 -o-transition:          opacity 0.2s ease, left 0.2s ease;
@@ -422,6 +425,7 @@ body{margin: 0}
                 position: absolute;
                 margin-top: 1px;
                 left: calc( 25% + 64px);
+                will-change: opacity, left;
                 -webkit-transition:     opacity 0.2s ease, left 0.2s ease;
                 -moz-transition:        opacity 0.2s ease, left 0.2s ease;
                 -o-transition:          opacity 0.2s ease, left 0.2s ease;
@@ -460,6 +464,7 @@ body{margin: 0}
                 width: 50px;
                 height: 1px;
                 background: #333;
+                will-change: width;
                 -webkit-transition:     width 0.2s ease;
                 -moz-transition:        width 0.2s ease;
                 -o-transition:          width 0.2s ease;
@@ -471,6 +476,7 @@ body{margin: 0}
                 position: absolute;
                 //top: 44%;
                 right: 164px;
+                will-change: right;
                 -webkit-transition:     right 0.2s ease;
                 -moz-transition:        right 0.2s ease;
                 -o-transition:          right 0.2s ease;

@@ -34,6 +34,7 @@ export default {
     display: inline-block;
     width: 50px;
     height: 50px;
+    will-change: background-color;
     -webkit-transition:     background-color 0.4s cubic-bezier(0, .5, 0, 1);
     -moz-transition:        background-color 0.4s cubic-bezier(0, .5, 0, 1);
     -o-transition:          background-color 0.4s cubic-bezier(0, .5, 0, 1);

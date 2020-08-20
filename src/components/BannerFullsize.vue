@@ -21,7 +21,6 @@
 
         <div class="carouselContainer">
             <template v-for="(image, index) in imageGroupSliderGallery">
-               
 
                 <div v-if="image.type == 'img'" 
                     :class="['slide', (index === activeSlide ? 'active': '')]"
@@ -317,7 +316,7 @@ export default {
           overflow: hidden;
           transform: translateY(-100vh);
           z-index: 1;
-
+            will-change: transform;
           -webkit-transition:     transform .6s cubic-bezier(0, .5, 0, 1);
           -moz-transition:        transform .6s cubic-bezier(0, .5, 0, 1);
           -o-transition:          transform .6s cubic-bezier(0, .5, 0, 1);
@@ -341,7 +340,7 @@ export default {
               width: 100%;
               height: 100%;
               
-              background-image: url(../assets/images/logo/intro_home.svg);
+              background-image: url(../assets/images/shared/intro_home.svg);
               background-repeat: no-repeat; 
               background-position: center center;
               background-attachment: fixed; 
@@ -388,6 +387,7 @@ export default {
         text-align: center;
         cursor: pointer;
         background: none;
+        will-change: opacity;
         -webkit-transition:     opacity 2s cubic-bezier(0, .5, 0, 1);
         -moz-transition:        opacity 2s cubic-bezier(0, .5, 0, 1);
         -o-transition:          opacity 2s cubic-bezier(0, .5, 0, 1);
@@ -430,45 +430,6 @@ export default {
 //         height: calc(var(--vh, 1vh) * 100 - 124px);
 //     }
 // }
-
-
-
-
-// .plyr__control--overlaid.plyr__control{
-//   border-radius: 0;
-//   padding: 0;
-//   width: 60px;
-//   height: 60px;
-//   background: transparent;
-
-//     &::before,
-//     &::after{
-//       content: '';
-//       position: absolute;
-//       top: 0;
-//       left: 0;
-//       width: 60px;
-//       height: 60px;
-//       -webkit-transition:   opacity 0.3s cubic-bezier(0, .5, 0, 1);
-//       -moz-transition:      opacity 0.3s cubic-bezier(0, .5, 0, 1);
-//       -o-transition:        opacity 0.3s cubic-bezier(0, .5, 0, 1);
-//       transition:           opacity 0.3s cubic-bezier(0, .5, 0, 1);
-//       background: url(./assets/images/icons/play.svg) no-repeat center center;
-//     }
-
-//     &::after{
-//       background: url(./assets/images/icons/play-hover.svg) no-repeat center center;
-//       opacity: 0;
-//     }
-
-//     &:hover{
-//         background: transparent!important;
-
-//         &::before{opacity: 0;}
-//         &::after{opacity: 1;}
-//     }
-// }
-
 
 
 .line{

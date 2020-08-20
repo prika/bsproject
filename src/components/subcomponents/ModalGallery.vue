@@ -332,6 +332,7 @@ export default {
                     text-align: center;
                     cursor: pointer;
                     background: none;
+                    will-change: opacity;
                     -webkit-transition:     opacity 2s cubic-bezier(0, .5, 0, 1);
                     -moz-transition:        opacity 2s cubic-bezier(0, .5, 0, 1);
                     -o-transition:          opacity 2s cubic-bezier(0, .5, 0, 1);
@@ -375,6 +376,7 @@ export default {
                 width: 53px;
                 margin-top: -27px;
                 margin-left: -27px;
+                will-change: opacity, left;
                 -webkit-transition:     left 0.2s ease, opacity 0.2s ease;
                 -moz-transition:        left 0.2s ease, opacity 0.2s ease;
                 -o-transition:          left 0.2s ease, opacity 0.2s ease;

@@ -98,6 +98,7 @@ export default {
         -webkit-filter:     grayscale(100%);
         -moz-filter:        grayscale(100%);
         filter:             grayscale(100%);
+        will-change: filter;
         -webkit-transition:     filter .3s cubic-bezier(.4,1.03,.83,.56);
         -moz-transition:        filter .3s cubic-bezier(.4,1.03,.83,.56);
         -o-transition:          filter .3s cubic-bezier(.4,1.03,.83,.56);
@@ -210,7 +211,6 @@ export default {
         .imageParallax1{ z-index: 1; }
         .imageParallax2{ z-index: 0; left: 3%;}
     }
-
 }
 
 

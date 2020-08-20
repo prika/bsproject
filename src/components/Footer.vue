@@ -15,7 +15,7 @@
                     :href="item.file"
                     :aria-label="$t('footer-cofinanced')+' '+item.name"
                     :alt="$t('footer-cofinanced')+' '+item.name"
-                    :style="{ backgroundImage: 'url(\'' + item.img + '\')' }"
+                    :style="{ 'backgroundImage': 'url(\'' + item.img + '\')' }"
                     target="_blank" class="col-12 col-md-6"
                     rel="noopener noreferrer nofollow">
                 </a>
@@ -104,6 +104,7 @@ footer{
           display: table;
           padding-bottom: 20px; 
           position: relative;
+          will-change: color;
           -webkit-transition:   color .3s cubic-bezier(0, .5, 0, 1);
           -moz-transition:      color .3s cubic-bezier(0, .5, 0, 1);
           -o-transition:        color .3s cubic-bezier(0, .5, 0, 1);
@@ -119,6 +120,7 @@ footer{
             width: 100%;
             background-color: #C47C5A;
             opacity: 0;
+            will-change: left, opacity;
             -webkit-transition:   left 0.4s cubic-bezier(0, .5, 0, 1), opacity 0.4s cubic-bezier(0, .5, 0, 1);
             -moz-transition:      left 0.4s cubic-bezier(0, .5, 0, 1), opacity 0.4s cubic-bezier(0, .5, 0, 1);
             -o-transition:        left 0.4s cubic-bezier(0, .5, 0, 1), opacity 0.4s cubic-bezier(0, .5, 0, 1);
@@ -161,7 +163,7 @@ footer{
             -webkit-appearance: none;
             -moz-appearance: none;
             appearance: none;
-
+            will-change: background-color;
             -webkit-transition:   background-color 0.4s cubic-bezier(0, .5, 0, 1);
             -moz-transition:      background-color 0.4s cubic-bezier(0, .5, 0, 1);
             -o-transition:        background-color 0.4s cubic-bezier(0, .5, 0, 1);
@@ -208,7 +210,7 @@ footer{
         display: block;
         margin: 3% 0 5%;
         height: 50px;
-        background: url(../assets/images/logo/logo_footer.svg) no-repeat 15%;
+        background: url(../assets/images/shared/logo_footer.svg) no-repeat 15%;
       }
 
     .social-icons{

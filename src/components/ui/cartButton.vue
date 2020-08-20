@@ -43,6 +43,7 @@
 
     .qttProducts,
     .cartIcon svg {
+        will-change: transform;
         -webkit-transition:   transform 0.2s cubic-bezier(0, .5, 0, 1);
         -moz-transition:      transform 0.2s cubic-bezier(0, .5, 0, 1);
         -o-transition:        transform 0.2s cubic-bezier(0, .5, 0, 1);

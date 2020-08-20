@@ -41,6 +41,7 @@ export default {
             -webkit-transform-origin:   50% 50%;
             -ms-transform-origin:       50% 50%;
             transform-origin:           50% 50%;
+            will-change: transform;
             -webkit-transition:     transform 0.2s ease;
             -moz-transition:        transform 0.2s ease;
             -o-transition:          transform 0.2s ease;
@@ -51,6 +52,7 @@ export default {
     &:hover rect{
         -webkit-transform:  rotate(225deg);
         -ms-transform:      rotate(225deg);
+        -o-transform:      rotate(225deg);
         transform:          rotate(225deg);
     }
 }

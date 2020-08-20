@@ -365,6 +365,7 @@ body{margin: 0}
             letter-spacing: 4px;
             padding-left: 220px;
             position: relative;
+            will-change: color;
             -webkit-transition:     color 0.2s ease;
             -moz-transition:        color 0.2s ease;
             -o-transition:          color 0.2s ease;
@@ -437,6 +438,7 @@ body{margin: 0}
                 height: 1px;
                 width: 0;
                 background: #b7b7b7;
+                will-change: width;
                 -webkit-transition:     width 0.2s ease;
                 -moz-transition:        width 0.2s ease;
                 -o-transition:          width 0.2s ease;
@@ -497,6 +499,7 @@ body{margin: 0}
                         width: 40px;
                         height: 1px;
                         background: #333;
+                        will-change: width;
                         -webkit-transition:     width 0.2s ease;
                         -moz-transition:        width 0.2s ease;
                         -o-transition:          width 0.2s ease;
@@ -543,6 +546,7 @@ body{margin: 0}
                 justify-content: center;
                 align-items: center;
                 cursor: pointer;
+                will-change: transform;
                 -webkit-transition:   transform 0.2s ease;
                 -moz-transition:      transform 0.2s ease;
                 -o-transition:        transform 0.2s ease;
@@ -558,6 +562,7 @@ body{margin: 0}
                   img{
                     min-height: 100%;
                     width: 100%;
+                    will-change: transform;
                     -webkit-transition:   transform 0.2s ease;
                     -moz-transition:      transform 0.2s ease;
                     -o-transition:        transform 0.2s ease;

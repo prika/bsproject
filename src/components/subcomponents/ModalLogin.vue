@@ -260,6 +260,7 @@ export default {
             position: fixed;
             top: 580px;
             right: 0;
+            will-change: background-color;
             -webkit-transition:     background-color 0.4s cubic-bezier(0, 0.5, 0, 1);
             -moz-transition:        background-color 0.4s cubic-bezier(0, 0.5, 0, 1);
             -o-transition:          background-color 0.4s cubic-bezier(0, 0.5, 0, 1);

@@ -168,6 +168,7 @@ export default {
                     line-height: 5rem;
                     text-transform: uppercase;
                     margin: 20px 0 30px;
+                    will-change: margin;
                     -webkit-transition:  margin 0.3s ease;
                     -moz-transition:     margin 0.3s ease;
                     -o-transition:       margin 0.3s ease;
@@ -182,6 +183,7 @@ export default {
                         width: 0;
                         height: 7px;
                         background-color: #333;
+                        will-change: width, left;
                         -webkit-transition:     width 0.4s ease, 0.1s left 0.3s ease;
                         -moz-transition:        width 0.4s ease, 0.1s left 0.3s ease;
                         -o-transition:          width 0.4s ease, 0.1s left 0.3s ease;
@@ -210,6 +212,7 @@ export default {
             overflow: hidden;
             height:0;
             opacity: 0;
+            will-change: height, opacity;
             -webkit-transition:     height 0.5s ease, opacity 0.5s ease;
             -moz-transition:        height 0.5s ease, opacity 0.5s ease;
             -o-transition:          height 0.5s ease, opacity 0.5s ease;

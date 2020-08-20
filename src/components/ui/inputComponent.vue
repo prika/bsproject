@@ -78,10 +78,10 @@ export default {
       left: 0;
       top: 10px;
       //padding-left: 15px;
-
+      will-change: top, font-size, font-weight;
+      -webkit-transition: top 0.3s ease 0.1s, font-size 0.3s ease 0.05s, font-weight 0.3s ease;
       -moz-transition:    top 0.3s ease 0.1s, font-size 0.3s ease 0.05s, font-weight 0.3s ease;
       -o-transition:      top 0.3s ease 0.1s, font-size 0.3s ease 0.05s, font-weight 0.3s ease;
-      -webkit-transition: top 0.3s ease 0.1s, font-size 0.3s ease 0.05s, font-weight 0.3s ease;
       transition:         top 0.3s ease 0.1s, font-size 0.3s ease 0.05s, font-weight 0.3s ease;
 
     }
@@ -98,7 +98,7 @@ export default {
           bottom: 0;
           position: absolute;
           background: #333;
-
+          will-change: width;
           -moz-transition:    width 0.3s ease;
           -o-transition:      width 0.3s ease;
           -webkit-transition: width 0.3s ease;

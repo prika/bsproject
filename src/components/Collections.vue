@@ -108,6 +108,7 @@ $calcCollection2: calc(-293px * var(--collection2-count));
                 position: absolute;
                 top: 0;
                 left: -140px;
+                will-change: left;
                 -webkit-transition:   left 0.3s cubic-bezier(0, .5, 0, 1) .2s;
                 -moz-transition:      left 0.3s cubic-bezier(0, .5, 0, 1) .2s;
                 -o-transition:        left 0.3s cubic-bezier(0, .5, 0, 1) .2s;
