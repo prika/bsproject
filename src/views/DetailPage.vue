@@ -478,6 +478,7 @@ body{margin: 0}
             }
 
             .pagination {
+              display: flex;
                 
                 .arrowLeft,
                 .arrowRight {
