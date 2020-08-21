@@ -1,7 +1,7 @@
 {
     "short_name": "BStone",
     "name": "BStone",
-    "description": "Weather forecast information",
+    "description": "BStone Project description",
     "icons": [
         {
             "src": "android-icon-36x36.png",
