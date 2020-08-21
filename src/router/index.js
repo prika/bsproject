@@ -10,15 +10,15 @@ const routes = [
     name: 'Home',
     component: Home,
     meta: {
-      title: 'Homepage bla bla bla',
+      title: 'Homepage Title',
       metaTags: [
         {
           name: 'description',
-          content: 'Our site is ... bla bla bla'
+          content: 'Our site is ... content'
         },
         {
           property: 'og:description',
-          content: 'Our site is ... bla bla bla'
+          content: 'Our site is ... content'
         }
       ]
     }
@@ -28,15 +28,15 @@ const routes = [
     name: 'explore',
     component: () => import( /* webpackChunkName: "pages" */ '../views/BExplore.vue'),
     meta: {
-      title: 'B Explore',
+      title: 'B Explore Title',
       metaTags: [
         {
           name: 'description',
-          content: 'Our site is ... bla bla bla'
+          content: 'Our site is ... content'
         },
         {
           property: 'og:description',
-          content: 'Our site is ... bla bla bla'
+          content: 'Our site is ... content'
         }
       ]
     }
@@ -50,11 +50,11 @@ const routes = [
       metaTags: [
         {
           name: 'description',
-          content: 'Our site is ... bla bla bla'
+          content: 'Our site is ... content'
         },
         {
           property: 'og:description',
-          content: 'Our site is ... bla bla bla'
+          content: 'Our site is ... content'
         }
       ]
     }
@@ -65,15 +65,15 @@ const routes = [
     name: 'innovation',
     component: () => import( /* webpackChunkName: "pages" */ '../views/BInnovation.vue'),
     meta: {
-      title: 'B Innovation - B Stone Site',
+      title: 'B Innovation Title - B Stone Site',
       metaTags: [
         {
           name: 'description',
-          content: 'Our site is ... bla bla bla'
+          content: 'Our site is ... content'
         },
         {
           property: 'og:description',
-          content: 'Our site is ... bla bla bla'
+          content: 'Our site is ... content'
         }
       ]
     }
@@ -88,11 +88,11 @@ const routes = [
       metaTags: [
         {
           name: 'description',
-          content: 'Our site is ... bla bla bla'
+          content: 'Our site is ... content'
         },
         {
           property: 'og:description',
-          content: 'Our site is ... bla bla bla'
+          content: 'Our site is ... content'
         }
       ]
     }  
@@ -107,11 +107,11 @@ const routes = [
       metaTags: [
         {
           name: 'description',
-          content: 'Our site is ... bla bla bla'
+          content: 'Our site is ... content'
         },
         {
           property: 'og:description',
-          content: 'Our site is ... bla bla bla'
+          content: 'Our site is ... content'
         }
       ]
     }
@@ -125,11 +125,11 @@ const routes = [
       metaTags: [
         {
           name: 'description',
-          content: 'Our site is ... bla bla bla'
+          content: 'Our site is ... content'
         },
         {
           property: 'og:description',
-          content: 'Our site is ... bla bla bla'
+          content: 'Our site is ... content'
         }
       ]
     }
@@ -143,11 +143,11 @@ const routes = [
       metaTags: [
         {
           name: 'description',
-          content: 'Our site is ... bla bla bla'
+          content: 'Our site is ... content'
         },
         {
           property: 'og:description',
-          content: 'Our site is ... bla bla bla'
+          content: 'Our site is ... content'
         }
       ]
     }
@@ -161,11 +161,11 @@ const routes = [
       metaTags: [
         {
           name: 'description',
-          content: 'Our site is ... bla bla bla'
+          content: 'Our site is ... content'
         },
         {
           property: 'og:description',
-          content: 'Our site is ... bla bla bla'
+          content: 'Our site is ... content'
         }
       ]
     }
@@ -180,11 +180,11 @@ const routes = [
       metaTags: [
         {
           name: 'description',
-          content: 'Our site is ... bla bla bla'
+          content: 'Our site is ... content'
         },
         {
           property: 'og:description',
-          content: 'Our site is ... bla bla bla'
+          content: 'Our site is ... content'
         }
       ]
     } 
@@ -198,11 +198,11 @@ const routes = [
       metaTags: [
         {
           name: 'description',
-          content: 'Our site is ... bla bla bla'
+          content: 'Our site is ... content'
         },
         {
           property: 'og:description',
-          content: 'Our site is ... bla bla bla'
+          content: 'Our site is ... content'
         }
       ]
     }
@@ -216,11 +216,11 @@ const routes = [
       metaTags: [
         {
           name: 'description',
-          content: 'Our site is ... bla bla bla'
+          content: 'Our site is ... content'
         },
         {
           property: 'og:description',
-          content: 'Our site is ... bla bla bla'
+          content: 'Our site is ... content'
         }
       ]
     }
@@ -234,11 +234,11 @@ const routes = [
       metaTags: [
         {
           name: 'description',
-          content: 'Our site is ... bla bla bla'
+          content: 'Our site is ... content'
         },
         {
           property: 'og:description',
-          content: 'Our site is ... bla bla bla'
+          content: 'Our site is ... content'
         }
       ]
     }
@@ -278,11 +278,11 @@ const routes = [
       metaTags: [
         {
           name: 'description',
-          content: 'Our site is ... bla bla bla'
+          content: 'Our site is ... content'
         },
         {
           property: 'og:description',
-          content: 'Our site is ... bla bla bla'
+          content: 'Our site is ... content'
         }
       ]
     }
