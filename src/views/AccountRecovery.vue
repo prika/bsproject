@@ -95,7 +95,7 @@ export default {
     methods: {
         checkFormRecovery: function (e) {
 
-            e.preventDefault()
+            //e.preventDefault()
             if(!this.validateForm()) return
 
             const data = { 

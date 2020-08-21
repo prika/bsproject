@@ -136,7 +136,7 @@ export default {
         
         checkLoginForm: function (e) {
 
-            e.preventDefault()
+            //e.preventDefault()
             if(!this.validateForm()) return
 
             const data = { 

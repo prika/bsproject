@@ -303,7 +303,7 @@ export default {
     methods: {
         checkFormRegister: function (e) {
             
-            e.preventDefault()
+            //e.preventDefault()
             if(!this.validateForm()) return
             
             const data = { 

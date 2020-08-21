@@ -231,7 +231,7 @@ export default {
     methods:{
         checkAccountEditForm: function (e) {
             
-            e.preventDefault()            
+            //e.preventDefault()            
             if(!this.validateForm()) return
             
             const data = { 
