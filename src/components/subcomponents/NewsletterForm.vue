@@ -45,7 +45,7 @@ export default {
     methods: {
         checkForm: function (e) {
             
-            e.preventDefault()
+            //e.preventDefault()
             if(!this.validEmail()) return
             
             const data = { cont_email_newsletter: this.cont_email_newsletter }

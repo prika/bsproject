@@ -133,7 +133,7 @@ export default {
     methods: {
         checkContactsForm: function (e) {
             
-            e.preventDefault()
+            //e.preventDefault()
             if(!this.validateForm()) return
             
             const data = { 
