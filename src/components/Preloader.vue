@@ -226,7 +226,7 @@
 
 <script>
 export default {
-  name: 'prealoader',
+  name: 'preloader',
   data() {
       return {
           name: {

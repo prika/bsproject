@@ -87,7 +87,7 @@ export default {
 .blocobmenu{
     width: 100%;
     position: fixed;
-    z-index: 5;
+    z-index: 999999;
     top: 0;
     bottom: 0;
     left: 0;
