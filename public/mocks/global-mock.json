@@ -123,19 +123,24 @@
             },
             {   
                 "id": "department2",
-                "name": "Logistics",
+                "name": "Logistics Department",
                 "phone": "(+351)  914  490  070"
             },
             {   
                 "id": "department3",
                 "name": "Branding & Communication",
                 "phone": "(+351)  925  278  115"
+            },
+            {   
+                "id": "department4",
+                "name": "Finance Department",
+                "phone": "(+351)  919  139  021"
             }
         ]
     },
     "formContact": {
         "title": "Fale conosco",
-        "subtitle": "Fale <br> conosco",
+        "subtitle": "Dê-nos uma palavrinha",
         "inputname": "Nome",
         "inputsurname": "Sobrenome",
         "inputemail": "Email",
