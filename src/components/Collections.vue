@@ -120,7 +120,7 @@ $calcCollection2: calc(-293px * var(--collection2-count));
     &:hover{
 
         &.collection0{ animation: play1 2s steps(var(--collection1-count)) infinite;}
-        &.collection1{ animation: play2 1s steps(var(--collection2-count)) infinite;}
+        &.collection1{ animation: play2 2s steps(var(--collection2-count)) infinite;}
         
         & span::after{
             left: -20px;
