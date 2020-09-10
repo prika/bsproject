@@ -286,6 +286,14 @@ const routes = [
         }
       ]
     }
+  },
+  { 
+    path: '/404', 
+    component: () => import( /* webpackChunkName: "shopping-group" */ '../views/404.vue') 
+  },
+  { 
+    path: '*', 
+    redirect: '/404' 
   }
 ]
 
