@@ -38,13 +38,31 @@
                     </nav>
                      </transition>
 
-                    <div class="col-12 col-lg-11 productsContainer" :class="(hasFeaturedProducts === true ? 'featuredCenter': '')" itemscope itemtype="http://schema.org/ItemList">
+                    <div class="col-12 col-lg-11 productsContainer" :class="(hasFeaturedProducts === true ? 'featuredCenter': '')" 
+                        itemscope itemtype="http://schema.org/ItemList">
+
+                        <link itemprop="url" :href="'/bloco-b/category/'+ selectedCategory + '/collection/' + selectedCollection">
+                        <span v-if="hasFeaturedProducts" itemprop="numberOfItems">{{productsPerPage}}</span>
+
                         <transition-group appear enter-active-class="animated slideInUp delay" tag="div" class="row">
-                            <router-link    class="rellaxProduct product col-12 col-lg-6 col-xl-4" itemprop="itemListElement" itemscope itemtype="http://schema.org/Product"
+                            <router-link  class="rellaxProduct product col-12 col-lg-6 col-xl-4" 
+                                            
+                                            
+                                            itemprop="itemListElement"
+                                            itemscope itemtype="http://schema.org/Product"
                                             v-for="(product, index) in products"
-                                            :to="{path: '/bloco-b/category/'+ selectedCategory + '/collection/' + selectedCollection + '/id/' + product.id + '/name/' + product.firstName+'-'+product.secondName}"
+                                            :to="{path: '/bloco-b/category/'+ product.category + '/collection/' + product.collection + '/id/' + product.id + '/name/' + product.firstName+'-'+product.secondName}"
                                             :key="product.id"
                                             :data-rellax-speed="getDataSpeed(index)">
+                                    
+                                    <meta itemprop="position" :content="index" />
+                                    <a :href="'/bloco-b/category/'+ product.category + '/collection/' + product.collection + '/id/' + product.id + '/name/' + product.firstName+'-'+product.secondName" itemprop="url"></a>
+                                    <meta itemprop="sku" :content="product.id" />
+
+                                    <div itemprop="offers" itemtype="https://schema.org/Offer" itemscope>
+                                        <span itemprop="priceCurrency" content="EUR"></span>
+                                        <link itemprop="availability" href="https://schema.org/InStock" />
+                                    </div>
 
                                     <div class="containerImage">
                                         <img :src="product.imgURL" 
@@ -54,8 +72,7 @@
                                     </div>
                                     <p class="productName" itemprop="name">
                                         <mark>
-                                            <span></span>
-                                            {{ product.firstName }} <br> {{ product.secondName }}
+                                            <span></span> {{ product.firstName }} <br> {{ product.secondName }}
                                         </mark>
                                     </p>
                                     <p class="categoryName" v-if="hasFeaturedProducts">{{getCategory(product).name}}</p>
