@@ -21,7 +21,7 @@
                 </nav>
             </transition>
 
-            <transition enter-active-class="animated slideInDown" leave-active-class="animated slideOutDown">
+            <transition enter-active-class="animated slideInUp" leave-active-class="animated slideOutUp">
                 <div class="mobileAdd">
                     <a href="/simulador" class="simulator">{{$t('simulator')}}</a>
                     
