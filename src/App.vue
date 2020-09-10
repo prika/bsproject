@@ -7,7 +7,7 @@
       
       <transition appear enter-active-class="animated slideInDown delay-2s" leave-active-class="animated slideOutUp">
       <Header v-if="!(['faqs', 'privacy-policy'].indexOf($route.name) > -1)">
-            <div class="logo d-flex col-lg-2 col-md-2" itemscope itemtype="http://schema.org/Organization">
+            <div class="logo d-flex col-lg-2 col-md-2" itemscope itemtype="http://schema.org/Organization" legalName="BStone">
                 <router-link to="/" itemprop="url" :alt="'Link to ' + $t('logo-aria-label')">
                     <!-- Desktop -->
                     <img v-if="!isMobile()" class="d-none d-md-block" itemprop="logo" 
@@ -100,7 +100,8 @@ export default {
   },
   watch: {
     $route(to , from, next){
-       this.isLoaded = false
+        this.isLoaded = false
+        this.showMobileMenu = false
     }
   }
 }
