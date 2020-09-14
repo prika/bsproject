@@ -1,15 +1,15 @@
 <template>
-    <transition appear enter-active-class="animated fadeIn faster" leave-active-class="animated fadeOut faster">
-        
+    
+
         <div class="modal-mask">
-            <transition appear enter-active-class="animated slideInDown" leave-active-class="animated slideOutUp">
+            <transition appear enter-active-class="animated slideInDown faster" leave-active-class="animated slideOutUp">
                 <button class="closebutton" @click="$emit('close')"> 
                     <closeIcon rectBackgroundColor="#FFFFFF" strokeColor="#3E3E3E" borderColor="#ccc"/>
                 </button>
                 <!--button class="closeMenuButton" v-bind:aria-label="$t('button-arialabel-close-menu')" @click="showMobileMenu = false"></button-->
             </transition>
 
-            <transition enter-active-class="animated slideInDown" leave-active-class="animated slideOutDown">
+            <transition appear enter-active-class="animated slideInDown faster" leave-active-class="animated slideOutDown faster">
                 <nav class="menuMobile">
                     <Language />
 
@@ -21,7 +21,7 @@
                 </nav>
             </transition>
 
-            <transition enter-active-class="animated slideInUp" leave-active-class="animated slideOutUp">
+            <transition appear enter-active-class="animated slideInUp faster" leave-active-class="animated slideOutUp faster">
                 <div class="mobileAdd">
                     <a href="/simulador" class="simulator">{{$t('simulator')}}</a>
                     
@@ -30,7 +30,8 @@
             </transition>
 
         </div>
-    </transition>
+        
+    
 </template>
 
 <script>
@@ -74,8 +75,8 @@ export default {
 .menuMobile {
     background: #FFF;
     padding-top: 150px;
-    padding-bottom: 50px;
-    height: 100%;
+    padding-bottom: 150px;
+    //height: 100%;
 
     & > ul{
         list-style: none;
@@ -117,8 +118,8 @@ export default {
     position:   fixed;
     width:      90px;
     height:     90px;
-    top:        10%;
-    right:      40px;
+    bottom:     10%;
+    right:      15px;
     border:     0;
     background-size:  30px;
     background:       center center no-repeat url(../../assets/images/icons/menu.svg);
