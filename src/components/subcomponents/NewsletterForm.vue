@@ -39,8 +39,14 @@ export default {
             cont_email_newsletter: '',
             cont_email_newsletter_error: false,
             cont_email_newsletter_validator: '',
-            success: false
+            success: false,
+            error_required: '',
+            error_invalid: ''
         }
+    },
+    created(){
+        this.error_required     =   this.$i18n.t('input-error-required')
+        this.error_invalid      =   this.$i18n.t('input-error-valid-email')
     },
     methods: {
         checkForm: function (e) {
@@ -68,14 +74,14 @@ export default {
             if( cont_email_newsletter.value === '' ){
 
                 this.cont_email_newsletter_error = true
-                this.cont_email_newsletter_validator = this.cont_email_newsletter_error ?  "[[Campo de preenchimento obrigatório]]" : ""
+                this.cont_email_newsletter_validator = this.cont_email_newsletter_error ?  this.error_required : ""
                 return false
             } 
             else {
 
                 const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
                 this.cont_email_newsletter_error = !re.test(this.cont_email_newsletter)
-                this.cont_email_newsletter_validator = this.cont_email_newsletter_error ? '[[Valid email required.]]' : ""
+                this.cont_email_newsletter_validator = this.cont_email_newsletter_error ? this.error_invalid : ""
                 return !this.cont_email_newsletter_error
 
             }
