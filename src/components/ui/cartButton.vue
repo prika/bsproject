@@ -18,10 +18,20 @@
         </g>
         </svg>
         <!-- Show number of products in cart by slot in Header -->
-        <span class="qttProducts"><slot></slot></span>
+        <span v-if="cartSize > 0" class="qttProducts"><slot></slot></span>
     </div>
 </template>
-
+<script>
+import {mapState, mapGetters} from 'vuex'
+export default {
+    name: 'cartButton',
+    computed: {
+        ...mapGetters([
+            "cartSize"
+        ])
+    }
+}
+</script>
 <style lang="scss">
 .cartButton{
     background: #FFF;

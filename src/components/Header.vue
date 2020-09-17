@@ -20,9 +20,9 @@
                 <UserButton></UserButton>
               </button>
 
-              <button @click="showCart" v-if="cartSize > 0" tag="button" class="buttons cartButton"
+              <button @click="showCart" tag="button" class="buttons cartButton"
                 v-bind:aria-label="$t('button-arialabel-open-cart')">
-                <CartButton>{{cartSize}}</CartButton>
+                  <CartButton>{{cartSize}}</CartButton>
               </button>
           </div>
       </div>
