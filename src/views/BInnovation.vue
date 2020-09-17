@@ -1,12 +1,12 @@
 <template>
   <div id="binnovationpage">
 
-      <ArticleParallaxSmall>
+      <ArticleParallax>
           <div class="pageContentText  col-12 col-md-4 order-md-2">
               <h1 v-html="binnovation.title">{{binnovation.title}}</h1>
               <p v-html="binnovation.content">{{binnovation.content}}</p>
           </div>
-      </ArticleParallaxSmall>
+      </ArticleParallax>
 
       <PortfolioMansory>
           <h1 class="pageTitleh2 h2">{{binnovation.title1}}<span>{{binnovation.title2}}</span></h1>
@@ -17,13 +17,13 @@
 
 <script>
 
-import ArticleParallaxSmall from '@/components/ArticleParallaxSmall'
+import ArticleParallax from '@/components/ArticleParallax'
 import PortfolioMansory from '@/components/PortfolioMansory'
 
 export default {
   name: 'binnovationpage',
   components: {
-      ArticleParallaxSmall,
+      ArticleParallax,
       PortfolioMansory
   },
   data() {

@@ -5,23 +5,23 @@
          Página não encontrada
       </h1>
      
-      <ArticleParallaxSmall>
+      <ArticleParallax>
           <div class="pageContentText col-12 col-md-4 order-md-2">
               <h1>Procure na <router-link to="/">Página Inicial</router-link></h1>
           </div>
-      </ArticleParallaxSmall>
+      </ArticleParallax>
 
   </div>
 </template>
 
 
 <script>
-import ArticleParallaxSmall from '@/components/ArticleParallaxSmall'
+import ArticleParallax from '@/components/ArticleParallax'
 
 export default {
    name: 'notFoundPage',
    components: {
-      ArticleParallaxSmall
+      ArticleParallax
    
     },
   methods:

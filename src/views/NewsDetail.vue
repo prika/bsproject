@@ -1,35 +1,40 @@
 <template>
-  <div id="newsdetailpage" class="pageContainer container">
+  <div id="newsdetailpage" class="pageContainer">
       
       <h1 class="pageTitle" :aria-label="$t('home-title-page')" > 
          {{ $t('home-title-page-split1') }}<span>{{ $t('home-title-page-split2') }}</span>
       </h1>
-     
-      <ArticleParallaxSmall>
-          <div class="pageContentText col-12 col-md-4 order-md-2">
-              <h1 v-html="news.title">{{news.title}}</h1>
-              <p v-html="news.content">{{news.content}}</p>
-              <p class="newsDate">{{news.pubdata}}</p>
-          </div>
-      </ArticleParallaxSmall>
+             
+        <div class="parallaxContainerNews row">
 
+            <div class="col-12 col-md-7 parallaxGroup1 order-1 order-sm-2">
+                <img    v-for="(image, index) in imageGroup1"
+                        :key="image.id"
+                        :src="image.src" 
+                        :alt="image.alt" 
+                        :data-rellax-speed="image.speed"
+                        :class="['rellax',(image.addclass),('imageParallax'+(index+1))]"
+                        importance="high">
+            </div>
+
+            <div class="pageContentText col-12 col-md-5 order-md-2">
+                    <h1 v-html="news.title">{{news.title}}</h1>
+                    <p v-html="news.content">{{news.content}}</p>
+                    <p class="newsDate">{{news.pubdata}}</p>
+            </div>
+
+        </div>
   </div>
 </template>
 
-
 <script>
-import ArticleParallaxSmall from '@/components/ArticleParallaxSmall'
-
 export default {
    name: 'newsdetailpage',
-   components: {
-      ArticleParallaxSmall
-   },
    data() {
     return {
-         news: '',
-         gallery1: [],
-         gallery2: []
+        news: '',
+        imageGroup1:[],
+        rellax: null
     }
   },
   methods:
@@ -45,37 +50,77 @@ export default {
                obj.src = fullPath
                destination.push(obj)
             }
-        }        
+        },
+        rellaxLoaded: function()  {
+            this.rellax = new Rellax('.rellax');
+            this.$eventBus.$emit('componentFinishLoad', 'rellaxLoaded');
+        }       
     },
     created(){
-
         let selectedNews = this.$route.params.id
-        console.log( selectedNews )
 
         this.$http.get('https://dev5.incentea-mi.pt/bstone/mocks/news-detail-mock.json').then(response => {
             this.news = response.data
-            this.parseObject(response.data.gallery1, this.gallery1)            
-            this.parseObject(response.data.gallery2, this.gallery2)
+            this.parseObject(response.data.gallery1, this.imageGroup1)
             
             this.$eventBus.$emit('pageFinishLoad', true);
         })
+
+
+        var tag = document.createElement('script');
+        tag.src = "https://cdnjs.cloudflare.com/ajax/libs/rellax/1.0.0/rellax.min.js";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+        tag.onload = this.rellaxLoaded  
+    },
+    watch: {
+        $route(to , from){
+            this.rellax.refresh();
+        }
     }
 }
-
 </script>
 
 <style lang="scss">
 #newsdetailpage {
     margin-top: 140px;
 
-    .parallaxContainer{
-        padding-top: 0;
+    h1.pageTitle, .h1.pageTitle{position: fixed}
 
-        .parallaxGroup1 .imageParallax1{top: 30%;}
-        .pageContentText{margin-top: 250px;}
+    .parallaxContainerNews{
+        padding-top: 270px;
+        padding-bottom: 270px;
+
+        .parallaxGroup1 
+        {
+            padding-right: 11%;
+            
+            img{
+                position:relative;
+                -webkit-filter:     grayscale(0%);
+                -moz-filter:        grayscale(0%);
+                filter:             grayscale(0%);
+                z-index: 0;
+                right: 0;
+                top: 0;
+                margin-bottom: 5px;
+            }
+        }
     }
 
-    .newsContainer .row{padding: 100px 0 0;}
-    .newsDate{position: inherit;}
+    .pageContentText{
+        height: calc( 100vh - 160px );
+        position: -webkit-sticky;
+        position: sticky;
+        top: 160px;
+        right: 5%;
+        margin: 0;
+        padding: 0;
+
+       .newsDate{position: relative}
+    }
 }
+
+
+
 </style>

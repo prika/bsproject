@@ -3,14 +3,14 @@
 
       <BannerFullsize />
 
-      <ArticleParallaxSmall>
+      <ArticleParallax>
           <div class="pageContentText col-12 col-md-5 order-2 order-sm-2">
               <h1 v-html="home.title">{{home.title}}</h1>
               <p v-html="home.content">{{home.content}}</p>
               
               <a href="" class="basicLink"><arrowRightIcon />{{ $t('readlink') }}</a>
           </div>
-      </ArticleParallaxSmall>
+      </ArticleParallax>
 
       <ProductsList>
           {{home.featured_text1}}<span>{{home.featured_text2}}</span>
@@ -24,7 +24,7 @@
 
 <script>
 import BannerFullsize from '../components/BannerFullsize'
-import ArticleParallaxSmall from '@/components/ArticleParallaxSmall'
+import ArticleParallax from '@/components/ArticleParallax'
 import arrowRightIcon from '@/components/ui/arrow-slim-right.vue'
 import ProductsList from '@/components/ProductsList'
 import NewsSlider from '@/components/NewsSlider'
@@ -33,7 +33,7 @@ export default {
   name: 'homepage',
   components: {
       BannerFullsize,
-      ArticleParallaxSmall,
+      ArticleParallax,
       arrowRightIcon,
       ProductsList,
       NewsSlider
