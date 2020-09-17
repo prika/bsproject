@@ -16,8 +16,6 @@
                 <span v-if="index < 9">0</span>{{index+1}}
             </a>
         </div>
-        <!--button class="prev" @click="prev">&#10094; Previous</button -->
-        <!--button class="next" @click="next">&#10095; Next</button -->
 
         <div class="carouselContainer">
             <template v-for="(image, index) in imageGroupSliderGallery">
@@ -43,7 +41,7 @@
                         :height="resizedHeight[index] + 'px'"
                         :key="image.id">
 
-                    <video  crossorigin playsinline :id="'video'+index"
+                    <video  crossOrigin="anonymous" playsinline :id="'video'+index"
                             :poster="getImgUrl(image.src)" 
                             :src="getVideoUrl(image.srcvideo)"
                             :aria-label="image.alt"
@@ -498,6 +496,5 @@ export default {
     #bannerFullsize .carouselContainer .slide.active::after{
         background-size: 370px;
     }
-
 }
 </style>
