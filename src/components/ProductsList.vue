@@ -42,7 +42,7 @@
                         itemscope itemtype="http://schema.org/ItemList">
 
                         <link itemprop="url" :href="'/bloco-b/category/'+ selectedCategory + '/collection/' + selectedCollection">
-                        <span v-if="hasFeaturedProducts" itemprop="numberOfItems">{{productsPerPage}}</span>
+                        <span v-if="hasFeaturedProducts" itemprop="numberOfItems" class="d-none">{{productsPerPage}}</span>
 
                         <transition-group appear enter-active-class="animated slideInUp delay" tag="div" class="row">
                             <router-link  class="rellaxProduct product col-12 col-lg-6 col-xl-4" 
