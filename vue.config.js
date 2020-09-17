@@ -14,6 +14,11 @@ module.exports = {
       enableInSFC: true
     }
   },
+  pwa: {
+    workboxOptions: {
+      navigateFallback: 'index.html'
+    }
+  },
   publicPath: process.env.NODE_ENV === 'production'
     ? '/bstone/'
     : '/'
