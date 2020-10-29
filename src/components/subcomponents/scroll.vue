@@ -1,6 +1,6 @@
 <template>
     <div class="box" v-scroll="handleScroll">
-        <a id="simulatorLink" rel="nofollow" href="/simulator" alt="Simulator Link">
+        <div id="simulatorLink" rel="nofollow" href="/simulator" alt="Simulator Link">
         
             <svg class="simutadorButton" xmlns="http://www.w3.org/2000/svg" width="128.713" height="128.241" viewBox="0 0 128.713 128.241" aria-labelledby="svgsimulatortitle" role="img">
                 <title id="svgsimulatortitle">Enter on Simulator Page</title>
@@ -36,7 +36,7 @@
                 </g>
             </svg>
           
-        </a>
+        </div>
     </div>
 </template>
 
@@ -68,7 +68,7 @@ export default {
     transform-origin: center;
     display: block;
 
-    a {
+    div {
         display:block;
         -webkit-transition:     all 0.2s ease;
         -moz-transition:        all 0.2s ease;
@@ -91,7 +91,7 @@ export default {
         }
     }
     
-    &:hover{
+    /* &:hover{
         -webkit-animation-play-state:   paused;
         -moz-animation-play-state:      paused;
         -o-animation-play-state:        paused;
@@ -105,7 +105,7 @@ export default {
             animation-play-state:           paused;
         }
         *{ fill: #161615; }
-    }
+    } */
 }
 
 

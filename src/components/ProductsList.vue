@@ -90,7 +90,7 @@
           itemscope
           itemtype="http://schema.org/ItemList"
         >
-          <link
+          <div
             itemprop="url"
             :href="
               '/bloco-b/category/' +
@@ -112,7 +112,7 @@
             tag="div"
             class="row"
           >
-            <router-link
+            <div
               class="rellaxProduct product col-12 col-lg-6 col-xl-4"
               itemprop="itemListElement"
               itemscope
@@ -135,7 +135,7 @@
               :data-rellax-speed="getDataSpeed(index)"
             >
               <meta itemprop="position" :content="index" />
-              <a
+              <div
                 :href="
                   '/bloco-b/category/' +
                     product.category +
@@ -149,7 +149,7 @@
                     product.secondName
                 "
                 itemprop="url"
-              ></a>
+              ></div>
               <meta itemprop="sku" :content="product.id" />
 
               <div
@@ -158,10 +158,7 @@
                 itemscope
               >
                 <span itemprop="priceCurrency" content="EUR"></span>
-                <link
-                  itemprop="availability"
-                  href="https://schema.org/InStock"
-                />
+                <link itemprop="availability" href="https://schema.org/InStock"/>
               </div>
 
               <div class="containerImage">
@@ -183,7 +180,7 @@
               <p class="categoryName" v-if="hasFeaturedProducts">
                 {{ getCategory(product).name }}
               </p>
-            </router-link>
+            </div>
           </transition-group>
         </div>
       </div>

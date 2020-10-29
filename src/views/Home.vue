@@ -7,7 +7,7 @@
         <h1 v-html="home.title">{{ home.title }}</h1>
         <p v-html="home.content">{{ home.content }}</p>
 
-        <a href="" class="basicLink"><arrowRightIcon />{{ $t("readlink") }}</a>
+        <!-- a href="" class="basicLink"><arrowRightIcon />{{ $t("readlink") }}</!-->
       </div>
     </ArticleParallax>
 

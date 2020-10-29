@@ -13,7 +13,7 @@
     export default {
         name: 'languageLinks',
         data(){
-            return { langs: ['en', 'pt'] }
+            return { langs: ['en'] }
         }
     }
 </script>
