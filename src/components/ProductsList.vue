@@ -628,12 +628,13 @@ export default {
       transition: top 0.5s ease;
 
       span {
-        border: 3px solid #333;
+        background: #333;
+        height: 5px;
         width: 32px;
         display: block;
         content: "";
         position: absolute;
-        top: 9px;
+        top: 10px;
         left: -10px;
       }
 
