@@ -1,91 +1,84 @@
 <template>
   <div id="binnovationpage">
+    <ArticleParallax>
+      <div class="pageContentText  col-12 col-md-4 order-md-2">
+        <h1 v-html="binnovation.title">{{ binnovation.title }}</h1>
+        <p v-html="binnovation.content">{{ binnovation.content }}</p>
+      </div>
+    </ArticleParallax>
 
-      <ArticleParallax>
-          <div class="pageContentText  col-12 col-md-4 order-md-2">
-              <h1 v-html="binnovation.title">{{binnovation.title}}</h1>
-              <p v-html="binnovation.content">{{binnovation.content}}</p>
-          </div>
-      </ArticleParallax>
-
-      <PortfolioMansory>
-          <h1 class="pageTitleh2 h2">{{binnovation.title1}}<span>{{binnovation.title2}}</span></h1>
-      </PortfolioMansory>
-
+    <PortfolioMansory>
+      <h1 class="pageTitleh2 h2">
+        {{ binnovation.title1 }}<span>{{ binnovation.title2 }}</span>
+      </h1>
+    </PortfolioMansory>
   </div>
 </template>
 
 <script>
-
-import ArticleParallax from '@/components/ArticleParallax'
-import PortfolioMansory from '@/components/PortfolioMansory'
+import ArticleParallax from "@/components/ArticleParallax";
+import PortfolioMansory from "@/components/PortfolioMansory";
 
 export default {
-  name: 'binnovationpage',
+  name: "binnovationpage",
   components: {
-      ArticleParallax,
-      PortfolioMansory
+    ArticleParallax,
+    PortfolioMansory,
   },
   data() {
     return {
-        binnovation: '',
-        gallery1: [],
-        gallery2: [],
-        mansory: [],
-        rellaxLoaded: false,
-        mansoryLoaded: false,
-        hasJsonData: false
-    }
+      binnovation: "",
+      gallery1: [],
+      gallery2: [],
+      mansory: [],
+      rellaxLoaded: false,
+      mansoryLoaded: false,
+      hasJsonData: false,
+    };
   },
-  methods:
-    {
-        getImgUrl: function (src) 
-        {
-            return require("@/assets/images/"+src)
-        },
-        parseObject: function(source, destination)
-        {
-            for ( var i = 0 ; i < source.length; i++ ) {
-               let obj = source[i]
-               let fullPath = this.getImgUrl(obj.src)
-               obj.src = fullPath
-               destination.push(obj)
-            }
-        },
-        notifyFinishLoad()
-        {
-            if (!(this.mansoryLoaded && this.rellaxLoaded && this.hasJsonData)) return
-            this.$eventBus.$emit('pageFinishLoad', true) 
-        } 
+  methods: {
+    getImgUrl: function(src) {
+      return require("@/assets/images/" + src);
     },
-    mounted() {
-        
-        this.$eventBus.$on('componentFinishLoad', (data) => { 
-            
-            if (data == 'rellaxLoaded') 
-            { 
-                this.rellaxLoaded = true 
-                this.notifyFinishLoad()
-                return
-            }
+    parseObject: function(source, destination) {
+      for (var i = 0; i < source.length; i++) {
+        let obj = source[i];
+        let fullPath = this.getImgUrl(obj.src);
+        obj.src = fullPath;
+        destination.push(obj);
+      }
+    },
+    notifyFinishLoad() {
+      if (!(this.mansoryLoaded && this.rellaxLoaded && this.hasJsonData))
+        return;
+      this.$eventBus.$emit("pageFinishLoad", true);
+    },
+  },
+  mounted() {
+    this.$eventBus.$on("componentFinishLoad", (data) => {
+      if (data == "rellaxLoaded") {
+        this.rellaxLoaded = true;
+        this.notifyFinishLoad();
+        return;
+      }
 
-            if (data == 'mansoryLoaded') 
-            { 
-                this.mansoryLoaded = true 
-                this.notifyFinishLoad()
-                return
-            }
-        })
+      if (data == "mansoryLoaded") {
+        this.mansoryLoaded = true;
+        this.notifyFinishLoad();
+        return;
+      }
+    });
 
-         this.$http.get('https://dev5.incentea-mi.pt/bstone/mocks/b-innovation-mock.json').then(response => {
+    this.$http
+      .get("http://localhost:8080/mocks/b-innovation-mock.json")
+      .then((response) => {
+        this.binnovation = response.data;
+        this.parseObject(response.data.gallery1, this.gallery1);
+        this.$eventBus.$emit("mansoryFinishLoad", response.data.mansory);
 
-            this.binnovation = response.data
-            this.parseObject(response.data.gallery1, this.gallery1)
-            this.$eventBus.$emit('mansoryFinishLoad', response.data.mansory)
-            
-            this.hasJsonData = true
-            this.notifyFinishLoad()   
-         })
-    }
-}
+        this.hasJsonData = true;
+        this.notifyFinishLoad();
+      });
+  },
+};
 </script>

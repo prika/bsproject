@@ -3,9 +3,7 @@
         <div class="modal-mask-share">
 
             <transition appear enter-active-class="animated slideInDown faster" leave-active-class="animated slideOutUp faster">
-                <button class="closebutton" @click="$emit('close')"> 
-                    <closeIcon />
-                </button>
+                <button class="closebutton" @click="$emit('close')"><closeIcon /></button>
             </transition>
 
             <div class="modal-container">
@@ -23,12 +21,19 @@ export default {
     components:{
         closeIcon
     },
-    beforeCreate() {
-        let addthis = document.createElement("script")
-        addthis.setAttribute("type", "text/javascript")
-        addthis.setAttribute("src", "//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5efe1e4cb34f2512")
-        document.head.appendChild(addthis)   
+    mounted() {
+        var addthis = document.createElement('script');
+        addthis.src = "//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5efe1e4cb34f2512";
+        var firstAddthisTag = document.getElementsByTagName('script')[0];
+        firstAddthisTag.parentNode.insertBefore(addthis, firstAddthisTag); 
+    },
+    updated() {
+         var addthis = document.createElement('script');
+        addthis.src = "//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5efe1e4cb34f2512";
+        var firstAddthisTag = document.getElementsByTagName('script')[0];
+        firstAddthisTag.parentNode.insertBefore(addthis, firstAddthisTag); 
     }
+
 }
 </script>
 
