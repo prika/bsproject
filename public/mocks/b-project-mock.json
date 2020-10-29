@@ -1,30 +1,30 @@
-{ 
+{
     "id": "bproject",
     "title": "B project",
-    "content": "B project consegue garantir todo o processo do mármore, desde o primeiro corte até sua casa. <br> Formada pela natureza, que lhe oferece tons e características únicas, o mármore é a escolha preferida na Arquitetura e Decoração.",
+    "content": "B project can guarantee the entire marble process, from the first cut to your home. Formed by nature, which offers unique tones and characteristics, marble is the preferred choice in Architecture and Decoration.",
     "gallery1": [
         {
-            "src": "news/exemplo_noticia_b.jpg", 
-            "alt": "Image Test", 
+            "src": "project/IMG_8926.jpg",
+            "alt": "B Project",
             "speed": 4,
             "addclass": "col-9 col-lg-7"
         },
-        {   
-            "src": "news/exemplo_noticia_a.jpg", 
-            "alt": "Image Test", 
+        {
+            "src": "project/IMG_8910.jpg",
+            "alt": "B Project",
             "speed": 7,
             "addclass": "col-9 col-lg-6"
         },
         {
-            "src": "B_Simbolo_estatico_Corpo.svg", 
-            "alt": "Image Test", 
+            "src": "B_Simbolo_estatico_Corpo.svg",
+            "alt": "B Symbol",
             "speed": -10,
             "addclass": "col-9 col-lg-4"
         }
     ],
     "gallery2": [],
     "collections": [
-        { 
+        {
             "id": 1,
             "name": "Lusitania",
             "splitname1": "Lusi",
@@ -32,7 +32,7 @@
             "imgsrc": "shared/collection1.jpg",
             "count": 10
         },
-        { 
+        {
             "id": 2,
             "name": "Sahura",
             "splitname1": "Sahu",
@@ -43,309 +43,294 @@
     ],
     "title1": "Port",
     "title2": "folio",
+    "max-height": "500",
     "mansory": [
         {
             "id": "bp0",
             "type": "img",
-            "thumb" : {
+            "thumb": {
                 "type": "img",
-                "src": "explore/explore_1.jpg",
-                "alt": "bp1-266 - Bla bla bla",
-                "width": "300px",
-                "height": "300px"
+                "src": "project/BlocoB-6630.jpg",
+                "alt": "B Project",
+                "width": 6308,
+                "height": 4205
             },
-            "large" : {
+            "large": {
                 "type": "img",
-                "src": "explore/explore_1.jpg",
-                "alt": "bp1-266 - Bla bla bla",
-                "width": "800px",
-                "height": "800px"
+                "src": "project/BlocoB-6630.jpg",
+                "alt": "B Project",
+                "width": 6308,
+                "height": 4205
             }
         },
         {
             "id": "bp1",
             "type": "img",
-            "thumb" : {
+            "thumb": {
                 "type": "img",
-                "src": "explore/explore_2.jpg",
-                "alt": "bp1-266 - Bla bla bla",
-                "width": "1067px",
-                "height": "1600px"
+                "src": "project/BlocoB-6757.jpg",
+                "alt": "B Project",
+                "width": 6628,
+                "height": 4419
             },
-            "large" : {
+            "large": {
                 "type": "img",
-                "src": "explore/explore_2.jpg",
-                "alt": "bp1-266 - Bla bla bla",
-                "width": "1067px",
-                "height": "1600px"
+                "src": "project/BlocoB-6757.jpg",
+                "alt": "B Project",
+                "width": 6628,
+                "height": 4419
             }
         },
         {
             "id": "bp2",
             "type": "img",
-            "thumb" : {
+            "thumb": {
                 "type": "img",
-                "src": "explore/explore_3.jpg",
-                "alt": "bp1-266 - Bla bla bla",
-                "width": "348px",
-                "height": "232px"
+                "src": "project/BlocoB-6790.jpg",
+                "alt": "B Project",
+                "width": 5718,
+                "height": 2795
             },
-            "large" : {
+            "large": {
                 "type": "img",
-                "src": "explore/explore_3.jpg",
-                "alt": "bp1-266 - Bla bla bla",
-                "width": "348px",
-                "height": "232px"
+                "src": "project/BlocoB-6790.jpg",
+                "alt": "B Project",
+                "width": 5718,
+                "height": 2795
             }
         },
         {
             "id": "bp3",
             "type": "img",
-            "thumb" : {
+            "thumb": {
                 "type": "img",
-                "src": "explore/explore_4.jpg",
-                "alt": "bp1-266 - Bla bla bla",
-                "width": "871px", "height": "1270px"
+                "src": "project/BlocoB-6758.jpg",
+                "alt": "B Project",
+                "width": 4360,
+                "height": 6624
             },
-            "large" : {
+            "large": {
                 "type": "img",
-                "src": "explore/explore_4.jpg",
-                "alt": "bp1-266 - Bla bla bla",
-                "width": "871px", "height": "1270px"
+                "src": "project/BlocoB-6758.jpg",
+                "alt": "B Project",
+                "width": 4360,
+                "height": 6624
             }
         },
         {
             "id": "bp4",
-            "type": "video",
-            "provider": "youtube",
-            "thumb" : {
+            "type": "img",
+            "thumb": {
                 "type": "img",
-                "src": "explore/explore_5.jpg",
-                "alt": "bp1-266 - Bla bla bla",
-                "width": "348px", "height": "232px"
+                "src": "project/IMG_2030.jpg",
+                "alt": "B Project",
+                "width": 5184,
+                "height": 3456
             },
-            "large" : {
-                "type": "video",
-                "provider": "",
-                "src": "explore/explore_5.jpg",
-                "alt": "bp1-266 - Bla bla bla",
-                "width": "871px", "height": "1270px"
+            "large": {
+                "type": "img",
+                "src": "project/IMG_2030.jpg",
+                "alt": "B Project",
+                "width": 5184,
+                "height": 3456
             }
         },
         {
             "id": "bp5",
             "type": "img",
-            "thumb" : {
+            "thumb": {
                 "type": "img",
-                "src": "explore/explore_6.jpg",
-                "alt": "bp1-266 - Bla bla bla",
-                "width": "348px", "height": "521px"
+                "src": "project/IMG_8985.jpg",
+                "alt": "B Project",
+                "width": 3390,
+                "height": 5085
             },
-            "large" : {
+            "large": {
                 "type": "img",
-                "src": "explore/explore_6.jpg",
-                "alt": "bp1-266 - Bla bla bla",
-                "width": "871px", "height": "1270px"
+                "src": "project/IMG_8985.jpg",
+                "alt": "B Project",
+                "width": 3390,
+                "height": 5085
             }
         },
         {
             "id": "bp6",
             "type": "img",
-            "thumb" : {
+            "thumb": {
                 "type": "img",
-                "src": "explore/explore_7.jpg",
-                "alt": "bp1-266 - Bla bla bla",
-                "width": "1600px", "height": "1089px"
+                "src": "project/IMG_2033.jpg",
+                "alt": "B Project",
+                "width": 5135,
+                "height": 2888
             },
-            "large" : {
+            "large": {
                 "type": "img",
-                "src": "explore/explore_7.jpg",
-                "alt": "bp1-266 - Bla bla bla",
-                "width": "871px", "height": "1270px"
+                "src": "project/IMG_2033.jpg",
+                "alt": "B Project",
+                "width": 5135,
+                "height": 2888
             }
         },
         {
             "id": "bp7",
             "type": "img",
-            "thumb" : {
+            "thumb": {
                 "type": "img",
-                "src": "explore/explore_8.jpg",
-                "alt": "bp1-266 - Bla bla bla",
-                "width": "348px", "height": "232px"
+                "src": "project/e750c58a-3363-484f-bb77-8adeab2ba968.jpg",
+                "alt": "B Project",
+                "width": 768,
+                "height": 1024
             },
-            "large" : {
+            "large": {
                 "type": "img",
-                "src": "explore/explore_8.jpg",
-                "alt": "bp1-266 - Bla bla bla",
-                "width": "871px", "height": "1270px"
+                "src": "project/e750c58a-3363-484f-bb77-8adeab2ba968.jpg",
+                "alt": "B Project",
+                "width": 768,
+                "height": 1024
             }
         },
         {
             "id": "bp8",
             "type": "img",
-            "thumb" : {
+            "thumb": {
                 "type": "img",
-                "src": "explore/explore_9.jpg",
-                "alt": "bp1-266 - Bla bla bla",
-                "width": "348px", "height": "232px"
+                "src": "project/IMG_1591.jpg",
+                "alt": "B Project",
+                "width": 3451,
+                "height": 3451
             },
-            "large" : {
+            "large": {
                 "type": "img",
-                "src": "explore/explore_9.jpg",
-                "alt": "bp1-266 - Bla bla bla",
-                "width": "871px", "height": "1270px"
+                "src": "project/IMG_1591.jpg",
+                "alt": "B Project",
+                "width": 3451,
+                "height": 3451
             }
         },
         {
             "id": "bp9",
             "type": "img",
-            "thumb" : {
+            "thumb": {
                 "type": "img",
-                "src": "explore/explore_1.jpg",
-                "alt": "bp1-266 - Bla bla bla",
-                "width": "300px",
-                "height": "300px"
+                "src": "project/IMG_8890.jpg",
+                "alt": "B Project",
+                "width": 3456,
+                "height": 5184
             },
-            "large" : {
+            "large": {
                 "type": "img",
-                "src": "explore/explore_1.jpg",
-                "alt": "bp1-266 - Bla bla bla",
-                "width": "800px",
-                "height": "800px"
+                "src": "project/IMG_8890.jpg",
+                "alt": "B Project",
+                "width": 3456,
+                "height": 5184
             }
         },
         {
             "id": "bp10",
             "type": "img",
-            "thumb" : {
-                "type":"img",
-                "src": "explore/explore_2.jpg",
-                "alt": "bp1-266 - Bla bla bla",
-                "width": "1067px",
-                "height": "1600px"
+            "thumb": {
+                "type": "img",
+                "src": "project/IMG_1579.jpg",
+                "alt": "B Project",
+                "width": 3450,
+                "height": 3451
             },
-            "large" : {
-                "type":"img",
-                "src": "explore/explore_2.jpg",
-                "alt": "bp1-266 - Bla bla bla",
-                "width": "1067px",
-                "height": "1600px"
+            "large": {
+                "type": "img",
+                "src": "project/IMG_1579.jpg",
+                "alt": "B Project",
+                "width": 3450,
+                "height": 3451
             }
         },
         {
             "id": "bp11",
             "type": "img",
-            "thumb" : {
-                "type":"img",
-                "src": "explore/explore_3.jpg",
-                "alt": "bp1-266 - Bla bla bla",
-                "width": "348px",
-                "height": "232px"
+            "thumb": {
+                "type": "img",
+                "src": "project/IMG_1573.jpg",
+                "alt": "B Project",
+                "width": 5184,
+                "height": 3456
             },
-            "large" : {
-                "type":"img",
-                "src": "explore/explore_3.jpg",
-                "alt": "bp1-266 - Bla bla bla",
-                "width": "348px",
-                "height": "232px"
+            "large": {
+                "type": "img",
+                "src": "project/IMG_1573.jpg",
+                "alt": "B Project",
+                "width": 5184,
+                "height": 3456
             }
         },
         {
             "id": "bp12",
             "type": "img",
-            "thumb" : {
-                "type":"img",
-                "src": "explore/explore_4.jpg",
-                "alt": "bp1-266 - Bla bla bla",
-                "width": "871px", "height": "1270px"
+            "thumb": {
+                "type": "img",
+                "src": "project/IMG_1635.jpg",
+                "alt": "B Project",
+                "width": 3456,
+                "height": 5184
             },
-            "large" : {
-                "type":"img",
-                "src": "explore/explore_4.jpg",
-                "alt": "bp1-266 - Bla bla bla",
-                "width": "871px", "height": "1270px"
+            "large": {
+                "type": "img",
+                "src": "project/IMG_1635.jpg",
+                "alt": "B Project",
+                "width": 3456,
+                "height": 5184
             }
         },
         {
             "id": "bp13",
-            "type": "video",
-            "provider": "youtube",
-            "thumb" : {
-                "type":"img",
-                "src": "explore/explore_5.jpg",
-                "alt": "bp1-266 - Bla bla bla",
-                "width": "348px", "height": "232px"
+            "type": "img",
+            "thumb": {
+                "type": "img",
+                "src": "project/3dd08062-851e-4a5c-b8c5-3d8cb77bfe47.jpg",
+                "alt": "B Project",
+                "width": 768,
+                "height": 1024
             },
-            "large" : {
-                "type":"img",
-                "src": "explore/explore_5.jpg",
-                "alt": "bp1-266 - Bla bla bla",
-                "width": "871px", "height": "1270px"
+            "large": {
+                "type": "img",
+                "src": "project/3dd08062-851e-4a5c-b8c5-3d8cb77bfe47.jpg",
+                "alt": "B Project",
+                "width": 768,
+                "height": 1024
             }
         },
         {
             "id": "bp14",
             "type": "img",
-            "thumb" : {
-                "type":"img",
-                "src": "explore/explore_6.jpg",
-                "alt": "bp1-266 - Bla bla bla",
-                "width": "348px", "height": "521px"
+            "thumb": {
+                "type": "img",
+                "src": "project/66fe04cc-3f09-4c7d-a251-6be71b6c8a24.jpg",
+                "alt": "B Project",
+                "width": 768,
+                "height": 1024
             },
-            "large" : {
-                "type":"img",
-                "src": "explore/explore_6.jpg",
-                "alt": "bp1-266 - Bla bla bla",
-                "width": "871px", "height": "1270px"
+            "large": {
+                "type": "img",
+                "src": "project/66fe04cc-3f09-4c7d-a251-6be71b6c8a24.jpg",
+                "alt": "B Project",
+                "width": 768,
+                "height": 1024
             }
         },
         {
             "id": "bp15",
             "type": "img",
-            "thumb" : {
+            "thumb": {
                 "type": "img",
-                "src": "explore/explore_7.jpg",
-                "alt": "bp1-266 - Bla bla bla",
-                "width": "1600px", "height": "1089px"
+                "src": "project/7051e0a6-c2c3-49a5-8bfd-27d23f0e528c.jpg",
+                "alt": "B Project",
+                "width": 768,
+                "height": 1024
             },
-            "large" : {
+            "large": {
                 "type": "img",
-                "src": "explore/explore_7.jpg",
-                "alt": "bp1-266 - Bla bla bla",
-                "width": "871px", "height": "1270px"
-            }
-        },
-        {
-            "id": "bp16",
-            "type": "img",
-            "thumb" : {
-                "type": "img",
-                "src": "explore/explore_8.jpg",
-                "alt": "bp1-266 - Bla bla bla",
-                "width": "348px", "height": "232px"
-            },
-            "large" : {
-                "type": "img",
-                "src": "explore/explore_8.jpg",
-                "alt": "bp1-266 - Bla bla bla",
-                "width": "871px", "height": "1270px"
-            }
-        },
-        {
-            "id": "bp17",
-            "type": "img",
-            "provider": "",
-            "thumb" : {
-                "type": "img",
-                "src": "explore/explore_9.jpg",
-                "alt": "bp1-266 - Bla bla bla",
-                "width": "348px", "height": "232px"
-            },
-            "large" : {
-                "type": "img",
-                "src": "explore/explore_9.jpg",
-                "alt": "bp1-266 - Bla bla bla",
-                "width": "871px", "height": "1270px"
+                "src": "project/7051e0a6-c2c3-49a5-8bfd-27d23f0e528c.jpg",
+                "alt": "B Project",
+                "width": 768,
+                "height": 1024
             }
         }
     ]

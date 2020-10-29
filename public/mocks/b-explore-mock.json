@@ -9,17 +9,17 @@
             "type": "img",
             "thumb" : {
                 "type": "img",
-                "src": "explore/explore_1.jpg",
-                "alt": "BE1-266 - Bla bla bla",
-                "width": 300, 
-                "height": 300
+                "src": "explore/BlocoB-7242.jpg",
+                "alt": "B Explore",
+                "width": 6654, 
+                "height": 4436
             },
             "large" : {
                 "type": "img",
-                "src": "explore/explore_1.jpg",
-                "alt": "BE1-266 - Bla bla bla",
-                "width": 800,
-                "height": 800
+                "src": "explore/BlocoB-7242.jpg",
+                "alt": "B Explore",
+                "width": 6654,
+                "height": 4436
             }
         },
         {
@@ -27,17 +27,17 @@
             "type": "img",
             "thumb" : {
                 "type": "img",
-                "src": "explore/explore_2.jpg",
-                "alt": "BE1-266 - Bla bla bla",
-                "width": 1067,
-                "height": 1600
+                "src": "explore/IMG_0359.jpg",
+                "alt": "B Explore",
+                "width": 3456,
+                "height": 5184
             },
             "large" : {
                 "type": "img",
-                "src": "explore/explore_2.jpg",
-                "alt": "BE1-266 - Bla bla bla",
-                "width": 1067,
-                "height": 1600
+                "src": "explore/IMG_0359.jpg",
+                "alt": "B Explore",
+                "width": 3456,
+                "height": 5184
             }
         },
         {
@@ -46,16 +46,16 @@
             "thumb" : {
                 "type": "img",
                 "src": "explore/explore_3.jpg",
-                "alt": "BE1-266 - Bla bla bla",
+                "alt": "B Explore",
                 "width": 348,
                 "height": 232
             },
             "large" : {
                 "type": "img",
-                "src": "explore/explore_3.jpg",
-                "alt": "BE1-266 - Bla bla bla",
-                "width": 348,
-                "height": 232
+                "src": "explore/BlocoB-6907.jpg",
+                "alt": "B Explore",
+                "width": 6640,
+                "height": 4427
             }
         },
         {
@@ -64,36 +64,16 @@
             "thumb" : {
                 "type": "img",
                 "src": "explore/explore_4.jpg",
-                "alt": "BE1-266 - Bla bla bla",
+                "alt": "B Explore",
                 "width": 871, 
                 "height": 1270
             },
             "large" : {
                 "type": "img",
-                "src": "explore/explore_4.jpg",
-                "alt": "BE1-266 - Bla bla bla",
-                "width": 871, 
-                "height": 1270
-            }
-        },
-        {
-            "id": "be4",
-            "type": "img",
-            "thumb" : {
-                "type": "video",
-                "src": "explore/explore_5.jpg",
-                "alt": "BE1-266 - Bla bla bla",
-                "width": 348, 
-                "height": 232
-            },
-            "large" : {
-                "type": "video",
-                "provider": "youtube",
-                "src": "banners/BlocoB-7234_Banner.jpg", 
-                "srcvideo": "bTqVqk7FSmY",
-                "alt": "BE1-266 - Bla bla bla",
-                "width": 871, 
-                "height": 1270
+                "src": "explore/BlocoB-7098.jpg",
+                "alt": "B Explore",
+                "width": 6720, 
+                "height": 4480
             }
         },
         {
@@ -101,17 +81,17 @@
             "type": "img",
             "thumb" : {
                 "type": "img",
-                "src": "explore/explore_6.jpg",
-                "alt": "BE1-266 - Bla bla bla",
-                "width": 348, 
-                "height": 521
+                "src": "explore/IMG_0608.jpg",
+                "alt": "B Explore",
+                "width": 3456, 
+                "height": 5184
             },
             "large" : {
                 "type": "img",
-                "src": "explore/explore_6.jpg",
-                "alt": "BE1-266 - Bla bla bla",
-                "width": 871, 
-                "height": 1270
+                "src": "explore/IMG_0608.jpg",
+                "alt": "B Explore",
+                "width": 3456,
+                "height": 5184
             }
         },
         {
@@ -120,16 +100,16 @@
             "thumb" : {
                 "type": "img",
                 "src": "explore/explore_7.jpg",
-                "alt": "BE1-266 - Bla bla bla",
+                "alt": "B Explore",
                 "width": 1600, 
                 "height": 1089
             },
             "large" : {
                 "type": "img",
-                "src": "explore/explore_7.jpg",
-                "alt": "BE1-266 - Bla bla bla",
-                "width": 871, 
-                "height": 1270
+                "src": "explore/BlocoB-7115.jpg",
+                "alt": "B Explore",
+                "width": 6720, 
+                "height": 4480
             }
         },
         {
@@ -137,17 +117,17 @@
             "type": "img",
             "thumb" : {
                 "type": "img",
-                "src": "explore/explore_8.jpg",
-                "alt": "BE1-266 - Bla bla bla",
-                "width": 348, 
-                "height": 232
+                "src": "explore/IMG_0644.jpg",
+                "alt": "B Explore",
+                "width": 5184, 
+                "height": 3456
             },
             "large" : {
                 "type": "img",
-                "src": "explore/explore_8.jpg",
-                "alt": "BE1-266 - Bla bla bla",
-                "width": 871, 
-                "height": 1270
+                "src": "explore/IMG_0644.jpg",
+                "alt": "B Explore",
+                "width": 5184,
+                "height": 3456
             }
         },
         {
@@ -155,16 +135,16 @@
             "thumb" : {
                 "type": "img",
                 "src": "explore/explore_9.jpg",
-                "alt": "BE1-266 - Bla bla bla",
+                "alt": "B Explore",
                 "width": 348, 
                 "height": 232
             },
             "large" : {
                 "type": "img",
-                "src": "explore/explore_9.jpg",
-                "alt": "BE1-266 - Bla bla bla",
-                "width": 871, 
-                "height": 1270
+                "src": "explore/BlocoB-7272.jpg",
+                "alt": "B Explore",
+                "width": 6580, 
+                "height": 4387
             }
         },
         {
@@ -172,17 +152,17 @@
             "type": "img",
             "thumb" : {
                 "type": "img",
-                "src": "explore/explore_1.jpg",
-                "alt": "BE1-266 - Bla bla bla",
-                "width": 300,
-                "height": 300
+                "src": "explore/IMG_0633.jpg",
+                "alt": "B Explore",
+                "width": 5184,
+                "height": 3456
             },
             "large" : {
                 "type": "img",
-                "src": "explore/explore_1.jpg",
-                "alt": "BE1-266 - Bla bla bla",
-                "width": 800,
-                "height": 800
+                "src": "explore/IMG_0633.jpg",
+                "alt": "B Explore",
+                "width": 5184,
+                "height": 3456
             }
         },
         {
@@ -190,17 +170,17 @@
             "type": "img",
             "thumb" : {
                 "type": "img",
-                "src": "explore/explore_2.jpg",
-                "alt": "BE1-266 - Bla bla bla",
-                "width": 1067,
-                "height": 1600
+                "src": "explore/IMG_0484.jpg",
+                "alt": "B Explore",
+                "width": 5184,
+                "height": 3456
             },
             "large" : {
                 "type": "img",
-                "src": "explore/explore_2.jpg",
-                "alt": "BE1-266 - Bla bla bla",
-                "width": 1067,
-                "height": 1600
+                "src": "explore/IMG_0484.jpg",
+                "alt": "B Explore",
+                "width": 5184,
+                "height": 3456
             }
         },
         {
@@ -208,17 +188,17 @@
             "type": "img",
             "thumb" : {
                 "type": "img",
-                "src": "explore/explore_3.jpg",
-                "alt": "BE1-266 - Bla bla bla",
-                "width": 348,
-                "height": 232
+                "src": "explore/BlocoB-7162.jpg",
+                "alt": "B Explore",
+                "width": 6596,
+                "height": 4342
             },
             "large" : {
                 "type": "img",
-                "src": "explore/explore_3.jpg",
-                "alt": "BE1-266 - Bla bla bla",
-                "width": 348,
-                "height": 232
+                "src": "explore/BlocoB-7162.jpg",
+                "alt": "B Explore",
+                "width": 6596,
+                "height": 4342
             }
         },
         {
@@ -226,75 +206,35 @@
             "type": "img",
             "thumb" : {
                 "type": "img",
-                "src": "explore/explore_4.jpg",
-                "alt": "BE1-266 - Bla bla bla",
-                "width": 871,
-                "height": 1270
+                "src": "explore/BlocoB-7204.jpg",
+                "alt": "B Explore",
+                "width": 6720,
+                "height": 4480
             },
             "large" : {
                 "type": "img",
-                "src": "explore/explore_4.jpg",
-                "alt": "BE1-266 - Bla bla bla",
-                "width": 871,
-                "height": 1270
+                "src": "explore/BlocoB-7204.jpg",
+                "alt": "B Explore",
+                "width": 6720,
+                "height": 4480
             }
         },
         {
             "id": "be13",
-            "type": "video",
-            "thumb" : {
-                "type": "video",
-                "src": "explore/explore_5.jpg",
-                "alt": "BE1-266 - Bla bla bla",
-                "width": 348,
-                "height": 232
-            },
-            "large" : {
-                "type": "video",
-                "provider": "youtube",
-                "src": "banners/BlocoB-7234_Banner.jpg", 
-                "srcvideo": "bTqVqk7FSmY",
-                "alt": "BE1-266 - Bla bla bla",
-                "width": 871,
-                "height": 1270
-            }
-        },
-        {
-            "id": "be14",
             "type": "img",
             "thumb" : {
                 "type": "img",
-                "src": "explore/explore_6.jpg",
-                "alt": "BE1-266 - Bla bla bla",
-                "width": 348,
-                "height": 521
+                "src": "explore/IMG_0357.jpg",
+                "alt": "B Explore",
+                "width": 5184,
+                "height": 3456
             },
             "large" : {
                 "type": "img",
-                "provider": "",
-                "src": "explore/explore_6.jpg",
-                "alt": "BE1-266 - Bla bla bla",
-                "width": 871,
-                "height": 1270
-            }
-        },
-        {
-            "id": "be15",
-            "type": "img",
-            "thumb" : {
-                "type": "img",
-                "src": "explore/explore_7.jpg",
-                "alt": "BE1-266 - Bla bla bla",
-                "width": 1600,
-                "height": 1089
-            },
-            "large" : {
-                "type": "img",
-                "provider": "",
-                "src": "explore/explore_7.jpg",
-                "alt": "BE1-266 - Bla bla bla",
-                "width": 871,
-                "height": 1270
+                "src": "explore/IMG_0357.jpg",
+                "alt": "B Explore",
+                "width": 5184,
+                "height": 3456
             }
         }
     ]

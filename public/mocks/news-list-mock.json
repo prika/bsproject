@@ -1,101 +1,35 @@
 [
-    { 
+    {
         "id": "news1",
-        "title": "O Grupo J .Silva investe na Bloco B transformando a empresa numa das mais modernas no sector dos Mármores!",
-        "pubdata": "23   —   novembro  —   2018",
+        "title": "Bstone continues to invest in innovative technology",
+        "pubdata": "23   —   november  —   2020",
         "gallery": [
-            {"src": "news/exemplo_noticia_a.jpg", "alt": "Image Test"},
-            {"src": "news/exemplo_noticia_b.jpg", "alt": "Image Test"}
+            {
+                "src": "news/IMG_0159.jpg",
+                "alt": "Bstone continues to invest in innovative technology"
+            }
         ]
     },
-    { 
+    {
         "id": "news2",
-        "title": "Terceira geração no Caminho da internacionalização",
-        "pubdata": "23   —   novembro  —   2018",
+        "title": "Bstone facilities with new look after Rebranding",
+        "pubdata": "23   —   november  —   2020",
         "gallery": [
-            {"src": "news/exemplo_noticia_c.jpg", "alt": "Image Test"}
+            {
+                "src": "news/IMG_2530.jpg",
+                "alt": "Bstone facilities with new look after Rebranding"
+            }
         ]
     },
-    { 
+    {
         "id": "news3",
-        "title": "A B stone na Marmomacc 2018",
-        "pubdata": "23   —   novembro  —   2018",
+        "title": "On his 11th birthday, Bstone recalls the event of 2019",
+        "pubdata": "23   —   november  —   2020",
         "gallery": [
-            {"src": "news/exemplo_noticia_d.jpg", "alt": "Image Test"}
-        ]
-    },
-    { 
-        "id": "news4",
-        "title": "yet complimentary companies and activities",
-        "pubdata": "23   —   novembro  —   2018",
-        "gallery": [
-            {"src": "news/exemplo_noticia_e.jpg", "alt": "Image Test"}
-        ]
-    },
-    { 
-        "id": "news5",
-        "title": "B group comprehends 4 diferent, yet complimentary companies and activities",
-        "pubdata": "23   —   novembro  —   2018",
-        "gallery": [
-            {"src": "news/exemplo_noticia_a.jpg", "alt": "Image Test"},
-            {"src": "news/exemplo_noticia_b.jpg", "alt": "Image Test"}
-        ]
-    },
-    { 
-        "id": "news6",
-        "title": "yet complimentary companies and activities",
-        "pubdata": "23   —   novembro  —   2018",
-        "gallery": [
-            {"src": "news/exemplo_noticia_c.jpg", "alt": "Image Test"}
-        ]
-    },
-    { 
-        "id": "news7",
-        "title": "yet complimentary companies and activities",
-        "pubdata": "23   —   novembro  —   2018",
-        "gallery": [
-            {"src": "news/exemplo_noticia_d.jpg", "alt": "Image Test"}
-        ]
-    },
-    { 
-        "id": "news8",
-        "title": "yet complimentary companies and activities",
-        "publication_data": "23   —   novembro  —   2018",
-        "gallery": [
-            {"src": "news/exemplo_noticia_e.jpg", "alt": "Image Test"}
-        ]
-    },
-    { 
-        "id": "news9",
-        "title": "B group comprehends 4 diferent, yet complimentary companies and activities",
-        "pubdata": "23   —   novembro  —   2018",
-        "gallery": [
-            {"src": "news/exemplo_noticia_a.jpg", "alt": "Image Test"},
-            {"src": "news/exemplo_noticia_b.jpg", "alt": "Image Test"}
-        ]
-    },
-    { 
-        "id": "news10",
-        "title": "yet complimentary companies and activities",
-        "pubdata": "20/06/1980",
-        "gallery": [
-            {"src": "news/exemplo_noticia_c.jpg", "alt": "Image Test"}
-        ]
-    },
-    { 
-        "id": "news11",
-        "title": "yet complimentary companies and activities",
-        "pubdata": "23   —   novembro  —   2018",
-        "gallery": [
-            {"src": "news/exemplo_noticia_d.jpg", "alt": "Image Test"}
-        ]
-    },
-    { 
-        "id": "news12",
-        "title": "yet complimentary companies and activities",
-        "pubdata": "23   —   novembro  —   2018",
-        "gallery": [
-            {"src": "news/exemplo_noticia_e.jpg", "alt": "Image Test"}
+            {
+                "src": "news/PIC_9110-116.jpg",
+                "alt": "On his 11th birthday, Bstone recalls the event of 2019"
+            }
         ]
     }
 ]

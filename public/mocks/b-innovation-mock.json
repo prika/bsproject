@@ -1,333 +1,85 @@
-{ 
-    "id": "binnovation",
-    "title": "B innovation",
-    "content": "A versatilidade, robustez e magnificência fazem do mármore o material mais desejado para vários ambientes, do mais clássico ao vanguardista. B innovation promete criar a solução ideal para si, à sua medida.",
-    "gallery1": [
-        {   
-            "src": "news/exemplo_noticia_a.jpg", 
-            "alt": "Image Test", 
-            "speed": 7,
-            "addclass": "col-9 col-lg-6"
-        },
-        {
-            "src": "news/exemplo_noticia_b.jpg", 
-            "alt": "Image Test", 
-            "speed": 4,
-            "addclass": "col-9 col-lg-7"
-        },
-        {
-            "src": "B_Simbolo_estatico_Corpo.svg", 
-            "alt": "Image Test", 
-            "speed": -10,
-            "addclass": "col-9 col-lg-4"
-        }
-    ],
-    "gallery2": [],
-    "title1": "Port",
-    "title2": "folio",
-    "mansory": [
-        {
-            "id": "bi0",
-            "type": "img",
-            "thumb" : {
-                "type": "img",
-                "src": "explore/explore_1.jpg",
-                "alt": "bi1-266 - Bla bla bla",
-                "width": 300,
-                "height": 300
-            },
-            "large" : {
-                "type": "img",
-                "src": "explore/explore_1.jpg",
-                "alt": "bi1-266 - Bla bla bla",
-                "width": 800,
-                "height": 800
-            }
-        },
-        {
-            "id": "bi1",
-            "type": "img",
-            "thumb" : {
-                "type": "img",
-                "src": "explore/explore_2.jpg",
-                "alt": "bi1-266 - Bla bla bla",
-                "width": 1067,
-                "height": 1600
-            },
-            "large" : {
-                "type": "img",
-                "src": "explore/explore_2.jpg",
-                "alt": "bi1-266 - Bla bla bla",
-                "width": 1067,
-                "height": 1600
-            }
-        },
-        {
-            "id": "bi2",
-            "type": "img",
-            "thumb" : {
-                "type": "img",
-                "src": "explore/explore_3.jpg",
-                "alt": "bi1-266 - Bla bla bla",
-                "width": 348,
-                "height": 232
-            },
-            "large" : {
-                "type": "img",
-                "src": "explore/explore_3.jpg",
-                "alt": "bi1-266 - Bla bla bla",
-                "width": 348,
-                "height": 232
-            }
-        },
-        {
-            "id": "bi3",
-            "type": "img",
-            "thumb" : {
-                "type": "img",
-                "src": "explore/explore_4.jpg",
-                "alt": "bi1-266 - Bla bla bla",
-                "width": 871, "height": 1270
-            },
-            "large" : {
-                "type": "img",
-                "src": "explore/explore_4.jpg",
-                "alt": "bi1-266 - Bla bla bla",
-                "width": 871, "height": 1270
-            }
-        },
-        {
-            "id": "bi4",
-            "type": "video",
-            "provider": "youtube",
-            "thumb" : {
-                "type": "img",
-                "src": "explore/explore_5.jpg",
-                "alt": "bi1-266 - Bla bla bla",
-                "width": 348, "height": 232
-            },
-            "large" : {
-                "type": "img",
-                "src": "explore/explore_5.jpg",
-                "alt": "bi1-266 - Bla bla bla",
-                "width": 871, "height": 1270
-            }
-        },
-        {
-            "id": "bi5",
-            "type": "img",
-            "thumb" : {
-                "type": "img",
-                "src": "explore/explore_6.jpg",
-                "alt": "bi1-266 - Bla bla bla",
-                "width": 348, "height": 521
-            },
-            "large" : {
-                "type": "img",
-                "src": "explore/explore_6.jpg",
-                "alt": "bi1-266 - Bla bla bla",
-                "width": 871, "height": 1270
-            }
-        },
-        {
-            "id": "bi6",
-            "type": "img",
-            "thumb" : {
-                "type": "img",
-                "src": "explore/explore_7.jpg",
-                "alt": "bi1-266 - Bla bla bla",
-                "width": 1600, "height": 1089
-            },
-            "large" : {
-                "type": "img",
-                "src": "explore/explore_7.jpg",
-                "alt": "bi1-266 - Bla bla bla",
-                "width": 871, "height": 1270
-            }
-        },
-        {
-            "id": "bi7",
-            "type": "img",
-            "thumb" : {
-                "type": "img",
-                "src": "explore/explore_8.jpg",
-                "alt": "bi1-266 - Bla bla bla",
-                "width": 348, "height": 232
-            },
-            "large" : {
-                "type": "img",
-                "src": "explore/explore_8.jpg",
-                "alt": "bi1-266 - Bla bla bla",
-                "width": 871, "height": 1270
-            }
-        },
-        {
-            "id": "bi8",
-            "type": "img",
-            "provider": "",
-            "thumb" : {
-                "type": "img",
-                "src": "explore/explore_9.jpg",
-                "alt": "bi1-266 - Bla bla bla",
-                "width": 348, "height": 232
-            },
-            "large" : {
-                "type": "img",
-                "src": "explore/explore_9.jpg",
-                "alt": "bi1-266 - Bla bla bla",
-                "width": 871, "height": 1270
-            }
-        },
-        {
-            "id": "bi9",
-            "type": "img",
-            "thumb" : {
-                "type": "img",
-                "src": "explore/explore_1.jpg",
-                "alt": "bi1-266 - Bla bla bla",
-                "width": 300,
-                "height": 300
-            },
-            "large" : {
-                "type": "img",
-                "src": "explore/explore_1.jpg",
-                "alt": "bi1-266 - Bla bla bla",
-                "width": 800,
-                "height": 800
-            }
-        },
-        {
-            "id": "bi10",
-            "type": "img",
-            "thumb" : {
-                "type": "img",
-                "src": "explore/explore_2.jpg",
-                "alt": "bi1-266 - Bla bla bla",
-                "width": 1067,
-                "height": 1600
-            },
-            "large" : {
-                "type": "img",
-                "src": "explore/explore_2.jpg",
-                "alt": "bi1-266 - Bla bla bla",
-                "width": 1067,
-                "height": 1600
-            }
-        },
-        {
-            "id": "bi11",
-            "type": "img",
-            "thumb" : {
-                "type": "img",
-                "src": "explore/explore_3.jpg",
-                "alt": "bi1-266 - Bla bla bla",
-                "width": 348,
-                "height": 232
-            },
-            "large" : {
-                "type": "img",
-                "src": "explore/explore_3.jpg",
-                "alt": "bi1-266 - Bla bla bla",
-                "width": 348,
-                "height": 232
-            }
-        },
-        {
-            "id": "bi12",
-            "type": "img",
-            "thumb" : {
-                "type": "img",
-                "src": "explore/explore_4.jpg",
-                "alt": "bi1-266 - Bla bla bla",
-                "width": 871, "height": 1270
-            },
-            "large" : {
-                "type": "img",
-                "src": "explore/explore_4.jpg",
-                "alt": "bi1-266 - Bla bla bla",
-                "width": 871, "height": 1270
-            }
-        },
-        {
-            "id": "bi13",
-            "type": "video",
-            "provider": "youtube",
-            "thumb" : {
-                "type": "img",
-                "src": "explore/explore_5.jpg",
-                "alt": "bi1-266 - Bla bla bla",
-                "width": 348, "height": 232
-            },
-            "large" : {
-                "type": "img",
-                "src": "explore/explore_5.jpg",
-                "alt": "bi1-266 - Bla bla bla",
-                "width": 871, "height": 1270
-            }
-        },
-        {
-            "id": "bi14",
-            "type": "img",
-            "thumb" : {
-                "type": "img",
-                "src": "explore/explore_6.jpg",
-                "alt": "bi1-266 - Bla bla bla",
-                "width": 348, "height": 521
-            },
-            "large" : {
-                "type": "img",
-                "src": "explore/explore_6.jpg",
-                "alt": "bi1-266 - Bla bla bla",
-                "width": 871, "height": 1270
-            }
-        },
-        {
-            "id": "bi15",
-            "type": "img",
-            "thumb" : {
-                "type": "img",
-                "src": "explore/explore_7.jpg",
-                "alt": "bi1-266 - Bla bla bla",
-                "width": 1600, "height": 1089
-            },
-            "large" : {
-                "type": "img",
-                "src": "explore/explore_7.jpg",
-                "alt": "bi1-266 - Bla bla bla",
-                "width": 871, "height": 1270
-            }
-        },
-        {
-            "id": "bi16",
-            "type": "img",
-            "thumb" : {
-                "type": "img",
-                "src": "explore/explore_8.jpg",
-                "alt": "bi1-266 - Bla bla bla",
-                "width": 348, "height": 232
-            },
-            "large" : {
-                "type": "img",
-                "src": "explore/explore_8.jpg",
-                "alt": "bi1-266 - Bla bla bla",
-                "width": 871, "height": 1270
-            }
-        },
-        {
-            "id": "bi17",
-            "type": "img",
-            "thumb" : {
-                "type": "img",
-                "src": "explore/explore_9.jpg",
-                "alt": "bi1-266 - Bla bla bla",
-                "width": 348, "height": 232
-            },
-            "large" : {
-                "type": "img",
-                "src": "explore/explore_9.jpg",
-                "alt": "bi1-266 - Bla bla bla",
-                "width": 871, "height": 1270
-            }
-        }
-    ]
+{
+  "id": "binnovation",
+  "title": "B innovation",
+  "content": "The versatility, robustness and magnificence make marble the most desired material for various environments, from the most classic to the avant-garde. B Innovation promises to create the ideal solution for you, tailored to your needs.",
+  "gallery1": [
+    {
+      "src": "innovation/IMG_0649.jpg",
+      "alt": "B innovation - ",
+      "speed": 7,
+      "addclass": "col-9 col-lg-6"
+    },
+    {
+      "src": "innovation/80810462_2895462507171649_7848259796577812480_n.jpg",
+      "alt": "B innovation - ",
+      "speed": 4,
+      "addclass": "col-9 col-lg-7"
+    },
+    {
+      "src": "B_Simbolo_estatico_Corpo.svg",
+      "alt": "B Symbol",
+      "speed": -10,
+      "addclass": "col-9 col-lg-4"
+    }
+  ],
+  "gallery2": [],
+  "title1": "Port",
+  "title2": "folio",
+  "max-height": "500",
+  "mansory": [
+    {
+      "id": "bi0",
+      "type": "img",
+      "thumb": {
+        "type": "img",
+        "src": "innovation/73ce6963-b336-4670-841b-064441f683ab.jpg",
+        "alt": "B innovation - ",
+        "width": 768,
+        "height": 1024
+      },
+      "large": {
+        "type": "img",
+        "src": "innovation/73ce6963-b336-4670-841b-064441f683ab.jpg",
+        "alt": "B innovation - ",
+        "width": 768,
+        "height": 1024
+      }
+    },
+    {
+      "id": "bi1",
+      "type": "img",
+      "thumb": {
+        "type": "img",
+        "src": "innovation/IMG_0650.jpg",
+        "alt": "B innovation - ",
+        "width": 5184,
+        "height": 3456
+      },
+      "large": {
+        "type": "img",
+        "src": "innovation/IMG_0650.jpg",
+        "alt": "B innovation - ",
+        "width": 5184,
+        "height": 3456
+      }
+    },
+    {
+      "id": "bi2",
+      "type": "img",
+      "thumb": {
+        "type": "img",
+        "src": "innovation/IMG_8915.jpg",
+        "alt": "B innovation - ",
+        "width": 3259,
+        "height": 4992
+      },
+      "large": {
+        "type": "img",
+        "src": "innovation/IMG_8915.jpg",
+        "alt": "B innovation - ",
+        "width": 3259,
+        "height": 4992
+      }
+    }
+  ]
 }

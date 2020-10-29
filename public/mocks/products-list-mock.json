@@ -1,295 +1,815 @@
-{ "products" :
-    [
-        {
-            "id": "Prod1",
-            "name": "Atlantic White",
-            "category": 1,
-            "collection": 1,
-            "imgURL": "product/atlantic_white.jpg",
-            "firstName": "Atlantic",
-            "secondName": "White",
-            "featured": false,
-            "colors": [
-                0,
-                1
-            ]
-        },
-        {
-            
-            "id": "Prod2",
-            "name": "Bambu Pink",
-            "category": 1,
-            "collection": 1,
-            "imgURL": "product/bambu_pink.jpg",
-            "firstName": "Bambu",
-            "secondName": "Pink",
-            "featured": true,
-            "colors": [
-                4
-            ]
-        },
+{
+  "products": [
     {
-        
-        "id": "Prod3",
-        "name": "Black Magic",
-        "category": 0,
-        "collection": 1,
-        "imgURL": "product/black_magic.jpg",
-        "firstName": "Black",
-        "secondName": "Magic",
-        "featured": false,
-        "colors": [
-            3
-        ]
-    },{
-        
-        "id": "Prod33",
-        "name": "Butak Onyx",
-        "category": 0,
-        "collection": 1,
-        "imgURL": "product/butak_onyx.jpg",
-        "firstName": "Butak",
-        "secondName": "Onyx",
-        "featured": true,
-        "colors": [
-            4,
-            1
-        ]
-    },{
-        
-        "id": "Prod34",
-        "name": "Butak Onyx",
-        "category": 0,
-        "collection": 1,
-        "imgURL": "product/butak_onyx.jpg",
-        "firstName": "Butak",
-        "secondName": "Onyx",
-        "featured": false,
-        "colors": [
-            4
-        ]
+      "id": "Prod01-1",
+      "name": "White Jungle",
+      "category": 0,
+      "collection": 1,
+      "imgURL": "product/white_jungle.jpg",
+      "firstName": "White",
+      "secondName": "Jungle",
+      "featured": false,
+      "colors": [
+        0
+      ]
     },
     {
-        
-        "id": "Prod4",
-        "name": "Butak Onyx",
-        "category": 0,
-        "collection": 2,
-        "imgURL": "product/butak_onyx.jpg",
-        "firstName": "Butak",
-        "secondName": "Onyx",
-        "featured": true,
-        "colors": [
-            1
-        ]
-    },{
-        
-        "id": "Prod45",
-        "name": "Butak Onyx",
-        "category": 0,
-        "collection": 2,
-        "imgURL": "product/butak_onyx.jpg",
-        "firstName": "Butak",
-        "secondName": "Onyx",
-        "featured": true,
-        "colors": [
-            3,
-            2
-        ]
-    },{
-        
-        "id": "Prod46",
-        "name": "Butak Onyx",
-        "category": 0,
-        "collection": 2,
-        "imgURL": "product/butak_onyx.jpg",
-        "firstName": "Butak",
-        "secondName": "Onyx",
-        "featured": false,
-        "colors": [
-            4,
-            1
-        ]
-    },{
-        
-        "id": "Prod47",
-        "name": "Butak Onyx",
-        "category": 0,
-        "collection": 2,
-        "imgURL": "product/butak_onyx.jpg",
-        "firstName": "Butak",
-        "secondName": "Onyx",
-        "featured": false,
-        "colors": [
-            4
-        ]
+      "id": "Prod01-2",
+      "name": "White Jungle",
+      "category": 1,
+      "collection": 1,
+      "imgURL": "product/white_jungle.jpg",
+      "firstName": "White",
+      "secondName": "Jungle",
+      "featured": true,
+      "colors": [
+        0
+      ]
     },
     {
-        
-        "id": "Prod5",
-        "name": "Calacatta Stone",
-        "category": 2,
-        "collection": 1,
-        "imgURL": "product/calacatta_bstone.jpg",
-        "firstName": "Calacatta",
-        "secondName": "Stone",
-        "featured": false,
-        "colors": [
-            0,
-            3,
-            2
-        ]
+      "id": "Prod01-3",
+      "name": "White Jungle",
+      "category": 2,
+      "collection": 1,
+      "imgURL": "product/white_jungle.jpg",
+      "firstName": "White",
+      "secondName": "Jungle",
+      "featured": false,
+      "colors": [
+        0
+      ]
     },
     {
-        
-        "id": "Prod6",
-        "name": "Atlantic White",
-        "category": 1,
-        "collection": 1,
-        "imgURL": "product/atlantic_white.jpg",
-        "firstName": "Atlantic",
-        "secondName": "White",
-        "featured": true,
-        "colors": [
-            0,
-            1,
-            3
-        ]
+      "id": "Prod02-1",
+      "name": "Stormy Grey",
+      "category": 0,
+      "collection": 1,
+      "imgURL": "product/stormy_grey.jpg",
+      "firstName": "Stormy",
+      "secondName": "Grey",
+      "featured": false,
+      "colors": [
+        1
+      ]
     },
     {
-        
-        "id": "Prod7",
-        "name": "Bambu Pink",
-        "category": 2,
-        "collection": 2,
-        "imgURL": "product/bambu_pink.jpg",
-        "firstName": "Bambu",
-        "secondName": "Pink",
-        "featured": true,
-        "colors": [
-            4,
-            3
-        ]
+      "id": "Prod02-2",
+      "name": "Stormy Grey",
+      "category": 1,
+      "collection": 1,
+      "imgURL": "product/stormy_grey.jpg",
+      "firstName": "Stormy",
+      "secondName": "Grey",
+      "featured": false,
+      "colors": [
+        1
+      ]
     },
     {
-        
-        "id": "Prod8",
-        "name": "Black Magic",
-        "category": 0,
-        "collection": 1,
-        "imgURL": "product/black_magic.jpg",
-        "firstName": "Black",
-        "secondName": "Magic 2",
-        "featured": false,
-        "colors": [
-            3
-        ]
+      "id": "Prod02-3",
+      "name": "Stormy Grey",
+      "category": 2,
+      "collection": 1,
+      "imgURL": "product/stormy_grey.jpg",
+      "firstName": "Stormy",
+      "secondName": "Grey",
+      "featured": false,
+      "colors": [
+        1
+      ]
     },
     {
-        
-        "id": "Prod9",
-        "name": "Butak Onyx",
-        "category": 1,
-        "collection": 2,
-        "imgURL": "product/butak_onyx.jpg",
-        "firstName": "Butak",
-        "secondName": "Onyx",
-        "featured": false,
-        "colors": [
-            4,
-            1
-        ]
+      "id": "Prod03-1",
+      "name": "Two Tones",
+      "category": 0,
+      "collection": 1,
+      "imgURL": "product/two_tones.jpg",
+      "firstName": "Two",
+      "secondName": "Tones",
+      "featured": false,
+      "colors": [
+        4
+      ]
     },
     {
-        
-        "id": "Prod10",
-        "name": "Calacatta Stone",
-        "category": 2,
-        "collection": 2,
-        "imgURL": "product/calacatta_bstone.jpg",
-        "firstName": "Calacatta",
-        "secondName": "Stone",
-        "featured": false,
-        "colors": [
-            3,
-            2
-        ]
+      "id": "Prod03-2",
+      "name": "Two Tones",
+      "category": 1,
+      "collection": 1,
+      "imgURL": "product/two_tones.jpg",
+      "firstName": "Two",
+      "secondName": "Tones",
+      "featured": false,
+      "colors": [
+        4
+      ]
     },
     {
-        
-        "id": "Prod11",
-        "name": "Butak Onyx",
-        "category": 1,
-        "collection": 2,
-        "imgURL": "product/butak_onyx.jpg",
-        "firstName": "Butak",
-        "secondName": "Onyx",
-        "featured": true,
-        "colors": [
-            4,
-            1
-        ]
+      "id": "Prod03-3",
+      "name": "Two Tones",
+      "category": 2,
+      "collection": 1,
+      "imgURL": "product/two_tones.jpg",
+      "firstName": "Two",
+      "secondName": "Tones",
+      "featured": false,
+      "colors": [
+        4
+      ]
     },
     {
-        
-        "id": "Prod12",
-        "name": "Calacatta Stone",
-        "category": 2,
-        "collection": 2,
-        "imgURL": "product/calacatta_bstone.jpg",
-        "firstName": "Calacatta",
-        "secondName": "Stone",
-        "featured": false,
-        "colors": [
-            3,
-            2
-        ]
+      "id": "Prod04-1",
+      "name": "Bambu Pink",
+      "category": 0,
+      "collection": 1,
+      "imgURL": "product/bambu_pink.jpg",
+      "firstName": "Bambu",
+      "secondName": "Pink",
+      "featured": false,
+      "colors": [
+        4
+      ]
     },
     {
-        
-        "id": "Prod13",
-        "name": "Butak Onyx",
-        "category": 1,
-        "collection": 2,
-        "imgURL": "product/butak_onyx.jpg",
-        "firstName": "Butak",
-        "secondName": "Onyx",
-        "featured": false,
-        "colors": [
-            4,
-            1
-        ]
+      "id": "Prod04-2",
+      "name": "Bambu Pink",
+      "category": 1,
+      "collection": 1,
+      "imgURL": "product/bambu_pink.jpg",
+      "firstName": "Bambu",
+      "secondName": "Pink",
+      "featured": false,
+      "colors": [
+        4
+      ]
     },
     {
-        
-        "id": "Prod14",
-        "name": "Calacatta Stone",
-        "category": 2,
-        "collection": 2,
-        "imgURL": "product/calacatta_bstone.jpg",
-        "firstName": "Calacatta",
-        "secondName": "Stone",
-        "featured": false,
-        "colors": [
-            3,
-            2
-        ]
+      "id": "Prod04-3",
+      "name": "Bambu Pink",
+      "category": 2,
+      "collection": 1,
+      "imgURL": "product/bambu_pink.jpg",
+      "firstName": "Bambu",
+      "secondName": "Pink",
+      "featured": true,
+      "colors": [
+        4
+      ]
+    },
+    {
+      "id": "Prod05-1",
+      "name": "Open Book",
+      "category": 0,
+      "collection": 1,
+      "imgURL": "product/open_book.jpg",
+      "firstName": "Open",
+      "secondName": "Book",
+      "featured": false,
+      "colors": [
+        0
+      ]
+    },
+    {
+      "id": "Prod05-2",
+      "name": "Open Book",
+      "category": 1,
+      "collection": 1,
+      "imgURL": "product/open_book.jpg",
+      "firstName": "Open",
+      "secondName": "Book",
+      "featured": false,
+      "colors": [
+        0
+      ]
+    },
+    {
+      "id": "Prod05-3",
+      "name": "Open Book",
+      "category": 2,
+      "collection": 1,
+      "imgURL": "product/open_book.jpg",
+      "firstName": "Open",
+      "secondName": "Book",
+      "featured": false,
+      "colors": [
+        0
+      ]
+    },
+    {
+      "id": "Prod06-1",
+      "name": "Black Magic",
+      "category": 0,
+      "collection": 1,
+      "imgURL": "product/black_magic.jpg",
+      "firstName": "Black",
+      "secondName": "Magic",
+      "featured": false,
+      "colors": [
+        3,
+        1
+      ]
+    },
+    {
+      "id": "Prod06-2",
+      "name": "Black Magic",
+      "category": 1,
+      "collection": 1,
+      "imgURL": "product/black_magic.jpg",
+      "firstName": "Black",
+      "secondName": "Magic",
+      "featured": true,
+      "colors": [
+        3,
+        1
+      ]
+    },
+    {
+      "id": "Prod06-3",
+      "name": "Black Magic",
+      "category": 2,
+      "collection": 1,
+      "imgURL": "product/black_magic.jpg",
+      "firstName": "Black",
+      "secondName": "Magic",
+      "featured": false,
+      "colors": [
+        3,
+        1
+      ]
+    },
+    {
+      "id": "Prod07-1",
+      "name": "Calacatta Stone",
+      "category": 0,
+      "collection": 1,
+      "imgURL": "product/calacatta_bstone.jpg",
+      "firstName": "Calacatta",
+      "secondName": "Stone",
+      "featured": true,
+      "colors": [
+        0
+      ]
+    },
+    {
+      "id": "Prod07-2",
+      "name": "Calacatta Stone",
+      "category": 1,
+      "collection": 1,
+      "imgURL": "product/calacatta_bstone.jpg",
+      "firstName": "Calacatta",
+      "secondName": "Stone",
+      "featured": false,
+      "colors": [
+        0
+      ]
+    },
+    {
+      "id": "Prod07-3",
+      "name": "Calacatta Stone",
+      "category": 2,
+      "collection": 1,
+      "imgURL": "product/calacatta_bstone.jpg",
+      "firstName": "Calacatta",
+      "secondName": "Stone",
+      "featured": false,
+      "colors": [
+        0
+      ]
+    },
+    {
+      "id": "Prod08-1",
+      "name": "Stormy White",
+      "category": 0,
+      "collection": 1,
+      "imgURL": "product/stormy_white.jpg",
+      "firstName": "Stormy",
+      "secondName": "White",
+      "featured": false,
+      "colors": [
+        0
+      ]
+    },
+    {
+      "id": "Prod08-2",
+      "name": "Stormy White",
+      "category": 1,
+      "collection": 1,
+      "imgURL": "product/stormy_white.jpg",
+      "firstName": "Stormy",
+      "secondName": "White",
+      "featured": false,
+      "colors": [
+        0
+      ]
+    },
+    {
+      "id": "Prod08-3",
+      "name": "Stormy White",
+      "category": 2,
+      "collection": 1,
+      "imgURL": "product/stormy_white.jpg",
+      "firstName": "Stormy",
+      "secondName": "White",
+      "featured": false,
+      "colors": [
+        0
+      ]
+    },
+    {
+      "id": "Prod09-1",
+      "name": "Fantasy Open Book",
+      "category": 0,
+      "collection": 1,
+      "imgURL": "product/fantasy_open_book.jpg",
+      "firstName": "Fantasy",
+      "secondName": "Open Book",
+      "featured": false,
+      "colors": [
+        4
+      ]
+    },
+    {
+      "id": "Prod09-2",
+      "name": "Fantasy Open Book",
+      "category": 1,
+      "collection": 1,
+      "imgURL": "product/fantasy_open_book.jpg",
+      "firstName": "Fantasy",
+      "secondName": "Open Book",
+      "featured": false,
+      "colors": [
+        4
+      ]
+    },
+    {
+      "id": "Prod09-3",
+      "name": "Fantasy Open Book",
+      "category": 2,
+      "collection": 1,
+      "imgURL": "product/fantasy_open_book.jpg",
+      "firstName": "Fantasy",
+      "secondName": "Open Book",
+      "featured": false,
+      "colors": [
+        4
+      ]
+    },
+    {
+      "id": "Prod010-1",
+      "name": "Snowy White",
+      "category": 0,
+      "collection": 1,
+      "imgURL": "product/snowy_white.jpg",
+      "firstName": "Snowy",
+      "secondName": "White",
+      "featured": false,
+      "colors": [
+        0
+      ]
+    },
+    {
+      "id": "Prod010-2",
+      "name": "Snowy White",
+      "category": 1,
+      "collection": 1,
+      "imgURL": "product/snowy_white.jpg",
+      "firstName": "Snowy",
+      "secondName": "White",
+      "featured": false,
+      "colors": [
+        0
+      ]
+    },
+    {
+      "id": "Prod010-3",
+      "name": "Snowy White",
+      "category": 2,
+      "collection": 1,
+      "imgURL": "product/snowy_white.jpg",
+      "firstName": "Snowy",
+      "secondName": "White",
+      "featured": false,
+      "colors": [
+        0
+      ]
+    },
+    {
+      "id": "Prod21-1",
+      "name": "Atlantic White",
+      "category": 0,
+      "collection": 2,
+      "imgURL": "product/atlantic_white.jpg",
+      "firstName": "Atlantic",
+      "secondName": "White",
+      "featured": false,
+      "colors": [
+        0
+      ]
+    },
+    {
+      "id": "Prod21-2",
+      "name": "Atlantic White",
+      "category": 1,
+      "collection": 2,
+      "imgURL": "product/atlantic_white.jpg",
+      "firstName": "Atlantic",
+      "secondName": "White",
+      "featured": false,
+      "colors": [
+        0
+      ]
+    },
+    {
+      "id": "Prod21-3",
+      "name": "Atlantic White",
+      "category": 2,
+      "collection": 2,
+      "imgURL": "product/atlantic_white.jpg",
+      "firstName": "Atlantic",
+      "secondName": "White",
+      "featured": false,
+      "colors": [
+        0
+      ]
+    },
+    {
+      "id": "Prod22-1",
+      "name": "Infinity Black",
+      "category": 0,
+      "collection": 2,
+      "imgURL": "product/infinity_black.jpg",
+      "firstName": "Infinity",
+      "secondName": "Black",
+      "featured": false,
+      "colors": [
+        3
+      ]
+    },
+    {
+      "id": "Prod22-2",
+      "name": "Infinity Black",
+      "category": 1,
+      "collection": 2,
+      "imgURL": "product/infinity_black.jpg",
+      "firstName": "Infinity",
+      "secondName": "Black",
+      "featured": false,
+      "colors": [
+        3
+      ]
+    },
+    {
+      "id": "Prod22-3",
+      "name": "Infinity Black",
+      "category": 2,
+      "collection": 2,
+      "imgURL": "product/infinity_black.jpg",
+      "firstName": "Infinity",
+      "secondName": "Black",
+      "featured": false,
+      "colors": [
+        3
+      ]
+    },
+    {
+      "id": "Prod23-1",
+      "name": "Pietra D’Argento",
+      "category": 0,
+      "collection": 2,
+      "imgURL": "product/pietra_d_argento.jpg",
+      "firstName": "Pietra",
+      "secondName": "D’Argento",
+      "featured": true,
+      "colors": [
+        1
+      ]
+    },
+    {
+      "id": "Prod23-2",
+      "name": "Pietra D’Argento",
+      "category": 1,
+      "collection": 2,
+      "imgURL": "product/pietra_d_argento.jpg",
+      "firstName": "Pietra",
+      "secondName": "D’Argento",
+      "featured": false,
+      "colors": [
+        1
+      ]
+    },
+    {
+      "id": "Prod23-3",
+      "name": "Pietra D’Argento",
+      "category": 2,
+      "collection": 2,
+      "imgURL": "product/pietra_d_argento.jpg",
+      "firstName": "Pietra",
+      "secondName": "D’Argento",
+      "featured": false,
+      "colors": [
+        1
+      ]
+    },
+    {
+      "id": "Prod24-1",
+      "name": "Verona Beige",
+      "category": 0,
+      "collection": 2,
+      "imgURL": "product/verona_beige.jpg",
+      "firstName": "Verona",
+      "secondName": "Beige",
+      "featured": false,
+      "colors": [
+        2
+      ]
+    },
+    {
+      "id": "Prod24-2",
+      "name": "Verona Beige",
+      "category": 1,
+      "collection": 2,
+      "imgURL": "product/verona_beige.jpg",
+      "firstName": "Verona",
+      "secondName": "Beige",
+      "featured": false,
+      "colors": [
+        2
+      ]
+    },
+    {
+      "id": "Prod24-3",
+      "name": "Verona Beige",
+      "category": 2,
+      "collection": 2,
+      "imgURL": "product/verona_beige.jpg",
+      "firstName": "Verona",
+      "secondName": "Beige",
+      "featured": false,
+      "colors": [
+        2
+      ]
+    },
+    {
+      "id": "Prod25-1",
+      "name": "Eris White",
+      "category": 0,
+      "collection": 2,
+      "imgURL": "product/eris_white.jpg",
+      "firstName": "Eris",
+      "secondName": "White",
+      "featured": false,
+      "colors": [
+        1
+      ]
+    },
+    {
+      "id": "Prod25-2",
+      "name": "Eris White",
+      "category": 1,
+      "collection": 2,
+      "imgURL": "product/eris_white.jpg",
+      "firstName": "Eris",
+      "secondName": "White",
+      "featured": false,
+      "colors": [
+        1
+      ]
+    },
+    {
+      "id": "Prod25-3",
+      "name": "Eris White",
+      "category": 2,
+      "collection": 2,
+      "imgURL": "product/eris_white.jpg",
+      "firstName": "Eris",
+      "secondName": "White",
+      "featured": false,
+      "colors": [
+        1
+      ]
+    },
+    {
+      "id": "Prod26-1",
+      "name": "Butak Onyx",
+      "category": 0,
+      "collection": 2,
+      "imgURL": "product/butak_onyx.jpg",
+      "firstName": "Butak",
+      "secondName": "Onyx",
+      "featured": false,
+      "colors": [
+        5
+      ]
+    },
+    {
+      "id": "Prod26-2",
+      "name": "Butak Onyx",
+      "category": 1,
+      "collection": 2,
+      "imgURL": "product/butak_onyx.jpg",
+      "firstName": "Butak",
+      "secondName": "Onyx",
+      "featured": false,
+      "colors": [
+        5
+      ]
+    },
+    {
+      "id": "Prod26-3",
+      "name": "Butak Onyx",
+      "category": 2,
+      "collection": 2,
+      "imgURL": "product/butak_onyx.jpg",
+      "firstName": "Butak",
+      "secondName": "Onyx",
+      "featured": false,
+      "colors": [
+        5
+      ]
+    },
+    {
+      "id": "Prod27-1",
+      "name": "Jhully Onyx",
+      "category": 0,
+      "collection": 2,
+      "imgURL": "product/jhully_onyx.jpg",
+      "firstName": "Jhully",
+      "secondName": "Onyx",
+      "featured": false,
+      "colors": [
+        5
+      ]
+    },
+    {
+      "id": "Prod27-2",
+      "name": "Jhully Onyx",
+      "category": 1,
+      "collection": 2,
+      "imgURL": "product/jhully_onyx.jpg",
+      "firstName": "Jhully",
+      "secondName": "Onyx",
+      "featured": false,
+      "colors": [
+        5
+      ]
+    },
+    {
+      "id": "Prod27-3",
+      "name": "Jhully Onyx",
+      "category": 2,
+      "collection": 2,
+      "imgURL": "product/jhully_onyx.jpg",
+      "firstName": "Jhully",
+      "secondName": "Onyx",
+      "featured": true,
+      "colors": [
+        5
+      ]
+    },
+    {
+      "id": "Prod28-1",
+      "name": "Ocean Fossil",
+      "category": 0,
+      "collection": 2,
+      "imgURL": "product/ocean_fossil.jpg",
+      "firstName": "Ocean",
+      "secondName": "Fossil",
+      "featured": false,
+      "colors": [
+        6
+      ]
+    },
+    {
+      "id": "Prod28-2",
+      "name": "Ocean Fossil",
+      "category": 1,
+      "collection": 2,
+      "imgURL": "product/ocean_fossil.jpg",
+      "firstName": "Ocean",
+      "secondName": "Fossil",
+      "featured": false,
+      "colors": [
+        6
+      ]
+    },
+    {
+      "id": "Prod28-3",
+      "name": "Ocean Fossil",
+      "category": 2,
+      "collection": 2,
+      "imgURL": "product/ocean_fossil.jpg",
+      "firstName": "Ocean",
+      "secondName": "Fossil",
+      "featured": false,
+      "colors": [
+        6
+      ]
+    },
+    {
+      "id": "Prod29-1",
+      "name": "Royal Black",
+      "category": 0,
+      "collection": 2,
+      "imgURL": "product/royal_black.jpg",
+      "firstName": "Royal",
+      "secondName": "Black",
+      "featured": false,
+      "colors": [
+        3
+      ]
+    },
+    {
+      "id": "Prod29-2",
+      "name": "Royal Black",
+      "category": 1,
+      "collection": 2,
+      "imgURL": "product/royal_black.jpg",
+      "firstName": "Royal",
+      "secondName": "Black",
+      "featured": false,
+      "colors": [
+        3
+      ]
+    },
+    {
+      "id": "Prod29-3",
+      "name": "Royal Black",
+      "category": 2,
+      "collection": 2,
+      "imgURL": "product/royal_black.jpg",
+      "firstName": "Royal",
+      "secondName": "Black",
+      "featured": false,
+      "colors": [
+        3
+      ]
     }
-],
-"collections": [
-    { "id":1, "name":"Lusitania Collection" },
-    { "id":2, "name":"Sahura Collection"}
-],
-"categories": [
-    {"id":0, "name":"Blocos",       "splitName1": "Blo",    "splitName2": "cos"},
-    {"id":1, "name":"Chapas",       "splitName1": "Cha",    "splitName2": "pas"},
-    {"id":2, "name":"Ladrilhos",    "splitName1": "Ladri",  "splitName2": "lhos"}
-],
-"colors":[
-    {"id":0, "name":"Branco",    "hexa": "#FFFFFF"},
-    {"id":1, "name":"Cinza",     "hexa": "#A7A7A7"},
-    {"id":2, "name":"Creme",    "hexa": "#D8BBAD"},
-    {"id":3, "name":"Preto",    "hexa": "#000000"},
-    {"id":4, "name":"Rosa",     "hexa": "#DDBFD0"}
-]
+  ],
+  "collections": [
+    {
+      "id": 1,
+      "name": "Lusitania Collection"
+    },
+    {
+      "id": 2,
+      "name": "Sahura Collection"
+    }
+  ],
+  "categories": [
+    {
+      "id": 0,
+      "name": "Blocks",
+      "splitName1": "Blo",
+      "splitName2": "cks"
+    },
+    {
+      "id": 1,
+      "name": "Slabs",
+      "splitName1": "Sla",
+      "splitName2": "bs"
+    },
+    {
+      "id": 2,
+      "name": "Tiles",
+      "splitName1": "Til",
+      "splitName2": "es"
+    }
+  ],
+  "colors": [
+    {
+      "id": 0,
+      "name": "White",
+      "hexa": "#FFFFFF"
+    },
+    {
+      "id": 1,
+      "name": "Grey",
+      "hexa": "#A7A7A7"
+    },
+    {
+      "id": 2,
+      "name": "BEIGE",
+      "hexa": "#D8BBAD"
+    },
+    {
+      "id": 3,
+      "name": "Black",
+      "hexa": "#000000"
+    },
+    {
+      "id": 4,
+      "name": "Pink",
+      "hexa": "#DDBFD0"
+    },
+    {
+      "id": 5,
+      "name": "Green",
+      "hexa": "#DDBFD0"
+    },
+    {
+      "id": 6,
+      "name": "Brown",
+      "hexa": "#DDBFD0"
+    }
+  ]
 }

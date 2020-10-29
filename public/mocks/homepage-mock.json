@@ -1,101 +1,118 @@
-{ 
-    "id": "homepage",
-    "slidergallery": [
-        {
-            "id": "slide0",
-            "type": "img", 
-            "src": "banners/BlocoB-7234_Banner.jpg", 
-            "alt": "Image Test",
-            "width": 5693,
-            "height": 3795
-        },
-        {
-            "id": "slide1",
-            "type": "img", 
-            "src": "banners/banner_stone_foto_1.jpg", 
-            "alt": "Image Test",
-            "width": 4000,
-            "height": 2331
-        },
-        {
-            "id": "slide2",
-            "type": "video-uploaded",
-            "src": "banners/banner_stone_foto_2.jpg", 
-            "srcvideo": "video_exemplo.mp4",
-            "srcvideo1080": "video_exemplo.mp4",
-            "alt": "Image Test",
-            "width": 1920,
-            "height": 1080
-        },
-        {
-            "id": "slide4",
-            "type": "video-vimeo", 
-            "src": "banners/banner_stone_foto_1.jpg", 
-            "srcvideo": "76979871",
-            "alt": "Image Test",
-            "width": 1920,
-            "height": 1080
-        },
-        {
-            "id": "slide8",
-            "type": "video-youtube", 
-            "src": "banners/BlocoB-7234_Banner.jpg", 
-            "srcvideo": "bTqVqk7FSmY", 
-            "alt": "Image Test",
-            "width": 1920,
-            "height": 1080
-        }
-    ],
-    "title": "B group comprehends <br> 4 diferent, yet complimentary companies and activities",
-    "content": "Quarrying with <a href='/b-explore'>B explore</a>; Transformation and distribution with <a href='/bloco-b'>Bloco B</a>, Cut to size projects with <a href='/b-project'>B project</a> and 3D special projects with <a href='/b-innovation'>B innovation</a>. <br> <br> With all of this growth and evolution, we share with you an all inclusive brand that represents the quality, the advanced processing systems, the creativity the design and all the hard work all of us puts into every single square meter of marble that leaves our factory.",
-    "gallery1": [
-        {   
-            "id": "homeparallax01",
-            "src": "shared/institucional_2.jpg", 
-            "alt": "Image Test", 
-            "speed": 0,
-            "addclass": "col-8 col-sm-6"
-        },
-        {
-            "id": "homeparallax02",
-            "src": "shared/institucional_1.jpg", 
-            "alt": "Image Test", 
-            "speed": 3,
-            "addclass": "col-9 col-sm-7"
-        }
-    ],
-    "gallery2": [
-        {   "id": "homeparallax03",
-            "src": "shared/exemplo_1.jpg", 
-            "alt": "Image Test", 
-            "speed": 0,
-            "addclass": "col-8 col-md-5 col-xl-4"
-        },
-        {   "id": "homeparallax04",
-            "src": "shared/exemplo_2.jpg", 
-            "alt": "Image Test", 
-            "speed": 2,
-            "addclass": "col-8 col-md-6 col-xl-4"
-        },
-        {   "id": "homeparallax05",
-            "src": "shared/exemplo_3.jpg", 
-            "alt": "Image Test", 
-            "speed": -1,
-            "addclass": "col-6 col-md-4 col-xl-3"
-        },
-        {   "id": "homeparallax06",
-            "src": "shared/exemplo_4.jpg", 
-            "alt": "Image Test", 
-            "speed": 0,
-            "addclass": "col-8 col-md-4 col-xl-3"
-        },
-        {   "id": "homeparallax07",
-            "src": "shared/exemplo_5.jpg", 
-            "alt": "Image Test", 
-            "speed": 2,
-            "addclass": "col-9 col-md-6 col-xl-5"
-        }
-    ],
-    "featured_text1": "productos em",
-    "featured_text2": "destaque"
+{
+  "id": "homepage",
+  "slidergallery": [
+    {
+      "id": "slide00",
+      "type": "img",
+      "src": "banners/BlocoB-7234_Banner.jpg",
+      "alt": "Image Test",
+      "width": 5693,
+      "height": 3795
+    },
+    {
+      "id": "slide01",
+      "type": "img",
+      "src": "banners/banner_stone_foto_1.jpg",
+      "alt": "Image Test",
+      "width": 4000,
+      "height": 2331
+    },
+    {
+      "id": "slide02",
+      "type": "img",
+      "src": "banners/banner_1.jpg",
+      "alt": "Image Test",
+      "width": 5184,
+      "height": 3456
+    },
+    {
+      "id": "slide03",
+      "type": "img",
+      "src": "banners/banner_2.jpg",
+      "alt": "Image Test",
+      "width": 6605,
+      "height": 4132
+    },
+    {
+      "id": "slide04",
+      "type": "img",
+      "src": "banners/banner_3.jpg",
+      "alt": "Image Test",
+      "width": 5184,
+      "height": 3456
+    },
+    {
+      "id": "slide05",
+      "type": "img",
+      "src": "banners/banner_4.jpg",
+      "alt": "Image Test",
+      "width": 5184,
+      "height": 3456
+    },
+    {
+      "id": "slide06",
+      "type": "img",
+      "src": "banners/banner_5.jpg",
+      "alt": "Image Test",
+      "width": 6596,
+      "height": 4342
+    }
+  ],
+  "title": "B group comprehends <br> 4 diferent, yet complimentary companies and activities",
+  "content": "Quarrying with <a href='/b-explore'>B explore</a>; Transformation and distribution with <a href='/bloco-b'>Bloco B</a>, Cut to size projects with <a href='/b-project'>B project</a> and 3D special projects with <a href='/b-innovation'>B innovation</a>. <br> <br> With all of this growth and evolution, we share with you an all inclusive brand that represents the quality, the advanced processing systems, the creativity the design and all the hard work all of us puts into every single square meter of marble that leaves our factory.",
+  "gallery1": [
+    {
+      "id": "homeparallax01",
+      "src": "shared/institucional_2.jpg",
+      "alt": "Image Test",
+      "speed": 0,
+      "addclass": "col-8 col-sm-6"
+    },
+    {
+      "id": "homeparallax02",
+      "src": "shared/institucional_1.jpg",
+      "alt": "Image Test",
+      "speed": 3,
+      "addclass": "col-9 col-sm-7"
+    }
+  ],
+  "gallery2": [
+    {
+      "id": "homeparallax03",
+      "src": "shared/homeparallax_3.jpg",
+      "alt": "Image Test",
+      "speed": 0,
+      "addclass": "col-8 col-md-5 col-xl-4"
+    },
+    {
+      "id": "homeparallax04",
+      "src": "shared/homeparallax_4.png",
+      "alt": "Image Test",
+      "speed": 2,
+      "addclass": "col-8 col-md-6 col-xl-4"
+    },
+    {
+      "id": "homeparallax05",
+      "src": "shared/homeparallax_5.png",
+      "alt": "Image Test",
+      "speed": -1,
+      "addclass": "col-6 col-md-4 col-xl-3"
+    },
+    {
+      "id": "homeparallax06",
+      "src": "shared/homeparallax_6.jpg",
+      "alt": "Image Test",
+      "speed": 0,
+      "addclass": "col-8 col-md-4 col-xl-3"
+    },
+    {
+      "id": "homeparallax07",
+      "src": "shared/exemplo_5.jpg",
+      "alt": "Image Test",
+      "speed": 2,
+      "addclass": "col-9 col-md-6 col-xl-5"
+    }
+  ],
+  "featured_text1": "Featured",
+  "featured_text2": "Products"
 }
