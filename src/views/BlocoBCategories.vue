@@ -82,9 +82,9 @@
                 </li>
               </ul>
 
-              <router-link to="/simulator" class="simulatorLink">{{
+              <!--router-link to="/simulator" class="simulatorLink">{{
                 $t("simulator")
-              }}</router-link>
+              }}</router-link-->
             </nav>
           </transition>
         </div>

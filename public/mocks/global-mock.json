@@ -70,11 +70,6 @@
         "link": "/news"
       },
       {
-        "id": "footermenu2",
-        "name": "Faqs",
-        "link": "/faqs"
-      },
-      {
         "id": "footermenu3",
         "name": "Privacy Policy",
         "link": "/privacy-policy"
