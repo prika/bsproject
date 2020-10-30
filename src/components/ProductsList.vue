@@ -404,9 +404,10 @@ export default {
     .colorFilters {
       list-style: none;
       position: fixed;
-      top: 450px;
+      top: 39vh; //450px;
       margin: 0;
       padding: 0;
+      z-index: 1;
     }
 
     .categoryMenu {
@@ -451,13 +452,13 @@ export default {
       transition: top 0.5s ease;
 
       &.cat-0 {
-        top: 500px;
+        top: 44vh; //500px;
       }
       &.cat-1 {
-        top: 540px;
+        top: 49vh; //540px;
       }
       &.cat-2 {
-        top: 580px;
+        top: 54vh; //580px;
       }
 
       li {
@@ -502,7 +503,9 @@ export default {
     }
 
     .colorFilters {
-      top: 750px;
+      top: auto; //750px;
+      bottom: 7vh;
+      z-index: 0;
 
       a {
         height: 40px;

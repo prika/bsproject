@@ -804,12 +804,12 @@
     {
       "id": 5,
       "name": "Green",
-      "hexa": "#DDBFD0"
+      "hexa": "#8bb59d"
     },
     {
       "id": 6,
       "name": "Brown",
-      "hexa": "#DDBFD0"
+      "hexa": "#806c5b"
     }
   ]
 }
