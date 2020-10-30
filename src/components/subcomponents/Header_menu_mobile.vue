@@ -6,11 +6,7 @@
       leave-active-class="animated slideOutUp"
     >
       <button class="closebutton" @click="$emit('close')">
-        <closeIcon
-          rectBackgroundColor="#FFFFFF"
-          strokeColor="#3E3E3E"
-          borderColor="#ccc"
-        />
+        <closeIcon rectBackgroundColor="#FFFFFF" strokeColor="#3E3E3E" bordercolor="#ccc" />
       </button>
       <!--button class="closeMenuButton" v-bind:aria-label="$t('button-arialabel-close-menu')" @click="showMobileMenu = false"></button-->
     </transition>
@@ -21,13 +17,11 @@
       leave-active-class="animated slideOutDown faster"
     >
       <nav class="menuMobile">
-        <Language />
+        <!-- Language /-->
 
         <ul itemscope itemtype="http://www.schema.org/SiteNavigationElement">
           <li v-for="item in itensMenu" :key="item.id" itemprop="name">
-            <router-link :to="item.link" itemprop="url">{{
-              item.name
-            }}</router-link>
+            <router-link :to="item.link" itemprop="url">{{item.name}}</router-link>
           </li>
         </ul>
       </nav>
@@ -39,7 +33,7 @@
       leave-active-class="animated slideOutUp faster"
     >
       <div class="mobileAdd">
-        <a href="/simulador" class="simulator">{{ $t("simulator") }}</a>
+        <!--a href="/simulador" class="simulator">{{ $t("simulator") }}</a-->
 
         <SocialButtons />
       </div>
@@ -57,21 +51,21 @@ export default {
   components: {
     closeIcon,
     Language,
-    SocialButtons,
+    SocialButtons
   },
   data() {
     return {
       itensMenu: [],
-      showMobileMenu: true,
+      showMobileMenu: true
     };
   },
   mounted() {
     this.$http
       .get("http://localhost:8080/mocks/global-mock.json")
-      .then((response) => {
+      .then(response => {
         this.itensMenu = response.data.menu;
       });
-  },
+  }
 };
 </script>
 
