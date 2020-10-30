@@ -10,15 +10,15 @@ const routes = [
     name: 'Home',
     component: Home,
     meta: {
-      title: 'Homepage Title',
+      title: 'B Stone - Bloco Explore Project Innovation',
       metaTags: [
         {
           name: 'description',
-          content: 'Our site is ... content'
+          content: 'B group comprehends 4 diferent, yet complimentary companies and activities'
         },
         {
           property: 'og:description',
-          content: 'Our site is ... content'
+          content: 'B group comprehends 4 diferent, yet complimentary companies and activities'
         }
       ]
     }
@@ -28,15 +28,15 @@ const routes = [
     name: 'explore',
     component: () => import( /* webpackChunkName: "pages" */ '../views/BExplore.vue'),
     meta: {
-      title: 'B Explore Title',
+      title: 'B Explore Page',
       metaTags: [
         {
           name: 'description',
-          content: 'Our site is ... content'
+          content: 'B Explore Page'
         },
         {
           property: 'og:description',
-          content: 'Our site is ... content'
+          content: 'B Explore Page'
         }
       ]
     }
@@ -50,34 +50,34 @@ const routes = [
       metaTags: [
         {
           name: 'description',
-          content: 'Our site is ... content'
+          content: 'B project can guarantee the entire marble process, from the first cut to your home. Formed by nature, which offers unique tones and characteristics, marble is the preferred choice in Architecture and Decoration.'
         },
         {
           property: 'og:description',
-          content: 'Our site is ... content'
+          content: 'B project can guarantee the entire marble process, from the first cut to your home. Formed by nature, which offers unique tones and characteristics, marble is the preferred choice in Architecture and Decoration.'
         }
       ]
     }
-    
+
   },
   {
     path: '/b-innovation',
     name: 'innovation',
     component: () => import( /* webpackChunkName: "pages" */ '../views/BInnovation.vue'),
     meta: {
-      title: 'B Innovation Title - B Stone Site',
+      title: 'B Innovation - B Stone Site',
       metaTags: [
         {
           name: 'description',
-          content: 'Our site is ... content'
+          content: 'The versatility, robustness and magnificence make marble the most desired material for various environments, from the most classic to the avant-garde. B Innovation promises to create the ideal solution for you, tailored to your needs.'
         },
         {
           property: 'og:description',
-          content: 'Our site is ... content'
+          content: 'The versatility, robustness and magnificence make marble the most desired material for various environments, from the most classic to the avant-garde. B Innovation promises to create the ideal solution for you, tailored to your needs.'
         }
       ]
     }
-    
+
   },
   {
     path: '/news',
@@ -88,14 +88,14 @@ const routes = [
       metaTags: [
         {
           name: 'description',
-          content: 'Our site is ... content'
+          content: 'News List Page'
         },
         {
           property: 'og:description',
-          content: 'Our site is ... content'
+          content: 'News List Page'
         }
       ]
-    }  
+    }
   },
   {
     path: '/news/:id-:title',
@@ -107,11 +107,11 @@ const routes = [
       metaTags: [
         {
           name: 'description',
-          content: 'Our site is ... content'
+          content: ''
         },
         {
           property: 'og:description',
-          content: 'Our site is ... content'
+          content: ''
         }
       ]
     }
@@ -125,11 +125,11 @@ const routes = [
       metaTags: [
         {
           name: 'description',
-          content: 'Our site is ... content'
+          content: 'Frequent answered questions'
         },
         {
           property: 'og:description',
-          content: 'Our site is ... content'
+          content: 'Frequent answered questions'
         }
       ]
     }
@@ -143,11 +143,11 @@ const routes = [
       metaTags: [
         {
           name: 'description',
-          content: 'Our site is ... content'
+          content: 'This is our Privacy Policy Page'
         },
         {
           property: 'og:description',
-          content: 'Our site is ... content'
+          content: 'This is our Privacy Policy Page'
         }
       ]
     }
@@ -157,15 +157,15 @@ const routes = [
     name: 'menu',
     component: () => import('../views/BlocoBCategories.vue'),
     meta: {
-      title: 'This is our BlocoBCategories',
+      title: 'This is our BlocoB Categories',
       metaTags: [
         {
           name: 'description',
-          content: 'Our site is ... content'
+          content: 'This is our BlocoB Categories'
         },
         {
           property: 'og:description',
-          content: 'Our site is ... content'
+          content: 'This is our BlocoB Categories'
         }
       ]
     }
@@ -173,21 +173,21 @@ const routes = [
   {
     path: '/bloco-b/category/:category',
     name: 'menuCategories',
-    component: () => import('../views/BlocoBCategories.vue'), 
+    component: () => import('../views/BlocoBCategories.vue'),
     props: (route) => ({ query: route.query.category }),
     meta: {
-      title: 'This is menuCategories',
+      title: 'This is menu Categories',
       metaTags: [
         {
           name: 'description',
-          content: 'Our site is ... content'
+          content: 'This is menu Categories'
         },
         {
           property: 'og:description',
-          content: 'Our site is ... content'
+          content: 'This is menu Categories'
         }
       ]
-    } 
+    }
   },
   {
     path: '/bloco-b/category/:category/collection/:collection',
@@ -198,11 +198,11 @@ const routes = [
       metaTags: [
         {
           name: 'description',
-          content: 'Our site is ... content'
+          content: 'Products list page'
         },
         {
           property: 'og:description',
-          content: 'Our site is ... content'
+          content: 'Products list page'
         }
       ]
     }
@@ -216,11 +216,11 @@ const routes = [
       metaTags: [
         {
           name: 'description',
-          content: 'Our site is ... content'
+          content: 'Products list page'
         },
         {
           property: 'og:description',
-          content: 'Our site is ... content'
+          content: 'Products list page'
         }
       ]
     }
@@ -234,23 +234,23 @@ const routes = [
       metaTags: [
         {
           name: 'description',
-          content: 'Our site is ... content'
+          content: 'Products list page'
         },
         {
           property: 'og:description',
-          content: 'Our site is ... content'
+          content: 'Products list page'
         }
       ]
     }
   },
-  { 
-    path: '/search/:term', 
+  {
+    path: '/search/:term',
     name: 'searchterm',
-    component: () => import('../components/subcomponents/ModalSearch.vue'), 
-    props: (route) => ({ query: route.query.term }) 
+    component: () => import('../components/subcomponents/ModalSearch.vue'),
+    props: (route) => ({ query: route.query.term })
   },
-  { 
-    path: '/search/', 
+  {
+    path: '/search/',
     name: 'search',
     component: () => import('../components/subcomponents/ModalSearch.vue')
   },
@@ -287,23 +287,23 @@ const routes = [
       ]
     }
   },
-  { 
-    path: '/404', 
-    component: () => import( /* webpackChunkName: "shopping-group" */ '../views/404.vue') 
+  {
+    path: '/404',
+    component: () => import( /* webpackChunkName: "shopping-group" */ '../views/404.vue')
   },
-  { 
-    path: '*', 
-    redirect: '/404' 
+  {
+    path: '*',
+    redirect: '/404'
   }
 ]
 
 const router = new VueRouter({
-    mode: 'history',
-    base: process.env.BASE_URL,
-    routes,
-    scrollBehavior (to, from, savedPosition) {
-        return { x: 0, y: 0 }
-    }
+  mode: 'history',
+  base: process.env.BASE_URL,
+  routes,
+  scrollBehavior(to, from, savedPosition) {
+    return { x: 0, y: 0 }
+  }
 })
 
 router.beforeEach((to, from, next) => {
@@ -316,13 +316,13 @@ router.beforeEach((to, from, next) => {
   const previousNearestWithMeta = from.matched.slice().reverse().find(r => r.meta && r.meta.metaTags);
 
   // If a route with a title was found, set the document (page) title to that value.
-  if(nearestWithTitle) document.title = nearestWithTitle.meta.title;
+  if (nearestWithTitle) document.title = nearestWithTitle.meta.title;
 
   // Remove any stale meta tags from the document using the key attribute we set below.
   Array.from(document.querySelectorAll('[data-vue-router-controlled]')).map(el => el.parentNode.removeChild(el));
 
   // Skip rendering meta tags if there are none.
-  if(!nearestWithMeta) return next();
+  if (!nearestWithMeta) return next();
 
   // Turn the meta tag definitions into actual elements in the head.
   nearestWithMeta.meta.metaTags.map(tagDef => {
@@ -337,8 +337,8 @@ router.beforeEach((to, from, next) => {
 
     return tag;
   })
-  // Add the meta tags to the document head.
-  .forEach(tag => document.head.appendChild(tag));
+    // Add the meta tags to the document head.
+    .forEach(tag => document.head.appendChild(tag));
 
   next();
 });
