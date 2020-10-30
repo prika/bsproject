@@ -206,6 +206,7 @@ export default {
     -o-background-size:       250px;
     background-size:          250px;
     padding-top: 0;
+    padding-right: 14%;
 
     .parallaxGroup1{
         .imageParallax1{ z-index: 1; }
