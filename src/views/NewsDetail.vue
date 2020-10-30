@@ -2,7 +2,8 @@
   <div id="newsdetailpage" class="pageContainer">
     <h1 class="pageTitle" :aria-label="$t('home-title-page')">
       {{ $t("home-title-page-split1")
-      }}<span>{{ $t("home-title-page-split2") }}</span>
+      }}
+      <span>{{ $t("home-title-page-split2") }}</span>
     </h1>
 
     <div class="parallaxContainerNews row">
@@ -34,7 +35,7 @@ export default {
     return {
       news: "",
       imageGroup1: [],
-      rellax: null,
+      rellax: null
     };
   },
   methods: {
@@ -52,14 +53,16 @@ export default {
     rellaxLoaded: function() {
       this.rellax = new Rellax(".rellax");
       this.$eventBus.$emit("componentFinishLoad", "rellaxLoaded");
-    },
+    }
   },
   created() {
     let selectedNews = this.$route.params.id;
 
     this.$http
-      .get("http://localhost:8080/mocks/news-detail-mock.json")
-      .then((response) => {
+      .get(
+        "http://localhost:8080/mocks/news-detail-mock-" + selectedNews + ".json"
+      )
+      .then(response => {
         this.news = response.data;
         this.parseObject(response.data.gallery1, this.imageGroup1);
 
@@ -76,8 +79,8 @@ export default {
   watch: {
     $route(to, from) {
       this.rellax.refresh();
-    },
-  },
+    }
+  }
 };
 </script>
 

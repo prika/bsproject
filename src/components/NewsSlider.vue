@@ -26,6 +26,8 @@
       </router-link>
     </div>
 
+
+<!--
     <a
       @click="loadMoreClick"
       v-if="hasPaging && hasLink"
@@ -41,6 +43,8 @@
     >
       <seeMoreButton>{{ $t("actions_loadmore") }}</seeMoreButton>
     </router-link>
+-->
+
   </section>
 </template>
 
