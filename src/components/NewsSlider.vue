@@ -96,7 +96,7 @@ export default {
     this.hasPaging = this.$parent.hasPaging;
 
     this.$http
-      .get("http://localhost:8080/mocks/news-list-mock.json")
+      .get("https://dev5.incentea-mi.pt/bstone/mocks/news-list-mock.json")
       .then((response) => {
         this.fullNews = response.data;
         this.news = this.fullNews.slice(0, this.itemsPerPage);

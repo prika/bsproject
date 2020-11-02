@@ -86,7 +86,7 @@ export default {
     });
 
     this.$http
-      .get("http://localhost:8080/mocks/homepage-mock.json")
+      .get("https://dev5.incentea-mi.pt/bstone/mocks/homepage-mock.json")
       .then((response) => {
         this.home = response.data;
         this.parseObject(response.data.gallery1, this.gallery1);

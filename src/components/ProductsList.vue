@@ -227,7 +227,7 @@ export default {
   },
   mounted() {
     this.$http
-      .get("http://localhost:8080/mocks/products-list-mock.json")
+      .get("https://dev5.incentea-mi.pt/bstone/mocks/products-list-mock.json")
       .then((response) => {
         this.collections = response.data.collections;
         this.categories = response.data.categories;

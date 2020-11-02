@@ -45,7 +45,7 @@ export default {
     this.$eventBus.$emit("pageFinishLoad", true);
 
     this.$http
-      .get("http://localhost:8080/mocks/global-mock.json")
+      .get("https://dev5.incentea-mi.pt/bstone/mocks/global-mock.json")
       .then((response) => {
         this.faqs = response.data.faqs;
         this.questions = response.data.faqs.questions;

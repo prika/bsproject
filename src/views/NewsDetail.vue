@@ -60,7 +60,7 @@ export default {
 
     this.$http
       .get(
-        "http://localhost:8080/mocks/news-detail-mock-" + selectedNews + ".json"
+        "https://dev5.incentea-mi.pt/bstone/mocks/news-detail-mock-" + selectedNews + ".json"
       )
       .then(response => {
         this.news = response.data;

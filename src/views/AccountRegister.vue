@@ -394,7 +394,7 @@ export default {
     );
 
     this.$http
-      .get("http://localhost:8080/mocks/account-mock.json")
+      .get("https://dev5.incentea-mi.pt/bstone/mocks/account-mock.json")
       .then((response) => {
         this.accountregister = response.data.accountregister;
         this.$eventBus.$emit("pageFinishLoad", true);
