@@ -25,8 +25,8 @@
           :class="['slide', index === activeSlide ? 'active' : '']"
           :width="resizedWidth[index] + 'px'"
           :height="resizedHeight[index] + 'px'"
-          :key="image.id"
-        >
+          :key="image.id">
+          
           <img
             :src="getImgUrl(image.src)"
             :alt="image.alt"

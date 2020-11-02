@@ -593,7 +593,7 @@ export default {
     }
 
     .productImage {
-      //width: 260px;
+      width: 373px;
       height: 373px;
       overflow: hidden;
       will-change: transform;
