@@ -13,7 +13,8 @@
         href="javascript:void(0)"
         @click="selectSlide(index)"
       >
-        <span v-if="index < 9">0</span>{{ index + 1 }}
+        <span v-if="index < 9">0</span>
+        {{ index + 1 }}
       </a>
     </div>
 
@@ -44,7 +45,7 @@
           :key="image.id"
         >
           <video
-            crossOrigin="anonymous"
+            crossorigin="anonymous"
             playsinline
             :id="'video' + index"
             :poster="getImgUrl(image.src)"
@@ -55,16 +56,8 @@
             :importance="index === 0 ? 'high' : 'low'"
             muted="muted"
           >
-            <source
-              :src="getVideoUrl(image.srcvideo)"
-              type="video/mp4"
-              size="720"
-            />
-            <source
-              :src="getVideoUrl(image.srcvideo1080)"
-              type="video/mp4"
-              size="1080"
-            />
+            <source :src="getVideoUrl(image.srcvideo)" type="video/mp4" size="720" />
+            <source :src="getVideoUrl(image.srcvideo1080)" type="video/mp4" size="1080" />
           </video>
         </div>
 
@@ -116,8 +109,8 @@ export default {
           src: String,
           alt: String,
           width: Number,
-          height: Number,
-        },
+          height: Number
+        }
       ],
       activeSlide: 0,
       slideWidth: [],
@@ -127,13 +120,13 @@ export default {
       resizedHeight: [],
       timer: null,
       youtubePlayers: {},
-      vimeoPlayers: {},
+      vimeoPlayers: {}
     };
   },
   created() {
     this.$http
-      .get("http://localhost:8080/mocks/homepage-mock.json")
-      .then((response) => {
+      .get("https://dev5.incentea-mi.pt/bstone/mocks/homepage-mock.json")
+      .then(response => {
         this.imageGroupSliderGallery = response.data.slidergallery;
         var hasYoutubeVideoPlayerScript = false;
         var hasVimeoVideoPlayerScript = false;
@@ -198,8 +191,8 @@ export default {
           iv_load_policy: 3,
           controls: 0,
           events: {
-            onStateChange: this.endedMedia,
-          },
+            onStateChange: this.endedMedia
+          }
         });
 
         this.youtubePlayers[i] = player;
@@ -215,7 +208,7 @@ export default {
           height: this.resizedHeight[i],
           controls: false,
           muted: true,
-          title: false,
+          title: false
         };
 
         var vimeoPlayer = new Vimeo.Player("vimeo_video_" + i, options);
@@ -324,8 +317,8 @@ export default {
         event.data == 0
       )
         this.next();
-    },
-  },
+    }
+  }
 };
 </script>
 

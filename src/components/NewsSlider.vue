@@ -131,6 +131,7 @@ export default {
         overflow: hidden;
 
         img {
+          width: 100%;
           will-change: transform;
           -webkit-transition: transform 0.4s cubic-bezier(0, 0.5, 0, 1);
           -moz-transition: transform 0.4s cubic-bezier(0, 0.5, 0, 1);
@@ -143,7 +144,7 @@ export default {
         position: relative;
         float: right;
         width: 270px;
-        margin-top: 100px;
+        margin-top: 150px;
 
         .text {
           position: absolute;
@@ -151,7 +152,7 @@ export default {
           right: 0;
           z-index: 2;
           width: 270px;
-          height: 380px;
+          height: 340px;
           padding: 60px 55px;
           background: #fff;
           -webkit-clip-path: polygon(
@@ -246,8 +247,9 @@ export default {
   color: #575757;
 }
 
-
-#homepage .newsContainer{padding: 0 5%;}
+#homepage .newsContainer {
+  padding: 0 5%;
+}
 
 @media (max-width: 812px) {
   .newsContainer {

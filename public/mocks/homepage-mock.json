@@ -82,35 +82,35 @@
       "src": "shared/homeparallax_3.jpg",
       "alt": "Image Test",
       "speed": 0,
-      "addclass": "col-8 col-md-5 col-xl-4"
+      "addclass": "col-8 col-md-8 col-xl-6"
     },
     {
       "id": "homeparallax04",
-      "src": "shared/homeparallax_4.png",
+      "src": "shared/homeparallax_4.jpg",
       "alt": "Image Test",
       "speed": 2,
       "addclass": "col-8 col-md-6 col-xl-4"
     },
     {
       "id": "homeparallax05",
-      "src": "shared/homeparallax_5.png",
+      "src": "shared/homeparallax_5.jpg",
       "alt": "Image Test",
       "speed": -1,
-      "addclass": "col-6 col-md-4 col-xl-3"
+      "addclass": "col-6 col-md-5 col-xl-3"
     },
     {
       "id": "homeparallax06",
       "src": "shared/homeparallax_6.jpg",
       "alt": "Image Test",
       "speed": 0,
-      "addclass": "col-8 col-md-4 col-xl-3"
+      "addclass": "col-8 col-md-6 col-xl-4"
     },
     {
       "id": "homeparallax07",
       "src": "shared/exemplo_5.jpg",
       "alt": "Image Test",
       "speed": 2,
-      "addclass": "col-9 col-md-6 col-xl-5"
+      "addclass": "col-9 col-md-7 col-xl-5"
     }
   ],
   "featured_text1": "Featured",
