@@ -6,56 +6,64 @@
       "type": "img",
       "src": "banners/BlocoB-7234_Banner.jpg",
       "alt": "Image Test",
-      "width": 5693,
-      "height": 3795
+      "width": 3000,
+      "height": 2000
     },
     {
       "id": "slide01",
       "type": "img",
       "src": "banners/banner_stone_foto_1.jpg",
       "alt": "Image Test",
-      "width": 4000,
-      "height": 2331
+      "width": 3000,
+      "height": 2000
     },
     {
       "id": "slide02",
       "type": "img",
       "src": "banners/banner_1.jpg",
       "alt": "Image Test",
-      "width": 5184,
-      "height": 3456
+      "width": 3840,
+      "height": 2160
     },
     {
       "id": "slide03",
       "type": "img",
       "src": "banners/banner_2.jpg",
       "alt": "Image Test",
-      "width": 6605,
-      "height": 4132
+      "width": 3840,
+      "height": 2160
     },
     {
       "id": "slide04",
       "type": "img",
       "src": "banners/banner_3.jpg",
       "alt": "Image Test",
-      "width": 5184,
-      "height": 3456
+      "width": 3840,
+      "height": 2160
     },
     {
       "id": "slide05",
       "type": "img",
       "src": "banners/banner_4.jpg",
       "alt": "Image Test",
-      "width": 5184,
-      "height": 3456
+      "width": 3840,
+      "height": 2160
     },
     {
       "id": "slide06",
       "type": "img",
       "src": "banners/banner_5.jpg",
       "alt": "Image Test",
-      "width": 6596,
-      "height": 4342
+      "width": 3840,
+      "height": 2160
+    },
+    {
+      "id": "slide07",
+      "type": "img",
+      "src": "banners/banner_stone_foto_2.jpg",
+      "alt": "Image Test",
+      "width": 4000,
+      "height": 2331
     }
   ],
   "title": "B group comprehends <br> 4 diferent, yet complimentary companies and activities",
