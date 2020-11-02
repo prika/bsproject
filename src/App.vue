@@ -27,6 +27,8 @@
               class="d-none d-md-block"
               itemprop="logo"
               src="./assets/images/logo/logo_home.svg"
+              height="79px"
+              width="57px"
               :alt="$t('logo-aria-label')"
               :title="$t('logo-aria-label')"
               :aria-label="$t('logo-aria-label')"
@@ -35,6 +37,8 @@
             <img
               class="d-block d-md-none"
               itemprop="logo"
+              height="29px"
+              width="97px"
               src="./assets/images/logo/logo_home_mobile.svg"
               :alt="$t('logo-aria-label')"
               :title="$t('logo-aria-label')"

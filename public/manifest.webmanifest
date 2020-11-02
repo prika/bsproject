@@ -1,7 +1,7 @@
 {
   "short_name": "BStone",
   "name": "BStone",
-  "description": "BStone Project description",
+  "description": "BStone Project A Bloco B é uma empresa sempre presente, pronta para responder com seriedade e rigor a cada projecto que abraça, hoje e no futuro, garantindo qualidade e continuidade do produto.",
   "icons": [
     {
       "src": "http://localhost:8080/android-icon-36x36.png",
@@ -34,13 +34,14 @@
       "density": "3.0"
     },
     {
-      "src": "http://localhost:8080/android-icon-192x192.png",
-      "sizes": "192x192",
+      "src": "http://localhost:8080/android-icon-512x512.png",
+      "sizes": "512x512",
       "type": "image/png",
-      "density": "4.0"
+      "density": "4.0",
+      "purpose": "any maskable"
     }
   ],
-  "start_url": "/",
+  "start_url": "/bstone/",
   "scope": ".",
   "theme_color": "#ffffff",
   "background_color": "#ffffff",

@@ -35,7 +35,7 @@
             </div>
         </div>
       
-        <a href="javascript:void(0)" class="scrollButton" :aria-label="$t('footer-scroll-top')"></a>
+        <a href="javascript:void(0)" class="scrollButton" :aria-label="$t('footer-scroll-top')" rel="nofollow noindex noopener"></a>
     </div>
 </footer>
 </template>

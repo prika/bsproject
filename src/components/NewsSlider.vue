@@ -14,6 +14,7 @@
             :src="getImgUrl(singleNews.gallery[0].src)"
             class="img-fluid"
             :alt="singleNews.gallery[0].alt"
+            width="260px" height="260px"
           />
         </div>
 
