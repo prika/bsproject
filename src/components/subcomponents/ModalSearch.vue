@@ -20,8 +20,8 @@
 
         <transition enter-active-class="animated fadeInUpBig faster" leave-active-class="animated fadeOutDownBig faster">
         <div class="resultsList" v-if="hasSearchText" :class="{hasSearchText}">
-            <div class="container col-12">    
-                <div v-for="section in sections" v-if="section.length > 0" :key="section.id">
+            <div class="container col-12" v-if="section.length > 0">    
+                <div v-for="section in sections" :key="section.id">
 
                     <p class="numberResults">{{ section.title }} <span></span>{{ section.results }}</p>
 

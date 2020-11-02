@@ -166,26 +166,15 @@
           <p>
             <span class="totalTitle" style="margin-right: 20px">
               <b>{{ $t("checkout-total") }}</b>
-              <span class="textColor">
-                {{ totalProducts.generalquantity }}
-                {{
-                  $tc("checkout-products", totalProducts.generalquantity)
-                }}:</span
-              >
+              <span class="textColor">{{ totalProducts.generalquantity }} {{$tc("checkout-products", totalProducts.generalquantity)}}:</span>
             </span>
 
             <template v-for="(item, index) in totalProducts.categoriesTotal">
               {{ item.number }}
-              <span class="d-none d-sm-block">
-                {{ $tc("checkout-products", item.number) }}
-              </span>
+              <span class="d-none d-sm-block" :key="index">{{ $tc("checkout-products", item.number) }} </span>
               ({{ item.name }})
-              <span class="d-none d-sm-block"
-                >{{ item.dimensions }}m<sup>3</sup></span
-              >
-              <span v-if="index + 1 < totalProducts.categoriesTotal.length">
-                -
-              </span>
+              <span class="d-none d-sm-block" :key="index">{{ item.dimensions }}m<sup>3</sup></span>
+              <span v-if="index + 1 < totalProducts.categoriesTotal.length" :key="index">-</span>
             </template>
           </p>
         </div>
