@@ -289,7 +289,7 @@ const routes = [
   },
   {
     path: '/404',
-    component: () => import( /* webpackChunkName: "shopping-group" */ '../views/404.vue')
+    component: () => import( /* webpackChunkName: "pages" */ '../views/404.vue')
   },
   {
     path: '*',

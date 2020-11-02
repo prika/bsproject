@@ -1,12 +1,13 @@
 <template>
   <div id="notFoundPage" class="pageContainer container">
-    <h1 class="pageTitle">
-      Página não encontrada
-    </h1>
+    <h1 class="pageTitle">Página não encontrada</h1>
 
     <ArticleParallax>
       <div class="pageContentText col-12 col-md-4 order-md-2">
-        <h1>Procure na <router-link to="/">Página Inicial</router-link></h1>
+        <h1>
+          Procure na
+          <router-link to="/">Página Inicial</router-link>
+        </h1>
       </div>
     </ArticleParallax>
   </div>
@@ -18,7 +19,7 @@ import ArticleParallax from "@/components/ArticleParallax";
 export default {
   name: "notFoundPage",
   components: {
-    ArticleParallax,
+    ArticleParallax
   },
   methods: {
     getImgUrl: function(src) {
@@ -31,22 +32,8 @@ export default {
         obj.src = fullPath;
         destination.push(obj);
       }
-    },
-  },
-  created() {
-    let selectedNews = this.$route.params.id;
-    console.log(selectedNews);
-
-    this.$http
-      .get("http://localhost:8080/mocks/news-detail-mock.json")
-      .then((response) => {
-        this.news = response.data;
-        this.parseObject(response.data.gallery1, this.gallery1);
-        this.parseObject(response.data.gallery2, this.gallery2);
-
-        this.$eventBus.$emit("pageFinishLoad", true);
-      });
-  },
+    }
+  }
 };
 </script>
 
