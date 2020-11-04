@@ -1,62 +1,29 @@
 <template>
   <div id="notFoundPage" class="pageContainer container">
-    <h1 class="pageTitle">Página não encontrada</h1>
+    <div class="row">
+      <h1 class="pageTitle col-12 col-sm-6">404</h1>
 
-    <ArticleParallax>
-      <div class="pageContentText col-12 col-md-4 order-md-2">
-        <h1>
-          Procure na
-          <router-link to="/">Página Inicial</router-link>
-        </h1>
+      <div class="col-12 col-sm-6 alert404">
+        <h1>Page not found</h1>
+        <h3>Back to <router-link to="/"> Homepage</router-link></h3>
       </div>
-    </ArticleParallax>
+    </div>
   </div>
 </template>
 
 <script>
-import ArticleParallax from "@/components/ArticleParallax";
-
 export default {
-  name: "notFoundPage",
-  components: {
-    ArticleParallax
-  },
-  methods: {
-    getImgUrl: function(src) {
-      return require("@/assets/images/" + src);
-    },
-    parseObject: function(source, destination) {
-      for (var i = 0; i < source.length; i++) {
-        let obj = source[i];
-        let fullPath = this.getImgUrl(obj.src);
-        obj.src = fullPath;
-        destination.push(obj);
-      }
-    }
-  }
-};
+  name: "notFoundPage"
+}
 </script>
 
 <style lang="scss">
 #notFoundPage {
   margin-top: 140px;
+  padding-top: 10%;
+  min-height: 50vh;
 
-  .parallaxContainer {
-    padding-top: 0;
-
-    .parallaxGroup1 .imageParallax1 {
-      top: 30%;
-    }
-    .pageContentText {
-      margin-top: 250px;
-    }
-  }
-
-  .newsContainer .row {
-    padding: 100px 0 0;
-  }
-  .newsDate {
-    position: inherit;
-  }
+  .pageTitle{position: relative}
+  .alert404 * { text-align: right}
 }
 </style>
