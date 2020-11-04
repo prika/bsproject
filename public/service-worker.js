@@ -1,31 +1,3 @@
-/*
-self.addEventListener('install', function(e) {
-  console.log("install!!!");
-  
-  // e.waitUntil(
-  //   caches.open('infopedia-store').then(function(cache) {
-  //     return cache.addAll([
-  //       '/'
-  //     ]);
-  //   })
-  // );
-  });
-  
-  self.addEventListener('fetch', function(e) {
-    console.log("fetch!!! " + e.request.url);
-    
-  //  e.respondWith(
-  //    caches.match(e.request).then(function(response) {
-  //      return response || fetch(e.request);
-  //    })
-  //  );
-  });
-  */
-
-
-//importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.1.2/workbox-sw.js');
-importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
-import {precacheAndRoute} from 'workbox-precaching';
 
 /*
 Copyright 2015, 2019 Google Inc. All Rights Reserved.
@@ -40,14 +12,21 @@ Copyright 2015, 2019 Google Inc. All Rights Reserved.
  limitations under the License.
 */
 
+importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.1.2/workbox-sw.js');
+//importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
+//import {precacheAndRoute} from 'workbox-precaching';
+
+
 // Incrementing OFFLINE_VERSION will kick off the install event and force
 // previously cached resources to be updated from the network.
 const OFFLINE_VERSION = 1;
 const CACHE_NAME = 'offline';
 // Customize this with a different URL if needed.
-const OFFLINE_URL = 'offline.html';
+const OFFLINE_URL = 'index.html';
 
 self.addEventListener('install', (event) => {
+  console.log("install!!!");
+
   event.waitUntil((async () => {
     const cache = await caches.open(CACHE_NAME);
     // Setting {cache: 'reload'} in the new request will ensure that the response
@@ -57,6 +36,7 @@ self.addEventListener('install', (event) => {
 });
 
 self.addEventListener('activate', (event) => {
+  console.log("activate!!! " + e.request.url);
   event.waitUntil((async () => {
     // Enable navigation preload if it's supported.
     // See https://developers.google.com/web/updates/2017/02/navigation-preload
@@ -70,6 +50,8 @@ self.addEventListener('activate', (event) => {
 });
 
 self.addEventListener('fetch', (event) => {
+  console.log("fetch!!! " + e.request.url);
+
   // We only want to call event.respondWith() if this is a navigation request
   // for an HTML page.
   if (event.request.mode === 'navigate') {
@@ -124,32 +106,7 @@ self.addEventListener('fetch', (event) => {
  */
 
 
-/* 
-  dist/js/app.e3382ad7.js                      130.99 KiB                                               38.38 KiB
-  dist/js/chunk-vendors.403f21ce.js            80.56 KiB                                                25.09 KiB
-  dist/js/account-group.095ed30b.js            31.89 KiB                                                4.44 KiB
-  dist/js/product-group.0b9956c6.js            21.03 KiB                                                5.30 KiB
-  dist/js/pages.7eb40afe.js                    14.60 KiB                                                3.92 KiB
-  dist/js/shopping-group.11a390b2.js           9.81 KiB                                                 3.00 KiB
-  dist/service-worker.js                       8.04 KiB                                                 3.03 KiB
-  dist/js/chunk-50be57be.c54cb250.js           2.62 KiB                                                 1.08 KiB
-  dist/js/institutional-group.3a372c57.js      2.46 KiB                                                 0.76 KiB
-  dist/js/news-group.63dd9ce2.js               2.36 KiB                                                 0.94 KiB
-  dist/css/app.293633b2.css                    105.21 KiB                                               19.40 KiB
-  dist/css/product-group.6fe55460.css          20.18 KiB                                                3.43 KiB
-  dist/css/shopping-group.edabad4d.css         9.24 KiB                                                 1.79 KiB
-  dist/css/pages.d3ef9c06.css                  6.35 KiB                                                 1.60 KiB
-  dist/css/chunk-50be57be.eef7357b.css         3.76 KiB                                                 0.95 KiB
-  dist/css/account-group.05647a63.css          1.46 KiB                                                 0.41 KiB
-  dist/css/institutional-group.b648585a.css    0.87 KiB                                                 0.44 KiB
-  dist/css/news-group.3f8fac8f.css 
- */
-
 self.__precacheManifest = [
-  {
-    "url": "https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.compat.css",
-    "revision": null
-  },
   {
     "url": "https://cdnjs.cloudflare.com/ajax/libs/rellax/1.0.0/rellax.min.js",
     "revision": null
@@ -158,50 +115,20 @@ self.__precacheManifest = [
     "url": "https://code.jquery.com/jquery-3.5.1.slim.min.js",
     "revision": null
   },
-  
   {
-    "url": "js/app.e3382ad7.js",
-    "revision": null
-  },
-
-  {
-    "url": "js/chunk-vendors.403f21ce.js",
+    "url": "img/B_Simbolo_estatico_Contactos.svg",
     "revision": null
   },
   {
-    "url": "fonts/NoeDisplay-Black.09b712dc.woff",
+    "url": "img/B_Simbolo_estatico_Corpo.svg",
     "revision": null
   },
   {
-    "url": "https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600&family=Ubuntu:ital,wght@0,300;1,300&display=swap",
+    "url": "img/BlocoB-7234_Banner.jpg",
     "revision": null
   },
   {
-    "url": "media/video_exemplo.438f0d5d.mp4",
-    "revision": null
-  },
-  {
-    "url": "img/B_Simbolo_estatico_Contactos.f0db7e25.svg",
-    "revision": null
-  },
-  {
-    "url": "img/B_Simbolo_estatico_Corpo.092fd6d5.svg",
-    "revision": null
-  },
-  {
-    "url": "img/BlocoB-7234_Banner.b3d86cfd.jpg",
-    "revision": null
-  },
-  {
-    "url": "img/atlantic_white.7f9fd9d7.jpg",
-    "revision": null
-  },
-  {
-    "url": "img/bambu_pink.6e3e7c7b.jpg",
-    "revision": null
-  },
-  {
-    "url": "img/banner_stone_foto_1.bc1cee56.jpg",
+    "url": "img/banner_stone_foto_1.jpg",
     "revision": null
   },
   {
@@ -209,7 +136,7 @@ self.__precacheManifest = [
     "revision": null
   },
   {
-    "url": "img/butak_onyx.94ef6957.jpg",
+    "url": "img/butak_onyx.jpg",
     "revision": null
   },
   {
@@ -237,60 +164,62 @@ self.__precacheManifest = [
     "revision": null
   },
   {
-    "url": "icons/android-chrome-192x192.png",
+    "url": "android-chrome-192x192.png",
     "revision": "f130a0b70e386170cf6f011c0ca8c4f4"
   },
   {
-    "url": "icons/android-chrome-512x512.png",
+    "url": "android-chrome-512x512.png",
     "revision": "0ff1bc4d14e5c9abcacba7c600d97814"
   },
   {
-    "url": "icons/apple-touch-icon-120x120.png",
+    "url": "apple-touch-icon-120x120.png",
     "revision": "936d6e411cabd71f0e627011c3f18fe2"
   },
   {
-    "url": "icons/apple-touch-icon-152x152.png",
+    "url": "apple-touch-icon-152x152.png",
     "revision": "1a034e64d80905128113e5272a5ab95e"
   },
   {
-    "url": "icons/apple-touch-icon-180x180.png",
+    "url": "apple-touch-icon-180x180.png",
     "revision": "c43cd371a49ee4ca17ab3a60e72bdd51"
   },
   {
-    "url": "icons/apple-touch-icon-60x60.png",
+    "url": "apple-touch-icon-60x60.png",
     "revision": "9a2b5c0f19de617685b7b5b42464e7db"
   },
   {
-    "url": "icons/apple-touch-icon-76x76.png",
+    "url": "apple-touch-icon-76x76.png",
     "revision": "af28d69d59284dd202aa55e57227b11b"
   },
   {
-    "url": "icons/apple-touch-icon.png",
+    "url": "apple-touch-icon.png",
     "revision": "66830ea6be8e7e94fb55df9f7b778f2e"
   },
   {
-    "url": "icons/favicon-16x16.png",
+    "url": "favicon-16x16.png",
     "revision": "4bb1a55479d61843b89a2fdafa7849b3"
   },
   {
-    "url": "icons/favicon-32x32.png",
+    "url": "favicon-32x32.png",
     "revision": "98b614336d9a12cb3f7bedb001da6fca"
   },
   {
-    "url": "icons/msapplication-icon-144x144.png",
+    "url": "msapplication-icon-144x144.png",
     "revision": "b89032a4a5a1879f30ba05a13947f26f"
   },
   {
-    "url": "icons/mstile-150x150.png",
+    "url": "mstile-150x150.png",
     "revision": "058a3335d15a3eb84e7ae3707ba09620"
   },
   {
-    "url": "icons/safari-pinned-tab.svg",
+    "url": "safari-pinned-tab.svg",
     "revision": "f22d501a35a87d9f21701cb031f6ea17"
   }
 ].concat(self.__precacheManifest || []);
-workbox.precaching.suppressWarnings();
+
+//workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
+
 addEventListener('message', event => {
   const replyPort = event.ports[0]
   const message = event.data
