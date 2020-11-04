@@ -4,7 +4,7 @@
     {
       "id": "slide00",
       "type": "img",
-      "src": "banners/BlocoB-7234_Banner.jpg",
+      "src": "banners/banner_stone_foto_1.jpg",
       "alt": "Image Test",
       "width": 3000,
       "height": 2000
@@ -12,7 +12,7 @@
     {
       "id": "slide01",
       "type": "img",
-      "src": "banners/banner_stone_foto_1.jpg",
+      "src": "banners/BlocoB-7234_Banner.jpg",
       "alt": "Image Test",
       "width": 3000,
       "height": 2000
