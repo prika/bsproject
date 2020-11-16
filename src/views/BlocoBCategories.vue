@@ -49,7 +49,12 @@
                       : 'filters__item'
                   "
                 >
-                  <a href="javascript:void(0);">{{ category.name }}</a>
+                  <router-link
+                        :to="{
+                          path:
+                            '/bloco-b/category/' +
+                            category.id
+                        }">{{ category.name }}</router-link>
 
                   <ul
                     :class="'cat-' + selectedCategory + ' collectionMenu'"
@@ -64,8 +69,7 @@
                         collection.id == selectedCollection
                           ? 'filters__item active'
                           : 'filters__item'
-                      "
-                    >
+                      ">
                       <router-link
                         :to="{
                           path:
@@ -74,9 +78,7 @@
                             '/collection/' +
                             collection.id +
                             '/',
-                        }"
-                        >{{ collection.name }}</router-link
-                      >
+                        }">{{ collection.name }}</router-link>
                     </li>
                   </ul>
                 </li>

@@ -82,7 +82,7 @@ const routes = [
   {
     path: '/news',
     name: 'news',
-    component: () => import( /* webpackChunkName: "news-group" */ '../views/News.vue'),
+    component: () => import('../views/News.vue'),
     meta: {
       title: 'News List Page',
       metaTags: [
@@ -100,7 +100,7 @@ const routes = [
   {
     path: '/news/:id-:title',
     name: 'newsdetail',
-    component: () => import( /* webpackChunkName: "news-group" */ '../views/NewsDetail.vue'),
+    component: () => import('../views/NewsDetail.vue'),
     props: (route) => ({ query: route.query.news }),
     meta: {
       title: 'News Detail Page',
@@ -116,10 +116,10 @@ const routes = [
       ]
     }
   },
-  {
+ /*  {
     path: '/faqs',
     name: 'faqs',
-    component: () => import( /* webpackChunkName: "institutional-group" */ '../views/Faqs.vue'),
+    component: () => import(  webpackChunkName: "institutional-group"  '../views/Faqs.vue'),
     meta: {
       title: 'Frequent answered questions',
       metaTags: [
@@ -133,7 +133,7 @@ const routes = [
         }
       ]
     }
-  },
+  }, */
   {
     path: '/privacy-policy',
     name: 'privacy-policy',
@@ -172,8 +172,8 @@ const routes = [
   },
   {
     path: '/bloco-b/category/:category',
-    name: 'menuCategories',
-    component: () => import('../views/BlocoBCategories.vue'),
+    name: 'listpage categories',
+    component: () => import('../views/BlocoB.vue'),
     props: (route) => ({ query: route.query.category }),
     meta: {
       title: 'This is menu Categories',
@@ -191,10 +191,10 @@ const routes = [
   },
   {
     path: '/bloco-b/category/:category/collection/:collection',
-    name: 'listpage',
-    component: () => import( /* webpackChunkName: "product-group" */ '../views/BlocoB.vue'),
+    name: 'listpage collection',
+    component: () => import('../views/BlocoB.vue'),
     meta: {
-      title: 'listpage',
+      title: 'listpage category',
       metaTags: [
         {
           name: 'description',
@@ -207,10 +207,10 @@ const routes = [
       ]
     }
   },
-  {
+  /* {
     path: '/bloco-b/category/:category/collection/:collection/id/:id/name/:name',
     name: 'productDetail',
-    component: () => import( /* webpackChunkName: "product-group" */ '../views/DetailPage.vue'),
+    component: () => import('../views/DetailPage.vue'),
     meta: {
       title: 'listpage',
       metaTags: [
@@ -224,11 +224,11 @@ const routes = [
         }
       ]
     }
-  },
-  {
+  }, */
+/*   {
     path: '/bloco-b/category/:category/collection/:collection/id/:id/name/:name/variant/:variant',
     name: 'variantDetail',
-    component: () => import( /* webpackChunkName: "product-group" */ '../views/ProductPage.vue'),
+    component: () => import('../views/ProductPage.vue'),
     meta: {
       title: 'listpage',
       metaTags: [
@@ -242,8 +242,8 @@ const routes = [
         }
       ]
     }
-  },
-  {
+  }, */
+ /*  {
     path: '/search/:term',
     name: 'searchterm',
     component: () => import('../components/subcomponents/ModalSearch.vue'),
@@ -257,22 +257,22 @@ const routes = [
   {
     path: '/recovery',
     name: 'recovery',
-    component: () => import( /* webpackChunkName: "account-group" */ '../views/AccountRecovery.vue')
+    component: () => import('../views/AccountRecovery.vue')
   },
   {
     path: '/register',
     name: 'register',
-    component: () => import( /* webpackChunkName: "account-group" */ '../views/AccountRegister.vue')
+    component: () => import('../views/AccountRegister.vue')
   },
   {
     path: '/account',
     name: 'account',
-    component: () => import( /* webpackChunkName: "account-group" */ '../views/AccountInfo.vue')
+    component: () => import('../views/AccountInfo.vue')
   },
   {
     path: '/shoppingcart',
     name: 'shoppingcart',
-    component: () => import( /* webpackChunkName: "shopping-group" */ '../views/ShoppingCart.vue'),
+    component: () => import('../views/ShoppingCart.vue'),
     meta: {
       title: 'Shopping Cart',
       metaTags: [
@@ -286,10 +286,10 @@ const routes = [
         }
       ]
     }
-  },
+  }, */
   {
     path: '/404',
-    component: () => import( /* webpackChunkName: "pages" */ '../views/404.vue')
+    component: () => import('../views/404.vue')
   },
   {
     path: '*',

@@ -35,12 +35,15 @@
                     : 'filters__item'
                 "
               >
-                <a
-                  href="javascript:void(0);"
-                  @click="filterByCategory(category.id)"
-                  >{{ category.name }}</a
-                >
+                
+                <router-link
+                        :to="{
+                          path:
+                            '/bloco-b/category/' +
+                            category.id
+                        }" 
                         v-scroll-to="'header'"
+                        >{{ category.name }}</router-link>
               </li>
             </ul>
 
@@ -77,8 +80,7 @@
                 >
                   <span
                     class="color"
-                    :style="'background-color:' + color.hexa"
-                  ></span>
+                    :style="'background-color:' + color.hexa"></span>
                   <span class="name">{{ color.name }}</span>
                 </a>
               </li>
@@ -228,38 +230,7 @@ export default {
     tag.onload = this.rellaxLoaded;
   },
   mounted() {
-    this.$http
-      .get("https://dev5.incentea-mi.pt/bstone/mocks/products-list-mock.json")
-      .then((response) => {
-        this.collections = response.data.collections;
-        this.categories = response.data.categories;
-        this.rawColors = response.data.colors;
-
-        this.productsPerPage = this.$parent.productsPerPage;
-        this.hasFeaturedProducts = this.$parent.hasFeaturedProducts;
-
-        if (this.hasFeaturedProducts) {
-          this.parseObject(
-            response.data.products,
-            this.products,
-            this.hasFeaturedProducts
-          );
-          return;
-        }
-
-        if (!this.$route.params) {
-          this.selectedCategory = this.categories[0].id;
-          this.selectedCollection = this.collections[0].id;
-        }
-
-        this.parseObject(
-          response.data.products,
-          this.products,
-          this.hasFeaturedProducts
-        ); //linha em cima igual
-        this.applyFilter();
-        this.pageLoaded();
-      });
+    this.load()
   },
   watch: {
     categories: function(newVal, oldVal) {
@@ -267,6 +238,15 @@ export default {
       this.categoryName1 = this.categories[this.selectedCategory].splitName1;
       this.categoryName2 = this.categories[this.selectedCategory].splitName2;
     },
+    $route(to , from)
+    {
+      if (this.$route.params) {
+        this.selectedCategory = this.$route.params.category;
+        this.selectedCollection = this.$route.params.collection;
+      }
+      this.rawProducts = [];
+      this.load()
+    }
   },
   methods: {
     pageLoaded: function() {
@@ -318,6 +298,7 @@ export default {
     },
     filterByColor(id) {
       this.$scrollTo('header')
+
       const index = this.selectedColors.indexOf(id);
 
       if (index > -1) {
@@ -328,6 +309,40 @@ export default {
 
       this.applyFilter();
     },
+    load() {
+        this.$http
+              .get("https://dev5.incentea-mi.pt/bstone/mocks/products-list-mock.json")
+              .then((response) => {
+                this.collections = response.data.collections;
+                this.categories = response.data.categories;
+                this.rawColors = response.data.colors;
+
+                this.productsPerPage = this.$parent.productsPerPage;
+                this.hasFeaturedProducts = this.$parent.hasFeaturedProducts;
+
+                if (this.hasFeaturedProducts) {
+                  this.parseObject(
+                    response.data.products,
+                    this.products,
+                    this.hasFeaturedProducts
+                  );
+                  return;
+                }
+
+                if (!this.$route.params) {
+                  this.selectedCategory = this.categories[0].id;
+                  this.selectedCollection = this.collections[0].id;
+                }
+
+                this.parseObject(
+                  response.data.products,
+                  this.products,
+                  this.hasFeaturedProducts
+                ); //linha em cima igual
+                this.applyFilter();
+                this.pageLoaded();
+              });
+            },
     applyFilter() {
       this.categoryName1 = this.categories[this.selectedCategory].splitName1;
       this.categoryName2 = this.categories[this.selectedCategory].splitName2;
@@ -366,8 +381,8 @@ export default {
           (color) => filteredColors.indexOf(color.id) > -1
         );
       }
-    },
-  },
+    }
+  }
 };
 </script>
 <style lang="scss">

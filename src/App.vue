@@ -34,8 +34,7 @@
               :aria-label="$t('logo-aria-label')"
             />
             <!-- Desktop and Mobile -->
-            <img
-              class="d-block d-md-none"
+            <img class="d-block d-md-none"
               itemprop="logo"
               height="29px"
               width="97px"
