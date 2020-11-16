@@ -40,6 +40,7 @@
                   @click="filterByCategory(category.id)"
                   >{{ category.name }}</a
                 >
+                        v-scroll-to="'header'"
               </li>
             </ul>
 
@@ -60,6 +61,7 @@
               >
                 <a
                   href="javascript:void(0);"
+                  v-scroll-to="'header'"
                   @click="filterByCollection(collection.id)"
                   >{{ collection.name }}</a
                 >
@@ -315,6 +317,7 @@ export default {
       this.applyFilter();
     },
     filterByColor(id) {
+      this.$scrollTo('header')
       const index = this.selectedColors.indexOf(id);
 
       if (index > -1) {

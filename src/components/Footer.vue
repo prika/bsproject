@@ -35,7 +35,7 @@
             </div>
         </div>
       
-        <a href="javascript:void(0)" class="scrollButton" :aria-label="$t('footer-scroll-top')" rel="nofollow noindex noopener"></a>
+        <a v-scroll-to="'header'" class="scrollButton" :aria-label="$t('footer-scroll-top')" rel="nofollow noindex noopener"></a>
     </div>
 </footer>
 </template>
@@ -70,6 +70,10 @@ export default {
                obj.file = this.getImgUrl(obj.file)
                destination.push(obj)
             }
+        },
+        scrollTop(){
+          console.log('scroll')
+          window.scrollTop = 0
         }
     },
    created() {
