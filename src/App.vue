@@ -32,6 +32,7 @@
               :alt="$t('logo-aria-label')"
               :title="$t('logo-aria-label')"
               :aria-label="$t('logo-aria-label')"
+              importance="high"
             />
             <!-- Desktop and Mobile -->
             <img class="d-block d-md-none"
@@ -42,6 +43,7 @@
               :alt="$t('logo-aria-label')"
               :title="$t('logo-aria-label')"
               :aria-label="$t('logo-aria-label')"
+              importance="high"
             />
           </router-link>
         </div>
