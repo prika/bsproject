@@ -13,7 +13,10 @@
 
 <script>
 export default {
-  name: "notFoundPage"
+  name: "notFoundPage",
+  mounted() {
+    this.$eventBus.$emit("pageFinishLoad", true);
+  }
 }
 </script>
 
