@@ -68,11 +68,6 @@
         "id": "footermenu1",
         "name": "News",
         "link": "/news"
-      },
-      {
-        "id": "footermenu3",
-        "name": "Privacy Policy",
-        "link": "/privacy-policy"
       }
     ],
     "social": [
