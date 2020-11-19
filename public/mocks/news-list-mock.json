@@ -1,16 +1,5 @@
 [
     {
-        "id": "news1",
-        "title": "Bstone continues to invest in innovative technology",
-        "pubdata": "28   —   october  —   2020",
-        "gallery": [
-            {
-                "src": "news/IMG_0159_home.jpg",
-                "alt": "Bstone continues to invest in innovative technology"
-            }
-        ]
-    },
-    {
         "id": "news2",
         "title": "Bstone facilities with new look after Rebranding",
         "pubdata": "21   —   september  —   2020",
@@ -29,6 +18,17 @@
             {
                 "src": "news/PIC_9110-116_home.jpg",
                 "alt": "On his 11th birthday, Bstone recalls the event of 2019"
+            }
+        ]
+    },
+    {
+        "id": "news1",
+        "title": "Bstone continues to invest in innovative technology",
+        "pubdata": "28   —   october  —   2020",
+        "gallery": [
+            {
+                "src": "news/IMG_0159_home.jpg",
+                "alt": "Bstone continues to invest in innovative technology"
             }
         ]
     }

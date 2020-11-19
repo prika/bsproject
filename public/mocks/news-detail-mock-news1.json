@@ -7,13 +7,13 @@
         {
             "src": "news/IMG_0159.jpg",
             "alt": "Bstone continues to invest in innovative technology",
-            "speed": 0,
+            "speed": -2,
             "addclass": "col-9 col-sm-8 float-right"
         },
         {
             "src": "news/IMG_2499.jpg",
             "alt": "Bstone continues to invest in innovative technology",
-            "speed": 2,
+            "speed": 3,
             "addclass": "col-9 col-sm-8"
         },
         {
@@ -25,7 +25,7 @@
         {
             "src": "news/IMG_2530.jpg",
             "alt": "Bstone continues to invest in innovative technology",
-            "speed": -1,
+            "speed": 0,
             "addclass": "col-12 col-sm-12"
         },
         {

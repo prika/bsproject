@@ -5,43 +5,25 @@
     "pubdata": "21   —   september  —   2020",
     "gallery1": [
         {
-            "src": "news/exemplo_noticia_a.jpg",
+            "src": "news/IMG_2530.jpg",
             "alt": "Image Test",
-            "speed": 0,
-            "addclass": "col-9 col-sm-8 float-right"
+            "speed": -1,
+            "addclass": "col-11 col-sm-9 float-right"
         },
         {
-            "src": "news/exemplo_noticia_b.jpg",
+            "src": "news/IMG_2499.jpg",
             "alt": "Image Test",
             "speed": 2,
             "addclass": "col-9 col-sm-8"
         },
         {
-            "src": "news/exemplo_noticia_c.jpg",
-            "alt": "Image Test",
-            "speed": 0,
-            "addclass": "col-12 col-sm-7"
-        },
-        {
-            "src": "news/exemplo_noticia_d.jpg",
-            "alt": "Image Test",
-            "speed": -1,
-            "addclass": "col-12 col-sm-7"
-        },
-        {
-            "src": "news/exemplo_noticia_a.jpg",
-            "alt": "Image Test",
-            "speed": 0,
-            "addclass": "col-12 col-sm-7 float-right"
-        },
-        {
-            "src": "news/exemplo_noticia_b.jpg",
+            "src": "news/IMG_2520.jpg",
             "alt": "Image Test",
             "speed": 0,
             "addclass": "col-12 col-sm-12"
         },
         {
-            "src": "news/exemplo_noticia_a.jpg",
+            "src": "news/IMG_2557.jpg",
             "alt": "Image Test",
             "speed": 0,
             "addclass": "col-12 col-sm-12"
