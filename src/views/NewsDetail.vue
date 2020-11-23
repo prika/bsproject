@@ -107,6 +107,7 @@ export default {
         filter: grayscale(0%);
         z-index: 0;
         right: 0;
+        left: 0;
         top: 0;
         margin-bottom: 5px;
       }

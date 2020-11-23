@@ -35,7 +35,7 @@ export default {
     ArticleParallax,
     arrowRightIcon,
     ProductsList,
-    NewsSlider,
+    NewsSlider
   },
   data() {
     return {
@@ -50,7 +50,7 @@ export default {
       productsPerPage: 6,
       bannerLoaded: false,
       rellaxLoaded: false,
-      hasJsonData: false,
+      hasJsonData: false
     };
   },
   methods: {

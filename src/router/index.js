@@ -84,7 +84,7 @@ const routes = [
     name: 'news',
     component: () => import('../views/News.vue'),
     meta: {
-      title: 'News List Page',
+      title: 'News List',
       metaTags: [
         {
           name: 'description',
@@ -107,11 +107,11 @@ const routes = [
       metaTags: [
         {
           name: 'description',
-          content: ''
+          content: 'News Detail Page'
         },
         {
           property: 'og:description',
-          content: ''
+          content: 'News Detail Page'
         }
       ]
     }

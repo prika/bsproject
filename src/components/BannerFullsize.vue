@@ -329,19 +329,19 @@ export default {
   position: relative;
   z-index: 2;
   overflow: hidden;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   //height: calc(var(--vh,1vh) * 100);
 
   .carouselContainer {
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     position: relative;
 
     .slide {
       position: absolute;
       float: left;
-      width: 100vw;
+      width: 100%;
       display: flex;
       align-items: center;
       justify-content: center;

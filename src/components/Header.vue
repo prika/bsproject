@@ -184,11 +184,6 @@ header{
 }
 
 
-//@include media-breakpoint-up(sm) 
-@media (min-width: 576px) {
-  
-}
-
 //@include media-breakpoint-up(md)
 @media (min-width: 812px) {
 
