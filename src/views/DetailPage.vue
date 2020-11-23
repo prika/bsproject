@@ -297,7 +297,7 @@ export default {
     });
 
     this.$http
-      .get("https://dev5.incentea-mi.pt/bstone/mocks/products-detail-mock.json")
+      .get("https://www.bstone.pt/mocks/products-detail-mock.json")
       .then((response) => {
         this.product = response.data.product;
         this.simulator = response.data.product.simulator;

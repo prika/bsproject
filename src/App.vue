@@ -151,7 +151,7 @@ export default {
   },
   mounted() {
     this.$http
-      .get("https://dev5.incentea-mi.pt/bstone/mocks/global-mock.json")
+      .get("https://www.bstone.pt/mocks/global-mock.json")
       .then((response) => {
         this.$eventBus.$emit("jsonGlobalLoaded", response);
       });

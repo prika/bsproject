@@ -125,7 +125,7 @@ export default {
   },
   created() {
     this.$http
-      .get("https://dev5.incentea-mi.pt/bstone/mocks/homepage-mock.json")
+      .get("https://www.bstone.pt/mocks/homepage-mock.json")
       .then(response => {
         this.imageGroupSliderGallery = response.data.slidergallery;
         var hasYoutubeVideoPlayerScript = false;

@@ -311,7 +311,7 @@ export default {
     },
     load() {
         this.$http
-              .get("https://dev5.incentea-mi.pt/bstone/mocks/products-list-mock.json")
+              .get("https://www.bstone.pt/mocks/products-list-mock.json")
               .then((response) => {
                 this.collections = response.data.collections;
                 this.categories = response.data.categories;

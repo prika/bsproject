@@ -132,7 +132,7 @@ export default {
     this.error_invalid = this.$i18n.t("input-error-valid-email");
 
     this.$http
-      .get("https://dev5.incentea-mi.pt/bstone/mocks/account-mock.json")
+      .get("https://www.bstone.pt/mocks/account-mock.json")
       .then((response) => {
         this.accountlogin = response.data.accountlogin;
       });
