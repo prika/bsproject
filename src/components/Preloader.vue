@@ -169,7 +169,7 @@
         </g>
     </svg>
 
-    <svg v-if=" name == 'listpage' || name ==  'productDetail' || name == 'variantDetail' " v-once alt="Preloading Bloco B" xmlns="http://www.w3.org/2000/svg" width="412.602" height="126" viewBox="0 0 412.602 126">
+    <svg v-if=" name == 'listpage-categories' || name == 'listpage-collection' || name ==  'productDetail' || name == 'variantDetail' " v-once alt="Preloading Bloco B" xmlns="http://www.w3.org/2000/svg" width="412.602" height="126" viewBox="0 0 412.602 126">
       <g id="LOOGO_BANER" data-name="LOOGO BANER" transform="translate(2543.309 4816.509)">
         <g  data-name="Group 577" transform="translate(-2256.708 -4816.509)">
           <g  data-name="Group 576" transform="translate(35.097 29.867)">

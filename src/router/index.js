@@ -46,7 +46,7 @@ const routes = [
     name: 'project',
     component: () => import( /* webpackChunkName: "pages" */ '../views/BProject.vue'),
     meta: {
-      title: 'B Project - B Stone Site',
+      title: 'B Project Page',
       metaTags: [
         {
           name: 'description',
@@ -65,7 +65,7 @@ const routes = [
     name: 'innovation',
     component: () => import( /* webpackChunkName: "pages" */ '../views/BInnovation.vue'),
     meta: {
-      title: 'B Innovation - B Stone Site',
+      title: 'B Innovation Page',
       metaTags: [
         {
           name: 'description',
@@ -84,7 +84,7 @@ const routes = [
     name: 'news',
     component: () => import('../views/News.vue'),
     meta: {
-      title: 'News List',
+      title: 'News List Page',
       metaTags: [
         {
           name: 'description',
@@ -157,7 +157,7 @@ const routes = [
     name: 'menu',
     component: () => import('../views/BlocoBCategories.vue'),
     meta: {
-      title: 'This is our BlocoB Categories',
+      title: 'BlocoB Menu Categories',
       metaTags: [
         {
           name: 'description',
@@ -172,11 +172,11 @@ const routes = [
   },
   {
     path: '/bloco-b/category/:category',
-    name: 'listpage categories',
+    name: 'listpage-categories',
     component: () => import('../views/BlocoB.vue'),
     props: (route) => ({ query: route.query.category }),
     meta: {
-      title: 'This is menu Categories',
+      title: 'BStone Listpage Categories',
       metaTags: [
         {
           name: 'description',
@@ -191,10 +191,11 @@ const routes = [
   },
   {
     path: '/bloco-b/category/:category/collection/:collection',
-    name: 'listpage collection',
+    name: 'listpage-collection',
     component: () => import('../views/BlocoB.vue'),
+    props: (route) => ({ query: route.query.collection }),
     meta: {
-      title: 'listpage category',
+      title: 'BStone Listpage Collection',
       metaTags: [
         {
           name: 'description',
@@ -212,7 +213,7 @@ const routes = [
     name: 'productDetail',
     component: () => import('../views/DetailPage.vue'),
     meta: {
-      title: 'listpage',
+      title: 'Product Detail',
       metaTags: [
         {
           name: 'description',
@@ -230,7 +231,7 @@ const routes = [
     name: 'variantDetail',
     component: () => import('../views/ProductPage.vue'),
     meta: {
-      title: 'listpage',
+      title: 'Variant Detail',
       metaTags: [
         {
           name: 'description',

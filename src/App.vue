@@ -65,7 +65,7 @@
 
     <router-view />
 
-    <Scroll v-if="!isMobile() && ['Home', 'explore', 'project', 'innovation', 'listpage categories', 'listpage collection'].indexOf($route.name) > -1" />
+    <Scroll v-if="!isMobile() && ['Home', 'explore', 'project', 'innovation', 'listpage-categories', 'listpage-collection'].indexOf($route.name) > -1" />
 
     <keep-alive>
       <Address
