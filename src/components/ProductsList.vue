@@ -389,10 +389,12 @@ export default {
 .productsList {
   min-height: 100vh;
   padding-top: 50px;
-  margin-bottom: 430px;
+  margin-bottom: 13%;
+  
 
   &.notFeaturedProducts {
     padding-top: 145px;
+    margin-bottom: 25%;
 
     .productsContainer {
       margin-top: 300px;
@@ -522,8 +524,9 @@ export default {
 
     .colorFilters {
       top: auto; //750px;
-      bottom: 7vh;
+      bottom: 5vh;
       z-index: 0;
+      margin-left: 5px;
 
       a {
         height: 40px;
@@ -690,6 +693,34 @@ export default {
     }
     &:hover .productName {
       top: 170px;
+    }
+  }
+}
+
+@media (max-height: 860px) {
+  .productsList .filters .colorFilters{
+      height: 25vh;
+      width: 200px;
+      overflow: scroll;
+
+      li{margin-left: 10px;}
+  }
+
+  .productsList.notFeaturedProducts{
+    padding-top: 110px;
+
+    h1.pageTitle{
+      font-size: 8rem;
+      line-height: 6rem;
+      opacity: .8;
+
+      & > span {
+        padding-left: 175px;
+
+        &:before{
+              width: 150px;
+        }
+      }
     }
   }
 }

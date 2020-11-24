@@ -239,12 +239,12 @@
     },
     {
       "id": "Prod07-1",
-      "name": "Calacatta Stone",
+      "name": "Calacatta BStone",
       "category": 0,
       "collection": 1,
       "imgURL": "product/calacatta_bstone.jpg",
       "firstName": "Calacatta",
-      "secondName": "Stone",
+      "secondName": "BStone",
       "featured": true,
       "colors": [
         0
@@ -252,12 +252,12 @@
     },
     {
       "id": "Prod07-2",
-      "name": "Calacatta Stone",
+      "name": "Calacatta BStone",
       "category": 1,
       "collection": 1,
       "imgURL": "product/calacatta_bstone.jpg",
       "firstName": "Calacatta",
-      "secondName": "Stone",
+      "secondName": "BStone",
       "featured": false,
       "colors": [
         0
@@ -265,12 +265,12 @@
     },
     {
       "id": "Prod07-3",
-      "name": "Calacatta Stone",
+      "name": "Calacatta BStone",
       "category": 2,
       "collection": 1,
       "imgURL": "product/calacatta_bstone.jpg",
       "firstName": "Calacatta",
-      "secondName": "Stone",
+      "secondName": "BStone",
       "featured": false,
       "colors": [
         0
@@ -788,7 +788,7 @@
     },
     {
       "id": 2,
-      "name": "BEIGE",
+      "name": "Beige",
       "hexa": "#D8BBAD"
     },
     {

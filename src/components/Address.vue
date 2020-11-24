@@ -93,14 +93,14 @@ export default {
   background-image: url(../assets/images/B_Simbolo_estatico_Contactos.svg);
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-position: 220px 130%;
+  background-position: 20% 110%;
 
-  -webkit-background-size: 450px;
-  -moz-background-size: 450px;
-  -o-background-size: 450px;
-  background-size: 450px;
+  -webkit-background-size:  25%;
+  -moz-background-size:     25%;
+  -o-background-size:       25%;
+  background-size:          25%;
 
-  padding: 180px 0;
+  padding: 10% 0;
   position: relative;
   z-index: 1;
 

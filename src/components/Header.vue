@@ -184,7 +184,32 @@ header{
 }
 
 
-//@include media-breakpoint-up(md)
+@media (max-height: 860px){
+  body{ margin-top: 90px;}
+  header {
+    .containerHeader {
+        height: 90px!important;
+    }
+
+    .controls .buttons{
+        width: 90px!important;
+
+        svg{ 
+            -webkit-transform:  scale(1.2)!important;
+            -ms-transform:      scale(1.2)!important;
+            transform:          scale(1.2)!important;
+        }
+    }
+  }
+
+  h2.pageTitleh2, .h2.pageTitleh2 {
+    margin: 25px auto 80px!important;
+  }
+  .parallaxContainer{
+    padding-top: 5%!important;
+  }
+}
+
 @media (min-width: 812px) {
 
   body{ margin-top: 90px;}

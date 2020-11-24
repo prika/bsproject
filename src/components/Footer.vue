@@ -212,7 +212,7 @@ footer{
 
       .logoFooter{
         display: block;
-        margin: 3% 0 5%;
+        margin: 3% 0;
         height: 50px;
         background: url(../assets/images/shared/logo_footer.svg) no-repeat 15%;
       }
