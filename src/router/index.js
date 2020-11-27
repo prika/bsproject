@@ -13,6 +13,10 @@ const routes = [
       title: 'B Stone - Bloco Explore Project Innovation',
       metaTags: [
         {
+          name: 'og:title',
+          content: 'B Stone - Bloco Explore Project Innovation'
+        },
+        {
           name: 'description',
           content: 'B group comprehends 4 diferent, yet complimentary companies and activities'
         },
@@ -31,6 +35,10 @@ const routes = [
       title: 'B Explore Page',
       metaTags: [
         {
+          name: 'og:title',
+          content: 'B Explore Page'
+        },
+        {
           name: 'description',
           content: 'B Explore Page'
         },
@@ -48,6 +56,10 @@ const routes = [
     meta: {
       title: 'B Project Page',
       metaTags: [
+        {
+          name: 'og:title',
+          content: 'B Project Page'
+        },
         {
           name: 'description',
           content: 'B project can guarantee the entire marble process, from the first cut to your home. Formed by nature, which offers unique tones and characteristics, marble is the preferred choice in Architecture and Decoration.'
@@ -68,6 +80,10 @@ const routes = [
       title: 'B Innovation Page',
       metaTags: [
         {
+          name: 'og:title',
+          content: 'B Innovation Page'
+        },
+        {
           name: 'description',
           content: 'The versatility, robustness and magnificence make marble the most desired material for various environments, from the most classic to the avant-garde. B Innovation promises to create the ideal solution for you, tailored to your needs.'
         },
@@ -86,6 +102,10 @@ const routes = [
     meta: {
       title: 'News List Page',
       metaTags: [
+        {
+          name: 'og:title',
+          content: 'News List Page'
+        },
         {
           name: 'description',
           content: 'News List Page'
@@ -106,6 +126,10 @@ const routes = [
       title: 'News Detail Page',
       metaTags: [
         {
+          name: 'og:title',
+          content: 'News Detail Page'
+        },
+        {
           name: 'description',
           content: 'News Detail Page'
         },
@@ -123,6 +147,10 @@ const routes = [
     meta: {
       title: 'Frequent answered questions',
       metaTags: [
+        {
+          name: 'og:title',
+          content: 'Frequent answered questions'
+        },
         {
           name: 'description',
           content: 'Frequent answered questions'
@@ -142,6 +170,10 @@ const routes = [
       title: 'This is our Privacy Policy Page',
       metaTags: [
         {
+          name: 'og:title',
+          content: 'This is our Privacy Policy Page'
+        },
+        {
           name: 'description',
           content: 'This is our Privacy Policy Page'
         },
@@ -159,6 +191,10 @@ const routes = [
     meta: {
       title: 'BlocoB Menu Categories',
       metaTags: [
+        {
+          name: 'og:title',
+          content: 'BlocoB Menu Categories'
+        },
         {
           name: 'description',
           content: 'This is our BlocoB Categories'
@@ -179,6 +215,10 @@ const routes = [
       title: 'BStone Listpage Categories',
       metaTags: [
         {
+          name: 'og:title',
+          content: 'BStone Listpage Categories'
+        },
+        {
           name: 'description',
           content: 'This is menu Categories'
         },
@@ -198,6 +238,10 @@ const routes = [
       title: 'BStone Listpage Collection',
       metaTags: [
         {
+          name: 'og:title',
+          content: 'BStone Listpage Collection'
+        },
+        {
           name: 'description',
           content: 'Products list page'
         },
@@ -216,6 +260,10 @@ const routes = [
       title: 'Product Detail',
       metaTags: [
         {
+          name: 'og:title',
+          content: 'Product Detail'
+        },
+        {
           name: 'description',
           content: 'Products list page'
         },
@@ -233,6 +281,10 @@ const routes = [
     meta: {
       title: 'Variant Detail',
       metaTags: [
+        {
+          name: 'og:title',
+          content: 'Variant Detail'
+        },
         {
           name: 'description',
           content: 'Products list page'
@@ -278,19 +330,40 @@ const routes = [
       title: 'Shopping Cart',
       metaTags: [
         {
+          name: 'og:title',
+          content: 'Shopping Cart'
+        },
+        {
           name: 'description',
-          content: 'Our site is ... content'
+          content: 'Shopping Cart'
         },
         {
           property: 'og:description',
-          content: 'Our site is ... content'
+          content: 'Shopping Cart'
         }
       ]
     }
   }, */
   {
     path: '/404',
-    component: () => import('../views/404.vue')
+    component: () => import('../views/404.vue'),
+    meta: {
+      title: '404 - Error Page Not Found',
+      metaTags: [
+        {
+          name: 'og:title',
+          content: '404 - Error Page Not Found'
+        },
+        {
+          name: 'description',
+          content: '404 - Error Page Not Found'
+        },
+        {
+          property: 'og:description',
+          content: '404 - Error Page Not Found'
+        }
+      ]
+    }
   },
   {
     path: '*',
