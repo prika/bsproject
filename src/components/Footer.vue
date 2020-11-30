@@ -1,5 +1,21 @@
 <template>
 <footer>
+     <transition appear enter-active-class="animated slideInUp faster delay-2s" leave-active-class="animated slideOutDown faster">
+        <div class="cofinandedBanner" v-if="showBanner === true">
+            <div class="col-12 col-md-8 cofinancedby d-flex">
+                <a  v-for="item in cofinance" 
+                    :key="item.id"
+                    :href="item.file"
+                    :aria-label="$t('footer-cofinanced')+' '+item.name"
+                    :alt="$t('footer-cofinanced')+' '+item.name"
+                    :style="{ 'backgroundImage': 'url(\'' + item.img + '\')' }"
+                    target="_blank" class="col-12 col-md-6"
+                    rel="noopener noreferrer nofollow">
+                </a>
+            </div> 
+        </div>
+    </transition>
+
     <div class="container revertColor">
 
         <div class="row">
@@ -8,7 +24,7 @@
         </div>
 
         <div class="row">
-            <keep-alive>
+            
             <div class="col-12 col-md-8 cofinancedby d-block d-md-flex">
                 <a  v-for="item in cofinance" 
                     :key="item.id"
@@ -20,9 +36,8 @@
                     rel="noopener noreferrer nofollow">
                 </a>
             </div> 
-            </keep-alive>
-           
-           <SocialButtons />
+            
+            <SocialButtons />
             
         </div>
 
@@ -54,7 +69,8 @@ export default {
     },
     data() {
         return {
-            cofinance: []
+            cofinance: [],
+            showBanner: true
         }
     },
     methods:
@@ -72,22 +88,55 @@ export default {
             }
         },
         scrollTop(){
-          console.log('scroll')
           window.scrollTop = 0
         }
     },
-   created() {
-      this.$eventBus.$on('jsonGlobalLoaded', (response) => {
-          this.parseObject(response.data.footer.cofinance, this.cofinance)
-      });
+    created() {
+        this.$eventBus.$on('jsonGlobalLoaded', (response) => {
+            this.parseObject(response.data.footer.cofinance, this.cofinance)
+        });
+
+        var self = this;
+        setTimeout( function(){ self.showBanner = false; } , 15000 );
     },
     beforeDestroy() {
-        this.$eventBus.$off('jsonGlobalLoaded') // releases the subscription
+        this.$eventBus.$off('jsonGlobalLoaded')
     }
 }
 </script>
 
 <style lang="scss">
+.cofinandedBanner{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 4;
+  width: 100%;
+  height: 97px;
+  background: #2A2A2A;
+  border: 1px solid #363636;
+
+  .cofinancedby {
+      width: 100%;
+      height: 97px;
+      margin: 14px auto;
+
+      a {
+        height: 60px;
+        text-decoration: none;
+        background-repeat: no-repeat;
+        background-position: center 0;
+        background-size: contain;
+        opacity: .7;
+        margin: 0;
+
+        &:hover{
+            opacity: 1;
+        }
+      }
+  }
+}
 
 footer{
   background: #2A2A2A;
