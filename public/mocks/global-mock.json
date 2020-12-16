@@ -162,6 +162,8 @@
     "inputemail": "Email",
     "inputmessage": "Message",
     "inputfile": "Attach file",
+    "inputpolicy": "I read and I accept the",
+    "inputpolicyrouter": "Privacy Policy",
     "submit": "Send",
     "feedbacksuccess": "Your message has been sent successfully! <br> <br> We will contact you shortly."
   },
@@ -211,47 +213,52 @@
     ]
   },
   "privacypolicy": {
-    "title": "Política de Privacidade",
+    "title": "Privacy Policy",
     "questions": [
       {
         "id": "pp1",
-        "question": "Quais são as formas de pagamento?",
-        "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut leo hendrerit, semper purus non, pellentesque mauris."
+        "question": "",
+        "answer": "Please read our Privacy Policy carefully. If you do not agree with it, you should not use this website. This Privacy Policy sets out the forms of collection and use of personal data, as well as the safeguard and security measures adopted in the treatment of the same. B stone Group recognizes the importance of privacy. We will never sell your information to third parties, whether individuals or companies. The website www.bstone.pt is owned by B stone Group - Estrada Nacional N4, Km 152 Sítio Courela dos Aléns 7100-011 Arcos, Estremoz"
       },
       {
         "id": "pp2",
-        "question": "É POSSÍVEL PARCELAR O PAGAMENTO?",
-        "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut leo hendrerit, semper purus non, pellentesque mauris."
+        "question": "Cookies",
+        "answer": "B stone Group uses cookies that help offer you a better service and experience as a user of our website. By continuing to browse our website, you agree to the use of cookies. To ensure that our website presents a good browsing experience for visitors and provide a more personalized service, our server uses cookies to collect and store information. If you wish, you can disable this setting in your browser, subject to limiting access to certain areas of the site or receiving personalized information. The use of cookies is a common practice in most sites in order to save the user time and facilitate navigation. The Website may use cookies in order to collect information during your visit to the website, such as the areas you visit and the activities in which you participate. These files are used to prevent the visitor from having to repeatedly enter their personal information, to facilitate navigation and personalization of the service. Cookies may be used to help know future uses in the application. The user can accept or delete cookies. Most browsers or Internet browsing applications automatically accept cookies. If the user does not intend to use cookies, he must change the settings of his browser regarding the acceptance or not of cookies."
       },
       {
         "id": "pp3",
-        "question": "quais são as formas de pagamento?",
-        "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut leo hendrerit, semper purus non, pellentesque mauris."
+        "question": "Information Collection",
+        "answer": "Whenever it is necessary to collect personal information for the provision of the company's products / services B stone Group, the use of the same information will be made in compliance with the legislation applicable to the Data Protection Policy imposed by CNPD (National Data Protection Commission, according to Law Decree No. 67/98 of 26 October, in order to be The confidentiality and security of the personal data provided is ensured. All information collected is voluntarily provided either via the website, online forms, questionnaires, service promotions and / or hobbies. B stone Group collects personal data, such as names, addresses, e-mails, telephone numbers, IP addresses, demographic and lifestyle data for the purposes set out below. The entity responsible for the collection and processing of personal data is B stone Group."
       },
       {
         "id": "pp4",
-        "question": "Quais são as formas de pagamento?",
-        "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut leo hendrerit, semper purus non, pellentesque mauris."
+        "question": "Use of Collected Information",
+        "answer": "B stone Group undertakes to comply with the rules on the processing of personal data in force in Portugal. The information obtained may be used by the B stone Group ,to send you relevant information about current products / promotions, capture general information in order to understand the profile of users, and thereby adapt your products to your customers and potential customers. The data collected is intended exclusively for the use of B stone Group., in order to follow up on requests made through this website, ensuring privacy and protection of users' data. B stone Group You can hand over your personal information to other companies, such as carriers, when you need to do so to provide them with a product or service."
       },
       {
         "id": "pp5",
-        "question": "Quais são as formas de pagamento?",
-        "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut leo hendrerit, semper purus non, pellentesque mauris."
+        "question": "Right of Access, Rectification, Cancellation and Opposition",
+        "answer": "In accordance with the provisions of Law No. 67/98 of 26 October, anyone can request access to the respective personal data, being able to learn about its content, as well as request its rectification, update or request its destruction, by written request addressed to B stone Group to the email address: info@bstone.pt"
       },
       {
         "id": "pp6",
-        "question": "É POSSÍVEL PARCELAR O PAGAMENTO?",
-        "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut leo hendrerit, semper purus non, pellentesque mauris."
+        "question": "Security and Data Protection",
+        "answer": "B stone Group undertakes to adopt the necessary security measures to guarantee the safeguarding of users' personal data against possible abuse or unauthorized access. Nevertheless, and since the internet is not a 100% secure means of communication, B stone Group cannot guarantee the security of any information you disclose online, nor be responsible for any loss or damage caused to the user as a result of the loss of confidentiality of the information."
       },
       {
         "id": "pp7",
-        "question": "quais são as formas de pagamento?",
-        "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut leo hendrerit, semper purus non, pellentesque mauris."
+        "question": "Responsibility",
+        "answer": "On this website, users can find links that redirect them to other websites outside the domain of the company's servers. B stone Group Lda.who can collect data or request personal information themselves. This Privacy Policy does not apply to third party sites, so you should read the Privacy Policy for the third party sites you visit, and we are not responsible for the content and information present on those same sites."
       },
       {
         "id": "pp8",
-        "question": "Quais são as formas de pagamento?",
-        "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut leo hendrerit, semper purus non, pellentesque mauris."
+        "question": "Privacy Policy Agreement",
+        "answer": "It is understood that the user accepts the conditions of this privacy policy when entering his data. Filling out the forms implies the user's consent to the automated processing and use of the data in accordance with the privacy conditions described in this document."
+      },
+      {
+        "id": "pp9",
+        "question": "Changes to the Privacy Policy",
+        "answer": "B stone Group. reserves the right, at any time, to update or revise this Privacy Policy in order to adjust it to possible legislative changes and / or other constraints. Any changes made will be published in this space, so the user should visit this area frequently in order to keep informed about the Privacy Policy in force."
       }
     ]
   }

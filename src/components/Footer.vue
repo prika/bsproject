@@ -97,7 +97,7 @@ export default {
         });
 
         var self = this;
-        setTimeout( function(){ self.showBanner = false; } , 15000 );
+        setTimeout( function(){ self.showBanner = false; } , 90000 );
     },
     beforeDestroy() {
         this.$eventBus.$off('jsonGlobalLoaded')
