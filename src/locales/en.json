@@ -6,26 +6,20 @@
   "menu-bproject": "B Project",
   "menu-binnovation": "B Innovation",
   "language": "Portuguese | English",
-
   "button-arialabel-open-search": "Search Here",
   "button-arialabel-open-login": "Open Login Form",
   "button-arialabel-open-cart": "See shopping cart",
   "button-arialabel-open-menu": "Open Menu",
   "button-arialabel-close-menu": "Close Menu",
-
   "search-input-placeholder": "Search",
   "in-stock": "in stock",
   "no-search-result": "no search result",
-
   "product-type-blocos": "Blocos",
   "product-type-chapas": "Chapas",
   "product-type-ladrilhos": "Ladrilhos",
-
   "secundary-menu-faqs": "Faqs",
   "secundary-menu-ppolicy": "Privacy Policy",
-
   "social-arialabel": "Link to",
-
   "footer-text-newsletter": "Newsletter",
   "footer-sub-text-newsletter": "Get the latest news",
   "footer-input-email": "Enter your email",
@@ -34,66 +28,53 @@
   "footer-newsletter-error-emailrequired": "Email required.",
   "footer-newsletter-error-emailinvalid": "Valid email required.:",
   "footer-newsletter-success": "Your email was added successfully to our newsletter group.",
-
   "footer-cofinanced": "Co-financed by:",
-
   "footer-text-copyright": "Copyright 2020 Bloco B",
   "footer-text-madeby": "Website by",
   "footer-text-company-link": "https://www.incentea.com/",
   "footer-text-company": "inCentea MI",
   "simulator": "Simulator",
   "footer-scroll-top": "Click here to scroll top",
-
   "home-title-page": "news",
   "home-title-page-split1": "Ne",
   "home-title-page-split2": "ws",
-
   "backlink": "back",
   "readlink": "read more",
   "seemoreLink": "See more",
   "golink": "Arrow to go",
-
   "units_measures": "measures",
   "units_weight": "weight",
   "units_cm": "cm",
   "units_ton": "toneladas",
   "units_ton_abrev": "ton",
   "units_total_m3": "Total of",
-
   "actions_back": "back",
   "actions_share": "share",
   "actions_addtocart": "add to cart",
   "actions_removefromcart": "remove from cart",
-
   "actions_seemore": "See More",
   "actions_loadmore": "Load More",
-
   "popup-close-here": "Close here",
   "popup-gallery-prev-slide": "Go to previous slide",
   "popup-gallery-next-slide": "Go to next slide",
-
   "checkout-title-step1": "Order List",
   "checkout-title-step2": "Delivery Conditions",
   "checkout-next-step": "continue",
   "checkout-prev-step": "back",
   "checkout-final-step": "finalize",
-
   "checkout-container": "Container | Containers",
   "checkout-total": "Total",
   "checkout-products": " product | products ",
-
   "checkout-notes": "Notes",
   "checkout-notes-placeholder": "Leave a note on your order",
-
   "input-error-required": "Required information",
   "input-error-valid-email": "Valid email required.",
-  "input-error-file-limit-min": "The selected file must not be larger than 75 kB",
+  "input-error-file-limit-min": "The selected file must be larger than 75 kB",
   "input-error-file-limit-max": "File too big (> 4MB)",
   "input-password-lowercase": "One lowercase letter required.",
-	"input-password-uppercase": "One uppercase letter required.",
+  "input-password-uppercase": "One uppercase letter required.",
   "input-password-car-min": "8 characters minimum.",
   "input-password-number": "One number required.",
   "input-email-confirmation": "A confirmação ainda não coincide com o email",
   "input-password-confirmation": "A confirmação ainda não coincide com a palavra-chave"
 }
-

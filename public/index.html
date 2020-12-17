@@ -2,6 +2,8 @@
 <html lang="en" itemscope itemtype="http://schema.org/WebPage" prefix="og: http://ogp.me/ns#">
 
 <head>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11/dist/vue.min.js" rel="preload" as="script"
+    importance="high"></script>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=0.8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -16,42 +18,44 @@
   <meta name="revisit-after" content="5 days" />
 
   <link rel="icon" href="<%= BASE_URL %>favicon.ico" />
-  <title itemprop="name"><%= htmlWebpackPlugin.options.title %></title>
-  <meta name="description"
-    content="A Bloco B é uma empresa sempre presente, pronta para responder com seriedade e rigor a cada projecto que abraça, hoje e no futuro, garantindo qualidade e continuidade do produto." />
-
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="B Stone" />
+
   <meta property="og:site_name" content="B Stone" />
-  <meta property="og:image" content="https://www.bstone.pt/facebook_592x292.jpg" importance="low"/>
+  <meta property="og:image" content="https://www.bstone.pt/facebook_592x292.jpg" importance="low" />
   <meta property="og:image:width" content="592" />
   <meta property="og:image:height" content="292" />
   <meta property="og:image:alt" content="B Stone" />
-  <meta property="og:description" content="<%= htmlWebpackPlugin.options.title %> B Stone - Bloco B Explore Project Innovation" />
 
   <link rel="SHORTCUT ICON" href="https://www.bstone.pt/favicon.ico" type="image/x-icon" />
 
   <link rel="icon" href="https://www.bstone.pt/favicon-96x96.png" sizes="96x96" type="image/png" importance="low" />
   <link rel="icon" href="https://www.bstone.pt/favicon-32x32.png" sizes="32x32" type="image/png" importance="low" />
   <link rel="icon" href="https://www.bstone.pt/favicon-16x16.png" sizes="16x16" type="image/png" importance="low" />
-  <link rel="apple-touch-icon-precomposed" href="https://www.bstone.pt/apple-touch-icon-precomposed.png" importance="low" />
-  <link rel="apple-touch-icon-precomposed" href="https://www.bstone.pt/apple-touch-icon-114x114.png" sizes="114x114" importance="low" />
-  <link rel="apple-touch-icon-precomposed" href="https://www.bstone.pt/apple-touch-icon-72x72.png" sizes="72x72" importance="low" />
-  <link rel="apple-touch-icon-precomposed" href="https://www.bstone.pt/apple-touch-icon-144x144.png" sizes="144x144" importance="low" />
+  <link rel="apple-touch-icon-precomposed" href="https://www.bstone.pt/apple-touch-icon-precomposed.png"
+    importance="low" />
+  <link rel="apple-touch-icon-precomposed" href="https://www.bstone.pt/apple-touch-icon-114x114.png" sizes="114x114"
+    importance="low" />
+  <link rel="apple-touch-icon-precomposed" href="https://www.bstone.pt/apple-touch-icon-72x72.png" sizes="72x72"
+    importance="low" />
+  <link rel="apple-touch-icon-precomposed" href="https://www.bstone.pt/apple-touch-icon-144x144.png" sizes="144x144"
+    importance="low" />
   <link rel="apple-touch-icon" href="https://www.bstone.pt/apple-touch-icon-60x60.png" sizes="60x60" importance="low" />
-  <link rel="apple-touch-icon-precomposed" href="https://www.bstone.pt/apple-touch-icon-120x120.png" sizes="120x120" importance="low" />
+  <link rel="apple-touch-icon-precomposed" href="https://www.bstone.pt/apple-touch-icon-120x120.png" sizes="120x120"
+    importance="low" />
   <link rel="apple-touch-icon" href="https://www.bstone.pt/apple-touch-icon-76x76.png" sizes="76x76" importance="low" />
-  <link rel="apple-touch-icon" href="https://www.bstone.pt/apple-touch-icon-152x152.png" sizes="152x152" importance="low" />
+  <link rel="apple-touch-icon" href="https://www.bstone.pt/apple-touch-icon-152x152.png" sizes="152x152"
+    importance="low" />
   <link rel="apple-touch-icon" href="https://www.bstone.pt/apple-icon.png" sizes="180x180" importance="low" />
   <meta name="theme-color" content="#333333" />
   <link rel="manifest" href="manifest.webmanifest" importance="low" />
-  <link rel="icon" type="image/png" sizes="192x192" href="https://www.bstone.pt/android-icon-192x192.png" importance="low" />
+  <link rel="icon" type="image/png" sizes="192x192" href="https://www.bstone.pt/android-icon-192x192.png"
+    importance="low" />
   <!--[if IEMobile]><meta http-equiv="cleartype" content="on"/><![endif]-->
 
   <meta name="skype_toolbar" content="skype_toolbar_parser_compatible" />
-  <meta name="msapplication-config" content="browserconfig.xml" importance="low"/>
+  <meta name="msapplication-config" content="browserconfig.xml" importance="low" />
   <meta name="msapplication-TileColor" content="#ffffff" />
-  <meta name="msapplication-TileImage" content="ms-icon-144x144.png" importance="low"/>
+  <meta name="msapplication-TileImage" content="ms-icon-144x144.png" importance="low" />
   <link rel="mask-icon" href="https://www.bstone.pt/safari-pinned-tab.svg" color="#333333" importance="low" />
   <meta name="apple-mobile-web-app-title" content="B Stone - Bloco Explore Project Innovation" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -59,12 +63,17 @@
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="HandheldFriendly" content="true" />
   <meta name="apple-touch-fullscreen" content="yes" />
-  
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.compat.css" rel="stylesheet prefetch" type="text/css" importance="high">
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.compat.css" rel="stylesheet prefetch"
+    type="text/css" importance="high">
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600&family=Ubuntu:ital,wght@0,300;1,300&display=swap" rel="stylesheet" importance="low">
-  <link rel="preload" as="font" type="font/woff" href="https://www.bstone.pt/fonts/NoeDisplay-Black.woff" crossorigin importance="low">
-  <link rel="preload" as="font" type="font/woff2" href="https://www.bstone.pt/fonts/NoeDisplay-Black.woff2" crossorigin importance="low">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600&family=Ubuntu:ital,wght@0,300;1,300&display=swap"
+    rel="stylesheet" importance="low">
+  <link rel="preload" as="font" type="font/woff" href="https://www.bstone.pt/fonts/NoeDisplay-Black.woff" crossorigin
+    importance="low">
+  <link rel="preload" as="font" type="font/woff2" href="https://www.bstone.pt/fonts/NoeDisplay-Black.woff2" crossorigin
+    importance="low">
 
 </head>
 
@@ -77,23 +86,13 @@
 
   <div id="app"></div>
 
-  <script> fetch('https://www.bstone.pt/mocks/global-mock.json', {importance: 'high'}) </script>
-  <script> fetch('https://www.bstone.pt/mocks/homepage-mock.json', {importance: 'high'}) </script>
-  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11/dist/vue.min.js" rel="preload" as="script" importance="high"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/rellax/1.0.0/rellax.min.js" rel="preload" as="script" importance="high"></script>
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin rel="preload" as="script" importance="high"></script>
+  <script> fetch('https://www.bstone.pt/mocks/global-mock.json', { importance: 'high' }) </script>
+  <script> fetch('https://www.bstone.pt/mocks/homepage-mock.json', { importance: 'high' }) </script>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin rel="preload" as="script"
+    importance="high"></script>
   <script src="https://cdn.jsdelivr.net/npm/vue-scrollto"></script>
 
-  <script>
-    // Check that service workers are supported
-    /* if ("serviceWorker" in navigator) {
-      console.log("serviceWorker suported" + navigator);
-      // Use the window load event to keep the page load performant
-      window.addEventListener("load", () => {
-        navigator.serviceWorker.register("https://www.bstone.pt/service-worker.js",{ scope: "/bstone/"});
-      });
-    }*/
-  </script>
 </body>
 
 </html>

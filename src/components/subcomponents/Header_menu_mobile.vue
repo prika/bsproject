@@ -64,7 +64,7 @@
 		},
 		mounted() {
 			this.$http
-				.get("http://localhost:8081/mocks/global-mock.json")
+				.get("https://www.bstone.pt/mocks/global-mock.json")
 				.then(response => {
 					this.itensMenu = response.data.menu;
 				});
