@@ -67,7 +67,7 @@
 									<input type="checkbox" id="cont_checkboxPP" v-model="cont_checkboxPP" />
 									{{formContact.inputpolicy}}
 									<a
-										href="http://localhost:8081/privacy-policy"
+										href="https://www.bstone.pt/privacy-policy"
 										target="_blank"
 									>{{formContact.inputpolicyrouter}}</a>
 								</label>
@@ -79,6 +79,12 @@
 							</div>
 						</div>
 					</form>
+
+					<transition enter-active-class="animated slideInUp">
+						<div v-if="notsuccess">
+							<p class="float-right" style="color: #FA0B4C">{{notsuccess_error}}</p>
+						</div>
+					</transition>
 
 					<transition enter-active-class="animated slideInRight">
 						<div class="ContactFormSubmited" v-if="success">
@@ -120,6 +126,8 @@
 				cont_checkboxPP: "",
 				cont_checkboxPP_error: false,
 				success: false,
+				notsuccess: false,
+				notsuccess_error: "",
 				error_required: "",
 				error_invalid: "",
 				error_file_min: "",
@@ -143,6 +151,7 @@
 			checkContactsForm: function(e) {
 				e.preventDefault();
 				if (!this.validateForm()) return;
+				this.notsuccess = false;
 
 				let data = new FormData();
 				data.append("cont_file", this.file);
@@ -166,7 +175,9 @@
 						}, 5000);
 					})
 					.catch(e => {
-						alert(e.message);
+						self.success = false;
+						self.notsuccess = true;
+						this.notsuccess_error = e.message;
 					});
 			},
 			validateForm: function() {
@@ -221,6 +232,7 @@
 			},
 			validateMessage: function() {
 				this.cont_message_error = this.cont_message === "";
+				this.cont_message_error = this.cont_message.length < 2;
 				this.cont_message_validator = this.cont_message_error
 					? this.error_required
 					: "";
