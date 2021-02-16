@@ -39,17 +39,17 @@
 			};
 		},
 		methods: {
-			getImgUrl: function(src) {
-				return require("@/assets/images/" + src);
-			},
-			parseObject: function(source, destination) {
-				for (var i = 0; i < source.length; i++) {
-					let obj = source[i];
-					let fullPath = this.getImgUrl(obj.src);
-					obj.src = fullPath;
-					destination.push(obj);
-				}
-			},
+			/* getImgUrl: function(src) {
+									return require("@/assets/images/" + src);
+								},
+								parseObject: function(source, destination) {
+									for (var i = 0; i < source.length; i++) {
+										let obj = source[i];
+										let fullPath = this.getImgUrl(obj.src);
+										obj.src = fullPath;
+										destination.push(obj);
+									}
+								}, */
 			rellaxLoaded: function() {
 				this.rellax = new Rellax(".rellax");
 				this.$eventBus.$emit("componentFinishLoad", "rellaxLoaded");
@@ -60,11 +60,15 @@
 
 			this.$http
 				.get(
-					"https://www.bstone.pt/mocks/news-detail-mock-" + selectedNews + ".json"
+					"https://www.bstone.pt/webservices/" +
+						this.$i18n.locale +
+						"/news-detail?id=" +
+						selectedNews
 				)
 				.then(response => {
 					this.news = response.data;
-					this.parseObject(response.data.gallery1, this.imageGroup1);
+					this.imageGroup1 = response.data.gallery1;
+					//this.parseObject(response.data.gallery1, this.imageGroup1);
 
 					this.$eventBus.$emit("pageFinishLoad", true);
 				});

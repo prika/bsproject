@@ -28,23 +28,21 @@
 			</router-link>
 		</div>
 
-		<!--
-    <a
-      @click="loadMoreClick"
-      v-if="hasPaging && hasLink"
-      style="display: block; text-align: center; margin: 30px 0 200px;"
-    >
-      <seeMoreButton>{{ $t("actions_seemore") }}</seeMoreButton>
-    </a>
+		<a
+			@click="loadMoreClick"
+			v-if="hasPaging && hasLink"
+			style="display: block; text-align: center; margin: 30px 0 200px;"
+		>
+			<seeMoreButton>{{ $t("actions_seemore") }}</seeMoreButton>
+		</a>
 
-    <router-link
-      to="/news"
-      v-if="!hasPaging && hasLink"
-      style="display: block; text-align: center; margin: 30px 0 200px;"
-    >
-      <seeMoreButton>{{ $t("actions_loadmore") }}</seeMoreButton>
-    </router-link>
-		-->
+		<router-link
+			to="/news"
+			v-if="!hasPaging && hasLink"
+			style="display: block; text-align: center; margin: 30px 0 200px;"
+		>
+			<seeMoreButton>{{ $t("actions_loadmore") }}</seeMoreButton>
+		</router-link>
 	</section>
 </template>
 
@@ -67,8 +65,8 @@
 		},
 		methods: {
 			/* getImgUrl: function(src) {
-					return require("@/assets/images/" + src);
-				}, */
+				return require("@/assets/images/" + src);
+			}, */
 			loadMoreClick() {
 				let slice = this.fullNews.slice(
 					this.currentPage * this.itemsPerPage,
@@ -95,7 +93,9 @@
 			this.hasPaging = this.$parent.hasPaging;
 
 			this.$http
-				.get("https://www.bstone.pt/webservices/en/news-list/")
+				.get(
+					"https://www.bstone.pt/webservices/" + this.$i18n.locale + "/news-list/"
+				)
 				.then(response => {
 					this.fullNews = response.data;
 					this.news = this.fullNews.slice(0, this.itemsPerPage);
