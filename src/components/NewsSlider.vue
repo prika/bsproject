@@ -11,7 +11,7 @@
 			>
 				<div class="newsContentIimage">
 					<img
-						:src="getImgUrl(singleNews.gallery[0].src)"
+						:src="singleNews.gallery[0].src"
 						class="img-fluid"
 						:alt="singleNews.gallery[0].alt"
 						width="260px"
@@ -66,9 +66,9 @@
 			};
 		},
 		methods: {
-			getImgUrl: function(src) {
-				return require("@/assets/images/" + src);
-			},
+			/* getImgUrl: function(src) {
+					return require("@/assets/images/" + src);
+				}, */
 			loadMoreClick() {
 				let slice = this.fullNews.slice(
 					this.currentPage * this.itemsPerPage,
@@ -95,7 +95,7 @@
 			this.hasPaging = this.$parent.hasPaging;
 
 			this.$http
-				.get("https://www.bstone.pt/mocks/news-list-mock.json")
+				.get("https://www.bstone.pt/webservices/en/news-list/")
 				.then(response => {
 					this.fullNews = response.data;
 					this.news = this.fullNews.slice(0, this.itemsPerPage);
