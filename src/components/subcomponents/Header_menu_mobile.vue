@@ -35,9 +35,8 @@
 			>
 				<div class="mobileAdd">
 					<!--a href="/simulador" class="simulator">{{ $t("simulator") }}</a-->
-					<keep-alive>
-						<SocialButtons />
-					</keep-alive>
+
+					<SocialButtons />
 				</div>
 			</transition>
 		</div>
