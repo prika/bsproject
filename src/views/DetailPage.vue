@@ -7,10 +7,10 @@
 		>
 			<div
 				:class="
-          showDetail === true
-            ? 'productDetailLeft col-2 showDetail'
-            : 'productDetailLeft col-5'
-        "
+				showDetail === true
+					? 'productDetailLeft col-2 showDetail'
+					: 'productDetailLeft col-5'
+				"
 			>
 				<p class="productName" itemprop="name">
 					<mark>
@@ -38,12 +38,7 @@
 				</a>
 
 				<div class="containerImage">
-					<img
-						:src="getImgUrl(product.imgURL)"
-						class="productImage"
-						:alt="product.name"
-						itemprop="image"
-					/>
+					<img :src="product.imgURL" class="productImage" :alt="product.name" itemprop="image" />
 				</div>
 			</div>
 		</transition>
@@ -120,7 +115,7 @@
                 }"
 							>
 								<div class="img">
-									<img :src="getImgUrl(variant.img)" :alt="variant.alt" />
+									<img :src="variant.img" :alt="variant.alt" />
 								</div>
 								<div class="info row">
 									<h2 class="col-12 col-md-4">{{ variant.ref }}</h2>
@@ -197,9 +192,9 @@
 			};
 		},
 		methods: {
-			getImgUrl: function(src) {
-				return require("@/assets/images/" + src);
-			},
+			/* getImgUrl: function(src) {
+														return require("@/assets/images/" + src);
+													}, */
 			prevPageClick() {
 				this.currentPage--;
 				this.changePage();
@@ -269,7 +264,12 @@
 			});
 
 			this.$http
-				.get("https://www.bstone.pt/mocks/products-detail-mock.json")
+				.get(
+					"https://www.bstone.pt/webservices/" +
+						this.$i18n.locale +
+						"/products-detail?id=" +
+						this.$route.params.id
+				)
 				.then(response => {
 					this.product = response.data.product;
 					this.simulator = response.data.product.simulator;

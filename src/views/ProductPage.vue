@@ -170,16 +170,16 @@
 					//e.preventDefault();
 				});
 			},
-			getImgUrl: function(src) {
-				return require("@/assets/images/" + src);
-			},
+			/* getImgUrl: function(src) {
+							return require("@/assets/images/" + src);
+						}, */
 			parseObject: function(source) {
 				for (var i = 0; i < source.length; i++) {
 					let thumb = source[i].thumb;
 					let largeImage = source[i].large;
 
-					thumb.src = this.getImgUrl(thumb.src);
-					largeImage.src = this.getImgUrl(largeImage.src);
+					/* thumb.src = this.getImgUrl(thumb.src);
+								largeImage.src = this.getImgUrl(largeImage.src); */
 
 					this.thumbs.push(thumb);
 					this.largeImages.push(largeImage);
@@ -200,7 +200,12 @@
 		},
 		created() {
 			this.$http
-				.get("https://www.bstone.pt/mocks/products-variant-detail-mock.json")
+				.get(
+					"https://www.bstone.pt/webservices/" +
+						this.$i18n.locale +
+						"/products-variant-detail?ref=" +
+						this.$route.params.variant
+				)
 				.then(response => {
 					this.variant = response.data.variant;
 					this.parseObject(response.data.variant.images);

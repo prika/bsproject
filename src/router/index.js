@@ -140,10 +140,10 @@ const routes = [
       ]
     }
   },
- /*  {
+  {
     path: '/faqs',
     name: 'faqs',
-    component: () => import(  webpackChunkName: "institutional-group"  '../views/Faqs.vue'),
+    component: () => import( /* webpackChunkName: "institutional-group" */  '../views/Faqs.vue'),
     meta: {
       title: 'Frequent answered questions',
       metaTags: [
@@ -161,7 +161,7 @@ const routes = [
         }
       ]
     }
-  }, */
+  },
   {
     path: '/privacy-policy',
     name: 'privacy-policy',
@@ -252,10 +252,11 @@ const routes = [
       ]
     }
   },
-  /* {
+  {
     path: '/bloco-b/category/:category/collection/:collection/id/:id/name/:name',
     name: 'productDetail',
     component: () => import('../views/DetailPage.vue'),
+    props: (route) => ({ query: route.query.id }),
     meta: {
       title: 'Product Detail',
       metaTags: [
@@ -273,11 +274,35 @@ const routes = [
         }
       ]
     }
-  }, */
-/*   {
-    path: '/bloco-b/category/:category/collection/:collection/id/:id/name/:name/variant/:variant',
-    name: 'variantDetail',
+  },
+  {
+    path: '/bloco-b/category/:category/collection/:collection/id/:id',
+    name: 'productDetail2',
+    component: () => import('../views/DetailPage.vue'),
+    props: (route) => ({ query: route.query.id }),
+    meta: {
+      title: 'Product Detail',
+      metaTags: [
+        {
+          name: 'og:title',
+          content: 'Product Detail'
+        },
+        {
+          name: 'description',
+          content: 'Products list page'
+        },
+        {
+          property: 'og:description',
+          content: 'Products list page'
+        }
+      ]
+    }
+  },
+  {
+    path: '/bloco-b/category/:category/collection/:collection/id/:id/variant/:variant',
+    name: 'variantDetail2',
     component: () => import('../views/ProductPage.vue'),
+    props: (route) => ({ query: route.query.variant }),
     meta: {
       title: 'Variant Detail',
       metaTags: [
@@ -295,55 +320,78 @@ const routes = [
         }
       ]
     }
-  }, */
- /*  {
-    path: '/search/:term',
-    name: 'searchterm',
-    component: () => import('../components/subcomponents/ModalSearch.vue'),
-    props: (route) => ({ query: route.query.term })
   },
   {
-    path: '/search/',
-    name: 'search',
-    component: () => import('../components/subcomponents/ModalSearch.vue')
-  },
-  {
-    path: '/recovery',
-    name: 'recovery',
-    component: () => import('../views/AccountRecovery.vue')
-  },
-  {
-    path: '/register',
-    name: 'register',
-    component: () => import('../views/AccountRegister.vue')
-  },
-  {
-    path: '/account',
-    name: 'account',
-    component: () => import('../views/AccountInfo.vue')
-  },
-  {
-    path: '/shoppingcart',
-    name: 'shoppingcart',
-    component: () => import('../views/ShoppingCart.vue'),
+    path: '/bloco-b/category/:category/collection/:collection/id/:id/name/:name/variant/:variant',
+    name: 'variantDetail',
+    component: () => import('../views/ProductPage.vue'),
+    props: (route) => ({ query: route.query.variant }),
     meta: {
-      title: 'Shopping Cart',
+      title: 'Variant Detail',
       metaTags: [
         {
           name: 'og:title',
-          content: 'Shopping Cart'
+          content: 'Variant Detail'
         },
         {
           name: 'description',
-          content: 'Shopping Cart'
+          content: 'Products list page'
         },
         {
           property: 'og:description',
-          content: 'Shopping Cart'
+          content: 'Products list page'
         }
       ]
     }
-  }, */
+  },
+  /*  {
+     path: '/search/:term',
+     name: 'searchterm',
+     component: () => import('../components/subcomponents/ModalSearch.vue'),
+     props: (route) => ({ query: route.query.term })
+   },
+   {
+     path: '/search/',
+     name: 'search',
+     component: () => import('../components/subcomponents/ModalSearch.vue')
+   },
+   {
+     path: '/recovery',
+     name: 'recovery',
+     component: () => import('../views/AccountRecovery.vue')
+   },
+   {
+     path: '/register',
+     name: 'register',
+     component: () => import('../views/AccountRegister.vue')
+   },
+   {
+     path: '/account',
+     name: 'account',
+     component: () => import('../views/AccountInfo.vue')
+   },
+   {
+     path: '/shoppingcart',
+     name: 'shoppingcart',
+     component: () => import('../views/ShoppingCart.vue'),
+     meta: {
+       title: 'Shopping Cart',
+       metaTags: [
+         {
+           name: 'og:title',
+           content: 'Shopping Cart'
+         },
+         {
+           name: 'description',
+           content: 'Shopping Cart'
+         },
+         {
+           property: 'og:description',
+           content: 'Shopping Cart'
+         }
+       ]
+     }
+   }, */
   {
     path: '/404',
     component: () => import('../views/404.vue'),

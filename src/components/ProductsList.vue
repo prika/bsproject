@@ -27,17 +27,17 @@
 								v-for="category in categories"
 								:key="category.id"
 								:class="
-                  category.id == selectedCategory
-                    ? 'filters__item active'
-                    : 'filters__item'
-                "
+								category.id == selectedCategory
+									? 'filters__item active'
+									: 'filters__item'
+								"
 							>
 								<router-link
 									:to="{
-                          path:
-                            '/bloco-b/category/' +
-                            category.id
-                        }"
+										path:
+											'/bloco-b/category/' +
+											category.id
+										}"
 									v-scroll-to="'header'"
 								>{{ category.name }}</router-link>
 							</li>
@@ -49,10 +49,10 @@
 								v-for="collection in collections"
 								:key="collection.id"
 								:class="
-                  collection.id == selectedCollection
-                    ? 'filters__item active'
-                    : 'filters__item'
-                "
+									collection.id == selectedCollection
+										? 'filters__item active'
+										: 'filters__item'
+									"
 							>
 								<a
 									href="javascript:void(0);"
@@ -85,52 +85,51 @@
 				>
 					<div
 						itemprop="url"
-						:href="
-              '/bloco-b/category/' +
-                selectedCategory +
-                '/collection/' +
-                selectedCollection
-            "
+						:href="'/bloco-b/category/' +
+							selectedCategory +
+							'/collection/' +
+							selectedCollection
+						"
 					/>
 					<span v-if="hasFeaturedProducts" itemprop="numberOfItems" class="d-none">{{ productsPerPage }}</span>
 
 					<transition-group appear enter-active-class="animated slideInUp delay" tag="div" class="row">
-						<div
+						<router-link
 							class="rellaxProduct product col-12 col-lg-6 col-xl-4"
 							itemprop="itemListElement"
 							itemscope
 							itemtype="http://schema.org/Product"
 							v-for="(product, index) in products"
 							:to="{
-                path:
-                  '/bloco-b/category/' +
-                  product.category +
-                  '/collection/' +
-                  product.collection +
-                  '/id/' +
-                  product.id +
-                  '/name/' +
-                  product.firstName +
-                  '-' +
-                  product.secondName,
-              }"
+								path:
+								'/bloco-b/category/' +
+								product.category +
+								'/collection/' +
+								product.collection +
+								'/id/' +
+								product.id +
+								'/name/' +
+								product.firstName +
+								'-' +
+								product.secondName,
+							}"
 							:key="product.id"
 							:data-rellax-speed="getDataSpeed(index)"
 						>
 							<meta itemprop="position" :content="index" />
 							<div
 								:href="
-                  '/bloco-b/category/' +
-                    product.category +
-                    '/collection/' +
-                    product.collection +
-                    '/id/' +
-                    product.id +
-                    '/name/' +
-                    product.firstName +
-                    '-' +
-                    product.secondName
-                "
+									'/bloco-b/category/' +
+										product.category +
+										'/collection/' +
+										product.collection +
+										'/id/' +
+										product.id +
+										'/name/' +
+										product.firstName +
+										'-' +
+										product.secondName
+									"
 								itemprop="url"
 							></div>
 							<meta itemprop="sku" :content="product.id" />
@@ -159,7 +158,7 @@
 								</mark>
 							</p>
 							<p class="categoryName" v-if="hasFeaturedProducts">{{ getCategory(product).name }}</p>
-						</div>
+						</router-link>
 					</transition-group>
 				</div>
 			</div>
@@ -232,9 +231,9 @@
 				this.rellaxJSLoaded = true;
 				this.pageLoaded();
 			},
-			getImgUrl: function(src) {
+			/* getImgUrl: function(src) {
 				return require("@/assets/images/" + src);
-			},
+			}, */
 			getCategory(product) {
 				return this.categories.filter(item => item.id == product.category)[0];
 			},
@@ -250,8 +249,8 @@
 			parseObject: function(source, destination, featuredOnly) {
 				for (var i = 0; i < source.length; i++) {
 					let obj = source[i];
-					let fullPath = this.getImgUrl(obj.imgURL);
-					obj.imgURL = fullPath;
+					let fullPath = obj.imgURL;
+					//obj.imgURL = fullPath;
 					if (featuredOnly && !obj.featured) continue;
 					destination.push(obj);
 					this.rawProducts.push(obj);
@@ -285,7 +284,11 @@
 			},
 			load() {
 				this.$http
-					.get("https://www.bstone.pt/mocks/products-list-mock.json")
+					.get(
+						"https://www.bstone.pt/webservices/" +
+							this.$i18n.locale +
+							"/products-list"
+					)
 					.then(response => {
 						this.collections = response.data.collections;
 						this.categories = response.data.categories;
@@ -312,7 +315,7 @@
 							response.data.products,
 							this.products,
 							this.hasFeaturedProducts
-						); //linha em cima igual
+						);
 						this.applyFilter();
 						this.pageLoaded();
 					});

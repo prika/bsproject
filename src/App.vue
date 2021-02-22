@@ -91,6 +91,7 @@
               'news',
               'newsdetail',
               'productDetail',
+			  'productDetail2',
               'variantDetail',
               'shoppingcart',
             ].indexOf($route.name) > -1
@@ -107,6 +108,7 @@
               'faqs',
               'privacy-policy',
               'productDetail',
+			  'productDetail2',
               'variantDetail',
               'shoppingcart',
             ].indexOf($route.name) > -1
