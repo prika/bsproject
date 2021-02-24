@@ -26,7 +26,7 @@
                                 :key="image.id">
 
                                 <video  crossorigin playsinline :id="'video'+index"
-                                        :poster="getImgUrl(image.src)" 
+                                        :poster="image.src" 
                                         :src="getVideoUrl(image.srcvideo)"
                                         :aria-label="image.alt"
                                         :width="image.width"  :height="image.height" muted="muted">
@@ -46,7 +46,7 @@
                             <div v-if="image.type == 'video' && image.provider == 'vimeo'" 
                                         :ref="'player'+index"
                                         :width="image.width+'px'"  :height="image.height+'px'"
-                                        :key="image.id" :poster="getImgUrl(image.src)">
+                                        :key="image.id" :poster="image.src">
 
                                     <div    :id="'vimeo_video_'+index"
                                             :alt="image.alt"

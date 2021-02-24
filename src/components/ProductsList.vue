@@ -231,9 +231,6 @@
 				this.rellaxJSLoaded = true;
 				this.pageLoaded();
 			},
-			/* getImgUrl: function(src) {
-				return require("@/assets/images/" + src);
-			}, */
 			getCategory(product) {
 				return this.categories.filter(item => item.id == product.category)[0];
 			},

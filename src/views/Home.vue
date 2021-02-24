@@ -55,17 +55,6 @@
 			};
 		},
 		methods: {
-			getImgUrl: function(src) {
-				return require("@/assets/images/" + src);
-			},
-			parseObject: function(source, destination) {
-				for (var i = 0; i < source.length; i++) {
-					let obj = source[i];
-					let fullPath = this.getImgUrl(obj.src);
-					obj.src = fullPath;
-					destination.push(obj);
-				}
-			},
 			notifyFinishLoad() {
 				if (!(this.bannerLoaded && this.rellaxLoaded && this.hasJsonData)) return;
 				this.$eventBus.$emit("pageFinishLoad", true);
@@ -92,9 +81,10 @@
 				)
 				.then(response => {
 					this.home = response.data;
-					this.parseObject(response.data.gallery1, this.gallery1);
-					this.parseObject(response.data.gallery2, this.gallery2);
-					this.parseObject(response.data.slidergallery, this.slidergallery);
+					this.gallery1 = response.data.gallery1;
+					this.gallery2 = response.data.gallery2;
+					this.slidergallery = response.data.slidergallery;
+
 					this.hasJsonData = true;
 					this.notifyFinishLoad();
 				});

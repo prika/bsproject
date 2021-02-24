@@ -88,24 +88,13 @@
 			};
 		},
 		methods: {
-			getImgUrl: function(src) {
-				return require("@/assets/images/" + src);
-			},
-			parseObject: function(source, destination) {
-				for (var i = 0; i < source.length; i++) {
-					let obj = source[i];
-					obj.img = this.getImgUrl(obj.img);
-					obj.file = this.getImgUrl(obj.file);
-					destination.push(obj);
-				}
-			},
 			scrollTop() {
 				window.scrollTop = 0;
 			}
 		},
 		created() {
 			this.$eventBus.$on("jsonGlobalLoaded", response => {
-				this.parseObject(response.data.footer.cofinance, this.cofinance);
+				this.cofinance = response.data.footer.cofinance;
 			});
 
 			var self = this;

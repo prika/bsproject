@@ -28,7 +28,7 @@
 					:key="image.id"
 				>
 					<img
-						:src="getImgUrl(image.src)"
+						:src="image.src"
 						:alt="image.alt"
 						:width="resizedWidth[index] + 'px'"
 						:height="resizedHeight[index] + 'px'"
@@ -48,7 +48,7 @@
 						crossorigin="anonymous"
 						playsinline
 						:id="'video' + index"
-						:poster="getImgUrl(image.src)"
+						:poster="image.src"
 						:src="getVideoUrl(image.srcvideo)"
 						:aria-label="image.alt"
 						:width="resizedWidth[index] + 'px'"
@@ -81,7 +81,7 @@
 					:width="resizedWidth[index] + 'px'"
 					:height="resizedHeight[index] + 'px'"
 					:key="image.id"
-					:poster="getImgUrl(image.src)"
+					:poster="image.src"
 				>
 					<div
 						:id="'vimeo_video_' + index"
@@ -125,7 +125,9 @@
 		},
 		created() {
 			this.$http
-				.get("https://www.bstone.pt/webservices" + this.$i18n.locale + "homepage")
+				.get(
+					"https://www.bstone.pt/webservices/" + this.$i18n.locale + "/homepage"
+				)
 				.then(response => {
 					this.imageGroupSliderGallery = response.data.slidergallery;
 					var hasYoutubeVideoPlayerScript = false;
@@ -236,9 +238,6 @@
 							this.resizedHeight[i] * this.slideAspectRatio[i];
 					}
 				}
-			},
-			getImgUrl: function(src) {
-				return require("@/assets/images/" + src);
 			},
 			getVideoUrl: function(src) {
 				return require("@/assets/media/" + src);

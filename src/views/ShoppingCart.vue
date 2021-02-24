@@ -62,7 +62,7 @@
 								></transition>
 								<!--col-8 col-md-6 col-lg-6 col-xl-7-->
 								<div class="d-flex align-items-center justify-content-between">
-									<img :src="getImgUrl(product.imgURL)" width="156" height="156" />
+									<img :src="product.imgURL" width="156" height="156" />
 
 									<div class="productInfo">
 										<h2>{{ product.name }}</h2>
@@ -236,9 +236,6 @@
 				});
 		},
 		methods: {
-			getImgUrl: function(src) {
-				return require("@/assets/images/" + src);
-			},
 			isMobile() {
 				return /Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
 					navigator.userAgent

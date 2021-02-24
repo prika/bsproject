@@ -170,17 +170,10 @@
 					//e.preventDefault();
 				});
 			},
-			/* getImgUrl: function(src) {
-							return require("@/assets/images/" + src);
-						}, */
 			parseObject: function(source) {
 				for (var i = 0; i < source.length; i++) {
 					let thumb = source[i].thumb;
 					let largeImage = source[i].large;
-
-					/* thumb.src = this.getImgUrl(thumb.src);
-								largeImage.src = this.getImgUrl(largeImage.src); */
-
 					this.thumbs.push(thumb);
 					this.largeImages.push(largeImage);
 				}

@@ -192,9 +192,6 @@
 			};
 		},
 		methods: {
-			/* getImgUrl: function(src) {
-														return require("@/assets/images/" + src);
-													}, */
 			prevPageClick() {
 				this.currentPage--;
 				this.changePage();

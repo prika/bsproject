@@ -38,15 +38,10 @@
 			};
 		},
 		methods: {
-			/* getImgUrl: function(src) {
-								return require("@/assets/images/" + src);
-							}, */
 			parseObject: function(source, destination) {
 				for (var i = 0; i < source.length; i++) {
 					let obj = source[i];
 					let fullPath = obj.src;
-					//this.getImgUrl(obj.src);
-					//obj.src = fullPath;
 					destination.push(obj);
 				}
 			},
