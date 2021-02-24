@@ -41,7 +41,7 @@
 			this.$eventBus.$emit("pageFinishLoad", true);
 
 			this.$http
-				.get("https://www.bstone.pt/mocks/global-mock.json")
+				.get("https://www.bstone.pt/webservices/" + this.$i18n.locale + "/global")
 				.then(response => {
 					this.privacypolicy = response.data.privacypolicy;
 					this.questions = response.data.privacypolicy.questions;

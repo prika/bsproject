@@ -125,7 +125,7 @@
 		},
 		created() {
 			this.$http
-				.get("https://www.bstone.pt/mocks/homepage-mock.json")
+				.get("https://www.bstone.pt/webservices" + this.$i18n.locale + "homepage")
 				.then(response => {
 					this.imageGroupSliderGallery = response.data.slidergallery;
 					var hasYoutubeVideoPlayerScript = false;

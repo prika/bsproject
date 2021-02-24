@@ -155,7 +155,7 @@
 		},
 		mounted() {
 			this.$http
-				.get("https://www.bstone.pt/mocks/global-mock.json")
+				.get("https://www.bstone.pt/webservices/" + this.$i18n.locale + "/global")
 				.then(response => {
 					this.$eventBus.$emit("jsonGlobalLoaded", response);
 				});

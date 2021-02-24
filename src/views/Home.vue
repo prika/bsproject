@@ -87,7 +87,9 @@
 			});
 
 			this.$http
-				.get("https://www.bstone.pt/mocks/homepage-mock.json")
+				.get(
+					"https://www.bstone.pt/webservices/" + this.$i18n.locale + "/homepage"
+				)
 				.then(response => {
 					this.home = response.data;
 					this.parseObject(response.data.gallery1, this.gallery1);

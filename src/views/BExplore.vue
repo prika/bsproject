@@ -40,7 +40,9 @@
 			});
 
 			this.$http
-				.get("https://www.bstone.pt/mocks/b-explore-mock.json")
+				.get(
+					"https://www.bstone.pt/webservices/" + this.$i18n.locale + "/b-explore"
+				)
 				.then(response => {
 					this.bexplore = response.data;
 					this.$eventBus.$emit("mansoryFinishLoad", response.data.mansory);

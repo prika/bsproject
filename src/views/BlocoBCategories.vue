@@ -110,7 +110,9 @@
 		},
 		beforeCreate() {
 			this.$http
-				.get("https://www.bstone.pt/mocks/products-list-mock.json")
+				.get(
+					"https://www.bstone.pt/webservices/" + this.$i18n.locale + "/news-list"
+				)
 				.then(response => {
 					this.categories = response.data.categories;
 					this.collections = response.data.collections;

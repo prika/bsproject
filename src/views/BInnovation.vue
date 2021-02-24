@@ -38,14 +38,15 @@
 			};
 		},
 		methods: {
-			getImgUrl: function(src) {
-				return require("@/assets/images/" + src);
-			},
+			/* getImgUrl: function(src) {
+								return require("@/assets/images/" + src);
+							}, */
 			parseObject: function(source, destination) {
 				for (var i = 0; i < source.length; i++) {
 					let obj = source[i];
-					let fullPath = this.getImgUrl(obj.src);
-					obj.src = fullPath;
+					let fullPath = obj.src;
+					//this.getImgUrl(obj.src);
+					//obj.src = fullPath;
 					destination.push(obj);
 				}
 			},
@@ -71,7 +72,11 @@
 			});
 
 			this.$http
-				.get("https://www.bstone.pt/mocks/b-innovation-mock.json")
+				.get(
+					"https://www.bstone.pt/webservices/" +
+						this.$i18n.locale +
+						"/b-innovation"
+				)
 				.then(response => {
 					this.binnovation = response.data;
 					this.parseObject(response.data.gallery1, this.gallery1);
