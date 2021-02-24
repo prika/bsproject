@@ -1,5 +1,5 @@
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import Home from '@/views/Home.vue'
 
 Vue.use(VueRouter)
 //global.Vue = Vue
@@ -30,7 +30,7 @@ const routes = [
   {
     path: '/b-explore',
     name: 'explore',
-    component: () => import( /* webpackChunkName: "pages" */ '../views/BExplore.vue'),
+    component: () => import( /* webpackChunkName: "pages" */ '@/views/BExplore.vue'),
     meta: {
       title: 'B Explore Page',
       metaTags: [
@@ -52,7 +52,7 @@ const routes = [
   {
     path: '/b-project',
     name: 'project',
-    component: () => import( /* webpackChunkName: "pages" */ '../views/BProject.vue'),
+    component: () => import( /* webpackChunkName: "pages" */ '@/views/BProject.vue'),
     meta: {
       title: 'B Project Page',
       metaTags: [
@@ -75,7 +75,7 @@ const routes = [
   {
     path: '/b-innovation',
     name: 'innovation',
-    component: () => import( /* webpackChunkName: "pages" */ '../views/BInnovation.vue'),
+    component: () => import( /* webpackChunkName: "pages" */ '@/views/BInnovation.vue'),
     meta: {
       title: 'B Innovation Page',
       metaTags: [
@@ -98,7 +98,7 @@ const routes = [
   {
     path: '/news',
     name: 'news',
-    component: () => import('../views/News.vue'),
+    component: () => import('@/views/News.vue'),
     meta: {
       title: 'News List Page',
       metaTags: [
@@ -118,9 +118,9 @@ const routes = [
     }
   },
   {
-    path: '/news/:id-:title',
+    path: '/news/:id',
     name: 'newsdetail',
-    component: () => import('../views/NewsDetail.vue'),
+    component: () => import('@/views/NewsDetail.vue'),
     props: (route) => ({ query: route.query.news }),
     meta: {
       title: 'News Detail Page',
@@ -138,7 +138,12 @@ const routes = [
           content: 'News Detail Page'
         }
       ]
-    }
+    },
+    children: [
+      {
+        path: '-:title'
+      }
+    ]
   },
   {
     path: '/faqs',
@@ -253,7 +258,7 @@ const routes = [
     }
   },
   {
-    path: '/bloco-b/category/:category/collection/:collection/id/:id/name/:name',
+    path: '/bloco-b/category/:category/collection/:collection/id/:id',
     name: 'productDetail',
     component: () => import('../views/DetailPage.vue'),
     props: (route) => ({ query: route.query.id }),
@@ -273,10 +278,15 @@ const routes = [
           content: 'Products list page'
         }
       ]
-    }
+    },
+    children: [
+      {
+        path: 'name/:name'
+      }
+    ]
   },
   {
-    path: '/bloco-b/category/:category/collection/:collection/id/:id',
+    path: '/bloco-b/category/:category/id/:id',
     name: 'productDetail2',
     component: () => import('../views/DetailPage.vue'),
     props: (route) => ({ query: route.query.id }),
@@ -344,54 +354,54 @@ const routes = [
       ]
     }
   },
-  /*  {
-     path: '/search/:term',
-     name: 'searchterm',
-     component: () => import('../components/subcomponents/ModalSearch.vue'),
-     props: (route) => ({ query: route.query.term })
-   },
-   {
-     path: '/search/',
-     name: 'search',
-     component: () => import('../components/subcomponents/ModalSearch.vue')
-   },
-   {
-     path: '/recovery',
-     name: 'recovery',
-     component: () => import('../views/AccountRecovery.vue')
-   },
-   {
-     path: '/register',
-     name: 'register',
-     component: () => import('../views/AccountRegister.vue')
-   },
-   {
-     path: '/account',
-     name: 'account',
-     component: () => import('../views/AccountInfo.vue')
-   },
-   {
-     path: '/shoppingcart',
-     name: 'shoppingcart',
-     component: () => import('../views/ShoppingCart.vue'),
-     meta: {
-       title: 'Shopping Cart',
-       metaTags: [
-         {
-           name: 'og:title',
-           content: 'Shopping Cart'
-         },
-         {
-           name: 'description',
-           content: 'Shopping Cart'
-         },
-         {
-           property: 'og:description',
-           content: 'Shopping Cart'
-         }
-       ]
-     }
-   }, */
+  {
+    path: '/search',
+    name: 'search',
+    component: () => import('../components/subcomponents/ModalSearch.vue'),
+  },
+  {
+    path: '/search/:term',
+    name: 'searchterm',
+    component: () => import('../components/subcomponents/ModalSearch.vue'),
+    props: (route) => ({ query: route.query.term })
+  },
+  /* {
+    path: '/recovery',
+    name: 'recovery',
+    component: () => import('../views/AccountRecovery.vue')
+  },
+  {
+    path: '/register',
+    name: 'register',
+    component: () => import('../views/AccountRegister.vue')
+  },
+  {
+    path: '/account',
+    name: 'account',
+    component: () => import('../views/AccountInfo.vue')
+  },
+  {
+    path: '/shoppingcart',
+    name: 'shoppingcart',
+    component: () => import('../views/ShoppingCart.vue'),
+    meta: {
+      title: 'Shopping Cart',
+      metaTags: [
+        {
+          name: 'og:title',
+          content: 'Shopping Cart'
+        },
+        {
+          name: 'description',
+          content: 'Shopping Cart'
+        },
+        {
+          property: 'og:description',
+          content: 'Shopping Cart'
+        }
+      ]
+    }
+  }, */
   {
     path: '/404',
     component: () => import('../views/404.vue'),

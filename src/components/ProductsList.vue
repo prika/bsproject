@@ -256,9 +256,7 @@
 					this.rawProducts.push(obj);
 				}
 			},
-			filterByCategory(
-				id // <- this is a line
-			) {
+			filterByCategory(id) {
 				this.selectedCategory = id;
 				this.selectedCollection = this.collections[0].id; // selects the first collection by default
 				this.selectedColors = [];

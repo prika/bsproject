@@ -1,8 +1,7 @@
 <template>
 	<div id="newsdetailpage" class="pageContainer">
 		<h1 class="pageTitle" :aria-label="$t('home-title-page')">
-			{{ $t("home-title-page-split1")
-			}}
+			{{ $t("home-title-page-split1")}}
 			<span>{{ $t("home-title-page-split2") }}</span>
 		</h1>
 

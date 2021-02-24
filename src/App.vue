@@ -72,8 +72,11 @@
               'privacy-policy',
               'news',
               'newsdetail',
+			  'newsdetail2',
               'productDetail',
+			  'productDetail2',
               'variantDetail',
+			  'variantDetail2',
               'shoppingcart',
             ].indexOf($route.name) > -1
           )
@@ -90,9 +93,11 @@
               'privacy-policy',
               'news',
               'newsdetail',
+			  'newsdetail2',
               'productDetail',
 			  'productDetail2',
               'variantDetail',
+			  'variantDetail2',
               'shoppingcart',
             ].indexOf($route.name) > -1
           )
@@ -110,6 +115,7 @@
               'productDetail',
 			  'productDetail2',
               'variantDetail',
+			  'variantDetail2',
               'shoppingcart',
             ].indexOf($route.name) > -1
           )
