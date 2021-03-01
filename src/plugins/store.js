@@ -12,12 +12,14 @@ export const store = new Vuex.Store({
         let cartProduct = state.cart.find((product) => product == productId) // find the product in the cart list
         if (cartProduct) return // Already in the cart
         state.cart.push(productId)
+        $cookies.set("cartArray", state.cart.join(';'));
     },
     removeFromCart: (state, productId) => 
     {
         let cartProductIndex = state.cart.findIndex((product) => product == productId); // find the product in the cart list
         if (cartProductIndex < 0) return // not in the cart
         state.cart.splice(cartProductIndex, 1)
+        $cookies.set("cartArray", state.cart.join(';'));
     },
     login: (state, token) =>
     {
@@ -57,13 +59,20 @@ export const store = new Vuex.Store({
     {
         return state.cart.length
     },
-    isItemInCart: state => productId => {
-
+    isItemInCart: state => productId => 
+    {
         return state.cart.find((product) => product == productId) != null
     },
     isLoggedIn: (state) =>
     {
         return state.token
+    },
+    getCart: (state) =>
+    {
+        if (!$cookies.isKey("cartArray")) return []
+        let item = $cookies.get("cartArray") 
+        state.cart = item.split(';')
+        return state.cart
     }
   }
 })

@@ -18,17 +18,13 @@
 								<span class="categoryTitle uppercase">{{ container.category }}</span>
 								<span class="containerQuantity">{{ container.quantity }}</span>
 								<span class="d-none d-sm-inline-block">
-									{{
-									$tc("checkout-products", container.quantity)
-									}}
+									{{$tc("checkout-products", container.quantity)}}
 								</span>
 							</p>
 
 							<p class="col-12 col-md-4 text-center containerInfo">
 								<span class="uppercase">
-									{{
-									$tc("checkout-container", container.containerCount)
-									}}
+									{{$tc("checkout-container", container.containerCount)}}
 								</span>
 								- {{ container.containerCount }} -
 								{{ container.containerDimensions }}m
@@ -40,28 +36,21 @@
 						<div class="categoryRow" v-for="(item, index) in container.containerItems" :key="index">
 							<p v-if="isMobile()" class="categoryContainerMobile col-12 text-center d-block d-sm-none">
 								<span class="bold lowercase">
-									{{
-									$tc("checkout-container", 1)
-									}}
+									{{$tc("checkout-container", 1)}}
 								</span>
 								({{ item.name }})
 								<span class="bold">{{ item.percentage }}%</span>
 							</p>
 
 							<!-- repeat -->
-							<a
+							
+							<div
 								v-for="(product, index) in item.products"
 								:key="index"
-								:href="product.link"
-								class="productCart col-12 col-md-8 d-flex align-items-center justify-content-between"
-							>
-								<transition
-									appear
-									enter-active-class="animated slideInLeft"
-									leave-active-class="animated slideOutLeft"
-								></transition>
+								class="productCart col-12 col-md-8 d-flex align-items-center justify-content-between">
+							
 								<!--col-8 col-md-6 col-lg-6 col-xl-7-->
-								<div class="d-flex align-items-center justify-content-between">
+								<a class="d-flex align-items-center justify-content-between" :href="product.link">
 									<img :src="product.imgURL" width="156" height="156" />
 
 									<div class="productInfo">
@@ -69,12 +58,18 @@
 										<h3>{{ product.variantName }}</h3>
 										<p>{{ product.dimensions }}cm</p>
 									</div>
-								</div>
+								</a>
 
 								<button class="removebutton" @click="removeProduct(product.id)">
 									<removeIcon />
 								</button>
-							</a>
+							
+							</div>
+							<!--transition
+									appear
+									enter-active-class="animated slideInLeft"
+									leave-active-class="animated slideOutLeft">
+							</transition-->
 							<!-- repeat -->
 
 							<div class="categoryContainer text-center d-none d-md-block col-sm-4">
@@ -182,11 +177,11 @@
 					@click="checkoutStep = 2"
 					href="javascript:void(0)"
 					:class="
-            checkoutStep === 1
-              ? 'cartLink col-12 col-md-3'
-              : 'cartLink col-6 col-md-4 order-md-3'
-          "
-				>
+			            checkoutStep === 1
+			              ? 'cartLink col-12 col-md-3'
+			              : 'cartLink col-6 col-md-4 order-md-3'
+			          "
+							>
 					<arrowRightIcon />
 					<span v-if="checkoutStep === 1">{{ $t("checkout-next-step") }}</span>
 					<span v-else>{{ $t("checkout-final-step") }}</span>
@@ -202,6 +197,7 @@
 	import shareIcon from "@/components/ui/shareButton.vue";
 	import removeIcon from "@/components/ui/removeIcon.vue";
 	import chartContainer from "@/components/ui/chartContainer.vue";
+	import { mapGetters } from "vuex";
 
 	export default {
 		name: "shoppingCartPage",
@@ -225,15 +221,15 @@
 			};
 		},
 		created() {
-			this.$http
-				.get("https://www.bstone.pt/mocks/cart-list-mock.json")
-				.then(response => {
-					this.categoryContainers = response.data.categoryContainers;
-					this.containerItems = response.data.categoryContainers.containerItems;
-					this.totalProducts = response.data.totalProducts;
-					this.deliveryOptions = response.data.deliveryOptions;
-					this.$eventBus.$emit("pageFinishLoad", true);
-				});
+			this.updateCart()
+		},
+	    watch: {
+	        $route(to , from){
+	            this.updateCart()
+	        }
+	    },
+		computed: {
+			...mapGetters(["getCart"])
 		},
 		methods: {
 			isMobile() {
@@ -243,6 +239,31 @@
 			},
 			removeProduct(product) {
 				this.$store.dispatch("removeFromCart", product);
+			},
+			updateCart()
+			{
+				const items = this.getCart;
+				let references = "";
+
+				for (var t = 0; t < items.length; t++) {
+
+					references += "references[]=" + items[t] ;
+					if ( t+1 < items.length ) { 
+						references += "&" 
+					}
+				}
+
+				this.$http
+				.get("https://www.bstone.pt/webservices/" +
+						this.$i18n.locale +
+						"/cart-list?" + references )
+				.then(response => {
+					this.categoryContainers = response.data.categoryContainers;
+					this.containerItems = response.data.categoryContainers.containerItems;
+					this.totalProducts = response.data.totalProducts;
+					this.deliveryOptions = response.data.deliveryOptions;
+					this.$eventBus.$emit("pageFinishLoad", true);
+				});
 			}
 		}
 	};
@@ -392,8 +413,10 @@
 						transition-delay: 0.6s;
 					}
 
+					a{text-decoration: none;}
+					
 					&:hover {
-						//background: rgba( 255, 255, 255, .4);
+						background: rgba( 255, 255, 255, .4);
 						-webkit-transform: translateX(2%);
 						-moz-transform: translateX(2%);
 						-o-transform: translateX(2%);
@@ -409,6 +432,7 @@
 					.productInfo {
 						height: 150px;
 						padding-left: 20px;
+						text-decoration: none;
 
 						h2,
 						h3 {
@@ -417,10 +441,10 @@
 							overflow: hidden;
 						}
 						h2 {
-							margin-bottom: 32px;
+							margin-bottom: 25px;
 						}
 						h3 {
-							margin-bottom: 30px;
+							margin-bottom: 26px;
 						}
 					}
 
