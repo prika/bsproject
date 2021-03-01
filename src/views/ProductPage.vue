@@ -66,9 +66,7 @@
 					href="javascript:void(0)"
 					v-for="(thumb, index) in thumbs"
 					:key="thumb.id"
-					:class="
-            thumb.type == 'img' ? 'containerImage' : 'containerImage video'
-          "
+					:class="thumb.type == 'img' ? 'containerImage' : 'containerImage video'"
 				>
 					<img
 						:src="thumb.src"
@@ -162,12 +160,12 @@
 					firstScriptTag.parentNode.insertBefore(tagScroll, firstScriptTag);
 
 					this.hasScrollScript = true;
-					//return
+					return
 				}
 
 				$("html, body").mousewheel(function(e, delta) {
 					this.scrollLeft -= delta;
-					//e.preventDefault();
+					e.preventDefault();
 				});
 			},
 			parseObject: function(source) {
@@ -192,6 +190,8 @@
 			}
 		},
 		created() {
+			this.mouseWheelListener();
+
 			this.$http
 				.get(
 					"https://www.bstone.pt/webservices/" +
@@ -202,7 +202,6 @@
 				.then(response => {
 					this.variant = response.data.variant;
 					this.parseObject(response.data.variant.images);
-					this.mouseWheelListener();
 					this.productAdded = this.$store.getters.isItemInCart(this.variant.ref);
 					this.$eventBus.$emit("pageFinishLoad", true);
 				});
