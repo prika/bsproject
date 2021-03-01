@@ -17,9 +17,8 @@
 				</router-link>
 
 				<button
-					class="buttons userButton"
-					disabled
 					@click="autentication()"
+					class="buttons userButton"
 					v-bind:aria-label="$t('button-arialabel-open-login')"
 				>
 					<UserButton></UserButton>
@@ -29,7 +28,6 @@
 					@click="showCart"
 					tag="button"
 					class="buttons cartButton"
-					disabled
 					v-bind:aria-label="$t('button-arialabel-open-cart')"
 				>
 					<CartButton>{{cartSize}}</CartButton>

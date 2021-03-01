@@ -278,12 +278,30 @@ const routes = [
           content: 'Products list page'
         }
       ]
-    },
-    children: [
-      {
-        path: 'name/:name'
-      }
-    ]
+    }
+  },
+  {
+    path: '/bloco-b/category/:category/collection/:collection/id/:id/name/:name',
+    name: 'productDetail3',
+    component: () => import('../views/DetailPage.vue'),
+    props: (route) => ({ query: route.query.id }),
+    meta: {
+      title: 'Product Detail',
+      metaTags: [
+        {
+          name: 'og:title',
+          content: 'Product Detail'
+        },
+        {
+          name: 'description',
+          content: 'Products list page'
+        },
+        {
+          property: 'og:description',
+          content: 'Products list page'
+        }
+      ]
+    }
   },
   {
     path: '/bloco-b/category/:category/id/:id',
@@ -365,7 +383,7 @@ const routes = [
     component: () => import('../components/subcomponents/ModalSearch.vue'),
     props: (route) => ({ query: route.query.term })
   },
-  /* {
+  {
     path: '/recovery',
     name: 'recovery',
     component: () => import('../views/AccountRecovery.vue')
@@ -401,7 +419,7 @@ const routes = [
         }
       ]
     }
-  }, */
+  },
   {
     path: '/404',
     component: () => import('../views/404.vue'),
