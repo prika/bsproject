@@ -83,7 +83,7 @@
 					itemscope
 					itemtype="http://schema.org/ItemList"
 				>
-					<div
+					<link
 						itemprop="url"
 						:href="'/bloco-b/category/' +
 							selectedCategory +
@@ -117,7 +117,7 @@
 							:data-rellax-speed="getDataSpeed(index)"
 						>
 							<meta itemprop="position" :content="index" />
-							<div
+							<a
 								:href="
 									'/bloco-b/category/' +
 										product.category +
@@ -131,7 +131,7 @@
 										product.secondName
 									"
 								itemprop="url"
-							></div>
+							></a>
 							<meta itemprop="sku" :content="product.id" />
 
 							<div itemprop="offers" itemtype="https://schema.org/Offer" itemscope>

@@ -269,7 +269,7 @@
 		</svg>
 
 		<svg
-			v-if=" name == 'listpage-categories' || name == 'listpage-collection' || name ==  'productDetail' || name ==  'productDetail2' || name == 'variantDetail' || name == 'variantDetail2' "
+			v-if=" name == 'listpage-categories' || name == 'listpage-collection' || name ==  'productDetail' || name ==  'productDetail2' || name ==  'productDetail3' || name == 'variantDetail' || name == 'variantDetail2' "
 			v-once
 			alt="Preloading Bloco B"
 			xmlns="http://www.w3.org/2000/svg"

@@ -36,17 +36,17 @@
 									v-for="(category, i) in categories"
 									:key="i"
 									:class="
-                    category.id == selectedCategory
-                      ? 'filters__item active'
-                      : 'filters__item'
-                  "
-								>
+					                    category.id == selectedCategory
+					                      ? 'filters__item active'
+					                      : 'filters__item'
+					                  "
+									>
 									<router-link
 										:to="{
-                          path:
-                            '/bloco-b/category/' +
-                            category.id
-                        }"
+				                          path:
+				                            '/bloco-b/category/' +
+				                            category.id
+				                        }"
 									>{{ category.name }}</router-link>
 
 									<ul
@@ -59,29 +59,26 @@
 											v-for="(collection, c) in collections"
 											:key="c"
 											:class="
-                        collection.id == selectedCollection
-                          ? 'filters__item active'
-                          : 'filters__item'
-                      "
-										>
+						                        collection.id == selectedCollection
+						                          ? 'filters__item active'
+						                          : 'filters__item'
+						                      ">
 											<router-link
 												:to="{
-                          path:
-                            '/bloco-b/category/' +
-                            category.id +
-                            '/collection/' +
-                            collection.id +
-                            '/',
-                        }"
+						                          path:
+						                            '/bloco-b/category/' +
+						                            category.id +
+						                            '/collection/' +
+						                            collection.id +
+						                            '/',
+						                        }"
 											>{{ collection.name }}</router-link>
 										</li>
 									</ul>
 								</li>
 							</ul>
 
-							<!--router-link to="/simulator" class="simulatorLink">{{
-                $t("simulator")
-							}}</router-link-->
+							<!--router-link to="/simulator" class="simulatorLink">{{$t("simulator")}}</router-link-->
 						</nav>
 					</transition>
 				</div>
@@ -91,7 +88,7 @@
 </template>
 
 <script>
-	import closeIcon from "../components/ui/closeIcon.vue";
+	import closeIcon from "@/components/ui/closeIcon.vue";
 	import submitIcon from "@/components/ui/submitIcon.vue";
 
 	export default {
@@ -111,7 +108,9 @@
 		beforeCreate() {
 			this.$http
 				.get(
-					"https://www.bstone.pt/webservices/" + this.$i18n.locale + "/news-list"
+					"https://www.bstone.pt/webservices/" +
+					this.$i18n.locale +
+					"/products-list"
 				)
 				.then(response => {
 					this.categories = response.data.categories;
