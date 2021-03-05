@@ -206,9 +206,7 @@
 							<div class="col-12 col-md-6">
 								<div
 									class="input_group"
-									:class="
-                    cont_password_confirm_register_error === true ? 'error' : ''
-                  "
+									:class="cont_password_confirm_register_error === true ? 'error' : ''"
 								>
 									<input
 										id="cont_password_confirm_register"
@@ -218,23 +216,18 @@
 										:disabled="disabledInput"
 										name="password"
 										autocomplete="new-password"
-										:aria-label="
-                      accountregister.inputpasswordconfirm.placeholder
-                    "
-										placeholder=" "
-									/>
-									<label for="cont_password_confirm_register">
-										{{
-										accountregister.inputpasswordconfirm.placeholder
-										}}
-									</label>
+										:aria-label="accountregister.inputpasswordconfirm.placeholder"
+										placeholder=" "/>
+									<label for="cont_password_confirm_register">{{accountregister.inputpasswordconfirm.placeholder}}</label>
 									<p class="errormessage">{{ cont_password_confirm_register_validator }}</p>
 								</div>
 							</div>
 						</div>
 
 						<div class="row">
-							<div class="col-12 col-md-6"></div>
+							<div class="col-12 col-md-6">
+								<p class="errormessage">{{error_server}}</p>
+							</div>
 							<div class="col-12 col-md-6">
 								<button class="button submitButton float-right" :aria-label="accountregister.submit">
 									<submitIcon>{{ accountregister.submit }}</submitIcon>
@@ -247,11 +240,8 @@
 
 			<transition
 				enter-active-class="animated fadeIn faster"
-				leave-active-class="animated fadeOut faster"
-			>
-				<div class="col-12" v-if="success">
-					<p v-html="accountregister.success">{{ accountregister.success }}</p>
-				</div>
+				leave-active-class="animated fadeOut faster">
+				<p v-html="accountregister.success" v-if="success">{{ accountregister.success }}</p>
 			</transition>
 		</div>
 	</div>
@@ -349,7 +339,8 @@
 				error_required: "",
 				error_invalid: "",
 				error_email_confirmation: "",
-				error_password_confirmation: ""
+				error_password_confirmation: "",
+				error_server: ""
 			};
 		},
 		created() {
@@ -361,7 +352,7 @@
 			);
 
 			this.$http
-				.get("https://www.bstone.pt/mocks/account-mock.json")
+				.get("/webservices/" + this.$i18n.locale + "/account")
 				.then(response => {
 					this.accountregister = response.data.accountregister;
 					this.$eventBus.$emit("pageFinishLoad", true);
@@ -403,34 +394,37 @@
 				//e.preventDefault()
 				if (!this.validateForm()) return;
 
-				const data = {
-					cont_name_register: this.cont_name_register,
-					cont_surname_register: this.cont_surname_register,
-					cont_phone_register: this.cont_phone_register,
-					cont_company_register: this.cont_company_register,
-					cont_email_register: this.cont_email_register,
-					cont_email_confirm_register: this.cont_email_confirm_register,
-					cont_password_register: this.cont_password_register,
-					cont_password_confirm_register: this.cont_password_confirm_register,
-					cont_country_register: this.cont_country_register
-				};
+				let data = new FormData();
+					data.append("inputname", this.cont_name_register);
+					data.append("inputsurname", this.cont_surname_register);
+					data.append("inputphone", this.cont_phone_register);
+					data.append("inputcompany", this.cont_company_register);
+					data.append("inputemail", this.cont_email_register);
+					data.append("inputemailconfirm", this.cont_email_confirm_register);
+					data.append("inputpassword", this.cont_password_register);
+					data.append("inputpasswordconfirm", this.cont_password_confirm_register);
+					data.append("inputcountry", this.cont_country_register);
 
 				var self = this;
 				this.$http
-					.post(
-						"https://bafdc7b9-222e-4e30-a8ec-f760c186fb05.mock.pstmn.io/subscribe",
-						data
-					)
+					.post("/webservices/" + this.$i18n.locale + "/doregistration", data )
 					.then(response => {
+						
 						this.success = true;
-
+						
 						setTimeout(function() {
+							self.showLoginForm = true;
+							self.$router.push({path: '/'});
 							self.success = false;
-						}, 10000);
+						}, 7000);
 					})
 					.catch(e => {
-						this.errors.push(e.message);
+						this.success = false;
+						this.notsuccess = true;
+						this.error_server = e.response.data.status;
 					});
+
+					
 			},
 			validateForm: function() {
 				const validName = this.validateName();
@@ -456,46 +450,43 @@
 				);
 			},
 			validateName: function() {
-				this.cont_name_register_error = this.cont_name_register === "";
+				this.cont_name_register_error = this.cont_name_register == "";
 				this.cont_name_register_validator = this.cont_name_register_error
 					? this.error_required
 					: "";
 				return !this.cont_name_register_error;
 			},
 			validateSurname: function() {
-				this.cont_surname_register_error = this.cont_surname_register === "";
+				this.cont_surname_register_error = this.cont_surname_register == "";
 				this.cont_surname_register_validator = this.cont_surname_register_error
 					? this.error_required
 					: "";
 				return !this.cont_surname_register_error;
 			},
 			validatePhone: function() {
-				this.cont_phone_register_error = this.cont_phone_register === "";
+				this.cont_phone_register_error = this.cont_phone_register == "";
 				this.cont_phone_register_validator = this.cont_phone_register_error
 					? this.error_required
 					: "";
 				return !this.cont_phone_register_error;
 			},
 			validateCompany: function() {
-				this.cont_company_register_error = this.cont_company_register === "";
+				this.cont_company_register_error = this.cont_company_register == "";
 				this.cont_company_register_validator = this.cont_company_register_error
 					? this.error_required
 					: "";
 				return !this.cont_company_register_error;
 			},
 			validateEmail: function() {
-				if (cont_email_register.value === "") {
+				if (cont_email_register.value == "") {
 					this.cont_email_register_error = true;
 					this.cont_email_register_validator = this.cont_email_register_error
 						? this.error_required
 						: "";
 					return false;
 				} else {
-					this.emailValidation;
-					return false;
+					return this.emailValidation;
 				}
-
-				return !this.cont_email_register_error;
 			},
 			validateEmailCheck: function() {
 				if (cont_email_confirm_register.value == "") {

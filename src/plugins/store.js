@@ -24,10 +24,12 @@ export const store = new Vuex.Store({
     login: (state, token) =>
     {
         state.token = token
+        $cookies.set("userToken", state.token);
     },
     logout: (state, token) =>
     {
         state.token = null
+        $cookies.set("userToken", state.token);
     }
   },
   actions: 
@@ -55,6 +57,13 @@ export const store = new Vuex.Store({
   },
   getters: 
   {
+    getCart: (state) =>
+    {
+        if (!$cookies.isKey("cartArray")) return []
+        let item = $cookies.get("cartArray") 
+        state.cart = item.split(';')
+        return state.cart
+    },
     cartSize: (state) => 
     {
         return state.cart.length
@@ -67,12 +76,9 @@ export const store = new Vuex.Store({
     {
         return state.token
     },
-    getCart: (state) =>
+    getToken: (state) =>
     {
-        if (!$cookies.isKey("cartArray")) return []
-        let item = $cookies.get("cartArray") 
-        state.cart = item.split(';')
-        return state.cart
+        return $cookies.get("userToken")
     }
   }
 })

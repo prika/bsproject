@@ -40,11 +40,7 @@
 									:aria-label="accountinfo.inputname.placeholder"
 									placeholder=" "
 								/>
-								<label for="cont_name_account">
-									{{
-									accountinfo.inputname.placeholder
-									}}
-								</label>
+								<label for="cont_name_account">{{accountinfo.inputname.placeholder}}</label>
 								<p class="errormessage">{{ cont_name_account_validator }}</p>
 							</div>
 						</div>
@@ -60,11 +56,7 @@
 									:aria-label="accountinfo.inputsurname.placeholder"
 									placeholder=" "
 								/>
-								<label for="cont_surname_account">
-									{{
-									accountinfo.inputsurname.placeholder
-									}}
-								</label>
+								<label for="cont_surname_account">{{accountinfo.inputsurname.placeholder}}</label>
 								<p class="errormessage">{{ cont_surname_account_validator }}</p>
 							</div>
 						</div>
@@ -82,9 +74,7 @@
 									placeholder=" "
 								/>
 								<label for="cont_phone_account">
-									{{
-									accountinfo.inputphone.placeholder
-									}}
+									{{accountinfo.inputphone.placeholder}}
 								</label>
 								<p class="errormessage">{{ cont_phone_account_validator }}</p>
 							</div>
@@ -104,14 +94,13 @@
 									<option
 										v-for="(country, i) in accountinfo.inputcountry.options"
 										:key="i"
+										:selected= "selectCountry == country.name"
 									>{{ country.name }}</option>
 								</select>
-								<label for="cont_country_account">
-									{{
-									accountinfo.inputcountry.placeholder
-									}}
-								</label>
+
+								<label for="cont_country_account">{{accountinfo.inputcountry.placeholder}}</label>
 								<p class="errormessage">{{ cont_country_account_validator }}</p>
+								
 							</div>
 						</div>
 
@@ -121,17 +110,12 @@
 									id="cont_password_account"
 									v-model="cont_password_account"
 									type="password"
-									required
 									name="password"
 									autocomplete="new-password"
 									:aria-label="accountinfo.inputpassword.placeholder"
 									placeholder=" "
 								/>
-								<label for="cont_password_account">
-									{{
-									accountinfo.inputpassword.placeholder
-									}}
-								</label>
+								<label for="cont_password_account">{{accountinfo.inputpassword.placeholder}}</label>
 								<p class="errormessage">{{ cont_password_account_validator }}</p>
 								<ul class="passwordValidationRules">
 									<li v-for="(error, i) in passwordValidation.errors" :key="i">{{ error }}</li>
@@ -142,26 +126,19 @@
 						<div class="col-12 col-md-6">
 							<div
 								class="input_group"
-								:class="
-                  cont_password_confirm_account_error === true ? 'error' : ''
-                "
-							>
+								:class="cont_password_confirm_account_error === true ? 'error' : ''">
 								<input
 									id="cont_password_confirm_account"
 									v-model="cont_password_confirm_account"
 									type="password"
-									required
+									:required="cont_password_account !== ''"
 									:disabled="disabledInput"
 									name="password"
 									autocomplete="new-password"
 									:aria-label="accountinfo.inputpasswordconfirm.placeholder"
 									placeholder=" "
 								/>
-								<label for="cont_password_confirm_account">
-									{{
-									accountinfo.inputpasswordconfirm.placeholder
-									}}
-								</label>
+								<label for="cont_password_confirm_account">{{accountinfo.inputpasswordconfirm.placeholder}}</label>
 								<p class="errormessage">{{ cont_password_confirm_account_validator }}</p>
 							</div>
 						</div>
@@ -192,6 +169,7 @@
 <script>
 	import closeIcon from "../components/ui/closeIcon.vue";
 	import submitIcon from "@/components/ui/submitIcon.vue";
+	import { mapGetters } from "vuex";
 
 	export default {
 		name: "accountInfo",
@@ -258,16 +236,42 @@
 				],
 				success: false,
 				error_required: "",
-				error_password_confirmation: ""
+				error_password_confirmation: "",
+				selectCountry: ""
 			};
 		},
 		created() {
 			this.$http
-				.get("https://www.bstone.pt/mocks/account-mock.json")
+				.get("https://www.bstone.pt/webservices/" +
+						this.$i18n.locale +
+						"/account")
 				.then(response => {
 					this.accountinfo = response.data.accountinfo;
 					this.$eventBus.$emit("pageFinishLoad", true);
 				});
+
+				const config = {
+				    headers: { 'Authorization': 'Bearer ' + this.getToken }
+				};
+
+				this.$http.get( "/webservices/" + this.$i18n.locale + "/getloggedinuserinfo", config)
+					.then(response => {
+
+						this.cont_name_account = response.data.name;
+						this.cont_surname_account = response.data.surname;
+						this.cont_phone_account = response.data.phone;
+						
+						this.selectCountry = response.data.country;
+						console.log( response.data.country );
+
+						//console.log( response.data.email );
+						//console.log( response.data.company );
+						//this.cont_password_account = response.password;
+						//this.cont_password_confirm_account = response.passwordconfirm;
+					})
+					.catch(e => {
+						alert(e.message);
+					});
 
 			this.error_required = this.$i18n.t("input-error-required");
 			this.error_password_confirmation = this.$i18n.t(
@@ -292,37 +296,46 @@
 			},
 			disabledInput() {
 				return !this.passwordValidation.valid;
-			}
+			},
+			...mapGetters(["getToken"])
 		},
 		methods: {
 			checkAccountEditForm: function(e) {
+
 				//e.preventDefault()
 				if (!this.validateForm()) return;
 
-				const data = {
-					cont_name_account: this.cont_name_account,
-					cont_surname_account: this.cont_surname_account,
-					cont_phone_account: this.cont_phone_account,
-					cont_password_account: this.cont_password_account,
-					cont_password_confirm_account: this.cont_password_confirm_account,
-					cont_country_account: this.cont_country_account
+				const obj = {
+					inputname: this.cont_name_account,
+					inputsurname: this.cont_surname_account,
+					inputphone: this.cont_phone_account,
+					inputpassword: this.cont_password_account,
+					inputpasswordconfirm: this.cont_password_confirm_account,
+					inputcountry: this.cont_country_account
+				};
+
+				const data = Object.keys(obj)
+  					.map((key, index) => `${key}=${encodeURIComponent(obj[key])}`)
+  					.join('&');
+
+				
+				const config = {
+				    headers: { 'Authorization': 'Bearer ' + this.getToken }
 				};
 
 				var self = this;
 				this.$http
-					.post(
-						"https://bafdc7b9-222e-4e30-a8ec-f760c186fb05.mock.pstmn.io/subscribe",
-						data
-					)
+					.post( "/webservices/" + this.$i18n.locale + "/saveloggedinuserinfo", data, config )
 					.then(response => {
 						this.success = true;
 
 						setTimeout(function() {
 							self.success = false;
+							self.$router.push({path: '/'});
 						}, 5000);
 					})
 					.catch(e => {
-						alert(e.message);
+						this.error_server = e.response.data.status;
 					});
 			},
 			validateForm: function() {
@@ -364,7 +377,7 @@
 				return !this.cont_phone_account_error;
 			},
 			validatePassword: function() {
-				if (cont_password_account.value == "") {
+				/*if (cont_password_account.value == "") {
 					this.cont_password_account_error = true;
 					this.cont_password_account_validator = this.cont_password_account_error
 						? this.error_required
@@ -377,19 +390,20 @@
 						: "";
 				}
 
-				return !this.cont_password_account_error;
+				return !this.cont_password_account_error;*/
+
+				this.passwordValidation;
 			},
 			validateConfirmationPassword: function() {
-				if (cont_password_confirm_account.value == "") {
+				/*if (cont_password_confirm_account.value == "") {
 					this.cont_password_confirm_account_error = true;
 					this.cont_password_confirm_account_validator = this
 						.cont_password_confirm_account_error
 						? this.error_required
 						: "";
-				} else {
-					if (
-						cont_password_account.value != cont_password_confirm_account.value
-					) {
+				} else {*/
+					if (cont_password_account.value != cont_password_confirm_account.value) 
+					{
 						this.cont_password_confirm_account_error = true;
 						this.cont_password_confirm_account_validator = this
 							.cont_password_confirm_account_error
@@ -402,7 +416,7 @@
 							? ""
 							: "";
 					}
-				}
+				//}
 
 				return !this.cont_password_confirm_account_error;
 			},

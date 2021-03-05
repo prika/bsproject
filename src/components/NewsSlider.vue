@@ -91,7 +91,7 @@
 
 			this.$http
 				.get(
-					"https://www.bstone.pt/webservices/" + this.$i18n.locale + "/news-list/"
+					"https://www.bstone.pt/webservices/" + this.$i18n.locale + "/news-list"
 				)
 				.then(response => {
 					this.fullNews = response.data;

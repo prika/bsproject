@@ -74,6 +74,9 @@
 
   "checkout-title-step1": "Lista de Encomenda",
   "checkout-title-step2": "Condições de Entrega",
+  "checkout-title-step3": "Encomenda Submetida com Sucesso",
+  "checkout-subtitle-step3": "O seu pedido foi enviado com sucesso!",
+  "checkout-text-step3": "Em breve enviaremos um email para terminar o processo de compra. Gratos pela confiança!",
   "checkout-next-step": "continuar",
   "checkout-prev-step": "voltar",
   "checkout-final-step": "finalizar",

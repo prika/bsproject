@@ -83,8 +83,10 @@
 		},
 		methods: {
 			showCart() {
-				if (this.isLoggedIn) {
-					this.$router.push("/shoppingcart");
+				if ( this.isLoggedIn ) {
+					if (this.cartSize > 0 ) {
+						this.$router.push("/shoppingcart");
+					}
 				} else {
 					this.showLoginForm = true;
 					this.redirectURL = "/shoppingcart";

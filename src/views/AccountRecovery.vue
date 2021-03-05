@@ -43,6 +43,7 @@
 										}}
 									</label>
 									<p class="errormessage">{{ cont_email_recovery_validator }}</p>
+									<p class="errormessage">{{error_server}}</p>
 								</div>
 							</div>
 
@@ -69,7 +70,7 @@
 </template>
 
 <script>
-	import closeIcon from "../components/ui/closeIcon.vue";
+	import closeIcon from "@/components/ui/closeIcon.vue";
 	import submitIcon from "@/components/ui/submitIcon.vue";
 
 	export default {
@@ -95,12 +96,15 @@
 				cont_email_recovery_error: false,
 				success: false,
 				error_required: "",
-				error_invalid: ""
+				error_invalid: "",
+				error_server: ""
 			};
 		},
 		created() {
 			this.$http
-				.get("https://www.bstone.pt/mocks/account-mock.json")
+				.get("https://www.bstone.pt/webservices/" +
+						this.$i18n.locale +
+						"/account")
 				.then(response => {
 					this.accountrecovery = response.data.accountrecovery;
 					this.$eventBus.$emit("pageFinishLoad", true);
@@ -112,32 +116,40 @@
 		methods: {
 			checkFormRecovery: function(e) {
 				//e.preventDefault()
+				this.error_server = '';
+
 				if (!this.validateForm()) return;
 
-				const data = {
-					cont_email_recovery: this.cont_email_recovery
+				const obj = {
+					email: this.cont_email_recovery
+				};
+
+				const data = Object.keys(obj)
+  					.map((key, index) => `${key}=${encodeURIComponent(obj[key])}`)
+  					.join('&');
+
+				let headers = {
+				    'Content-Type': 'application/x-www-form-urlencoded'
 				};
 
 				var self = this;
 				this.$http
-					.post(
-						"https://bafdc7b9-222e-4e30-a8ec-f760c186fb05.mock.pstmn.io/subscribe",
-						data
-					)
+					.post("/webservices/" + this.$i18n.locale + "/sendpasswordresetemaillink", data, {headers} )
 					.then(response => {
 						this.success = true;
 
 						setTimeout(function() {
 							self.success = false;
+							self.$router.push({path: '/'});
 						}, 5000);
 					})
 					.catch(e => {
-						alert(e.message);
+						this.success = false;
+						this.error_server = e.response.data.status;
 					});
 			},
 			validateForm: function() {
 				const validEmail = this.validateEmail();
-
 				return validEmail;
 			},
 			validateEmail: function() {

@@ -15,7 +15,7 @@
 		</transition>
 
 		<div v-if="!success && !isLoggedIn" class="formLogin revertColor">
-			<p class="h1 col-12" v-html="accountlogin.title">{{ accountlogin.title }}</p>
+			<p class="h1 col-8" v-html="accountlogin.title">{{ accountlogin.title }}</p>
 
 			<form id="login" @submit.prevent="checkLoginForm" class="col-12">
 				<div class="input_group" :class="cont_email_login_error === true ? 'error' : ''">
@@ -29,11 +29,7 @@
 						:aria-label="accountlogin.inputuser.placeholder"
 						placeholder=" "
 					/>
-					<label for="cont_email_login">
-						{{
-						accountlogin.inputuser.placeholder
-						}}
-					</label>
+					<label for="cont_email_login">{{accountlogin.inputuser.placeholder}}</label>
 					<p class="errormessage">{{ cont_email_login_validator }}</p>
 				</div>
 
@@ -47,24 +43,12 @@
 						autocomplete="current-password"
 						placeholder=" "
 					/>
-					<label for="cont_password_login">
-						{{
-						accountlogin.inputpassword.placeholder
-						}}
-					</label>
-					<p class="errormessage">{{ cont_password_login_validator }}</p>
+					<label for="cont_password_login">{{accountlogin.inputpassword.placeholder}}</label>
+					<p class="errormessage">{{ cont_password_login_validator }} {{error_invalid_credentials}}</p>
 				</div>
 
-				<router-link to="/recovery" class="passwordRecoveryLink col-12">
-					{{
-					accountlogin.recoveryLink
-					}}
-				</router-link>
-				<router-link to="/register" class="accountRegisterLink col-12">
-					{{
-					accountlogin.registerLink
-					}}
-				</router-link>
+				<router-link to="/recovery" class="passwordRecoveryLink col-12">{{accountlogin.recoveryLink}}</router-link>
+				<router-link to="/register" class="accountRegisterLink col-12">{{accountlogin.registerLink}}</router-link>
 				<button
 					class="loginLink col-12 col-md-3 col-lg-2 col-xl-1"
 					type="submit"
@@ -74,7 +58,7 @@
 		</div>
 
 		<div v-if="isLoggedIn" class="formLogin revertColor">
-			<p class="h1 col-12">Bem vindo user X</p>
+			<p class="h1 col-12">Bem vindo</p>
 			<br />
 			<br />
 			<p>Aceda aqui aos detalhes da sua conta:</p>
@@ -120,15 +104,18 @@
 				],
 				success: false,
 				error_required: "",
-				error_invalid: ""
+				error_invalid: "",
+				error_invalid_credentials: ""
 			};
 		},
 		created() {
 			this.error_required = this.$i18n.t("input-error-required");
 			this.error_invalid = this.$i18n.t("input-error-valid-email");
 
-			this.$http
-				.get("https://www.bstone.pt/mocks/account-mock.json")
+			this.$http 
+				.get("https://www.bstone.pt/webservices/" +
+						this.$i18n.locale +
+						"/account")
 				.then(response => {
 					this.accountlogin = response.data.accountlogin;
 				});
@@ -166,19 +153,24 @@
 				//e.preventDefault()
 				if (!this.validateForm()) return;
 
-				const data = {
-					cont_email_login: this.cont_email_login,
-					cont_password_login: this.cont_password_login
+				const obj = {
+					email: this.cont_email_login,
+					password: this.cont_password_login
+				};
+
+				const data = Object.keys(obj)
+  					.map((key, index) => `${key}=${encodeURIComponent(obj[key])}`)
+  					.join('&');
+
+				let headers = {
+				    'Content-Type': 'application/x-www-form-urlencoded'
 				};
 
 				var self = this;
 				this.$http
-					.post(
-						"https://bafdc7b9-222e-4e30-a8ec-f760c186fb05.mock.pstmn.io/subscribe",
-						data
-					)
+					.post( "/webservices/createsanctumtoken", data, { headers })
 					.then(response => {
-						this.$store.dispatch("login", "token"); // TODO: replace token to real one
+						this.$store.dispatch("login", response.data);
 						this.success = true;
 
 						if (this.$parent.redirectURL != "") {
@@ -186,14 +178,24 @@
 							this.$parent.showLoginForm = false;
 						}
 					})
-					.catch(e => {
-						this.errors.push(e.message);
+					.catch(error => {
+						this.success = false;
+						this.cont_email_login_error = false;
+						this.cont_password_login_error = true;
+						this.error_invalid_credentials = e.response.data.status;
+
+						setTimeout(function() {
+							self.cont_email_login_error = false;
+							self.cont_password_login_error = false;
+							self.error_invalid_credentials = '';
+							self.cont_password_login = '';
+						}, 5000);
+
 					});
 			},
 			validateForm: function() {
 				const validEmail = this.validateEmail();
 				const validPassword = this.validatePassword();
-
 				return validEmail && validPassword;
 			},
 			validateEmail: function() {
@@ -281,7 +283,7 @@
 			}
 
 			a.accountRegisterLink {
-				margin-top: 70px;
+				margin-top: 55px;
 			}
 
 			.loginLink {

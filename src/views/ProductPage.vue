@@ -190,8 +190,6 @@
 			}
 		},
 		created() {
-			this.mouseWheelListener();
-
 			this.$http
 				.get(
 					"https://www.bstone.pt/webservices/" +
@@ -202,6 +200,9 @@
 				.then(response => {
 					this.variant = response.data.variant;
 					this.parseObject(response.data.variant.images);
+
+					if (response.data.variant.images.length > 10) {this.mouseWheelListener()}
+					
 					this.productAdded = this.$store.getters.isItemInCart(this.variant.ref);
 					this.$eventBus.$emit("pageFinishLoad", true);
 				});

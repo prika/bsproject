@@ -60,7 +60,7 @@
 									</div>
 								</a>
 
-								<button class="removebutton" @click="removeProduct(product.id)">
+								<button class="removebutton" @click="removeProduct(product.ref)">
 									<removeIcon />
 								</button>
 							
@@ -105,7 +105,7 @@
 									:id="option.id"
 									:value="option.name"
 									v-model="selectedShippingOption"
-									checked="checked"
+									@click="selectedShippingOptionId = option.id"
 								/>
 								<div class="radioButton"></div>
 								{{ option.name }}
@@ -118,7 +118,7 @@
 					<div class="col-12 col-md-8">
 						<h3>{{ $t("checkout-notes") }}</h3>
 						<div class="input_group">
-							<input id="notesInput" type="text" name="notes" placeholder=" " />
+							<input id="notesInput" type="text" name="notes" placeholder=" " v-model="notesInputSend" />
 							<label>{{ $t("checkout-notes-placeholder") }}</label>
 						</div>
 					</div>
@@ -126,16 +126,30 @@
 			</div>
 		</transition>
 
-		<transition appear enter-active-class="animated slideInUp delay-1s">
-			<div class="row pagecontrols">
-				<div
-					class="info"
-					:class="
-            checkoutStep === 1
-              ? 'col-12 col-md-9'
-              : 'col-12 col-md-6 order-md-2'
-          "
-				>
+		<transition enter-class="animated slideInLeft" leave-active-class="animated slideOutRight">
+			<div class="row justify-content-center" v-if="checkoutStep == 3">
+				<div class="col-12 col-md-8">
+					<div class="cartTitle2 col-12 col-md-8">
+						<h1>{{ $t("checkout-title-step3") }}</h1>
+					</div>
+				</div>
+
+				<div class="col-12 col-md-8">
+					<div class="col-12 col-md-8">
+						<h3>{{ $t("checkout-subtitle-step3") }}</h3>
+						<p>{{ $t("checkout-text-step3") }}</p>
+					</div>
+				</div>
+			</div>
+		</transition>
+
+		<transition appear enter-active-class="animated slideInUp delay-1s" leave-active-class="animated slideInDown">
+			<div class="row pagecontrols" v-if="checkoutStep != 3">
+				<div :class="
+			            checkoutStep === 1
+			              ? 'info col-12 col-md-9'
+			              : 'info col-12 col-md-6 order-md-2'"
+					>
 					<p>
 						<span class="totalTitle" style="margin-right: 20px">
 							<b>{{ $t("checkout-total") }}</b>
@@ -160,28 +174,25 @@
 					</p>
 				</div>
 
-				<a
-					@click="checkoutStep = 1"
+				<a @click="checkoutStep = 1"
 					href="javascript:void(0)"
 					:class="
-            checkoutStep === 2
-              ? 'backlink col-6 col-md-2 order-md-1'
-              : 'backlink d-none'
-          "
+			            checkoutStep === 2
+			              ? 'backlink col-6 col-md-2 order-md-1'
+			              : 'backlink d-none'
+			          "
 				>
 					<arrowRightIcon />
 					{{ $t("checkout-prev-step") }}
 				</a>
 
-				<a
-					@click="checkoutStep = 2"
+				<a  @click="checkoutStep === 1 ? nextStep() : saveOrder()"
 					href="javascript:void(0)"
 					:class="
 			            checkoutStep === 1
 			              ? 'cartLink col-12 col-md-3'
 			              : 'cartLink col-6 col-md-4 order-md-3'
-			          "
-							>
+			          ">
 					<arrowRightIcon />
 					<span v-if="checkoutStep === 1">{{ $t("checkout-next-step") }}</span>
 					<span v-else>{{ $t("checkout-final-step") }}</span>
@@ -217,7 +228,10 @@
 				totalProducts: "",
 				categoriesTotal: "",
 				deliveryOptions: [],
-				selectedShippingOption: ""
+				selectedShippingOption: "",
+				selectedShippingOptionId: Number,
+				references: "",
+				notesInputSend: ""
 			};
 		},
 		created() {
@@ -227,9 +241,13 @@
 	        $route(to , from){
 	            this.updateCart()
 	        }
+	        /*,
+	        selectedShippingOptionId: function(newVal, oldVal) {
+				this.selectedShippingOptionId = selectedShippingOption.checked;
+			}*/
 	    },
 		computed: {
-			...mapGetters(["getCart"])
+			...mapGetters(["getCart","getToken"])
 		},
 		methods: {
 			isMobile() {
@@ -239,24 +257,20 @@
 			},
 			removeProduct(product) {
 				this.$store.dispatch("removeFromCart", product);
+				this.updateCart();
 			},
 			updateCart()
 			{
-				const items = this.getCart;
-				let references = "";
+				this.references = '';
 
-				for (var t = 0; t < items.length; t++) {
-
-					references += "references[]=" + items[t] ;
-					if ( t+1 < items.length ) { 
-						references += "&" 
-					}
+				for( let item in this.getCart )
+				{	
+					this.references += "references[]=" + this.getCart[item] ;
+					if ( item < this.getCart.length - 1 ) this.references += "&";
 				}
 
 				this.$http
-				.get("https://www.bstone.pt/webservices/" +
-						this.$i18n.locale +
-						"/cart-list?" + references )
+				.get("https://www.bstone.pt/webservices/" + this.$i18n.locale + "/cart-list?" + this.references )
 				.then(response => {
 					this.categoryContainers = response.data.categoryContainers;
 					this.containerItems = response.data.categoryContainers.containerItems;
@@ -264,6 +278,49 @@
 					this.deliveryOptions = response.data.deliveryOptions;
 					this.$eventBus.$emit("pageFinishLoad", true);
 				});
+			},
+			nextStep() 
+			{
+				this.checkoutStep = 2;
+			},
+			saveOrder(){
+
+				const obj = {
+  					'shippingmethod': this.selectedShippingOptionId,
+  					'notes' : this.notesInputSend
+  				};
+
+				const data = Object.keys(obj)
+  					.map((key, index) => `${key}=${encodeURIComponent(obj[key])}`)
+  					.join('&');
+
+  				const dataSent = data+'&'+this.references;
+
+				const config = {
+				    headers: { 
+				    	'Authorization': 'Bearer ' + this.getToken,
+				    	'Content-Type': 'application/x-www-form-urlencoded'
+				    }
+				};
+
+				var self = this;
+				this.$http
+					.post( "/webservices/" + this.$i18n.locale + "/saveorder", dataSent , config )
+					.then(response => {
+						this.success = true;
+						this.checkoutStep = 3;
+						
+						setTimeout(function() {
+							//self.success = false;
+							self.removeProduct(this.getCart);
+							$cookies.set("cartArray", '');
+							self.$router.push({path: '/'});
+						}, 7000);
+					})
+					.catch(error => {
+						this.success = false;
+						this.error_invalid_credentials = error.response.data.status;;
+					});
 			}
 		}
 	};
@@ -446,6 +503,9 @@
 						h3 {
 							margin-bottom: 26px;
 						}
+
+						h3, 
+						p{ color: initial; }
 					}
 
 					&:first-child {
