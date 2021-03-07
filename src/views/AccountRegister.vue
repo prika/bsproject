@@ -23,6 +23,7 @@
 								<div class="input_group" :class="cont_name_register_error === true ? 'error' : ''">
 									<input
 										id="cont_name_register"
+										ref="inputfocusregister"
 										v-model.lazy="cont_name_register"
 										type="text"
 										required
@@ -355,6 +356,7 @@
 				.get("/webservices/" + this.$i18n.locale + "/account")
 				.then(response => {
 					this.accountregister = response.data.accountregister;
+					this.$refs.inputfocusregister.focus();
 					this.$eventBus.$emit("pageFinishLoad", true);
 				});
 		},
@@ -422,6 +424,7 @@
 						this.success = false;
 						this.notsuccess = true;
 						this.error_server = e.response.data.status;
+						this.error_server = e.response.data.message;
 					});
 
 					

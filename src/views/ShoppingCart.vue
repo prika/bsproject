@@ -60,7 +60,8 @@
 									</div>
 								</a>
 
-								<button class="removebutton" @click="removeProduct(product.ref)">
+								<button class="removebutton"
+									@click="removeProduct(product.variantName)">
 									<removeIcon />
 								</button>
 							
@@ -311,9 +312,8 @@
 						this.checkoutStep = 3;
 						
 						setTimeout(function() {
-							//self.success = false;
-							self.removeProduct(this.getCart);
-							$cookies.set("cartArray", '');
+							self.success = false;
+							self.$store.dispatch("emptyCart");
 							self.$router.push({path: '/'});
 						}, 7000);
 					})
@@ -336,7 +336,7 @@
 	}
 	#shoppingCartPage {
 		width: 100vw;
-		height: 100%;
+		//height: 100%;
 		padding-top: 200px;
 		margin-bottom: 200px;
 

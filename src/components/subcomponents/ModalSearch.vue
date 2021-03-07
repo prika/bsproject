@@ -14,6 +14,7 @@
 			<div class="col-6 clearfix">
 				<input
 					id="search"
+					ref="search"
 					name="searchInput"
 					v-model="searchText"
 					:placeholder="$t('search-input-placeholder')"
@@ -84,11 +85,10 @@
 		},
 		mounted() {
 			this.$eventBus.$emit("pageFinishLoad", true);
+			this.$refs.search.focus();
 
 			let query = this.$route.query; // Querystring params
-
 			if (!(query && query.term)) return; // no value defined
-
 			this.searchText = query.term;
 			this.hasSearchText = true;
 			this.search();

@@ -30,6 +30,7 @@
 								<div class="input_group" :class="cont_email_recovery_error === true ? 'error' : ''">
 									<input
 										id="cont_email_recovery"
+										ref="inputfocusrecovery"
 										type="email"
 										v-model.lazy="cont_email_recovery"
 										name="email"
@@ -107,6 +108,7 @@
 						"/account")
 				.then(response => {
 					this.accountrecovery = response.data.accountrecovery;
+					this.$refs.inputfocusrecovery.focus();
 					this.$eventBus.$emit("pageFinishLoad", true);
 				});
 
@@ -137,6 +139,7 @@
 					.post("/webservices/" + this.$i18n.locale + "/sendpasswordresetemaillink", data, {headers} )
 					.then(response => {
 						this.success = true;
+						this.error_server = response.data.status;
 
 						setTimeout(function() {
 							self.success = false;

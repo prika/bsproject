@@ -21,6 +21,7 @@
 				<div class="input_group" :class="cont_email_login_error === true ? 'error' : ''">
 					<input
 						id="cont_email_login"
+						ref="inputemail"
 						v-model="cont_email_login"
 						type="email"
 						required
@@ -118,7 +119,9 @@
 						"/account")
 				.then(response => {
 					this.accountlogin = response.data.accountlogin;
+					this.$refs.inputemail.focus();
 				});
+			
 		},
 		computed: {
 			...mapGetters(["isLoggedIn"]),
@@ -182,7 +185,7 @@
 						this.success = false;
 						this.cont_email_login_error = false;
 						this.cont_password_login_error = true;
-						this.error_invalid_credentials = e.response.data.status;
+						this.error_invalid_credentials = error.response.data.message;
 
 						setTimeout(function() {
 							self.cont_email_login_error = false;

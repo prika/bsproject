@@ -1,6 +1,6 @@
 <template>
-    <svg xmlns="http://www.w3.org/2000/svg" :aria-labelledby="$t('popup-close-here')" width="70" height="70" viewBox="0 0 60 60">
-        <title :id="$t('popup-close-here')">{{$t('popup-close-here')}} icon</title>
+    <svg xmlns="http://www.w3.org/2000/svg" aria-labelledby="REMOVE icon" width="70" height="70" viewBox="0 0 60 60">
+        <title :id="$t('popup-close-here')">REMOVE icon</title>
         <rect x="10" y="10" width="40" height="40" transform="rotate(45)" :fill="rectBackgroundColor" stroke-width="1" :stroke="borderColor"></rect>
         
         <g id="fechar" transform="translate(21 21)">

@@ -21,6 +21,11 @@ export const store = new Vuex.Store({
         state.cart.splice(cartProductIndex, 1)
         $cookies.set("cartArray", state.cart.join(';'));
     },
+    emptyCart: (state) =>
+    {
+        state.cart = [];
+        $cookies.set("cartArray", '');
+    },
     login: (state, token) =>
     {
         state.token = token
@@ -45,6 +50,10 @@ export const store = new Vuex.Store({
     checkItemInCart: ({ commit }, productId) => 
     {
         commit("removeFromCart", productId)
+    },
+    emptyCart: ({ commit }) => 
+    {
+        commit("emptyCart")   
     },
     login: ({commit}, token) =>
     {

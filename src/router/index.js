@@ -2,7 +2,6 @@ import VueRouter from 'vue-router'
 import Home from '@/views/Home.vue'
 
 Vue.use(VueRouter)
-//global.Vue = Vue
 
 const routes = [
   {
@@ -402,6 +401,9 @@ const routes = [
     path: '/shoppingcart',
     name: 'shoppingcart',
     component: () => import('../views/ShoppingCart.vue'),
+    beforeEnter: (to, from, next) => {
+      next();
+    },
     meta: {
       title: 'Shopping Cart',
       metaTags: [
